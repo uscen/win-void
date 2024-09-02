@@ -37,7 +37,7 @@ $packages = @(
 )
 foreach ($package in $packages) {
     Write-Host "Installing $package..."
-    winget install $package --silent --accept-source-agreements --accept-package-agreements
+    winget install $package --exact --silent --accept-source-agreements --accept-package-agreements
 }
 
 Write-Host "Installation of packages is complete!"

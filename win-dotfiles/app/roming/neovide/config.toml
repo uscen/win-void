@@ -1,8 +1,12 @@
+frame = "none"
+title-hidden = false
+idle = true
+tabs = true
+theme = "auto"
 [font]
 size = 10
 hinting = "full"
 edging = "antialias"
-
 [[font.normal]]
-family = "Maple Mono NF"
+family = "JetBrainsMono NF"
 style = "W400"
