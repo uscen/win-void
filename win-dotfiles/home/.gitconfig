@@ -1,0 +1,29 @@
+[init]
+	defaultBranch = main
+[user]
+	name = u-shen
+	email = farah.ushen@gmail.com
+[core]
+	editor = nvim
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    light = false
+    line-numbers = true
+    minus-style                   = syntax "#442e2d"
+    minus-non-emph-style          = syntax "#442e2d"
+    minus-emph-style              = syntax "#713137"
+    minus-empty-line-marker-style = syntax "#442e2d"
+    line-numbers-minus-style      = "#ea6962"
+    plus-style                    = syntax "#333e34"
+    plus-non-emph-style           = syntax "#333e34"
+    plus-emph-style               = syntax "#2c5a66"
+    plus-empty-line-marker-style  = syntax "#333e34"
+    line-numbers-plus-style       = "#89b482"
+    line-numbers-zero-style       = "#32302f"
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default

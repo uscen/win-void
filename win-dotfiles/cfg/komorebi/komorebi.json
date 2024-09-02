@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.28/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 4,
+  "default_container_padding": 4,
+  "border": true,
+  "border_width": 0,
+  "border_offset": 0,
+  "border_colours": {
+    "single": "#689d6a",
+    "stack": "#689d6a",
+    "monocle": "#689d6a",
+    "unfocused": "#808080"
+  },
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "focused_text": "#689d6a",
+      "unfocused_text": "#b3b3b3",
+      "background": "#1d2021"
+    }
+  },
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "III",
+          "layout": "HorizontalStack"
+        },
+        {
+          "name": "IV",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "V",
+          "layout": "Rows"
+        },
+        {
+          "name": "VI",
+          "layout": "Grid"
+        },
+        {
+          "name": "VII",
+          "layout": "RightMainVerticalStack"
+        }
+      ]
+    }
+  ]
+}

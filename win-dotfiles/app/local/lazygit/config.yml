@@ -1,0 +1,43 @@
+# ----------------------------------------------------------- #
+# --  Git For Lazy Peaple like me:                            #
+# ----------------------------------------------------------- #
+gui:
+  scrollHeight: 2
+  mainPanelSplitMode: "flexible"
+  enlargedSideViewLocation: "left"
+  language: "en"
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - "#89b482"
+      - bold
+    inactiveBorderColor:
+      - "#d4be98"
+    searchingActiveBorderColor:
+      - "#d8a657"
+      - bold
+    optionsTextColor:
+      - "#7daea3"
+    selectedLineBgColor:
+      - "#282828"
+    selectedRangeBgColor:
+      - "#7daea3"
+    cherryPickedCommitBgColor:
+      - "#d8a657"
+    cherryPickedCommitFgColor:
+      - "#7daea3"
+    unstagedChangesColor:
+      - "#ea6962"
+    defaultFgColor:
+      - default
+  commitLength:
+    show: true
+
+git:
+  paging:
+    colorArg: "always"
+    pager: "delta --dark --paging=never"
+  commit:
+    signoff: false
+    autoWrapCommitMessage: true
+    autoWrapWidth: 72

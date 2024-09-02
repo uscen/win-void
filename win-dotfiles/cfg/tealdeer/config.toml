@@ -1,0 +1,29 @@
+# ----------------------------------------------------------- #
+# tldr As man But More Cool:                                  #
+# ----------------------------------------------------------- #
+[display]
+use_pager = false
+
+[style.description]
+foreground = { rgb = { r = 231, g = 139, b = 78} }
+underline = true
+bold = true
+
+[style.command_name]
+foreground = { rgb = { r = 192, g = 182, b = 101 } }
+
+[style.example_text]
+foreground = { rgb = { r = 137, g = 180, b = 130 } }
+background = { rgb = { r = 40, g = 40, b = 40 } }
+bold = true
+
+[style.example_code]
+foreground = { rgb = { r = 216, g = 167, b = 87 } }
+
+[style.example_variable]
+foreground = "blue"
+underline = true
+
+[updates]
+auto_update = true
+auto_update_interval_hours = 24
