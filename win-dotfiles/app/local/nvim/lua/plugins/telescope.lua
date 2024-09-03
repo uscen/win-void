@@ -7,8 +7,6 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
-		"jvgrootveld/telescope-zoxide",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	keys = {
 		{
@@ -253,34 +251,6 @@ return {
 				dynamic_preview_title = true,
 				path_display = { "truncate" },
 			},
-			extensions = {
-				fzf = {
-					fuzzy = true, -- false will only do exact matching
-					override_generic_sorter = true, -- override the generic sorter
-					override_file_sorter = true, -- override the file sorter
-					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-					-- the default case_mode is "smart_case"
-				},
-				zoxide = {
-					list_command = "zoxide query -ls",
-					prompt_title = "[ CD INTO DIRECTORY ]",
-					mappings = {
-						default = {
-							after_action = function(selection)
-								print("Update to (" .. selection.z_score .. ") " .. selection.path)
-							end,
-						},
-						["<C-s>"] = {
-							before_action = function(selection)
-								print("before C-s")
-							end,
-							action = function(selection)
-								vim.cmd.edit(selection.path)
-							end,
-						},
-					},
-				},
-			},
 			pickers = {
 				find_files = {
 					theme = "dropdown",
@@ -305,7 +275,5 @@ return {
 				},
 			},
 		})
-		telescope.load_extension("fzf")
-		telescope.load_extension("zoxide")
 	end,
 }

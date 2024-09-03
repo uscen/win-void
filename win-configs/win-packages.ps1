@@ -5,6 +5,7 @@
 # ================================================#
 $packages = @(
     "MSYS2.MSYS2",
+    "OpenJS.NodeJS",
     "wez.wezterm",
     "sharkdp.fd",
     "fzf",
