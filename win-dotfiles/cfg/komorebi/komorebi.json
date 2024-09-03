@@ -6,13 +6,17 @@
   "default_workspace_padding": 4,
   "default_container_padding": 4,
   "border": true,
-  "border_width": 0,
-  "border_offset": 0,
+  "border_width": 4,
+  "border_offset": -1,
   "border_colours": {
     "single": "#689d6a",
     "stack": "#689d6a",
     "monocle": "#689d6a",
     "unfocused": "#808080"
+  },
+  "animation": {
+    "enabled": true,
+    "style": "EaseInOutExpo" 
   },
   "stackbar": {
     "height": 40,
@@ -29,7 +33,7 @@
       "workspaces": [
         {
           "name": "I",
-          "layout": "BSP"
+          "layout": "VerticalStack"
         },
         {
           "name": "II",

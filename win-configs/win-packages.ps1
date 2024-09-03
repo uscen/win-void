@@ -12,7 +12,6 @@ $packages = @(
     "Microsoft.PowerToys",
     "ajeetdsouza.zoxide",
     "BurntSushi.ripgrep.MSVC",
-    "Starship.Starship",
     "Neovim.Neovim",
     "Neovide.Neovide",
     "yt-dlp.yt-dlp",
@@ -32,8 +31,8 @@ $packages = @(
     "OliverSchwendener.ueli",
     "eza-community.eza",
     "LGUG2Z.komorebi",
-    "DEVCOM.JetBrainsMonoNerdFont",
-    "LGUG2Z.whkd"
+    "LGUG2Z.whkd",
+    "DEVCOM.JetBrainsMonoNerdFont"
 )
 foreach ($package in $packages) {
     Write-Host "Installing $package..."
