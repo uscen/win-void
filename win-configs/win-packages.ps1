@@ -33,7 +33,6 @@ $packages = @(
     "Mozilla.Firefox",
     "Google.Chrome",
     "VideoLAN.VLC",
-    "OliverSchwendener.ueli",
     "eza-community.eza",
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
