@@ -1,23 +1,23 @@
 # ================================================#
-# Windows Config:				  #
+# Windows Config:				                  #
 # ================================================#
 # ================================================#
-# Komorebi Window Manager:			  #
+# Komorebi Window Manager:			              #
 # ================================================#
 komorebic enable-autostart --whkd --config $Env:USERPROFILE\.config\komorebi\komorebi.json
 # ================================================#
-# HOME:						  #
+# HOME:						                      #
 # ================================================#
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\home\* -Destination $Env:USERPROFILE\ -Recurse -Force
 # ================================================#
-# Config:					  #
+# Config:					                      #
 # ================================================#
 if (-Not (Test-Path -Path $Env:USERPROFILE\.config)) {
     New-Item -Path $Env:USERPROFILE\.config -ItemType Directory | Out-Null
 }
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\cfg\* -Destination $Env:USERPROFILE\.config\ -Recurse -Force
 # ================================================#
-# AppData:					  #
+# AppData:					                      #
 # ================================================#
 if (-Not (Test-Path -Path $Env:localAppData)) {
     New-Item -Path $Env:localAppData -ItemType Directory | Out-Null

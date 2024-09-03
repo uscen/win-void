@@ -54,4 +54,4 @@
 # ----------------------------------------------------------- #
 # Output to vids:                                             #
 # ----------------------------------------------------------- #
---output "~/vids/programming/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"
+--output "~/Videos/programming/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"

@@ -117,17 +117,10 @@ alias shutdown="doas shutdown"
 alias reboot="doas reboot"
 alias zzz="doas zzz"
 ## For Configs Files
-alias recompile="cd ~/.local/wayland-void/void-dotfiles/cfg/wayland-suckless/dwl && doas make clean install"
-alias sucks="cd ~/.local/wayland-void/void-dotfiles/cfg/wayland-suckless/"
-alias dots="cd ~/.local/wayland-void/"
-alias nvimc="nvim ~/.config/nvim/init.lua"
-alias riverc="nvim ~/.config/river/init"
-alias swayc="nvim ~/.config/sway/config"
-alias footc="nvim ~/.config/foot/foot.ini"
-alias bashc="nvim ~/.bashrc"
-alias starc="nvim ~/.config/starship.toml"
-alias code='flatpak run com.visualstudio.code'
-alias act='source ~/vids/3_PYTHON/LEARN-VENV/bin/activate && cd ~/vids/3_PYTHON/BOOK/ && jupyter notebook'
+alias recompile="cd ~/win-void/win-configs && powershell ./win-configs.ps1"
+alias bashc="nvim ~/win-void/win-dotfiles/home/.bashrc"
+alias wmc="nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json"
+alias whkdc="nvim ~/win-void/win-dotfiles/cfg/whkdrc"
 # Others Usfeual Alias
 alias yt-concats='yt-dlp --concat-playlist always -S "codec:h264"'
 alias yt-music='yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music'

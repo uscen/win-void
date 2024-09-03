@@ -7,19 +7,19 @@
   "default_container_padding": 4,
   "border": true,
   "border_width": 4,
-  "border_offset": -1,
+  "border_offset": 0,
   "border_colours": {
     "single": "#689d6a",
     "stack": "#689d6a",
     "monocle": "#689d6a",
-    "unfocused": "#808080"
+    "unfocused": "#1d2021"
   },
   "animation": {
     "enabled": true,
-    "style": "EaseInOutExpo" 
+    "style": "Linear"
   },
   "stackbar": {
-    "height": 40,
+    "height": 30,
     "mode": "OnStack",
     "tabs": {
       "width": 300,
