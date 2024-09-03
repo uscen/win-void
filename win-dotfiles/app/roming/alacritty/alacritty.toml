@@ -1,4 +1,6 @@
-# working_directory = "~"
+working_directory = "C:/Users/LLI"
+[shell]
+program = "C:/Program Files/Git/bin/bash.exe"
 [window]
 opacity = 0.98
 padding.x = 10
