@@ -6,7 +6,7 @@
 $packages = @(
     "MSYS2.MSYS2",
     "OpenJS.NodeJS",
-    "wez.wezterm",
+    "Alacritty.Alacritty",
     "sharkdp.fd",
     "fzf",
     "Git.Git",
