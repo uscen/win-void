@@ -5,7 +5,6 @@
 # ================================================#
 $packages = @(
     "MSYS2.MSYS2",
-    "OpenJS.NodeJS",
     "Alacritty.Alacritty",
     "gokcehan.lf",
     "sharkdp.fd",
@@ -48,11 +47,12 @@ foreach ($package in $packages) {
 Write-Host "Installation of Winget packages is complete!"
 # Install Scoop Package Manager:	              #
 # ================================================#
-Write-Host "Installing Scoop ..."
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+    Write-Host "Installing Scoop ..."
+    Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+    scoop bucket add extras
+}
 # Install Scoop Packages:	                      #
 # ================================================#
-scoop bucket add extras
-scoop install gcc
-Write-Host "Installation of scoop packages is complete!"
+scoop install gcc nodejs python
+Write-Host "Installation Of Scoop Packages Is Complete!"
