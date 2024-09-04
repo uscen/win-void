@@ -12,6 +12,7 @@
   "border": true,
   "border_width": 4,
   "border_offset": -2,
+  "border_implementation": "Komorebi",
   "border_style": "Square",
   "border_z_order": "Top",
   "border_colours": {
