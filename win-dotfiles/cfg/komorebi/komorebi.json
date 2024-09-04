@@ -21,7 +21,7 @@
     "unfocused": "#1d2021"
   },
   "animation": {
-    "enabled": false,
+    "enabled": true,
     "duration": 100,
     "style": "Linear",
     "fps": 60
