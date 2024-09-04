@@ -10,7 +10,8 @@ alt + g                 : if ($wshell.AppActivate('Chrome') -eq $False) { start 
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + shift + return    : wt
 alt + return            : alacritty
-alt + n            	    : explorer
+alt + shift + n         : explorer
+alt + n                 : alacritty --title lf --command lf
 alt + c            	    : code
 alt + v            	    : neovide
 
@@ -37,7 +38,6 @@ alt + left              : komorebic stack left
 alt + down              : komorebic stack down
 alt + up                : komorebic stack up
 alt + right             : komorebic stack right
-alt + t                 : komorebic stack all
 alt + oem_1             : komorebic unstack # oem_1 is ;
 alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
 alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
@@ -50,9 +50,9 @@ alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + shift + space     : komorebic toggle-float
-alt + s		            : komorebic promote
 alt + f		            : komorebic toggle-maximize
 alt + m                 : komorebic toggle-monocle
+alt + s		            : komorebic promote
 
 # Window manager options
 alt + shift + r         : komorebic retile

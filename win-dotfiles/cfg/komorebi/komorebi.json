@@ -3,11 +3,17 @@
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
+  "focus_follows_mouse": "Komorebi",
+  "mouse_follows_focus": true,
   "default_workspace_padding": 4,
   "default_container_padding": 4,
+  "transparency": true,
+  "transparency_alpha": 245,
   "border": true,
   "border_width": 4,
-  "border_offset": 0,
+  "border_offset": -2,
+  "border_style": "Square",
+  "border_z_order": "Top",
   "border_colours": {
     "single": "#689d6a",
     "stack": "#689d6a",
@@ -16,18 +22,49 @@
   },
   "animation": {
     "enabled": true,
-    "style": "Linear"
+    "duration": 100,
+    "style": "Linear",
+    "fps": 60
   },
   "stackbar": {
     "height": 30,
     "mode": "OnStack",
     "tabs": {
+      "font_family": "Segoe UI",
+      "font_size": 25,
       "width": 300,
       "focused_text": "#689d6a",
       "unfocused_text": "#b3b3b3",
       "background": "#1d2021"
     }
   },
+  "float_rules": [
+    {
+      "kind": "Title",
+      "id": "lf",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Arc extension popup",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Arc picture in picture",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Picture-in-Picture",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Zebar.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
   "monitors": [
     {
       "workspaces": [
