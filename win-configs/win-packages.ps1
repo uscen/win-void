@@ -4,7 +4,6 @@
 # List Of Packages:	                              #
 # ================================================#
 $packages = @(
-    "MSYS2.MSYS2",
     "Flow-Launcher.Flow-Launcher",
     "Alacritty.Alacritty",
     "gokcehan.lf",

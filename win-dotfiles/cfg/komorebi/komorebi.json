@@ -23,7 +23,7 @@
   },
   "animation": {
     "enabled": true,
-    "duration": 100,
+    "duration": 300,
     "style": "Linear",
     "fps": 60
   },
@@ -71,15 +71,15 @@
       "workspaces": [
         {
           "name": "I",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "II",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "III",
-          "layout": "HorizontalStack"
+          "layout": "BSP"
         },
         {
           "name": "IV",
