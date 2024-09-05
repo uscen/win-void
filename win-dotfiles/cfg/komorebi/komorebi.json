@@ -10,10 +10,10 @@
   "transparency": true,
   "transparency_alpha": 245,
   "border": true,
-  "border_width": 4,
-  "border_offset": -2,
+  "border_width": 5,
+  "border_offset": 0,
   "border_implementation": "Komorebi",
-  "border_style": "Square",
+  "border_style": "Rounded",
   "border_z_order": "Top",
   "border_colours": {
     "single": "#689d6a",

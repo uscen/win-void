@@ -4,7 +4,7 @@ program = "C:/Program Files/Git/bin/bash.exe"
 # program = "C:/msys64/msys2_shell.cmd"
 # args = ["-defterm -here -no-start -ucrt64 -full-path -shell bash"]
 [window]
-opacity = 0.98
+opacity = 0.9
 decorations = "None"
 decorations_theme_variant = "Dark"
 [font]
@@ -12,7 +12,7 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-size = 10.0
+size = 11.0
 offset = { x = 0, y = 0}
 glyph_offset = { x = 0, y = 0}
 [scrolling]
