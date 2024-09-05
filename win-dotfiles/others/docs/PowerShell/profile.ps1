@@ -38,11 +38,11 @@ ${function:dl} = { Set-Location ~\Downloads }
 if (Get-Command eza.exe -ErrorAction SilentlyContinue | Test-Path) {
     rm alias:ls -ErrorAction SilentlyContinue
     # Set `ls` to call `ls.exe` and always use --color
-    ${function:ls} = { eza.exe -l --color @args }
+    ${function:ls} = { eza.exe --long --group --icons=auto --git --sort=name --group-directories-first @args }
     # List all files in long format
-    ${function:l} = { eza -l @args }
+    ${function:l} = { eza.exe --long --group --icons=auto --git --sort=name --group-directories-first @args }
     # List all files in long format, including hidden files
-    ${function:la} = { eza -laF @args }
+    ${function:la} = { eza -la @args--group --icons=auto --git --sort=name --group-directories-first @args }
     # List only directories
     ${function:lsd} = { Get-ChildItem -Directory -Force @args }
 } else {
