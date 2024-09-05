@@ -3,7 +3,11 @@
 # ================================================#
 # List Of Packages:	                              #
 # ================================================#
+# Set Execution Policy to Bypass for this session
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 $packages = @(
+    "MSYS2.MSYS2",
+    "Microsoft.PowerShell",
     "Flow-Launcher.Flow-Launcher",
     "Alacritty.Alacritty",
     "gokcehan.lf",
@@ -12,7 +16,6 @@ $packages = @(
     "Git.Git",
     "GitHub.GitHubDesktop",
     "cURL.cURL",
-    "aria2",
     "openssh",
     "Microsoft.PowerToys",
     "ajeetdsouza.zoxide",
@@ -32,19 +35,20 @@ $packages = @(
     "Microsoft.VisualStudioCode",
     "Mozilla.Firefox",
     "Google.Chrome",
-    "VideoLAN.VLC",
+    "mpv.net",
     "eza-community.eza",
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
-    "DEVCOM.JetBrainsMonoNerdFont"
+    "DEVCOM.JetBrainsMonoNerdFont",
+    "OBSProject.OBSStudio",
+    "Discord.Discord",
+    "OpenJS.NodeJS",
+    "Python.Python.3.12"
 )
-# Install Winget Packages:	                      #
-# ================================================#
-foreach ($package in $packages) {
-    Write-Host "Installing $package..."
-    winget install $package --exact --silent --accept-source-agreements --accept-package-agreements
-}
-Write-Host "Installation of Winget packages is complete!"
+$scoopPackages = @(
+    "aria2",
+    "gcc"
+)
 # Install Scoop Package Manager:	              #
 # ================================================#
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
@@ -52,7 +56,22 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
     scoop bucket add extras
 }
+# Install Winget Packages:	                      #
+# ================================================#
+foreach ($package in $packages) {
+    Write-Host "Installing $package..."
+    winget install $package --exact --silent --accept-source-agreements --accept-package-agreements
+}
+Write-Host "Installation of Winget packages is complete!"
 # Install Scoop Packages:	                      #
 # ================================================#
-scoop install gcc nodejs python
+foreach ($package in $scoopPackages) {
+    Write-Host "Installing $package..."
+    try {
+        scoop install $package
+        Write-Host "$package installed successfully."
+    } catch {
+        Write-Host "Failed to install $package."
+    }
+}
 Write-Host "Installation Of Scoop Packages Is Complete!"

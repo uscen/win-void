@@ -5,8 +5,8 @@ alt + r                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowSt
 alt + ctrl + r          : komorebic reload-configuration
 
 # Start App
-alt + w                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
-alt + g                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
+alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + shift + return    : wt
 alt + return            : alacritty

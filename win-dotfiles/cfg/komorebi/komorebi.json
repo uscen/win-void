@@ -23,7 +23,7 @@
   },
   "animation": {
     "enabled": true,
-    "duration": 300,
+    "duration": 100,
     "style": "Linear",
     "fps": 60
   },
