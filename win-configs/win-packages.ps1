@@ -8,6 +8,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 $packages = @(
     "MSYS2.MSYS2",
     "Microsoft.PowerShell",
+    "gerardog.gsudo",
     "Flow-Launcher.Flow-Launcher",
     "Alacritty.Alacritty",
     "gokcehan.lf",
@@ -42,6 +43,7 @@ $packages = @(
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Discord.Discord",
+    "GIMP.GIMP",
     "OpenJS.NodeJS",
     "Python.Python.3.12"
 )
