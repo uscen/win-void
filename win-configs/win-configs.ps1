@@ -27,3 +27,8 @@ if (-Not (Test-Path -Path $Env:AppData)) {
 }
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\* -Destination $Env:AppData\ -Recurse -Force
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\local\* -Destination $Env:localAppData\ -Recurse -Force
+# ================================================#
+# Others:					                      #
+# ================================================#
+Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\others\docs\* -Destination $Env:USERPROFILE\Documents\ -Recurse -Force
+Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\others\wt\* -Destination $Env:localAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\ -Recurse -Force
