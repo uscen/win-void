@@ -10,7 +10,7 @@ $packages = @(
     "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
-    "gokcehan.lf",
+    "sxyazi.yazi",
     "sharkdp.fd",
     "fzf",
     "Git.Git",

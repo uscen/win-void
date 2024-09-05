@@ -42,11 +42,6 @@
   "float_rules": [
     {
       "kind": "Title",
-      "id": "lf",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Title",
       "id": "Arc extension popup",
       "matching_strategy": "Equals"
     },
