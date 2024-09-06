@@ -7,25 +7,16 @@
   "mouse_follows_focus": true,
   "default_workspace_padding": 4,
   "default_container_padding": 4,
-  "transparency": true,
-  "transparency_alpha": 245,
   "border": true,
   "border_width": 5,
   "border_offset": 0,
   "border_implementation": "Komorebi",
   "border_style": "Rounded",
-  "border_z_order": "Top",
   "border_colours": {
     "single": "#689d6a",
     "stack": "#689d6a",
     "monocle": "#689d6a",
     "unfocused": "#1d2021"
-  },
-  "animation": {
-    "enabled": true,
-    "duration": 100,
-    "style": "Linear",
-    "fps": 60
   },
   "stackbar": {
     "height": 30,

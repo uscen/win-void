@@ -1,64 +1,40 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 [manager]
-sort_by = "alphabetical"
-sort_sensitive = false
+ratio          = [ 1, 4, 3 ]
+sort_by        = "natural"
+sort_sensitive = true
 sort_dir_first = true
-show_hidden = false
-linemode = "size"
+sort_reverse   = false
+linemode       = "size"
+show_symlink   = true
+show_hidden    = false
+
+[preview]
+tab_size        = 2
+max_width       = 600
+max_height      = 900
+cache_dir       = ""
+image_filter    = "triangle"
+image_quality   = 75
+sixel_fraction  = 15
+ueberzug_scale  = 1
+ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
-pdf = [
-	{ run = 'zathura "$1"', desc = "zathura", block = false },
-	{ run = 'evince "$1"', desc = "evince", block = false },
-]
-image = [
-    { run = 'imv "$1"', desc = "imv", block = false },
-    { run = 'krita "$1"', desc = "krita", block = false },
-    { run = 'flatpak run org.kde.krita "$1"', desc = "krita (flatpak)", block = false },
-    { run = 'nsxiv "$1"', desc = "nsxiv", block = false },
-    { run = 'feh "$1"', desc = "feh", block = false },
-    { run = 'gimp "$1"', desc = "gimp", block = false },
-    { run = 'flatpak run org.gimp.GIMP "$1"', desc = "gimp (flatpak)", block = false },
-]
-text = [
-    { run = 'less "$1"', desc = "less", block = true },
-    { run = 'bat "$1"', desc = "bat", block = true },
-]
 edit = [
-    { run = 'nvim "$1"', desc = "nvim", block = true },
-    { run = 'gedit "$1"', desc = "gedit", block = false },
+	{ run = 'nvim "$@"', block = true, for = "unix" },
+	{ run = "nvim %*",   block = true, for = "windows" },
 ]
-video = [
-    { run = 'mpv "$1"', desc = "mpv", block = false },
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv %*', orphan = true, for = "windows" }
 ]
-audio = [
-    { run = 'mpv --force-window "$1"', desc = "mpv", block = false },
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
-
-[open]
-rules = [
-  # Mime types
-  { mime = "application/pdf", use = "pdf" },
-  { mime = "image/*", use = "image" },
-  { mime = "video/*", use = "video" },
-  { mime = "audio/*", use = "audio" },
-  { mime = "text/*", use = ["edit", "text"] },
-
-  # File extensions
-  { name = "*.pdf", use = "pdf" },
-  { name = "*.json", use = "edit" },
-  { name = "*.md", use = "edit" },
-  { name = "*.html", use = ["edit", "text"] },
-  { name = "*.sh", use = "edit" },
-  { name = "*.txt", use = ["edit", "text"] },
-  { name = "*.csv", use = "edit" },
-  { name = "*.dat", use = "edit" },
-  { name = "*.toml", use = "edit" },
-  { name = "*.yaml", use = "edit" },
-  { name = "*.yml", use = "edit" },
-  { name = "*.lua", use = ["edit", "text"] },
-  { name = "*.log", use = "text" },
-  { name = "*.rs", use = "text" },
-  { name = "*.mp3", use = "audio" },
-  { name = "*.wav", use = "audio" },
-  { name = "*.ogg", use = "audio" },
+reveal = [
+	{ run = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
+	{ run = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
+	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
 ]

@@ -8,8 +8,8 @@ alt + ctrl + r          : komorebic reload-configuration
 alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
-alt + shift + return    : wt
-alt + return            : alacritty
+alt + shift + return    : alacritty
+alt + return            : wt
 alt + shift + n         : explorer
 alt + n                 : wt yazi
 alt + c            	    : code

@@ -1,6 +1,7 @@
 working_directory = "C:/Users/LLI"
 [shell]
-program = "C:/Program Files/Git/bin/bash.exe"
+program = "pwsh -nologo"
+# program = "C:/Program Files/Git/bin/bash.exe"
 # program = "C:/msys64/msys2_shell.cmd"
 # args = ["-defterm -here -no-start -ucrt64 -full-path -shell bash"]
 [window]
