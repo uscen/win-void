@@ -11,7 +11,7 @@ alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start ms
 alt + shift + return    : wt
 alt + return            : alacritty
 alt + shift + n         : explorer
-alt + n                 : alacritty --command yazi ~ --title yazi
+alt + n                 : wt yazi
 alt + c            	    : code
 alt + v            	    : neovide
 

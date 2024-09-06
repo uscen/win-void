@@ -42,7 +42,6 @@ $packages = @(
     "LGUG2Z.whkd",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
-    "Discord.Discord",
     "GIMP.GIMP",
     "OpenJS.NodeJS",
     "Python.Python.3.12"
