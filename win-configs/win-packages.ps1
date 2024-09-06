@@ -12,6 +12,7 @@ $packages = @(
     "Alacritty.Alacritty",
     "sxyazi.yazi",
     "sharkdp.fd",
+    "sharkdp.pastel",
     "fzf",
     "Git.Git",
     "GitHub.GitHubDesktop",

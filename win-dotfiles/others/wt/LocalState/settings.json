@@ -69,6 +69,7 @@
         "guid": "{5c8128db-d5fa-473e-a9c3-c412fe66b85b}",
         "hidden": false,
         "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+        "startingDirectory": "%USERPROFILE%",
         "name": "Git Bash"
       },
       {

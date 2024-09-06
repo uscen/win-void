@@ -1,104 +1,87 @@
 ## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-"$schema" = 'https://starship.rs/config-schema.json'
-command_timeout = 10000
-add_newline = false
-# Pipes ╰─ ╭─
-# Powerline symbols                                    
-# Wedges 🭧🭒 🭣🭧🭓
-# Random noise 🬖🬥🬔🬗
-
-format = """
-$cmd_duration$username$hostname $directory $git_branch $git_status
+add_newline = true
+command_timeout = 2000
+format = """$env_var$os$username$hostname$kubernetes$directory$git_branch$git_status$python
 $character
 """
-# format = """
-# $cmd_duration$directory $git_branch $git_status
-# $character
-# """
-
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[• ](bold fg:cyan) "
-error_symbol = "[• 󰅙](bold fg:red) "
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
-
-[git_branch]
-style = "bg: cyan"
-symbol = "󰘬"
-truncation_length = 4
-truncation_symbol = ""
-format = "• [](bold fg:cyan)[$symbol $branch(:$remote_branch)](fg:black bg:cyan)[ ](bold fg:cyan)"
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = " "
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
-
-[git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](cyan)'
-renamed = " ✍️ "
-deleted = " 🗑 "
-
-[hostname]
-ssh_only = false
-format =  "[•$hostname](bg:cyan bold fg:black)[](bold fg:cyan ) •"
-trim_at = ".companyname.com"
+[character]
+success_symbol = "╰⎯"
+error_symbol = "╰⎯"
+[env_var]
+symbol = "╭╴"
+variable = 'SHELL'
+format = "$symbol"
 disabled = false
-
-[line_break]
+[os]
+format = '[$symbol](bold white) '
 disabled = false
-
-[memory_usage]
-disabled = true
-threshold = -1
-symbol = " "
-style = "bold dimmed cyan"
-
-[time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-
+[os.symbols]
+Windows = ' '
+Arch = '󰣇'
+Ubuntu = ''
+Macos = '󰀵'
+Unknown = '󰠥'
+# Shows the username
 [username]
-style_user = "bold bg:cyan fg:black"
-style_root = "red bold"
-format = "[](bold fg:cyan)[$user]($style)"
+style_user = 'yellow bold'
+style_root = 'black bold'
+format = '[//](black bold) [$user](#2883ff) ' # 2883ff
 disabled = false
 show_always = true
-
+[hostname]
+ssh_only = false
+format = '[//](black bold) [$hostname](bold blue) '
+disabled = false
 [directory]
-home_symbol = "  "
-read_only = "  "
-style = "bg:cyan fg:black"
-truncation_length = 6
-truncation_symbol = "••/"
-format = '[](bold fg:cyan)[$path ]($style)[](bold fg:cyan)'
-
-
+truncation_length = 0
+truncation_symbol = '…/'
+home_symbol = '~'
+# read_only_style = '197'
+read_only = '  '
+format = '[//](black bold) [$path]($style)[$read_only]($read_only_style) '
+style = '#7ed1fb' # yellow bold
 [directory.substitutions]
-"desk" = "  "
-"dox" = "  "
-"dl" = "  "
-"music" = " 󰎈 "
-"pix" = "  "
+"Desktop" = " "
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Videos" = " "
+"Developer" = "󰲋 "
 "prjcts" = "󰲋 "
-"vids" = "  "
-
-[cmd_duration]
-min_time = 0
-format = '[](bold fg:green)[ $duration](bold bg:green fg:black)[](bold fg:green) •• '
+[git_branch]
+symbol = ' '
+format = '[//](black bold) [$symbol\[$branch\]]($style) '
+style = 'bold green'
+[git_status]
+disabled = true
+format = '[ $all_status $ahead_behind]($style) '
+style = 'bold green'
+conflicted = '🏳'
+up_to_date = ''
+untracked = ' '
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+stashed = ' '
+modified = ' '
+staged = '[++\($count\)](green)'
+renamed = '襁 '
+deleted = ' '
+[kubernetes]
+format = 'via [󱃾 $context\($namespace\)](bold purple) '
+disabled = false
+[vagrant]
+disabled = true
+[docker_context]
+disabled = true
+[python]
+symbol = '󰌠'
+python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
+format = '[//](black bold) [${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
+[nodejs]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
