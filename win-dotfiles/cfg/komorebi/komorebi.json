@@ -9,7 +9,7 @@
   "default_container_padding": 4,
   "border": true,
   "border_width": 5,
-  "border_offset": 0,
+  "border_offset": -1,
   "border_implementation": "Komorebi",
   "border_style": "Rounded",
   "border_colours": {

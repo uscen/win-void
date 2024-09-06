@@ -1,7 +1,7 @@
 .shell powershell
 
 # Reload configuration
-alt + r                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + shift + r         : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
 alt + ctrl + r          : komorebic reload-configuration
 
 # Start App
@@ -55,7 +55,7 @@ alt + m                 : komorebic toggle-monocle
 alt + s		            : komorebic promote
 
 # Window manager options
-alt + shift + r         : komorebic retile
+alt + r                 : komorebic retile
 alt + p                 : komorebic toggle-pause
 alt + 0                 : komorebic toggle-focus-follows-mouse -i windows
 
