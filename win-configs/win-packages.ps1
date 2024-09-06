@@ -23,6 +23,8 @@ $packages = @(
     "BurntSushi.ripgrep.MSVC",
     "Neovim.Neovim",
     "Neovide.Neovide",
+    "ImageMagick.Q16-HDRI",
+    "hpjansson.Chafa",
     "yt-dlp.yt-dlp",
     "7zip.7zip",
     "jqlang.jq",
