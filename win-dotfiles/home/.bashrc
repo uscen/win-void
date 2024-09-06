@@ -3,7 +3,7 @@
 ####################################
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoreboth:erasedups
-export TERMINAL="foot"
+export TERMINAL="wt"
 export BROWSER="firefox"
 export PAGER="less"
 export EDITOR="nvim"

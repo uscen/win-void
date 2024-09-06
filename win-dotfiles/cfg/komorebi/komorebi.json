@@ -65,7 +65,13 @@
         },
         {
           "name": "III",
-          "layout": "BSP"
+          "layout": "BSP",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "code"
+            }
+          ]
         },
         {
           "name": "IV",
