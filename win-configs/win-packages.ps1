@@ -1,12 +1,33 @@
 # ================================================#
 # Windows Packages:				                  #
 # ================================================#
-# List Of Packages:	                              #
+# SUCKLESS:	                                      #
 # ================================================#
 # Set Execution Policy to Bypass for this session
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Write-Output("Uninstalling more crap we probably don't want, like apps for OneDrive, Spotify, and Disney+...")
+winget uninstall "Cortana" --silent --accept-source-agreements
+winget uninstall "Disney+" --silent --accept-source-agreements
+winget uninstall "Mail and Calendar" --silent --accept-source-agreements
+winget uninstall "Microsoft News" --silent --accept-source-agreements
+winget uninstall "Microsoft OneDrive" --silent --accept-source-agreements
+winget uninstall "Microsoft Tips" --silent --accept-source-agreements
+winget uninstall "MSN Weather" --silent --accept-source-agreements
+winget uninstall "Movies & TV" --silent --accept-source-agreements
+winget uninstall "Office" --silent --accept-source-agreements
+winget uninstall "OneDrive" --silent --accept-source-agreements
+winget uninstall "Spotify Music" --silent --accept-source-agreements
+winget uninstall "Windows Maps" --silent --accept-source-agreements
+winget uninstall "Xbox TCUI" --silent --accept-source-agreements
+winget uninstall "Xbox Game Bar Plugin" --silent --accept-source-agreements
+winget uninstall "Xbox Game Bar" --silent --accept-source-agreements
+winget uninstall "Xbox Identity Provider" --silent --accept-source-agreements
+winget uninstall "Xbox Game Speech Windows" --silent --accept-source-agreements
+# List Of Packages:	                              #
+# ================================================#
 $packages = @(
     "MSYS2.MSYS2",
+    "Microsoft.WindowsTerminal",
     "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
