@@ -35,7 +35,7 @@ $packages = @(
     "JesseDuffield.lazygit",
     "dandavison.delta",
     "Microsoft.VisualStudioCode",
-    "Mozilla.Firefox",
+    "Mozilla.Firefox.DeveloperEdition",
     "Google.Chrome",
     "mpv.net",
     "eza-community.eza",

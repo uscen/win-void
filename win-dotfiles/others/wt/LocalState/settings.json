@@ -46,6 +46,7 @@
       "colorScheme": "Gruvbox_Hard",
       "cursorShape": "filledBox",
       "elevate": false,
+      "bellStyle": "none",
       "font": {
         "face": "JetBrainsMono Nerd Font"
       }
