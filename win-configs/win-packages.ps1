@@ -22,7 +22,7 @@ winget uninstall "Xbox TCUI" --silent --accept-source-agreements
 winget uninstall "Xbox Game Bar Plugin" --silent --accept-source-agreements
 winget uninstall "Xbox Game Bar" --silent --accept-source-agreements
 winget uninstall "Xbox Identity Provider" --silent --accept-source-agreements
-winget uninstall "Xbox Game Speech Windows" --silent --accept-source-agreements
+winget uninstall "Xbox Game Speech Window" --silent --accept-source-agreements
 # List Of Packages:	                              #
 # ================================================#
 $packages = @(
@@ -67,6 +67,7 @@ $packages = @(
     "OBSProject.OBSStudio",
     "Microsoft.PowerToys",
     "GIMP.GIMP",
+    "TheDocumentFoundation.LibreOffice",
     "OpenJS.NodeJS",
     "Python.Python.3.12"
 )
