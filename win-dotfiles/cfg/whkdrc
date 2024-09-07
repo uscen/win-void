@@ -8,11 +8,11 @@ alt + ctrl + r          : komorebic reload-configuration
 alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
-alt + shift + return    : alacritty
-alt + return            : wt
-alt + shift + n         : explorer
 alt + n                 : wt yazi ~
-alt + c            	    : code
+alt + shift + return    : alacritty
+alt + shift + n         : explorer
+alt + return            : wt
+alt + ctrl + c          : code
 alt + v            	    : neovide
 
 # Close App
@@ -56,7 +56,7 @@ alt + s		            : komorebic promote
 
 # Window manager options
 alt + r                 : komorebic retile
-alt + p                 : komorebic toggle-pause
+alt + shift + p         : komorebic toggle-pause
 alt + 0                 : komorebic toggle-focus-follows-mouse -i windows
 
 # Layouts

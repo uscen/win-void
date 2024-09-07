@@ -1,6 +1,7 @@
 ####################################
 ####---------- EXPORTS ----------###
 ####################################
+export PROMPT_COMMAND='history -a'
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoreboth:erasedups
 export TERMINAL="wt"
@@ -13,6 +14,7 @@ export MYVIMRC="$HOME/.config/nvim/init.lua"
 #####################################
 ####-------- ~/Clean-Up: --------###
 #####################################
+# export HISTFILE="$XDG_CACHE_HOME/history"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/rc"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
@@ -30,7 +32,6 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
 export UNISON="$XDG_DATA_HOME/unison"
-export HISTFILE="$XDG_CACHE_HOME/history"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"

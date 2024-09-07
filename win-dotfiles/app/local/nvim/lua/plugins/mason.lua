@@ -31,7 +31,7 @@ return {
 				"html",
 				"cssls",
 				"emmet_ls",
-				"ts_ls",
+				-- "ts_ls",
 				"tailwindcss",
 				"jsonls",
 			},

@@ -1,10 +1,14 @@
 # ================================================#
 # Windows Packages:				                  #
 # ================================================#
+# Change Execution Policy:                        #
+# ================================================#
+# Set-ExecutionPolicy RemoteSigned => RemoteSigned requires that scripts downloaded from the internet have a digital signature# Set-ExecutionPolicy Unrestricted -Scope LocalMachine =>
+# Set-ExecutionPolicy Unrestricted -Scope LocalMachine => Unrestricted does not enforce any restrictions
+# Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force => Bypass In Current Session Only
+# Set-ExecutionPolicy Restricted => Revert to Default
 # SUCKLESS:	                                      #
 # ================================================#
-# Set Execution Policy to Bypass for this session
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 Write-Output("Uninstalling more crap we probably don't want, like apps for OneDrive, Spotify, and Disney+...")
 winget uninstall "Cortana" --silent --accept-source-agreements
 winget uninstall "Disney+" --silent --accept-source-agreements
