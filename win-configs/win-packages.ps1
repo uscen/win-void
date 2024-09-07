@@ -36,10 +36,9 @@ $packages = @(
     "sharkdp.pastel",
     "fzf",
     "Git.Git",
-    "GitHub.GitHubDesktop",
+    "Gyan.FFmpeg",
     "cURL.cURL",
     "openssh",
-    "Microsoft.PowerToys",
     "ajeetdsouza.zoxide",
     "BurntSushi.ripgrep.MSVC",
     "Neovim.Neovim",
@@ -66,6 +65,7 @@ $packages = @(
     "LGUG2Z.whkd",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
+    "Microsoft.PowerToys",
     "GIMP.GIMP",
     "OpenJS.NodeJS",
     "Python.Python.3.12"
@@ -81,13 +81,6 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
     scoop bucket add extras
 }
-# Install Winget Packages:	                      #
-# ================================================#
-foreach ($package in $packages) {
-    Write-Host "Installing $package..."
-    winget install $package --exact --silent --accept-source-agreements --accept-package-agreements
-}
-Write-Host "Installation of Winget packages is complete!"
 # Install Scoop Packages:	                      #
 # ================================================#
 foreach ($package in $scoopPackages) {
@@ -100,3 +93,11 @@ foreach ($package in $scoopPackages) {
     }
 }
 Write-Host "Installation Of Scoop Packages Is Complete!"
+# Install Winget Packages:	                      #
+# ================================================#
+winget source update
+foreach ($package in $packages) {
+    Write-Host "Installing $package..."
+    winget install $package --exact --silent --accept-source-agreements --accept-package-agreements
+}
+Write-Host "Installation of Winget packages is complete!"

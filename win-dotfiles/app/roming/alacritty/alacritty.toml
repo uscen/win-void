@@ -1,4 +1,4 @@
-working_directory = "C:/Users/LLI"
+working_directory = "C:/Users/farah"
 [shell]
 program = "pwsh -nologo"
 # program = "C:/Program Files/Git/bin/bash.exe"
