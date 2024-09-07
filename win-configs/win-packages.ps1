@@ -4,7 +4,7 @@
 # SUCKLESS:	                                      #
 # ================================================#
 # Set Execution Policy to Bypass for this session
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 Write-Output("Uninstalling more crap we probably don't want, like apps for OneDrive, Spotify, and Disney+...")
 winget uninstall "Cortana" --silent --accept-source-agreements
 winget uninstall "Disney+" --silent --accept-source-agreements
