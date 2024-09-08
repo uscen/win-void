@@ -5,8 +5,8 @@
   "cross_monitor_move_behaviour": "Insert",
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": true,
-  "default_workspace_padding": 4,
-  "default_container_padding": 4,
+  "default_workspace_padding": 2,
+  "default_container_padding": 2,
   "transparency": false,
   "transparency_alpha": 240,
   "animation": {
@@ -19,7 +19,7 @@
   "border_width": 4,
   "border_offset": -1,
   "border_implementation": "Komorebi",
-  "border_style": "Rounded",
+  "border_style": "Square",
   "border_colours": {
     "single": "#689d6a",
     "stack": "#689d6a",

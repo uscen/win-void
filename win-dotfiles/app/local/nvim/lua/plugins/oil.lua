@@ -19,7 +19,7 @@ return {
 				signcolumn = "yes:2",
 			},
 			view_options = {
-				show_hidden = true,
+				show_hidden = false,
 				natural_order = true,
 				is_always_hidden = function(name, _)
 					return name == ".." or name == ".git"

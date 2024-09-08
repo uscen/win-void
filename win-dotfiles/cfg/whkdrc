@@ -8,12 +8,12 @@ alt + ctrl + r          : komorebic reload-configuration
 alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
-alt + n                 : wt yazi ~
+alt + n                 : wt yazi $Env:USERPROFILE
+alt + v            	    : cd $Env:USERPROFILE; neovide $Env:USERPROFILE
 alt + shift + return    : alacritty
 alt + shift + n         : explorer
 alt + return            : wt
 alt + ctrl + c          : code
-alt + v            	    : neovide
 
 # Close App
 alt + shift + c         : komorebic close
