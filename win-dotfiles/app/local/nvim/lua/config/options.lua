@@ -4,6 +4,30 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 -----------------------------------------------------------
+-- SHELL
+-----------------------------------------------------------
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+	local opt = vim.opt
+	-- use git-bash for `:!`, `:ter`
+	-- windows only, convert \ to / when expanding file names
+	opt.shellslash = true
+	-- defaults to cmd.exe
+	opt.shell = vim.fs.normalize("bash.exe")
+	-- opt.shell = "bash.exe" -- WARN: sometimes mistakenly points to wsl bash
+
+	-- defaults to "/s /c" for cmd.exe
+	opt.shellcmdflag = "-c"
+	-- default value works
+	opt.shellpipe = "2>&1| tee"
+	-- Windows: may default to "\"" when 'shell' contains 'sh'
+	opt.shellquote = ""
+	opt.shellxquote = ""
+	-- defaults to ">", 'bash' uses:
+	opt.shellredir = ">%s 2>&1"
+	-- defualt value works
+	opt.shellxescape = ""
+end
+-----------------------------------------------------------
 -- General
 -----------------------------------------------------------
 vim.opt.termbidi = true

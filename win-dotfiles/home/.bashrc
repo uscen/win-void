@@ -52,6 +52,7 @@ shopt -s extglob
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 shopt -s histappend
+source "/c/Program Files/Git/mingw64/share/git/completion/git-completion.bash"
 
 #####################################
 ###------------ PROMPT -----------###
