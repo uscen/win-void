@@ -7,8 +7,16 @@
   "mouse_follows_focus": true,
   "default_workspace_padding": 4,
   "default_container_padding": 4,
+  "transparency": false,
+  "transparency_alpha": 240,
+  "animation": {
+    "enabled": false,
+    "duration": 300,
+    "style": "EaseInOutExpo",
+    "fps": 60
+  },
   "border": true,
-  "border_width": 5,
+  "border_width": 4,
   "border_offset": -1,
   "border_implementation": "Komorebi",
   "border_style": "Rounded",
@@ -19,11 +27,11 @@
     "unfocused": "#1d2021"
   },
   "stackbar": {
-    "height": 30,
+    "height": 25,
     "mode": "OnStack",
     "tabs": {
-      "font_family": "Segoe UI",
-      "font_size": 25,
+      "font_family": "JetBrainsMono NF",
+      "font_size": 20,
       "width": 300,
       "focused_text": "#689d6a",
       "unfocused_text": "#b3b3b3",
@@ -31,6 +39,76 @@
     }
   },
   "float_rules": [
+    {
+      "kind": "Exe",
+      "id": "yasb.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "explorer.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Discord.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Rakuten Viber",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Skype",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Telegram.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Settings",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Microsoft Store",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Photoshop.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Adobe Premiere Pro.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Illustrator.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "OUTLOOK.EXE",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "ApplicationFrameHost.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "vmware.exe",
+      "matching_strategy": "Equals"
+    },
     {
       "kind": "Title",
       "id": "Arc extension popup",

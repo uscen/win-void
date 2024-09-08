@@ -40,7 +40,6 @@ $packages = @(
     "sharkdp.pastel",
     "fzf",
     "Git.Git",
-    "Gyan.FFmpeg",
     "cURL.cURL",
     "openssh",
     "ajeetdsouza.zoxide",

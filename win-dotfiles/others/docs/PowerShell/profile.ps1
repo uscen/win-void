@@ -37,8 +37,18 @@ if (Get-Command eza.exe -ErrorAction SilentlyContinue | Test-Path) {
 } else {
     ${function:lsd} = { Get-ChildItem -Directory -Force @args }
 }
-
 # Alias
 # ======================================================#
 Remove-Alias -Name cd
 New-Alias -Name cd -Value z -Option AllScope
+# Yazi File Manager : 					                #
+# ======================================================#
+function y {
+    $tmp = [System.IO.Path]::GetTempFileName()
+    yazi $args --cwd-file="$tmp"
+    $cwd = Get-Content -Path $tmp
+    if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+        Set-Location -LiteralPath $cwd
+    }
+    Remove-Item -Path $tmp
+}

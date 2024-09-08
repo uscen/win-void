@@ -1,7 +1,7 @@
 # ----------------------------------------------------------- #
 # Set download to best video and audio:                       #
 # ----------------------------------------------------------- #
---format "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio"
+--format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio"
 
 # ----------------------------------------------------------- #
 # Merge output format as mp4:                                 #

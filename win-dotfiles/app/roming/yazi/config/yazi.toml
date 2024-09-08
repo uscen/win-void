@@ -25,7 +25,7 @@ edit = [
 	{ run = "nvim %*",   block = true, for = "windows" },
 ]
 play = [
-	{ run = 'mpv %1', orphan = true, for = "windows" }
+	{ run = 'C:\Users\LLI\AppData\Local\Programs\mpv.net\mpvnet.exe %*', orphan = true, for = "windows" }
 ]
 archive = [
 	{ run = 'unar "$1"', desc = "Extract here" },

@@ -144,6 +144,17 @@ export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
 export NNN_PLUG="m:nmount;M:mtpmount;e:suedit;n:bulknew;P:rsynccp;z:autojump;o:fzopen;f:fzcd;c:mp3conv;b:boom;l:imgview;k:pskill;p:preview-tui;x:xdgdefault;*:togglex"
 export NNN_BMS="m:/run/media/$USER;M:/run/user/$UID/gvfs;w:$HOME/pix/wallpapers;v:$HOME/vids/programming/;n:$HOME/.config/nvim;d:$HOME/.local/wayland-void/"
 #####################################
+###------- Yazi File Manager -----###
+#####################################
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+#####################################
 ###-----Source fzf keybindingd----###
 #####################################
 eval "$(fzf --bash)"
