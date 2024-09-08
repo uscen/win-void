@@ -27,6 +27,7 @@ winget uninstall "Xbox Game Bar Plugin" --silent --accept-source-agreements
 winget uninstall "Xbox Game Bar" --silent --accept-source-agreements
 winget uninstall "Xbox Identity Provider" --silent --accept-source-agreements
 winget uninstall "Xbox Game Speech Window" --silent --accept-source-agreements
+winget uninstall "Power Automate" --silent --accept-source-agreements
 # List Of Packages:	                              #
 # ================================================#
 $packages = @(
@@ -76,7 +77,8 @@ $packages = @(
 )
 $scoopPackages = @(
     "aria2",
-    "gcc"
+    "gcc",
+    "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 # Install Scoop Package Manager:	              #
 # ================================================#
