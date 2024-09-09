@@ -9,7 +9,7 @@ alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + n                 : wt yazi $Env:USERPROFILE
-alt + v            	    : cd $Env:USERPROFILE; neovide $Env:USERPROFILE
+alt + v            	    : cd $Env:USERPROFILE; neovide
 alt + shift + return    : alacritty
 alt + shift + n         : explorer
 alt + return            : wt

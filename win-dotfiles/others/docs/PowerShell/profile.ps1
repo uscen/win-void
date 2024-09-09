@@ -37,10 +37,20 @@ if (Get-Command eza.exe -ErrorAction SilentlyContinue | Test-Path) {
 } else {
     ${function:lsd} = { Get-ChildItem -Directory -Force @args }
 }
+# Git :                                                 #
+# ======================================================#
+function gs { git status -s }
+function ga { git add . }
+function gd { git diff --oneline --graph --all -10 }
+function gc { param($m) git commit -m "$m" }
+function gp { git push -uf origin main}
+function gi { git init }
+function gcl { git clone "$args" }
 # Alias
 # ======================================================#
 Remove-Alias -Name cd
 New-Alias -Name cd -Value z -Option AllScope
+Set-Alias -Name su -Value admin
 # Yazi File Manager : 					                #
 # ======================================================#
 function y {
