@@ -174,7 +174,7 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 alias run_in_nvim="fzf --multi --bind 'enter:become(nvim {+})'"
-alias run_in_mpv="fd 'mp4' | fzf --multi --bind 'enter:become(mpv {+})'"
+alias run_in_mpv="fd 'mp4' | fzf --multi --bind 'enter:become(mpvnet {+})'"
 alias run_in_nnn="fd -t d | fzf --bind 'enter:become(nnn {+})'"
 bind '"\C-v":"run_in_nvim\n"'
 bind '"\C-p":"run_in_mpv\n"'
@@ -195,3 +195,10 @@ bind "set menu-complete-display-prefix on"
 bind 'set match-hidden-files off'
 #ignore upper and lowercase when TAB completion
 bind "set completion-ignore-case on"
+#####################################
+###---------- System Path  -------###
+#####################################
+# for path in $(ls $HOME/AppData/Local/Programs); do
+# 	export PATH="$PATH:$HOME/AppData/Local/Programs/$path"
+# done
+export PATH="$PATH:$HOME/AppData/Local/Programs/mpv.net"

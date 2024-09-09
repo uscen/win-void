@@ -5,13 +5,13 @@
   "cross_monitor_move_behaviour": "Insert",
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": true,
-  "default_workspace_padding": 2,
-  "default_container_padding": 2,
+  "default_workspace_padding": 8,
+  "default_container_padding": 8,
   "transparency": false,
   "transparency_alpha": 240,
   "animation": {
-    "enabled": false,
-    "duration": 300,
+    "enabled": true,
+    "duration": 100,
     "style": "EaseInOutExpo",
     "fps": 60
   },
@@ -19,7 +19,7 @@
   "border_width": 4,
   "border_offset": -1,
   "border_implementation": "Komorebi",
-  "border_style": "Square",
+  "border_style": "Rounded",
   "border_colours": {
     "single": "#689d6a",
     "stack": "#689d6a",

@@ -34,6 +34,7 @@ function Reset-Path {
 Reset-Path
 Append-Path "$Env:LOCALAPPDATA\nvim-data\plugged\fzf\bin"
 Append-Path "C:\Program Files\VideoLAN\VLC"
+Append-Path "C:\Users\LLI\AppData\Local\Programs\mpv.net"
 
 # ======================================================#
 # Starship && Zoxide : 					                #

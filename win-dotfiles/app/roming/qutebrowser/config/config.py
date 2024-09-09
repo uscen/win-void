@@ -74,16 +74,16 @@ c.content.blocking.adblock.lists = [
 # ==========================  Dark mode ===========================#
 # =================================================================#
 c.colors.webpage.preferred_color_scheme = "dark"
-# c.colors.webpage.darkmode.enabled = True
-# c.colors.webpage.darkmode.algorithm = "lightness-cielab"
-# c.colors.webpage.darkmode.threshold.foreground = 150
-# c.colors.webpage.darkmode.threshold.background = 100
-# c.colors.webpage.darkmode.policy.images = "smart"
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.algorithm = "lightness-cielab"
+c.colors.webpage.darkmode.threshold.foreground = 150
+c.colors.webpage.darkmode.threshold.background = 100
+c.colors.webpage.darkmode.policy.images = "smart"
 # =================================================================#
 # ===========================  Others =============================#
 # =================================================================#
-c.editor.encoding = "utf-8"
 # c.window.hide_decoration = True
+c.editor.encoding = "utf-8"
 c.prompt.filebrowser = True
 c.prompt.radius = 4
 c.new_instance_open_target = "tab-silent"
