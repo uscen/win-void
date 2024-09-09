@@ -61,7 +61,6 @@ $packages = @(
     "JesseDuffield.lazygit",
     "dandavison.delta",
     "Microsoft.VisualStudioCode",
-    "qutebrowser.qutebrowser",
     "Mozilla.Firefox.DeveloperEdition",
     "Google.Chrome",
     "mpv.net",
@@ -79,6 +78,7 @@ $packages = @(
 $scoopPackages = @(
     "aria2",
     "gcc",
+    "qutebrowser",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 # Install Scoop Package Manager:	              #
