@@ -14,6 +14,12 @@
 
 ## Install packages
 
+**Change Execution Policy**
+
+```powershell
+Set-ExecutionPolicy Unrestricted -Scope LocalMachine
+```
+
 ```powershell
 # SUCKLESS:	                                      #
 # ================================================#
