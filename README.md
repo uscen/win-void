@@ -1,6 +1,6 @@
 <h1 align="center"><i>Windows Ricing</i></h1>
 
-![alt text](./assets/Screenshot 2024-09-09 120050.png)
+![alt text](./assets/screen.png)
 
 - **Window Manager** : **Komorebi**
 - **Hotkey deamon** : **Whkd**
@@ -14,7 +14,6 @@
 
 ### Discord
 
-- **Theme** : ![MaterialDiscord](https://github.com/CapnKitten/Material-Discord)
 - **Plugins**
   | Plugins | Links |
   | ---------------------- | ---------------------------------------------------------------------- |
