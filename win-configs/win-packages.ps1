@@ -61,6 +61,7 @@ $packages = @(
     "JesseDuffield.lazygit",
     "dandavison.delta",
     "Microsoft.VisualStudioCode",
+    "qutebrowser.qutebrowser",
     "Mozilla.Firefox.DeveloperEdition",
     "Google.Chrome",
     "mpv.net",
