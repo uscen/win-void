@@ -41,3 +41,7 @@ Set-ItemProperty -Path . -Name AutoRepeatRate        -Value 6
 Set-ItemProperty -Path . -Name DelayBeforeAcceptance -Value 0
 Set-ItemProperty -Path . -Name BounceTime            -Value 0
 Set-ItemProperty -Path . -Name Flags                 -Value 59
+# ================================================#
+# Set power plan to high performance
+# ================================================#
+powercfg /setactive SCHEME_MIN
