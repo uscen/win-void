@@ -46,6 +46,7 @@ winget uninstall "Power Automate" --silent --accept-source-agreements
 $packages = @(
     "MSYS2.MSYS2",
     "Microsoft.WindowsTerminal",
+    "Microsoft.WindowsTerminal.Preview",
     "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
