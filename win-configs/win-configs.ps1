@@ -35,9 +35,17 @@ Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\others\wt\* -Destination 
 # ================================================#
 # Change Keybard reate:					          #
 # ================================================#
-Set-Location "HKCU:\Control Panel\Accessibility\Keyboard Response"
-Set-ItemProperty -Path . -Name AutoRepeatDelay       -Value 200
-Set-ItemProperty -Path . -Name AutoRepeatRate        -Value 6
-Set-ItemProperty -Path . -Name DelayBeforeAcceptance -Value 0
-Set-ItemProperty -Path . -Name BounceTime            -Value 0
-Set-ItemProperty -Path . -Name Flags                 -Value 59
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name AutoRepeatDelay       -Value 200
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name AutoRepeatRate        -Value 4
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name DelayBeforeAcceptance -Value 0
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name BounceTime            -Value 0
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\Keyboard Response" -Name Flags                 -Value 59
+# ================================================#
+# Don't show ads / nonsense on the lockscreen:    #
+# ================================================#
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name 'ContentDeliveryAllowed' -Value 1
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name 'RotatingLockScreenEnabled' -Value 1
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name 'RotatingLockScreenOverlayEnabled' -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name 'SubscribedContent-338388Enabled' -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name 'SubscribedContent-338389Enabled' -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" -Name 'SubscribedContent-88000326Enabled' -Value 0
