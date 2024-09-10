@@ -10,7 +10,7 @@
   "transparency": false,
   "transparency_alpha": 240,
   "animation": {
-    "enabled": true,
+    "enabled": false,
     "duration": 250,
     "style": "Linear",
     "fps": 60
