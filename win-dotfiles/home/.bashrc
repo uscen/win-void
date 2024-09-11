@@ -101,6 +101,7 @@ alias yt-concats='yt-dlp --concat-playlist always -S "codec:h264"'
 alias yt-music='yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music'
 alias man="tldr"
 alias cat="bat"
+alias cls="clear"
 #####################################
 ###------- NNN File Manager ------###
 #####################################
