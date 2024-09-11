@@ -173,4 +173,4 @@ bind "set completion-ignore-case on"
 # for path in $(ls $HOME/AppData/Local/Programs); do
 # 	export PATH="$PATH:$HOME/AppData/Local/Programs/$path"
 # done
-export PATH="$PATH:$HOME/AppData/Local/Programs/mpv.net"
+export PATH="$PATH:$HOME/AppData/Local/Programs/mpv.net:/c/msys64/usr/bin"
