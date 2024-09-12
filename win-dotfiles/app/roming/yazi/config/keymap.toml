@@ -1,60 +1,8 @@
-# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
-# If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
-
 [manager]
 prepend_keymap = [
 	{ on = [ "<Esc>" ], run = "close" },
-	{ on = [ "." ], run = "hidden toggle" },
 	{ on = [ "o" ], run = "open"},
 	{ on = [ "e" ], run = "open"},
-	{ on = [ "K" ], run = "arrow -5" },
-	{ on = [ "J" ], run = "arrow 5" },
-	{ on = [ "j" ], run = [ "plugin --sync arrow --args=1"],  desc = "Move selection downwards, or wrap." },
-	{ on = [ "k" ], run = [ "plugin --sync arrow --args=-1"], desc = "Move selection upwards, or wrap." },
-	{ on = [ "l" ], run = [ "plugin smart-enter --sync", "escape --visual --select" ], desc = "Enter the child directory, or open file." },
-	{ on = [ "L" ], run = "plugin smart-enter --sync --args='detatch'", desc = "Open in new window." },
-    { on = [ "=" ], run = """
-        shell 'printf "Mode Bits: "; read ans; chmod $ans "$@"' --block --confirm
-    """, desc = "chmod" },
-]
-[tasks]
-prepend_keymap = [
-	{ on = [ "K" ], run = "arrow -5" },
-	{ on = [ "J" ], run = "arrow 5" },
-]
-[select]
-prepend_keymap = [
-	{ on = [ "K" ], run = "arrow -5" },
-	{ on = [ "J" ], run = "arrow 5" },
-]
-[input]
-prepend_keymap = [
-	# Mode
-	{ on = [ "k" ],     run = "insert" },
-	{ on = [ "<C-n>" ], run = [ "move -999", "insert" ] },
-	{ on = [ "<C-i>" ], run = [ "move 999", "insert --append" ] },
-	# Character-wise movement
-	{ on = [ "n" ], run = "move -1" },
-	{ on = [ "i" ], run = "move 1" },
-	# Word-wise movement
-	{ on = [ "h" ], run = "forward --end-of-word" },
-	# Line-wise movement
-	{ on = [ "N" ], run = "move -999" },
-	{ on = [ "I" ], run = "move 999" },
-	# Cut/Yank/Paste
-	{ on = [ "x" ], run = [ "delete", "move 1 --in-operating" ] },
-	# Undo/Redo
-	{ on = [ "l" ], run = "undo" },
-	{ on = [ "L" ], run = "redo" },
-]
-[completion]
-prepend_keymap = [
-	{ on = [ "<C-u>" ], run = "arrow -1" },
-	{ on = [ "<C-e>" ], run = "arrow 1" },
-]
-[help]
-prepend_keymap = [
-	{ on = [ "K" ], run = "arrow -5" },
-	{ on = [ "J" ], run = "arrow 5" },
+	{ on = [ "l" ], run = "plugin smart-enter --sync --args='detatch'", desc = "Open in new window." },
+	{ on = [ "f" ], run = "plugin jump-to-char", desc = "Jump to char" },
 ]
