@@ -9,9 +9,9 @@ alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + q                 : if ($wshell.AppActivate('qutebrowser') -eq $False) { start qutebrowser }
-alt + n                 : wt bash -c "yazi /c/Users/LLI"
+alt + n                 : wt -F bash -c "yazi /c/Users/LLI"
 alt + v            	    : cd $env:userprofile; neovide
-alt + shift + return    : alacritty
+alt + shift + return    : alacritty.exe
 alt + shift + n         : explorer
 alt + return            : wt
 alt + ctrl + c          : code
@@ -39,8 +39,8 @@ alt + left              : komorebic stack left
 alt + down              : komorebic stack down
 alt + up                : komorebic stack up
 alt + right             : komorebic stack right
-alt + control + t       : komorebic unstack # oem_1 is ;
 alt + t                 : komorebic stack-all
+alt + control + t       : komorebic unstack # oem_1 is ;
 alt + shift + t         : komorebic unstack-all
 alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
 alt + oem_6             : komorebic cycle-stack next # oem_6 is ]

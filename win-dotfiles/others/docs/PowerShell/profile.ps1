@@ -27,11 +27,6 @@ function Prepend-Path($path) {
     $Env:PATH = "$path;$Env:PATH"
 }
 
-function Reset-Path {
-    $Env:PATH=[System.Environment]::GetEnvironmentVariable("Path","User")
-    $Env:PATH+=[System.Environment]::GetEnvironmentVariable("Path","Machine")
-}
-Reset-Path
 Append-Path "$Env:LOCALAPPDATA\nvim-data\plugged\fzf\bin"
 Append-Path "C:\Program Files\VideoLAN\VLC"
 Append-Path "C:\Program Files\Git\bin"
