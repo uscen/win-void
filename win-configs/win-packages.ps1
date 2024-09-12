@@ -105,7 +105,6 @@ Write-Host "Installation of Winget packages is complete!"
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Write-Host "Installing Scoop ..."
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-    scoop bucket add extras
 }
 foreach ($package in $scoopPackages) {
     Write-Host "Installing $package..."
