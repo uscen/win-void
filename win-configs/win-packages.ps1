@@ -12,6 +12,8 @@
 Write-Output("Uninstalling more crap we probably don't want, like apps for OneDrive, Spotify, and Disney+...")
 winget uninstall "Cortana" --silent --accept-source-agreements
 winget uninstall "Disney+" --silent --accept-source-agreements
+winget uninstall "LinkedIn" --silent --accept-source-agreements
+winget uninstall "Outlook for Windows" --silent --accept-source-agreements
 winget uninstall "Windows Notepad" --silent --accept-source-agreements
 winget uninstall "Mail and Calendar" --silent --accept-source-agreements
 winget uninstall "Microsoft News" --silent --accept-source-agreements
