@@ -11,7 +11,7 @@ return {
 		},
 		opts = {
 			default_file_explorer = true,
-			delete_to_trash = true,
+			delete_to_trash = false,
 			skip_confirm_for_simple_edits = true,
 			border = "rounded",
 			win_options = {
