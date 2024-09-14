@@ -5,6 +5,8 @@ return {
 	"nvim-telescope/telescope.nvim",
 	branch = "master",
 	dependencies = {
+		"nvim-lua/popup.nvim",
+		"jvgrootveld/telescope-zoxide",
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -84,6 +86,7 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local z_utils = require("telescope._extensions.zoxide.utils")
 		local TelescopeColor = {
 			TelescopeMatching = { fg = "#d8a657" },
 			TelescopeSelection = { fg = "#0d0e0f", bg = "#689d6a", bold = true },
@@ -105,6 +108,29 @@ return {
 		end
 
 		telescope.setup({
+			-- (other Telescope configuration...)
+			extensions = {
+				zoxide = {
+					prompt_title = "[ Walking on the shoulders of TJ ]",
+					mappings = {
+						default = {
+							after_action = function(selection)
+								print("Update to (" .. selection.z_score .. ") " .. selection.path)
+							end,
+						},
+						["<C-s>"] = {
+							before_action = function(selection)
+								print("before C-s")
+							end,
+							action = function(selection)
+								vim.cmd.edit(selection.path)
+							end,
+						},
+						-- Opens the selected entry in a new split
+						["<C-q>"] = { action = z_utils.create_basic_command("split") },
+					},
+				},
+			},
 			defaults = {
 				layout_strategy = "vertical",
 				layout_config = {
