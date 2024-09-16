@@ -7,44 +7,48 @@
 # Set-ExecutionPolicy Unrestricted -Scope LocalMachine => Unrestricted does not enforce any restrictions
 # Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force => Bypass In Current Session Only
 # Set-ExecutionPolicy Restricted => Revert to Default
-# SUCKLESS:	                                      #
-# ================================================#
-Write-Output("Uninstalling more crap we probably don't want, like apps for OneDrive, Spotify, and Disney+...")
-winget uninstall "Cortana" --silent --accept-source-agreements
-winget uninstall "Disney+" --silent --accept-source-agreements
-winget uninstall "LinkedIn" --silent --accept-source-agreements
-winget uninstall "Outlook for Windows" --silent --accept-source-agreements
-winget uninstall "Windows Notepad" --silent --accept-source-agreements
-winget uninstall "Mail and Calendar" --silent --accept-source-agreements
-winget uninstall "Microsoft News" --silent --accept-source-agreements
-winget uninstall "Microsoft OneDrive" --silent --accept-source-agreements
-winget uninstall "Microsoft Tips" --silent --accept-source-agreements
-winget uninstall "Microsoft To Do" --silent --accept-source-agreements
-winget uninstall "Microsoft Sticky Notes" --silent --accept-source-agreements
-winget uninstall "Windows Clock" --silent --accept-source-agreements
-winget uninstall "MSN Weather" --silent --accept-source-agreements
-winget uninstall "Movies & TV" --silent --accept-source-agreements
-winget uninstall "Office" --silent --accept-source-agreements
-winget uninstall "OneDrive" --silent --accept-source-agreements
-winget uninstall "Spotify Music" --silent --accept-source-agreements
-winget uninstall "Windows Maps" --silent --accept-source-agreements
-winget uninstall "Xbox TCUI" --silent --accept-source-agreements
-winget uninstall "Xbox Game Bar Plugin" --silent --accept-source-agreements
-winget uninstall "Xbox Game Bar" --silent --accept-source-agreements
-winget uninstall "Game Bar" --silent --accept-source-agreements
-winget uninstall "Xbox" --silent --accept-source-agreements
-winget uninstall "Solitaire & Casual Games" --silent --accept-source-agreements
-winget uninstall "Gaming Services" --silent --accept-source-agreements
-winget uninstall "Get Help" --silent --accept-source-agreements
-winget uninstall "Microsoft Clipchamp" --silent --accept-source-agreements
-winget uninstall "Feedback Hub" --silent --accept-source-agreements
-winget uninstall "Phone Link" --silent --accept-source-agreements
-winget uninstall "Microsoft People" --silent --accept-source-agreements
-winget uninstall "Xbox Identity Provider" --silent --accept-source-agreements
-winget uninstall "Xbox Game Speech Window" --silent --accept-source-agreements
-winget uninstall "Power Automate" --silent --accept-source-agreements
 # List Of Packages:	                              #
 # ================================================#
+Write-Output "Uninstalling unnecessary apps such as OneDrive, Spotify, and Disney+..."
+$uninstall = @(
+    "Cortana",
+    "Disney+",
+    "LinkedIn",
+    "Outlook for Windows",
+    "AMD Radeon Software",
+    "Microsoft.DevHome",
+    "Dolby Access",
+    "Quick Assist",
+    "Windows Notepad",
+    "Mail and Calendar",
+    "Microsoft News",
+    "Microsoft OneDrive",
+    "Microsoft Tips",
+    "Microsoft To Do",
+    "Microsoft Sticky Notes",
+    "Windows Clock",
+    "MSN Weather",
+    "Movies & TV",
+    "Office",
+    "OneDrive",
+    "Spotify Music",
+    "Windows Maps",
+    "Xbox TCUI",
+    "Xbox Game Bar Plugin",
+    "Xbox Game Bar",
+    "Game Bar",
+    "Xbox",
+    "Solitaire & Casual Games",
+    "Gaming Services",
+    "Get Help",
+    "Microsoft Clipchamp",
+    "Feedback Hub",
+    "Phone Link",
+    "Microsoft People",
+    "Xbox Identity Provider",
+    "Xbox Game Speech Window",
+    "Power Automate"
+)
 $packages = @(
     "MSYS2.MSYS2",
     "Microsoft.WindowsTerminal",
@@ -87,6 +91,7 @@ $packages = @(
     "Microsoft.PowerToys",
     "GIMP.GIMP",
     "TheDocumentFoundation.LibreOffice",
+    "PDFgear.PDFgear",
     "OpenJS.NodeJS",
     "Python.Python.3.12"
 )
@@ -95,6 +100,13 @@ $scoopPackages = @(
     "gcc",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
+
+# UnInstall Packages:	                          #
+# ================================================#
+foreach ($app in $uninstall) {
+    Write-Host "Remove $app..."
+    winget uninstall $app --silent --accept-source-agreements
+}
 # Install Winget Packages:	                      #
 # ================================================#
 foreach ($package in $packages) {
