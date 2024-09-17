@@ -12,7 +12,7 @@
   "transparency": true,
   "transparency_alpha": 250,
   "animation": {
-    "enabled": false,
+    "enabled": true,
     "duration": 200,
     "style": "EaseInOutExpo",
     "fps": 60
