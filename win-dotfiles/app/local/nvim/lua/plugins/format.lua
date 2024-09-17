@@ -21,43 +21,32 @@ return {
 			quiet = false, -- not recommended to change
 		},
 		formatters_by_ft = {
-			javascript = { "prettier" },
-			typescript = { "prettier" },
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
-			svelte = { "prettier" },
-			css = { "prettier" },
-			html = { "prettier" },
-			json = { "prettier" },
-			yaml = { "prettier" },
-			markdown = { "prettier" },
-			graphql = { "prettier" },
+			javascript = { "prettierd" },
+			typescript = { "prettierd" },
+			javascriptreact = { "prettierd" },
+			typescriptreact = { "prettierd" },
+			svelte = { "prettierd" },
+			css = { "prettierd" },
+			html = { "prettierd" },
+			json = { "prettierd" },
+			yaml = { "prettierd" },
+			markdown = { "prettierd" },
+			graphql = { "prettierd" },
 			lua = { "stylua" },
 			terraform = { "terraform_fmt" },
 			python = { "isort", "black" },
+			["*"] = { "codespell" },
 		},
-
+		default_format_opts = {
+			lsp_format = "fallback",
+		},
 		formatters = {
 			injected = { options = { ignore_errors = true } },
 		},
-		format_on_save = function(bufnr)
-			-- Disable autoformat on certain filetypes
-			local ignore_filetypes = { "sql", "java" }
-			if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
-				return
-			end
-			-- Disable with a global or buffer-local variable
-			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-				return
-			end
-			-- Disable autoformat for files in a certain path
-			local bufname = vim.api.nvim_buf_get_name(bufnr)
-			if bufname:match("/node_modules/") then
-				return
-			end
-			-- ...additional logic...
-			return { timeout_ms = 500, lsp_fallback = true }
-		end,
+		format_on_save = {
+			lsp_format = "fallback",
+			timeout_ms = 500,
+		},
 		-----------------------------------------------------------
 		-- Toggle formatOnSave Command
 		-----------------------------------------------------------

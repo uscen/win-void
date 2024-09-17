@@ -44,8 +44,10 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		opts = {
 			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
+				"eslint_d",
+				"prettierd",
+				"prettier",
+				"stylua",
 			},
 		},
 	},

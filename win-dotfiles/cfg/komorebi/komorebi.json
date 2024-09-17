@@ -10,7 +10,7 @@
   "default_workspace_padding": 4,
   "default_container_padding": 4,
   "transparency": true,
-  "transparency_alpha": 250,
+  "transparency_alpha": 240,
   "animation": {
     "enabled": true,
     "duration": 200,
@@ -26,7 +26,7 @@
     "single": "#689d6a",
     "stack": "#689d6a",
     "monocle": "#689d6a",
-    "unfocused": "#1d2021"
+    "unfocused": "#282828"
   },
   "stackbar": {
     "height": 25,
