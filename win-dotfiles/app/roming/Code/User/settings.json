@@ -11,6 +11,7 @@
   "phpcs.standard": "Drupal",
   "terminal.integrated.fontSize": 12,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "terminal.integrated.defaultProfile.windows": "bash",
   "window.menuBarVisibility": "toggle",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
@@ -19,5 +20,17 @@
   "workbench.statusBar.visible": true,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#303030"
+  },
+  "terminal.integrated.profiles.windows": {
+    "bash": {
+      "path": "C:/Program Files/Git/bin/bash.exe",
+      "args": ["--login", "-i"],
+      "env": { "CHERE_INVOKING": "1" }
+    },
+    "bash (MSYS2)": {
+      "path": "C:\\msys64\\usr\\bin\\bash.exe",
+      "args": ["--login", "-i"],
+      "env": { "CHERE_INVOKING": "1" }
+    }
   }
 }
