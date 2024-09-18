@@ -13,13 +13,13 @@
   "transparency_alpha": 240,
   "animation": {
     "enabled": true,
-    "duration": 200,
+    "duration": 100,
     "style": "EaseInOutExpo",
     "fps": 60
   },
   "border": true,
   "border_width": 4,
-  "border_offset": -1,
+  "border_offset": -4,
   "border_implementation": "Komorebi",
   "border_style": "Square",
   "border_colours": {

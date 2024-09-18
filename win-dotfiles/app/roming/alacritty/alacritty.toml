@@ -10,7 +10,7 @@ program = "pwsh -nologo"
 # args = ["-defterm -here -no-start -ucrt64 -full-path -shell bash"]
 [window]
 opacity = 1.0
-padding = {x= 10, y=20}
+padding = {x= 10, y=10}
 dynamic_padding = true
 decorations = "None"
 [font]
@@ -19,13 +19,12 @@ bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 offset.x = 0
-offset.y = 2
+offset.y = 0
 size = 11
 [scrolling]
 history = 50000
 multiplier = 3
 [cursor]
-style = { shape = "Beam", blinking = "On" }
 vi_mode_style = {shape = "Block", blinking = "Off"}
 [terminal]
 osc52 = "CopyPaste"

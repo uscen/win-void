@@ -15,8 +15,6 @@
       "colorScheme": "Gruvbox_Hard",
       "cursorShape": "filledBox",
       "elevate": false,
-      "opacity": 65,
-      "useAcrylic": true,
       "bellStyle": "none",
       "font": {
         "face": "JetBrainsMono Nerd Font",
