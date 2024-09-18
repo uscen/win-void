@@ -6,7 +6,7 @@ return {
 	config = function()
 		require("toggleterm").setup({
 			size = 10,
-			open_mapping = [[<c-/>]],
+			open_mapping = [[<c-\>]],
 			hide_numbers = true,
 			shade_terminals = true,
 			shading_factor = 2,
