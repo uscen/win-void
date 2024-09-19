@@ -1,5 +1,5 @@
 {
-  "debug.console.fontSize": 12,
+  "debug.console.fontSize": 14,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
@@ -9,7 +9,7 @@
   "editor.tabSize": 2,
   "gitlens.currentLine.enabled": false,
   "phpcs.standard": "Drupal",
-  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.fontSize": 14,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "window.menuBarVisibility": "toggle",
