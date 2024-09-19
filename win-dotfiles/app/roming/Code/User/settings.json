@@ -2,72 +2,137 @@
   "debug.console.fontSize": 12,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
-  "editor.fontSize": 15,
+  "editor.fontSize": 13,
   "editor.renderWhitespace": "selection",
   "editor.selectionClipboard": false,
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "gitlens.currentLine.enabled": false,
   "phpcs.standard": "Drupal",
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 11,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "terminal.integrated.defaultProfile.windows": "bash",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -0.04,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.visible": true,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#303030"
   },
-  "terminal.integrated.profiles.windows": {
-    "bash": {
-      "path": "C:/Program Files/Git/bin/bash.exe",
-      "args": ["--login", "-i"],
-      "env": { "CHERE_INVOKING": "1" }
-    },
-    "bash (MSYS2)": {
-      "path": "C:\\msys64\\usr\\bin\\bash.exe",
-      "args": ["--login", "-i"],
-      "env": { "CHERE_INVOKING": "1" }
-    }
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // VIM Keybidings
   "editor.scrollBeyondLastLine": false, // recommended by neovim
+  "vim.leader": "<space>",
   "vim.easymotion": true,
+  "vim.surround": true,
   "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.leader": " ",
-  "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }],
+  "vim.nohlsearch": true,
+  "vim.sneak": false,
+  "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+  "vim.relativenumber": true,
+  "vim.easymotionMarkerooundColor": "#020202",
+  "vim.highlightedyank.enable": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "["],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "]"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["\"", "+", "y", "$"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["y"],
+      "after": ["\"", "*", "y"]
+    }
+  ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      // Pressing ctrl+n clears search highlighting
       "before": ["<Esc>"],
       "commands": [":nohl"]
     },
     {
-      // Pressing K inserts a line break above the cursor.
       "before": ["K"],
       "commands": ["lineBreakInsert"],
       "silent": true
     },
     {
-      // Pressing the leader key (Spacebar) followed by e toggles the sidebar visibility.
       "before": ["<leader>", "e"],
       "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     {
-      // Pressing the leader key (Spacebar) followed by f reveals the current file in the Explorer.
       "before": ["<leader>", "f"],
       "commands": ["revealInExplorer"]
     },
     {
-      // Pressing the leader key (Spacebar) followed by o, p opens the quick open panel.
       "before": ["leader", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
     }
-  ]
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    // VS Code new marker @ next occurence
+    "<C-d>": true,
+    // Copy
+    "<C-c>": false,
+    // Cut
+    "<C-x>": false,
+    // Paste
+    "<C-v>": true,
+    "<C-z>": false,
+    "<C-y>": false
+  },
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "solid",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "redhat.telemetry.enabled": false,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderLineHighlight": "line",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#242323",
+    "statusBar.background": "#1d5b8f",
+    "statusBar.debuggingBackground": "#456151"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "window.restoreFullscreen": true,
+  "workbench.editor.restoreViewState": true,
+  "window.newWindowDimensions": "maximized",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": false
 }

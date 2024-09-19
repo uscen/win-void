@@ -19,22 +19,26 @@ $packages=@(
 )
 $extensions=@(
     # General
-    "vscodevim.vim"                      # Vim Keybidings
-    "glenn2223.live-sass"                # SASS Compiler
-    "christian-kohler.path-intellisense" # File path autocomplete
-    "esbenp.prettier-vscode"             # Prettier - Code formatter
-    "hookyqr.beautify"                   # HTML/JSON beautifier
-    "mhutchie.git-graph"                 # Git graph
-    "mikestead.dotenv"                   # .env support
-    "tyriar.lorem-ipsum"                 # Lorem Ipsum generator
-    "yzhang.markdown-all-in-one"         # Markdown tools
+    "vscodevim.vim"
+    "DigitalBrainstem.javascript-ejs-support"
+    "dsznajder.es7-react-js-snippets"
+    "formulahendry.auto-close-tag"
+    "formulahendry.auto-rename-tag"
+    "steoates.autoimport"
+    "glenn2223.live-sass"
+    "christian-kohler.path-intellisense"
+    "esbenp.prettier-vscode"
+    "mhutchie.git-graph"
+    "mikestead.dotenv"
+    "tyriar.lorem-ipsum"
+    "yzhang.markdown-all-in-one"
     # Node/NPM/Yarn specific extensions
-    "christian-kohler.npm-intellisense"  # NPM better autocomplete
-    "dbaeumer.vscode-eslint"             # Eslint support
+    "christian-kohler.npm-intellisense"
+    "dbaeumer.vscode-eslint"
     # Themes
-    "github.github-vscode-theme"         # GitHub color theme
-    "jdinhlife.gruvbox"                  # Gruvbox Theme
-    "pkief.material-icon-theme"          # Material Icon Theme
+    "github.github-vscode-theme"
+    "jdinhlife.gruvbox"
+    "pkief.material-icon-theme"
 )
 
 # ================================================#
