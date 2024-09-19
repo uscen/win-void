@@ -24,6 +24,46 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "solid",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "redhat.telemetry.enabled": false,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderLineHighlight": "line",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#242323",
+    "statusBar.background": "#1d5b8f",
+    "statusBar.debuggingBackground": "#456151"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "window.restoreFullscreen": true,
+  "workbench.editor.restoreViewState": true,
+  "window.newWindowDimensions": "maximized",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": false,
   // VIM Keybidings
   "editor.scrollBeyondLastLine": false, // recommended by neovim
   "vim.leader": "<space>",
@@ -95,44 +135,8 @@
     "<C-z>": false,
     "<C-y>": false
   },
-  "editor.lineNumbers": "relative",
-  "editor.cursorBlinking": "solid",
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "redhat.telemetry.enabled": false,
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  },
-  "debug.javascript.autoAttachFilter": "onlyWithFlag",
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.renderLineHighlight": "line",
-  "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#242323",
-    "statusBar.background": "#1d5b8f",
-    "statusBar.debuggingBackground": "#456151"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
-  "window.restoreFullscreen": true,
-  "workbench.editor.restoreViewState": true,
-  "window.newWindowDimensions": "maximized",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "go.toolsManagement.autoUpdate": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.inlineSuggest.enabled": false
+  "// To improve performance",
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  }
 }
