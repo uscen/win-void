@@ -5,13 +5,23 @@ $packages=@(
     "typescript",
     "sass",
     "yarn"
+    "eslint",
+    "eslint-config-airbnb",
+    "eslint-config-google",
+    "eslint-config-standard",
+    "eslint-plugin-import",
+    "eslint-plugin-jsx-a11y",
+    "eslint-plugin-node",
+    "eslint-plugin-promise",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
+    "firebase-tools"
 )
 $extensions=@(
     # General
     "vscodevim.vim"                      # Vim Keybidings
     "glenn2223.live-sass"                # SASS Compiler
     "christian-kohler.path-intellisense" # File path autocomplete
-    "coenraads.bracket-pair-colorizer"   # Bracket Pair Colorizer
     "esbenp.prettier-vscode"             # Prettier - Code formatter
     "hookyqr.beautify"                   # HTML/JSON beautifier
     "mhutchie.git-graph"                 # Git graph
@@ -39,7 +49,6 @@ Write-Host "Installation Of NPM Packages Is Complete!"
 # Vscode Paclages:      		                  #
 # ================================================#
 foreach ($extension in $extensions) {
-        Write-Host "Installing $extension..."
         code --install-extension $extension --force
 }
 Write-Host "Installation Of Visual Studio Code extensions Is Complete!"

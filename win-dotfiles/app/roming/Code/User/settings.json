@@ -32,5 +32,42 @@
       "args": ["--login", "-i"],
       "env": { "CHERE_INVOKING": "1" }
     }
-  }
+  },
+  // VIM Keybidings
+  "editor.scrollBeyondLastLine": false, // recommended by neovim
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.leader": " ",
+  "vim.insertModeKeyBindings": [{ "before": ["j", "j"], "after": ["<Esc>"] }],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // Pressing ctrl+n clears search highlighting
+      "before": ["<Esc>"],
+      "commands": [":nohl"]
+    },
+    {
+      // Pressing K inserts a line break above the cursor.
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    },
+    {
+      // Pressing the leader key (Spacebar) followed by e toggles the sidebar visibility.
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      // Pressing the leader key (Spacebar) followed by f reveals the current file in the Explorer.
+      "before": ["<leader>", "f"],
+      "commands": ["revealInExplorer"]
+    },
+    {
+      // Pressing the leader key (Spacebar) followed by o, p opens the quick open panel.
+      "before": ["leader", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    }
+  ]
 }
