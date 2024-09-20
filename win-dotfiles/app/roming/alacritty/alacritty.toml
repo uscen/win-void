@@ -4,10 +4,8 @@
 working_directory = "C:/Users/LLI"
 live_config_reload = true
 [shell]
-program = "pwsh -nologo"
-# program = "C:/Program Files/Git/bin/bash.exe"
-# program = "C:/msys64/msys2_shell.cmd"
-# args = ["-defterm -here -no-start -ucrt64 -full-path -shell bash"]
+program = "C:/msys64/msys2_shell.cmd"
+args = ["-defterm -here -use-full-path -no-start -mingw64 -shell bash"]
 [window]
 opacity = 1.0
 padding = {x= 10, y=10}
@@ -32,10 +30,10 @@ osc52 = "CopyPaste"
 # colorsscheme:                                      #
 # ===================================================#
 [colors.primary]
-background = '#1d2021'
+background = '#282828'
 foreground = '#d4be98'
 [colors.normal]
-black   = '#32302f'
+black   = '#3c3836'
 red     = '#ea6962'
 green   = '#a9b665'
 yellow  = '#d8a657'
@@ -44,7 +42,7 @@ magenta = '#d3869b'
 cyan    = '#89b482'
 white   = '#d4be98'
 [colors.bright]
-black   = '#32302f'
+black   = '#3c3836'
 red     = '#ea6962'
 green   = '#a9b665'
 yellow  = '#d8a657'
