@@ -24,10 +24,6 @@
     "command": "extension.vim_cmd+a"
   },
   {
-    "key": "ctrl+q",
-    "command": "workbench.action.closeActiveEditor"
-  },
-  {
     "key": "ctrl+n",
     "command": "editor.action.addSelectionToNextFindMatch",
     "when": "editorFocus"
@@ -193,7 +189,12 @@
     "key": "ctrl+[",
     "command": "editor.foldLevel1",
     "when": "editorTextFocus && foldingEnabled"
-  }
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorTextFocus && !inputFocus"
+  },
   //
   // SUGGESTIONS AND AUTOCOMPLETION SHORTCUTS
   //
@@ -216,6 +217,5 @@
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
-  },
-
+  }
 ]

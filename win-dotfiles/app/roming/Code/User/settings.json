@@ -1,15 +1,20 @@
 {
-  "debug.console.fontSize": 14,
+  // General
+  "editor.renderLineHighlight": "line",
   "editor.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.fontLigatures": true,
   "editor.fontSize": 13,
+  "editor.fontLigatures": true,
   "editor.renderWhitespace": "selection",
   "editor.selectionClipboard": false,
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
-  "gitlens.currentLine.enabled": false,
-  "phpcs.standard": "Drupal",
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "solid",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
   "terminal.integrated.fontSize": 14,
+  "debug.console.fontSize": 14,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "window.menuBarVisibility": "toggle",
@@ -18,42 +23,45 @@
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.visible": true,
+  "workbench.editor.restoreViewState": true,
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#242323",
+    "statusBar.background": "#1d5b8f",
+    "statusBar.debuggingBackground": "#456151"
+  },
+  // File Explorer
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmRename": false,
+  "explorer.fileConfirmationPrompt": false,
+  "explorer.showHiddenFiles": true,
+  "explorer.sortOrder": "ascending",
+  "explorer.sortBy": "name",
+  "explorer.sortCaseInsensitive": true,
+  // Format && AutoComplete
+  "beautify.onSave": true,
+  "editor.formatOnSave": true,
+  "beautify.JSfiles": ["js", "json", "jsbeautifyrc", "jshintrc", "ts"],
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "beautify.onSave": true,
-  "editor.formatOnSave": true,
-  "beautify.JSfiles": ["js", "json", "jsbeautifyrc", "jshintrc", "ts"],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.lineNumbers": "relative",
-  "editor.cursorBlinking": "solid",
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
   },
-  "redhat.telemetry.enabled": false,
-  "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.renderLineHighlight": "line",
-  "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#242323",
-    "statusBar.background": "#1d5b8f",
-    "statusBar.debuggingBackground": "#456151"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
   "window.restoreFullscreen": true,
-  "workbench.editor.restoreViewState": true,
   "window.newWindowDimensions": "maximized",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -62,7 +70,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.inlineSuggest.enabled": false,
   // VIM Keybidings
   "editor.scrollBeyondLastLine": false, // recommended by neovim
   "vim.leader": "<space>",
@@ -85,6 +92,14 @@
     {
       "before": ["<tab>"],
       "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<leader>", "b", "o"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "b", "d"],
+      "commands": ["workbench.action.closeActiveEditor"]
     },
     {
       "before": ["Y"],
@@ -112,11 +127,7 @@
       "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     {
-      "before": ["<leader>", "f"],
-      "commands": ["revealInExplorer"]
-    },
-    {
-      "before": ["leader", "f", "f"],
+      "before": ["<leader>", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
     }
   ],
