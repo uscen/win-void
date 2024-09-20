@@ -24,11 +24,6 @@
     "command": "extension.vim_cmd+a"
   },
   {
-    "key": "ctrl+n",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
-  },
-  {
     "key": "ctrl+x",
     "command": "editor.action.moveSelectionToNextFindMatch",
     "when": "editorFocus"

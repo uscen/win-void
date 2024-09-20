@@ -2,6 +2,10 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "defaultProfile": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
   "confirmCloseAllTabs": false,
+  "initialCols": 55,
+  "initialPosition": ",",
+  "initialRows": 22,
+  "launchMode": "focus",
   "profiles": {
     "defaults": {
       "colorScheme": "Gruvbox",
