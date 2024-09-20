@@ -5,17 +5,17 @@ $packages=@(
     "typescript",
     "sass",
     "yarn"
-    "eslint",
-    "eslint-config-airbnb",
-    "eslint-config-google",
-    "eslint-config-standard",
-    "eslint-plugin-import",
-    "eslint-plugin-jsx-a11y",
-    "eslint-plugin-node",
-    "eslint-plugin-promise",
-    "eslint-plugin-react",
-    "eslint-plugin-react-hooks",
-    "firebase-tools"
+    # "eslint",
+    # "eslint-config-airbnb",
+    # "eslint-config-google",
+    # "eslint-config-standard",
+    # "eslint-plugin-import",
+    # "eslint-plugin-jsx-a11y",
+    # "eslint-plugin-node",
+    # "eslint-plugin-promise",
+    # "eslint-plugin-react",
+    # "eslint-plugin-react-hooks",
+    # "firebase-tools"
 )
 $extensions=@(
     # General

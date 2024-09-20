@@ -74,6 +74,23 @@ return {
 						winhighlight = "NormalFloat:TelescopePromptPrefix,FloatBorder:TelescopePromptPrefix",
 					},
 				},
+				experimental = {
+					ghost_text = false,
+					git = {
+						async = true,
+					},
+				},
+				performance = {
+					debounce = 0, -- default is 60ms
+					throttle = 0, -- default is 30ms
+				},
+				matching = {
+					disallow_fuzzy_matching = true,
+					disallow_fullfuzzy_matching = true,
+					disallow_partial_fuzzy_matching = false,
+					disallow_partial_matching = false,
+					disallow_prefix_unmatching = true,
+				},
 				formatting = {
 					format = lspkind.cmp_format({
 						symbol_map = symbol_map,
@@ -102,13 +119,13 @@ return {
 					["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 					["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 					["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+					["<C-n>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				},
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "path" },
 					{ name = "vsnip" },
 					{ name = "buffer" },
 				}),
@@ -143,20 +160,6 @@ return {
 					{ name = "cmdline", keyword_length = 3 },
 				}),
 			})
-
-			vim.cmd([[
-						highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
-						highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-						highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-						highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-						highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
-						highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
-						highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-						highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-						highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-						highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
-						highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
-				]])
 		end,
 	},
 }

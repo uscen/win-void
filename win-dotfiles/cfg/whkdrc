@@ -6,8 +6,8 @@ alt + ctrl + r          : komorebic reload-configuration
 
 # Start App
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
-alt + g                 : start firefox
-alt + w                 : start chrome
+alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
+alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + n                 : wt bash -c "yazi /c/Users/LLI"
 alt + v            	    : cd $env:userprofile; neovide
 alt + shift + return    : alacritty

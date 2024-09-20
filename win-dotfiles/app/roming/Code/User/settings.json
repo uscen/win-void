@@ -18,16 +18,11 @@
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.visible": true,
-  "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#303030"
-  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.lineNumbers": "relative",
   "editor.cursorBlinking": "solid",
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -35,9 +30,6 @@
     "**/.factorypath": true
   },
   "redhat.telemetry.enabled": false,
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  },
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -80,11 +72,11 @@
   "vim.useSystemClipboard": true,
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<leader>", "["],
+      "before": [ "<S-tab>"],
       "commands": ["workbench.action.previousEditor"]
     },
     {
-      "before": ["<leader>", "]"],
+      "before": ["<tab>"],
       "commands": ["workbench.action.nextEditor"]
     },
     {
@@ -122,14 +114,14 @@
     }
   ],
   "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false,
+    "<C-a>": true,
+    "<C-f>": true,
     // VS Code new marker @ next occurence
     "<C-d>": true,
     // Copy
     "<C-c>": false,
     // Cut
-    "<C-x>": false,
+    "<C-x>": true,
     // Paste
     "<C-v>": true,
     "<C-z>": false,

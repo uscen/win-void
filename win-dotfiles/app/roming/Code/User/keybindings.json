@@ -3,10 +3,6 @@
   // General Keybidings
   //
   {
-    "key": "cmd+m",
-    "command": "extension.generateGettersAndSetters"
-  },
-  {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
@@ -16,16 +12,8 @@
     "command": "workbench.action.files.save"
   },
   {
-    "key": "ctrl+d",
-    "command": ""
-  },
-  {
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen"
-  },
-  {
-    "key": "ctrl+f",
-    "command": "workbench.action.findInFiles"
   },
   {
     "key": "ctrl+c",
