@@ -3,6 +3,11 @@
   // General Keybidings
   //
   {
+    "key": "shift+u",
+    "command": "extension.vim_ctrl+r",
+    "when": "textInputFocus && vim.mode != 'Insert'"
+  },
+  {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
@@ -141,14 +146,6 @@
     "key": "ctrl+m",
     "command": "workbench.action.maximizeEditor",
     "when": "!terminalFocus"
-  },
-  {
-    "key": "ctrl+r",
-    "command": "redo"
-  },
-  {
-    "key": "shift+cmd+z",
-    "command": "-redo"
   },
   {
     "key": "ctrl+enter ctrl+enter",

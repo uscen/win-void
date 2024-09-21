@@ -142,7 +142,6 @@
     "<C-x>": true,
     // Paste
     "<C-v>": true,
-    "<C-z>": false,
     "<C-y>": false
   },
   "extensions.experimental.affinity": {
