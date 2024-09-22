@@ -49,8 +49,8 @@
         "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
         "name": "Ubuntu",
         "source": "Windows.Terminal.Wsl",
-        "useAcrylic": true,
-        "hidden": true
+        "startingDirectory": "/home/lli",
+        "useAcrylic": true
       }
     ]
   },

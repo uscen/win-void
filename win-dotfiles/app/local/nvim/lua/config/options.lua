@@ -79,8 +79,8 @@ vim.opt.listchars:append("space:⋅")
 -----------------------------------------------------------
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.shiftround = true
 -------------------------------------------------------------
 -- Use ripgrep as grep tool:
