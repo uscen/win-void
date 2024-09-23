@@ -29,15 +29,6 @@
     "statusBar.background": "#1d5b8f",
     "statusBar.debuggingBackground": "#456151"
   },
-  // File Explorer
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "explorer.confirmRename": false,
-  "explorer.fileConfirmationPrompt": false,
-  "explorer.showHiddenFiles": true,
-  "explorer.sortOrder": "ascending",
-  "explorer.sortBy": "name",
-  "explorer.sortCaseInsensitive": true,
   // Format && AutoComplete
   "beautify.onSave": true,
   "editor.formatOnSave": true,
@@ -73,6 +64,8 @@
   // VIM Keybidings
   "editor.scrollBeyondLastLine": false, // recommended by neovim
   "vim.leader": "<space>",
+  "vim.enableNeovim": true,
+  "vim.neovimUseConfigFile": true,
   "vim.easymotion": true,
   "vim.surround": true,
   "vim.incsearch": true,
@@ -84,6 +77,12 @@
   "vim.easymotionMarkerooundColor": "#020202",
   "vim.highlightedyank.enable": true,
   "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
   "vim.normalModeKeyBindings": [
     {
       "before": ["<S-tab>"],
