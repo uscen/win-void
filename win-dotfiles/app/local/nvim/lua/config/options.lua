@@ -42,7 +42,7 @@ vim.opt.undolevels = 10000
 -----------------------------------------------------------
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.numberwidth = 1
+vim.opt.numberwidth = 4
 vim.o.cursorline = false
 vim.opt.showmatch = true
 vim.opt.foldmethod = "marker"

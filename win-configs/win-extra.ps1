@@ -28,6 +28,7 @@ $extensions=@(
     "glenn2223.live-sass"
     "christian-kohler.path-intellisense"
     "esbenp.prettier-vscode"
+    "eamodio.gitlens"
     "mhutchie.git-graph"
     "mikestead.dotenv"
     "tyriar.lorem-ipsum"
@@ -37,7 +38,7 @@ $extensions=@(
     "dbaeumer.vscode-eslint"
     # Themes
     "github.github-vscode-theme"
-    "jdinhlife.gruvbox"
+    "sainnhe.gruvbox-material"
     "pkief.material-icon-theme"
 )
 

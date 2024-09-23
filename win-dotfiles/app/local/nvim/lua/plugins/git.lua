@@ -26,34 +26,6 @@ return {
 			vim.g.lazygit_floating_window_scaling_factor = 0.9
 		end,
 	},
-
-	-----------------------------------------------------------
-	-- NeoGit
-	-----------------------------------------------------------
-	{
-		"NeogitOrg/neogit",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-		cmd = "Neogit",
-		keys = {
-			{
-				"<leader>gG",
-				function()
-					return require("neogit").open()
-				end,
-				desc = "Open neogit",
-			},
-		},
-		opts = {
-			kind = "split",
-			status = { recent_commit_count = 25 },
-			integrations = { telescope = true },
-			auto_show_console = false,
-			telescope_sorter = function()
-				return require("telescope").extensions.fzf.native_fzf_sorter()
-			end,
-		},
-	},
-
 	-----------------------------------------------------------
 	-- Gitsigns
 	-----------------------------------------------------------
@@ -83,8 +55,18 @@ return {
 			},
 		},
 		opts = {
+			signs = {
+				-- TODO add hl to colorscheme
+				add = { text = "▎" },
+				change = { text = "▎" },
+				delete = { text = "契" },
+				topdelete = { text = "契" },
+				changedelete = {
+					text = "▎",
+				},
+			},
 			signcolumn = true,
-			numhl = true,
+			numhl = false,
 			linehl = false,
 			word_diff = false,
 			watch_gitdir = { interval = 1000, follow_files = true },

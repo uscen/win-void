@@ -191,6 +191,21 @@
   // SUGGESTIONS AND AUTOCOMPLETION SHORTCUTS
   //
   {
+    "key": "ctrl+n",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "toggleSuggestionDetails",
+    "when": "editorTextFocus && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "toggleSuggestionFocus",
+    "when": "editorTextFocus && suggestWidgetVisible"
+  },
+  {
     "key": "ctrl+j",
     "command": "selectNextSuggestion",
     "when": "suggestWidgetVisible"

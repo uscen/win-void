@@ -8,7 +8,7 @@ alt + ctrl + r          : komorebic reload-configuration
 alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
-alt + n                 : wt yazi $env:USERPROFILE
+alt + n                 : wt sh -c "yazi ~"
 alt + v            	    : cd $env:userprofile; neovide
 alt + shift + return    : alacritty
 alt + shift + n         : explorer
@@ -53,9 +53,9 @@ alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + shift + space     : komorebic toggle-float
-alt + f		            : komorebic toggle-maximize
+alt + f		              : komorebic toggle-maximize
 alt + m                 : komorebic toggle-monocle
-alt + s		            : komorebic promote
+alt + s		              : komorebic promote
 
 # Window manager options
 alt + r                 : komorebic retile
