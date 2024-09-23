@@ -114,6 +114,10 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
+      "before": ["s"],
+      "after": ["leader", "leader", "2", "s"]
+    },
+    {
       "before": ["<Esc>"],
       "commands": [":nohl"]
     },

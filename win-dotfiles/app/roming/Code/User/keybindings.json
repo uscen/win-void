@@ -3,6 +3,21 @@
   // General Keybidings
   //
   {
+    "key": "n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "shift+n",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus"
+  },
+  {
     "key": "shift+u",
     "command": "extension.vim_ctrl+r",
     "when": "textInputFocus && vim.mode != 'Insert'"
