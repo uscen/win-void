@@ -21,8 +21,6 @@ I try to follow these ideas as much as i can:
 - using msys2 for development base and scoop for installing any other packages.
 - avoid using software from microsoft like vscode, terminal, etc.. use more free alternative or compile linux versions with msys2.
 
----
-
 ## for future
 
 - i don't want to rely on supply chain. building software directly the pc is the best/safest way.(so i will ditch scoop in future)
