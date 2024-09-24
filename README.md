@@ -10,8 +10,6 @@
 - **Files Manager** : **Yazi**
 - **Menu**: **PowerToys Run**
 
----
-
 # philosophy
 
 I try to follow these ideas as much as i can:
@@ -26,8 +24,6 @@ I try to follow these ideas as much as i can:
 - i don't want to rely on supply chain. building software directly the pc is the best/safest way.(so i will ditch scoop in future)
 - it's better to replace c/c++ software with rust.
 - In some cases it's better to use GUI applications.(like web-browsers)
-
----
 
 ## Install packages
 
