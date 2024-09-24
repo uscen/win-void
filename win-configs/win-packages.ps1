@@ -88,8 +88,6 @@ $packages = @(
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Microsoft.PowerToys",
-    "GIMP.GIMP",
-    "TheDocumentFoundation.LibreOffice",
     "PDFgear.PDFgear",
     "OpenJS.NodeJS",
     "Python.Python.3.12"

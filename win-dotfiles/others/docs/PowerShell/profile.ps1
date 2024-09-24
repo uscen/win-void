@@ -17,6 +17,8 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnVi
 # ENV: 						                            #
 # ======================================================#
 $Env:EDITOR = "nvim.exe"
+$Env:VISUAL = "code"
+$Env:PAGER = "delta"
 $Env:VIRTUAL_ENV_DISABLE_PROMPT = 1
 $Env:CMAKE_EXPORT_COMPILE_COMMANDS="ON"
 function Append-Path($path) {
