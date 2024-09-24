@@ -7,12 +7,12 @@
   "unmanaged_window_operation_behaviour": "Op",
   "window_container_behaviour": "Create",
   "mouse_follows_focus": true,
-  "default_workspace_padding": 2,
-  "default_container_padding": 2,
-  "transparency": true,
+  "default_workspace_padding": 0,
+  "default_container_padding": 0,
+  "transparency": false,
   "transparency_alpha": 240,
   "animation": {
-    "enabled": true,
+    "enabled": false,
     "duration": 300,
     "style": "Linear",
     "fps": 60
@@ -40,6 +40,16 @@
       "background": "#1d2021"
     }
   },
+  "manage_rules": [
+    {
+      "id": "Messenger.exe",
+      "kind": "Exe"
+    },
+    {
+      "id": "MicrosoftWhiteboard.exe",
+      "kind": "Exe"
+    }
+  ],
   "float_rules": [
     {
       "kind": "Exe",
