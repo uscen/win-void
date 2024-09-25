@@ -46,10 +46,10 @@ alt + oem_4             : komorebic cycle-stack previous # oem_4 is [
 alt + oem_6             : komorebic cycle-stack next # oem_6 is ]
 
 # Resize
-alt + oem_plus          : komorebic resize-axis horizontal increase
-alt + oem_minus         : komorebic resize-axis horizontal decrease
-alt + shift + oem_plus  : komorebic resize-axis vertical increase
-alt + shift + oem_minus : komorebic resize-axis vertical decrease
+alt + control + l       : komorebic resize-axis horizontal increase
+alt + control + h       : komorebic resize-axis horizontal decrease
+alt + control + j       : komorebic resize-axis vertical increase
+alt + control + k       : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + shift + space     : komorebic toggle-float

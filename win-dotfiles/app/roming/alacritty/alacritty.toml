@@ -18,7 +18,7 @@ italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 offset.x = 0
 offset.y = 0
-size = 11
+size = 10
 [scrolling]
 history = 50000
 multiplier = 3
