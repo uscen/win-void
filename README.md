@@ -30,7 +30,7 @@ I try to follow these ideas as much as i can:
 **Change Execution Policy**
 
 ```powershell
-Set-ExecutionPolicy Unrestricted -Scope LocalMachine
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ```powershell
@@ -39,6 +39,7 @@ Set-ExecutionPolicy Unrestricted -Scope LocalMachine
 # ================================================#
 # Change Execution Policy:                        #
 # ================================================#
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # Set-ExecutionPolicy RemoteSigned => RemoteSigned requires that scripts downloaded from the internet have a digital signature# Set-ExecutionPolicy Unrestricted -Scope LocalMachine =>
 # Set-ExecutionPolicy Unrestricted -Scope LocalMachine => Unrestricted does not enforce any restrictions
 # Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force => Bypass In Current Session Only
