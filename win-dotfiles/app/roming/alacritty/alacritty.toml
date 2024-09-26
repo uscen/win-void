@@ -12,12 +12,10 @@ padding = {x= 10, y=10}
 dynamic_padding = true
 decorations = "None"
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-offset.x = 0
-offset.y = 0
 size = 10
 [scrolling]
 history = 50000

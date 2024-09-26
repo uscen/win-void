@@ -7,8 +7,8 @@
   "unmanaged_window_operation_behaviour": "Op",
   "window_container_behaviour": "Create",
   "mouse_follows_focus": true,
-  "default_workspace_padding": 0,
-  "default_container_padding": 0,
+  "default_workspace_padding": 2,
+  "default_container_padding": 2,
   "transparency": false,
   "transparency_alpha": 240,
   "animation": {
@@ -20,7 +20,7 @@
   "border": true,
   "border_width": 4,
   "border_offset": -1,
-  "border_implementation": "Windows",
+  "border_implementation": "Komorebi",
   "border_style": "Square",
   "border_colours": {
     "single": "#689d6a",
@@ -147,15 +147,15 @@
       "workspaces": [
         {
           "name": "I",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "II",
-          "layout": "VerticalStack"
+          "layout": "BSP"
         },
         {
           "name": "III",
-          "layout": "VerticalStack",
+          "layout": "BSP",
           "workspace_rules": [
             {
               "kind": "Exe",

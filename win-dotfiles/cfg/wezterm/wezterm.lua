@@ -38,7 +38,7 @@ return {
 	-----------------------------------------------------------
 	-- Colorscheme Configurations:
 	-----------------------------------------------------------
-	color_scheme = "gruvbox_material_dark_hard",
+	color_scheme = "gruvbox_material_dark_medium",
 	color_schemes = {
 		["gruvbox_material_dark_medium"] = {
 			foreground = "#D4BE98",
