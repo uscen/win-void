@@ -82,6 +82,7 @@ $packages = @(
     "Microsoft.VisualStudioCode",
     "Mozilla.Firefox",
     "Google.Chrome",
+    "Brave.Brave",
     "mpv.net",
     "eza-community.eza",
     "LGUG2Z.komorebi",

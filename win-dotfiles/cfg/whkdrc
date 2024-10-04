@@ -5,7 +5,7 @@ alt + shift + r         : taskkill /f /im whkd.exe; Start-Process whkd -WindowSt
 alt + ctrl + r          : komorebic reload-configuration
 
 # Start App
-alt + b                 : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
+alt + b                 : if ($wshell.AppActivate('Brave') -eq $False) { start Brave }
 alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + n                 : wt sh -c "yazi ~"
