@@ -9,7 +9,7 @@
   "mouse_follows_focus": true,
   "default_workspace_padding": 2,
   "default_container_padding": 2,
-  "transparency": true,
+  "transparency": false,
   "transparency_alpha": 240,
   "theme": {
     "palette": "Base16",
@@ -19,7 +19,7 @@
     "single_border": "Base0C"
   },
   "animation": {
-    "enabled": true,
+    "enabled": false,
     "duration": 250,
     "style": "Linear",
     "fps": 60
@@ -29,6 +29,12 @@
   "border_offset": -2,
   "border_implementation": "Komorebi",
   "border_style": "Square",
+  "border_colours": {
+    "single": "#689d6a",
+    "stack": "#689d6a",
+    "monocle": "#689d6a",
+    "unfocused": "#282828"
+  },
   "stackbar": {
     "height": 25,
     "mode": "OnStack",
