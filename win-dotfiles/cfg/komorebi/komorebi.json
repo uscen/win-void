@@ -20,24 +20,18 @@
   },
   "animation": {
     "enabled": false,
-    "duration": 250,
-    "style": "Linear",
+    "duration": 300,
+    "style": "EaseInOutExpo",
     "fps": 60
   },
   "border": true,
-  "border_width": 2,
+  "border_width": 4,
   "border_offset": -2,
   "border_implementation": "Komorebi",
   "border_style": "Square",
-  "border_colours": {
-    "single": "#689d6a",
-    "stack": "#689d6a",
-    "monocle": "#689d6a",
-    "unfocused": "#282828"
-  },
   "stackbar": {
     "height": 25,
-    "mode": "OnStack",
+    "mode": "Never",
     "tabs": {
       "font_family": "JetBrainsMono NF",
       "font_size": 20,
