@@ -64,6 +64,7 @@ return {
 			local lspkind = require("lspkind")
 
 			cmp.setup({
+				preselect = cmp.PreselectMode.Item,
 				window = {
 					completion = {
 						border = "single",
@@ -123,6 +124,18 @@ return {
 					["<C-y>"] = cmp.mapping.confirm({ select = true }),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							local entry = cmp.get_selected_entry()
+							if not entry then
+								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+							else
+								cmp.confirm()
+							end
+						else
+							fallback()
+						end
+					end, { "i", "s", "c" }),
 				},
 				sources = cmp.config.sources({
 					{ name = "vsnip" },
