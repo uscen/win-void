@@ -51,6 +51,12 @@ return {
 						["markup.attributes"] = { class = "className" },
 					},
 				},
+				jsx = {
+					options = {
+						["output.selfClosingStyle"] = "xhtml",
+						["markup.attributes"] = { class = "className" },
+					},
+				},
 			},
 		})
 

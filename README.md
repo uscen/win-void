@@ -16,12 +16,12 @@ I try to follow these ideas as much as i can:
 
 - using free/open source software.
 - using terminal-based applications.
-- using msys2 for development base and scoop for installing any other packages.
+- using msys2 for development base and winget | scoop for installing any other packages.
 - avoid using software from microsoft like vscode, terminal, etc.. use more free alternative or compile linux versions with msys2.
 
 ## for future
 
-- i don't want to rely on supply chain. building software directly the pc is the best/safest way.(so i will ditch scoop in future)
+- i don't want to rely on supply chain. building software directly the pc is the best/safest way.(so i will ditch scoop | winget in future)
 - it's better to replace c/c++ software with rust.
 - In some cases it's better to use GUI applications.(like web-browsers)
 

@@ -1,6 +1,5 @@
 [manager]
 prepend_keymap = [
-	{ on = [ "<Esc>" ], run = "close" },
 	{ on = [ "e" ], run = "open"},
 	{ on = [ "A" ], run = "create --dir"},
 	{ on = [ "l" ], run = "plugin smart-enter --sync --args='detatch'", desc = "Open in new window." },
