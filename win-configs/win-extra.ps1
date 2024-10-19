@@ -5,6 +5,7 @@ $packages=@(
     "typescript",
     "sass",
     "yarn"
+    "firebase-tools"
     # "eslint",
     # "eslint-config-airbnb",
     # "eslint-config-google",
@@ -15,7 +16,6 @@ $packages=@(
     # "eslint-plugin-promise",
     # "eslint-plugin-react",
     # "eslint-plugin-react-hooks",
-    # "firebase-tools"
 )
 $extensions=@(
     # General
