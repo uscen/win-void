@@ -40,3 +40,7 @@ Set-ItemProperty -Path 'HKCU:\Control Panel\Accessibility\Keyboard Response' -Na
 Set-ItemProperty -Path 'HKCU:\Control Panel\Accessibility\Keyboard Response' -Name DelayBeforeAcceptance -Value 0
 Set-ItemProperty -Path 'HKCU:\Control Panel\Accessibility\Keyboard Response' -Name BounceTime            -Value 0
 Set-ItemProperty -Path 'HKCU:\Control Panel\Accessibility\Keyboard Response' -Name Flags                 -Value 59
+# ================================================#
+# "High Performance" (Best Performance):          #
+# ================================================#
+powercfg -setactive SCHEME_MIN

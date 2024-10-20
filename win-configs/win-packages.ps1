@@ -68,7 +68,7 @@ $packages = @(
     "Neovide.Neovide",
     "ImageMagick.Q16-HDRI",
     "hpjansson.Chafa",
-    "yt-dlp.yt-dlp",
+    #"yt-dlp.yt-dlp",
     "7zip.7zip",
     "jqlang.jq",
     "Fastfetch-cli.Fastfetch",
@@ -97,6 +97,8 @@ $packages = @(
 $scoopPackages = @(
     "aria2",
     "gcc",
+    "yt-dlp",
+    "ffmpeg",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 
