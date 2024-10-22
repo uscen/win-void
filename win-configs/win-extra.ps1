@@ -20,7 +20,6 @@ $packages=@(
 $extensions=@(
     # General
     "vscodevim.vim"
-    "DigitalBrainstem.javascript-ejs-support"
     "dsznajder.es7-react-js-snippets"
     "formulahendry.auto-close-tag"
     "formulahendry.auto-rename-tag"
