@@ -21,7 +21,7 @@
   "animation": {
     "enabled": false,
     "duration": 300,
-    "style": "EaseInOutExpo",
+    "style": "EaseOutBack",
     "fps": 60
   },
   "border": true,
