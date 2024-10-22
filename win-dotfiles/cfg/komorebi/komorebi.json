@@ -63,6 +63,11 @@
       "matching_strategy": "Equals"
     },
     {
+      "kind": "Class",
+      "id": "yasb-bar",
+      "matching_strategy": "Equals"
+    },
+    {
       "kind": "Exe",
       "id": "explorer.exe",
       "matching_strategy": "Equals"
