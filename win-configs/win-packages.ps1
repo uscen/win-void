@@ -56,7 +56,6 @@ $packages = @(
     "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
-    "wez.wezterm",
     "sxyazi.yazi",
     "sharkdp.fd",
     "sharkdp.pastel",

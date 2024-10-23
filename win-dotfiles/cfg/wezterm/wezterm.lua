@@ -12,14 +12,14 @@ return {
 	-----------------------------------------------------------
 	-- HighPerformance Configurations:
 	-----------------------------------------------------------
-	-- -- front_end = "OpenGL", -- current work-around for https://github.com/wez/wezterm/issues/4825
+	-- front_end = "OpenGL", -- current work-around for https://github.com/wez/wezterm/issues/4825
 	front_end = "WebGpu",
 	webgpu_power_preference = "HighPerformance",
 	-----------------------------------------------------------
 	-- Fonts Configurations:
 	-----------------------------------------------------------
 	font = wezterm.font("JetBrainsMono NF", { weight = "Medium", stretch = "Normal", style = "Normal" }),
-	font_size = 11.0,
+	font_size = 10.0,
 	font_rules = {
 		{
 			italic = true,
@@ -76,10 +76,10 @@ return {
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
 	window_padding = {
-		left = 0,
+		left = 10,
 		right = 0,
-		top = 0,
-		bottom = 0,
+		top = 10,
+		bottom = 10,
 	},
 	-----------------------------------------------------------
 	-- Tab Configurations:
