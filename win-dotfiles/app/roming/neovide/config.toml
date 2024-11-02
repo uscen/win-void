@@ -4,9 +4,9 @@ idle = true
 tabs = true
 theme = "auto"
 [font]
-size = 10
+size = 9
 hinting = "full"
 edging = "antialias"
 [[font.normal]]
 family = "JetBrainsMono NF"
-style = "W400"
+style = "W600"

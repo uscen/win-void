@@ -9,8 +9,8 @@
   "mouse_follows_focus": true,
   "default_workspace_padding": 4,
   "default_container_padding": 4,
-  "transparency": false,
-  "transparency_alpha": 240,
+  "transparency": true,
+  "transparency_alpha": 250,
   "theme": {
     "palette": "Base16",
     "name": "GruvboxMaterialDarkHard",

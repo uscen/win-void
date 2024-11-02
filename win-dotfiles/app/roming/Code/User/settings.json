@@ -21,7 +21,7 @@
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
   "workbench.colorTheme": "Gruvbox Material Dark",
-  "gruvboxMaterial.darkContrast": "medium",
+  "gruvboxMaterial.darkContrast": "hard",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.visible": true,
   "workbench.editor.restoreViewState": true,

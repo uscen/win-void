@@ -53,7 +53,8 @@ alt + control + k       : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + shift + space     : komorebic toggle-float
-alt + f		              : komorebic toggle-maximize
+# alt + f		              : komorebic toggle-maximize && yasbc stop
+alt + f		              : komorebic toggle-monocle
 alt + m                 : komorebic toggle-monocle
 alt + s		              : komorebic promote
 
