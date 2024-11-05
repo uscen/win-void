@@ -14,6 +14,7 @@ alt + shift + return    : alacritty
 alt + shift + n         : explorer
 alt + return            : wt
 alt + ctrl + c          : code
+alt + e                 : edex-ui
 
 # Close App
 alt + shift + c         : komorebic close

@@ -9,7 +9,7 @@
   "mouse_follows_focus": true,
   "default_workspace_padding": 4,
   "default_container_padding": 4,
-  "transparency": true,
+  "transparency": false,
   "transparency_alpha": 250,
   "theme": {
     "palette": "Base16",
@@ -20,7 +20,7 @@
   },
   "animation": {
     "enabled": false,
-    "duration": 300,
+    "duration": 200,
     "style": "EaseOutBack",
     "fps": 60
   },
@@ -53,8 +53,8 @@
   ],
   "float_rules": [
     {
-      "kind": "Title",
-      "id": "alacritty_float",
+      "kind": "Exe",
+      "id": "obs64.exe",
       "matching_strategy": "Equals"
     },
     {

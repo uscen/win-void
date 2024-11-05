@@ -53,6 +53,7 @@ $uninstall = @(
 $packages = @(
     "MSYS2.MSYS2",
     "Microsoft.WindowsTerminal",
+    "Microsoft.WindowsTerminal.Preview",
     "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
@@ -90,6 +91,9 @@ $packages = @(
     "AmN.yasb",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
+    "Meltytech.Shotcut",
+    "Rainmeter.Rainmeter",
+    "codehex.Neo-cowsay",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
     "OpenJS.NodeJS",
@@ -99,6 +103,7 @@ $scoopPackages = @(
     "aria2",
     "gcc",
     "yt-dlp",
+    "btop",
     "ffmpeg",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
@@ -118,6 +123,7 @@ foreach ($package in $packages) {
 Write-Host "Installation of Winget packages is complete!"
 # Install Scoop Package Manager:	              #
 # ================================================#
+scoop bucket add extras
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Write-Host "Installing Scoop ..."
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression

@@ -33,7 +33,16 @@ bars:
     widgets:
       left: ["win_button", "komorebi_workspaces", "traffic"]
       center: ["active_window"]
-      right: ["taskbar", "language", "weather", "volume", "clock", "power_menu"]
+      right:
+        [
+          "taskbar",
+          "wallpapers",
+          "language",
+          "weather",
+          "volume",
+          "clock",
+          "power_menu",
+        ]
 widgets:
   language:
     type: "yasb.language.LanguageWidget"
@@ -44,6 +53,26 @@ widgets:
         on_left: "do_nothing"
         on_middle: "do_nothing"
         on_right: "do_nothing"
+  wallpapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\udb83\ude09</span>"
+      image_path: "C:\\Users\\lli\\Pictures\\Pix\\Wallpepers"
+      change_automatically: false
+      update_interval: 60
+      gallery:
+        enabled: true
+        blur: true
+        image_width: 220
+        image_per_page: 8
+        show_buttons: false
+        orientation: "portrait"
+        image_spacing: 8
+        lazy_load: true
+        lazy_load_delay: 80
+        lazy_load_fadein: 400
+        image_corner_radius: 20
+        enable_cache: true
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:

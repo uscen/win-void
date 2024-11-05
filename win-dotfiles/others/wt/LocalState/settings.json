@@ -12,6 +12,8 @@
       "cursorShape": "filledBox",
       "elevate": false,
       "bellStyle": "none",
+      "opacity": 80,
+      "useAcrylic": true,
       "font": {
         "face": "JetBrainsMono Nerd Font",
         "size": 9.5,
