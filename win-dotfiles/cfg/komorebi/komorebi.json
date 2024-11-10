@@ -13,7 +13,7 @@
   "transparency_alpha": 250,
   "theme": {
     "palette": "Base16",
-    "name": "GruvboxMaterialDarkHard",
+    "name": "GruvboxMaterialDarkMedium",
     "accent": "Base0D",
     "monocle_border": "Base02",
     "single_border": "Base0C"

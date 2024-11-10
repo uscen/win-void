@@ -7,7 +7,7 @@ general.live_config_reload = true
 program = "C:/msys64/msys2_shell.cmd"
 args = ["-defterm -here -use-full-path -no-start -mingw64 -shell bash"]
 [window]
-opacity = 0.9
+opacity = 0.95
 padding = {x= 10, y=10}
 dynamic_padding = true
 decorations = "None"
@@ -28,7 +28,7 @@ osc52 = "CopyPaste"
 # colorsscheme:                                      #
 # ===================================================#
 [colors.primary]
-background = '#1d2021'
+background = '#282828'
 foreground = '#d4be98'
 [colors.normal]
 black   = '#3c3836'

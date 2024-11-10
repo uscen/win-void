@@ -104,6 +104,7 @@ $scoopPackages = @(
     "gcc",
     "yt-dlp",
     "btop",
+    "figlet",
     "ffmpeg",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )

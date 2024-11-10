@@ -8,12 +8,11 @@
   "launchMode": "focus",
   "profiles": {
     "defaults": {
-      "colorScheme": "GruvboxMaterialHardDark",
+      "colorScheme": "GruvboxMaterialMediumDark",
       "cursorShape": "filledBox",
       "elevate": false,
       "bellStyle": "none",
-      "opacity": 80,
-      "useAcrylic": true,
+      "opacity": 95,
       "font": {
         "face": "JetBrainsMono Nerd Font",
         "size": 9.5,
@@ -44,7 +43,6 @@
         "commandline": "C:/Program Files/Git/bin/bash.exe --login",
         "startingDirectory": "%USERPROFILE%",
         "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-        "useAcrylic": true,
         "hidden": true
       },
       {
@@ -52,7 +50,7 @@
         "name": "Ubuntu",
         "source": "Windows.Terminal.Wsl",
         "startingDirectory": "/home/lli",
-        "useAcrylic": true
+        "hidden": true
       }
     ]
   },

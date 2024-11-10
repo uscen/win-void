@@ -10,11 +10,10 @@ alt + g                 : if ($wshell.AppActivate('Firefox') -eq $False) { start
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + n                 : wt sh -c "yazi ~"
 alt + v            	    : cd $env:userprofile; neovide
-alt + shift + return    : alacritty
+alt + shift + return    : wt
 alt + shift + n         : explorer
-alt + return            : wt
+alt + return            : alacritty
 alt + ctrl + c          : code
-alt + e                 : edex-ui
 
 # Close App
 alt + shift + c         : komorebic close
