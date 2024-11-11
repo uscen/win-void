@@ -111,10 +111,10 @@ $scoopPackages = @(
 
 # UnInstall Packages:	                          #
 # ================================================#
-foreach ($app in $uninstall) {
-    Write-Host "Remove $app..."
-    winget uninstall $app --silent --accept-source-agreements
-}
+#foreach ($app in $uninstall) {
+#    Write-Host "Remove $app..."
+#    winget uninstall $app --silent --accept-source-agreements
+#}
 # Install Winget Packages:	                      #
 # ================================================#
 foreach ($package in $packages) {

@@ -44,4 +44,4 @@ Set-ItemProperty -Path 'HKCU:\Control Panel\Accessibility\Keyboard Response' -Na
 # ================================================#
 # "High Performance" (Best Performance):          #
 # ================================================#
-powercfg -setactive SCHEME_MIN
+# powercfg -setactive SCHEME_MIN
