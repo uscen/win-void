@@ -20,7 +20,7 @@
   },
   "animation": {
     "enabled": false,
-    "duration": 200,
+    "duration": 300,
     "style": "EaseOutBack",
     "fps": 60
   },
