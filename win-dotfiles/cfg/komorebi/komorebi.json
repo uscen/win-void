@@ -19,7 +19,7 @@
     "single_border": "Base0C"
   },
   "animation": {
-    "enabled": false,
+    "enabled": true,
     "duration": 300,
     "style": "EaseOutBack",
     "fps": 60
