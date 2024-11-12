@@ -3,10 +3,10 @@
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "focus_follows_mouse": "Komorebi",
   "unmanaged_window_operation_behaviour": "Op",
   "window_container_behaviour": "Create",
-  "mouse_follows_focus": true,
+  "focus_follows_mouse": "Komorebi",
+  "mouse_follows_focus": false,
   "default_workspace_padding": 4,
   "default_container_padding": 4,
   "transparency": false,
@@ -52,6 +52,11 @@
     }
   ],
   "float_rules": [
+    {
+      "kind": "Exe",
+      "id": "shotcut.exe",
+      "matching_strategy": "Equals"
+    },
     {
       "kind": "Exe",
       "id": "obs64.exe",
