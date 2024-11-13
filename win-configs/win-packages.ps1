@@ -91,6 +91,7 @@ $packages = @(
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
+    "GIMP.GIMP",
     "codehex.Neo-cowsay",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
