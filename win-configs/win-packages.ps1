@@ -10,7 +10,6 @@
 # Set-ExecutionPolicy Restricted => Revert to Default
 # List Of Packages:	                              #
 # ================================================#
-Write-Output "Uninstalling unnecessary apps such as OneDrive, Spotify, and Disney+..."
 $uninstall = @(
     "Cortana",
     "Disney+",
@@ -92,7 +91,6 @@ $packages = @(
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
-    "Rainmeter.Rainmeter",
     "codehex.Neo-cowsay",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
@@ -111,10 +109,11 @@ $scoopPackages = @(
 
 # UnInstall Packages:	                          #
 # ================================================#
-#foreach ($app in $uninstall) {
-#    Write-Host "Remove $app..."
-#    winget uninstall $app --silent --accept-source-agreements
-#}
+# Write-Output "Uninstalling unnecessary apps such as OneDrive, Spotify, and Disney+..."
+# foreach ($app in $uninstall) {
+#     Write-Host "Remove $app..."
+#     winget uninstall $app --silent --accept-source-agreements
+# }
 # Install Winget Packages:	                      #
 # ================================================#
 foreach ($package in $packages) {
