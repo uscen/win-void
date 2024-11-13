@@ -7,8 +7,8 @@
   "window_container_behaviour": "Create",
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": false,
-  "default_workspace_padding": 4,
-  "default_container_padding": 4,
+  "default_workspace_padding": 2,
+  "default_container_padding": 2,
   "transparency": false,
   "transparency_alpha": 250,
   "theme": {

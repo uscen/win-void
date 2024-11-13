@@ -57,7 +57,7 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
-      image_path: "C:\\Users\\lli\\Pictures\\Pix\\Wallpepers"
+      image_path: "C:\\Users\\lli\\Pictures\\PIX\\Wallpepers"
       change_automatically: false
       update_interval: 60
       gallery:
