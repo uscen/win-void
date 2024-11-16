@@ -95,6 +95,7 @@ alias dots="cd ~/win-void/"
 alias bashc="nvim ~/win-void/win-dotfiles/home/.bashrc"
 alias wmc="nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json"
 alias whkdc="nvim ~/win-void/win-dotfiles/cfg/whkdrc"
+alias barc="nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml"
 # Others Usfeual Alias
 alias yt-concats='yt-dlp --concat-playlist always -S "codec:h264"'
 alias yt-music='yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music'

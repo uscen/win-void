@@ -33,16 +33,7 @@ bars:
     widgets:
       left: ["win_button", "komorebi_workspaces", "traffic"]
       center: ["active_window"]
-      right:
-        [
-          "taskbar",
-          "wallpapers",
-          "language",
-          "weather",
-          "volume",
-          "clock",
-          "power_menu",
-        ]
+      right: ["taskbar", "language", "weather", "volume", "clock", "power_menu"]
 widgets:
   language:
     type: "yasb.language.LanguageWidget"
@@ -142,9 +133,9 @@ widgets:
     options:
       label: "<span>\uf011</span>"
       uptime: True
-      blur: False
+      blur: true
       blur_background: True
-      animation_duration: 200 # Milisecond
+      animation_duration: 500 # Milisecond
       button_row: 5 # Number of buttons in row, min 1 max 5
       buttons:
         shutdown: ["\uf011", "Shut Down"]

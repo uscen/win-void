@@ -50,6 +50,8 @@ alt + control + l       : komorebic resize-axis horizontal increase
 alt + control + h       : komorebic resize-axis horizontal decrease
 alt + control + j       : komorebic resize-axis vertical increase
 alt + control + k       : komorebic resize-axis vertical decrease
+# Power Menu
+alt + control + q       : logoff.exe
 
 # Manipulate windows
 alt + shift + space     : komorebic toggle-float
