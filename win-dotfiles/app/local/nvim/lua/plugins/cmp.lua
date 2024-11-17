@@ -71,7 +71,7 @@ return {
 						winhighlight = "Normal:TelescopePromptPrefix,FloatBorder:TelescopePromptBorder,CursorLine:TelescopeSelection,Search:None",
 					},
 					documentation = {
-						border = "none",
+						border = "single",
 						winhighlight = "NormalFloat:TelescopePromptPrefix,FloatBorder:TelescopePromptPrefix",
 					},
 				},

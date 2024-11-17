@@ -89,18 +89,18 @@ return {
 		local z_utils = require("telescope._extensions.zoxide.utils")
 		local TelescopeColor = {
 			TelescopeMatching = { fg = "#d8a657" },
-			TelescopeSelection = { fg = "#0d0e0f", bg = "#689d6a", bold = true },
+			TelescopeSelection = { fg = "#ebdbb2", bg = "#3c3836", bold = true },
 
-			TelescopePromptPrefix = { bg = "#0d0e0f" },
-			TelescopePromptNormal = { bg = "#0d0e0f" },
-			TelescopeResultsNormal = { bg = "#0d0e0f" },
-			TelescopePreviewNormal = { bg = "#0d0e0f" },
-			TelescopePromptBorder = { bg = "#0d0e0f", fg = "#0d0e0f" },
-			TelescopeResultsBorder = { bg = "#0d0e0f", fg = "#0d0e0f" },
-			TelescopePreviewBorder = { bg = "#0d0e0f", fg = "#0d0e0f" },
-			TelescopePromptTitle = { bg = "#ea6962", fg = "#0d0e0f" },
-			TelescopeResultsTitle = { fg = "#0d0e0f" },
-			TelescopePreviewTitle = { bg = "#a9b665", fg = "#0d0e0f" },
+			TelescopePromptPrefix = { bg = "#1d2021" },
+			TelescopePromptNormal = { bg = "#1d2021" },
+			TelescopeResultsNormal = { bg = "#1d2021" },
+			TelescopePreviewNormal = { bg = "#1d2021" },
+			TelescopePromptBorder = { bg = "#1d2021", fg = "#1d2021" },
+			TelescopeResultsBorder = { bg = "#1d2021", fg = "#1d2021" },
+			TelescopePreviewBorder = { bg = "#1d2021", fg = "#1d2021" },
+			TelescopePromptTitle = { bg = "#ea6962", fg = "#1d2021" },
+			TelescopeResultsTitle = { fg = "#1d2021" },
+			TelescopePreviewTitle = { bg = "#a9b665", fg = "#1d2021" },
 		}
 
 		for hl, col in pairs(TelescopeColor) do
