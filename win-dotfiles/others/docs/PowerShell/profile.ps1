@@ -16,6 +16,7 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnVi
 # ======================================================#
 # ENV: 						                            #
 # ======================================================#
+$Env:KOMOREBI_CONFIG_HOME = 'C:\Users\LLI\.config\komorebi'
 $Env:EDITOR = "nvim.exe"
 $Env:VISUAL = "code"
 $Env:PAGER = "delta"

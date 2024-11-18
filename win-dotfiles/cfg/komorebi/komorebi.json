@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.28/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
+  "app_specific_configuration_path": "C:/Users/LLI/.config/komorebi/applications.json",
+  "bar_configurations": ["$Env:USERPROFILE/.config/komorebi/komorebi-bar.json"],
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "unmanaged_window_operation_behaviour": "Op",
@@ -41,20 +42,15 @@
       "background": "#1d2021"
     }
   },
-  "manage_rules": [
-    {
-      "id": "Messenger.exe",
-      "kind": "Exe"
-    },
-    {
-      "id": "MicrosoftWhiteboard.exe",
-      "kind": "Exe"
-    }
-  ],
   "float_rules": [
     {
       "kind": "Exe",
-      "id": "gimp-2.10.exe",
+      "id": "yasb.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "explorer.exe",
       "matching_strategy": "Equals"
     },
     {
@@ -68,41 +64,6 @@
       "matching_strategy": "Equals"
     },
     {
-      "kind": "Exe",
-      "id": "yasb.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Class",
-      "id": "yasb-bar",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "explorer.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "Discord.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Title",
-      "id": "Rakuten Viber",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Title",
-      "id": "Skype",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "Telegram.exe",
-      "matching_strategy": "Equals"
-    },
-    {
       "kind": "Title",
       "id": "Settings",
       "matching_strategy": "Equals"
@@ -111,55 +72,17 @@
       "kind": "Title",
       "id": "Microsoft Store",
       "matching_strategy": "Equals"
-    },
+    }
+  ],
+  "floating_applications": [
     {
-      "kind": "Exe",
-      "id": "Photoshop.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "Adobe Premiere Pro.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "Illustrator.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "OUTLOOK.EXE",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "ApplicationFrameHost.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "vmware.exe",
+      "kind": "Title",
+      "id": "file-cli",
       "matching_strategy": "Equals"
     },
     {
       "kind": "Title",
-      "id": "Arc extension popup",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Title",
-      "id": "Arc picture in picture",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Title",
-      "id": "Picture-in-Picture",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "Zebar.exe",
+      "id": "term-float",
       "matching_strategy": "Equals"
     }
   ],
@@ -176,13 +99,7 @@
         },
         {
           "name": "III",
-          "layout": "BSP",
-          "workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "code"
-            }
-          ]
+          "layout": "BSP"
         },
         {
           "name": "IV",

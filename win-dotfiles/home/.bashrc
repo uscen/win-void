@@ -10,6 +10,7 @@ export PAGER="less"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export MYVIMRC="$HOME/.config/nvim/init.lua"
+export KOMOREBI_CONFIG_HOME="$HOME/.config/komorebi"
 
 #####################################
 ###--------- SHELL OPTIONS -------###
