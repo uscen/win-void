@@ -73,10 +73,10 @@ alias sx="img2sixel --width=40% --height=30%"
 alias sxl="lsix"
 alias sxg="vimiv --recursive"
 ## Xbps Pkg Manager
-alias pu="doas xbps-install -Syu xbps && doas xbps-install -Su"
-alias pi="doas xbps-install -S"
-alias pr="doas xbps-remove -R"
-alias pq="xbps-query -Rs"
+alias pu="winget source update && winget update --all"
+alias pi="winget install"
+alias pr="winget uninstall"
+alias pq="winget search"
 alias pl="xbps-query -l"
 alias pclean="doas rm -rf /var/cache/xbps/*"
 ## Flatpak PKG Manager
@@ -162,4 +162,4 @@ bind "set completion-ignore-case on"
 # for path in $(ls $HOME/AppData/Local/Programs); do
 # 	export PATH="$PATH:$HOME/AppData/Local/Programs/$path"
 # done
-export PATH="$PATH:$HOME/AppData/Local/Programs/mpv.net"
+export PATH="$PATH:$HOME/AppData/Local/Programs/mpv.net:$HOME/.config/bin"
