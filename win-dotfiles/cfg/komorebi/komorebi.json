@@ -96,15 +96,15 @@
       "workspaces": [
         {
           "name": "I",
-          "layout": "BSP"
+          "layout": "VerticalStack"
         },
         {
           "name": "II",
-          "layout": "BSP"
+          "layout": "VerticalStack"
         },
         {
           "name": "III",
-          "layout": "BSP"
+          "layout": "VerticalStack"
         },
         {
           "name": "IV",
