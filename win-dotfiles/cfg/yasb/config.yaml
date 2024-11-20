@@ -14,9 +14,9 @@ bars:
       position: "top"
       center: false
     blur_effect:
-      enabled: false
+      enabled: true
       acrylic: false
-      dark_mode: false
+      dark_mode: true
       round_corners: false
       border_color: None
     window_flags:
@@ -24,12 +24,12 @@ bars:
       windows_app_bar: true
     dimensions:
       width: "100%"
-      height: 25
+      height: 32
     padding:
-      top: 2
-      left: 2
+      top: 0
+      left: 0
       bottom: 0
-      right: 2
+      right: 0
     widgets:
       left: ["win_button", "komorebi_workspaces", "traffic"]
       center: ["active_window"]

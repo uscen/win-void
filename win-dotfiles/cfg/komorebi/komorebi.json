@@ -21,8 +21,11 @@
     "palette": "Base16",
     "name": "GruvboxMaterialDarkMedium",
     "accent": "Base0D",
-    "monocle_border": "Base02",
-    "single_border": "Base0C"
+    "single_border": "Base0C",
+    "unfocused_border": "Base02",
+    "floating_border": "Base0C",
+    "stack_border": "Base0D",
+    "monocle_border": "Base03"
   },
   "animation": {
     "enabled": false,

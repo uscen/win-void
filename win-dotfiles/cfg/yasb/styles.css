@@ -7,12 +7,12 @@
   padding: 0;
 }
 .yasb-bar {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 .widget {
-  padding: 0 8px;
-  margin: 0 4px;
+  padding: 4px 8px;
+  margin: 4px 4px;
   border-radius: 4px;
 }
 .widget .icon {
