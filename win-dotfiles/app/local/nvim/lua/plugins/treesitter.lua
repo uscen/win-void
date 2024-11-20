@@ -155,32 +155,12 @@ return {
 	-- indentition
 	-----------------------------------------------------------
 	{
-		"nvimdev/indentmini.nvim",
-		config = function()
-			vim.cmd.highlight("IndentLine guifg=#32302f")
-			vim.cmd.highlight("IndentLineCurrent guifg=#504945")
-			require("indentmini").setup()
-		end,
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
 	},
-	{
-		"nmac427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({
-				auto_cmd = true,
-				override_editorconfig = true,
-				on_tab_options = {
-					["expandtab"] = true,
-				},
-				on_space_options = {
-					["expandtab"] = true,
-					["tabstop"] = "detected",
-					["softtabstop"] = "detected",
-					["shiftwidth"] = "detected",
-				},
-			})
-		end,
-	},
-
 	-----------------------------------------------------------
 	-- Current Word
 	-----------------------------------------------------------

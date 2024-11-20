@@ -134,12 +134,8 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
-alias run_in_nvim="fzf --multi --bind 'enter:become(nvim {+})'"
 alias run_in_mpv="fd 'mp4' | fzf --multi --bind 'enter:become(mpvnet {+})'"
-alias run_in_nnn="fd -t d | fzf --bind 'enter:become(nnn {+})'"
-bind '"\C-v":"run_in_nvim\n"'
 bind '"\C-p":"run_in_mpv\n"'
-bind '"\C-n":"run_in_nnn\n"'
 #####################################
 ###-------Tab Completions --------###
 #####################################
