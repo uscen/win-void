@@ -86,7 +86,7 @@ $packages = @(
     "eza-community.eza",
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
-    "AltSnap.AltSnap",
+    #"AltSnap.AltSnap",
     "AmN.yasb",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
@@ -105,6 +105,7 @@ $scoopPackages = @(
     "btop",
     "figlet",
     "ffmpeg",
+    "altSnap",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 
@@ -128,6 +129,7 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Write-Host "Installing Scoop ..."
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 }
+scoop bucket add extras
 foreach ($package in $scoopPackages) {
     Write-Host "Installing $package..."
     scoop install $package
