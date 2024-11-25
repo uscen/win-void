@@ -44,7 +44,7 @@ alias ls="eza --long --group --icons=auto --git --sort=name --group-directories-
 alias ll="eza --long --group --icons=auto --git --sort=name --group-directories-first"
 alias lt="eza --long --group --icons=auto --git --only-dirs --tree --level=3 --sort=modified"
 # Cd To Zoxide
-# alias cd="z"
+alias cd="z"
 alias cdf="zi"
 # Fetch (System Info)
 alias fetch="fastfetch"

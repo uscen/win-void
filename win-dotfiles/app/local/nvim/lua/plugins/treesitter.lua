@@ -166,6 +166,6 @@ return {
 	-----------------------------------------------------------
 	{
 		"dominikduda/vim_current_word",
-		enabled = true,
+		enabled = false,
 	},
 }

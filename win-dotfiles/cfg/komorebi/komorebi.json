@@ -7,7 +7,7 @@
   "unmanaged_window_operation_behaviour": "Op",
   "window_container_behaviour": "Create",
   "focus_follows_mouse": "Komorebi",
-  "mouse_follows_focus": false,
+  "mouse_follows_focus": true,
   "default_workspace_padding": 2,
   "default_container_padding": 2,
   "transparency": false,

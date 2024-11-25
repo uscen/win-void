@@ -68,7 +68,6 @@ $packages = @(
     "Neovide.Neovide",
     "ImageMagick.Q16-HDRI",
     "hpjansson.Chafa",
-    #"yt-dlp.yt-dlp",
     "7zip.7zip",
     "jqlang.jq",
     "Fastfetch-cli.Fastfetch",
@@ -86,7 +85,7 @@ $packages = @(
     "eza-community.eza",
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
-    #"AltSnap.AltSnap",
+    "AltSnap.AltSnap",
     "AmN.yasb",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
@@ -105,7 +104,6 @@ $scoopPackages = @(
     "btop",
     "figlet",
     "ffmpeg",
-    "altSnap",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 
