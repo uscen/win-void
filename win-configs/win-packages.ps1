@@ -81,7 +81,6 @@ $packages = @(
     "Microsoft.VisualStudioCode",
     "Zen-Team.Zen-Browser.Optimized",
     "Hibbiki.Chromium",
-    "mpv.net",
     "eza-community.eza",
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
@@ -105,6 +104,8 @@ $scoopPackages = @(
     "btop",
     "figlet",
     "ffmpeg",
+    "ani-cli",
+    "mpv",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 
