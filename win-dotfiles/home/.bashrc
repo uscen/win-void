@@ -134,7 +134,7 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
-alias run_in_mpv="fd 'mp4' | fzf --multi --bind 'enter:become(mpvnet {+})'"
+alias run_in_mpv="fd 'mp4' | fzf --multi --bind 'enter:become(mpv.exe {+})'"
 bind '"\C-p":"run_in_mpv\n"'
 #####################################
 ###-------Tab Completions --------###
