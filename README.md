@@ -1,8 +1,9 @@
 <h1 align="center"><i>Windows Ricing</i></h1>
 
 
+### Watch The Rice Video
 [![Watch The Rice Video](./assets/thumbnail.jpg)](https://www.youtube.com/watch?v=T-dgnOKJNc4&t=43s)
-![alt text](./assets/screen.png)
+<!--![alt text](./assets/screen.png)-->
 
 
 - **Window Manager** : **Komorebi**
