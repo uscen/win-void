@@ -104,7 +104,8 @@ alias man="tldr"
 alias cat="bat"
 alias cls="clear"
 alias chrome="start chrome"
-alias firefox="start firefox"
+alias firefox="start zen"
+alias zen="start zen"
 #####################################
 ###------- Yazi File Manager -----###
 #####################################
