@@ -28,23 +28,11 @@ return {
 		require("lspconfig").cssls.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").tailwindcss.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").ts_ls.setup({ on_attach = on_attach, capabilities = capabilities })
+		require("lspconfig").tailwindcss.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").emmet_ls.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
-			filetypes = {
-				"css",
-				"eruby",
-				"html",
-				"javascript",
-				"javascriptreact",
-				"less",
-				"sass",
-				"scss",
-				"svelte",
-				"pug",
-				"typescriptreact",
-				"vue",
-			},
+			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 			init_options = {
 				js = {
 					options = {

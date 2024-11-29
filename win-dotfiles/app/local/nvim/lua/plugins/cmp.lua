@@ -47,6 +47,7 @@ return {
 			"hrsh7th/vim-vsnip",
 			"rafamadriz/friendly-snippets",
 			"nrjdalal/shadcn-ui-snippets",
+			"roobert/tailwindcss-colorizer-cmp.nvim",
 			-- {
 			-- 	"zbirenbaum/copilot-cmp",
 			-- 	dependencies = { "copilot.lua" },
@@ -62,11 +63,13 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
+			local tailwindcss_cmp = require("tailwindcss-colorizer-cmp")
 
 			cmp.setup({
 				preselect = cmp.PreselectMode.Item,
 				window = {
 					completion = {
+						completeopt = "menu,menuone,preview,noselect",
 						border = "single",
 						winhighlight = "Normal:TelescopePromptPrefix,FloatBorder:TelescopePromptBorder,CursorLine:TelescopeSelection,Search:None",
 					},
@@ -172,6 +175,11 @@ return {
 				}, {
 					{ name = "cmdline", keyword_length = 3 },
 				}),
+			})
+
+			-- tailwindcss_cmp
+			tailwindcss_cmp.setup({
+				color_square_width = 2,
 			})
 		end,
 	},

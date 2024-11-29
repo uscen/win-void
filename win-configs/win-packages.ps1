@@ -91,6 +91,7 @@ $packages = @(
     "Meltytech.Shotcut",
     "GIMP.GIMP",
     "Telegram.TelegramDesktop",
+    "Mozilla.Thunderbird",
     "codehex.Neo-cowsay",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
