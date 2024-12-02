@@ -21,6 +21,8 @@ $extensions=@(
     # General
     "vscodevim.vim"
     "dsznajder.es7-react-js-snippets"
+    "bradlc.vscode-tailwindcss",
+    "austenc.tailwind-docs",
     "formulahendry.auto-close-tag"
     "formulahendry.auto-rename-tag"
     "steoates.autoimport"

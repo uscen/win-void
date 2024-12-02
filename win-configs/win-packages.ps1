@@ -85,7 +85,6 @@ $packages = @(
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
     "AltSnap.AltSnap",
-    "AmN.yasb",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",

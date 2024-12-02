@@ -26,7 +26,6 @@ return {
 		require("lspconfig").lua_ls.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").html.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").cssls.setup({ on_attach = on_attach, capabilities = capabilities })
-		require("lspconfig").tailwindcss.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").ts_ls.setup({ on_attach = on_attach, capabilities = capabilities })
 		require("lspconfig").emmet_ls.setup({
 			on_attach = on_attach,

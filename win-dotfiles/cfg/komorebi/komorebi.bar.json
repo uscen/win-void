@@ -4,13 +4,13 @@
     "index": 0,
     "work_area_offset": {
       "left": 0,
-      "top": 0,
+      "top": 50,
       "right": 0,
-      "bottom": 0
+      "bottom": 50
     }
   },
   "font_family": "JetBrainsMono NF Bold",
-  "font_size": 11,
+  "font_size": 10,
   "theme": {
     "palette": "Base16",
     "name": "GruvboxMaterialDarkHard",
@@ -70,4 +70,3 @@
     }
   ]
 }
-

@@ -2,7 +2,7 @@
   // General
   "editor.renderLineHighlight": "line",
   "editor.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.fontSize": 13,
+  "editor.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.renderWhitespace": "selection",
   "editor.selectionClipboard": false,
