@@ -13,7 +13,7 @@ local symbol_map = {
 	Module = "",
 	Property = "",
 	Unit = "",
-	Value = "",
+	Value = "󰎠",
 	Enum = "",
 	Keyword = "",
 	Snippet = "",
@@ -22,7 +22,7 @@ local symbol_map = {
 	Reference = "",
 	Folder = "",
 	EnumMember = "",
-	Constant = "",
+	Constant = "󰏿",
 	Struct = "",
 	Event = "",
 	Operator = "",
@@ -45,25 +45,14 @@ return {
 			"onsails/lspkind-nvim",
 			"hrsh7th/cmp-vsnip",
 			"hrsh7th/vim-vsnip",
+			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
 			"nrjdalal/shadcn-ui-snippets",
-			"roobert/tailwindcss-colorizer-cmp.nvim",
-			-- {
-			-- 	"zbirenbaum/copilot-cmp",
-			-- 	dependencies = { "copilot.lua" },
-			-- 	config = function()
-			-- 		require("copilot_cmp").setup({
-			-- 			event = { "InsertEnter", "LspAttach" },
-			-- 			fix_pairs = true,
-			-- 		})
-			-- 	end,
-			-- },
 		},
 
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
-			local tailwindcss_cmp = require("tailwindcss-colorizer-cmp")
 
 			cmp.setup({
 				preselect = cmp.PreselectMode.Item,
@@ -114,7 +103,7 @@ return {
 				},
 				snippet = {
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
 				mapping = {
@@ -141,14 +130,13 @@ return {
 					end, { "i", "s", "c" }),
 				},
 				sources = cmp.config.sources({
-					{ name = "vsnip" },
 					{ name = "nvim_lsp" },
+					{ name = "vsnip" },
 					{ name = "buffer" },
 				}),
 				sorting = {
 					priority_weight = 2,
 					comparators = {
-						-- require("copilot_cmp.comparators").prioritize,
 						cmp.config.compare.offset,
 						cmp.config.compare.exact,
 						cmp.config.compare.score,
@@ -175,11 +163,6 @@ return {
 				}, {
 					{ name = "cmdline", keyword_length = 3 },
 				}),
-			})
-
-			-- tailwindcss_cmp
-			tailwindcss_cmp.setup({
-				color_square_width = 2,
 			})
 		end,
 	},

@@ -90,6 +90,7 @@ $packages = @(
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
     "GIMP.GIMP",
+    "ShareX.ShareX",
     "Telegram.TelegramDesktop",
     "Mozilla.Thunderbird",
     "codehex.Neo-cowsay",
