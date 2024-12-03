@@ -5,6 +5,7 @@
 # Enable AutoStart Window Manager && status bar:  #
 # ================================================#
 komorebic enable-autostart --whkd --config $Env:USERPROFILE\.config\komorebi\komorebi.json
+yasbc enable-autostart
 # ================================================#
 # HOME:						                                #
 # ================================================#
