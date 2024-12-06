@@ -170,9 +170,14 @@ widgets:
           }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
+    container_padding:
+      top: 0
+      left: 8
+      bottom: 0
+      right: 8
     options:
       animation: true
-      icon_size: 16
+      icon_size: 14
       ignore_apps:
         processes: []
         titles: []

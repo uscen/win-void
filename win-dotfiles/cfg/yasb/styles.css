@@ -55,7 +55,7 @@
   background-color: var(--crust);
   margin: 4px 0 4px 0;
   border-radius: 2px;
-  border: 0px solid var(--surface1);
+  border:1px solid var(--mantle)
 }
 .komorebi-workspaces .widget-container {
   border-top-left-radius: 2px;
@@ -184,8 +184,9 @@
   margin: 0 2px 1px 0;
   color: var(--yellow);
 }
+
 .taskbar-widget .app-icon {
-  padding: 0 6px;
+  padding: 0 4px 0 4px;
   border: none;
 }
 .win-btn .icon {
