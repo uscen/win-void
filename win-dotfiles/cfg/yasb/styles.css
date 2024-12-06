@@ -22,10 +22,10 @@
   background-color: #d79921;
 }
 .win-btn .icon {
-  color: #1d2021;
+  color: #141617;
 }
 .komorebi-workspaces {
-  background-color: #1d2021;
+  background-color: #141617;
 }
 .komorebi-workspaces .offline-status {
   color: #a9b665;
@@ -62,12 +62,12 @@
   padding: 0;
 }
 .traffic-widget .icon {
-  color: #1d2021;
+  color: #141617;
   padding-right: 6px;
   padding-left: 6px;
 }
 .traffic-widget .label {
-  background-color: #1d2021;
+  background-color: #141617;
   margin: 1px;
   border-radius: 6px;
   padding: 0 6px;
@@ -79,11 +79,11 @@
   padding: 0;
 }
 .clock-widget .icon {
-  color: #1d2021;
+  color: #141617;
   padding: 0 6px;
 }
 .clock-widget .label {
-  background-color: #1d2021;
+  background-color: #141617;
   color: #689d6a;
   padding: 0 6px;
   margin: 1px;
@@ -94,11 +94,11 @@
   padding: 0;
 }
 .volume-widget .icon {
-  color: #1d2021;
+  color: #141617;
   padding: 0 6px;
 }
 .volume-widget .label {
-  background-color: #1d2021;
+  background-color: #141617;
   color: #e78a4e;
   padding: 0 8px;
   margin: 1px;
@@ -109,11 +109,11 @@
   padding: 0;
 }
 .weather-widget .icon {
-  color: #1d2021;
+  color: #141617;
   padding: 0 6px;
 }
 .weather-widget .label {
-  background-color: #1d2021;
+  background-color: #141617;
   color: #458588;
   padding: 0 6px;
   margin: 1px;
@@ -126,7 +126,7 @@
 }
 
 .power-menu-widget .label {
-  color: #1d2021;
+  color: #141617;
   padding: 0 8px;
   font-weight: bold;
   font-size: 14px;
@@ -137,18 +137,18 @@
   padding: 0;
 }
 .language-widget .icon {
-  color: #1d2021;
+  color: #141617;
   padding: 0 6px;
 }
 .language-widget .label {
-  background-color: #1d2021;
+  background-color: #141617;
   color: #d79921;
   padding: 0 8px;
   margin: 1px;
   border-radius: 6px;
 }
 .taskbar-widget {
-  background-color: #1d2021;
+  background-color: #141617;
   padding: 0;
 }
 .taskbar-widget .app-icon {
@@ -162,7 +162,7 @@
 }
 .active-window-widget .label {
   color: #689d6a;
-  background-color: #1d2021;
+  background-color: #141617;
   padding: 0 8px;
   margin: 1px;
   border-radius: 6px;
@@ -175,7 +175,7 @@
 }
 /* Wallpapers */
 .wallpapers-widget {
-  background-color: #1d2021;
+  background-color: #141617;
   margin: 1px;
   padding: 5px 8px;
 }
@@ -185,7 +185,7 @@
   margin: 0;
 }
 .wallpapers-gallery-buttons {
-  background-color: #1d2021;
+  background-color: #141617;
   color: white;
   border: none;
   font-size: 14px;
@@ -215,7 +215,7 @@
   font-weight: 600;
 }
 .power-menu-popup {
-  background-color: #1d2021;
+  background-color: #141617;
   border-radius: 12px;
 }
 .power-menu-popup .button {
@@ -223,7 +223,7 @@
   width: 180px;
   height: 230px;
   border-radius: 8px;
-  background-color: #1d2021;
+  background-color: #141617;
   color: #689d6a;
   border: 2px solid #689d6a;
   margin: 2px;
@@ -254,10 +254,10 @@
   height: 32px;
   padding: 20px;
   border-radius: 4px;
-  background-color: #1d2021;
+  background-color: #141617;
   border: 2px solid #689d6a;
 }
 .power-menu-popup .button.cancel:hover {
   background-color: #689d6a;
-  color: #1d2021;
+  color: #141617;
 }

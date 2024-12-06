@@ -8,7 +8,7 @@
   "launchMode": "focus",
   "profiles": {
     "defaults": {
-      "colorScheme": "GruvboxMaterialMediumDark",
+      "colorScheme": "GruvboxMaterialHardDark",
       "cursorShape": "filledBox",
       "elevate": false,
       "bellStyle": "none",
