@@ -92,6 +92,7 @@ $packages = @(
     "GIMP.GIMP",
     "ShareX.ShareX",
     "Telegram.TelegramDesktop",
+    "Discord.Discord",
     "Mozilla.Thunderbird",
     "codehex.Neo-cowsay",
     "Microsoft.PowerToys",
