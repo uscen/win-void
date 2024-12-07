@@ -50,12 +50,12 @@
   padding: 0 4px 0 2px;
 }
 .apps-widget .widget-container,
-.taskbar-widget .widget-container,
-.komorebi-workspaces .widget-container {
+.komorebi-workspaces .widget-container,
+.taskbar-widget {
   background-color: var(--crust);
   margin: 4px 0 4px 0;
   border-radius: 2px;
-  border:1px solid var(--mantle)
+  border: 1px solid var(--mantle);
 }
 .komorebi-workspaces .widget-container {
   border-top-left-radius: 2px;
