@@ -50,12 +50,11 @@
   padding: 0 4px 0 2px;
 }
 .apps-widget .widget-container,
-.komorebi-workspaces .widget-container,
-.taskbar-widget {
+.komorebi-workspaces .widget-container {
   background-color: var(--crust);
   margin: 4px 0 4px 0;
   border-radius: 2px;
-  border: 1px solid var(--mantle);
+  border: none;
 }
 .komorebi-workspaces .widget-container {
   border-top-left-radius: 2px;
@@ -185,8 +184,15 @@
   color: var(--yellow);
 }
 
-.taskbar-widget .app-icon {
+.taskbar-widget {
   padding: 0 4px 0 4px;
+  border-radius: 2px;
+}
+.taskbar-widget .app-icon {
+  padding: 0 4px 0 5px;
+  margin: 4px 0 4px 0;
+  border-radius: 2px;
+  background-color: var(--crust);
   border: none;
 }
 .win-btn .icon {

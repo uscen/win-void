@@ -139,14 +139,13 @@ widgets:
     options:
       container_padding:
         top: 0
-        left: 8
+        left: 2
         bottom: 0
-        right: 8
+        right: 2
       label: "{data}"
       app_list:
         - { icon: "\uf0a2", launch: "notification_center" }
-        -
-          icon: "\uf422"
+        - icon: "\uf422"
           launch: "C:\\Program Files\\Everything\\everything.exe"
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
         - { icon: "\uf489", launch: "alacritty" }
@@ -172,23 +171,18 @@ widgets:
           }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
-    container_padding:
-      top: 0
-      left: 8
-      bottom: 0
-      right: 8
     options:
+      icon_size: 12
       animation: true
-      icon_size: 14
       ignore_apps:
         processes: []
         titles: []
         classes: []
       container_padding:
         top: 0
-        left: 0
+        left: 2
         bottom: 0
-        right: 0
+        right: 2
   win_button:
     type: "yasb.custom.CustomWidget"
     options:
