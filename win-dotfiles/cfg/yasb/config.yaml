@@ -145,7 +145,9 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\uf0a2", launch: "notification_center" }
-        - { icon: "\uf422", launch: "launcher" }
+        -
+          icon: "\uf422"
+          launch: "C:\\Program Files\\Everything\\everything.exe"
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
         - { icon: "\uf489", launch: "alacritty" }
         - {

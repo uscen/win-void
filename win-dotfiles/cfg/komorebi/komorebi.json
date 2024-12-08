@@ -80,6 +80,11 @@
       "kind": "Title",
       "id": "Microsoft Store",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Everything.exe",
+      "matching_strategy": "Equals"
     }
   ],
   "floating_applications": [

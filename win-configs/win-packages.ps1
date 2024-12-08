@@ -95,6 +95,7 @@ $packages = @(
     "Discord.Discord",
     "Mozilla.Thunderbird",
     "codehex.Neo-cowsay",
+    "voidtools.Everything",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
     "OpenJS.NodeJS",
