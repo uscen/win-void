@@ -17,12 +17,12 @@ bind("c", "QA", "qa", opts)
 bind("c", "wA!", "wqa", opts)
 bind("n", "<C-s>", ":w<CR>", opts)
 bind("i", "<C-s>", "<ESC> :w<CR>", opts)
+bind("n", "<C-c>", "ciw", opts)
 -----------------------------------------------------------
 -- leader movements
 -----------------------------------------------------------
 bind("n", "<Leader>w", ":write<CR>", {})
 bind("n", "<Leader>qq", ":quitall<CR>", {})
-bind("n", "<Leader>v", ":cd ~/.config/nvim/<CR>:Telescope find_files<CR>", {})
 -----------------------------------------------------------
 -- Always In Middle When Scrooling By Page
 -----------------------------------------------------------

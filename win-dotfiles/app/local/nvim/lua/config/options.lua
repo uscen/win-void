@@ -44,7 +44,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.scrolloff = 999
-vim.o.cursorline = false
+vim.o.cursorline = true
 vim.opt.showmatch = true
 vim.opt.foldmethod = "marker"
 vim.opt.colorcolumn = ""
@@ -52,6 +52,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.hlsearch = true
 vim.opt.linebreak = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
@@ -60,6 +61,7 @@ vim.opt.pumblend = 0
 vim.opt.showmode = false
 vim.opt.pumheight = 8
 vim.opt.confirm = true
+vim.opt.virtualedit = "block"
 -----------------------------------------------------------
 -- Code folding options:
 -----------------------------------------------------------
@@ -78,11 +80,13 @@ vim.opt.listchars:append("space:⋅")
 --------------------------------------------------------
 -- Tabs, indent:
 -----------------------------------------------------------
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
 vim.opt.shiftround = true
+vim.opt.autoindent = true
 -------------------------------------------------------------
 -- Use ripgrep as grep tool:
 -------------------------------------------------------------
