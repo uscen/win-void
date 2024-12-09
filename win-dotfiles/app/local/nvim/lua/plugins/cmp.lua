@@ -1,169 +1,108 @@
 -----------------------------------------------------------
 -- Auto Completion
 -----------------------------------------------------------
-local symbol_map = {
-	Text = "",
-	Method = "",
-	Function = "󰊕",
-	Constructor = "󰡱",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "󰎠",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "󰏿",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = " ",
-	Robot = "󱚤",
-	Roboti = "󱨚",
-	Smiley = " ",
-	Note = " ",
-}
-
 return {
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"onsails/lspkind-nvim",
-			"hrsh7th/cmp-vsnip",
-			"hrsh7th/vim-vsnip",
-			"L3MON4D3/LuaSnip",
-			"rafamadriz/friendly-snippets",
-			"nrjdalal/shadcn-ui-snippets",
-		},
-
-		config = function()
-			local cmp = require("cmp")
-			local lspkind = require("lspkind")
-
-			cmp.setup({
-				preselect = cmp.PreselectMode.Item,
-				window = {
-					completion = {
-						completeopt = "menu,menuone,preview,noselect",
-						border = "single",
-						winhighlight = "Normal:TelescopePromptPrefix,FloatBorder:TelescopePromptBorder,CursorLine:TelescopeSelection,Search:None",
-					},
-					documentation = {
-						border = "single",
-						winhighlight = "NormalFloat:TelescopePromptPrefix,FloatBorder:TelescopePromptPrefix",
-					},
-				},
-				experimental = {
-					ghost_text = false,
-					git = {
-						async = true,
-					},
-				},
-				performance = {
-					debounce = 0, -- default is 60ms
-					throttle = 0, -- default is 30ms
-				},
-				matching = {
-					disallow_fuzzy_matching = true,
-					disallow_fullfuzzy_matching = true,
-					disallow_partial_fuzzy_matching = false,
-					disallow_partial_matching = false,
-					disallow_prefix_unmatching = true,
-				},
-				formatting = {
-					format = lspkind.cmp_format({
-						symbol_map = symbol_map,
-						before = function(entry, vim_item)
-							vim_item.kind = string.format(vim_item.kind, symbol_map[vim_item.kind], "%s %s")
-							vim_item.menu = ({
-								buffer = "[Buffer]",
-								nvim_lsp = "[LSP]",
-								vsnip = "[Snip]",
-								nvim_lua = "[Lua]",
-								path = "[Path]",
-								copilot = "[Copilot]",
-							})[entry.source.name]
-							return vim_item
-						end,
-					}),
-				},
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				mapping = {
-					["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-					["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-					["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-					["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-					["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-					["<C-n>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-					["<C-y>"] = cmp.mapping.confirm({ select = true }),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							local entry = cmp.get_selected_entry()
-							if not entry then
-								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-							else
-								cmp.confirm()
-							end
-						else
-							fallback()
-						end
-					end, { "i", "s", "c" }),
-				},
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "vsnip" },
-					{ name = "buffer" },
-				}),
-				sorting = {
-					priority_weight = 2,
-					comparators = {
-						cmp.config.compare.offset,
-						cmp.config.compare.exact,
-						cmp.config.compare.score,
-						cmp.config.compare.recently_used,
-						cmp.config.compare.locality,
-						cmp.config.compare.kind,
-						cmp.config.compare.sort_text,
-						cmp.config.compare.length,
-						cmp.config.compare.order,
-					},
-				},
-			})
-
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
-
-			cmp.setup.cmdline(":", {
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{ name = "cmdline", keyword_length = 3 },
-				}),
-			})
-		end,
+	"hrsh7th/nvim-cmp",
+	event = "InsertEnter",
+	dependencies = {
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"neovim/nvim-lspconfig",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-cmdline",
+		"saadparwaiz1/cmp_luasnip",
+		"L3MON4D3/LuaSnip",
+		"rafamadriz/friendly-snippets",
+		"onsails/lspkind.nvim",
+		"roobert/tailwindcss-colorizer-cmp.nvim",
 	},
+
+	config = function()
+		local cmp = require("cmp")
+		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
+		local vscodesnippets = require("luasnip.loaders.from_vscode")
+		local tailwindcss_cmp = require("tailwindcss-colorizer-cmp")
+
+		cmp.setup({
+			completion = {
+				completeopt = "menu,menuone,preview,noselect",
+			},
+			snippet = {
+				-- REQUIRED - you must specify a snippet engine
+				expand = function(args)
+					luasnip.lsp_expand(args.body) -- For `luasnip` users.
+				end,
+			},
+
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
+
+			mapping = cmp.mapping.preset.insert({
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+				["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+				["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+				["<C-n>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+			}), -- end of mapping section
+
+			-- Managing Sources for completions
+			sources = cmp.config.sources({
+				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "nvim_lsp" },
+				{ name = "buffer" },
+				{ name = "path" },
+			}),
+
+			formatting = {
+				format = function(entry, item)
+					-- Apply apply lspkind formatter
+					item = lspkind.cmp_format({ with_text = true, maxwidth = 50 })(entry, item)
+
+					-- Then apply tailwindcss-colorizer-cmp formatter
+					return tailwindcss_cmp.formatter(entry, item)
+				end,
+			},
+		})
+
+		-- Set configuration for specific filetype.
+		cmp.setup.filetype("gitcommit", {
+			sources = cmp.config.sources({
+				{ name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+			}, {
+				{ name = "buffer" },
+			}),
+		})
+
+		-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+		cmp.setup.cmdline({ "/", "?" }, {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = {
+				{ name = "buffer" },
+			},
+		})
+
+		-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
+		})
+
+		-- tailwindcss_cmp
+		tailwindcss_cmp.setup({
+			color_square_width = 2,
+		})
+
+		--  VS Code like snippets
+		vscodesnippets.lazy_load()
+	end,
 }

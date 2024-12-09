@@ -43,6 +43,7 @@ vim.opt.undolevels = 10000
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
+vim.opt.scrolloff = 999
 vim.o.cursorline = false
 vim.opt.showmatch = true
 vim.opt.foldmethod = "marker"
@@ -79,8 +80,8 @@ vim.opt.listchars:append("space:⋅")
 -----------------------------------------------------------
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 vim.opt.shiftround = true
 -------------------------------------------------------------
 -- Use ripgrep as grep tool:
