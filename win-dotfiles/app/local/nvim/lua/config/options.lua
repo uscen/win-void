@@ -86,7 +86,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.shiftround = true
-vim.opt.autoindent = true
 -------------------------------------------------------------
 -- Use ripgrep as grep tool:
 -------------------------------------------------------------
