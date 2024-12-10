@@ -6,7 +6,6 @@
   "cross_monitor_move_behaviour": "Insert",
   "unmanaged_window_operation_behaviour": "Op",
   "window_container_behaviour": "Create",
-  "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": true,
   "default_workspace_padding": 2,
   "default_container_padding": 2,
@@ -45,7 +44,7 @@
       "background": "#1d2021"
     }
   },
-  "float_rules": [
+  "ignore_rules": [
     {
       "kind": "Exe",
       "id": "yasb.exe",
