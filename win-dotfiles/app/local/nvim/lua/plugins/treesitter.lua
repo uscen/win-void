@@ -208,7 +208,7 @@ return {
 				indent = {
 					char = "│",
 					tab_char = "│",
-					highlight = highlight,
+					-- highlight = highlight,
 				},
 				scope = {
 					enabled = false,
