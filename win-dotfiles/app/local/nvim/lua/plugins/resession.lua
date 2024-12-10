@@ -10,7 +10,7 @@ return {
 			autosave = {
 				enabled = true,
 				interval = 60,
-				notify = true,
+				notify = false,
 			},
 		})
 		-- Resession does NOTHING automagically, so we have to set up some keymaps

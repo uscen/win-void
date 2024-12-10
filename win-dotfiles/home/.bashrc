@@ -91,7 +91,7 @@ alias shutdown="doas shutdown"
 alias reboot="doas reboot"
 alias zzz="doas zzz"
 ## For Configs Files
-alias recompile="cd ~/win-void/win-configs && powershell ./win-configs.ps1"
+alias recompile="cd ~/win-void/win-configs && pwsh ./win-configs.ps1"
 alias dots="cd ~/win-void/"
 alias bashc="nvim ~/win-void/win-dotfiles/home/.bashrc"
 alias wmc="nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json"

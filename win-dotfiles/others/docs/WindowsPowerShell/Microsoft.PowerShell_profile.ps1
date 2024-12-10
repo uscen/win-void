@@ -44,8 +44,6 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 # Alias : 						                        #
 # ======================================================#
 # Easier Navigation:
-Remove-Alias -Name cd
-New-Alias -Name cd -Value z -Option AllScope
 ${function:drop} = { Set-Location ~\Documents\Dropbox }
 ${function:dt} = { Set-Location ~\Desktop }
 ${function:docs} = { Set-Location ~\Documents }
