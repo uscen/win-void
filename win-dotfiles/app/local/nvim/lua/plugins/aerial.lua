@@ -13,20 +13,6 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		-- vim.api.nvim_create_autocmd("WinEnter", {
-		--   once = true,
-		--   callback = function(event)
-		--     local ft = vim.api.nvim_get_option_value("filetype", { buf = event.buf })
-		--     if ft == "aerial" then
-		--       vim.api.nvim_feedkeys(vim.keycode("<C-w>h"), "nit", true)
-		--       local left_win = vim.api.nvim_get_current_win()
-		--       -- vim.schedule(function()
-		--       vim.api.nvim_feedkeys(vim.keycode("<C-w>l"), "nit", true)
-		--       -- end)
-		--       print('WINDOW "LEFT" IS', left_win)
-		--     end
-		--   end,
-		-- })
 		require("aerial").setup({
 			layout = {
 				width = 30,

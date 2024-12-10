@@ -57,7 +57,7 @@ return {
 		})
 
 		-- configure emmet language server
-		lspconfig.emmet_ls.setup({
+		lspconfig.emmet_language_server.setup({
 			capabilities = capabilities,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
@@ -95,6 +95,16 @@ return {
 		-- install the tailwind server : "sudo npm install -g @tailwindcss/language-server"
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
+			settings = {
+				tailwindCSS = {
+					emmetCompletions = true,
+					experimental = {
+						classRegex = {
+							{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+						},
+					},
+				},
+			},
 		})
 	end,
 }

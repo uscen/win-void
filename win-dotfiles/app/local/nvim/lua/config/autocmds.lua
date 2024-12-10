@@ -55,3 +55,12 @@ vim.api.nvim_create_autocmd("User", {
 		end
 	end),
 })
+-----------------------------------------------------------
+-- Automatically save a session when you exit Neovim
+-----------------------------------------------------------
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		-- Always save a special session named "last"
+		require("resession").save("last")
+	end,
+})

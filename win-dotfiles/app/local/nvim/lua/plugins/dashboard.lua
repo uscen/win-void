@@ -70,7 +70,7 @@ return {
 				keymap = "",
 				key = "l",
 				icon = "  ",
-				action = "require('persistence').load({ last = true })",
+				action = "require('resession').load('last')",
 			},
 
 			{

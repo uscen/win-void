@@ -28,6 +28,7 @@ return {
 		-- mason-lspconfig
 		mason_lspconfig.setup({
 			ensure_installed = {
+				"emmet_language_server",
 				"lua_ls",
 				"cssls",
 				"marksman",
@@ -46,7 +47,7 @@ return {
 				{ "stylua" },
 				{ "editorconfig-checker" },
 				{ "html-lsp" },
-				{ "emmet-ls" },
+				{ "emmet-language-server" },
 				{ "css-lsp" },
 				{ "pyright" },
 				{ "black" },
@@ -55,7 +56,6 @@ return {
 				{ "prettier" },
 				{ "typescript-language-server" },
 				{ "js-debug-adapter" },
-				-- { "node-debug2-adapter" }, -- deprecated
 				{ "eslint_d" },
 				{ "eslint-lsp" },
 				{ "codelldb" },

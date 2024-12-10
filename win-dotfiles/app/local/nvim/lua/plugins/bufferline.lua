@@ -50,6 +50,7 @@ return {
 					return " " .. icon .. count
 				end,
 				offsets = {
+					{ filetype = "aerial", text = "Document Symbols" },
 					{
 						filetype = "neo-tree",
 						text = "File Explorer",
@@ -76,19 +77,19 @@ return {
 						local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
 						if error ~= 0 then
-							table.insert(result, { text = "  " .. error, fg = "#EC5241" })
+							table.insert(result, { text = "  " .. error, fg = "#ea6962" })
 						end
 
 						if warning ~= 0 then
-							table.insert(result, { text = "  " .. warning, fg = "#EFB839" })
+							table.insert(result, { text = "  " .. warning, fg = "#d8a657" })
 						end
 
 						if hint ~= 0 then
-							table.insert(result, { text = "  " .. hint, fg = "#A3BA5E" })
+							table.insert(result, { text = "  " .. hint, fg = "#a9b665" })
 						end
 
 						if info ~= 0 then
-							table.insert(result, { text = "  " .. info, fg = "#7EA9A7" })
+							table.insert(result, { text = "  " .. info, fg = "#7daea3" })
 						end
 						return result
 					end,

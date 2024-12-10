@@ -64,9 +64,10 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("treesitter-context").setup({
+				mode = "cursor",
 				max_lines = 3,
 			})
-			vim.cmd([[ highlight TreesitterContext guibg=#202020 ]])
+			vim.cmd([[ highlight TreesitterContext guibg=#282828 ]])
 		end,
 	},
 
@@ -152,6 +153,26 @@ return {
 	},
 
 	-----------------------------------------------------------
+	-- Current Wornd
+	-----------------------------------------------------------
+	{
+		"RRethy/vim-illuminate",
+		event = "BufReadPost",
+		enabled = true,
+		config = function()
+			require("illuminate").configure({
+				filetypes_denylist = { "alpha", "dashboard", "neo-tree", "toggleterm", "aerial" },
+				min_count_to_highlight = 2,
+			})
+
+			if vim.g.colors_name ~= "serenity" then
+				vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+				vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+				vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+			end
+		end,
+	},
+	-----------------------------------------------------------
 	-- indentition
 	-----------------------------------------------------------
 	{
@@ -222,6 +243,12 @@ return {
 					vim.b.miniindentscope_disable = true
 				end,
 			})
+		end,
+	},
+	{
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({})
 		end,
 	},
 }
