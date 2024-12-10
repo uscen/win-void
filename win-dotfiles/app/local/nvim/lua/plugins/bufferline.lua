@@ -128,4 +128,45 @@ return {
 			quit = true, -- quit Neovim when last buffer is closed
 		},
 	},
+	-----------------------------------------------------------
+	-- snipe
+	-----------------------------------------------------------
+	{
+		"leath-dub/snipe.nvim",
+		keys = {
+			{
+				"gb",
+				function()
+					require("snipe").open_buffer_menu()
+				end,
+				desc = "Open Snipe buffer menu",
+			},
+		},
+		opts = {
+			ui = {
+				max_height = -1,
+				position = "center",
+				open_win_override = {
+					border = "rounded",
+				},
+				preselect_current = true,
+				text_align = "file-first",
+			},
+			hints = {
+				-- Charaters to use for hints (NOTE: make sure they don't collide with the navigation keymaps)
+				dictionary = "sadflewcmpghio",
+			},
+			navigate = {
+				next_page = "J",
+				prev_page = "K",
+				under_cursor = "<cr>",
+				cancel_snipe = "<esc>",
+				close_buffer = "D",
+				open_vsplit = "S",
+				open_split = "H",
+				change_tag = "C",
+			},
+			sort = "last",
+		},
+	},
 }
