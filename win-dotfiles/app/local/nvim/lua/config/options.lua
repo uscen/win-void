@@ -30,13 +30,21 @@ end
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-vim.opt.termbidi = true
 vim.opt.mouse = "a"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
 vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
+-----------------------------------------------------------
+-- Files and Others
+-----------------------------------------------------------
+vim.opt.termbidi = true
+vim.opt.fileencoding = "utf-8"
+vim.opt.autochdir = true
+vim.opt.hidden = true
+vim.opt.whichwrap = "b,s,<,>,[,],h,l"
+vim.opt.iskeyword:append("-,_")
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------

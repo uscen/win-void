@@ -7,7 +7,7 @@ return {
 	-----------------------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = { "windwp/nvim-ts-autotag" },
+		dependencies = { "windwp/nvim-ts-autotag", "nvim-treesitter/nvim-treesitter-textobjects" },
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
@@ -51,8 +51,36 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 			auto_install = true,
-			context_commentstring = { enable = true, enable_autocmd = false },
+			context_commentstring = { enable = true, enable_autocmd = true },
 			matchup = { enable = true, include_match_words = true, enable_quotes = true },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
+					node_incremental = "<leader>si",
+					scope_incremental = "<leader>sc",
+					node_decremental = "<leader>sd",
+				},
+			},
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["af"] = "@function.outer",
+						["if"] = "@function.inner",
+						["ac"] = "@class.outer",
+						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+						["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+					},
+					selection_modes = {
+						["@parameter.outer"] = "v", -- charwise
+						["@function.outer"] = "V", -- linewise
+						["@class.outer"] = "<c-v>", -- blockwise
+					},
+					include_surrounding_whitespace = true,
+				},
+			},
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
@@ -121,7 +149,7 @@ return {
 				desc = "Join node under cursor",
 			},
 			{
-				"<leader>s",
+				"<leader>k",
 				function()
 					return require("treesj").split()
 				end,

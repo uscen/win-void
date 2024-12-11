@@ -98,6 +98,7 @@ $packages = @(
     "voidtools.Everything",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
+    "SumatraPDF.SumatraPDF",
     "OpenJS.NodeJS",
     "Python.Python.3.12"
 )
