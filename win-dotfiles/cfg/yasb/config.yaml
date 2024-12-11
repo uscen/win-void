@@ -150,14 +150,12 @@ widgets:
             launch: "C:\\Program Files\\Everything\\everything.exe",
           }
 
-        - { icon: "\ueb51", launch: "quick_settings" }
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
         - { icon: "\uf489", launch: "alacritty" }
         - {
             icon: "\udb84\udec7",
             launch: "C:\\Program Files\\Mozilla Thunderbird\\thunderbird.exe",
           }
-        - { icon: "\udb80\ude53", launch: "start explorer" }
         - {
             icon: "\uf268",
             launch: "C:\\Users\\LLI\\AppData\\Local\\Chromium\\Application\\Chrome.exe",
