@@ -2,9 +2,9 @@
 -- Auto Install Language Server:
 -----------------------------------------------------------
 return {
-	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
+		"williamboman/mason.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 
@@ -35,6 +35,11 @@ return {
 			},
 			-- auto installation
 			automatic_installation = true,
+		})
+		mason_lspconfig.setup_handlers({
+			function(server_name)
+				require("lspconfig")[server_name].setup({})
+			end,
 		})
 
 		-- mason-tool-installer

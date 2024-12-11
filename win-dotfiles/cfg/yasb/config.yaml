@@ -145,30 +145,28 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\uf0a2", launch: "notification_center" }
-        - icon: "\uf422"
-          launch: "C:\\Program Files\\Everything\\everything.exe"
+        - {
+            icon: "\uf422",
+            launch: "C:\\Program Files\\Everything\\everything.exe",
+          }
+
+        - { icon: "\ueb51", launch: "quick_settings" }
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
         - { icon: "\uf489", launch: "alacritty" }
         - {
             icon: "\udb84\udec7",
             launch: "C:\\Program Files\\Mozilla Thunderbird\\thunderbird.exe",
           }
+        - { icon: "\udb80\ude53", launch: "start explorer" }
         - {
-            icon: "\uf1ff",
-            launch: "C:\\Users\\LLI\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe",
-          }
-        - {
-            icon: "\ue217",
-            launch: "C:\\Users\\LLI\\AppData\\Roaming\\Telegram Desktop\\Telegram.exe",
-          }
-        - {
-            icon: "\udb80\ude39",
-            launch: "C:\\Program Files\\Zen Browser\\zen.exe",
+            icon: "\uf268",
+            launch: "C:\\Users\\LLI\\AppData\\Local\\Chromium\\Application\\Chrome.exe",
           }
         - {
             icon: "\udb82\ude1e",
             launch: "C:\\Users\\LLI\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
           }
+        - { icon: "\uf36f", launch: "C:\\Program Files\\Neovide\\neovide.exe" }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:

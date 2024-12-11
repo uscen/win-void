@@ -23,10 +23,18 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins Trigger:
 ----------------------------
 require("lazy").setup("plugins", {
-	change_detection = {
-		notify = false,
-	},
 	ui = {
 		border = "double",
+		size = {
+			width = 0.8,
+			height = 0.8,
+		},
+	},
+	checker = {
+		enabled = true,
+		notify = false,
+	},
+	change_detection = {
+		notify = false,
 	},
 })

@@ -6,7 +6,7 @@
   "cross_monitor_move_behaviour": "Insert",
   "unmanaged_window_operation_behaviour": "Op",
   "window_container_behaviour": "Create",
-  "mouse_follows_focus": true,
+  "mouse_follows_focus": false,
   "default_workspace_padding": 2,
   "default_container_padding": 2,
   "transparency": false,
