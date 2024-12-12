@@ -159,5 +159,5 @@ bind "set completion-ignore-case on"
 # for path in $(ls $HOME/AppData/Local/Programs); do
 # 	export PATH="$PATH:$HOME/AppData/Local/Programs/$path"
 # done
-export PATH="$PATH:$HOME/.config/bin"
+export PATH="$PATH:$HOME/.config/bin:$HOME/AppData/Roaming/npm"
 source /etc/profile.d/bash_completion.sh

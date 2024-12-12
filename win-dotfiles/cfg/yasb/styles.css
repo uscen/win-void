@@ -190,7 +190,7 @@
   border-radius: 2px;
 }
 .taskbar-widget .app-icon {
-  padding: 0 4px 0 5px;
+  padding: 0 4px 0 4px;
   margin: 4px 0 4px 0;
   border-radius: 2px;
   background-color: var(--crust);

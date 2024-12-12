@@ -32,6 +32,7 @@ function Prepend-Path($path) {
 
 Append-Path "$Env:LOCALAPPDATA\nvim-data\plugged\fzf\bin"
 Append-Path "$Env:LOCALAPPDATA\yasb\"
+Append-Path "$Env:APPDATA\npm\"
 Append-Path "C:\Program Files\Git\bin"
 
 # ======================================================#
@@ -44,6 +45,8 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 # Alias : 						                        #
 # ======================================================#
 # Easier Navigation:
+Remove-Alias -Name cd
+New-Alias -Name cd -Value z -Option AllScope
 ${function:drop} = { Set-Location ~\Documents\Dropbox }
 ${function:dt} = { Set-Location ~\Desktop }
 ${function:docs} = { Set-Location ~\Documents }

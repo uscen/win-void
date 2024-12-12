@@ -144,16 +144,16 @@ widgets:
         right: 2
       label: "{data}"
       app_list:
-        - { icon: "\uf0a2", launch: "notification_center" }
+        - { icon: "\uf0f3", launch: "notification_center" }
         - {
-            icon: "\uf422",
+            icon: "\uf00e",
             launch: "C:\\Program Files\\Everything\\everything.exe",
           }
 
-        - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
-        - { icon: "\uf489", launch: "alacritty" }
+        - { icon: "\uf1fe", launch: "cmd /c Taskmgr" }
+        - { icon: "\uf313", launch: "alacritty" }
         - {
-            icon: "\udb84\udec7",
+            icon: "\uf370",
             launch: "C:\\Program Files\\Mozilla Thunderbird\\thunderbird.exe",
           }
         - {
@@ -168,7 +168,7 @@ widgets:
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
-      icon_size: 12
+      icon_size: 14
       animation: true
       ignore_apps:
         processes: []
