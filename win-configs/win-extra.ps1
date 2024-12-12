@@ -2,6 +2,7 @@
 # List Packages:      		                      #
 # ================================================#
 $packages=@(
+    "live-server",
     "typescript",
     "sass",
     "yarn"
