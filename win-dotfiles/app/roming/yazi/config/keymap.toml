@@ -2,7 +2,6 @@
 prepend_keymap = [
 	{ on = [ "e" ], run = "open"},
 	{ on = [ "A" ], run = "create --dir"},
-	{ on = [ "l" ], run = "plugin smart-enter --sync --args='detatch'", desc = "Open in new window." },
-	{ on = [ "f" ], run = "plugin jump-to-char", desc = "Jump to char" },
-	{ on = [ "F" ], run = "plugin smart-filter", desc = "Smart Filter" },
+	{ on   = "l",		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+	{ on   = "f", run  = "plugin jump-to-char", desc = "Jump to char" }
 ]

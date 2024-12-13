@@ -7,7 +7,7 @@ general.live_config_reload = true
 program = "C:/msys64/msys2_shell.cmd"
 args = ["-defterm -here -use-full-path -no-start -mingw64 -shell bash"]
 [window]
-opacity = 1
+opacity = 1.0
 padding = {x= 10, y=10}
 dynamic_padding = true
 decorations = "None"
@@ -22,8 +22,6 @@ history = 50000
 multiplier = 3
 [cursor]
 vi_mode_style = {shape = "Block", blinking = "Off"}
-[terminal]
-osc52 = "CopyPaste"
 # ===================================================#
 # colorsscheme:                                      #
 # ===================================================#
