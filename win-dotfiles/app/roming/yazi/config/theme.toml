@@ -3,32 +3,38 @@
 # : Manager {{{
 
 [manager]
-cwd = { fg = "#83a598" }
+cwd = { fg = "#7fbbb3" }
 
 # Hovered
-hovered         = { fg = "#282828", bg = "#83a598" }
+hovered         = { reversed = true }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword  = { fg = "#b8bb26", italic = true }
-find_position = { fg = "#fe8019", bg = "reset", italic = true }
+find_keyword  = { fg = "#dbbc7f", bold = true, italic = true, underline = true }
+find_position = { fg = "#d699b6", bg = "reset", bold = true, italic = true }
 
 # Marker
-marker_selected = { fg = "#b8bb26", bg = "#b8bb26" }
-marker_copied   = { fg = "#b8bb26", bg = "#b8bb26" }
-marker_cut      = { fg = "#fb4934", bg = "#fb4934" }
+marker_copied   = { fg = "#a7c080",  bg = "#a7c080" }
+marker_cut      = { fg = "#e67e80",    bg = "#e67e80" }
+marker_marked   = { fg = "#7fbbb3",   bg = "#7fbbb3" }
+marker_selected = { fg = "#dbbc7f", bg = "#dbbc7f" }
 
 # Tab
-tab_active   = { fg = "#282828", bg = "#504945" }
-tab_inactive = { fg = "#a89984", bg = "#3c3836" }
+tab_active   = { reversed = true }
+tab_inactive = {}
 tab_width    = 1
+
+# Count
+count_copied   = { fg = "#343f44", bg = "#a7c080" }
+count_cut      = { fg = "#343f44", bg = "#e67e80" }
+count_selected = { fg = "#343f44", bg = "#dbbc7f" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#665c54" }
+border_style  = { fg = "#4f585e" }
 
 # Highlighting
-# syntect_theme = "~/.config/yazi/Gruvbox-Dark.tmTheme"
+syntect_theme = ""
 
 # : }}}
 
@@ -36,37 +42,26 @@ border_style  = { fg = "#665c54" }
 # : Status {{{
 
 [status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "#3c3836", bg = "#3c3836" }
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#343f44", bg = "#343f44" }
 
 # Mode
-mode_normal = { fg = "#282828", bg = "#A89984", bold = true }
-mode_select = { fg = "#282828", bg = "#b8bb26", bold = true }
-mode_unset  = { fg = "#282828", bg = "#d3869b", bold = true }
+mode_normal = { bg = "#7fbbb3", bold = true }
+mode_select = { bg = "#e67e80", bold = true }
+mode_unset  = { bg = "#e67e80", bold = true }
 
 # Progress
-progress_label  = { fg = "#ebdbb2", bold = true }
-progress_normal = { fg = "#504945", bg = "#3c3836" }
-progress_error  = { fg = "#fb4934", bg = "#3c3836" }
+progress_label  = { bold = true }
+progress_normal = { fg = "#7fbbb3", bg = "#232a2e" }
+progress_error  = { fg = "#e67e80", bg = "#232a2e" }
 
 # Permissions
-permissions_t = { fg = "#504945" }
-permissions_r = { fg = "#b8bb26" }
-permissions_w = { fg = "#fb4934" }
-permissions_x = { fg = "#b8bb26" }
-permissions_s = { fg = "#665c54" }
-
-# : }}}
-
-
-# : Input {{{
-
-[input]
-border   = { fg = "#bdae93" }
-title    = {}
-value    = {}
-selected = { reversed = true }
+permissions_t = { fg = "#a7c080" }
+permissions_r = { fg = "#dbbc7f" }
+permissions_w = { fg = "#e67e80" }
+permissions_x = { fg = "#7fbbb3" }
+permissions_s = { fg = "#2d353b" }
 
 # : }}}
 
@@ -74,9 +69,35 @@ selected = { reversed = true }
 # : Select {{{
 
 [select]
-border   = { fg = "#504945" }
-active   = { fg = "#fe8019" }
+border   = { fg = "#7fbbb3" }
+active   = { fg = "#d699b6", bold = true }
 inactive = {}
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border   = { fg = "#7fbbb3" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Completion {{{
+
+[completion]
+border   = { fg = "#7fbbb3" }
+active   = { reversed = true }
+inactive = {}
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
 
 # : }}}
 
@@ -84,9 +105,9 @@ inactive = {}
 # : Tasks {{{
 
 [tasks]
-border  = { fg = "#504945" }
+border  = { fg = "#7fbbb3" }
 title   = {}
-hovered = { underline = true }
+hovered = { fg = "#d699b6", underline = true }
 
 # : }}}
 
@@ -94,12 +115,13 @@ hovered = { underline = true }
 # : Which {{{
 
 [which]
-mask            = { bg = "#3c3836" }
-cand            = { fg = "#83a598" }
-rest            = { fg = "#928374" }
-desc            = { fg = "#fe8019" }
+cols            = 3
+mask            = { bg = "#232a2e" }
+cand            = { fg = "#7fbbb3" }
+rest            = { fg = "#2d353b" }
+desc            = { fg = "#d699b6" }
 separator       = "  "
-separator_style = { fg = "#504945" }
+separator_style = { fg = "#2d353b" }
 
 # : }}}
 
@@ -107,11 +129,26 @@ separator_style = { fg = "#504945" }
 # : Help {{{
 
 [help]
-on      = { fg = "#fe8019" }
-exec    = { fg = "#83a598" }
-desc    = { fg = "#928374" }
-hovered = { bg = "#504945", bold = true }
-footer  = { fg = "#3c3836", bg = "#a89984" }
+on      = { fg = "#7fbbb3" }
+run     = { fg = "#d699b6" }
+desc    = {}
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#232a2e", bg = "#d3c6aa" }
+
+# : }}}
+
+
+# : Notify {{{
+
+[notify]
+title_info  = { fg = "#a7c080" }
+title_warn  = { fg = "#dbbc7f" }
+title_error = { fg = "#e67e80" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
 
 # : }}}
 
@@ -121,25 +158,22 @@ footer  = { fg = "#3c3836", bg = "#a89984" }
 [filetype]
 
 rules = [
-    # Images
-    { mime = "image/*", fg = "#83a598" },
+	# Images
+	{ mime = "image/*", fg = "#7fbbb3" },
 
-    # Videos
-    { mime = "video/*", fg = "#b8bb26" },
-    { mime = "audio/*", fg = "#b8bb26" },
+	# Media
+	{ mime = "{audio,video}/*", fg = "#d699b6" },
 
-    # Archives
-    { mime = "application/zip",             fg = "#fe8019" },
-    { mime = "application/gzip",            fg = "#fe8019" },
-    { mime = "application/x-tar",           fg = "#fe8019" },
-    { mime = "application/x-bzip",          fg = "#fe8019" },
-    { mime = "application/x-bzip2",         fg = "#fe8019" },
-    { mime = "application/x-7z-compressed", fg = "#fe8019" },
-    { mime = "application/x-rar",           fg = "#fe8019" },
+	# Archives
+	{ mime = "application/*zip", fg = "#e67e80" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#e67e80" },
 
-    # Fallback
-    { name = "*", fg = "#a89984" },
-    { name = "*/", fg = "#83a598" }
+	# Documents
+	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#7fbbb3" },
+
+	# Fallback
+	{ name = "*", fg = "#83c092" },
+	{ name = "*/", fg = "#a7c080" }
 ]
 
 # : }}}
