@@ -78,6 +78,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.opt.foldmethod = "indent"
 -----------------------------------------------------------
 -- Indent BlankLine
 -----------------------------------------------------------
