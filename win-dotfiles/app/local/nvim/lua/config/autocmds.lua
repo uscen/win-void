@@ -64,3 +64,21 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 		require("resession").save("last")
 	end,
 })
+-----------------------------------------------------------
+-- Automatically save & Load Session
+-----------------------------------------------------------
+local save_fold = vim.api.nvim_create_augroup("Persistent Folds", { clear = true })
+vim.api.nvim_create_autocmd("BufWinLeave", {
+	pattern = "*.*",
+	callback = function()
+		vim.cmd.mkview()
+	end,
+	group = save_fold,
+})
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = "*.*",
+	callback = function()
+		vim.cmd.loadview({ mods = { emsg_silent = true } })
+	end,
+	group = save_fold,
+})
