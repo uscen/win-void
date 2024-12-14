@@ -63,14 +63,16 @@ return {
 				["<C-v>"] = "open_vsplit",
 				["s"] = false,
 				["S"] = false,
+				["."] = "toggle_hidden",
 			},
 		},
 
 		filesystem = {
 			use_libuv_file_watcher = true,
-			hijack_netrw_behavior = "disabled",
+			hijack_netrw_behavior = "open_default",
 			follow_current_file = {
 				enabled = true,
+				leave_dirs_open = false,
 			},
 			filtered_items = {
 				hide_dotfiles = true,
