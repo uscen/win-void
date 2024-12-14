@@ -59,6 +59,10 @@ return {
 			mappings = {
 				["<TAB>"] = "set_root",
 				["<C-h>"] = "navigate_up",
+				["<C-b>"] = "open_split",
+				["<C-v>"] = "open_vsplit",
+				["s"] = false,
+				["S"] = false,
 			},
 		},
 
