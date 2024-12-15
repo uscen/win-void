@@ -160,4 +160,3 @@ bind "set completion-ignore-case on"
 # 	export PATH="$PATH:$HOME/AppData/Local/Programs/$path"
 # done
 export PATH="$PATH:$HOME/.config/bin:$HOME/AppData/Roaming/npm"
-source /etc/profile.d/bash_completion.sh
