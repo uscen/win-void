@@ -29,7 +29,8 @@ shopt -s histappend
 #####################################
 ###------------ PROMPT -----------###
 #####################################
-eval "$(starship init bash)"
+eval "$(oh-my-posh init bash --config ~/.config/posh/posh.json)"
+# eval "$(starship init bash)"
 
 #####################################
 ###------------ ZOXIDE -----------###
@@ -106,17 +107,6 @@ alias cls="clear"
 alias chrome="start chrome"
 alias firefox="start zen"
 alias zen="start zen"
-#####################################
-###------- Yazi File Manager -----###
-#####################################
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
 #####################################
 ###-----Source fzf keybindingd----###
 #####################################
