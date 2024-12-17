@@ -29,8 +29,8 @@ shopt -s histappend
 #####################################
 ###------------ PROMPT -----------###
 #####################################
-eval "$(oh-my-posh init bash --config ~/.config/posh/posh.json)"
-# eval "$(starship init bash)"
+eval "$(starship init bash)"
+# eval "$(oh-my-posh init bash --config ~/.config/posh/posh.json)"
 
 #####################################
 ###------------ ZOXIDE -----------###
