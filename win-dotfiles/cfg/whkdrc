@@ -8,7 +8,7 @@ alt + ctrl + r          : komorebic reload-configuration
 alt + g                 : if ($wshell.AppActivate('Zen') -eq $False) { start zen }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
 alt + n                 : wt sh -c "yazi ~"
-alt + v            	    : cd $env:userprofile; neovide
+alt + v            	    : neovide
 alt + shift + return    : wt
 alt + shift + n         : explorer
 alt + return            : alacritty
