@@ -12,7 +12,7 @@
   "transparency": false,
   "transparency_alpha": 250,
   "border": true,
-  "border_width": 4,
+  "border_width": 3,
   "border_offset": -1,
   "border_implementation": "Komorebi",
   "border_style": "Square",
