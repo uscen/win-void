@@ -52,6 +52,11 @@
     },
     {
       "kind": "Exe",
+      "id": "mpv.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
       "id": "gimp-2.10.exe",
       "matching_strategy": "Equals"
     },
