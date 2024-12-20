@@ -5,7 +5,7 @@ return {
 	{
 		"kevinhwang91/nvim-ufo",
 		dependencies = "kevinhwang91/promise-async",
-		enabled = true,
+		enabled = false,
 		event = "VeryLazy",
 		opts = {
 			-- INFO: Uncomment to use treeitter as fold provider, otherwise nvim lsp is used
@@ -84,6 +84,7 @@ return {
 	},
 	{
 		"luukvbaal/statuscol.nvim",
+		enabled = false,
 		config = function()
 			local builtin = require("statuscol.builtin")
 			require("statuscol").setup({

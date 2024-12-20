@@ -64,7 +64,7 @@ return {
 		{
 			"<leader>fd",
 			function()
-				require("telescope").extensions.zoxide.list()
+				require("telescope").extensions.zoxide.list(require("telescope.themes").get_ivy({}))
 			end,
 			desc = "Change Into Directory",
 		},
@@ -111,7 +111,7 @@ return {
 			-- (other Telescope configuration...)
 			extensions = {
 				zoxide = {
-					prompt_title = "[ Walking on the shoulders of TJ ]",
+					prompt_title = "[ 🙉 Walking on the shoulders of TJ ]",
 					mappings = {
 						default = {
 							after_action = function(selection)
@@ -279,22 +279,22 @@ return {
 			},
 			pickers = {
 				find_files = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
 				oldfiles = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
 				grep_string = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
 				live_grep = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
 				registers = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
 				diagnostics = {
-					theme = "dropdown",
+					theme = "ivy",
 				},
 				buffers = {
 					sort_lastused = true,

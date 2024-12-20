@@ -52,6 +52,13 @@ return {
 				offsets = {
 					{ filetype = "aerial", text = "Document Symbols" },
 					{
+						filetype = "NvimTree",
+						text = "File Explorer",
+						text_align = "center",
+						highlight = "Directory",
+						padding = 0,
+					},
+					{
 						filetype = "neo-tree",
 						text = "File Explorer",
 						text_align = "center",

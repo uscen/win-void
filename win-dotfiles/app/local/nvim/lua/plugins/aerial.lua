@@ -3,10 +3,10 @@
 -----------------------------------------------------------
 return {
 	"stevearc/aerial.nvim",
-	enabled = true,
+	enabled = false,
 	event = "LspAttach",
 	init = function()
-		vim.keymap.set("n", "<leader>f", "<cmd>AerialToggle<CR>")
+		vim.keymap.set("n", "<leader>fa", "<cmd>AerialToggle<CR>")
 	end,
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",

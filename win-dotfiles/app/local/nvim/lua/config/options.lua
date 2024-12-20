@@ -54,7 +54,6 @@ vim.opt.numberwidth = 4
 vim.opt.scrolloff = 0
 vim.o.cursorline = true
 vim.opt.showmatch = true
-vim.opt.foldmethod = "marker"
 vim.opt.colorcolumn = ""
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -73,12 +72,12 @@ vim.opt.virtualedit = "block"
 -----------------------------------------------------------
 -- Code folding options:
 -----------------------------------------------------------
-vim.opt.foldcolumn = "1"
+-- vim.opt.foldcolumn = "1"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "marker"
 -----------------------------------------------------------
 -- Indent BlankLine
 -----------------------------------------------------------
