@@ -66,7 +66,6 @@ return {
 				{ "codelldb" },
 				{ "tailwindcss-language-server" },
 				{ "clangd" },
-				{ "clang-format" },
 			},
 
 			auto_update = true,

@@ -31,9 +31,8 @@
     "statusBar.debuggingBackground": "#456151"
   },
   // Format && AutoComplete
-  "beautify.onSave": true,
   "editor.formatOnSave": true,
-  "beautify.JSfiles": ["js", "json", "jsbeautifyrc", "jshintrc", "ts"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
