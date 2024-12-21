@@ -7,8 +7,8 @@ alt + ctrl + r          : komorebic reload-configuration
 # Start App
 alt + g                 : if ($wshell.AppActivate('Zen') -eq $False) { start zen }
 alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
-alt + shift + w        : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
-alt + n                 : wt sh -c "yazi ~"
+alt + shift + w         : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
+alt + n                 : wt sh -c "yazi.exe ~"
 alt + v            	    : neovide
 alt + shift + return    : wt
 alt + shift + n         : explorer

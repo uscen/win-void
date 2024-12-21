@@ -105,7 +105,7 @@ alias man="tldr"
 alias cat="bat"
 alias cls="clear"
 alias chrome="start chrome"
-alias firefox="start zen"
+alias firefox="start firefox"
 alias zen="start zen"
 #####################################
 ###-----Source fzf keybindingd----###
@@ -149,4 +149,4 @@ bind "set completion-ignore-case on"
 # for path in $(ls $HOME/AppData/Local/Programs); do
 # 	export PATH="$PATH:$HOME/AppData/Local/Programs/$path"
 # done
-export PATH="$PATH:$HOME/.config/bin:$HOME/AppData/Roaming/npm"
+export PATH="$PATH:$HOME/.config/bin:$HOME/AppData/Roaming/npm:$HOME/AppData/Local/Microsoft/WinGet/Packages/sxyazi.yazi_Microsoft.Winget.Source_8wekyb3d8bbwe/yazi-x86_64-pc-windows-msvc/"

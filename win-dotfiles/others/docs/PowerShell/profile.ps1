@@ -33,6 +33,7 @@ function Prepend-Path($path) {
 Append-Path "$Env:LOCALAPPDATA\nvim-data\plugged\fzf\bin"
 Append-Path "$Env:LOCALAPPDATA\yasb\"
 Append-Path "$Env:APPDATA\npm\"
+Append-Path "$Env:LOCALAPPDATA\Microsoft\WinGet\Packages\sxyazi.yazi_Microsoft.Winget.Source_8wekyb3d8bbwe\yazi-x86_64-pc-windows-msvc\"
 Append-Path "C:\Program Files\Git\bin"
 
 # ======================================================#
