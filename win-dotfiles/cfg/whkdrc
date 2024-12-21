@@ -24,10 +24,10 @@ alt + b            	    : yasbc stop
 # Focus windows
 alt + h                 : komorebic focus left
 alt + l                 : komorebic focus right
-alt + j                 : komorebic focus down
-alt + k                 : komorebic focus up
-alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
-alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
+alt + j                 : komorebic cycle-focus next
+alt + k                 : komorebic cycle-focus previous
+# alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
+# alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
 
 # Move windows
 alt + shift + h         : komorebic move left

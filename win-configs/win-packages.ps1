@@ -81,6 +81,7 @@ $packages = @(
     "Microsoft.VisualStudioCode",
     "Hibbiki.Chromium",
     "eza-community.eza",
+    "PrestonN.FreeTube",
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
     "AmN.yasb",
