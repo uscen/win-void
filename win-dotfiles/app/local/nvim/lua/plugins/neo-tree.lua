@@ -13,7 +13,7 @@ return {
 	},
 	cmd = "Neotree",
 	keys = {
-		{ "<leader>e", "<Cmd>Neotree toggle left<cr>", desc = "Explorer NeoTree (Left)" },
+		{ "<leader>e", "<Cmd>Neotree toggle<cr>", desc = "Explorer NeoTree (Left)" },
 		{ "<leader>fe", "<Cmd>Neotree toggle float<cr>", desc = "Explorer NeoTree (Float)" },
 	},
 	opts = {
@@ -56,8 +56,12 @@ return {
 			},
 		},
 		window = {
-			position = "float",
+			position = "left",
 			width = 35,
+			mapping_options = {
+				noremap = true,
+				nowait = true,
+			},
 			mappings = {
 				["<TAB>"] = "set_root",
 				["<C-h>"] = "navigate_up",
