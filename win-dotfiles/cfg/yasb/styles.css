@@ -176,6 +176,7 @@
 }
 .weather-widget,
 .battery-widget,
+.cpu-widget,
 .volume-widget {
   padding: 0 6px;
 }
@@ -184,7 +185,48 @@
   margin: 0 2px 1px 0;
   color: var(--yellow);
 }
-
+.cpu-widget .icon,
+.memory-widget .icon {
+  font-size: 14px;
+  color: var(--maroon);
+  margin: 0 2px 1px 0;
+}
+.media-widget {
+  padding: 0;
+  margin: 0;
+}
+.media-widget .label {
+  color: var(--lavender);
+  padding: 0px;
+  padding-right: 16px;
+}
+.media-widget .btn {
+  color: var(--overlay1);
+  padding: 0 0px;
+  padding-right: 0px;
+  margin: 4px 0;
+  font-family: Segoe Fluent Icons;
+}
+.media-widget .btn:hover {
+  color: var(--subtext0);
+}
+.media-widget .btn.play {
+  font-size: 16px;
+}
+.media-widget .btn.prev {
+  padding: 0 0px 0 0px;
+  font-size: 12px;
+}
+.media-widget .btn.next {
+  padding: 0 8px 0 0px;
+  font-size: 12px;
+}
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+  color: var(--surface1);
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0);
+}
 .taskbar-widget {
   padding: 0 4px 0 4px;
   border-radius: 2px;

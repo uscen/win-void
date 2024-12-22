@@ -34,12 +34,33 @@ bars:
       left: ["win_button", "komorebi_workspaces", "active_window"]
       center: ["clock", "apps"]
       right:
+        - "media"
         - "taskbar"
         - "weather"
         - "battery"
         - "volume"
         - "power_menu"
 widgets:
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title} <span>\uf001</span>"
+      label_alt: "{artist} <span>\uf001</span>"
+      hide_empty: false
+      max_field_size:
+        label: 30
+        label_alt: 30
+      show_thumbnail: false
+      controls_only: false
+      controls_left: false
+      thumbnail_alpha: 0
+      thumbnail_padding: 0
+      thumbnail_corner_radius: 0
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
@@ -48,7 +69,7 @@ widgets:
       label_no_window: ""
       label_icon: true
       label_icon_size: 14
-      max_length: 56
+      max_length: 30
       max_length_ellipsis: "..."
       monitor_exclusive: false
   clock:
@@ -74,6 +95,22 @@ widgets:
         left: 8
         bottom: 0
         right: 8
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]}%"
+      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
+      update_interval: 2000
+      histogram_icons:
+        - '\u2581' # 0%
+        - '\u2581' # 10%
+        - '\u2582' # 20%
+        - '\u2583' # 30%
+        - '\u2584' # 40%
+        - '\u2585' # 50%
+        - '\u2586' # 60%
+        - '\u2587' # 70%
+        - '\u2588' # 80%+
   weather:
     type: "yasb.weather.WeatherWidget"
     options:
