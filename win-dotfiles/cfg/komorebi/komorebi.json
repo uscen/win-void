@@ -52,6 +52,11 @@
   },
   "ignore_rules": [
     {
+      "kind": "Class",
+      "id": "yasb-bar",
+      "matching_strategy": "Equals"
+    },
+    {
       "kind": "Exe",
       "id": "yasb.exe",
       "matching_strategy": "Equals"
