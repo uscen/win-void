@@ -33,13 +33,7 @@ bars:
     widgets:
       left: ["win_button", "komorebi_workspaces", "active_window"]
       center: ["clock", "apps"]
-      right:
-        - "media"
-        - "taskbar"
-        - "weather"
-        - "battery"
-        - "volume"
-        - "power_menu"
+      right: ["media", "taskbar", "weather", "battery", "volume", "power_menu"]
 widgets:
   media:
     type: "yasb.media.MediaWidget"
