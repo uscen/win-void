@@ -24,8 +24,8 @@ alt + b            	    : yasbc stop && komorebic.exe global-work-area-offset 0 
 # Focus windows
 alt + h                 : komorebic focus left
 alt + l                 : komorebic focus right
-alt + j                 : komorebic cycle-focus next
-alt + k                 : komorebic cycle-focus previous
+alt + k                 : komorebic cycle-focus next
+alt + j                 : komorebic cycle-focus previous
 # alt + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
 # alt + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
 
