@@ -35,7 +35,6 @@ $extensions=@(
     "mikestead.dotenv"
     "tyriar.lorem-ipsum"
     "yzhang.markdown-all-in-one"
-    "codeium.codeium"
     # Node/NPM/Yarn specific extensions
     "christian-kohler.npm-intellisense"
     "dbaeumer.vscode-eslint"

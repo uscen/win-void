@@ -74,7 +74,7 @@ return {
 		},
 
 		filesystem = {
-			use_libuv_file_watcher = true,
+			use_libuv_file_watcher = false,
 			hijack_netrw_behavior = "open_current",
 			follow_current_file = {
 				enabled = true,

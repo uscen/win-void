@@ -5,8 +5,8 @@ alt + shift + r         : taskkill /f /im whkd.exe; Start-Process whkd -WindowSt
 alt + ctrl + r          : komorebic reload-configuration
 
 # Start App
-alt + w                 : if ($wshell.AppActivate('Zen') -eq $False) { start zen }
-alt + g                 : if ($wshell.AppActivate('Chromium') -eq $False) { start chrome }
+alt + g                 : if ($wshell.AppActivate('Zen') -eq $False) { start zen }
+alt + w                 : if ($wshell.AppActivate('Chromium') -eq $False) { start chrome }
 alt + shift + w         : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + n                 : wt sh -c "yazi.exe ~"
 alt + v            	    : neovide
