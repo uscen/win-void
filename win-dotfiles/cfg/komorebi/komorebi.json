@@ -16,12 +16,6 @@
   "border_offset": -1,
   "border_implementation": "Komorebi",
   "border_style": "Square",
-  "global_work_area_offset": {
-    "left": 0,
-    "top": 32,
-    "right": 0,
-    "bottom": 30
-  },
   "theme": {
     "palette": "Base16",
     "name": "GruvboxMaterialDarkMedium",

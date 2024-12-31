@@ -19,8 +19,6 @@ alt + ctrl + c          : code
 alt + shift + c         : komorebic close
 alt + q                 : komorebic close
 alt + shift + m         : komorebic minimize
-alt + b            	    : yasbc stop && komorebic.exe global-work-area-offset 0 0 0 0
-alt + shift + b         : yasbc start && komorebic.exe global-work-area-offset 0 32 0 30
 
 # Focus windows
 alt + h                 : komorebic focus left
