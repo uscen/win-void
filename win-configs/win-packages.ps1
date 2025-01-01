@@ -51,8 +51,6 @@ $uninstall = @(
 )
 $packages = @(
     "MSYS2.MSYS2",
-    "Microsoft.WindowsTerminal",
-    "Microsoft.WindowsTerminal.Preview",
     "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
@@ -86,7 +84,6 @@ $packages = @(
     "LGUG2Z.komorebi",
     "LGUG2Z.whkd",
     "AmN.yasb",
-    "AltSnap.AltSnap",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
@@ -110,6 +107,7 @@ $scoopPackages = @(
     "ffmpeg",
     "ani-cli",
     "mpv",
+    "altsnap",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 

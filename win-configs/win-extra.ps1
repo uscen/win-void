@@ -5,7 +5,8 @@ $packages=@(
     "live-server",
     "typescript",
     "sass",
-    "yarn"
+    "yarn",
+    "pnpm",
     "firebase-tools"
     # "eslint",
     # "eslint-config-airbnb",
