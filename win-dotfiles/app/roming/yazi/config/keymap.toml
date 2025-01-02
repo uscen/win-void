@@ -1,9 +1,8 @@
 [manager]
 prepend_keymap = [
+	{ on = [ "!" ], run = 'shell bash --block --confirm', desc = "Open shell here" },
 	{ on = [ "e" ], run = "open"},
 	{ on = [ "A" ], run = "create --dir"},
-	# { on   = "<Esc>", run  = "close", desc = "Cancel input" },
-	{ on = "!", run  = 'shell "powershell.exe" --block', desc = "Open PowerShell here" },
 	{ on = "l",		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 	{ on = "f", run  = "plugin jump-to-char", desc = "Jump to char" }
 ]
