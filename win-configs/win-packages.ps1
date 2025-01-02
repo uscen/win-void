@@ -51,7 +51,6 @@ $uninstall = @(
 )
 $packages = @(
     "MSYS2.MSYS2",
-    "Microsoft.PowerShell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
     "sxyazi.yazi",
@@ -77,7 +76,6 @@ $packages = @(
     "JesseDuffield.lazygit",
     "dandavison.delta",
     "Microsoft.VisualStudioCode",
-    "Zen-Team.Zen-Browser",
     "Hibbiki.Chromium",
     "eza-community.eza",
     "PrestonN.FreeTube",
