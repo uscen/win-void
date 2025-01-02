@@ -33,7 +33,16 @@ bars:
     widgets:
       left: ["win_button", "komorebi_workspaces", "active_window"]
       center: ["clock", "apps"]
-      right: ["media", "taskbar", "weather", "battery", "volume", "power_menu"]
+      right:
+        [
+          "media",
+          "taskbar",
+          "weather",
+          "battery",
+          "brightness",
+          "volume",
+          "power_menu",
+        ]
 widgets:
   media:
     type: "yasb.media.MediaWidget"
@@ -105,6 +114,31 @@ widgets:
         - '\u2586' # 60%
         - '\u2587' # 70%
         - '\u2588' # 80%+
+  brightness:
+    type: "yasb.brightness.BrightnessWidget"
+    options:
+      label: "<span>{icon}</span>{percent}%"
+      label_alt: "Brightness {percent}%"
+      tooltip: true
+      auto_light: false
+      auto_light_icon: "\udb80\udce1"
+      auto_light_night_level: 35
+      auto_light_night_start_time: "19:00"
+      auto_light_night_end_time: "06:45"
+      auto_light_day_level: 75
+      brightness_icons: [
+          "\udb80\udcde", # Icon for 0-25% brightness
+          "\udb80\udcdd", # Icon for 26-50% brightness
+          "\udb80\udcdf", # Icon for 51-75% brightness
+          "\udb80\udce0", # Icon for 76-100% brightness
+        ]
+      callbacks:
+        on_left: "do_nothing"
+      container_padding:
+        top: 0
+        left: 2
+        bottom: 0
+        right: 2
   weather:
     type: "yasb.weather.WeatherWidget"
     options:
