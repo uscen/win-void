@@ -12,10 +12,10 @@
   --overlay1: #504945;
   --surface2: #32302f;
   --surface1: #282828;
-  --surface0: #141617;
+  --surface0: #282828;
   --base: #1d2021;
   --mantle: #1d2021;
-  --crust: #141617;
+  --crust: #282828;
 }
 * {
   font-size: 12px;
@@ -53,7 +53,7 @@
 .komorebi-workspaces .widget-container {
   background-color: var(--crust);
   margin: 4px 0 4px 0;
-  border-radius: 2px;
+  border-radius: 0px;
   border: none;
 }
 .komorebi-workspaces .widget-container {
@@ -164,7 +164,7 @@
 .power-menu-popup .button.cancel {
   padding: 20px;
   height: 32px;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 .battery-widget .icon {
   color: var(--sapphire);
@@ -229,12 +229,12 @@
 }
 .taskbar-widget {
   padding: 0 4px 0 4px;
-  border-radius: 2px;
+  border-radius: 0px;
 }
 .taskbar-widget .app-icon {
   padding: 0 4px 0 4px;
   margin: 4px 0 4px 0;
-  border-radius: 2px;
+  border-radius: 0px;
   background-color: var(--crust);
   border: none;
 }
