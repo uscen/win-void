@@ -1,4 +1,4 @@
-.shell pwsh
+.shell powershell
 
 # Reload configuration
 alt + shift + r         : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
