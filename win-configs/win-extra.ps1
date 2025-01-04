@@ -2,11 +2,12 @@
 # List Packages:      		                      #
 # ================================================#
 $packages=@(
+    "bun",
+    "yarn",
+    "pnpm",
     "live-server",
     "typescript",
     "sass",
-    "yarn",
-    "pnpm",
     "firebase-tools"
     # "eslint",
     # "eslint-config-airbnb",
