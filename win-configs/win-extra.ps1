@@ -5,6 +5,7 @@ $packages=@(
     "bun",
     "yarn",
     "pnpm",
+    "@antfu/ni",
     "live-server",
     "typescript",
     "sass",
