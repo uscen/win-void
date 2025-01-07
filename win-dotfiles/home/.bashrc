@@ -4,13 +4,14 @@
 export PROMPT_COMMAND='history -a'
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoreboth:erasedups
-export TERMINAL="wt"
-export BROWSER="firefox"
+export TERMINAL="alacritty"
+export BROWSER="chromium"
 export PAGER="less"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export MYVIMRC="$HOME/.config/nvim/init.lua"
 export KOMOREBI_CONFIG_HOME="$HOME/.config/komorebi"
+export BUN_INSTALL_CACHE_DIR="$HOME/.cache/bun/install/cache"
 export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
 export NI_DEFAULT_AGENT="npm"
 export NI_GLOBAL_AGENT="npm"
