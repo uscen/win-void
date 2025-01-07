@@ -80,17 +80,6 @@ alias pr="winget uninstall"
 alias pq="winget search"
 alias pl="winget list"
 alias pua="winget update --all && scoop update --all && pacman -Syu"
-## Flatpak PKG Manager
-alias flat-update="flatpak update -y"
-alias flat-install="flatpak install -y --or-update flathub"
-alias flat-remove="flatpak uninstall -y --force-remove --delete-data --noninteractive"
-alias flat-orphans-remove="flatpak uninstall -y --unused --noninteractive"
-alias flat-all-remove="flatpak uninstall -y --all --delete-data --noninteractive"
-## Power Management
-alias poweroff="doas poweroff"
-alias shutdown="doas shutdown"
-alias reboot="doas reboot"
-alias zzz="doas zzz"
 ## For Configs Files
 alias recompile="cd ~/win-void/win-configs && powershell ./win-configs.ps1"
 alias dots="cd ~/win-void/"
@@ -99,7 +88,7 @@ alias wmc="nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json"
 alias whkdc="nvim ~/win-void/win-dotfiles/cfg/whkdrc"
 alias barc="nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml"
 # Others Usfeual Alias
-alias yt-concats='yt-dlp --concat-playlist always -S "codec:h264"'
+alias yt-concats='yt-dlp --concat-playlist always'
 alias yt-music='yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music'
 alias man="tldr"
 alias cat="bat"

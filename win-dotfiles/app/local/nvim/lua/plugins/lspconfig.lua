@@ -90,6 +90,16 @@ return {
 			},
 		})
 
+		-- eslint
+		lspconfig.eslint.setup({
+			on_attach = function(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					buffer = bufnr,
+					command = "EslintFixAll",
+				})
+			end,
+		})
+
 		-- Tailwind
 		-- Support for tailwind auto completion
 		-- install the tailwind server : "sudo npm install -g @tailwindcss/language-server"
