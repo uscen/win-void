@@ -51,6 +51,7 @@ $uninstall = @(
 )
 $packages = @(
     "MSYS2.MSYS2",
+    "nushell",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
     "sxyazi.yazi",
