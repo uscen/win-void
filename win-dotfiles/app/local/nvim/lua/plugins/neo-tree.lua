@@ -6,6 +6,7 @@ return {
 	branch = "v3.x",
 	lazy = false,
 	priority = 9000,
+	enabled = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",

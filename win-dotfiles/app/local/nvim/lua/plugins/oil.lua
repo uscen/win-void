@@ -7,7 +7,9 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
 			{ "<leader>o", "<cmd>Oil <cr>", desc = "Oil NoNFloatings" },
+			{ "<leader>e", "<cmd>Oil <cr>", desc = "Oil NoNFloatings" },
 			{ "<leader>fo", "<cmd>Oil --float<cr>", desc = "Oil Floatings" },
+			{ "<leader>fe", "<cmd>Oil --float<cr>", desc = "Oil Floatings" },
 		},
 		opts = {
 			default_file_explorer = true,
