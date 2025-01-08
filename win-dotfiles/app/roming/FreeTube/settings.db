@@ -30,3 +30,4 @@
 {"_id":"videoPlaybackRateMouseScroll","value":true}
 {"_id":"videoSkipMouseScroll","value":false}
 {"_id":"videoVolumeMouseScroll","value":false}
+{"_id":"useRssFeeds","value":false}
