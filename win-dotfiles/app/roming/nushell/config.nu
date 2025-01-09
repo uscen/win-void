@@ -14,9 +14,9 @@ $env.config = {
   show_banner: false
   edit_mode: vi
   cursor_shape: {
-    vi_insert: line
+    vi_insert: block
     vi_normal: block
-    emacs: underscore
+    emacs: line
   }
   table: {
     padding: { left: 0 right: 0 }
