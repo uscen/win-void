@@ -63,7 +63,7 @@ $env.config = {
     event: [
      {
        send: ExecuteHostCommand
-       cmd: "commandli_ne edit --insert (
+       cmd: "commandline edit --insert (
          history
            | get command
            | reverse
