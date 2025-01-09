@@ -4,9 +4,9 @@
 general.working_directory = "C:/Users/LLI"
 general.live_config_reload = true
 [terminal.shell]
-program = "C:/msys64/msys2_shell.cmd"
-args = ["-defterm -here -use-full-path -no-start -mingw64 -shell bash"]
-# program = "C:/Users/LLI/AppData/Local/Programs/nu/bin/nu.exe"
+program = "C:/Users/LLI/AppData/Local/Programs/nu/bin/nu.exe"
+# program = "C:/msys64/msys2_shell.cmd"
+# args = ["-defterm -here -use-full-path -no-start -mingw64 -shell bash"]
 [window]
 opacity = 1.0
 padding = {x= 10, y=10}
