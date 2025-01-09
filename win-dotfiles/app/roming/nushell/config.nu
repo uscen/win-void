@@ -6,19 +6,16 @@
 # =============================================================================== #
 source alias.nu
 source colors.nu
-
+# =============================================================================== #
+# -------------------------------- General config File ------------------------   #
+# =============================================================================== #
 $env.config = {
   color_config: $base16_theme
   edit_mode: vi
   show_banner: false
   table: {
     padding: { left: 0 right: 0 }
-    # rounded basic compact compact_double light thin with_love reinforced heavy none other
     mode: none
-
-  }
-  filesize: {
-    metric: true
   }
   cursor_shape: {
     vi_insert: underscore
@@ -26,24 +23,6 @@ $env.config = {
     emacs: line
   }
   menus: [
-  {
-    name: zoxide_menu
-    only_buffer_difference: true
-    marker: "| "
-    type: {
-        layout: columnar
-        page_size: 20
-    }
-    style: {
-        text: green
-        selected_text: green_reverse
-        description_text: yellow
-    }
-    source: { |buffer, position|
-        zoxide query -ls $buffer
-        | parse -r '(?p<description>[0-9]+) (?p<value>.+)'
-    }
-  }
    {
     name: completion_menu
     only_buffer_difference: false
@@ -51,7 +30,7 @@ $env.config = {
     type: {
       layout: columnar
       columns: 4
-      col_width: 20   # Optional value. If missing all the screen width is used to calculate column width
+      col_width: 20
       col_padding: 2
     }
     style: {
@@ -68,22 +47,6 @@ $env.config = {
       keycode: char_u
       mode: [emacs, vi_normal, vi_insert]
       event: { edit: clear }
-  }
-  {
-    name: zoxide_menu
-    modifier: control
-    keycode: char_o
-    mode: [emacs, vi_normal, vi_insert]
-    event: [
-      { send: menu name: zoxide_menu }
-    ]
-  }
-  {
-    name: completion_previous
-    modifier: shift
-    keycode: backtab
-    mode: [vi_normal vi_insert emacs]
-    event: { send: menuprevious }
   }
  ]
 }
