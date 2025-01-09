@@ -2,7 +2,7 @@
 # Nushell Config Shell:                                                           #
 # =============================================================================== #
 # =============================================================================== #
-# -------------------------------- Source OF FILE-------------------------------  #
+# -------------------------------- Source OF File -----------------------------   #
 # =============================================================================== #
 source alias.nu
 source colors.nu
@@ -21,9 +21,9 @@ $env.config = {
     metric: true
   }
   cursor_shape: {
-    vi_insert: line
+    vi_insert: underscore
     vi_normal: block
-    emacs: underscore
+    emacs: line
   }
   menus: [
   {
@@ -55,13 +55,20 @@ $env.config = {
       col_padding: 2
     }
     style: {
-      text: { fg: "#ffffff" }
-      selected_text: { fg: "#0c0c0c" bg: "#ffe500" attr: b}
+      text: { fg: "#ebdbb2" }
+      selected_text: { fg: "#141617" bg: "#89b482" attr: b}
       description_text: yellow
     }
   }
   ]
   keybindings: [
+  {
+      name: clear_current_line
+      modifier: control
+      keycode: char_u
+      mode: [emacs, vi_normal, vi_insert]
+      event: { edit: clear }
+  }
   {
     name: zoxide_menu
     modifier: control

@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "defaultProfile": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
+  "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
   "confirmCloseAllTabs": false,
   "initialCols": 55,
   "initialPosition": ",",
@@ -24,12 +24,20 @@
         "name": "PowerShell",
         "commandline": "pwsh -nologo",
         "startingDirectory": "%USERPROFILE%",
-        "tabTitle": "PowerShell",
+        "tabTitle": "POWERSHELL",
+        "hidden": false
+      },
+      {
+        "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+        "name": "NuShell",
+        "commandline": "C:/Users/LLI/AppData/Local/Programs/nu/bin/nu.exe",
+        "startingDirectory": "%USERPROFILE%",
+        "tabTitle": "NUSHELL",
         "hidden": false
       },
       {
         "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-        "name": "Bash",
+        "name": "BASH",
         "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -use-full-path -no-start -mingw64 -shell bash",
         "startingDirectory": "%USERPROFILE%",
         "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
@@ -38,7 +46,7 @@
       {
         "guid": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
         "name": "Git Bash",
-        "tabTitle": "Bash",
+        "tabTitle": "BASH",
         "commandline": "C:/Program Files/Git/bin/bash.exe --login",
         "startingDirectory": "%USERPROFILE%",
         "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",

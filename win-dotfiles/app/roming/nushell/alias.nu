@@ -30,7 +30,7 @@ alias pi = winget install
 alias pr = winget uninstall
 alias pq = winget search
 alias pl = winget list
-alias pua = winget update --all and scoop update --all and pacman -Syu
+alias pua = winget update --all and scoop update --all
 ## For Configs Files
 alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
 alias dots = cd ~/win-void/
