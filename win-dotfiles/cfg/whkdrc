@@ -9,7 +9,7 @@ alt + g                 : if ($wshell.AppActivate('Zen') -eq $False) { start zen
 alt + w                 : if ($wshell.AppActivate('Chromium') -eq $False) { start chrome }
 alt + shift + w         : if ($wshell.AppActivate('Edge') -eq $False) { start msedge }
 alt + y                 : C:\Users\LLI\AppData\Local\Programs\FreeTube\FreeTube.exe
-alt + n                 : alacritty -e sh -c "yazi.exe ~"
+alt + n                 : alacritty -e "yazi.exe ~"
 alt + v            	    : neovide
 alt + shift + return    : wt
 alt + shift + n         : explorer
