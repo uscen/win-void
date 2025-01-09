@@ -42,18 +42,45 @@ $env.config = {
   ]
   keybindings: [
   {
-      name: clear_current_line
-      modifier: control
-      keycode: char_u
-      mode: [emacs, vi_normal, vi_insert]
-      event: { edit: clear }
+    name: clear_current_line
+    modifier: control
+    keycode: char_u
+    mode: [emacs, vi_normal, vi_insert]
+    event: { edit: clear }
   }
   {
-    name: down_dir
+    name: fuzzy_change_directory
     modifier: alt
     keycode: char_c
     mode: [emacs, vi_normal, vi_insert]
     event: { send: executehostcommand, cmd: 'cd (fd -H -t d -E .git -E node_modules | fzf --height=40% --border --layout reverse)' }
+  }
+  {
+    name: fuzzy_history
+    modifier: control
+    keycode: char_r
+    mode: [emacs, vi_normal, vi_insert]
+    event: [
+     {
+       send: ExecuteHostCommand
+       cmd: "commandli_ne edit --insert (
+         history
+           | get command
+           | reverse
+           | uniq
+           | str join (char -i 0)
+           | fzf
+             --scheme history
+             --read0
+             --layout reverse
+             --border
+             --height 40%
+             --query (commandline)
+           | decode utf-8
+           | str trim
+       )"
+     }
+    ]
   }
  ]
 }
