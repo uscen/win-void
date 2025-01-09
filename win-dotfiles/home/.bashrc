@@ -15,7 +15,7 @@ export BUN_INSTALL_CACHE_DIR="$HOME/.cache/bun/install/cache"
 export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
 export NI_DEFAULT_AGENT="npm"
 export NI_GLOBAL_AGENT="npm"
-
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 #####################################
 ###--------- SHELL OPTIONS -------###
 #####################################
@@ -29,6 +29,11 @@ shopt -s extglob
 shopt -s no_empty_cmd_completion
 shopt -s nocaseglob
 shopt -s histappend
+
+#####################################
+###------- Autocomplete -----------###
+#####################################
+source <(carapace _carapace)
 
 #####################################
 ###------------ PROMPT -----------###

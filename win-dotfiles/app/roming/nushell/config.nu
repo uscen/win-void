@@ -7,20 +7,20 @@
 source alias.nu
 source colors.nu
 # =============================================================================== #
-# -------------------------------- General config File ------------------------   #
+# ----------------------------- General config File ---------------------------   #
 # =============================================================================== #
 $env.config = {
   color_config: $base16_theme
-  edit_mode: vi
   show_banner: false
+  edit_mode: vi
+  cursor_shape: {
+    vi_insert: line
+    vi_normal: block
+    emacs: underscore
+  }
   table: {
     padding: { left: 0 right: 0 }
     mode: none
-  }
-  cursor_shape: {
-    vi_insert: underscore
-    vi_normal: block
-    emacs: line
   }
   menus: [
    {
@@ -68,4 +68,5 @@ $env.PROMPT_MULTILINE_INDICATOR = ""
 # =============================================================================== #
 # --------------------------------END OF FILE------------------------------------ #
 # =============================================================================== #
+source ~/.cache/carapace/init.nu
 source ~/.cache/zoxide.nu
