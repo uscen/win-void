@@ -5,10 +5,6 @@ $packages=@(
     "bun",
     "yarn",
     "pnpm",
-    "@antfu/ni",
-    "live-server",
-    "typescript",
-    "sass",
     "firebase-tools"
     # "eslint",
     # "eslint-config-airbnb",

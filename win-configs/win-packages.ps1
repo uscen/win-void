@@ -50,7 +50,6 @@ $uninstall = @(
     "Power Automate"
 )
 $packages = @(
-    "MSYS2.MSYS2",
     "nushell",
     "rsteube.Carapace",
     "gerardog.gsudo",
@@ -90,8 +89,6 @@ $packages = @(
     "GIMP.GIMP",
     "ShareX.ShareX",
     "Mozilla.Thunderbird",
-    "codehex.Neo-cowsay",
-    "voidtools.Everything",
     "Microsoft.PowerToys",
     "PDFgear.PDFgear",
     "SumatraPDF.SumatraPDF",

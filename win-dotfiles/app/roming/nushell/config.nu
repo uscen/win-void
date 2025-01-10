@@ -12,7 +12,13 @@ source colors.nu
 $env.config = {
   color_config: $base16_theme
   show_banner: false
+  float_precision: 2
+  use_ansi_coloring: true
   edit_mode: vi
+  filesize: {
+    metric: true
+    format: "auto"
+  }
   cursor_shape: {
     vi_insert: block
     vi_normal: block

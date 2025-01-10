@@ -7,6 +7,7 @@ $env.PATH = (
     | prepend "~/.npm-global/bin"
     | prepend "~/AppData/Local/Microsoft/WinGet/Packages/rsteube.Carapace_Microsoft.Winget.Source_8wekyb3d8bbwe"
 )
+$env.LANG = "en_US.utf-8"
 $env.EDITOR = "nvim"
 $env.PAGER = "less"
 $env.Terminal = "alacritty"
