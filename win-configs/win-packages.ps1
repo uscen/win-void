@@ -100,7 +100,6 @@ $scoopPackages = @(
     "gcc",
     "yt-dlp",
     "ffmpeg",
-    "ani-cli",
     "mpv",
     "altsnap",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
