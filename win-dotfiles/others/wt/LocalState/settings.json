@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "defaultProfile": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
+  "defaultProfile": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
   "confirmCloseAllTabs": false,
   "initialCols": 55,
   "initialPosition": ",",

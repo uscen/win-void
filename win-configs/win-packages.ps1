@@ -99,8 +99,6 @@ $scoopPackages = @(
     "aria2",
     "gcc",
     "yt-dlp",
-    "btop",
-    "figlet",
     "ffmpeg",
     "ani-cli",
     "mpv",
