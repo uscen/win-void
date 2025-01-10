@@ -4,8 +4,7 @@ prepend_keymap = [
 	{ on = [ "e" ], run = "open"},
 	{ on = [ "A" ], run = "create --dir"},
 	{ on = "l",		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-	{ on = "f", run  = "plugin jump-to-char", desc = "Jump to char" },
-	{ on = "i", run  = "plugin searchjump", desc = "searchjump mode" }
+	{ on = "f", run  = "plugin jump-to-char", desc = "Jump to char" }
 ]
 [completion]
 prepend_keymap = [

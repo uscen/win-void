@@ -59,7 +59,7 @@ $env.config = {
     modifier: alt
     keycode: char_c
     mode: [emacs, vi_normal, vi_insert]
-    event: { send: executehostcommand, cmd: 'cd (fd -H -t d -E .git -E node_modules | fzf --height=40% --border --layout reverse)' }
+    event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules | fzf --height=40% --border --layout reverse)' }
   }
   {
     name: fuzzy_history
