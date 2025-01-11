@@ -25,8 +25,15 @@ $env.config = {
     emacs: line
   }
   table: {
-    padding: { left: 0 right: 0 }
-    mode: none
+    mode: heavy
+    index_mode: always
+    padding: { left: 1 right: 1 }
+    trim: {
+        methodology: wrapping
+        wrapping_try_keep_words: true
+        truncating_suffix: "..."
+    }
+    header_on_separator: false
   }
   menus: [
    {
