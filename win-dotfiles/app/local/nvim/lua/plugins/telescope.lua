@@ -111,7 +111,7 @@ return {
 			-- (other Telescope configuration...)
 			extensions = {
 				zoxide = {
-					prompt_title = "[ 🙉 Walking on the shoulders of TJ ]",
+					prompt_title = "[ Walking on the shoulders of TJ ]",
 					mappings = {
 						default = {
 							after_action = function(selection)

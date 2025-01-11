@@ -3,9 +3,8 @@
 -----------------------------------------------------------
 return {
 	"razak17/tailwind-fold.nvim",
-	opts = {},
 	keys = {
-		{ "<leader>lt", "<cmd>TailwindFoldToggle<cr>", desc = "Open Lazy Git" },
+		{ "<leader>lt", "<cmd>TailwindFoldToggle<cr>", desc = "Toggle TailwindFoldToggle" },
 	},
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	event = "VeryLazy",
@@ -13,7 +12,7 @@ return {
 		require("tailwind-fold").setup({
 			symbol = "…",
 			highlight = {
-				fg = "#38BDF8",
+				fg = "#89b482",
 			},
 			ft = {
 				"html",
