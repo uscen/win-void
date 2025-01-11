@@ -38,7 +38,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.scrolloff = 0
-vim.o.cursorline = true
+vim.o.cursorline = false
 vim.opt.showmatch = true
 vim.opt.colorcolumn = ""
 vim.opt.splitright = true
@@ -98,8 +98,6 @@ vim.g.loaded_netrw = 1
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
--- Lua module loader
-vim.loader.enable()
 -- Disable nvim intro
 vim.opt.shortmess:append("sI")
 -- Disable builtin plugins

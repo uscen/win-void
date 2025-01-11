@@ -7,7 +7,7 @@ return {
 	-----------------------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = { "windwp/nvim-ts-autotag", "nvim-treesitter/nvim-treesitter-textobjects" },
+		dependencies = { "windwp/nvim-ts-autotag" },
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
@@ -56,74 +56,13 @@ return {
 			incremental_selection = {
 				enable = true,
 				keymaps = {
-					init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
+					init_selection = "<leader>ss",
 					node_incremental = "<leader>si",
 					scope_incremental = "<leader>sc",
 					node_decremental = "<leader>sd",
 				},
 			},
-			textobjects = {
-				select = {
-					enable = true,
-					lookahead = true,
-					keymaps = {
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-						["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-					},
-					selection_modes = {
-						["@parameter.outer"] = "v", -- charwise
-						["@function.outer"] = "V", -- linewise
-						["@class.outer"] = "<c-v>", -- blockwise
-					},
-					include_surrounding_whitespace = true,
-				},
-			},
 		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-			-- Use the bash ts parser for zsh
-			vim.treesitter.language.register("bash", "zsh")
-		end,
-	},
-
-	-----------------------------------------------------------
-	-- nvim-treesitter-context
-	-----------------------------------------------------------
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			require("treesitter-context").setup({
-				mode = "cursor",
-				max_lines = 3,
-			})
-			vim.cmd([[ highlight TreesitterContext guibg=#282828 ]])
-		end,
-	},
-
-	-----------------------------------------------------------
-	-- vim-matchup
-	-----------------------------------------------------------
-	{
-		"andymass/vim-matchup",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		config = function()
-			vim.g.matchup_matchparen_offscreen = {}
-			vim.g.matchup_matchparen_deferred = 1
-		end,
-	},
-
-	-----------------------------------------------------------
-	-- vim-cool
-	-----------------------------------------------------------
-	{
-		"romainl/vim-cool",
-		keys = { "/", "?", "*", "#", "g*", "g#", "n", "N" },
 	},
 
 	-----------------------------------------------------------
@@ -225,34 +164,6 @@ return {
 					enabled = false,
 				},
 				vim.opt.listchars:append("space: "),
-			})
-		end,
-	},
-	{
-		"echasnovski/mini.indentscope",
-		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			symbol = "│",
-			options = { try_as_border = true },
-		},
-		init = function()
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = {
-					"help",
-					"alpha",
-					"dashboard",
-					"neo-tree",
-					"NvimTree",
-					"Trouble",
-					"lazy",
-					"mason",
-					"notify",
-					"toggleterm",
-					"lazyterm",
-				},
-				callback = function()
-					vim.b.miniindentscope_disable = true
-				end,
 			})
 		end,
 	},
