@@ -15,18 +15,19 @@ $env.config = {
   float_precision: 2
   use_ansi_coloring: true
   edit_mode: vi
-  filesize: {
-    metric: true
-    format: "auto"
-  }
   cursor_shape: {
     vi_insert: block
     vi_normal: block
     emacs: line
   }
+  filesize: {
+      metric: false
+      format: "auto"
+  }
   table: {
     mode: heavy
     index_mode: always
+    show_empty: true
     padding: { left: 1 right: 1 }
     trim: {
         methodology: wrapping
@@ -34,6 +35,24 @@ $env.config = {
         truncating_suffix: "..."
     }
     header_on_separator: false
+  }
+  history: {
+      max_size: 100_000
+      sync_on_enter: true
+      file_format: "sqlite"
+      isolation: false
+  }
+  completions: {
+      case_sensitive: false
+      quick: true
+      partial: true
+      algorithm: "prefix"
+      external: {
+          enable: true
+          max_results: 100
+          completer: null
+      },
+      use_ls_colors: true
   }
   menus: [
    {
@@ -66,7 +85,7 @@ $env.config = {
     modifier: alt
     keycode: char_c
     mode: [emacs, vi_normal, vi_insert]
-    event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules | fzf --height=40% --border --layout reverse)' }
+    event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules | fzf)' }
   }
   {
     name: fuzzy_history
@@ -85,9 +104,6 @@ $env.config = {
            | fzf
              --scheme history
              --read0
-             --layout reverse
-             --border
-             --height 40%
              --query (commandline)
            | decode utf-8
            | str trim

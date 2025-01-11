@@ -66,7 +66,7 @@ vim.api.nvim_create_user_command("OilToggle", function()
 		vim.cmd("b#")
 	else
 		-- Open oil if not already in an oil buffer
-		vim.cmd("Oil")
+		vim.cmd("Oil --float")
 	end
 end, { nargs = 0 })
 -----------------------------------------------------------

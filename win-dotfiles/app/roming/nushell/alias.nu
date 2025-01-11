@@ -38,6 +38,7 @@ alias bashc = nvim ~/win-void/win-dotfiles/home/.bashrc
 alias wmc = nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json
 alias whkdc = nvim ~/win-void/win-dotfiles/cfg/whkdrc
 alias barc = nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml
+alias nuc = nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu
 # Others Usfeual Alias
 alias yt-concats = yt-dlp --concat-playlist always
 alias yt-music = yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music
