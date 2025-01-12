@@ -24,13 +24,20 @@ alias gd = g diff
 alias gl = g log --oneline --graph --all -10
 alias gp = g push -uf origin main
 alias lg = lazygit
-# Package Manager
+# winget Package Manager
 alias pu = winget source update and winget update --all
 alias pi = winget install
 alias pr = winget uninstall
 alias pq = winget search
 alias pl = winget list
 alias pua = winget update --all and scoop update --all
+# BUN Package Manager
+alias buna = bun add
+alias bunr = bun remove
+alias bunu = bun update
+alias buni = bun install
+alias bun-run = bun run
+alias bun-dev = bun --bun run dev
 ## For Configs Files
 alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
 alias dots = cd ~/win-void/
