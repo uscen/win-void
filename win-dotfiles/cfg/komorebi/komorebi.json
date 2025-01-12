@@ -62,11 +62,6 @@
     },
     {
       "kind": "Exe",
-      "id": "gimp-2.10.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
       "id": "shotcut.exe",
       "matching_strategy": "Equals"
     },

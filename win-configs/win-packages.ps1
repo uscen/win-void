@@ -78,6 +78,7 @@ $packages = @(
     "dandavison.delta",
     "Microsoft.VisualStudioCode",
     "Hibbiki.Chromium",
+    "Zen-Team.Zen-Browser",
     "eza-community.eza",
     "PrestonN.FreeTube",
     "LGUG2Z.komorebi",

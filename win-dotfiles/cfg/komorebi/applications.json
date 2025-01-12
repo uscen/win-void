@@ -134,6 +134,15 @@
       }
     ]
   },
+  "ApplicationFrameHost": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "ApplicationFrameHost.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "ArmCord": {
     "tray_and_multi_window": [
       {
@@ -161,6 +170,18 @@
         {
           "kind": "Class",
           "id": "HwndWrapper[DefaultDomain",
+          "matching_strategy": "StartsWith"
+        },
+        {
+          "kind": "Exe",
+          "id": "acad.exe",
+          "matching_strategy": "Equals"
+        }
+      ],
+      [
+        {
+          "kind": "Class",
+          "id": "WindowsForms10.Window",
           "matching_strategy": "StartsWith"
         },
         {
@@ -446,6 +467,15 @@
       }
     ]
   },
+  "EA Desktop": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "EADesktop.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "Eagle": {
     "tray_and_multi_window": [
       {
@@ -460,6 +490,15 @@
       {
         "kind": "Exe",
         "id": "ElectronMail.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Electrum": {
+    "ignore": [
+      {
+        "kind": "Title",
+        "id": "Create/Restore wallet",
         "matching_strategy": "Equals"
       }
     ]
@@ -586,6 +625,27 @@
       ]
     ]
   },
+  "GIMP": {
+    "floating": [
+      [
+        {
+          "kind": "Exe",
+          "id": "gimp",
+          "matching_strategy": "StartsWith"
+        },
+        {
+          "kind": "Title",
+          "id": "GNU",
+          "matching_strategy": "DoesNotContain"
+        },
+        {
+          "kind": "Title",
+          "id": "GIMP",
+          "matching_strategy": "DoesNotEndWith"
+        }
+      ]
+    ]
+  },
   "GOG Galaxy": {
     "ignore": [
       {
@@ -639,6 +699,29 @@
       {
         "kind": "Exe",
         "id": "GodotManager.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "GoLand": {
+    "ignore": [
+      {
+        "kind": "Class",
+        "id": "SunAwtDialog",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "goland64.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "object_name_change": [
+      {
+        "kind": "Exe",
+        "id": "goland64.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -751,6 +834,29 @@
       }
     ]
   },
+  "JetBrains Client": {
+    "ignore": [
+      {
+        "kind": "Class",
+        "id": "SunAwtDialog",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "jetbrains_client64.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "object_name_change": [
+      {
+        "kind": "Exe",
+        "id": "jetbrains_client64.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "KOOK": {
     "tray_and_multi_window": [
       {
@@ -783,6 +889,15 @@
       {
         "kind": "Exe",
         "id": "Kotatogram.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "LibreOffice": {
+    "object_name_change": [
+      {
+        "kind": "Exe",
+        "id": "soffice.bin",
         "matching_strategy": "Equals"
       }
     ]
@@ -1008,6 +1123,22 @@
       }
     ]
   },
+  "Microsoft Terminal Services Client": {
+    // mstsc.exe creates these on Windows 11 when a WSL process is launched
+    // https://github.com/LGUG2Z/komorebi/issues/74
+    "ignore": [
+      {
+        "kind": "Class",
+        "id": "OPContainerClass",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "IHWindowClass",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "Microsoft Teams": {
     "tray_and_multi_window": [
       {
@@ -1052,6 +1183,13 @@
         "id": "WINWORD.EXE",
         "matching_strategy": "Equals"
       }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "WINWORD.exe",
+        "matching_strategy": "Equals"
+      }
     ]
   },
   "MobaXterm": {
@@ -1083,6 +1221,11 @@
     "ignore": [
       {
         "kind": "Class",
+        "id": "MozillaDialogClass",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
         "id": "MozillaTaskbarPreviewClass",
         "matching_strategy": "Legacy"
       },
@@ -1107,6 +1250,13 @@
       }
     ],
     "object_name_change": [
+      {
+        "kind": "Exe",
+        "id": "firefox.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "slow_application": [
       {
         "kind": "Exe",
         "id": "firefox.exe",
@@ -1146,6 +1296,22 @@
       {
         "kind": "Exe",
         "id": "NohBoard.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Notion": {
+    "ignore": [
+      {
+        "kind": "Title",
+        "id": "Notion - Command Search",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "Notion.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -1577,6 +1743,20 @@
     ]
   },
   "Steam": {
+    "layered": [
+      {
+        "kind": "Exe",
+        "id": "steam.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "steam.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
     "ignore": [
       [
         {
@@ -1642,6 +1822,22 @@
       }
     ]
   },
+  "Tabby": {
+    "manage": [
+      [
+        {
+          "kind": "Class",
+          "id": "Chrome_WidgetWin_1",
+          "matching_strategy": "Equals"
+        },
+        {
+          "kind": "Exe",
+          "id": "Tabby.exe",
+          "matching_strategy": "Equals"
+        }
+      ]
+    ]
+  },
   "Task Manager": {
     "ignore": [
       {
@@ -1674,6 +1870,15 @@
       {
         "kind": "Exe",
         "id": "TickTick.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Tobit.Team": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Class",
+        "id": "TobitTeamFrame",
         "matching_strategy": "Equals"
       }
     ]
@@ -2134,7 +2339,19 @@
     ]
   },
   "Windows Explorer": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "explorer.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
     "ignore": [
+      {
+        "kind": "Class",
+        "id": "NativeHWNDHost",
+        "matching_strategy": "Equals"
+      },
       {
         "kind": "Class",
         "id": "OperationStatusWindow",
@@ -2162,6 +2379,15 @@
         "kind": "Class",
         "id": "android(splash)",
         "matching_strategy": "Legacy"
+      }
+    ]
+  },
+  "Windows Terminal": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "WindowsTerminal.exe",
+        "matching_strategy": "Equals"
       }
     ]
   },
@@ -2214,6 +2440,11 @@
     "ignore": [
       {
         "kind": "Class",
+        "id": "MozillaDialogClass",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
         "id": "MozillaTaskbarPreviewClass",
         "matching_strategy": "Legacy"
       },
@@ -2257,6 +2488,15 @@
       {
         "kind": "Exe",
         "id": "Zoom.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "komorebi-bar": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "komorebi-bar.exe",
         "matching_strategy": "Equals"
       }
     ]
