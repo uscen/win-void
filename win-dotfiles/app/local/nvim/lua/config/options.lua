@@ -16,12 +16,18 @@ vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
-vim.cmd([[
-let &shell = 'nu'
-let &shellcmdflag = '-c'
-let &shellquote = ""
-let &shellxquote = ""
-]])
+-----------------------------------------------------------
+-- Shell
+-----------------------------------------------------------
+vim.opt.sh = "nu"
+vim.opt.shelltemp = false
+vim.opt.shellcmdflag = "--stdin --no-newline -c"
+vim.opt.shellredir = "out+err> %s"
+vim.opt.shellxescape = ""
+vim.opt.shellxquote = ""
+vim.opt.shellquote = ""
+vim.opt.shellpipe =
+	"| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
 -----------------------------------------------------------
 -- Files and Others
 -----------------------------------------------------------
