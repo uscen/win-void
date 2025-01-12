@@ -4,8 +4,8 @@
 $packages=@(
     "bun",
     "yarn",
-    "pnpm",
-    "firebase-tools"
+    "pnpm"
+    # "firebase-tools",
     # "eslint",
     # "eslint-config-airbnb",
     # "eslint-config-google",
