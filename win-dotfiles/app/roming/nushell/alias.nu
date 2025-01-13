@@ -9,8 +9,10 @@ alias lt = eza --long --group --icons=auto --git --only-dirs --tree --level=3 --
 alias fetch = fastfetch
 alias neofetch = fastfetch
 # NeoVim To Vim
+alias v = nvim
 alias nv = nvim
 alias vn = nvim
+alias vim = nvim
 alias vid = nohup neovide 2>/dev/null 1>&2 &
 alias nvd = nohup neovide 2>/dev/null 1>&2 &
 # Github Command

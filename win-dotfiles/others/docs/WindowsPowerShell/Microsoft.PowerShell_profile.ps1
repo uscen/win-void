@@ -30,8 +30,6 @@ function Prepend-Path($path) {
     $Env:PATH = "$path;$Env:PATH"
 }
 
-Append-Path "$Env:LOCALAPPDATA\nvim-data\plugged\fzf\bin"
-Append-Path "$Env:LOCALAPPDATA\yasb\"
 Append-Path "$Env:APPDATA\npm\"
 Append-Path "C:\Program Files\Git\bin"
 

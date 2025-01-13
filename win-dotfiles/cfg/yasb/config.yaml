@@ -217,10 +217,13 @@ widgets:
 
         - { icon: "\uf1fe", launch: "cmd /c Taskmgr" }
         - {
+            icon: "\udb81\udc48",
+            launch: "C:\\Users\\LLI\\AppData\\Local\\Programs\\FreeTube\\FreeTube.exe",
+          }
+        - {
             icon: "\uf370",
             launch: "C:\\Program Files\\Mozilla Thunderbird\\thunderbird.exe",
           }
-        - { icon: "\uf269", launch: "C:\\Program Files\\Zen Browser\\zen.exe" }
         - {
             icon: "\uf268",
             launch: "C:\\Users\\LLI\\AppData\\Local\\Chromium\\Application\\Chrome.exe",
