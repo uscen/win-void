@@ -30,7 +30,7 @@
   },
   "stackbar": {
     "height": 25,
-    "mode": "OnStack",
+    "mode": "Never",
     "tabs": {
       "font_family": "JetBrainsMono NF",
       "font_size": 18,
@@ -39,6 +39,12 @@
       "unfocused_text": "#b3b3b3",
       "background": "#1d2021"
     }
+  },
+  "global_work_area_offset": {
+    "top": 32,
+    "right": 0,
+    "bottom": 30,
+    "left": 0
   },
   "monitors": [
     {
