@@ -27,7 +27,7 @@ alias gl = g log --oneline --graph --all -10
 alias gp = g push -uf origin main
 alias lg = lazygit
 # winget Package Manager
-alias pu = winget source update and winget update --all
+alias pu = winget upgrade --all
 alias pi = winget install
 alias pr = winget uninstall
 alias pq = winget search

@@ -232,7 +232,7 @@ widgets:
             icon: "\udb82\ude1e",
             launch: "C:\\Users\\LLI\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
           }
-        - { icon: "\uf36f", launch: "C:\\Program Files\\Neovide\\neovide.exe" }
+        - { icon: "\uf36f", launch: "neovide.exe C:\\Users\\LLI\\Projects" }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
