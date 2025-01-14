@@ -16,7 +16,7 @@ $env.config = {
   use_ansi_coloring: true
   edit_mode: vi
   cursor_shape: {
-    vi_insert: block
+    vi_insert: underscore
     vi_normal: block
     emacs: line
   }

@@ -11,9 +11,9 @@ alt + shift + w         : if ($wshell.AppActivate('Edge') -eq $False) { start ms
 alt + y                 : C:\Users\LLI\AppData\Local\Programs\FreeTube\FreeTube.exe
 alt + n                 : alacritty -e bash -c "yazi.exe ~"
 alt + v            	    : neovide
-alt + shift + return    : wt
+alt + return            : wt
+alt + shift + return    : alacritty
 alt + shift + n         : explorer
-alt + return            : alacritty
 alt + ctrl + c          : code
 
 # Close App

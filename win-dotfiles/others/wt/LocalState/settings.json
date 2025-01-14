@@ -1,6 +1,10 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "defaultProfile": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
+  "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+  "copyOnSelect": true,
+  "copyFormatting": true,
+  "showTabsInTitlebar": true,
+  "startOnUserLogin": true,
   "confirmCloseAllTabs": false,
   "initialCols": 55,
   "initialPosition": ",",
@@ -9,38 +13,20 @@
   "profiles": {
     "defaults": {
       "colorScheme": "GruvboxMaterialHardDark",
-      "cursorShape": "filledBox",
-      "elevate": false,
       "bellStyle": "none",
       "font": {
         "face": "JetBrainsMono Nerd Font",
-        "size": 9.5,
+        "size": 9,
         "weight": "bold"
       }
     },
     "list": [
       {
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "name": "PowerShell",
-        "commandline": "pwsh -nologo",
-        "startingDirectory": "%USERPROFILE%",
-        "tabTitle": "POWERSHELL",
-        "hidden": false
-      },
-      {
         "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
         "name": "NuShell",
-        "commandline": "C:/Users/LLI/AppData/Local/Programs/nu/bin/nu.exe",
+        "commandline": "nu",
         "startingDirectory": "%USERPROFILE%",
         "tabTitle": "NUSHELL",
-        "hidden": false
-      },
-      {
-        "guid": "{17da3cac-b318-431e-8a3e-7fcdefe6d114}",
-        "name": "BASH",
-        "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -use-full-path -no-start -mingw64 -shell bash",
-        "startingDirectory": "%USERPROFILE%",
-        "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
         "hidden": false
       },
       {
@@ -50,13 +36,6 @@
         "commandline": "C:/Program Files/Git/bin/bash.exe --login",
         "startingDirectory": "%USERPROFILE%",
         "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-        "hidden": true
-      },
-      {
-        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-        "name": "Ubuntu",
-        "source": "Windows.Terminal.Wsl",
-        "startingDirectory": "/home/lli",
         "hidden": true
       }
     ]
@@ -104,92 +83,7 @@
       "red": "#EA6962",
       "white": "#D4BE98",
       "yellow": "#D8A657"
-    },
-    {
-      "background": "#32302F",
-      "black": "#665C54",
-      "blue": "#7DAEA3",
-      "brightBlack": "#928374",
-      "brightBlue": "#7DAEA3",
-      "brightCyan": "#89B482",
-      "brightGreen": "#A9B665",
-      "brightPurple": "#D3869B",
-      "brightRed": "#EA6962",
-      "brightWhite": "#D4BE98",
-      "brightYellow": "#D8A657",
-      "cyan": "#89B482",
-      "foreground": "#D4BE98",
-      "green": "#A9B665",
-      "name": "GruvboxMaterialSoftDark",
-      "purple": "#D3869B",
-      "red": "#EA6962",
-      "white": "#D4BE98",
-      "yellow": "#D8A657"
-    },
-    {
-      "background": "#F9F5D7",
-      "black": "#504945",
-      "blue": "#45707A",
-      "brightBlack": "#504945",
-      "brightBlue": "#45707A",
-      "brightCyan": "#4C7A5D",
-      "brightGreen": "#6C782E",
-      "brightPurple": "#945E80",
-      "brightRed": "#C14A4A",
-      "brightWhite": "#D4BE98",
-      "brightYellow": "#B47109",
-      "cyan": "#4C7A5D",
-      "foreground": "#654735",
-      "green": "#6C782E",
-      "name": "GruvboxMaterialHardLight",
-      "purple": "#945E80",
-      "red": "#C14A4A",
-      "white": "#D4BE98",
-      "yellow": "#B47109"
-    },
-    {
-      "background": "#fbf1c7",
-      "black": "#504945",
-      "blue": "#45707A",
-      "brightBlack": "#504945",
-      "brightBlue": "#45707A",
-      "brightCyan": "#4C7A5D",
-      "brightGreen": "#6C782E",
-      "brightPurple": "#945E80",
-      "brightRed": "#C14A4A",
-      "brightWhite": "#D4BE98",
-      "brightYellow": "#B47109",
-      "cyan": "#4C7A5D",
-      "foreground": "#654735",
-      "green": "#6C782E",
-      "name": "GruvboxMaterialMediumLight",
-      "purple": "#945E80",
-      "red": "#C14A4A",
-      "white": "#D4BE98",
-      "yellow": "#B47109"
-    },
-    {
-      "background": "#F2E5BC",
-      "black": "#504945",
-      "blue": "#45707A",
-      "brightBlack": "#504945",
-      "brightBlue": "#45707A",
-      "brightCyan": "#4C7A5D",
-      "brightGreen": "#6C782E",
-      "brightPurple": "#945E80",
-      "brightRed": "#C14A4A",
-      "brightWhite": "#D4BE98",
-      "brightYellow": "#B47109",
-      "cyan": "#4C7A5D",
-      "foreground": "#654735",
-      "green": "#6C782E",
-      "name": "GruvboxMaterialSoftLight",
-      "purple": "#945E80",
-      "red": "#C14A4A",
-      "white": "#D4BE98",
-      "yellow": "#B47109"
     }
   ],
-
   "keybindings": []
 }
