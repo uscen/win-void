@@ -20,8 +20,15 @@ $env.config = {
     vi_normal: block
     emacs: line
   }
+  ls: {
+      use_ls_colors: true
+      clickable_links: false
+  }
+  rm: {
+      always_trash: true
+  }
   filesize: {
-      metric: false
+      metric: true
       format: "auto"
   }
   table: {
