@@ -94,7 +94,7 @@ return {
 				keymap = "",
 				key = "c",
 				icon = "  ",
-				action = "Telescope find_files cwd=~/.config/nvim",
+				action = "Telescope find_files cwd=~/AppData/Local/nvim/lua/plugins",
 			},
 			{
 				desc = "Exit",
