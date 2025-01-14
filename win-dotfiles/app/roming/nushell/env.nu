@@ -6,7 +6,7 @@ $env.LANG = "en_US.utf-8"
 $env.EDITOR = "nvim"
 $env.VISUAL = $env.EDITOR
 $env.PAGER = "less"
-$env.Terminal = "alacritty"
+$env.Terminal = "wt"
 export-env { load-env {
     XDG_CACHE_HOME: ($env.USERPROFILE | path join ".cache")
     XDG_DOCUMENTS_DIR: ($env.USERPROFILE | path join "Documents")
