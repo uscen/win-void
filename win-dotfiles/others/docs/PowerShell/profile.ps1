@@ -39,7 +39,6 @@ Append-Path "C:\Program Files\Git\bin"
 # ======================================================#
 # Starship && Zoxide : 					                #
 # ======================================================#
-oh-my-posh init pwsh --config ~/.config/posh/posh.json | Invoke-Expression
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # ======================================================#

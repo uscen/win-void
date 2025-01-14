@@ -73,7 +73,6 @@ $packages = @(
     "charmbracelet.glow",
     "dbrgn.tealdeer",
     "Starship.Starship",
-    "JanDeDobbeleer.OhMyPosh",
     "JesseDuffield.lazygit",
     "dandavison.delta",
     "Microsoft.VisualStudioCode",
