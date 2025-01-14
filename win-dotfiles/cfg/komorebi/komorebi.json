@@ -1,7 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.json",
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
-  "bar_configurations": "$Env:USERPROFILE/.config/komorebi/komorebi.bar.json",
   "mouse_follows_focus": true,
   "default_workspace_padding": 1,
   "default_container_padding": 1,
