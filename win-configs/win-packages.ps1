@@ -83,19 +83,19 @@ $packages = @(
     "PrestonN.FreeTube",
     "LGUG2Z.komorebi",
     "AmN.yasb",
+    "AltSnap.AltSnap",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
     "GIMP.GIMP",
     "Mozilla.Thunderbird",
     "SumatraPDF.SumatraPDF",
-    "OpenJS.NodeJS",
+    "OpenJS.NodeJS"
 )
 $scoopPackages = @(
     "aria2",
     "gcc",
     "mpv",
-    "altsnap",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
 
