@@ -7,7 +7,7 @@ Capslock::Esc
 ; ----------------------------------------------------------
 !Enter:: Run "wt.exe"
 !+Enter:: Run "alacritty.exe"
-!i:: Run "zen.exe"
+!i:: Run "msedge.exe"
 !w:: Run "chrome.exe"
 !n:: Run "yazi.exe"
 !v:: Run "neovide.exe"
