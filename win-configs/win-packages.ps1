@@ -51,6 +51,7 @@ $uninstall = @(
 )
 $packages = @(
     "nushell",
+    "AutoHotkey.AutoHotkey",
     "rsteube.Carapace",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
@@ -59,6 +60,7 @@ $packages = @(
     "sharkdp.pastel",
     "fzf",
     "Git.Git",
+    "yt-dlp.yt-dlp",
     "cURL.cURL",
     "ajeetdsouza.zoxide",
     "BurntSushi.ripgrep.MSVC",
@@ -80,25 +82,18 @@ $packages = @(
     "eza-community.eza",
     "PrestonN.FreeTube",
     "LGUG2Z.komorebi",
-    "LGUG2Z.whkd",
     "AmN.yasb",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
     "GIMP.GIMP",
-    "ShareX.ShareX",
     "Mozilla.Thunderbird",
-    "Microsoft.PowerToys",
-    "PDFgear.PDFgear",
     "SumatraPDF.SumatraPDF",
     "OpenJS.NodeJS",
-    "Python.Python.3.12"
 )
 $scoopPackages = @(
     "aria2",
     "gcc",
-    "yt-dlp",
-    "ffmpeg",
     "mpv",
     "altsnap",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"

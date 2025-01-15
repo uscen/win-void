@@ -4,7 +4,8 @@
 # ================================================#
 # Enable AutoStart Window Manager && status bar:  #
 # ================================================#
-komorebic enable-autostart --whkd --config $Env:USERPROFILE\.config\komorebi\komorebi.json
+[System.Environment]::SetEnvironmentVariable('KOMOREBI_CONFIG_HOME',"$Env:USERPROFILE\.config\komorebi", 'User')
+komorebic enable-autostart --ahk
 yasbc enable-autostart
 # ================================================#
 # HOME:						                      #
