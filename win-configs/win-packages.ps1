@@ -68,7 +68,6 @@ $packages = @(
     "Gyan.FFmpeg",
     "yt-dlp.yt-dlp",
     "hpjansson.Chafa",
-    "7zip.7zip",
     "jqlang.jq",
     "Fastfetch-cli.Fastfetch",
     "sharkdp.bat",
@@ -94,6 +93,7 @@ $packages = @(
 )
 $scoopPackages = @(
     "aria2",
+    "ouch",
     "gcc",
     "mpv",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
