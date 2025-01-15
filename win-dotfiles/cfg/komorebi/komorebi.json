@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.json",
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
   "window_hiding_behaviour": "Cloak",
-  "mouse_follows_focus": true,
+  "mouse_follows_focus": false,
   "default_workspace_padding": 1,
   "default_container_padding": 1,
   "transparency": false,

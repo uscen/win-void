@@ -12,6 +12,9 @@
   "profiles": {
     "defaults": {
       "colorScheme": "GruvboxMaterialHardDark",
+      "cursorBlinking": false,
+      "cursorShape": "filledBox",
+      "cursorColor": "#ebdbb2",
       "bellStyle": "none",
       "font": {
         "face": "JetBrainsMono Nerd Font",
@@ -26,22 +29,24 @@
         "commandline": "nu",
         "startingDirectory": "%USERPROFILE%",
         "tabTitle": "NuShell",
+        "icon": "C:\\Users\\LLI\\AppData\\Local\\Programs\\nu\\nu.ico",
         "hidden": false
       },
       {
         "guid": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
-        "name": "Git Bash",
-        "tabTitle": "Bash",
+        "name": "Bash",
         "commandline": "C:/Program Files/Git/bin/bash.exe --login",
         "startingDirectory": "%USERPROFILE%",
+        "tabTitle": "Bash",
         "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-        "hidden": true
+        "hidden": false
       }
     ]
   },
 
   "schemes": [
     {
+      "name": "GruvboxMaterialHardDark",
       "background": "#1d2021",
       "black": "#665C54",
       "blue": "#7DAEA3",
@@ -56,13 +61,13 @@
       "cyan": "#89B482",
       "foreground": "#D4BE98",
       "green": "#A9B665",
-      "name": "GruvboxMaterialHardDark",
       "purple": "#D3869B",
       "red": "#EA6962",
       "white": "#D4BE98",
       "yellow": "#D8A657"
     },
     {
+      "name": "GruvboxMaterialMediumDark",
       "background": "#282828",
       "black": "#665C54",
       "blue": "#7DAEA3",
@@ -77,7 +82,6 @@
       "cyan": "#89B482",
       "foreground": "#D4BE98",
       "green": "#A9B665",
-      "name": "GruvboxMaterialMediumDark",
       "purple": "#D3869B",
       "red": "#EA6962",
       "white": "#D4BE98",

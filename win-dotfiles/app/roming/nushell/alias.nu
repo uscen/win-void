@@ -5,6 +5,10 @@
 alias ls = eza --long --group --icons=auto --git --sort=name --group-directories-first
 alias ll = eza --long --group --icons=auto --git --sort=name --group-directories-first
 alias lt = eza --long --group --icons=auto --git --only-dirs --tree --level=3 --sort=modified
+# Changing Directory
+alias cd.. = cd ..
+alias cdd = cd D:/
+alias cdc = cd C:/
 # Fetch (System Info)
 alias fetch = fastfetch
 alias neofetch = fastfetch
@@ -12,9 +16,10 @@ alias neofetch = fastfetch
 alias v = nvim
 alias nv = nvim
 alias vn = nvim
+alias vm = nvim
 alias vim = nvim
-alias vid = nohup neovide 2>/dev/null 1>&2 &
-alias nvd = nohup neovide 2>/dev/null 1>&2 &
+alias vd = nohup neovide 2>/dev/null 1>&2 &
+alias nd = nohup neovide 2>/dev/null 1>&2 &
 # Github Command
 alias g = git
 alias gi = git init

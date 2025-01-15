@@ -17,7 +17,7 @@ dynamic_padding = true
 decorations = "None"
 startup_mode = "Windowed"
 title = "Alacritty"
-level =  "AlwaysOnTop"
+level =  "Normal"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Bold" }
