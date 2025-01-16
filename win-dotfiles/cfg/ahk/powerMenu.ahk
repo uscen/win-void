@@ -1,9 +1,18 @@
+; ----------------------------------------------------------
+; Start Menu
+; ----------------------------------------------------------
 myMenu := Menu()
-myMenu.Add("SHUTDOWN", myMenuHandler)
-myMenu.Add("RESTART", myMenuHandler)
-myMenu.Add("LOGOUT", myMenuHandler)
-!^p::myMenu.Show()
-
+myMenu.Add("Shutdown", myMenuHandler)
+myMenu.Add()
+myMenu.Add("Restart", myMenuHandler)
+myMenu.Add()
+myMenu.Add("Logout", myMenuHandler)
+; ----------------------------------------------------------
+; Added Icons
+; ----------------------------------------------------------
+myMenu.SetIcon("Shutdown", A_AhkPath, -207) ; icon with resource ID 207
+myMenu.SetIcon("Restart", A_AhkPath, -207) ; 2nd icon group from the file
+myMenu.SetIcon("Logout", A_AhkPath, -207) ; icon with resource ID 206
 ; ----------------------------------------------------------
 ; When an item is selected, the following parameters are automatically passsed:
 ; itemName - name of the item selected
@@ -20,11 +29,7 @@ myMenuHandler(itemName, pos, menuObj) {
             Shutdown 0
     }
 }
-
-subMenuHandler(itemname, pos, menuObj) {
-    MsgBox("Selected item " pos)
-}
-
+!^p::myMenu.Show()
 ; ----------------------------------------------------------
 ; Force menus to use dark mode
 ; ----------------------------------------------------------
