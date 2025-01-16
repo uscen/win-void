@@ -1,13 +1,19 @@
 ; ----------------------------------------------------------
-; Remap Caps Lock => ESC:
+; Remap Keys:
 ; ----------------------------------------------------------
+; Caps Lock => ESC: Caps Lock can still be accessed with Ctrl and Caps Lock
+^CapsLock::CapsLock
 Capslock::Esc
 ; ----------------------------------------------------------
 ; System Controlls
 ; ----------------------------------------------------------
+!+r:: Reload
 !q:: WinKill("A")
 !+m:: WinMinimize("A")
-!+r:: Reload
+!+t::
+{
+    WinSetAlwaysOnTop -1, "A"
+}
 !f::
 {
     if (WinGetMinMax("A") = 1)
