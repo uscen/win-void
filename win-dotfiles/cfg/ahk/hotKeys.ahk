@@ -26,6 +26,12 @@ Capslock::Esc
         }
 }
 ; ----------------------------------------------------------
+; Power Menu:
+; ----------------------------------------------------------
+!^q:: Shutdown 0
+!^r:: Shutdown 6
+!^p:: Shutdown 1
+; ----------------------------------------------------------
 ; Run App
 ; ----------------------------------------------------------
 !Enter:: Run("wt.exe")
@@ -57,6 +63,7 @@ Komorebic(cmd) {
 ; Manipulate windows
 !s::Komorebic("promote")
 !m::Komorebic("toggle-monocle")
+!t::Komorebic("toggle-monocle")
 !+f::Komorebic("toggle-maximize")
 !+Space::Komorebic("toggle-float")
 ; Window manager options
