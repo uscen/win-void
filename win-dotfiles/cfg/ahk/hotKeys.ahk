@@ -10,16 +10,16 @@ Capslock::Esc
 !+f:: WinMaximize("A")
 !+r:: Reload
 ; ----------------------------------------------------------
-; Run My Programms:
+; Run App
 ; ----------------------------------------------------------
 !Enter:: Run("wt.exe")
 !+Enter:: Run("alacritty.exe")
+!+n:: Run("explorer.exe")
 !w:: Run("chrome.exe")
 !i:: Run("msedge.exe")
-!+n:: Run("explorer.exe")
-!v:: Run("neovide.exe C:\Users\LLI\Projects")
+!v:: Run('neovide.exe "C:\Users\' A_UserName '\Projects"')
+!n:: Run(EnvGet("PROGRAMFILES") '\Git\bin\bash.exe -c "yazi.exe ~"')
 !y:: Run(EnvGet("LOCALAPPDATA") "\Programs\FreeTube\FreeTube.exe")
-!n:: Run('C:/Program Files/Git/bin/bash.exe -c "yazi.exe ~"')
 !^c:: Run(EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe")
 ; ----------------------------------------------------------
 ; Komorebi Window Manager:

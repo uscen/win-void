@@ -4,7 +4,7 @@
 export PROMPT_COMMAND='history -a'
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoreboth:erasedups
-export TERMINAL="alacritty"
+export TERMINAL="wt"
 export BROWSER="chromium"
 export PAGER="less"
 export EDITOR="nvim"
