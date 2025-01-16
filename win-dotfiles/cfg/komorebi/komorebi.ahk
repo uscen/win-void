@@ -5,13 +5,13 @@ Capslock::Esc
 ; ----------------------------------------------------------
 ; Run My Programms:
 ; ----------------------------------------------------------
-!Enter:: Run "wt.exe"
-!+Enter:: Run "alacritty.exe"
-!i:: Run "msedge.exe"
-!w:: Run "chrome.exe"
-!n:: Run "yazi.exe"
-!v:: Run "neovide.exe"
-!+n:: Run "explorer.exe"
+!Enter:: Run("wt.exe")
+!+Enter:: Run("alacritty.exe")
+!i:: Run("msedge.exe")
+!w:: Run("chrome.exe")
+!n:: Run("yazi.exe")
+!v:: Run("neovide.exe C:\Users\LLI\Projects")
+!+n:: Run("explorer.exe")
 !^c:: Run(EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe")
 !y:: Run(EnvGet("LOCALAPPDATA") "\Programs\FreeTube\FreeTube.exe")
 ; ----------------------------------------------------------
