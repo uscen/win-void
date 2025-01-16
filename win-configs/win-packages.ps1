@@ -63,9 +63,6 @@ $packages = @(
     "BurntSushi.ripgrep.MSVC",
     "Neovim.Neovim",
     "Neovide.Neovide",
-    "ImageMagick.ImageMagick",
-    "Gyan.FFmpeg",
-    "yt-dlp.yt-dlp",
     "hpjansson.Chafa",
     "jqlang.jq",
     "Fastfetch-cli.Fastfetch",
@@ -81,7 +78,6 @@ $packages = @(
     "PrestonN.FreeTube",
     "LGUG2Z.komorebi",
     "AmN.yasb",
-    "AltSnap.AltSnap",
     "DEVCOM.JetBrainsMonoNerdFont",
     "OBSProject.OBSStudio",
     "Meltytech.Shotcut",
@@ -92,9 +88,13 @@ $packages = @(
 )
 $scoopPackages = @(
     "aria2",
-    "ouch",
-    "autohotkey",
     "gcc",
+    "autohotkey",
+    "altsnap",
+    "imagemagick",
+    "ffmpeg",
+    "yt-dlp",
+    "ouch",
     "mpv",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
 )
