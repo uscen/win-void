@@ -7,8 +7,18 @@ Capslock::Esc
 ; ----------------------------------------------------------
 !q:: WinKill("A")
 !+m:: WinMinimize("A")
-!+f:: WinMaximize("A")
 !+r:: Reload
+!f::
+{
+    if (WinGetMinMax("A") = 1)
+        {
+            WinRestore "A"
+        }
+    else
+        {
+            WinMaximize "A"
+        }
+}
 ; ----------------------------------------------------------
 ; Run App
 ; ----------------------------------------------------------
@@ -41,7 +51,7 @@ Komorebic(cmd) {
 ; Manipulate windows
 !s::Komorebic("promote")
 !m::Komorebic("toggle-monocle")
-!f::Komorebic("toggle-maximize")
+!+f::Komorebic("toggle-maximize")
 !+Space::Komorebic("toggle-float")
 ; Window manager options
 !r::Komorebic("retile")
