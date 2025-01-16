@@ -51,7 +51,6 @@ $uninstall = @(
 )
 $packages = @(
     "nushell",
-    "AutoHotkey.AutoHotkey",
     "rsteube.Carapace",
     "gerardog.gsudo",
     "Alacritty.Alacritty",
@@ -94,6 +93,7 @@ $packages = @(
 $scoopPackages = @(
     "aria2",
     "ouch",
+    "autohotkey",
     "gcc",
     "mpv",
     "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
