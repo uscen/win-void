@@ -33,7 +33,7 @@ myMenuHandler(itemName, pos, menuObj) {
             Shutdown 0
     }
 }
-!^p::myMenu.Show(900,580)
+!^p::myMenu.Show()
 ; ----------------------------------------------------------
 ; Force menus to use dark mode
 ; ----------------------------------------------------------
