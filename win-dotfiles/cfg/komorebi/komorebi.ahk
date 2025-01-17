@@ -12,3 +12,7 @@
 ; Power Menu:
 ; ----------------------------------------------------------
 #include C:\Users\%A_UserName%\.config\ahk\powerMenu.ahk
+; ----------------------------------------------------------
+; Stay Awake:
+; ----------------------------------------------------------
+#include C:\Users\%A_UserName%\.config\ahk\awake.ahk

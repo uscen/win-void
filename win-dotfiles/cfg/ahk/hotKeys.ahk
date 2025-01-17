@@ -35,7 +35,7 @@ Capslock::Esc
 !w:: Run("chrome.exe")
 !i:: Run("msedge.exe")
 !v:: Run('neovide.exe "C:\Users\' A_UserName '\Projects"')
-!^s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\noSleep.ahk"')
+!^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
 !n:: Run(EnvGet("PROGRAMFILES") '\Git\bin\bash.exe -c "yazi.exe ~"')
 !y:: Run(EnvGet("LOCALAPPDATA") "\Programs\FreeTube\FreeTube.exe")
 !^c:: Run(EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe")
