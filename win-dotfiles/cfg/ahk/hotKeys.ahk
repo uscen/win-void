@@ -7,9 +7,9 @@ Capslock::Esc
 ; ----------------------------------------------------------
 ; System Controlls
 ; ----------------------------------------------------------
-!+r:: Reload
-!^q:: Shutdown 0
 !q:: WinKill("A")
+!^q:: Shutdown 0
+!+r:: Reload
 !+m:: WinMinimize("A")
 !+t::
 {
