@@ -4,14 +4,11 @@
 myMenu := Menu()
 myMenu.Add("SHUTDOWN", myMenuHandler)
 myMenu.Add()
-myMenu.Add()
 myMenu.Add("REBOOT", myMenuHandler)
-myMenu.Add()
 myMenu.Add()
 myMenu.Add("SUSPEND", myMenuHandler)
 myMenu.Add()
-myMenu.Add()
-myMenu.Add("Logout", myMenuHandler)
+myMenu.Add("LOGOUT", myMenuHandler)
 ; ----------------------------------------------------------
 ; Added Icons
 ; ----------------------------------------------------------
@@ -28,15 +25,15 @@ myMenuHandler(itemName, pos, menuObj) {
     switch pos {
         case 1:
             Shutdown 9
-        case 4:
+        case 3:
             Shutdown 6
-        case 7:
+        case 5:
             DllCall("PowrProf\SetSuspendState", "Int", 0, "Int", 0, "Int", 0)
-        case 10:
+        case 7:
             Shutdown 0
     }
 }
-!^p::myMenu.Show()
+!^p::myMenu.Show(900,580)
 ; ----------------------------------------------------------
 ; Force menus to use dark mode
 ; ----------------------------------------------------------
