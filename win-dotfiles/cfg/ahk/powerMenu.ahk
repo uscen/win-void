@@ -2,17 +2,22 @@
 ; Start Menu
 ; ----------------------------------------------------------
 myMenu := Menu()
-myMenu.Add("Shutdown", myMenuHandler)
+myMenu.Add("SHUTDOWN", myMenuHandler)
 myMenu.Add()
-myMenu.Add("Restart", myMenuHandler)
+myMenu.Add()
+myMenu.Add("REBOOT", myMenuHandler)
+myMenu.Add()
+myMenu.Add()
+myMenu.Add("SUSPEND", myMenuHandler)
+myMenu.Add()
 myMenu.Add()
 myMenu.Add("Logout", myMenuHandler)
 ; ----------------------------------------------------------
 ; Added Icons
 ; ----------------------------------------------------------
-myMenu.SetIcon("Shutdown", A_AhkPath, -207) ; icon with resource ID 207
-myMenu.SetIcon("Restart", A_AhkPath, -207) ; 2nd icon group from the file
-myMenu.SetIcon("Logout", A_AhkPath, -207) ; icon with resource ID 206
+;myMenu.SetIcon("Shutdown", A_AhkPath, -207) ; icon with resource ID 207
+;myMenu.SetIcon("Restart", A_AhkPath, -207) ; 2nd icon group from the file
+;myMenu.SetIcon("Logout", A_AhkPath, -207) ; icon with resource ID 206
 ; ----------------------------------------------------------
 ; When an item is selected, the following parameters are automatically passsed:
 ; itemName - name of the item selected
@@ -22,10 +27,12 @@ myMenu.SetIcon("Logout", A_AhkPath, -207) ; icon with resource ID 206
 myMenuHandler(itemName, pos, menuObj) {
     switch pos {
         case 1:
-            Shutdown 1
-        case 2:
+            Shutdown 9
+        case 4:
             Shutdown 6
-        case 3:
+        case 7:
+            DllCall("PowrProf\SetSuspendState", "Int", 0, "Int", 0, "Int", 0)
+        case 10:
             Shutdown 0
     }
 }
