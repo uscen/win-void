@@ -22,8 +22,6 @@ export-env { load-env {
 #  FZF:                                                                           #
 # =============================================================================== #
 $env.FZF_DEFAULT_OPTS = "
---bind ctrl-d:half-page-down
---bind ctrl-u:half-page-up
 --height=40% --border --layout reverse
 --preview-window right,80%
 "
