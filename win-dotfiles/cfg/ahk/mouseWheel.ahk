@@ -6,13 +6,17 @@
 ; Date       18.05.2024
 ; Version    0.1
 ; ----------------------------------------------------------
+; ----------------------------------------------------------
 ; Hotkeys for cycling window size
-#WheelUp::CycleWindowSize(1)      ; Increase size on Win+WheelUp
-#WheelDown::CycleWindowSize(0)    ; Decrease size on Win+WheelDown
+; ----------------------------------------------------------
+#+WheelUp::CycleWindowSize(1)      ; Increase size on Win+WheelUp
+#+WheelDown::CycleWindowSize(0)    ; Decrease size on Win+WheelDown
 
+; ----------------------------------------------------------
 ; Hotkeys for cycling window transparency
-#!WheelUp::CycleWindowTransparency(1)   ; Increase transparency on Win+Alt+WheelUp
-#!WheelDown::CycleWindowTransparency(0) ; Decrease transparency on Win+Alt+WheelDown
+; ----------------------------------------------------------
+#WheelUp::CycleWindowTransparency(1)   ; Increase transparency on Win+Alt+WheelUp
+#WheelDown::CycleWindowTransparency(0) ; Decrease transparency on Win+Alt+WheelDown
 
 ;AsciiProgressbarTest()
 
