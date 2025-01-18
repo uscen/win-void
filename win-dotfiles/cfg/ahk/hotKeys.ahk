@@ -43,6 +43,11 @@ Capslock::Esc
     WinSetStyle "^0xC00000", "A"
     WinSetStyle "^0x840000", "A"
 }
+!+h::
+{
+    MouseGetPos &MouseX, &MouseY
+    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
+}
 ; ----------------------------------------------------------
 ; Run App
 ; ----------------------------------------------------------
@@ -54,6 +59,7 @@ Capslock::Esc
 !v:: Run('neovide.exe "C:\Users\' A_UserName '\Projects"')
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
 !n:: Run(EnvGet("PROGRAMFILES") '\Git\bin\bash.exe -c "yazi.exe ~"')
+!e:: Run(EnvGet("PROGRAMFILES") "\Mozilla Thunderbird\thunderbird.exe")
 !y:: Run(EnvGet("LOCALAPPDATA") "\Programs\FreeTube\FreeTube.exe")
 !^c:: Run(EnvGet("LOCALAPPDATA") "\Programs\Microsoft VS Code\Code.exe")
 ; ----------------------------------------------------------
