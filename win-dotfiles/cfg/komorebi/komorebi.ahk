@@ -9,6 +9,7 @@
 ; ----------------------------------------------------------
 #include C:\Users\%A_UserName%\.config\ahk\mouseKeys.ahk
 #include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
+#include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
 ; ----------------------------------------------------------
 ; Keybidings Strings:
 ; ----------------------------------------------------------
