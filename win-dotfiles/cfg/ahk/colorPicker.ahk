@@ -20,7 +20,7 @@ ToggleColorPicker() {
         SetTimer(UpdateColorInfo, 50)
     } else {
         SetTimer(UpdateColorInfo, 0)
-        SetTimer () => ToolTip(), -5000 ; Hides a tooltip after a certain amount of time
+        SetTimer () => ToolTip(), -2000 ; Hides a tooltip after a certain amount of time
     }
 }
 
