@@ -31,7 +31,7 @@ return {
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
-					luasnip.lsp_expand(args.body) -- For `luasnip` users.
+					luasnip.lsp_expand(args.body)
 				end,
 			},
 
@@ -53,8 +53,8 @@ return {
 
 			-- Managing Sources for completions
 			sources = cmp.config.sources({
-				{ name = "luasnip" }, -- For luasnip users.
 				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
 			}),

@@ -17,3 +17,7 @@
 ; Power Menu:
 ; ----------------------------------------------------------
 #include C:\Users\%A_UserName%\.config\ahk\powerMenu.ahk
+; ----------------------------------------------------------
+;  Color Picker:
+; ----------------------------------------------------------
+#include C:\Users\%A_UserName%\.config\ahk\colorPicker.ahk
