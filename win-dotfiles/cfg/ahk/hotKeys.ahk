@@ -7,10 +7,12 @@ KeepAwake() {
     SetTimer(move_mouse, (toggle := !toggle) ? 4*60000 : 0)
     move_mouse() => Click((dir := !dir) ? '+1' : '-1', 0, 0, 'Rel')
 if toggle {
-    MsgBox "Mouse movement activated"
+    ToolTip "Mouse movement activated"
+    SetTimer () => ToolTip(), -2000
     }
 if !toggle {
-    MsgBox "Mouse movement deactivated"
+    ToolTip  "Mouse movement deactivated"
+    SetTimer () => ToolTip(), -2000
     }
 }
 ; Toggle Taskbar
