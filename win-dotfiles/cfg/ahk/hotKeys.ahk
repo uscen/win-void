@@ -43,11 +43,6 @@ Capslock::Esc
     WinSetStyle "^0xC00000", "A"
     WinSetStyle "^0x840000", "A"
 }
-!+h::
-{
-    MouseGetPos &MouseX, &MouseY
-    MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
-}
 ; ----------------------------------------------------------
 ; Run App
 ; ----------------------------------------------------------

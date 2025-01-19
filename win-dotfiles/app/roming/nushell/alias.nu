@@ -47,9 +47,9 @@ alias bun-dev = bun --bun run dev
 ## For Configs Files
 alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
 alias dots = cd ~/win-void/
+alias ahk = cd ~/win-void/win-dotfiles/cfg/ahk/
 alias bashc = nvim ~/win-void/win-dotfiles/home/.bashrc
 alias wmc = nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json
-alias whkdc = nvim ~/win-void/win-dotfiles/cfg/whkdrc
 alias barc = nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml
 alias nuc = nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu
 # Others Usfeual Alias
