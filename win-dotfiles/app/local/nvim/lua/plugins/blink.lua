@@ -36,6 +36,9 @@ return {
 		},
 
 		completion = {
+			trigger = {
+				show_on_insert_on_trigger_character = false,
+			},
 			menu = {
 				auto_show = false,
 				min_width = 20,
@@ -50,7 +53,7 @@ return {
 				},
 			},
 			ghost_text = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		appearance = {
