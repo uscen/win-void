@@ -40,7 +40,7 @@ return {
 				auto_show = false,
 				min_width = 20,
 				border = "rounded",
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
 			},
 			documentation = {
 				auto_show = true,
