@@ -22,4 +22,11 @@ return {
 			desc = "Search and Replace",
 		},
 	},
+	config = function()
+		require("grug-far").setup({
+			keymaps = {
+				close = { n = "<c-c>", i = "<c-c>" },
+			},
+		})
+	end,
 }

@@ -29,7 +29,7 @@
 # ----------------------------------------------------------- #
 # Arguments to aria2c:                                        #
 # ----------------------------------------------------------- #
---external-downloader-args aria2c:"-c -j 3 -x 3 -s 3 -k 1M"
+# --external-downloader-args aria2c:"-c -j 3 -x 3 -s 3 -k 1M"
 
 # ----------------------------------------------------------- #
 # Ignore download and postprocessing errors:                  #
