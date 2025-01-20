@@ -36,12 +36,9 @@ return {
 		},
 
 		completion = {
-			trigger = {
-				show_on_insert_on_trigger_character = false,
-			},
 			menu = {
-				auto_show = false,
-				min_width = 20,
+				auto_show = true,
+				min_width = 40,
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
 			},
@@ -53,7 +50,7 @@ return {
 				},
 			},
 			ghost_text = {
-				enabled = true,
+				enabled = false,
 			},
 		},
 		appearance = {
@@ -61,8 +58,8 @@ return {
 			nerd_font_variant = "mono",
 			kind_icons = {
 				Text = "󰦨", -- `buffer`
-				Snippet = "󰞘", -- `snippets`
-				File = "", -- `path`
+				Snippet = "",
+				File = "󰈙",
 				Folder = "󰉋",
 				Method = "󰊕",
 				Function = "󰡱",
