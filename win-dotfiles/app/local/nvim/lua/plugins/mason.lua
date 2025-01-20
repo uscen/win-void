@@ -65,7 +65,6 @@ return {
 				{ "eslint-lsp" },
 				{ "codelldb" },
 				{ "tailwindcss-language-server" },
-				{ "clangd" },
 			},
 
 			auto_update = true,
