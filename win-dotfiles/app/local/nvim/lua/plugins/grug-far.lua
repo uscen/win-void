@@ -7,6 +7,16 @@ return {
 	cmd = "GrugFar",
 	keys = {
 		{
+			"<leader>rs",
+			function()
+				require("grug-far").grug_far({
+					prefills = { search = vim.fn.expand("<cword>"), flags = vim.fn.expand("%") },
+				})
+			end,
+			mode = { "n", "v" },
+			desc = "Search and Replace",
+		},
+		{
 			"<leader>rr",
 			function()
 				local grug = require("grug-far")
