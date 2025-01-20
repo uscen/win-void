@@ -5,8 +5,8 @@ return {
 	"glepnir/lspsaga.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter", -- optional
-		"nvim-tree/nvim-web-devicons", -- optional
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		local lspsaga = require("lspsaga")
