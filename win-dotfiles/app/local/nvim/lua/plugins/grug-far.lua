@@ -9,9 +9,17 @@ return {
 		{
 			"<leader>rs",
 			function()
-				require("grug-far").grug_far({
-					prefills = { search = vim.fn.expand("<cword>"), flags = vim.fn.expand("%") },
+				require("grug-far").open({
+					prefills = { paths = vim.fn.expand("%"), search = vim.fn.expand("<cword>") },
 				})
+			end,
+			mode = { "n", "v" },
+			desc = "Search and Replace",
+		},
+		{
+			"<leader>rv",
+			function()
+				require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
 			end,
 			mode = { "n", "v" },
 			desc = "Search and Replace",
@@ -35,6 +43,7 @@ return {
 	config = function()
 		require("grug-far").setup({
 			keymaps = {
+				replace = { n = "<c-r>,", i = "<c-r>" },
 				close = { n = "<c-c>", i = "<c-c>" },
 			},
 		})

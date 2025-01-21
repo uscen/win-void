@@ -37,7 +37,7 @@ return {
 
 		completion = {
 			menu = {
-				auto_show = true,
+				auto_show = false,
 				min_width = 40,
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
@@ -50,7 +50,7 @@ return {
 				},
 			},
 			ghost_text = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		appearance = {
