@@ -37,7 +37,7 @@ return {
 
 		completion = {
 			menu = {
-				auto_show = false,
+				auto_show = true,
 				min_width = 40,
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
