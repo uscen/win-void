@@ -9,7 +9,7 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		keymap = {
-			preset = "default",
+			preset = "enter",
 			["<Tab>"] = {
 				function(cmp)
 					if cmp.snippet_active() then
@@ -22,7 +22,6 @@ return {
 				"fallback",
 			},
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
-			["<CR>"] = { "accept", "fallback" },
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
@@ -36,11 +35,20 @@ return {
 		},
 
 		completion = {
+			accept = {
+				-- experimental auto-brackets support
+				auto_brackets = {
+					enabled = true,
+				},
+			},
 			menu = {
 				auto_show = true,
 				min_width = 40,
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
+				draw = {
+					treesitter = { "lsp" },
+				},
 			},
 			documentation = {
 				auto_show = true,
