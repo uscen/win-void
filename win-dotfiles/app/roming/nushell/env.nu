@@ -22,6 +22,7 @@ export-env { load-env {
 #  FZF:                                                                           #
 # =============================================================================== #
 $env.FZF_DEFAULT_OPTS = "
+--input-border --style=full
 --height=40% --border --layout reverse
 --preview-window right,80%
 "

@@ -92,7 +92,7 @@ $env.config = {
     modifier: alt
     keycode: char_c
     mode: [emacs, vi_normal, vi_insert]
-    event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules | fzf)' }
+    event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules | fzf --preview-window=right,40%  --preview "eza --icons --tree {}")' }
   }
   {
     name: fuzzy_history
