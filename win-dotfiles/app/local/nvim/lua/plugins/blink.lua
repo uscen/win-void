@@ -42,8 +42,8 @@ return {
 				},
 			},
 			menu = {
-				auto_show = true,
-				min_width = 40,
+				auto_show = false,
+				min_width = 50,
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
 				draw = {
@@ -58,7 +58,7 @@ return {
 				},
 			},
 			ghost_text = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		appearance = {
