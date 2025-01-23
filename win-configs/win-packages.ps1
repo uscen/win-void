@@ -72,6 +72,7 @@ $packages = @(
     "Starship.Starship",
     "JesseDuffield.lazygit",
     "dandavison.delta",
+    "gsass1.NTop",
     "Microsoft.VisualStudioCode",
     "Hibbiki.Chromium",
     "eza-community.eza",

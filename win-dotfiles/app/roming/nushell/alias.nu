@@ -57,6 +57,7 @@ alias yt-concats = yt-dlp --concat-playlist always
 alias yt-music = yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music
 alias man = tldr
 alias cat = bat
+alias htop = ntop -s CPU%
 alias cls = clear
 alias chrome = start chrome
 alias firefox = start firefox
