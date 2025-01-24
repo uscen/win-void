@@ -22,7 +22,7 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "isort" },
 			},
 			format_on_save = function(bufnr)
 				-- Disable with a global or buffer-local variable

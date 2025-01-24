@@ -14,7 +14,6 @@ return {
 		opts = {
 			default_file_explorer = true,
 			delete_to_trash = false,
-			trash_command = "rm --trash",
 			skip_confirm_for_simple_edits = true,
 			border = "rounded",
 			win_options = {

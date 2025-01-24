@@ -32,6 +32,12 @@ return {
 			capabilities = capabilities,
 		})
 
+		-- prisma
+		lspconfig.prismals.setup({
+			capabilities = capabilities,
+			stdin = false,
+		})
+
 		-- rust_analyzer
 		lspconfig.rust_analyzer.setup({
 			capabilities = capabilities,
