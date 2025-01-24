@@ -37,7 +37,7 @@ Capslock::Esc
 !^q:: Shutdown 0
 !+r:: Reload
 !+m:: WinMinimize("A")
-!^s:: KeepAwake()
+!+s:: KeepAwake()
 !^t:: HideShowTaskbar()
 !+t:: WinSetAlwaysOnTop -1, "A"
 !f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
@@ -83,7 +83,7 @@ Komorebic(cmd) {
 !+Space::Komorebic("toggle-float")
 ; Window manager options
 !r::Komorebic("retile")
-!+p::Komorebic("toggle-pause")
+!^p::Komorebic("toggle-pause")
 ; Layouts
 !x::Komorebic("flip-layout horizontal")
 !+x::Komorebic("flip-layout vertical")
