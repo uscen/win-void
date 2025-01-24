@@ -33,7 +33,9 @@ Capslock::Esc
 ; ----------------------------------------------------------
 ; System Controlls
 ; ----------------------------------------------------------
-!q:: WinKill("A")
+#HotIf !WinActive("ahk_exe yasb.exe")
+!q:: WinClose("A")
+#HotIf
 !^q:: Shutdown 0
 !+r:: Reload
 !+m:: WinMinimize("A")
