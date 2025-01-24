@@ -22,7 +22,7 @@ bind("n", "<C-c>", "ciw", opts)
 -- leader movements
 -----------------------------------------------------------
 bind("n", "<Leader>w", ":write<CR>", {})
-bind("n", "<Leader>qq", ":quitall<CR>", {})
+-- bind("n", "<Leader>qq", ":quitall<CR>", {})
 -----------------------------------------------------------
 -- Always In Middle When Scrooling By Page
 -----------------------------------------------------------
