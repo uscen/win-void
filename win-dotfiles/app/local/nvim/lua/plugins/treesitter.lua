@@ -7,8 +7,9 @@ return {
 	-----------------------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
+		version = false,
 		build = ":TSUpdate",
-		event = { "BufReadPost", "BufNewFile" },
+		event = "VeryLazy",
 		opts = {
 			ensure_installed = {
 				-- 'base',
@@ -31,6 +32,7 @@ return {
 				"bash",
 				"powershell",
 				"toml",
+				"xml",
 				"yaml",
 				"ssh_config",
 				"zathurarc",
@@ -46,6 +48,7 @@ return {
 				"tsx",
 				"html",
 				"css",
+				"prisma",
 				"scss",
 			},
 			highlight = { enable = true },

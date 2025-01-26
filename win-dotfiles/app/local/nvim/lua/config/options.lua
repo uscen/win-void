@@ -11,7 +11,7 @@ vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
 vim.opt.swapfile = false
-vim.opt.completeopt = "menuone,noinsert,noselect"
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.opt.updatetime = 250
@@ -100,6 +100,7 @@ vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
+vim.g.netrw_banner = 0
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
 -----------------------------------------------------------
