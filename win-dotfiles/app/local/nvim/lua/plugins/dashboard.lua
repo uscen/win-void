@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Dashboard
+-- Dashboard alpha-nvim
 -----------------------------------------------------------
 return {
 	"goolord/alpha-nvim",
@@ -37,7 +37,7 @@ return {
 			dashboard.button("e", "   File Explorer", ":Oil<CR>"),
 			dashboard.button("r", "   Recent", ":lua require('telescope.builtin').oldfiles({})<CR><CR>"),
 			dashboard.button("c", "   Configuration", ":e ~/AppData/Local/nvim/init.lua<CR>"),
-			dashboard.button("R", "󱘞   Ripgrep", ":Telescope live_grep<CR>"),
+			dashboard.button("R", "󱘞   Ripgrep", ":lua require('telescope.builtin').live_grep({})<CR><CR>"),
 			dashboard.button("q", "󰗼   Quit", ":qa<CR>"),
 		}
 		-- NOTE: Send the config to alpha

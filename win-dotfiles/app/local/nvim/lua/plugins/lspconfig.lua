@@ -35,7 +35,6 @@ return {
 		-- prisma
 		lspconfig.prismals.setup({
 			capabilities = capabilities,
-			stdin = false,
 		})
 
 		-- rust_analyzer
