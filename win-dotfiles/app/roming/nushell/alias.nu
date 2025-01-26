@@ -14,6 +14,7 @@ alias fetch = fastfetch
 alias neofetch = fastfetch
 # NeoVim To Vim
 alias v = nvim
+alias vi = nvim
 alias nv = nvim
 alias vn = nvim
 alias vm = nvim

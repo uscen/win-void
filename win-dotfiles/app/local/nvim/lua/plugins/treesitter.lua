@@ -7,7 +7,6 @@ return {
 	-----------------------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
-		dependencies = { "windwp/nvim-ts-autotag" },
 		build = ":TSUpdate",
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
@@ -110,17 +109,6 @@ return {
 	},
 
 	-----------------------------------------------------------
-	-- ts-comment.nvim
-	-----------------------------------------------------------
-	{
-
-		"folke/ts-comments.nvim",
-		event = "VeryLazy",
-		opts = {},
-		enabled = vim.fn.has("nvim-0.10") == 1,
-	},
-
-	-----------------------------------------------------------
 	-- rainbow-delimiters.nvim
 	-----------------------------------------------------------
 	{
@@ -133,7 +121,6 @@ return {
 	-- indentition
 	-----------------------------------------------------------
 	{
-		-- indent guides for Neovim
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
@@ -142,7 +129,6 @@ return {
 				indent = {
 					char = "│",
 					tab_char = "│",
-					-- highlight = highlight,
 				},
 				scope = {
 					enabled = false,
