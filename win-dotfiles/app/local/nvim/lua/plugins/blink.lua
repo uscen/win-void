@@ -35,20 +35,11 @@ return {
 		},
 
 		completion = {
-			accept = {
-				-- experimental auto-brackets support
-				auto_brackets = {
-					enabled = true,
-				},
-			},
 			menu = {
 				auto_show = false,
 				min_width = 50,
 				border = "rounded",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
-				draw = {
-					treesitter = { "lsp" },
-				},
 			},
 			documentation = {
 				auto_show = true,
@@ -58,7 +49,7 @@ return {
 				},
 			},
 			ghost_text = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		appearance = {
