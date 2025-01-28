@@ -6,6 +6,7 @@ local opts = { noremap = true, silent = true }
 -----------------------------------------------------------
 -- Basic Keymaps:
 -----------------------------------------------------------
+bind("n", "<Leader>w", ":write<CR>", opts)
 bind("n", ";", ":")
 bind("n", "U", "<C-r>", opts)
 bind("n", "<leader>c", ":nohl<CR>", opts)
@@ -18,11 +19,6 @@ bind("c", "wA!", "wqa", opts)
 bind("n", "<C-s>", ":w<CR>", opts)
 bind("i", "<C-s>", "<ESC> :w<CR>", opts)
 bind("n", "<C-c>", "ciw", opts)
------------------------------------------------------------
--- leader movements
------------------------------------------------------------
-bind("n", "<Leader>w", ":write<CR>", {})
--- bind("n", "<Leader>qq", ":quitall<CR>", {})
 -----------------------------------------------------------
 -- Always In Middle When Scrooling By Page
 -----------------------------------------------------------
