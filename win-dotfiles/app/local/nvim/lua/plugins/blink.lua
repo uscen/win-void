@@ -35,10 +35,13 @@ return {
 		},
 
 		completion = {
+			list = {
+				max_items = 10,
+			},
 			menu = {
 				auto_show = true,
 				min_width = 50,
-				border = "rounded",
+				border = "single",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
 			},
 			documentation = {
@@ -86,6 +89,13 @@ return {
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 			cmdline = {},
+		},
+		signature = {
+			enabled = true,
+			window = {
+				border = "single",
+				winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
+			},
 		},
 	},
 	opts_extend = { "sources.default" },

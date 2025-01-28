@@ -10,7 +10,16 @@ return {
 		local Rule = require("nvim-autopairs.rule")
 
 		autopairs.setup({
-			fast_wrap = { map = "<M-q>" },
+			fast_wrap = {
+				map = "<C-w>",
+				chars = { "{", "[", "(", '"', "'" },
+				pattern = [=[[%'%"%)%>%]%)%}%,]]=],
+				end_key = "$",
+				keys = "qwertyuiopzxcvbnmasdfghjkl",
+				check_comma = true,
+				highlight = "Search",
+				highlight_grey = "Comment",
+			},
 			disable_filetype = {},
 			disable_in_macro = false,
 			disable_in_visualblock = false,
