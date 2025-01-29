@@ -43,11 +43,17 @@ return {
 				min_width = 50,
 				border = "single",
 				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
+				draw = {
+					treesitter = { "lsp" },
+				},
 			},
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
 				window = {
+					desired_min_height = 30,
+					max_width = 120,
+					min_width = 50,
 					border = "single",
 				},
 			},
