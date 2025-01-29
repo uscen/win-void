@@ -50,8 +50,8 @@ Capslock::Esc
 ; ----------------------------------------------------------
 ; Run App
 ; ----------------------------------------------------------
-!Enter:: Run("alacritty.exe")
-!+Enter:: Run("wt.exe")
+!Enter:: Run("wt.exe")
+!+Enter:: Run("alacritty.exe")
 !+n:: Run("explorer.exe")
 !w:: Run("chrome.exe")
 !i:: Run("msedge.exe")

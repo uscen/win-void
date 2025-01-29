@@ -46,13 +46,6 @@
     "bottom": 30,
     "left": 0
   },
-  "manage_rules": [
-    {
-      "kind": "Exe",
-      "id": "mpv.exe",
-      "matching_strategy": "Equals"
-    }
-  ],
   "floating_applications": [
     {
       "kind": "Exe",

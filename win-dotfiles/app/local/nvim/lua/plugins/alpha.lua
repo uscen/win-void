@@ -32,12 +32,15 @@ return {
 			[[                                  ]],
 		}
 		dashboard.section.buttons.val = {
-			dashboard.button("n", "   New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("f", "󰮗   Find file", ":lua require('telescope.builtin').find_files({})<CR>"),
+			dashboard.button("n", "   New Files", ":ene <BAR> startinsert <CR>"),
+			dashboard.button("f", "󰮗   Find Files", ":lua require('telescope.builtin').find_files({})<CR>"),
+			dashboard.button("r", "   Recent Files", ":lua require('telescope.builtin').oldfiles({})<CR><CR>"),
 			dashboard.button("e", "   File Explorer", ":Oil<CR>"),
-			dashboard.button("r", "   Recent", ":lua require('telescope.builtin').oldfiles({})<CR><CR>"),
-			dashboard.button("c", "   Configuration", ":e ~/AppData/Local/nvim/init.lua<CR>"),
 			dashboard.button("R", "󱘞   Ripgrep", ":lua require('telescope.builtin').live_grep({})<CR><CR>"),
+			dashboard.button("u", "   Update Plugins", ":Lazy update<CR>"),
+			dashboard.button("m", "   Manage Extensions", ":Mason<CR>"),
+			dashboard.button("l", "󰒲   Lazy Plugins", ":Lazy<CR>"),
+			dashboard.button("c", "   Configuration", ":e ~/AppData/Local/nvim/init.lua<CR>"),
 			dashboard.button("q", "󰗼   Quit", ":qa<CR>"),
 		}
 		-- NOTE: Send the config to alpha
