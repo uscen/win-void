@@ -2,17 +2,27 @@
 -- Colorscheme
 -----------------------------------------------------------
 return {
-	"sainnhe/gruvbox-material",
-	priority = 1000,
+	"rebelot/kanagawa.nvim",
 	config = function()
-		vim.g.gruvbox_material_background = "hard"
-		vim.g.gruvbox_material_better_performance = 1
-		vim.cmd([[colorscheme gruvbox-material]])
-		-- changing bg and border colors
-		vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
-		vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+		require("kanagawa").setup({
+			compile = false,
+			terminalColors = true,
+			transparent = true,
+			dimInactive = false,
+			commentStyle = { italic = false },
+			keywordStyle = { italic = false },
+			statementStyle = { bold = false },
+			colors = {
+				theme = {
+					all = {
+						ui = {
+							bg_gutter = "none",
+						},
+					},
+				},
+			},
+		})
+		-- setup must be called before loading
+		require("kanagawa").load("dragon")
 	end,
 }

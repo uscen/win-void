@@ -43,7 +43,7 @@ return {
 				auto_show = true,
 				min_width = 50,
 				border = "single",
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,Search:None",
+				winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
 				draw = {
 					treesitter = { "lsp" },
 				},
@@ -52,6 +52,7 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 500,
 				window = {
+					winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
 					desired_min_height = 30,
 					max_width = 120,
 					min_width = 50,
