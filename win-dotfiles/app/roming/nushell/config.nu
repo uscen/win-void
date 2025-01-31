@@ -74,7 +74,7 @@ $env.config = {
     }
     style: {
       text: { fg: "#ebdbb2" }
-      selected_text: { fg: "#141617" bg: "#89b482" attr: b}
+      selected_text: { fg: "#141617" bg: "#7daea3" attr: b}
       description_text: yellow
     }
   }
