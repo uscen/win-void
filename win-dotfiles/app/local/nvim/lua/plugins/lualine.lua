@@ -96,6 +96,33 @@ return {
 				lualine_c = {},
 				lualine_x = {},
 			},
+			tabline = {
+				lualine_a = {
+					{
+						"buffers",
+						mode = 2,
+						show_filename_only = true,
+						use_mode_colors = true,
+						show_modified_status = true,
+						filetype_names = {
+							TelescopePrompt = "Telescope",
+							dashboard = "Dashboard",
+							packer = "Packer",
+							fzf = "FZF",
+							alpha = "Alpha",
+						},
+						buffers_color = {
+							active = { bg = colors.red, fg = colors.fg },
+							inactive = { bg = colors.bg, fg = colors.grey },
+						},
+						symbols = {
+							modified = " ●",
+							alternate_file = "",
+							directory = "",
+						},
+					},
+				},
+			},
 		}
 
 		-- insert active component in lualine_c at left section
