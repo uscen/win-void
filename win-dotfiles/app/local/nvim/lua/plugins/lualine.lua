@@ -66,7 +66,7 @@ return {
 		-- config
 		local config = {
 			options = {
-				disabled_filetypes = { "neo-tree", "NvimTree" },
+				disabled_filetypes = { "neo-tree", "NvimTree", "alpha" },
 				-- remove default sections and component separators
 				component_separators = "",
 				section_separators = "",
