@@ -66,7 +66,7 @@ return {
 		-- config
 		local config = {
 			options = {
-				disabled_filetypes = { "neo-tree", "NvimTree", "alpha" },
+				disabled_filetypes = { "quickfix", "prompt", "neo-tree", "NvimTree", "alpha" },
 				-- remove default sections and component separators
 				component_separators = "",
 				section_separators = "",
@@ -105,11 +105,10 @@ return {
 						use_mode_colors = true,
 						show_modified_status = true,
 						filetype_names = {
-							TelescopePrompt = "Telescope",
-							dashboard = "Dashboard",
-							packer = "Packer",
-							fzf = "FZF",
-							alpha = "Alpha",
+							TelescopePrompt = "TELESCOPE PICKER",
+							dashboard = "DASHBOARD",
+							fzf = "FZF PICKER",
+							alpha = "DASHBOARD",
 						},
 						buffers_color = {
 							active = { bg = colors.red, fg = colors.fg },
