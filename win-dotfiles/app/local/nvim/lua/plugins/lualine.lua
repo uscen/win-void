@@ -67,6 +67,9 @@ return {
 		local config = {
 			options = {
 				disabled_filetypes = { "quickfix", "prompt", "neo-tree", "NvimTree", "alpha" },
+				ignore_focus = { "neo-tree", "toggleterm", "netrw", "TelescopePrompt", "mason", "lazy" },
+				globalstatus = true,
+				always_show_tabline = true,
 				-- remove default sections and component separators
 				component_separators = "",
 				section_separators = "",
