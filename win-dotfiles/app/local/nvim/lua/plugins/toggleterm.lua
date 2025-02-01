@@ -18,26 +18,6 @@ return {
 				close_on_exit = true,
 				shell = vim.o.shell,
 				shade_filetypes = { "none", "fzf" },
-				float_opts = {
-					width = 140,
-					height = 32,
-					border = "double",
-					winblend = 0,
-					highlights = {
-						border = "Normal",
-						background = "Normal",
-					},
-				},
-				highlights = {
-					Normal = { link = "Normal" },
-					NormalNC = { link = "NormalNC" },
-					NormalFloat = { link = "NormalFloat" },
-					FloatBorder = { link = "FloatBorder" },
-					StatusLine = { link = "StatusLine" },
-					StatusLineNC = { link = "StatusLineNC" },
-					WinBar = { link = "WinBar" },
-					WinBarNC = { link = "WinBarNC" },
-				},
 			})
 			function _G.set_terminal_keymaps()
 				local opts = { buffer = 0 }

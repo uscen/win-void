@@ -2,7 +2,7 @@
 -- bufferline
 -----------------------------------------------------------
 return {
-	{ "echasnovski/mini.tabline", version = "*", opts = {} },
+	{ "echasnovski/mini.tabline", version = "*", opts = { show_icons = false } },
 	-----------------------------------------------------------
 	-- bufdel
 	-----------------------------------------------------------
