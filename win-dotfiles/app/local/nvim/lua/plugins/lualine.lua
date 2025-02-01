@@ -100,7 +100,7 @@ return {
 				lualine_a = {
 					{
 						"buffers",
-						mode = 2,
+						mode = 0,
 						show_filename_only = true,
 						use_mode_colors = true,
 						show_modified_status = true,
