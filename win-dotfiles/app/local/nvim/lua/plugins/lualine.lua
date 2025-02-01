@@ -187,7 +187,7 @@ return {
 			separator = { right = "▓▒░" },
 		})
 		active_left({
-			"filename",
+			"mode",
 			cond = conditions.buffer_not_empty,
 			color = function()
 				return { bg = mode_color[vim.fn.mode()], fg = colors.white }
