@@ -66,7 +66,7 @@ return {
 		-- config
 		local config = {
 			options = {
-				disabled_filetypes = { "quickfix", "prompt", "neo-tree", "NvimTree", "alpha" },
+				disabled_filetypes = { "quickfix", "prompt", "neo-tree", "NvimTree", "alpha", "oil" },
 				ignore_focus = { "neo-tree", "toggleterm", "netrw", "TelescopePrompt", "mason", "lazy" },
 				globalstatus = true,
 				always_show_tabline = true,
@@ -98,32 +98,6 @@ return {
 				-- clear for later use
 				lualine_c = {},
 				lualine_x = {},
-			},
-			tabline = {
-				lualine_a = {
-					{
-						"buffers",
-						mode = 0,
-						show_filename_only = true,
-						use_mode_colors = true,
-						show_modified_status = true,
-						filetype_names = {
-							TelescopePrompt = "TELESCOPE PICKER",
-							dashboard = "DASHBOARD",
-							fzf = "FZF PICKER",
-							alpha = "DASHBOARD",
-						},
-						buffers_color = {
-							active = { bg = colors.red, fg = colors.fg },
-							inactive = { bg = colors.bg, fg = colors.grey },
-						},
-						symbols = {
-							modified = " ●",
-							alternate_file = "",
-							directory = "",
-						},
-					},
-				},
 			},
 		}
 
@@ -165,51 +139,26 @@ return {
 
 		-- active left section
 		active_left({
-			function()
-				local icon
-				local ok, devicons = pcall(require, "nvim-web-devicons")
-				if ok then
-					icon = devicons.get_icon(vim.fn.expand("%:t"))
-					if icon == nil then
-						icon = devicons.get_icon_by_filetype(vim.bo.filetype)
-					end
-				else
-					if vim.fn.exists("*WebDevIconsGetFileTypeSymbol") > 0 then
-						icon = vim.fn.WebDevIconsGetFileTypeSymbol()
-					end
-				end
-				if icon == nil then
-					icon = ""
-				end
-				return icon:gsub("%s+", "")
-			end,
-			color = function()
-				return { bg = mode_color[vim.fn.mode()], fg = colors.white }
-			end,
-			padding = { left = 1, right = 1 },
-			separator = { right = "▓▒░" },
-		})
-		active_left({
-			"mode",
-			cond = conditions.buffer_not_empty,
-			color = function()
-				return { bg = mode_color[vim.fn.mode()], fg = colors.white }
-			end,
-			padding = { left = 1, right = 1 },
-			separator = { right = "▓▒░" },
-			symbols = {
-				modified = "󰶻 ",
-				readonly = " ",
-				unnamed = " ",
-				newfile = " ",
+			"buffers",
+			mode = 0,
+			show_filename_only = true,
+			use_mode_colors = true,
+			show_modified_status = true,
+			filetype_names = {
+				TelescopePrompt = "TELESCOPE PICKER",
+				dashboard = "DASHBOARD",
+				fzf = "FZF PICKER",
+				alpha = "DASHBOARD",
 			},
-		})
-		active_left({
-			"branch",
-			icon = "",
-			color = { bg = colors.blue, fg = colors.black },
-			padding = { left = 0, right = 1 },
-			separator = { right = "▓▒░", left = "░▒▓" },
+			buffers_color = {
+				active = { bg = colors.red, fg = colors.fg },
+				inactive = { bg = colors.bg, fg = colors.grey },
+			},
+			symbols = {
+				modified = " ●",
+				alternate_file = "",
+				directory = "",
+			},
 		})
 
 		-- inactive left section
@@ -269,63 +218,6 @@ return {
 			color = { bg = colors.cyan, fg = colors.black },
 			padding = { left = 1, right = 1 },
 			separator = { right = "▓▒░", left = "░▒▓" },
-		})
-		active_right({
-			"location",
-			color = { bg = colors.red, fg = colors.white },
-			padding = { left = 1, right = 0 },
-			separator = { left = "░▒▓" },
-		})
-		active_right({
-			function()
-				local cur = vim.fn.line(".")
-				local total = vim.fn.line("$")
-				return string.format("%2d%%%%", math.floor(cur / total * 100))
-			end,
-			color = { bg = colors.red, fg = colors.white },
-			padding = { left = 1, right = 1 },
-			cond = conditions.hide_in_width,
-			separator = { right = "▓▒░" },
-		})
-		active_right({
-			"o:encoding",
-			fmt = string.upper,
-			cond = conditions.hide_in_width,
-			padding = { left = 1, right = 1 },
-			color = { bg = colors.blue, fg = colors.black },
-		})
-		active_right({
-			"fileformat",
-			fmt = string.lower,
-			icons_enabled = false,
-			cond = conditions.hide_in_width,
-			color = { bg = colors.blue, fg = colors.black },
-			separator = { right = "▓▒░" },
-			padding = { left = 0, right = 1 },
-		})
-
-		-- inactive right section
-		inactive_right({
-			"location",
-			color = { bg = colors.black, fg = colors.grey },
-			padding = { left = 1, right = 0 },
-			separator = { left = "░▒▓" },
-		})
-		inactive_right({
-			"progress",
-			color = { bg = colors.black, fg = colors.grey },
-			cond = conditions.hide_in_width,
-			padding = { left = 1, right = 1 },
-			separator = { right = "▓▒░" },
-		})
-		inactive_right({
-			"fileformat",
-			fmt = string.lower,
-			icons_enabled = false,
-			cond = conditions.hide_in_width,
-			color = { bg = colors.black, fg = colors.grey },
-			separator = { right = "▓▒░" },
-			padding = { left = 0, right = 1 },
 		})
 		--
 		return config
