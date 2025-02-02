@@ -64,14 +64,7 @@ return {
 		{
 			"<leader>fd",
 			function()
-				require("telescope").extensions.zoxide.list(require("telescope.themes").get_ivy({}))
-			end,
-			desc = "Change Into Directory",
-		},
-		{
-			"<leader>cd",
-			function()
-				require("telescope").extensions.zoxide.list()
+				require("telescope").extensions.zoxide.list(require("telescope.themes").get_dropdown({}))
 			end,
 			desc = "Change Into Directory",
 		},
@@ -91,16 +84,16 @@ return {
 			TelescopeMatching = { fg = "#d8a657" },
 			TelescopeSelection = { fg = "#ebdbb2", bg = "#3c3836", bold = true },
 
-			TelescopePromptPrefix = { bg = "#282828" },
-			TelescopePromptNormal = { bg = "#282828" },
-			TelescopeResultsNormal = { bg = "#282828" },
-			TelescopePreviewNormal = { bg = "#282828" },
-			TelescopePromptBorder = { bg = "#282828", fg = "#282828" },
-			TelescopeResultsBorder = { bg = "#282828", fg = "#282828" },
-			TelescopePreviewBorder = { bg = "#282828", fg = "#282828" },
-			TelescopePromptTitle = { bg = "#ea6962", fg = "#282828" },
-			TelescopeResultsTitle = { fg = "#282828" },
-			TelescopePreviewTitle = { bg = "#a9b665", fg = "#282828" },
+			TelescopePromptPrefix = { bg = "#141617" },
+			TelescopePromptNormal = { bg = "#141617" },
+			TelescopeResultsNormal = { bg = "#141617" },
+			TelescopePreviewNormal = { bg = "#141617" },
+			TelescopePromptBorder = { bg = "#141617", fg = "#141617" },
+			TelescopeResultsBorder = { bg = "#141617", fg = "#141617" },
+			TelescopePreviewBorder = { bg = "#141617", fg = "#141617" },
+			TelescopePromptTitle = { bg = "#ea6962", fg = "#141617" },
+			TelescopeResultsTitle = { fg = "#141617" },
+			TelescopePreviewTitle = { bg = "#a9b665", fg = "#141617" },
 		}
 
 		for hl, col in pairs(TelescopeColor) do
@@ -111,7 +104,7 @@ return {
 			-- (other Telescope configuration...)
 			extensions = {
 				zoxide = {
-					prompt_title = "[ Walking on the shoulders of TJ ]",
+					prompt_title = "Zoxide",
 					mappings = {
 						default = {
 							before_action = function(selection)
@@ -119,9 +112,6 @@ return {
 							end,
 							action = function(selection)
 								vim.cmd.edit(selection.path)
-							end,
-							after_action = function(selection)
-								print("Update to (" .. selection.z_score .. ") " .. selection.path)
 							end,
 						},
 						["<C-s>"] = {
@@ -133,7 +123,7 @@ return {
 							end,
 						},
 						-- Opens the selected entry in a new split
-						["<C-q>"] = { action = z_utils.create_basic_command("split") },
+						["<C-v>"] = { action = z_utils.create_basic_command("split") },
 					},
 				},
 			},
@@ -285,25 +275,25 @@ return {
 			},
 			pickers = {
 				find_files = {
-					theme = "ivy",
+					theme = "dropdown",
 				},
 				oldfiles = {
-					theme = "ivy",
+					theme = "dropdown",
 				},
 				grep_string = {
-					theme = "ivy",
+					theme = "dropdown",
 				},
 				live_grep = {
-					theme = "ivy",
+					theme = "dropdown",
 				},
 				registers = {
-					theme = "ivy",
+					theme = "dropdown",
 				},
 				diagnostics = {
-					theme = "ivy",
+					theme = "dropdown",
 				},
 				buffers = {
-					theme = "ivy",
+					theme = "dropdown",
 					sort_lastused = true,
 				},
 			},
