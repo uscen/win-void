@@ -303,6 +303,7 @@ return {
 					theme = "ivy",
 				},
 				buffers = {
+					theme = "ivy",
 					sort_lastused = true,
 				},
 			},

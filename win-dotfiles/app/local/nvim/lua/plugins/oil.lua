@@ -67,6 +67,7 @@ return {
 					return conf
 				end,
 			},
+			use_default_keymaps = false,
 			keymaps = {
 				["g?"] = "actions.show_help",
 				["<CR>"] = "actions.select",
@@ -74,9 +75,8 @@ return {
 				["<TAB>"] = "actions.select",
 				["<C-TAB>"] = "actions.parent",
 				["<C-h>"] = "actions.parent",
-				["<C-s>"] = "actions.select_split",
-				["<C-v>"] = "actions.select_vsplit",
-				-- ["<C-h>"] = "actions.select_split",
+				["<C-v>"] = "actions.select_split",
+				["<C-b>"] = "actions.select_vsplit",
 				["<C-t>"] = "actions.select_tab",
 				["<C-p>"] = "actions.preview",
 				["<C-c>"] = "actions.close",
