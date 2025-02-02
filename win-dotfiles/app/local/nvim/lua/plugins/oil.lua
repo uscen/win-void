@@ -6,8 +6,8 @@ return {
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
-			{ "<leader>o", "<cmd>Oil <cr>", desc = "Oil NoNFloatings" },
-			{ "<leader>e", "<cmd>OilToggle<cr>", desc = "Oil NoNFloatings" },
+			{ "<leader>o", "<cmd>Oil<cr>", desc = "Oil NoNFloatings" },
+			{ "<leader>e", "<cmd>OilToggle<cr>", desc = "Oil NFloatings Toggle" },
 			{ "<leader>fo", "<cmd>Oil --float<cr>", desc = "Oil Floatings" },
 			{ "<leader>fe", "<cmd>Oil --float<cr>", desc = "Oil Floatings" },
 		},
@@ -15,7 +15,7 @@ return {
 			default_file_explorer = true,
 			delete_to_trash = false,
 			skip_confirm_for_simple_edits = true,
-			border = "rounded",
+			border = "single",
 			win_options = {
 				wrap = true,
 				signcolumn = "yes:2",
