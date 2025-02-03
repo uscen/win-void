@@ -25,4 +25,3 @@ vim.api.nvim_create_user_command("OilToggle", function()
 		vim.cmd("Oil")
 	end
 end, { nargs = 0 })
-
