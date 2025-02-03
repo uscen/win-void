@@ -14,7 +14,6 @@ vim.opt.swapfile = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
-vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 -----------------------------------------------------------
 -- Shell
@@ -28,14 +27,13 @@ vim.opt.shellxescape = ""
 vim.opt.shellxquote = ""
 vim.opt.shellquote = ""
 vim.opt.shellpipe =
-	"| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
+"| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
 -----------------------------------------------------------
 -- Files and Others
 -----------------------------------------------------------
 vim.opt.termbidi = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.autochdir = true
-vim.opt.hidden = true
 vim.opt.whichwrap = "b,s,<,>,[,],h,l"
 vim.opt.iskeyword:append("-,_")
 -----------------------------------------------------------
@@ -44,10 +42,9 @@ vim.opt.iskeyword:append("-,_")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
--- vim.opt.scrolloff = 999
+vim.opt.scrolloff = 999
 vim.o.cursorline = false
 vim.opt.showmatch = true
-vim.opt.colorcolumn = ""
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.ignorecase = true
@@ -56,7 +53,7 @@ vim.opt.hlsearch = true
 vim.opt.linebreak = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
-vim.opt.laststatus = 0
+vim.opt.laststatus = 3
 vim.opt.pumblend = 0
 vim.opt.showmode = false
 vim.opt.pumheight = 8
@@ -88,21 +85,19 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.shiftround = true
+-----------------------------------------------------------
+-- Memory, CPU
+-----------------------------------------------------------
+vim.opt.hidden = true
+vim.opt.history = 100
+vim.opt.lazyredraw = true
+vim.opt.synmaxcol = 240
+vim.opt.updatetime = 250
 -------------------------------------------------------------
 -- Use ripgrep as grep tool:
 -------------------------------------------------------------
 vim.opt.grepprg = "rg --vimgrep --no-heading"
 vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
------------------------------------------------------------
--- Disable some builtin providers:
--------------------------------------------------------------
-vim.g.loaded_python_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.netrw_banner = 0
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
@@ -139,7 +134,3 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
------------------------------------------------------------
--- Neovide:
--------------------------------------------------------------
-vim.g.neovide_theme = "dark"
