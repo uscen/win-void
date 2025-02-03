@@ -77,7 +77,7 @@ return {
 				["<C-h>"] = "actions.parent",
 				["<C-v>"] = "actions.select_split",
 				["<C-b>"] = "actions.select_vsplit",
-				["<C-t>"] = "actions.select_tab",
+				-- ["<C-t>"] = "actions.select_tab",
 				["<C-p>"] = "actions.preview",
 				["<C-c>"] = "actions.close",
 				["<C-r>"] = "actions.refresh",
