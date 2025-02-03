@@ -14,7 +14,7 @@ return {
 				})
 			end,
 			mode = { "n", "v" },
-			desc = "Search and Replace",
+			desc = "Search And Replace Select Word In Current Buffer",
 		},
 		{
 			"<leader>rv",
@@ -22,7 +22,7 @@ return {
 				require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
 			end,
 			mode = { "n", "v" },
-			desc = "Search and Replace",
+			desc = "Search And Replace Visual Selection In Current Buffer",
 		},
 		{
 			"<leader>rr",
@@ -37,7 +37,7 @@ return {
 				})
 			end,
 			mode = { "n", "v" },
-			desc = "Search and Replace",
+			desc = "Search And Replace",
 		},
 	},
 	config = function()
