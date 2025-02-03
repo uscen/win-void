@@ -19,16 +19,13 @@ max_height = 1800
 image_quality = 90
 [opener]
 edit = [
-	{ run = "nvim %*",   block = true, for = "windows" },
 	{ run = "nvim %*",   orphan = true, for = "windows" },
 ]
 play = [
 	{ run = 'mpv.exe %*', orphan = true, for = "windows" }
 ]
-archive = [
-	{ run = 'unar "$1"', desc = "Extract here" },
-	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
-	{ run = '/Applications/MacZip.app/Contents/MacOS/MacZip "$1"', orphan = true, desc = "MacZip" },
+extract = [
+	{ run = 'ouch d -y "%*"', desc = "Extract here with ouch", for = "windows" },
 ]
 [open]
 rules = [

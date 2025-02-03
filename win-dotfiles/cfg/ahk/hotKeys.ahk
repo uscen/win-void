@@ -42,7 +42,7 @@ Capslock::Esc
 !+s:: KeepAwake()
 !^t:: HideShowTaskbar()
 !+t:: WinSetAlwaysOnTop -1, "A"
-!f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
+!^f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
 !+f:: {
     WinSetStyle "^0xC00000", "A"
     WinSetStyle "^0x840000", "A"
@@ -82,6 +82,7 @@ Komorebic(cmd) {
 !s::Komorebic("promote")
 !m::Komorebic("toggle-monocle")
 !t::Komorebic("toggle-monocle")
+!f::Komorebic("toggle-maximize")
 !+Space::Komorebic("toggle-float")
 ; Window manager options
 !r::Komorebic("retile")
