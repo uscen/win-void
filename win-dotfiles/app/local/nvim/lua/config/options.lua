@@ -8,7 +8,7 @@ vim.g.maplocalleader = "\\"
 -----------------------------------------------------------
 vim.opt.mouse = "a"
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 vim.opt.swapfile = false
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -28,14 +28,6 @@ vim.opt.shellxquote = ""
 vim.opt.shellquote = ""
 vim.opt.shellpipe =
 "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
------------------------------------------------------------
--- Files and Others
------------------------------------------------------------
-vim.opt.termbidi = true
-vim.opt.fileencoding = "utf-8"
-vim.opt.autochdir = true
-vim.opt.whichwrap = "b,s,<,>,[,],h,l"
-vim.opt.iskeyword:append("-,_")
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -104,32 +96,32 @@ vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 vim.opt.shortmess:append("sI")
 -- Disable builtin plugins
 local disabled_built_ins = {
-	"2html_plugin",
-	"getscript",
-	"getscriptPlugin",
-	"gzip",
-	"logipat",
-	"netrw",
-	"netrwPlugin",
-	"netrwSettings",
-	"netrwFileHandlers",
-	"matchit",
-	"tar",
-	"tarPlugin",
-	"rrhelper",
-	"spellfile_plugin",
-	"vimball",
-	"vimballPlugin",
-	"zip",
-	"zipPlugin",
-	"tutor",
-	"rplugin",
-	"synmenu",
-	"optwin",
-	"compiler",
-	"bugreport",
-	"ftplugin",
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "tutor",
+  "rplugin",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
 }
 for _, plugin in pairs(disabled_built_ins) do
-	vim.g["loaded_" .. plugin] = 1
+  vim.g["loaded_" .. plugin] = 1
 end
