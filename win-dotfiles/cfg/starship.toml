@@ -3,7 +3,7 @@
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 add_newline = true
 command_timeout = 2000
-format = """$env_var$os$username$hostname$kubernetes$directory$git_branch$git_status$python
+format = """$env_var$os$username$directory$git_branch$git_status$nodejs
 $character
 """
 [character]
@@ -23,17 +23,12 @@ Arch = '󰣇'
 Ubuntu = ''
 Macos = '󰀵'
 Unknown = '󰠥'
-# Shows the username
 [username]
 style_user = 'yellow bold'
 style_root = 'black bold'
 format = '[//](black bold) [$user](#2883ff) ' # 2883ff
 disabled = false
 show_always = true
-[hostname]
-ssh_only = false
-format = '[//](black bold) [$hostname](bold blue) '
-disabled = false
 [directory]
 truncation_length = 0
 truncation_symbol = '…/'
@@ -56,7 +51,6 @@ symbol = ' '
 format = '[//](black bold) [$symbol\[$branch\]]($style) '
 style = 'bold green'
 [git_status]
-disabled = true
 format = '[ $all_status $ahead_behind]($style) '
 style = 'bold green'
 conflicted = '🏳'
@@ -70,17 +64,6 @@ modified = ' '
 staged = '[++\($count\)](green)'
 renamed = '襁 '
 deleted = ' '
-[kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold purple) '
-disabled = false
-[vagrant]
-disabled = true
-[docker_context]
-disabled = true
-[python]
-symbol = '󰌠'
-python_binary = ['./venv/bin/python', 'python', 'python3', 'python2']
-format = '[//](black bold) [${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style) '
 [nodejs]
 symbol = ""
 style = "bg:color_blue"
