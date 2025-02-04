@@ -118,32 +118,5 @@ return {
 		"hiphish/rainbow-delimiters.nvim",
 		dependencies = "nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
-	},
-
-	-----------------------------------------------------------
-	-- indentition
-	-----------------------------------------------------------
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			local ibl = require("ibl")
-			ibl.setup({
-				indent = {
-					char = "│",
-					tab_char = "│",
-				},
-				scope = {
-					enabled = false,
-				},
-				vim.opt.listchars:append("space: "),
-			})
-		end,
-	},
-	{
-		"nmac427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({})
-		end,
-	},
+	}
 }
