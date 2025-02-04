@@ -42,7 +42,6 @@ vim.opt.iskeyword:append("-,_")
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
-vim.opt.scrolloff = 999
 vim.o.cursorline = false
 vim.opt.showmatch = true
 vim.opt.splitright = true

@@ -34,11 +34,6 @@ return {
 			hide_in_width = function()
 				return vim.fn.winwidth(0) > 70
 			end,
-			check_git_workspace = function()
-				local filepath = vim.fn.expand("%:p:h")
-				local gitdir = vim.fn.finddir(".git", filepath .. ";")
-				return gitdir and #gitdir > 0 and #gitdir < #filepath
-			end,
 		}
 		-- auto change color according to neovims mode
 		local mode_color = {
@@ -114,11 +109,6 @@ return {
 		-- insert active component in lualine_x at right section
 		local function active_right(component)
 			table.insert(config.sections.lualine_x, component)
-		end
-
-		-- insert inactive component in lualine_x at right section
-		local function inactive_right(component)
-			table.insert(config.inactive_sections.lualine_x, component)
 		end
 
 		-- dump object contents
