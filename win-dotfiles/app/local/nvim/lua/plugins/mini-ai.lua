@@ -2,9 +2,9 @@
 -- Mini-Ai
 -----------------------------------------------------------
 return {
-	{
-		"echasnovski/mini.ai",
-		version = "*",
-		opts = {},
-	},
+  {
+    "echasnovski/mini.ai",
+    version = "*",
+    opts = {},
+  },
 }
