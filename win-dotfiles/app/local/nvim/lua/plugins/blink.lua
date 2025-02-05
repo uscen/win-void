@@ -39,7 +39,7 @@ return {
       list = {
         max_items = 10,
         selection = {
-          preselect = false
+          preselect = true
         }
       },
       accept = {
@@ -50,7 +50,16 @@ return {
       menu = {
         auto_show = true,
         min_width = 40,
-        border = "single",
+        border = {
+          { "󱐋", "WarningMsg" },
+          "─",
+          "╮",
+          "│",
+          "╯",
+          "─",
+          "╰",
+          "│",
+        },
         winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
         draw = {
           treesitter = { "lsp" },
@@ -74,7 +83,16 @@ return {
           desired_min_height = 30,
           max_width = 120,
           min_width = 50,
-          border = "single",
+          border = {
+            { "", "DiagnosticHint" },
+            "─",
+            "╮",
+            "│",
+            "╯",
+            "─",
+            "╰",
+            "│",
+          },
         },
       },
       ghost_text = {
