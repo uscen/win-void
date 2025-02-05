@@ -35,34 +35,11 @@ return {
         return vim.fn.winwidth(0) > 70
       end,
     }
-    -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [""] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [""] = colors.orange,
-      ic = colors.yellow,
-      R = colors.yellow,
-      Rv = colors.yellow,
-      cv = colors.yellow,
-      ce = colors.yellow,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ["r?"] = colors.cyan,
-      ["!"] = colors.red,
-      t = colors.red,
-    }
     -- config
     local config = {
       options = {
-        disabled_filetypes = { "quickfix", "prompt", "neo-tree", "NvimTree", "alpha", "oil" },
-        ignore_focus = { "neo-tree", "toggleterm", "netrw", "TelescopePrompt", "mason", "lazy" },
+        disabled_filetypes = { "alpha", "oil" },
+        ignore_focus = { "toggleterm", "TelescopePrompt", "mason", "lazy" },
         globalstatus = true,
         always_show_tabline = true,
         -- remove default sections and component separators
