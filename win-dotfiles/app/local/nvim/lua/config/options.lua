@@ -50,6 +50,8 @@ vim.opt.showmode = false
 vim.opt.pumheight = 8
 vim.opt.confirm = true
 vim.opt.virtualedit = "block"
+vim.opt.breakindentopt = "shift:2"
+vim.opt.showbreak = "↳"
 -----------------------------------------------------------
 -- Code folding options:
 -----------------------------------------------------------

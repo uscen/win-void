@@ -48,6 +48,7 @@ return {
         },
       },
       menu = {
+        scrollbar = false,
         auto_show = true,
         min_width = 40,
         border = {
