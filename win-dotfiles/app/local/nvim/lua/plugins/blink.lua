@@ -158,7 +158,16 @@ return {
     signature = {
       enabled = true,
       window = {
-        border = "single",
+        border = {
+          { "", "DiagnosticHint" },
+          "─",
+          "╮",
+          "│",
+          "╯",
+          "─",
+          "╰",
+          "│",
+        },
         winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
       },
     },
