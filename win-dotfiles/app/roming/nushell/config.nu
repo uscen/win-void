@@ -27,10 +27,6 @@ $env.config = {
   rm: {
       always_trash: true
   }
-  filesize: {
-      metric: true
-      format: "auto"
-  }
   table: {
     mode: heavy
     index_mode: always

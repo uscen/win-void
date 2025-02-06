@@ -1,5 +1,5 @@
 # ================================================#
-# List Packages:      		                      #
+# List Packages:      		                        #
 # ================================================#
 $packages=@(
     "bun",
@@ -33,7 +33,7 @@ $extensions=@(
 )
 
 # ================================================#
-# NPM Paclages:      		                      #
+# NPM Paclages:      		                          #
 # ================================================#
 foreach ($package in $packages) {
         Write-Host "Installing $package..."
@@ -41,7 +41,7 @@ foreach ($package in $packages) {
 }
 Write-Host "Installation Of NPM Packages Is Complete!"
 # ================================================#
-# Vscode Paclages:      		                  #
+# Vscode Paclages:      		                      #
 # ================================================#
 foreach ($extension in $extensions) {
         code --install-extension $extension --force
