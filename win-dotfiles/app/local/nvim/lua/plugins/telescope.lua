@@ -5,45 +5,36 @@ return {
   "nvim-telescope/telescope.nvim",
   branch = "master",
   dependencies = {
-    "nvim-lua/popup.nvim",
-    "jvgrootveld/telescope-zoxide",
     "nvim-lua/plenary.nvim",
+    "jvgrootveld/telescope-zoxide",
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
     {
       "<C-p>",
       function()
-        require("telescope.builtin").find_files({
-          -- cwd = require("lazy.core.config").options.root
-        })
+        require("telescope.builtin").find_files()
       end,
       desc = "Find Files",
     },
     {
       "<leader>ff",
       function()
-        require("telescope.builtin").find_files({
-          -- cwd = require("lazy.core.config").options.root
-        })
+        require("telescope.builtin").find_files()
       end,
       desc = "Find Files",
     },
     {
       "<leader>fr",
       function()
-        require("telescope.builtin").oldfiles({
-          -- cwd = require("lazy.core.config").options.root
-        })
+        require("telescope.builtin").oldfiles()
       end,
       desc = "Find Files",
     },
     {
       "<leader>fg",
       function()
-        require("telescope.builtin").live_grep({
-          -- cwd = require("lazy.core.config").options.root
-        })
+        require("telescope.builtin").live_grep()
       end,
       desc = "Live grep file content",
     },

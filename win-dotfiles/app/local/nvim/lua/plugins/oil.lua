@@ -2,13 +2,13 @@
 -- Oil
 -----------------------------------------------------------
 return {
-  {
-    "stevearc/oil.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = {
-      { "<leader>e", "<cmd>OilToggle<cr>", desc = "Oil File Explorer" },
-    },
-    opts = {
+  "stevearc/oil.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  keys = {
+    { "<leader>e", "<cmd>OilToggle<cr>", desc = "Oil File Explorer" },
+  },
+  config = function()
+    require("oil").setup({
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
       delete_to_trash = true,
@@ -36,6 +36,6 @@ return {
         ["H"] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
       },
-    },
-  },
+    })
+  end
 }
