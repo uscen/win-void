@@ -80,8 +80,8 @@ return {
         window = {
           winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
           desired_min_height = 30,
-          max_width = 120,
-          min_width = 50,
+          max_width = 90,
+          min_width = 40,
           border = {
             { "", "DiagnosticHint" },
             "─",
