@@ -1,8 +1,6 @@
 -------------------------------
 -- caching needs to be first:
 -------------------------------
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 vim.loader.enable()
 ------------------------------
 -- Basics Configuration:
