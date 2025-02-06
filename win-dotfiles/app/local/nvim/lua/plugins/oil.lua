@@ -11,7 +11,7 @@ return {
     require("oil").setup({
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
-      delete_to_trash = true,
+      delete_to_trash = false,
       use_default_keymaps = false,
       keymaps = {
         ["g?"] = "actions.show_help",
