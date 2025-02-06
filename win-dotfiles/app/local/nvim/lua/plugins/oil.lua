@@ -4,11 +4,9 @@
 return {
   "stevearc/oil.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
-  keys = {
-    { "<leader>e", "<cmd>OilToggle<cr>", desc = "Oil File Explorer" },
-  },
   config = function()
     require("oil").setup({
+      vim.keymap.set("n", "<leader>e", "<CMD>OilToggle<CR>", { desc = "Open parent directory" }),
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
       delete_to_trash = false,
