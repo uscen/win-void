@@ -6,7 +6,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-
     conform.setup({
       formatters_by_ft = {
         javascript = { "prettier" },
@@ -33,14 +32,6 @@ return {
         return { timeout_ms = 500, lsp_format = "fallback" }
       end,
     })
-
-    vim.keymap.set({ "n", "v" }, "<leader>fc", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = "Format Manually" })
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)
       if args.bang then
