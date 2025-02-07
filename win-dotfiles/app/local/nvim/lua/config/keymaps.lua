@@ -33,6 +33,7 @@ bind("n", "<C-f>", "<C-f>zz", opts)
 bind("n", "<Tab>", ":bnext<CR>", opts)
 bind("n", "<S-Tab>", ":bprev<CR>", opts)
 bind("n", "<leader>bd", ":bd<CR>", opts)
+bind("n", "<leader>bb", ':%bdelete|edit #|normal`"<CR>', opts)
 -----------------------------------------------------------
 -- turn off direction keyboard, force using `hjkl` !!!
 -----------------------------------------------------------

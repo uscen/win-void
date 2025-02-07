@@ -9,6 +9,7 @@ return {
       vim.keymap.set("n", "<leader>e", "<CMD>OilToggle<CR>", { desc = "Open parent directory" }),
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
+      watch_for_changes = true,
       delete_to_trash = false,
       use_default_keymaps = false,
       keymaps = {
