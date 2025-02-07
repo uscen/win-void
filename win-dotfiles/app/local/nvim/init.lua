@@ -6,8 +6,8 @@ vim.loader.enable()
 -- Basics Configuration:
 ------------------------------
 require("config/options")
-require("config/keymaps")
 require("config/autocmds")
+require("config/keymaps")
 ----------------------------
 -- Plugins Bootstrap:
 ----------------------------
