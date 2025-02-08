@@ -8,6 +8,7 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
+    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -16,6 +17,7 @@ return {
   {
     'echasnovski/mini.pairs',
     version = '*',
+    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -24,6 +26,7 @@ return {
   {
     'echasnovski/mini.surround',
     version = '*',
+    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -32,6 +35,7 @@ return {
   {
     'echasnovski/mini.splitjoin',
     version = '*',
+    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -40,12 +44,13 @@ return {
   {
     'echasnovski/mini.tabline',
     version = '*',
+    event = "VeryLazy",
     config = function()
+      require('mini.tabline').setup()
       vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "Normal" })
       vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "NormalFloat" })
       vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "Comment" })
       vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "Comment" })
-      require('mini.tabline').setup()
     end
   },
   -----------------------------------------------------------
@@ -54,6 +59,7 @@ return {
   {
     'echasnovski/mini.pick',
     version = '*',
+    event = "VeryLazy",
     keys = {
       {
         "<leader>ff",
@@ -94,6 +100,7 @@ return {
   {
     'echasnovski/mini.hipatterns',
     version = '*',
+    event = "VeryLazy",
     config = function()
       local hipatterns = require('mini.hipatterns')
       hipatterns.setup({
