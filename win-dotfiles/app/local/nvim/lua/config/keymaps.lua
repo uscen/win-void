@@ -77,7 +77,7 @@ bind("v", "K", ":m '<-2<CR>gv=gv", opts)
 -----------------------------------------------------------
 -- Toggle Terminal
 -----------------------------------------------------------
-vim.keymap.set({ 'n', 't' }, "<C-t>", ToggleTerminal)
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
-vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+bind({ 'n', 't' }, "<C-t>", ToggleTerminal)
+bind("t", "<Esc>", [[<C-\><C-n>]], opts)
+bind("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+bind("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
