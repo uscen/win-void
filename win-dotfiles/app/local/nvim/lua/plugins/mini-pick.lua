@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Mini-Paris
+-- Mini-Pick
 -----------------------------------------------------------
 return {
   'echasnovski/mini.pick',
@@ -10,7 +10,6 @@ return {
       function()
         require('mini.pick').builtin.files()
       end,
-      mode = { "n", "v" },
       desc = "Find File",
     },
     {
@@ -18,8 +17,14 @@ return {
       function()
         require('mini.pick').builtin.buffers()
       end,
-      mode = { "n", "v" },
-      desc = "Find File",
+      desc = "Find Buffer",
+    },
+    {
+      "<leader>fg",
+      function()
+        require('mini.pick').builtin.grep_live()
+      end,
+      desc = "Find Word",
     },
   },
   opts = {
