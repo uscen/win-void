@@ -8,7 +8,6 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
-    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -17,14 +16,7 @@ return {
   {
     'echasnovski/mini.pairs',
     version = '*',
-    event = "VeryLazy",
-    opts = {
-      modes = { insert = true, command = true, terminal = false },
-      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-      skip_ts = { "string" },
-      skip_unbalanced = true,
-      markdown = true,
-    }
+    opts = {},
   },
   -----------------------------------------------------------
   -- Mini-Surround
@@ -32,18 +24,15 @@ return {
   {
     'echasnovski/mini.surround',
     version = '*',
-    event = "VeryLazy",
-    opts = {
-      mappings = {
-        add = "sa",
-        delete = "sd",
-        find = "sf",
-        find_left = "sF",
-        highlight = "sh",
-        replace = "sr",
-        update_n_lines = "sn",
-      },
-    }
+    opts = {},
+  },
+  -----------------------------------------------------------
+  -- Mini-Tabline
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.splitjoin',
+    version = '*',
+    opts = {},
   },
   -----------------------------------------------------------
   -- Mini-Tabline
@@ -51,13 +40,12 @@ return {
   {
     'echasnovski/mini.tabline',
     version = '*',
-    event = "VeryLazy",
     config = function()
-      require('mini.tabline').setup()
       vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "Normal" })
       vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "NormalFloat" })
       vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "Comment" })
       vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "Comment" })
+      require('mini.tabline').setup()
     end
   },
   -----------------------------------------------------------
@@ -66,7 +54,6 @@ return {
   {
     'echasnovski/mini.pick',
     version = '*',
-    event = "VeryLazy",
     keys = {
       {
         "<leader>ff",
@@ -100,5 +87,50 @@ return {
         toggle_preview   = '<C-p>',
       },
     }
-  }
+  },
+  -----------------------------------------------------------
+  -- Mini-Hipatterns
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.hipatterns',
+    version = '*',
+    config = function()
+      local hipatterns = require('mini.hipatterns')
+      hipatterns.setup({
+        highlighters = {
+          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+          fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+          todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+          note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+          -- Highlight hex color strings (`#rrggbb`) using that color
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      })
+    end
+  },
+  -----------------------------------------------------------
+  -- Mini-Hipatterns
+  -----------------------------------------------------------
+  {
+    "echasnovski/mini.starter",
+    version = "*",
+    config = function()
+      require("mini.starter").setup({
+        autoopen = true,
+        header = [[
+			           ▄ ▄
+			       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄
+			       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █
+			    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █
+			  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+			  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄
+			▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █
+			█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
+			    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
+			
+        ]]
+      })
+    end,
+  },
 }
