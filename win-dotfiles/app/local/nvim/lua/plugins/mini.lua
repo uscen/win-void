@@ -8,6 +8,7 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
+    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -16,6 +17,7 @@ return {
   {
     'echasnovski/mini.pairs',
     version = '*',
+    event = "VeryLazy",
     opts = {
       modes = { insert = true, command = true, terminal = false },
       skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -30,6 +32,7 @@ return {
   {
     'echasnovski/mini.surround',
     version = '*',
+    event = "VeryLazy",
     opts = {
       mappings = {
         add = "sa",
@@ -63,6 +66,7 @@ return {
   {
     'echasnovski/mini.pick',
     version = '*',
+    event = "VeryLazy",
     keys = {
       {
         "<leader>ff",
