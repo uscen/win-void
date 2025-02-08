@@ -10,6 +10,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 -----------------------------------------------------------
+-- Don't Comment New Line
+-----------------------------------------------------------
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})
+-----------------------------------------------------------
 -- Oil File Manager
 -----------------------------------------------------------
 -- Create Oil Toggle
