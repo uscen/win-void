@@ -24,13 +24,12 @@ return {
   },
   opts = {
     mappings = {
+      choose           = '<Tab>',
       move_down        = '<C-j>',
       move_up          = '<C-k>',
       choose_in_split  = '<C-v>',
       choose_in_vsplit = '<C-b>',
       toggle_preview   = '<C-p>',
-      toggle_info      = '<C-i>',
-      choose           = '<Tab>',
     },
   }
 }
