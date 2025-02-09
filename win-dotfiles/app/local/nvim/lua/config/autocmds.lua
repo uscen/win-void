@@ -21,6 +21,16 @@ vim.api.nvim_create_autocmd("FileType", {
 -----------------------------------------------------------
 -- Oil File Manager
 -----------------------------------------------------------
+-- Auto Enable Preview
+vim.api.nvim_create_autocmd("User", {
+  pattern = "OilEnter",
+  callback = vim.schedule_wrap(function(args)
+    local oil = require("oil")
+    if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
+      oil.open_preview()
+    end
+  end),
+})
 -- Create Oil Toggle
 vim.api.nvim_create_user_command("OilToggle", function()
   local current_buf = vim.api.nvim_get_current_buf()
