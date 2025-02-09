@@ -8,6 +8,7 @@ return {
     vim.g.everforest_float_style = "dim"
     vim.g.everforest_diagnostic_text_highlight = 1
     vim.g.everforest_diagnostic_line_highlight = 1
+    vim.g.everforest_disable_italic_comment = 1
     vim.g.everforest_diagnostic_virtual_text = "highlighted"
     vim.g.everforest_dim_inactive_windows = 1
     vim.g.everforest_ui_contrast = "high"

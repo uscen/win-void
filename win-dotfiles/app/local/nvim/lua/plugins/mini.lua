@@ -30,7 +30,7 @@ return {
     opts = {},
   },
   -----------------------------------------------------------
-  -- Mini-Tabline
+  -- Mini-SplitJoin
   -----------------------------------------------------------
   {
     'echasnovski/mini.splitjoin',
@@ -54,45 +54,42 @@ return {
     end
   },
   -----------------------------------------------------------
+  -- Mini-Extra
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.extra',
+    version = '*',
+    event = "VeryLazy",
+    config = function()
+      require('mini.extra').setup()
+    end
+  },
+  -----------------------------------------------------------
   -- Mini-Pick
   -----------------------------------------------------------
   {
     'echasnovski/mini.pick',
     version = '*',
     event = "VeryLazy",
-    keys = {
-      {
-        "<leader>ff",
-        function()
-          require('mini.pick').builtin.files()
-        end,
-        desc = "Find File",
-      },
-      {
-        "<leader>fb",
-        function()
-          require('mini.pick').builtin.buffers()
-        end,
-        desc = "Find Buffer",
-      },
-      {
-        "<leader>fg",
-        function()
-          require('mini.pick').builtin.grep_live()
-        end,
-        desc = "Find Word",
-      },
-    },
-    opts = {
-      mappings = {
-        choose           = '<Tab>',
-        move_down        = '<C-j>',
-        move_up          = '<C-k>',
-        choose_in_split  = '<C-v>',
-        choose_in_vsplit = '<C-b>',
-        toggle_preview   = '<C-p>',
-      },
-    }
+    config = function()
+      vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
+      vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
+      vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
+      vim.keymap.set("n", "<leader>fg", "<CMD>Pick grep_live<CR>", { desc = "Pick Text From Files" })
+      vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Picker Explorer" })
+      vim.keymap.set("n", "<leader>fc", "<CMD>Pick git_commits<CR>", { desc = "Pick Git Commits" })
+      vim.keymap.set("n", "<leader>fo", "<CMD>Pick options<CR>", { desc = "Pick Neovim Options" })
+      require('mini.pick').setup({
+        mappings = {
+          choose           = '<Tab>',
+          move_down        = '<C-j>',
+          move_up          = '<C-k>',
+          choose_in_split  = '<C-v>',
+          choose_in_vsplit = '<C-b>',
+          toggle_preview   = '<C-p>',
+        },
+      })
+    end
   },
   -----------------------------------------------------------
   -- Mini-Hipatterns
