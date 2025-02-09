@@ -51,6 +51,22 @@ return {
       vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "NormalFloat" })
       vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "Comment" })
       vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "Comment" })
+      -----------------------------------------------------------
+      -- Hide Mini-Tabline When Only File Open:
+      -----------------------------------------------------------
+      vim.api.nvim_create_autocmd('BufEnter', {
+        callback = vim.schedule_wrap(function()
+          local n_listed_bufs = 0
+          for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
+            if vim.fn.buflisted(buf_id) == 1 then n_listed_bufs = n_listed_bufs + 1 end
+          end
+
+          -- Use either approach: first (commented) directly hides tabline while second makes it blank
+          vim.o.showtabline = n_listed_bufs > 1 and 2 or 0
+          vim.o.tabline = n_listed_bufs > 1 and '%!v:lua.MiniTabline.make_tabline_string()' or ' '
+        end),
+        desc = 'Update tabline based on the number of listed buffers',
+      })
     end
   },
   -----------------------------------------------------------
@@ -117,26 +133,44 @@ return {
     end
   },
   -----------------------------------------------------------
-  -- Mini-Hipatterns
+  -- Mini-Starter
   -----------------------------------------------------------
   {
     "echasnovski/mini.starter",
     version = "*",
+    event = "VimEnter",
     config = function()
-      require("mini.starter").setup({
-        autoopen = true,
+      local starter = require("mini.starter")
+      local pad = string.rep(" ", 22)
+      local new_section = function(name, action, section)
+        return { name = name, action = action, section = pad .. section }
+      end
+      starter.setup({
+        evaluate_single = true,
+        items = {
+          new_section("projects", "e $HOME/Projects/", "Project"),
+          new_section("dotfiles", "e $HOME/win-void/", "Project"),
+          new_section("find files", "Pick files", "Picker"),
+          new_section("Browser files", "Oil", "Picker"),
+          new_section("grep text", "Pick grep_live", "Picker"),
+          new_section("lazy", "Lazy", "Config"),
+          new_section("Mason", "Mason", "Config"),
+          new_section("new file", "ene | startinsert", "Built-in"),
+          new_section("quit", "qa", "Built-in"),
+        },
         header = [[
-			           ▄ ▄
-			       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄
-			       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █
-			    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █
-			  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-			  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄
-			▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █
-			█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
-			    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
-			
-        ]]
+	           ▄ ▄
+	       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄
+	       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █
+	    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █
+	  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+	  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄
+	▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █
+	█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
+	    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
+	
+    ]],
+        footer = [[]]
       })
     end,
   },

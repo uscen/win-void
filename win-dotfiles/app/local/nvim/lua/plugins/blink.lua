@@ -61,7 +61,7 @@ return {
         },
         winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
         draw = {
-          treesitter = { "lsp" },
+          treesitter = { "lsp", "snippets" },
           columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
           components = {
             kind = {
