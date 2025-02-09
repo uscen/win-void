@@ -5,7 +5,7 @@ prepend_keymap = [
 	{ on = ["A"], run = "create --dir" },
 	{ on = ["l"],		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 	{ on = ["f"], run  = "plugin jump-to-char", desc = "Jump to char" },
-	{ on = ["C"], run  = "plugin ouch --args=zip", desc = "Compress with ouch" }
+	{ on = ["C"], run  = "plugin ouch zip", desc = "Compress with ouch" }
 ]
 [completion]
 prepend_keymap = [
