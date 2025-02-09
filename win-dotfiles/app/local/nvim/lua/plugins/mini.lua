@@ -72,6 +72,8 @@ return {
     version = '*',
     event = "VeryLazy",
     config = function()
+      vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+      vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
@@ -129,15 +131,16 @@ return {
       starter.setup({
         evaluate_single = true,
         items = {
-          new_section("projects", "e $HOME/Projects/", "Project"),
-          new_section("dotfiles", "e $HOME/win-void/", "Project"),
-          new_section("find files", "Pick files", "Picker"),
-          new_section("Browser files", "Oil", "Picker"),
-          new_section("grep text", "Pick grep_live", "Picker"),
-          new_section("lazy", "Lazy", "Config"),
-          new_section("Mason", "Mason", "Config"),
-          new_section("new file", "ene | startinsert", "Built-in"),
-          new_section("quit", "qa", "Built-in"),
+          new_section("Projects", "e $HOME/Projects/", "Project"),
+          new_section("Dotfiles", "e $HOME/win-void/", "Project"),
+          new_section("Find Files", "Pick files", "Picker"),
+          new_section("Recent Files", "Pick oldfiles", "Picker"),
+          new_section("Browser Files", "Oil", "Picker"),
+          new_section("Grep Text", "Pick grep_live", "Picker"),
+          new_section("Lazy Plugins", "Lazy", "Config"),
+          new_section("Mason LSP", "Mason", "Config"),
+          new_section("New File", "ene | startinsert", "Built-in"),
+          new_section("Quit Neovim", "qa", "Built-in"),
         },
         header = [[
 	           ▄ ▄
