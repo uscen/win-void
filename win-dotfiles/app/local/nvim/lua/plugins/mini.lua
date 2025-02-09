@@ -144,13 +144,14 @@ return {
         items = {
           new_section("Projects", "e $HOME/Projects/", "Project"),
           new_section("Dotfiles", "e $HOME/win-void/", "Project"),
+          new_section("Neovim", "e $HOME/win-void/win-dotfiles/app/local/nvim/", "Project"),
           new_section("Find Files", "Pick files", "Picker"),
           new_section("Recent Files", "Pick oldfiles", "Picker"),
           new_section("Browser Files", "Oil", "Picker"),
-          new_section("Grep Text", "Pick grep_live", "Picker"),
+          new_section("Update Plugins", "Lazy update", "Config"),
           new_section("Lazy Plugins", "Lazy", "Config"),
-          new_section("Mason LSP", "Mason", "Config"),
-          new_section("New File", "ene | startinsert", "Built-in"),
+          new_section("Manage Extensions", "Mason", "Config"),
+          new_section("Edit New", "ene | startinsert", "Built-in"),
           new_section("Quit Neovim", "qa", "Built-in"),
         },
         header = [[
