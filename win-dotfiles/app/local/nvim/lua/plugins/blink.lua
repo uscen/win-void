@@ -132,16 +132,16 @@ return {
     sources = {
       default = { 'snippets', 'lsp', 'path', 'buffer' },
       providers = {
-        snippets = {
-          min_keyword_length = 1,
-          score_offset = 4,
-        },
         lsp = {
           min_keyword_length = 0,
-          score_offset = 3,
+          score_offset = 4,
           name = "LSP",
           module = "blink.cmp.sources.lsp",
           fallbacks = {},
+        },
+        snippets = {
+          min_keyword_length = 1,
+          score_offset = 3,
         },
         path = {
           min_keyword_length = 0,
