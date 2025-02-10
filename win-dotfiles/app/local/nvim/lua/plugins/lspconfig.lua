@@ -32,6 +32,10 @@ return {
     lspconfig.ts_ls.setup({
       capabilities = capabilities,
     })
+    -- Prisma
+    lspconfig.prismals.setup({
+      capabilities = capabilities,
+    })
     -- Lua
     lspconfig.lua_ls.setup({
       capabilities = capabilities,

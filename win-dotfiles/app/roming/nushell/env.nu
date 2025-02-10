@@ -1,6 +1,7 @@
 # =============================================================================== #
 # Nushell General Env:                                                            #
 # =============================================================================== #
+$env.PATH = ($env.PATH | split row (char esep) | append "")
 $env.SHELL = $nu.current-exe
 $env.LANG = "en_US.utf-8"
 $env.EDITOR = "nvim"
