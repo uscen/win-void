@@ -6,6 +6,22 @@ return {
   event = "VeryLazy",
   config = function()
     local fterm = require("FTerm")
+    fterm.setup({
+      border = {
+        { "", "WarningMsg" },
+        "─",
+        "╮",
+        "│",
+        "╯",
+        "─",
+        "╰",
+        "│",
+      },
+      dimensions = {
+        height = 0.9,
+        width = 0.9
+      }
+    })
     local lazygit = fterm:new({
       ft = 'fterm_lazygit',
       cmd = "lazygit",
