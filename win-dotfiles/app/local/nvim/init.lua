@@ -6,6 +6,7 @@ vim.loader.enable()
 -- Basics Configuration:
 ------------------------------
 require("config/options")
+require("config/statusline")
 require("config/autocmds")
 require("config/keymaps")
 ----------------------------

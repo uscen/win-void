@@ -39,7 +39,8 @@ vim.opt.ignorecase       = true
 vim.opt.smartcase        = true
 vim.opt.hlsearch         = true
 vim.opt.confirm          = true
-vim.opt.laststatus       = 0
+vim.opt.laststatus       = 3
+vim.opt.cmdheight        = 0
 vim.opt.wrap             = false
 vim.opt.showmode         = false
 vim.opt.fillchars        = { eob = " " }
