@@ -27,6 +27,7 @@ $extensions=@(
     "glenn2223.live-sass"
     "esbenp.prettier-vscode"
     "yzhang.markdown-all-in-one"
+    "prisma.prisma"
     # Themes
     "sainnhe.gruvbox-material"
     "pkief.material-icon-theme"
