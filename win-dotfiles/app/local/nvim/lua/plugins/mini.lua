@@ -119,38 +119,44 @@ return {
     event = "VimEnter",
     config = function()
       local starter = require("mini.starter")
-      local pad = string.rep(" ", 22)
+      local pad = string.rep(" ", 0)
       local new_section = function(name, action, section)
         return { name = name, action = action, section = pad .. section }
       end
       starter.setup({
         evaluate_single = true,
         items = {
-          new_section("Projects", "e $HOME/Projects/", "Project"),
-          new_section("Dotfiles", "e $HOME/win-void/", "Project"),
-          new_section("Neovim", "e $HOME/win-void/win-dotfiles/app/local/nvim/", "Project"),
+          new_section("Projects Folders", "e $HOME/Projects/", "Project"),
+          new_section("Dotfiles Folders", "e $HOME/win-void/", "Project"),
+          new_section("Neovim Folders", "e $HOME/win-void/win-dotfiles/app/local/nvim/", "Project"),
           new_section("Find Files", "Pick files", "Picker"),
           new_section("Recent Files", "Pick oldfiles", "Picker"),
           new_section("Browser Files", "Oil", "Picker"),
           new_section("Update Plugins", "Lazy update", "Config"),
           new_section("Lazy Plugins", "Lazy", "Config"),
           new_section("Manage Extensions", "Mason", "Config"),
-          new_section("Edit New", "ene | startinsert", "Built-in"),
-          new_section("Quit Neovim", "qa", "Built-in"),
+          new_section("Edit New", "ene | startinsert", "Builtin"),
+          new_section("Quit Neovim", "qa", "Builtin"),
+        },
+        content_hooks = {
+          function(content)
+            local blank_content_line = { { type = 'empty', string = '' } }
+            local section_coords = starter.content_coords(content, 'section')
+            -- Insert backwards to not affect coordinates
+            for i = #section_coords, 1, -1 do
+              table.insert(content, section_coords[i].line + 1, blank_content_line)
+            end
+            return content
+          end,
+          starter.gen_hook.adding_bullet("» "),
+          starter.gen_hook.aligning('center', 'center'),
         },
         header = [[
-	           ▄ ▄
-	       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄
-	       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █
-	    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █
-	  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-	  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄
-	▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █
-	█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
-	    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
-	
-    ]],
-        footer = [[]]
+ ╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮
+ │││├┤ │ │╰┐┌╯││││
+ ╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴
+]],
+        footer = '',
       })
     end,
   },

@@ -20,8 +20,8 @@ return {
           package_uninstalled = "✗",
         },
         border = "double",
-        width = 0.8,
-        height = 0.8,
+        width = 0.9,
+        height = 0.9,
       },
     })
 
