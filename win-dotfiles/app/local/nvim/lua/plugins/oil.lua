@@ -7,7 +7,7 @@ return {
   lazy = false,
   config = function()
     require("oil").setup({
-      vim.keymap.set("n", "<leader>o", "<CMD>OilToggle<CR>", { desc = "Open parent directory" }),
+      vim.keymap.set("n", "<leader>e", "<CMD>OilToggle<CR>", { desc = "Open parent directory" }),
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
       watch_for_changes = true,
