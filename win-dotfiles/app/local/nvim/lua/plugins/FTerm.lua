@@ -24,7 +24,7 @@ return {
     })
     local yazi = fterm:new({
       ft = 'fterm_yazi',
-      cmd = "yazi",
+      cmd = "bash -c yazi",
       border = "double",
       dimensions = {
         height = 0.9,
