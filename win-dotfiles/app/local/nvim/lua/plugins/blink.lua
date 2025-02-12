@@ -3,7 +3,6 @@
 -----------------------------------------------------------
 return {
   "saghen/blink.cmp",
-  dependencies = "rafamadriz/friendly-snippets",
   lazy = false,
   version = "*",
   opts = {
@@ -131,28 +130,7 @@ return {
       },
     },
     sources = {
-      default = { 'snippets', 'lsp', 'path', 'buffer' },
-      providers = {
-        lsp = {
-          min_keyword_length = 0,
-          score_offset = 4,
-          name = "LSP",
-          module = "blink.cmp.sources.lsp",
-          fallbacks = {},
-        },
-        snippets = {
-          min_keyword_length = 1,
-          score_offset = 3,
-        },
-        path = {
-          min_keyword_length = 0,
-          score_offset = 2,
-        },
-        buffer = {
-          min_keyword_length = 1,
-          score_offset = 1,
-        },
-      },
+      default = { 'lsp', 'path', 'buffer' },
       cmdline = {},
     },
     signature = {
