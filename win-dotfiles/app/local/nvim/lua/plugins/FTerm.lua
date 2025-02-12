@@ -7,48 +7,40 @@ return {
   config = function()
     local fterm = require("FTerm")
     fterm.setup({
-      border = "double",
+      border     = "double",
       dimensions = {
         height = 0.9,
-        width = 0.9
-      }
+        width = 0.9,
+      },
+    })
+    local second_term = fterm:new({
+      ft = 'fterm_bash',
+      cmd = "nu",
+      border = "double",
     })
     local lazygit = fterm:new({
       ft = 'fterm_lazygit',
       cmd = "lazygit",
       border = "double",
-      dimensions = {
-        height = 0.9,
-        width = 0.9
-      }
     })
     local yazi = fterm:new({
       ft = 'fterm_yazi',
       cmd = "bash -c yazi",
       border = "double",
-      dimensions = {
-        height = 0.9,
-        width = 0.9
-      }
     })
     local tgpt = fterm:new({
       ft = 'fterm_tgpt',
       cmd = "tgpt -m",
       border = "double",
-      dimensions = {
-        height = 0.9,
-        width = 0.9
-      }
     })
     local htop = fterm:new({
       ft = 'fterm_htop',
       cmd = "ntop",
       border = "double",
-      dimensions = {
-        height = 0.9,
-        width = 0.9
-      }
     })
+    vim.keymap.set('n', '<leader>tt', function()
+      second_term:toggle()
+    end)
     vim.keymap.set('n', '<leader>tg', function()
       lazygit:toggle()
     end)
