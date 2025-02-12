@@ -31,6 +31,15 @@ return {
         width = 0.9
       }
     })
+    local tgpt = fterm:new({
+      ft = 'fterm_tgpt',
+      cmd = "tgpt -m",
+      border = "double",
+      dimensions = {
+        height = 0.9,
+        width = 0.9
+      }
+    })
     local htop = fterm:new({
       ft = 'fterm_htop',
       cmd = "ntop",
@@ -48,6 +57,9 @@ return {
     end)
     vim.keymap.set('n', '<leader>ty', function()
       yazi:toggle()
+    end)
+    vim.keymap.set('n', '<leader>tc', function()
+      tgpt:toggle()
     end)
     vim.keymap.set('n', '<leader>th', function()
       htop:toggle()

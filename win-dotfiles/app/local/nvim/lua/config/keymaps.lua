@@ -74,10 +74,3 @@ bind("v", "gl", "$", opts)
 -----------------------------------------------------------
 bind("v", "J", ":m '>+1<CR>gv=gv", opts)
 bind("v", "K", ":m '<-2<CR>gv=gv", opts)
------------------------------------------------------------
--- Toggle Terminal
------------------------------------------------------------
-bind({ 'n', 't' }, "<leader>tt", ToggleTerminal)
-bind("t", "<Esc>", [[<C-\><C-n>]], opts)
-bind("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-bind("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
