@@ -60,5 +60,6 @@ return {
     vim.keymap.set('n', '<leader>tb', '<CMD>lua require("FTerm").run("npm run build")<CR>')
     vim.keymap.set('n', '<C-t>', '<CMD>lua require("FTerm").toggle()<CR>')
     vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+    vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
   end
 }
