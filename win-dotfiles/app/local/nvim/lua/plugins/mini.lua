@@ -8,7 +8,6 @@ return {
   {
     "echasnovski/mini.ai",
     version = "*",
-    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -17,16 +16,6 @@ return {
   {
     'echasnovski/mini.pairs',
     version = '*',
-    event = "VeryLazy",
-    opts = {},
-  },
-  -----------------------------------------------------------
-  -- Mini-Surround
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.surround',
-    version = '*',
-    event = "VeryLazy",
     opts = {},
   },
   -----------------------------------------------------------
@@ -35,8 +24,20 @@ return {
   {
     'echasnovski/mini.splitjoin',
     version = '*',
-    event = "VeryLazy",
     opts = {},
+  },
+  -----------------------------------------------------------
+  -- Mini-Surround
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.surround',
+    version = '*',
+    opts = {
+      mappings = {
+        delete = 'ds',
+        replace = 'cs',
+      },
+    },
   },
   -----------------------------------------------------------
   -- Mini-Extra
@@ -44,7 +45,6 @@ return {
   {
     'echasnovski/mini.extra',
     version = '*',
-    event = "VeryLazy",
     config = function()
       require('mini.extra').setup()
     end
@@ -55,7 +55,6 @@ return {
   {
     'echasnovski/mini.pick',
     version = '*',
-    event = "VeryLazy",
     config = function()
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
@@ -83,7 +82,6 @@ return {
   {
     'echasnovski/mini.diff',
     version = '*',
-    event = "VeryLazy",
     config = function()
       require("mini.diff").setup()
     end,
@@ -94,7 +92,6 @@ return {
   {
     'echasnovski/mini.hipatterns',
     version = '*',
-    event = "VeryLazy",
     config = function()
       local hipatterns = require('mini.hipatterns')
       hipatterns.setup({
@@ -116,7 +113,6 @@ return {
   {
     "echasnovski/mini.starter",
     version = "*",
-    event = "VimEnter",
     config = function()
       local starter = require("mini.starter")
       local pad = string.rep(" ", 0)
