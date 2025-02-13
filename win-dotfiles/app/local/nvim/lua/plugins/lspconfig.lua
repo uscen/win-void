@@ -9,9 +9,7 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
-    local capabilities = require('blink.cmp').get_lsp_capabilities({
-      textDocument = { completion = { completionItem = { snippetSupport = false } } },
-    })
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
     -- Managing language servers individually
     -- Html
     lspconfig.html.setup({

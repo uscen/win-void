@@ -1,7 +1,7 @@
 {
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "$help": "https://aka.ms/terminal-documentation",
-  "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+  "defaultProfile": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
   "copyOnSelect": true,
   "copyFormatting": true,
   "startOnUserLogin": false,
