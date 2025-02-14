@@ -2,21 +2,14 @@
 -- Colorscheme
 -----------------------------------------------------------
 return {
-  "ellisonleao/gruvbox.nvim",
-  priority = 1000,
+  "neanias/everforest-nvim",
   config = function()
-    require("gruvbox").setup({
-      contrast = "hard",
-      bold = false,
-      italic = {
-        strings = false,
-        emphasis = false,
-        comments = false,
-        operators = false,
-        folds = false,
-      },
+    require("everforest").setup({
+      background = "hard",
+      transparent_background_level = 2,
+      disable_italic_comments = true,
     })
-    vim.cmd("colorscheme gruvbox")
+    vim.cmd([[colorscheme everforest]])
     -- Change Highlighted Groups:
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
