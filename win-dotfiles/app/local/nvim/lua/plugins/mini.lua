@@ -44,6 +44,11 @@ return {
       mappings = {
         delete = 'ds',
         replace = 'cs',
+        add = '',
+        find = '',
+        find_left = '',
+        highlight = '',
+        update_n_lines = '',
       },
     },
   },
