@@ -36,7 +36,7 @@ return {
     })
     local htop = fterm:new({
       ft = 'fterm_htop',
-      cmd = "ntop",
+      cmd = "ntop -u LLI -s CPU%",
       border = "double",
     })
     vim.keymap.set('n', '<leader>tt', function()
