@@ -2,14 +2,15 @@
 -- Colorscheme
 -----------------------------------------------------------
 return {
-  "neanias/everforest-nvim",
+  'sainnhe/gruvbox-material',
+  lazy = false,
+  priority = 1000,
   config = function()
-    require("everforest").setup({
-      background = "hard",
-      transparent_background_level = 2,
-      disable_italic_comments = true,
-    })
-    vim.cmd([[colorscheme everforest]])
+    vim.g.gruvbox_material_background = "hard"
+    vim.g.gruvbox_material_float_style = " dim"
+    vim.g.gruvbox_material_disable_italic_comment = 1
+    vim.g.gruvbox_material_better_performance = 1
+    vim.cmd.colorscheme('gruvbox-material')
     -- Change Highlighted Groups:
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
