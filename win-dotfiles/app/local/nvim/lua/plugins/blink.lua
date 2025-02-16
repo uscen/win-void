@@ -48,7 +48,7 @@ return {
       menu = {
         scrollbar = false,
         auto_show = true,
-        min_width = 40,
+        min_width = 25,
         border = {
           { "󱐋", "WarningMsg" },
           "─",
