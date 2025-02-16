@@ -131,7 +131,6 @@ return {
     },
     sources = {
       default = { 'lsp', 'path', 'buffer' },
-      cmdline = {},
     },
     signature = {
       enabled = true,
