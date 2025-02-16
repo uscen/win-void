@@ -13,6 +13,8 @@ vim.schedule(function()
   vim.opt.clipboard = "unnamed,unnamedplus"
 end)
 vim.opt.swapfile         = false
+vim.opt.writebackup      = false
+vim.opt.backup           = false
 vim.opt.completeopt      = { "menu", "menuone", "preview" }
 vim.opt.undofile         = true
 vim.opt.undolevels       = 100
