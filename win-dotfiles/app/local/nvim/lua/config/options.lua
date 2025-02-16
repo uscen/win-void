@@ -10,10 +10,10 @@ vim.g.mapleader = " "
 -- General
 -----------------------------------------------------------
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamed,unnamedplus"
 end)
 vim.opt.swapfile         = false
-vim.opt.completeopt      = { "menu", "menuone", "noselect" }
+vim.opt.completeopt      = { "menu", "menuone", "preview" }
 vim.opt.undofile         = true
 vim.opt.undolevels       = 100
 vim.opt.timeoutlen       = 300

@@ -6,6 +6,16 @@ return {
   lazy = false,
   version = "*",
   opts = {
+    cmdline = {
+      keymap = {
+        preset = "none",
+        ["<c-k>"] = { "select_prev", "fallback" },
+        ["<c-j>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "hide", "fallback" },
+        ["<CR>"] = { "select_accept_and_enter", "fallback" },
+        ["<Tab>"] = { "select_accept_and_enter", "fallback" },
+      },
+    },
     keymap = {
       preset = "enter",
       ["<CR>"] = {},
