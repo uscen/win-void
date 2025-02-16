@@ -7,6 +7,7 @@ return {
   -----------------------------------------------------------
   {
     "echasnovski/mini.ai",
+    event = "VeryLazy",
     version = "*",
     opts = {},
   },
@@ -15,6 +16,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.pairs',
+    event = "VeryLazy",
     version = '*',
     opts = {},
   },
@@ -23,6 +25,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.splitjoin',
+    event = "VeryLazy",
     version = '*',
     opts = {},
   },
@@ -31,6 +34,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.diff',
+    event = "VeryLazy",
     version = '*',
     opts = {}
   },
@@ -39,6 +43,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.surround',
+    event = "VeryLazy",
     version = '*',
     opts = {
       mappings = {
@@ -52,6 +57,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.extra',
+    event = "VeryLazy",
     version = '*',
     opts = {}
   },
@@ -60,6 +66,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.pick',
+    event = "VeryLazy",
     version = '*',
     config = function()
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
@@ -87,6 +94,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.hipatterns',
+    event = "VeryLazy",
     version = '*',
     config = function()
       local hipatterns = require('mini.hipatterns')
@@ -104,23 +112,11 @@ return {
     end
   },
   -----------------------------------------------------------
-  -- Mini-Statusline
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.statusline',
-    version = '*',
-    config = function()
-      require('mini.statusline').setup({ use_icons = vim.g.have_nerd_font })
-      require('mini.statusline').section_location = function()
-        return '%2l:%-2v'
-      end
-    end
-  },
-  -----------------------------------------------------------
   -- Mini-Starter
   -----------------------------------------------------------
   {
     "echasnovski/mini.starter",
+    event = "VimEnter",
     version = "*",
     config = function()
       local starter = require("mini.starter")
