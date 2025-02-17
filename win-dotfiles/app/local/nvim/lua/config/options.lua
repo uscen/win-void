@@ -12,6 +12,8 @@ vim.g.mapleader = " "
 vim.schedule(function()
   vim.opt.clipboard = "unnamed,unnamedplus"
 end)
+
+vim.opt.compatible       = false
 vim.opt.swapfile         = false
 vim.opt.writebackup      = false
 vim.opt.backup           = false
@@ -41,7 +43,7 @@ vim.opt.ignorecase       = true
 vim.opt.smartcase        = true
 vim.opt.hlsearch         = true
 vim.opt.confirm          = true
-vim.opt.laststatus       = 0
+vim.opt.laststatus       = 3
 vim.opt.cmdheight        = 0
 vim.opt.wrap             = false
 vim.opt.showmode         = false
