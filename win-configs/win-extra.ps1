@@ -18,7 +18,6 @@ $packages=@(
     # "eslint-plugin-react-hooks",
 )
 $extensions=@(
-    # General
     "vscodevim.vim"
     "dsznajder.es7-react-js-snippets"
     "bradlc.vscode-tailwindcss",
@@ -28,8 +27,6 @@ $extensions=@(
     "esbenp.prettier-vscode"
     "yzhang.markdown-all-in-one"
     "prisma.prisma"
-    # Themes
-    "sainnhe.gruvbox-material"
     "pkief.material-icon-theme"
 )
 
