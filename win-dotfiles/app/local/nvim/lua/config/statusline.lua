@@ -86,21 +86,21 @@ vim.o.statusline = table.concat({
   " %l:%c ",
 })
 -----------------------------------------------------------
--- statusline Colors:
------------------------------------------------------------
-vim.cmd "highlight StatusLinePath guibg=#1d2021 guifg=#7A8478"
-vim.cmd "highlight StatusLineModified guibg=#1d2021 guifg=#DBBC7F "
-vim.cmd "highlight StatusLineFlags guibg=#1d2021 guifg=#d3869b"
-vim.cmd "highlight StatusLineFileType guibg=#1d2021 guifg=#7A8478"
-vim.cmd "highlight StatusLinePosition guibg=#1d2021 guifg=#7FBBB3 "
-vim.cmd "highlight StatusPercent guibg=#1d2021 guifg=#83C092  "
------------------------------------------------------------
 -- Mode Colors:
 -----------------------------------------------------------
-vim.cmd "highlight StatusLineModeNormal guibg=#1d2021 guifg=#83C092 "
-vim.cmd "highlight StatusLineModeInsert guibg=#1d2021 guifg=#7FBBB3"
-vim.cmd "highlight StatusLineModeVisual guibg=#1d2021 guifg=#A7C080"
-vim.cmd "highlight StatusLineModeTerminal guibg=#1d2021 guifg=#DBBC7F"
+vim.cmd "highlight StatusLineModeNormal guibg=#1d2021 guifg=#89b482"
+vim.cmd "highlight StatusLineModeInsert guibg=#1d2021 guifg=#a9b665"
+vim.cmd "highlight StatusLineModeVisual guibg=#1d2021 guifg=#e78a4e"
+vim.cmd "highlight StatusLineModeReplace guibg=#1d2021 guifg=#ea6962"
+vim.cmd "highlight StatusLineModeTerminal guibg=#1d2021 guifg=#d8a657"
+-----------------------------------------------------------
+-- statusline Colors:
+-----------------------------------------------------------
+vim.cmd "highlight StatusLinePath guibg=#1d2021 guifg=#7c6f64"
+vim.cmd "highlight StatusLineModified guibg=#1d2021 guifg=#d8a657"
+vim.cmd "highlight StatusLineFlags guibg=#1d2021 guifg=#e78a4e"
+vim.cmd "highlight StatusLineFileType guibg=#1d2021 guifg=#7c6f64"
+vim.cmd "highlight StatusLinePosition guibg=#1d2021 guifg=#89b482"
 -----------------------------------------------------------
 -- return:
 -----------------------------------------------------------
