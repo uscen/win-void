@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Autocommand functions
+-- Autocommand & functions:
 -----------------------------------------------------------
 -----------------------------------------------------------
 -- Highlight on yank
@@ -19,9 +19,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 -----------------------------------------------------------
--- Oil File Manager
+-- Oil Toggle File Manager
 -----------------------------------------------------------
--- Create Oil Toggle
 vim.api.nvim_create_user_command("OilToggle", function()
   local current_buf = vim.api.nvim_get_current_buf()
   local current_filetype = vim.api.nvim_buf_get_option(current_buf, "filetype")
@@ -34,3 +33,26 @@ vim.api.nvim_create_user_command("OilToggle", function()
     vim.cmd("Oil")
   end
 end, { nargs = 0 })
+-----------------------------------------------------------
+-- Toggle Terminal:
+-----------------------------------------------------------
+local te_buf = nil
+local te_win_id = nil
+function ToggleTerminal()
+  if vim.fn.win_gotoid(te_win_id) == 1 then
+    if vim.fn.win_gotoid(te_win_id) == 1 then
+      vim.api.nvim_command("hide")
+    end
+  else
+    if vim.fn.bufexists(te_buf) ~= 1 then
+      vim.api.nvim_command("au TermOpen * setlocal nonumber norelativenumber signcolumn=no")
+      vim.api.nvim_command("sp | winc J | res 10 | te")
+      te_win_id = vim.fn.win_getid()
+      te_buf = vim.fn.bufnr('%')
+    elseif vim.fn.win_gotoid(te_win_id) ~= 1 then
+      vim.api.nvim_command("sb " .. te_buf .. "| winc J | res 10")
+      te_win_id = vim.fn.win_getid()
+    end
+    vim.api.nvim_command("startinsert")
+  end
+end
