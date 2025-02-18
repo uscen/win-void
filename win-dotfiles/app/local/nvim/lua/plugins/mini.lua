@@ -194,8 +194,8 @@ return {
           base0A = "#d8a657",
           base0B = "#a9b665",
           base0C = "#89b482",
-          base0D = "#7daea3",
-          base0E = "#d3869b",
+          base0D = "#89b482",
+          base0E = "#a9b665",
           base0F = "#bd6f3e",
         }
       })
