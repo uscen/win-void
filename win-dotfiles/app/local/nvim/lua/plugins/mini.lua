@@ -74,9 +74,7 @@ return {
       vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "Normal" })
       vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "Comment" })
       vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "Comment" })
-      vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "Search" })
-      vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { link = "Search" })
-      vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { link = "CursorLine" })
+      vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "CursorLine" })
     end
   },
   -----------------------------------------------------------
