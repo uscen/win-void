@@ -70,7 +70,7 @@ return {
           "╰",
           "│",
         },
-        winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
+        winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CurSearch,Search:None",
         draw = {
           treesitter = { "lsp", "snippets" },
           columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
@@ -89,7 +89,7 @@ return {
         auto_show = true,
         auto_show_delay_ms = 200,
         window = {
-          winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
+          winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CurSearch,Search:None",
           desired_min_height = 30,
           max_width = 90,
           min_width = 40,
@@ -156,7 +156,7 @@ return {
           "╰",
           "│",
         },
-        winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CursorLine,Search:None",
+        winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CurSearch,Search:None",
       },
     },
   },

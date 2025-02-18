@@ -36,6 +36,7 @@ vim.opt.shellquote       = ""
 -- Neovim UI
 -----------------------------------------------------------
 vim.opt.number           = true
+vim.opt.numberwidth      = 5
 vim.opt.splitright       = true
 vim.opt.splitbelow       = true
 vim.opt.termguicolors    = true

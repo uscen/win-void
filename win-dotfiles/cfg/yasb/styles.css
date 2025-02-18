@@ -11,11 +11,11 @@
   --subtext0: #d4be98;
   --overlay1: #504945;
   --surface2: #32302f;
-  --surface1: #282828;
-  --surface0: #282828;
-  --base: #1d2021;
-  --mantle: #1d2021;
-  --crust: #282828;
+  --surface1: #1d2021;
+  --surface0: #1d2021;
+  --base: #141617;
+  --mantle: #141617;
+  --crust: #1d2021;
 }
 * {
   font-size: 12px;
