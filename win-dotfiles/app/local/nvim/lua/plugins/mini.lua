@@ -66,13 +66,17 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.tabline',
+    event = "VeryLazy",
     version = '*',
     config = function()
       require('mini.tabline').setup()
       vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "Normal" })
-      vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "NormalFloat" })
+      vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "Normal" })
       vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "Comment" })
       vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "Comment" })
+      vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "Search" })
+      vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { link = "Search" })
+      vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { link = "CursorLine" })
     end
   },
   -----------------------------------------------------------

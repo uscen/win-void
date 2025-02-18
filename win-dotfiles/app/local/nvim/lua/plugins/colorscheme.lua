@@ -14,6 +14,7 @@ return {
     vim.g.everforest_diagnostic_text_highlight = 1
     vim.g.everforest_diagnostic_line_highlight = 1
     vim.g.everforest_dim_inactive_windows      = 1
+    vim.g.everforest_disable_italic_comment    = 1
     vim.g.everforest_better_performans         = 1
     vim.cmd.colorscheme("everforest")
   end

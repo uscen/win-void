@@ -33,7 +33,7 @@ bind("n", "<C-f>", "<C-f>zz", opts)
 bind("n", "<Tab>", ":bnext<CR>", opts)
 bind("n", "<S-Tab>", ":bprev<CR>", opts)
 bind("n", "<leader>bd", ":bd<CR>", opts)
-bind("n", "<leader>bb", ':%bdelete|edit #|normal`"<CR>', opts)
+bind("n", "<leader>bb", ':silent %bd|e#|bd#<CR>', opts)
 -----------------------------------------------------------
 -- turn off direction keyboard, force using `hjkl` !!!
 -----------------------------------------------------------
@@ -41,7 +41,7 @@ bind("n", "<Left>", "<Nop>", opts)
 bind("n", "<Right>", "<Nop>", opts)
 bind("n", "<Up>", "<Nop>", opts)
 bind("n", "<Down>", "<Nop>", opts)
-bind({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+bind({ "n", "v" }, "<Space>", "<Nop>", opts)
 -----------------------------------------------------------
 -- Move around splits using Ctrl + {h,j,k,l}
 -----------------------------------------------------------
