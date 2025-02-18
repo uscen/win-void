@@ -9,12 +9,11 @@ return {
     cmdline = {
       keymap = {
         preset = "none",
-        ["<Tab>"] = { "select_next", "fallback" },
-        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<Tab>"] = { "select_accept_and_enter", "fallback" },
+        ["<CR>"] = { "select_accept_and_enter", "fallback" },
         ["<c-k>"] = { "select_prev", "fallback" },
         ["<c-j>"] = { "select_next", "fallback" },
         ["<C-p>"] = { "hide", "fallback" },
-        ["<CR>"] = { "select_accept_and_enter", "fallback" },
       },
     },
     keymap = {
