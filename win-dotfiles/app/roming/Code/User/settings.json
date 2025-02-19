@@ -4,40 +4,39 @@
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
   "editor.inlineSuggest.enabled": true,
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.tabCompletion": "on",
+  "editor.snippetSuggestions": "never",
+  "editor.quickSuggestions": {
+    "other": "off"
+  },
   "terminal.integrated.fontSize": 12,
   "debug.console.fontSize": 12,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.statusBar.visible": false,
   "workbench.editor.restoreViewState": true,
+  "workbench.activityBar.location": "hidden",
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
+  "window.restoreFullscreen": true,
+  "window.newWindowDimensions": "maximized",
+  "update.mode": "none",
+  "extensions.ignoreRecommendations": true,
   // Format && AutoComplete
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "window.restoreFullscreen": true,
-  "window.newWindowDimensions": "maximized",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "go.toolsManagement.autoUpdate": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // VIM Keybidings
   "editor.scrollBeyondLastLine": false, // recommended by neovim
