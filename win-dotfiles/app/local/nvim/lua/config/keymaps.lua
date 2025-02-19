@@ -7,19 +7,13 @@ local opts = { noremap = true, silent = true }
 -- Basic Keymaps:
 -----------------------------------------------------------
 bind("n", "<Leader>w", ":write<CR>", opts)
-bind("n", ";", ":")
-bind("n", "U", "<C-r>", opts)
-bind("n", "<leader>c", ":nohl<CR>", opts)
-bind("n", "<ESC>", ":nohl<CR>", opts)
-bind("c", "W", "w", opts)
-bind("c", "WQ", "wq", opts)
-bind("c", "Wq", "wq", opts)
-bind("c", "QA", "qa", opts)
-bind("c", "wA!", "wqa", opts)
-bind("n", "<leader>qq", ":qa<CR>", opts)
 bind("n", "<C-s>", ":up<CR>", opts)
 bind("i", "<C-s>", "<ESC> :up<CR>", opts)
 bind("n", "<C-c>", "ciw", opts)
+bind("n", "U", "<C-r>", opts)
+bind("n", "<leader>qq", ":qa<CR>", opts)
+bind("n", "<ESC>", ":nohl<CR>", opts)
+bind("n", ";", ":")
 -----------------------------------------------------------
 -- Always In Middle When Scrooling By Page
 -----------------------------------------------------------
