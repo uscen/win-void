@@ -23,6 +23,7 @@ bars:
     window_flags:
       always_on_top: false
       windows_app_bar: false
+      hide_on_fullscreen: true
     dimensions:
       width: "100%"
       height: 32
