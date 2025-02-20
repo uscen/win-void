@@ -27,6 +27,32 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins Trigger:
 ------------------------------
 require("lazy").setup("plugins", {
+  concurrency = 4,
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true,
+    rtp = {
+      disabled_plugins = {
+        "osc52",
+        "parser",
+        "gzip",
+        "netrwPlugin",
+        "health",
+        "man",
+        "matchit",
+        "rplugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+        "shadafile",
+        "spellfile",
+        "editorconfig",
+      },
+    },
+  },
   ui = {
     border = "double",
     size = {
