@@ -73,6 +73,14 @@ vim.opt.updatetime       = 250
 -----------------------------------------------------------
 -- Disable builtin plugins
 local disabled_built_ins = {
+  "osc52",
+  "parser",
+  "health",
+  "man",
+  "tohtml",
+  "shadafile",
+  "spellfile",
+  "editorconfig",
   "2html_plugin",
   "getscript",
   "getscriptPlugin",
