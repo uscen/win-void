@@ -27,7 +27,7 @@ bind("n", "<C-f>", "<C-f>zz", opts)
 bind("n", "<Tab>", ":bnext<CR>", opts)
 bind("n", "<S-Tab>", ":bprev<CR>", opts)
 bind("n", "<leader>bd", ":bd<CR>", opts)
-bind("n", "<leader>bo", ":silent up|%bd!|e#|bd#|'\"<CR>", opts)
+bind("n", "<leader>bo", ":silent up|%bd!<CR><C-O>:bd#<CR>", opts)
 bind("n", "<leader>bb", CloseAllButCurrent, opts)
 -----------------------------------------------------------
 -- Toggle Custom Terminal:
