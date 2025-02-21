@@ -21,9 +21,16 @@ vim.api.nvim_create_user_command("OilToggle", function()
   if current_filetype == "oil" then
     vim.cmd("b#")
   else
-    vim.cmd("Oil --preview")
+    vim.cmd("Oil")
   end
 end, { nargs = 0 })
+-- set insert mode when focusing on terminal window
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "term://*",
+  callback = function()
+    vim.cmd("startinsert")
+  end,
+})
 -----------------------------------------------------------
 -- function
 -----------------------------------------------------------

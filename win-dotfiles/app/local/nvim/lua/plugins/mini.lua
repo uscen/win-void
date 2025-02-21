@@ -74,15 +74,24 @@ return {
     event = "VeryLazy",
     version = '*',
     config = function()
-      vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
-      vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
-      vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
-      vim.keymap.set("n", "<leader>ft", "<CMD>Pick grep_live<CR>", { desc = "Pick Text From Files" })
-      vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Picker Explorer" })
-      vim.keymap.set("n", "<leader>fg", "<CMD>Pick git_files<CR>", { desc = "Pick Project Files" })
-      vim.keymap.set("n", "<leader>fc", "<CMD>Pick git_commits<CR>", { desc = "Pick Git Commits" })
-      vim.keymap.set("n", "<leader>fo", "<CMD>Pick options<CR>", { desc = "Pick Neovim Options" })
+      local win_config = function()
+        height = 18
+        width = vim.o.columns
+
+        return {
+          anchor = 'NW',
+          height = height,
+          width = width,
+          row = vim.o.lines - height - 2,
+          col = vim.o.columns - width,
+        }
+      end
       require('mini.pick').setup({
+        window = {
+          config = win_config,
+          prompt_cursor = '▏',
+          prompt_prefix = ' ',
+        },
         mappings = {
           choose           = '<Tab>',
           move_down        = '<C-j>',
@@ -92,6 +101,19 @@ return {
           toggle_preview   = '<C-p>',
         },
       })
+      vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
+      vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
+      vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
+      vim.keymap.set("n", "<leader>ft", "<CMD>Pick grep_live<CR>", { desc = "Pick Text From Files" })
+      vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Picker Explorer" })
+      vim.keymap.set("n", "<leader>fg", "<CMD>Pick git_files<CR>", { desc = "Pick Project Files" })
+      vim.keymap.set("n", "<leader>fc", "<CMD>Pick git_commits<CR>", { desc = "Pick Git Commits" })
+      vim.keymap.set("n", "<leader>fo", "<CMD>Pick options<CR>", { desc = "Pick Neovim Options" })
+      -- without leader key
+      vim.keymap.set("n", "gr", "<Cmd>Pick lsp scope='references'<CR>", { desc = "[G]oto [R]eferences" })
+      vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>", { desc = "[G]oto [D]definition" })
+      vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>", { desc = "[G]oto [D]eclaration" })
+      vim.ui.select = MiniPick.ui_select
     end
   },
   -----------------------------------------------------------
@@ -182,8 +204,8 @@ return {
       require('mini.base16').setup({
         palette = {
           base00 = "#141617",
-          base01 = "#141617",
-          base02 = "#504945",
+          base01 = "#1b1b1b",
+          base02 = "#282828",
           base03 = "#5a524c",
           base04 = "#bdae93",
           base05 = "#ddc7a1",
