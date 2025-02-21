@@ -6,18 +6,9 @@ return {
   -- Mini-Ai
   -----------------------------------------------------------
   {
-    "echasnovski/mini.ai",
+    'echasnovski/mini.ai',
     event = "VeryLazy",
     version = "*",
-    opts = {},
-  },
-  -----------------------------------------------------------
-  -- Mini-Paris
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.pairs',
-    event = "VeryLazy",
-    version = '*',
     opts = {},
   },
   -----------------------------------------------------------
@@ -34,6 +25,15 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.diff',
+    event = "VeryLazy",
+    version = '*',
+    opts = {}
+  },
+  -----------------------------------------------------------
+  -- Mini-Extra
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.extra',
     event = "VeryLazy",
     version = '*',
     opts = {}
@@ -58,13 +58,59 @@ return {
     },
   },
   -----------------------------------------------------------
-  -- Mini-Extra
+  -- Mini-Paris
   -----------------------------------------------------------
   {
-    'echasnovski/mini.extra',
+    'echasnovski/mini.pairs',
     event = "VeryLazy",
-    version = '*',
-    opts = {}
+    version = "*",
+    opts = {
+      modes = { insert = true, command = false, terminal = false },
+      mappings = {
+        [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+        ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+        ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+        ["["] = {
+          action = "open",
+          pair = "[]",
+          neigh_pattern = ".[%s%z%)}%]]",
+          register = { cr = false },
+        },
+        ["{"] = {
+          action = "open",
+          pair = "{}",
+          neigh_pattern = ".[%s%z%)}%]]",
+          register = { cr = false },
+        },
+        ["("] = {
+          action = "open",
+          pair = "()",
+          neigh_pattern = ".[%s%z%)]",
+          register = { cr = false },
+        },
+        -- Single quote: Prevent pairing if either side is a letter
+        ['"'] = {
+          action = "closeopen",
+          pair = '""',
+          neigh_pattern = "[^%w\\][^%w]",
+          register = { cr = false },
+        },
+        -- Single quote: Prevent pairing if either side is a letter
+        ["'"] = {
+          action = "closeopen",
+          pair = "''",
+          neigh_pattern = "[^%w\\][^%w]",
+          register = { cr = false },
+        },
+        -- Backtick: Prevent pairing if either side is a letter
+        ["`"] = {
+          action = "closeopen",
+          pair = "``",
+          neigh_pattern = "[^%w\\][^%w]",
+          register = { cr = false },
+        },
+      },
+    },
   },
   -----------------------------------------------------------
   -- Mini-Pick
@@ -143,28 +189,6 @@ return {
     end
   },
   -----------------------------------------------------------
-  -- Mini-Hipatterns
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.hipatterns',
-    event = "VeryLazy",
-    version = '*',
-    config = function()
-      local hipatterns = require('mini.hipatterns')
-      hipatterns.setup({
-        highlighters = {
-          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-          fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-          hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-          todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-          note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-          -- Highlight hex color strings (`#rrggbb`) using that color
-          hex_color = hipatterns.gen_highlighter.hex_color(),
-        },
-      })
-    end
-  },
-  -----------------------------------------------------------
   -- Mini-Starter
   -----------------------------------------------------------
   {
@@ -219,6 +243,28 @@ return {
         footer = '',
       })
     end,
+  },
+  -----------------------------------------------------------
+  -- Mini-Hipatterns
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.hipatterns',
+    event = "VeryLazy",
+    version = '*',
+    config = function()
+      local hipatterns = require('mini.hipatterns')
+      hipatterns.setup({
+        highlighters = {
+          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+          fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+          todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+          note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+          -- Highlight hex color strings (`#rrggbb`) using that color
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      })
+    end
   },
   -----------------------------------------------------------
   -- Mini-Base-16
