@@ -101,6 +101,32 @@ return {
           toggle_preview   = '<C-p>',
         },
       })
+      -- Function to start the zoxide directory picker
+      local function zoxide_pick()
+        local zoxide_output = vim.fn.systemlist('zoxide query -ls')
+        -- Strip the score prefix from zoxide output
+        local directories = {}
+        for _, line in ipairs(zoxide_output) do
+          local path = line:match("%d+%.%d+%s+(.*)")
+          if path then
+            table.insert(directories, path)
+          end
+        end
+        -- Start the mini.pick session
+        MiniPick.start({
+          source = {
+            items = directories,
+            name = 'Zoxide Directories',
+            choose = function(item)
+              vim.fn.chdir(item)
+              vim.schedule(function()
+                require("oil").open(item)
+              end)
+            end,
+          },
+        })
+      end
+      vim.keymap.set('n', '<leader>fd', zoxide_pick, { desc = "Zoxide directory picker" })
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
