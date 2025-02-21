@@ -27,8 +27,15 @@ bind("n", "<C-f>", "<C-f>zz", opts)
 bind("n", "<Tab>", ":bnext<CR>", opts)
 bind("n", "<S-Tab>", ":bprev<CR>", opts)
 bind("n", "<leader>bd", ":bd<CR>", opts)
-bind("n", "<leader>bo", ":silent up|%bd|e#|bd#|'\"<CR>", opts)
-bind("n", "<leader>bb", ":silent up|%bd<CR><C-O>:bd#<CR>", opts)
+bind("n", "<leader>bo", ":silent up|%bd!|e#|bd#|'\"<CR>", opts)
+bind("n", "<leader>bb", CloseAllButCurrent, opts)
+-----------------------------------------------------------
+-- Toggle Custom Terminal:
+-----------------------------------------------------------
+bind({ 'n', 't' }, "<C-t>", ToggleTerminal, opts)
+bind("t", "<Esc>", "<C-\\><C-n>", opts)
+bind("t", "<C-k>", "<Cmd>wincmd k<CR>", opts)
+bind("t", "<C-j>", "<Cmd>wincmd j<CR>", opts)
 -----------------------------------------------------------
 -- turn off direction keyboard, force using `hjkl` !!!
 -----------------------------------------------------------
@@ -69,10 +76,3 @@ bind("v", "gl", "$", opts)
 -----------------------------------------------------------
 bind("v", "J", ":m '>+1<CR>gv=gv", opts)
 bind("v", "K", ":m '<-2<CR>gv=gv", opts)
------------------------------------------------------------
--- Toggle Custom Terminal:
------------------------------------------------------------
-bind({ 'n', 't' }, "<C-t>", ToggleTerminal)
-bind("t", "<Esc>", "<C-\\><C-n>")
-bind("t", "<C-k>", "<Cmd>wincmd k<CR>", opts)
-bind("t", "<C-j>", "<Cmd>wincmd j<CR>", opts)
