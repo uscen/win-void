@@ -120,23 +120,14 @@ return {
     event = "VeryLazy",
     version = '*',
     config = function()
-      local win_config = function()
-        height = 18
-        width = vim.o.columns
-
-        return {
-          anchor = 'NW',
-          height = height,
-          width = width,
-          row = vim.o.lines - height - 2,
-          col = vim.o.columns - width,
-        }
-      end
       require('mini.pick').setup({
         window = {
-          config = win_config,
+          config = {
+            height = 28,
+            width = vim.o.columns,
+          },
           prompt_cursor = '▏',
-          prompt_prefix = ' ',
+          prompt_prefix = '» ',
         },
         mappings = {
           choose           = '<Tab>',
