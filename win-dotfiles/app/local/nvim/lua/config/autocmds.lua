@@ -21,7 +21,7 @@ vim.api.nvim_create_user_command("OilToggle", function()
   if current_filetype == "oil" then
     vim.cmd("b#")
   else
-    vim.cmd("Oil")
+    vim.cmd("Oil --preview")
   end
 end, { nargs = 0 })
 -----------------------------------------------------------
