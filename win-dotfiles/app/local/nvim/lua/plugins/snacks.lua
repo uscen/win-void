@@ -37,9 +37,9 @@ return {
           win = {
             list = {
               keys = {
-                ["<Tab>"] = { { "tcd", "jump" } },
+                ["<Tab>"] = { { "tcd", "confirm" } },
                 ["<CR>"] = { { "pick_win", "jump" } },
-                ["<C-h>"] = "explorer_up",
+                ["<C-h>"] = { { "explorer_up", "explorer_close" } },
                 -- ["<leader>"] = "confirm",
                 ["x"] = "explorer_close",
                 ["z"] = "explorer_close_all",
