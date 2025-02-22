@@ -58,6 +58,16 @@ return {
     },
   },
   -----------------------------------------------------------
+  -- Mini-Tabline
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.tabline',
+    version = '*',
+    config = function()
+      require('mini.tabline').setup()
+    end
+  },
+  -----------------------------------------------------------
   -- Mini-Paris
   -----------------------------------------------------------
   {
@@ -123,7 +133,7 @@ return {
       require('mini.pick').setup({
         window = {
           config = {
-            height = 28,
+            height = 20,
             width = vim.o.columns,
           },
           prompt_cursor = '▏',
@@ -268,7 +278,7 @@ return {
       require('mini.base16').setup({
         palette = {
           base00 = "#141617",
-          base01 = "#1b1b1b",
+          base01 = "#141617",
           base02 = "#282828",
           base03 = "#5a524c",
           base04 = "#bdae93",

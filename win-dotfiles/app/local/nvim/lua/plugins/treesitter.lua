@@ -45,15 +45,8 @@ return {
     },
     highlight = { enable = true },
     indent = { enable = true },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<leader>ss",
-        node_incremental = "<leader>ss",
-        scope_incremental = false,
-        node_decremental = "<bs>",
-      },
-    },
+    textobjects = { enable = false },
+    incremental_selection = { enable = false },
   },
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
