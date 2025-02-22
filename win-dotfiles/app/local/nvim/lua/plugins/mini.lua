@@ -245,7 +245,7 @@ return {
             choose = function(item)
               vim.fn.chdir(item)
               vim.schedule(function()
-                require("oil").open(item)
+                require("mini.files").open(item)
               end)
             end,
           },
