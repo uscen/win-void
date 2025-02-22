@@ -3,6 +3,17 @@
 -----------------------------------------------------------
 return {
   -----------------------------------------------------------
+  -- Mini-Icons
+  -----------------------------------------------------------
+  {
+    {
+      'echasnovski/mini.icons',
+      event = "VeryLazy",
+      version = '*',
+      opts = {},
+    },
+  },
+  -----------------------------------------------------------
   -- Mini-Ai
   -----------------------------------------------------------
   {
@@ -159,6 +170,37 @@ return {
     end
   },
   -----------------------------------------------------------
+  -- Mini-Files
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.files',
+    version = '*',
+    config = function()
+      require('mini.files').setup({
+        windows = {
+          max_number = 1,
+          width_focus = 999,
+        },
+        mappings = {
+          close       = '<Esc>',
+          go_in       = 'l',
+          go_in_plus  = '<Tab>',
+          go_out      = 'h',
+          go_out_plus = '<C-h>',
+          mark_goto   = "'",
+          mark_set    = 'm',
+          reset       = '<BS>',
+          reveal_cwd  = '@',
+          show_help   = 'g?',
+          synchronize = '=',
+          trim_left   = '<',
+          trim_right  = '>',
+        },
+      })
+      vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Pick Buffers" })
+    end
+  },
+  -----------------------------------------------------------
   -- Mini-Pick
   -----------------------------------------------------------
   {
@@ -170,7 +212,7 @@ return {
         window = {
           config = {
             height = 20,
-            width = vim.o.columns,
+            width = 999,
           },
           prompt_cursor = '▏',
           prompt_prefix = '» ',
