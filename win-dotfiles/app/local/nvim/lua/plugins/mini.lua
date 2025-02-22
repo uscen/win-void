@@ -58,16 +58,6 @@ return {
     },
   },
   -----------------------------------------------------------
-  -- Mini-Tabline
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.tabline',
-    version = '*',
-    config = function()
-      require('mini.tabline').setup({})
-    end
-  },
-  -----------------------------------------------------------
   -- Mini-Paris
   -----------------------------------------------------------
   {
@@ -75,50 +65,19 @@ return {
     event = "VeryLazy",
     version = "*",
     opts = {
-      modes = { insert = true, command = false, terminal = false },
       mappings = {
-        [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
-        ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
-        ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
-        ["["] = {
-          action = "open",
-          pair = "[]",
-          neigh_pattern = ".[%s%z%)}%]]",
-          register = { cr = false },
-        },
-        ["{"] = {
-          action = "open",
-          pair = "{}",
-          neigh_pattern = ".[%s%z%)}%]]",
-          register = { cr = false },
-        },
-        ["("] = {
-          action = "open",
-          pair = "()",
-          neigh_pattern = ".[%s%z%)]",
-          register = { cr = false },
-        },
-        -- Single quote: Prevent pairing if either side is a letter
-        ['"'] = {
-          action = "closeopen",
-          pair = '""',
-          neigh_pattern = "[^%w\\][^%w]",
-          register = { cr = false },
-        },
-        -- Single quote: Prevent pairing if either side is a letter
-        ["'"] = {
-          action = "closeopen",
-          pair = "''",
-          neigh_pattern = "[^%w\\][^%w]",
-          register = { cr = false },
-        },
-        -- Backtick: Prevent pairing if either side is a letter
-        ["`"] = {
-          action = "closeopen",
-          pair = "``",
-          neigh_pattern = "[^%w\\][^%w]",
-          register = { cr = false },
-        },
+        -- Prevents the action if the cursor is just before any character or next to a "\".
+        ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\][%s%)%]%}]' },
+        ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\][%s%)%]%}]' },
+        ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\][%s%)%]%}]' },
+        -- This is default (prevents the action if the cursor is just next to a "\").
+        [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+        [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+        ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+        -- Prevents the action if the cursor is just before or next to any character.
+        ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^%w][^%w]', register = { cr = false } },
+        ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%w][^%w]', register = { cr = false } },
+        ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^%w][^%w]', register = { cr = false } },
       },
     },
   },
@@ -174,6 +133,7 @@ return {
         })
       end
       vim.keymap.set('n', '<leader>fd', zoxide_pick, { desc = "Zoxide directory picker" })
+      vim.keymap.set("n", "<leader>e", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
