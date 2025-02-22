@@ -33,11 +33,11 @@ return {
         explorer = {
           enabled = true,
           hidden = true,
-          auto_close = true,
+          auto_close = false,
           win = {
             list = {
               keys = {
-                ["<Tab>"] = "tcd",
+                ["<Tab>"] = { { "tcd", "jump" } },
                 ["<CR>"] = { { "pick_win", "jump" } },
                 ["<C-h>"] = "explorer_up",
                 -- ["<leader>"] = "confirm",
