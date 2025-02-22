@@ -33,6 +33,7 @@ vim.opt.shellredir    = "out+err> %s"
 vim.opt.shellxescape  = ""
 vim.opt.shellxquote   = ""
 vim.opt.shellquote    = ""
+vim.o.fillchars       = 'eob: '
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
