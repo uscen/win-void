@@ -185,7 +185,6 @@ return {
       end
       vim.keymap.set('n', '<leader>fd', zoxide_pick, { desc = "Zoxide directory picker" })
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
-      vim.keymap.set("n", "<leader>e", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
       vim.keymap.set("n", "<leader>ft", "<CMD>Pick grep_live<CR>", { desc = "Pick Text From Files" })

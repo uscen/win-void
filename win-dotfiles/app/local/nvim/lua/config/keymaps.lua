@@ -27,7 +27,7 @@ bind("n", "<C-f>", "<C-f>zz", opts)
 bind("n", "<Tab>", ":bnext<CR>", opts)
 bind("n", "<S-Tab>", ":bprev<CR>", opts)
 bind("n", "<leader>bd", ":bd<CR>", opts)
-bind("n", "<leader>bo", ":silent up|%bd!<CR><C-O>:bd#<CR>", opts)
+bind("n", "<leader>bb", ":silent up|%bd!<CR><C-O>:bd#<CR>", opts)
 -----------------------------------------------------------
 -- turn off direction keyboard, force using `hjkl` !!!
 -----------------------------------------------------------
