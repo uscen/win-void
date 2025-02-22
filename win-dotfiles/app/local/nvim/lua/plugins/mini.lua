@@ -6,12 +6,10 @@ return {
   -- Mini-Icons
   -----------------------------------------------------------
   {
-    {
-      'echasnovski/mini.icons',
-      event = "VeryLazy",
-      version = '*',
-      opts = {},
-    },
+    'echasnovski/mini.icons',
+    event = "VimEnter",
+    version = '*',
+    opts = {},
   },
   -----------------------------------------------------------
   -- Mini-Ai
@@ -182,7 +180,7 @@ return {
           width_focus = 999,
         },
         mappings = {
-          close       = '<Esc>',
+          close       = 'q',
           go_in       = 'l',
           go_in_plus  = '<Tab>',
           go_out      = 'h',
