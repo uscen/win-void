@@ -18,6 +18,7 @@ vim.opt.swapfile      = false
 vim.opt.writebackup   = false
 vim.opt.backup        = false
 vim.opt.completeopt   = { "menu", "menuone", "preview" }
+vim.o.shada           = "'100,<50,s10,:1000,/100,@100,h"
 vim.opt.undofile      = true
 vim.opt.undolevels    = 100
 vim.opt.timeoutlen    = 300
@@ -48,7 +49,11 @@ vim.opt.laststatus    = 0
 vim.opt.cmdheight     = 0
 vim.opt.wrap          = false
 vim.opt.showmode      = false
-vim.opt.fillchars     = { eob = " " }
+vim.o.fillchars       = table.concat(
+-- Special UI symbols
+  { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
+  ','
+)
 vim.opt.ruler         = false
 vim.wo.signcolumn     = "no"
 --------------------------------------------------------
