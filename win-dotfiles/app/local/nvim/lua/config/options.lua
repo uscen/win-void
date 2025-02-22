@@ -49,11 +49,6 @@ vim.opt.laststatus    = 0
 vim.opt.cmdheight     = 0
 vim.opt.wrap          = false
 vim.opt.showmode      = false
-vim.o.fillchars       = table.concat(
--- Special UI symbols
-  { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
-  ','
-)
 vim.opt.ruler         = false
 vim.wo.signcolumn     = "no"
 --------------------------------------------------------

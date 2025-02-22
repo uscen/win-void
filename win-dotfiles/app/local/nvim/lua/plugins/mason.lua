@@ -41,9 +41,8 @@ return {
         { "emmet-language-server" },
         { "typescript-language-server" },
         { "lua-language-server" },
-        { "prettier" },
         { "prisma-language-server" },
-        { "eslint-lsp" },
+        { "prettier" },
       },
     })
   end,
