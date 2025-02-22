@@ -82,6 +82,28 @@ return {
     },
   },
   -----------------------------------------------------------
+  -- Mini-Hipatterns
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.hipatterns',
+    event = "VeryLazy",
+    version = '*',
+    config = function()
+      local hipatterns = require('mini.hipatterns')
+      hipatterns.setup({
+        highlighters = {
+          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+          fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+          hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+          todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+          note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+          -- Highlight hex color strings (`#rrggbb`) using that color
+          hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+      })
+    end
+  },
+  -----------------------------------------------------------
   -- Mini-Pick
   -----------------------------------------------------------
   {
@@ -133,8 +155,8 @@ return {
         })
       end
       vim.keymap.set('n', '<leader>fd', zoxide_pick, { desc = "Zoxide directory picker" })
-      vim.keymap.set("n", "<leader>e", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
       vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
+      vim.keymap.set("n", "<leader>e", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
       vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
       vim.keymap.set("n", "<leader>ft", "<CMD>Pick grep_live<CR>", { desc = "Pick Text From Files" })
@@ -205,28 +227,6 @@ return {
         footer = '',
       })
     end,
-  },
-  -----------------------------------------------------------
-  -- Mini-Hipatterns
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.hipatterns',
-    event = "VeryLazy",
-    version = '*',
-    config = function()
-      local hipatterns = require('mini.hipatterns')
-      hipatterns.setup({
-        highlighters = {
-          -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-          fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-          hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-          todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-          note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-          -- Highlight hex color strings (`#rrggbb`) using that color
-          hex_color = hipatterns.gen_highlighter.hex_color(),
-        },
-      })
-    end
   },
   -----------------------------------------------------------
   -- Mini-Base-16
