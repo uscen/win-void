@@ -21,16 +21,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     vim.cmd("startinsert")
   end,
 })
--- Toggle Oil File Manager
-vim.api.nvim_create_user_command("OilToggle", function()
-  local current_buf = vim.api.nvim_get_current_buf()
-  local current_filetype = vim.api.nvim_buf_get_option(current_buf, "filetype")
-  if current_filetype == "oil" then
-    vim.cmd("b#")
-  else
-    vim.cmd("Oil")
-  end
-end, { nargs = 0 })
 -- Hide Tabline When Only One Open
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = vim.schedule_wrap(function()
