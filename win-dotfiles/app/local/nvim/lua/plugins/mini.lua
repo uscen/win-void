@@ -190,12 +190,12 @@ return {
           reset       = '<BS>',
           reveal_cwd  = '@',
           show_help   = 'g?',
-          synchronize = '=',
+          synchronize = '<C-s>',
           trim_left   = '<',
           trim_right  = '>',
         },
       })
-      vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Pick Buffers" })
+      vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Files Manager" })
     end
   },
   -----------------------------------------------------------
