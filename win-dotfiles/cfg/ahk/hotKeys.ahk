@@ -44,7 +44,7 @@ Capslock::Esc
 !+n:: Run("explorer.exe")
 !w:: Run("chrome.exe")
 !i:: Run("msedge.exe")
-!v:: Run('neovide.exe')
+!v:: Run("neovide.exe")
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
 !n:: Run(EnvGet("PROGRAMFILES") '\Git\bin\bash.exe -c "yazi.exe ~"')
 !e:: Run(EnvGet("PROGRAMFILES") "\Mozilla Thunderbird\thunderbird.exe")
