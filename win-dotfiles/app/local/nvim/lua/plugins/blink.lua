@@ -7,7 +7,7 @@ return {
   version = "*",
   opts = {
     cmdline = {
-      enabled = false,
+      enabled = true,
       keymap = {
         preset = "none",
         ["<CR>"] = { "select_accept_and_enter", "fallback" },
