@@ -9,6 +9,14 @@ vim.g.mapleader = " "
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
+vim.cmd([[
+  colorscheme habamax
+  highlight Normal guibg=#141617
+  highlight NormalFloat guibg=#1b1b1b
+  highlight FloatBorder guibg=#1b1b1b
+  highlight StatusLine guibg=#1b1b1b
+  highlight StatusLineNC guibg=#1b1b1b
+]])
 vim.schedule(function()
   vim.opt.clipboard = "unnamed,unnamedplus"
 end)

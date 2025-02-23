@@ -7,6 +7,7 @@ return {
   version = "*",
   opts = {
     cmdline = {
+      enabled = false,
       keymap = {
         preset = "none",
         ["<CR>"] = { "select_accept_and_enter", "fallback" },
@@ -70,7 +71,7 @@ return {
           "╰",
           "│",
         },
-        winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CurSearch,Search:None",
+        winhighlight = "Normal:Normal,CursorLine:Substitute",
         draw = {
           treesitter = { "lsp", "snippets" },
           columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
@@ -89,7 +90,7 @@ return {
         auto_show = true,
         auto_show_delay_ms = 500,
         window = {
-          winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CurSearch,Search:None",
+          winhighlight = "Normal:Normal,CursorLine:Substitute",
           desired_min_height = 30,
           max_width = 90,
           min_width = 40,
