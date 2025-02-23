@@ -20,7 +20,6 @@ vim.cmd([[
 vim.schedule(function()
   vim.opt.clipboard = "unnamed,unnamedplus"
 end)
-
 vim.opt.compatible    = false
 vim.opt.swapfile      = false
 vim.opt.writebackup   = false
@@ -45,6 +44,8 @@ vim.o.fillchars       = 'eob: '
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
+vim.opt.background    = 'dark'
+vim.opt.modeline      = false
 vim.opt.number        = true
 vim.opt.numberwidth   = 5
 vim.opt.splitright    = true
@@ -56,6 +57,7 @@ vim.opt.hlsearch      = true
 vim.opt.confirm       = true
 vim.opt.laststatus    = 0
 vim.opt.cmdheight     = 0
+vim.opt.pumheight     = 12
 vim.opt.wrap          = false
 vim.opt.showmode      = false
 vim.opt.ruler         = false

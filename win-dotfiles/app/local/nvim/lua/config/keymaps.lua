@@ -22,13 +22,6 @@ bind("n", "<C-d>", "<C-d>zz", opts)
 bind("n", "<C-b>", "<C-b>zz", opts)
 bind("n", "<C-f>", "<C-f>zz", opts)
 -----------------------------------------------------------
--- Bufferline Keys
------------------------------------------------------------
-bind("n", "<Tab>", ":bnext<CR>", opts)
-bind("n", "<S-Tab>", ":bprev<CR>", opts)
-bind("n", "<leader>bd", ":bd<CR>", opts)
-bind("n", "<leader>bb", ":silent up|%bd!<CR><C-O>:bd#<CR>", opts)
------------------------------------------------------------
 -- turn off direction keyboard, force using `hjkl` !!!
 -----------------------------------------------------------
 bind("n", "<Left>", "<Nop>", opts)
@@ -75,3 +68,29 @@ bind({ 'n', 't' }, "<C-t>", ToggleTerminal, opts)
 bind("t", "<Esc>", "<C-\\><C-n>", opts)
 bind("t", "<C-k>", "<Cmd>wincmd k<CR>", opts)
 bind("t", "<C-j>", "<Cmd>wincmd j<CR>", opts)
+-----------------------------------------------------------
+-- Bufferline Keys
+-----------------------------------------------------------
+bind("n", "<Tab>", ":bnext<CR>", opts)
+bind("n", "<S-Tab>", ":bprev<CR>", opts)
+bind("n", "<leader>bd", ":bd<CR>", opts)
+vim.keymap.set("n", "<leader>bb", function()
+  -- Save all buffers
+  vim.cmd("silent update")
+  -- Get valid non-terminal buffers
+  local bufs = vim.tbl_filter(function(buf)
+    return vim.api.nvim_buf_is_valid(buf) and
+        vim.bo[buf].buftype ~= "terminal"
+  end, vim.api.nvim_list_bufs())
+  -- Convert to Vim buffer numbers
+  local buf_numbers = table.concat(bufs, " ")
+  -- Execute safe deletion
+  if #buf_numbers > 0 then
+    vim.cmd("bdelete " .. buf_numbers)
+  end
+  -- Force close remaining (except terminal)
+  vim.cmd("silent! bdelete#")
+  vim.cmd("e#")
+  vim.cmd("bd#")
+  vim.cmd("'\"")
+end, opts)
