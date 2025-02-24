@@ -95,7 +95,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.tabline',
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    event = "VeryLazy",
     version = '*',
     config = function()
       require('mini.tabline').setup({
