@@ -47,7 +47,6 @@ return {
 
     completion = {
       list = {
-        max_items = 10,
         selection = {
           preselect = true
         }
@@ -58,7 +57,7 @@ return {
         },
       },
       menu = {
-        scrollbar = false,
+        scrollbar = true,
         auto_show = true,
         min_width = 25,
         border = {
