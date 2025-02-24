@@ -99,11 +99,10 @@ return {
     version = '*',
     config = function()
       require('mini.tabline').setup({
-        show_icons = false,
+        show_icons = true,
         format = function(buf_id, label)
-          local modified = vim.api.nvim_buf_get_option(buf_id, 'modified')
-          local modified_indicator = modified and ' ●' or ' '
-          return string.format(' %s%s ', label, modified_indicator)
+          local suffix = vim.bo[buf_id].modified and '● ' or ''
+          return MiniTabline.default_format(buf_id, label) .. suffix
         end,
       })
       vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { bg = '#141617', fg = '#dde5c2', bold = true, italic = true })
