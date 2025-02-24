@@ -95,7 +95,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.tabline',
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     version = '*',
     config = function()
       require('mini.tabline').setup({
@@ -158,7 +158,7 @@ return {
           go_out_plus = '<C-h>',
           mark_goto   = "'",
           mark_set    = 'm',
-          reset       = '<BS>',
+          reset       = 'gh',
           reveal_cwd  = '@',
           show_help   = 'g?',
           synchronize = '<C-s>',
