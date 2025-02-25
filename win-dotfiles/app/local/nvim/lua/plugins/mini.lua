@@ -34,7 +34,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.diff',
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     version = '*',
     opts = {}
   },
@@ -71,7 +71,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.pairs',
-    event = "VeryLazy",
+    event = { "InsertEnter" },
     version = "*",
     opts = {
       mappings = {
@@ -120,7 +120,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.hipatterns',
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     version = '*',
     config = function()
       local hipatterns = require('mini.hipatterns')
@@ -143,6 +143,7 @@ return {
   {
     'echasnovski/mini.files',
     version = '*',
+    lazy = false,
     config = function()
       require('mini.files').setup({
         windows = {
