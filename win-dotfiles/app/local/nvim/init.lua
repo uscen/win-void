@@ -18,7 +18,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -28,6 +28,26 @@ vim.opt.rtp:prepend(lazypath)
 ------------------------------
 require("lazy").setup("plugins", {
   concurrency = 4,
+  git = {
+    timeout = 480,
+  },
+  change_detection = {
+    notify = false,
+  },
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  ui = {
+    border = "double",
+    size = {
+      width = 0.9,
+      height = 0.9,
+    },
+  },
+  install = {
+    colorscheme = { "habamax" },
+  },
   performance = {
     cache = {
       enabled = true,
@@ -52,19 +72,5 @@ require("lazy").setup("plugins", {
         "editorconfig",
       },
     },
-  },
-  ui = {
-    border = "double",
-    size = {
-      width = 0.9,
-      height = 0.9,
-    },
-  },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
   },
 })

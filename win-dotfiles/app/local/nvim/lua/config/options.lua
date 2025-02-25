@@ -12,20 +12,19 @@ vim.g.mapleader = " "
 vim.cmd([[
   colorscheme habamax
   highlight Normal guibg=#141617
-  highlight NormalFloat guibg=#17191a
-  highlight FloatBorder guibg=#17191a
-  highlight StatusLine guibg=#17191a
-  highlight StatusLineNC guibg=#17191a
+  highlight NormalFloat guibg=#1b1b1b
+  highlight FloatBorder guibg=#1b1b1b
+  highlight StatusLine guibg=#1b1b1b
+  highlight StatusLineNC guibg=#1b1b1b
 ]])
 vim.schedule(function()
   vim.opt.clipboard = "unnamed,unnamedplus"
 end)
+vim.opt.completeopt   = { "menu", "menuone", "preview" }
 vim.opt.compatible    = false
 vim.opt.swapfile      = false
 vim.opt.writebackup   = false
 vim.opt.backup        = false
-vim.opt.completeopt   = { "menu", "menuone", "preview" }
-vim.o.shada           = "'100,<50,s10,:1000,/100,@100,h"
 vim.opt.undofile      = true
 vim.opt.undolevels    = 100
 vim.opt.timeoutlen    = 300

@@ -7,7 +7,6 @@ return {
     "williamboman/mason.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
-
   config = function()
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
@@ -24,13 +23,11 @@ return {
         height = 0.9,
       },
     })
-
     -- mason-lspconfig
     mason_lspconfig.setup({
       -- auto installation
       automatic_installation = true,
     })
-
     -- mason-tool-installer
     mason_tool_installer.setup({
       ensure_installed = {
