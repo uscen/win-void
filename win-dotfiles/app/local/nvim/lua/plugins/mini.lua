@@ -105,14 +105,6 @@ return {
           return MiniTabline.default_format(buf_id, label) .. suffix
         end,
       })
-      vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { bg = '#141617', fg = '#dde5c2', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineVisible', { bg = '#141617', fg = '#dde5c2', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineHidden', { bg = '#141617', fg = '#928374', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { bg = '#141617', fg = '#dde5c2', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { bg = '#141617', fg = '#dde5c2', italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { bg = '#141617', fg = '#928374', italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { bg = '#141617', fg = '#dde5c2' })
-      vim.api.nvim_set_hl(0, 'MiniTablineFill', { bg = '#141617', fg = '#dde5c2' })
     end
   },
   -----------------------------------------------------------

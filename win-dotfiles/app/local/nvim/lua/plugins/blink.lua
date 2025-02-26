@@ -71,7 +71,7 @@ return {
           "╰",
           "│",
         },
-        winhighlight = "Normal:Normal,CursorLine:Substitute",
+        winhighlight = "Normal:Normal,CursorLine:CursorLine",
         draw = {
           treesitter = { "lsp", "snippets" },
           columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
