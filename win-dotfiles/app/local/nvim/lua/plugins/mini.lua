@@ -34,7 +34,7 @@ return {
   -----------------------------------------------------------
   {
     'echasnovski/mini.diff',
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     version = '*',
     opts = {},
   },
