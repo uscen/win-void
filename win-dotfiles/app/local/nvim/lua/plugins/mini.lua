@@ -30,6 +30,15 @@ return {
     opts = {},
   },
   -----------------------------------------------------------
+  -- Mini-Diff
+  -----------------------------------------------------------
+  {
+    'echasnovski/mini.diff',
+    event = "VeryLazy",
+    version = '*',
+    opts = {},
+  },
+  -----------------------------------------------------------
   -- Mini-Extra
   -----------------------------------------------------------
   {
@@ -92,14 +101,6 @@ return {
           return MiniTabline.default_format(buf_id, label) .. suffix
         end,
       })
-      vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { bg = '#181616', fg = '#8ba4b0', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineVisible', { bg = '#181616', fg = '#8ba4b0', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineHidden', { bg = '#181616', fg = '#727169', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { bg = '#181616', fg = '#8ba4b0', bold = true, italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { bg = '#181616', fg = '#8ba4b0', italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { bg = '#181616', fg = '#727169', italic = true })
-      vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { bg = '#181616', fg = '#8ba4b0' })
-      vim.api.nvim_set_hl(0, 'MiniTablineFill', { bg = '#181616', fg = '#8ba4b0' })
     end
   },
   -----------------------------------------------------------
