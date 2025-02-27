@@ -16,7 +16,7 @@
     "monocle": "#c8c093",
     "single": "#8a9a7b",
     "stack": "#c4746e",
-    "unfocused": "#727169"
+    "unfocused": "#32302f"
   },
   "animation": {
     "enabled": false,
