@@ -47,6 +47,11 @@
         "kind": "Title",
         "id": "Arc picture in picture",
         "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "id": "Arc extension popup",
+        "matching_strategy": "Equals"
       }
     ]
   },
@@ -227,6 +232,15 @@
           "matching_strategy": "DoesNotEqual"
         }
       ]
+    ]
+  },
+  "Barrier": {
+    "floating": [
+      {
+        "kind": "Exe",
+        "id": "barrier.exe",
+        "matching_strategy": "Equals"
+      }
     ]
   },
   "Beeper": {
@@ -412,6 +426,15 @@
         "kind": "Class",
         "id": "TWizardForm",
         "matching_strategy": "Legacy"
+      }
+    ]
+  },
+  "DesktopMate": {
+    "ignore": [
+      {
+        "kind": "Exe",
+        "id": "DesktopMate.exe",
+        "matching_strategy": "Equals"
       }
     ]
   },
@@ -625,6 +648,22 @@
       ]
     ]
   },
+  "FreeCAD": {
+    "floating": [
+      [
+        {
+          "kind": "Exe",
+          "id": "freecad.exe",
+          "matching_strategy": "Equals"
+        },
+        {
+          "kind": "Class",
+          "id": "Qt51515QWindowIcon",
+          "matching_strategy": "Equals"
+        }
+      ]
+    ]
+  },
   "GIMP": {
     "floating": [
       [
@@ -684,6 +723,15 @@
         "kind": "Class",
         "id": "GoPro Webcam",
         "matching_strategy": "Legacy"
+      }
+    ]
+  },
+  "Godot Engine": {
+    "object_name_change": [
+      {
+        "kind": "Exe",
+        "id": "Godot_v",
+        "matching_strategy": "StartsWith"
       }
     ]
   },
@@ -891,6 +939,38 @@
         "id": "Kotatogram.exe",
         "matching_strategy": "Equals"
       }
+    ]
+  },
+  "Lens": {
+    "ignore": [
+      [
+        {
+          "kind": "Exe",
+          "id": "Lens.exe",
+          "matching_strategy": "Equals"
+        },
+        {
+          "kind": "Title",
+          "id": "Loading",
+          "matching_strategy": "Equals"
+        }
+      ]
+    ]
+  },
+  "LibreCAD": {
+    "ignore": [
+      [
+        {
+          "kind": "Title",
+          "id": "LibreCAD",
+          "matching_strategy": "DoesNotStartWith"
+        },
+        {
+          "kind": "Exe",
+          "id": "LibreCAD.exe",
+          "matching_strategy": "Equals"
+        }
+      ]
     ]
   },
   "LibreOffice": {
@@ -1124,8 +1204,6 @@
     ]
   },
   "Microsoft Terminal Services Client": {
-    // mstsc.exe creates these on Windows 11 when a WSL process is launched
-    // https://github.com/LGUG2Z/komorebi/issues/74
     "ignore": [
       {
         "kind": "Class",
@@ -1213,6 +1291,15 @@
       {
         "kind": "Exe",
         "id": "ModernFlyoutsHost.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "MOTU M-Series": {
+    "floating": [
+      {
+        "kind": "Exe",
+        "id": "MOTUMSeries.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -1312,6 +1399,15 @@
       {
         "kind": "Exe",
         "id": "Notion.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Notion Calendar": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "Notion Calendar.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -1457,6 +1553,15 @@
       {
         "kind": "Exe",
         "id": "PowerToys.PowerAccent.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Prime95": {
+    "floating": [
+      {
+        "kind": "Exe",
+        "id": "prime95.exe",
         "matching_strategy": "Equals"
       }
     ]
@@ -2120,6 +2225,18 @@
           "id": "Plugins and extensions",
           "matching_strategy": "Equals"
         }
+      ],
+      [
+        {
+          "kind": "Exe",
+          "id": "vlc.exe",
+          "matching_strategy": "Equals"
+        },
+        {
+          "kind": "Title",
+          "id": "Building font cache",
+          "matching_strategy": "Equals"
+        }
       ]
     ]
   },
@@ -2604,6 +2721,31 @@
         "id": "VISIOA",
         "matching_strategy": "Equals"
       }
+    ]
+  },
+  "Stremio Desktop Community": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "stremio-shell-ng.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
+  "Mod Organizer 2": {
+    "ignore": [
+      [
+        {
+          "kind": "Exe",
+          "id": "ModOrganizer.exe",
+          "matching_strategy": "Equals"
+        },
+        {
+          "kind": "Title",
+          "id": "Extracting files",
+          "matching_strategy": "Equals"
+        }
+      ]
     ]
   }
 }
