@@ -29,9 +29,9 @@ bars:
       height: 32
     padding:
       top: 0
-      left: 2
+      left: 0
       bottom: 0
-      right: 2
+      right: 0
     widgets:
       left: ["win_button", "komorebi_workspaces", "active_window"]
       center: ["clock", "apps"]
