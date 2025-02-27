@@ -468,4 +468,13 @@ vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'MiniTablineHidden'
 vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { link = 'MiniTablineCurrent' })
 vim.api.nvim_set_hl(0, 'MiniTablineFill', { link = 'MiniTablineCurrent' })
 
+-- Mini Files
+vim.api.nvim_set_hl(0, 'MiniFilesNormal', { fg = gui0E, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniFilesBorder', { fg = gui04, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniFilesBorderModified', { fg = gui08, bg = gui00, bold = true, italic = true })
+
+-- Mini Pick
+vim.api.nvim_set_hl(0, 'MiniPickNormal', { link = "MiniFilesNormal" })
+vim.api.nvim_set_hl(0, 'MiniPickBorder', { link = "MiniFilesBorder" })
+
 -- vim: filetype=lua

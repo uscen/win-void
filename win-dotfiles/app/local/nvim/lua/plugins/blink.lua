@@ -90,7 +90,7 @@ return {
         auto_show = true,
         auto_show_delay_ms = 500,
         window = {
-          winhighlight = "Normal:Normal,CursorLine:Substitute",
+          winhighlight = "Normal:Normal,CursorLine:CursorLine",
           desired_min_height = 30,
           max_width = 90,
           min_width = 40,
@@ -157,7 +157,7 @@ return {
           "╰",
           "│",
         },
-        winhighlight = "Normal:Normal,FloatBorder:Comment,CursorLine:CurSearch,Search:None",
+        winhighlight = "Normal:Normal,CursorLine:CursorLine",
       },
     },
   },
