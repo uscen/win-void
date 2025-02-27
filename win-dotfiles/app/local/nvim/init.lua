@@ -39,7 +39,7 @@ require("lazy").setup("plugins", {
     notify = false,
   },
   ui = {
-    border = "double",
+    border = "none",
     size = {
       width = 0.9,
       height = 0.9,

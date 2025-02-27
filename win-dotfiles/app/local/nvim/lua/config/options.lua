@@ -32,7 +32,6 @@ vim.opt.shellredir   = "out+err> %s"
 vim.opt.shellxescape = ""
 vim.opt.shellxquote  = ""
 vim.opt.shellquote   = ""
-vim.o.fillchars      = 'eob: '
 -----------------------------------------------------------
 -- Files and Others
 -----------------------------------------------------------
@@ -62,6 +61,7 @@ vim.opt.showmode      = false
 vim.opt.ruler         = false
 vim.wo.signcolumn     = "no"
 vim.opt.virtualedit   = "block"
+vim.o.fillchars       = 'eob: '
 --------------------------------------------------------
 -- Tabs, indent:
 -----------------------------------------------------------
