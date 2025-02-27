@@ -5,7 +5,6 @@ vim.loader.enable()
 ------------------------------
 -- Basics Configuration:
 ------------------------------
-require("config/colorscheme")
 require("config/options")
 require("config/autocmds")
 require("config/keymaps")
@@ -45,9 +44,6 @@ require("lazy").setup("plugins", {
       width = 0.9,
       height = 0.9,
     },
-  },
-  install = {
-    colorscheme = { "habamax" },
   },
   performance = {
     cache = {
