@@ -4,7 +4,15 @@
 return {
   "rebelot/kanagawa.nvim",
   config = function()
-    require('kanagawa').setup()
+    require('kanagawa').setup({
+      overrides = function()
+        return {
+          FloatBorder = { bg = "NONE" },
+          NormalFloat = { bg = "NONE" },
+          CursorLine = { bg = "#252535" },
+        }
+      end,
+    })
     vim.cmd("colorscheme kanagawa-dragon")
   end
 }

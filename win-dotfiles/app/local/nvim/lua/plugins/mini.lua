@@ -30,15 +30,6 @@ return {
     opts = {},
   },
   -----------------------------------------------------------
-  -- Mini-Diff
-  -----------------------------------------------------------
-  {
-    'echasnovski/mini.diff',
-    event = { "BufReadPre", "BufNewFile" },
-    version = '*',
-    opts = {}
-  },
-  -----------------------------------------------------------
   -- Mini-Extra
   -----------------------------------------------------------
   {
@@ -59,10 +50,6 @@ return {
         add = "S",
         delete = 'ds',
         replace = 'cs',
-        find = "",
-        find_left = "",
-        highlight = "",
-        update_n_lines = "",
       },
     },
   },
@@ -105,6 +92,14 @@ return {
           return MiniTabline.default_format(buf_id, label) .. suffix
         end,
       })
+      vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { bg = '#181616', fg = '#8a9a7b', bold = true, italic = true })
+      vim.api.nvim_set_hl(0, 'MiniTablineVisible', { bg = '#181616', fg = '#8a9a7b', bold = true, italic = true })
+      vim.api.nvim_set_hl(0, 'MiniTablineHidden', { bg = '#181616', fg = '#727169', bold = true, italic = true })
+      vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { bg = '#181616', fg = '#8a9a7b', bold = true, italic = true })
+      vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { bg = '#181616', fg = '#8a9a7b', italic = true })
+      vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { bg = '#181616', fg = '#727169', italic = true })
+      vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { bg = '#181616', fg = '#8a9a7b' })
+      vim.api.nvim_set_hl(0, 'MiniTablineFill', { bg = '#181616', fg = '#8a9a7b' })
     end
   },
   -----------------------------------------------------------

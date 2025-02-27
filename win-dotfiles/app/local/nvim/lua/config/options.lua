@@ -45,8 +45,6 @@ vim.opt.iskeyword:append("-,_")
 -- Neovim UI
 -----------------------------------------------------------
 vim.opt.modeline      = false
-vim.opt.number        = true
-vim.opt.numberwidth   = 5
 vim.opt.splitright    = true
 vim.opt.splitbelow    = true
 vim.opt.termguicolors = true
