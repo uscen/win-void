@@ -12,8 +12,6 @@ program = "nu"
 
 [window]
 decorations = "None"
-opacity = 0.99
-
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }

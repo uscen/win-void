@@ -476,6 +476,6 @@ vim.api.nvim_set_hl(0, 'MiniFilesBorderModified', { fg = gui08, bg = gui00, bold
 -- Mini Pick
 vim.api.nvim_set_hl(0, 'MiniPickNormal', { link = "MiniFilesNormal" })
 vim.api.nvim_set_hl(0, 'MiniPickBorder', { link = "MiniFilesBorder" })
-vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = gui08, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = gui0B, bg = gui00, bold = true, italic = true })
 
 -- vim: filetype=lua

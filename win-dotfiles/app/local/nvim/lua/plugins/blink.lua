@@ -54,7 +54,8 @@ return {
       list = {
         max_items = 10,
         selection = {
-          preselect = true
+          preselect = true,
+          auto_insert = true,
         }
       },
       accept = {
