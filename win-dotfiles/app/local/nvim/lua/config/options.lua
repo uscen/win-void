@@ -67,5 +67,5 @@ vim.opt.expandtab     = true
 vim.opt.hidden        = true
 vim.opt.history       = 100
 vim.opt.lazyredraw    = true
-vim.opt.synmaxcol     = 240
-vim.opt.updatetime    = 300
+vim.opt.synmaxcol     = 200
+vim.opt.updatetime    = 250
