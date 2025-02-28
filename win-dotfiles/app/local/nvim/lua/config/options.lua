@@ -10,7 +10,7 @@ vim.g.mapleader = " "
 -- General
 -----------------------------------------------------------
 vim.schedule(function()
-  vim.opt.clipboard = "unnamed,unnamedplus"
+  vim.opt.clipboard = 'unnamedplus'
 end)
 vim.opt.completeopt   = { "menu", "menuone", "preview" }
 vim.opt.compatible    = false
@@ -18,9 +18,6 @@ vim.opt.swapfile      = false
 vim.opt.writebackup   = false
 vim.opt.backup        = false
 vim.opt.undofile      = true
-vim.opt.undolevels    = 100
-vim.opt.timeoutlen    = 300
-vim.opt.ttimeoutlen   = 10
 -----------------------------------------------------------
 -- Shell
 -----------------------------------------------------------
@@ -53,7 +50,7 @@ vim.opt.modeline      = false
 vim.opt.showmode      = false
 vim.opt.ruler         = false
 vim.wo.signcolumn     = "no"
-vim.o.fillchars       = 'eob: '
+vim.o.fillchars       = "eob: "
 --------------------------------------------------------
 -- Tabs, indent:
 -----------------------------------------------------------
@@ -69,3 +66,4 @@ vim.opt.history       = 100
 vim.opt.lazyredraw    = true
 vim.opt.synmaxcol     = 200
 vim.opt.updatetime    = 250
+vim.opt.timeoutlen    = 300
