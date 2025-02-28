@@ -3,7 +3,7 @@
 -----------------------------------------------------------
 return {
   "saghen/blink.cmp",
-  event = { "LspAttach" },
+  event = { 'InsertEnter', 'CmdlineEnter' },
   version = "*",
   opts = {
     cmdline = {
