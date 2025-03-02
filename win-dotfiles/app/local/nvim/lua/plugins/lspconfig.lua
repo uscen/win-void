@@ -29,7 +29,7 @@ return {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss" },
     })
     -- Tsserver
-    lspconfig.ts_ls.setup({
+    lspconfig.vtsls.setup({
       capabilities = capabilities,
     })
     -- Prisma

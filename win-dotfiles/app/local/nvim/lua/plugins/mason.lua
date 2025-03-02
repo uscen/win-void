@@ -36,7 +36,7 @@ return {
         { "css-lsp" },
         { "tailwindcss-language-server" },
         { "emmet-language-server" },
-        { "typescript-language-server" },
+        { "vtsls" },
         { "lua-language-server" },
         { "prisma-language-server" },
         { "prettier" },

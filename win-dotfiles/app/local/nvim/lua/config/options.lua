@@ -18,6 +18,7 @@ vim.opt.swapfile      = false
 vim.opt.writebackup   = false
 vim.opt.backup        = false
 vim.opt.undofile      = true
+vim.opt.shada         = { "'10", "<0", "s10", "h" }
 -----------------------------------------------------------
 -- Shell
 -----------------------------------------------------------
