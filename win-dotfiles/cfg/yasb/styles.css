@@ -49,6 +49,9 @@
 .apps-widget {
   padding: 0 4px 0 2px;
 }
+.apps-widget .widget-container .label {
+  color: var(--blue);
+}
 .apps-widget .widget-container,
 .komorebi-workspaces .widget-container {
   background-color: var(--crust);
@@ -171,11 +174,11 @@
   margin: 1px 2px 0 0;
 }
 .volume-widget .icon {
-  color: var(--yellow);
+  color: var(--blue);
   margin: 1px 2px 0 0;
 }
 .brightness-widget .widget-container .icon {
-  color: var(--blue);
+  color: var(--lavender);
   margin: 1px 2px 0 0;
 }
 .weather-widget,
@@ -188,7 +191,7 @@
 .weather-widget .icon {
   font-size: 18px;
   margin: 0 2px 1px 0;
-  color: var(--yellow);
+  color: var(--sky);
 }
 .cpu-widget .icon,
 .memory-widget .icon {
