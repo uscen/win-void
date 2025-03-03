@@ -14,8 +14,8 @@
   "border_style": "Square",
   "border_colours": {
     "monocle": "#c8c093",
-    "single": "#8a9a7b",
-    "stack": "#c4746e",
+    "single": "#957FB8",
+    "stack": "#C34043",
     "unfocused": "#32302f"
   },
   "animation": {
