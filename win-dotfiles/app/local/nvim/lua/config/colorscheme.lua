@@ -3,31 +3,31 @@
 -----------------------------------------------------------
 -- Base16 colors.
 local gui00   = "#181616"
-local gui01   = "#252c2d"
-local gui02   = "#373c3d"
-local gui03   = "#555e5f"
-local gui04   = "#818f80"
-local gui05   = "#c7c7a5"
-local gui06   = "#e3e3c8"
-local gui07   = "#CED3DC"
-local gui08   = "#BC8F7D"
-local gui09   = "#CCAC7D"
-local gui0A   = "#E2BF8F"
-local gui0B   = "#96B088"
-local gui0C   = "#7E9AAB"
-local gui0D   = "#839C98"
-local gui0E   = "#94B1C4"
-local gui0F   = "#A68CAA"
+local gui01   = "#16161D"
+local gui02   = "#223249"
+local gui03   = "#54546D"
+local gui04   = "#727169"
+local gui05   = "#DCD7BA"
+local gui06   = "#C8C093"
+local gui07   = "#717C7C"
+local gui08   = "#C34043"
+local gui09   = "#FFA066"
+local gui0A   = "#C0A36E"
+local gui0B   = "#76946A"
+local gui0C   = "#6A9589"
+local gui0D   = "#7E9CD8"
+local gui0E   = "#957FB8"
+local gui0F   = "#D27E99"
 
 -- Base24 colors.
-local gui10   = "#171e1f"
-local gui11   = "#171e1f"
-local gui12   = "#BC8F7D"
-local gui13   = "#E2BF8F"
-local gui14   = "#96B088"
-local gui15   = "#7E9AAB"
-local gui16   = "#839C98"
-local gui17   = "#94B1C4"
+local gui10   = "#1F1F28"
+local gui11   = "#1F1F28"
+local gui12   = "#C34043"
+local gui13   = "#C0A36E"
+local gui14   = "#76946A"
+local gui15   = "#6A9589"
+local gui16   = "#7E9CD8"
+local gui17   = "#957FB8"
 
 -- Base16 colors.
 local cterm00 = 0
@@ -61,7 +61,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "darkmoss"
+vim.g.colors_name = "kanagawa"
 
 -- Vim editor colors
 vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })
@@ -95,8 +95,8 @@ vim.api.nvim_set_hl(0, 'Cursor', { fg = gui00, bg = gui05, ctermfg = cterm00, ct
 vim.api.nvim_set_hl(0, 'NonText', { fg = gui03, ctermfg = cterm03 })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = gui03, bg = gui00, ctermfg = cterm03, ctermbg = cterm01 })
 vim.api.nvim_set_hl(0, 'SignColumn', { fg = gui03, bg = gui01, ctermfg = cterm03, ctermbg = cterm01 })
-vim.api.nvim_set_hl(0, 'StatusLine', { fg = gui04, bg = gui00, ctermfg = cterm04, ctermbg = cterm02 })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = gui03, bg = gui00, ctermfg = cterm03, ctermbg = cterm01 })
+vim.api.nvim_set_hl(0, 'StatusLine', { fg = gui04, bg = gui02, ctermfg = cterm04, ctermbg = cterm02 })
+vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = gui03, bg = gui01, ctermfg = cterm03, ctermbg = cterm01 })
 vim.api.nvim_set_hl(0, 'VertSplit', { fg = gui02, bg = gui02, ctermfg = cterm02, ctermbg = cterm02 })
 vim.api.nvim_set_hl(0, 'ColorColumn', { bg = gui01, ctermbg = cterm01 })
 vim.api.nvim_set_hl(0, 'CursorColumn', { bg = gui01, ctermbg = cterm01 })
@@ -118,7 +118,6 @@ vim.api.nvim_set_hl(0, 'Constant', { fg = gui09, ctermfg = cterm09 })
 vim.api.nvim_set_hl(0, 'Define', { fg = gui0E, ctermfg = cterm0E })
 vim.api.nvim_set_hl(0, 'Delimiter', { fg = gui0F, ctermfg = cterm0F })
 vim.api.nvim_set_hl(0, 'Float', { fg = gui09, ctermfg = cterm09 })
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = gui04, ctermfg = cterm09 })
 vim.api.nvim_set_hl(0, 'Function', { fg = gui0D, ctermfg = cterm0D })
 vim.api.nvim_set_hl(0, 'Identifier', { fg = gui08, ctermfg = cterm08 })
 vim.api.nvim_set_hl(0, 'Include', { fg = gui0D, ctermfg = cterm0D })
@@ -459,23 +458,21 @@ vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'NonText' })
 vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { link = 'Visual' })
 
 -- Mini Tabline
-vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = gui0E, bg = gui00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, 'MiniTablineVisible', { fg = gui0E, bg = gui00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, 'MiniTablineHidden', { fg = gui03, bg = gui00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'MiniTablineCurrent' })
-vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'MiniTablineCurrent' })
-vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'MiniTablineHidden' })
-vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { link = 'MiniTablineCurrent' })
-vim.api.nvim_set_hl(0, 'MiniTablineFill', { link = 'MiniTablineCurrent' })
-
--- Mini Files
-vim.api.nvim_set_hl(0, 'MiniFilesNormal', { fg = gui0E, bg = gui00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, 'MiniFilesBorder', { fg = gui04, bg = gui00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, 'MiniFilesBorderModified', { fg = gui08, bg = gui00, bold = true, italic = true })
-
--- Mini Pick
-vim.api.nvim_set_hl(0, 'MiniPickNormal', { link = "MiniFilesNormal" })
-vim.api.nvim_set_hl(0, 'MiniPickBorder', { link = "MiniFilesBorder" })
-vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = gui0B, bg = gui00, bold = true, italic = true })
-
--- vim: filetype=lua
+-- vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = gui0C, bg = gui00, bold = true, italic = true })
+-- vim.api.nvim_set_hl(0, 'MiniTablineVisible', { fg = gui0C, bg = gui00, bold = true, italic = true })
+-- vim.api.nvim_set_hl(0, 'MiniTablineHidden', { fg = gui03, bg = gui00, bold = true, italic = true })
+-- vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'MiniTablineCurrent' })
+-- vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'MiniTablineCurrent' })
+-- vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'MiniTablineHidden' })
+-- vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { link = 'MiniTablineCurrent' })
+-- vim.api.nvim_set_hl(0, 'MiniTablineFill', { link = 'MiniTablineCurrent' })
+--
+-- -- Mini Files
+-- vim.api.nvim_set_hl(0, 'MiniFilesNormal', { fg = gui05, bg = gui00, bold = true, italic = true })
+-- vim.api.nvim_set_hl(0, 'MiniFilesBorder', { fg = gui04, bg = gui00, bold = true, italic = true })
+-- vim.api.nvim_set_hl(0, 'MiniFilesBorderModified', { fg = gui08, bg = gui00, bold = true, italic = true })
+--
+-- -- Mini Pick
+-- vim.api.nvim_set_hl(0, 'MiniPickNormal', { link = "MiniFilesNormal" })
+-- vim.api.nvim_set_hl(0, 'MiniPickBorder', { link = "MiniFilesBorder" })
+-- vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = gui0B, bg = gui00, bold = true, italic = true })
