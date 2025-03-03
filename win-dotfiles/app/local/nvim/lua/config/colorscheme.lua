@@ -1,6 +1,8 @@
 -----------------------------------------------------------
 -- Colorscheme:
 -----------------------------------------------------------
+-- base16-nvim (https://github.com/wincent/base16-nvim)
+-- by Greg Hurrell (https://github.com/wincent)
 -- Base16 colors.
 local gui00   = "#181616"
 local gui01   = "#16161D"
@@ -458,21 +460,23 @@ vim.api.nvim_set_hl(0, 'LspInlayHint', { link = 'NonText' })
 vim.api.nvim_set_hl(0, 'LspSignatureActiveParameter', { link = 'Visual' })
 
 -- Mini Tabline
--- vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = gui0C, bg = gui00, bold = true, italic = true })
--- vim.api.nvim_set_hl(0, 'MiniTablineVisible', { fg = gui0C, bg = gui00, bold = true, italic = true })
--- vim.api.nvim_set_hl(0, 'MiniTablineHidden', { fg = gui03, bg = gui00, bold = true, italic = true })
--- vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'MiniTablineCurrent' })
--- vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'MiniTablineCurrent' })
--- vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'MiniTablineHidden' })
--- vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { link = 'MiniTablineCurrent' })
--- vim.api.nvim_set_hl(0, 'MiniTablineFill', { link = 'MiniTablineCurrent' })
---
--- -- Mini Files
--- vim.api.nvim_set_hl(0, 'MiniFilesNormal', { fg = gui05, bg = gui00, bold = true, italic = true })
--- vim.api.nvim_set_hl(0, 'MiniFilesBorder', { fg = gui04, bg = gui00, bold = true, italic = true })
--- vim.api.nvim_set_hl(0, 'MiniFilesBorderModified', { fg = gui08, bg = gui00, bold = true, italic = true })
---
--- -- Mini Pick
--- vim.api.nvim_set_hl(0, 'MiniPickNormal', { link = "MiniFilesNormal" })
--- vim.api.nvim_set_hl(0, 'MiniPickBorder', { link = "MiniFilesBorder" })
--- vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = gui0B, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniTablineCurrent', { fg = gui0E, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniTablineVisible', { fg = gui0E, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniTablineHidden', { fg = gui03, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniTablineModifiedCurrent', { link = 'MiniTablineCurrent' })
+vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { link = 'MiniTablineCurrent' })
+vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { link = 'MiniTablineHidden' })
+vim.api.nvim_set_hl(0, 'MiniTablineTabpagesSection', { link = 'MiniTablineCurrent' })
+vim.api.nvim_set_hl(0, 'MiniTablineFill', { link = 'MiniTablineCurrent' })
+
+-- Mini Files
+vim.api.nvim_set_hl(0, 'MiniFilesBorder', { fg = gui0E, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniFilesBorderModified', { fg = gui08, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniFilesNormal', { fg = gui06, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniFilesTitle', { fg = gui0E, bg = gui00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'MiniFilesTitleFocused', { link = "MiniFilesTitle" })
+
+-- Mini Pick
+vim.api.nvim_set_hl(0, 'MiniPickNormal', { link = "MiniFilesNormal" })
+vim.api.nvim_set_hl(0, 'MiniPickBorder', { link = "MiniFilesBorder" })
+vim.api.nvim_set_hl(0, 'MiniPickMatchRanges', { fg = gui0E, bg = gui00, bold = true, italic = true })
