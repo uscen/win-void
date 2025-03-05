@@ -62,10 +62,21 @@ later(function()
 	require("mini.pairs").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Completion                     │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+	require("mini.completion").setup({})
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-	require("mini.tabline").setup()
+	require("mini.tabline").setup({
+		format = function(buf_id, label)
+			local suffix = vim.bo[buf_id].modified and "● " or ""
+			return MiniTabline.default_format(buf_id, label) .. suffix
+		end,
+	})
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Surround                       │
@@ -76,17 +87,6 @@ later(function()
 			add = "S",
 			delete = "ds",
 			replace = "cs",
-		},
-	})
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Completion                     │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-	require("mini.completion").setup({
-		window = {
-			info = { border = "solid" },
-			signature = { border = "solid" },
 		},
 	})
 end)
@@ -199,8 +199,8 @@ later(function()
 	local lspconfig = require("lspconfig")
 	lspconfig.html.setup({})
 	lspconfig.cssls.setup({})
-	lspconfig.vtsls.setup({})
 	lspconfig.tailwindcss.setup({})
+	lspconfig.vtsls.setup({})
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Formatter                      ║
@@ -243,7 +243,7 @@ now(function()
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
 	end)
-	vim.opt.completeopt = { "menu", "menuone", "preview" }
+	vim.opt.completeopt = "menuone,noinsert,noselect"
 	vim.opt.compatible = false
 	vim.opt.swapfile = false
 	vim.opt.writebackup = false
@@ -262,8 +262,9 @@ now(function()
 	vim.opt.showmatch = true
 	vim.opt.laststatus = 0
 	vim.opt.cmdheight = 0
-	vim.opt.pumblend = 0
-	vim.opt.pumheight = 8
+	vim.opt.pumblend = 10
+	vim.opt.pumheight = 10
+	vim.opt.pumwidth = 40
 	vim.opt.wrap = false
 	vim.opt.modeline = false
 	vim.opt.showmode = false
@@ -309,33 +310,64 @@ later(function()
 	vim.keymap.set("n", "<C-s>", ":up<CR>")
 	vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
 	vim.keymap.set("n", "<leader>qq", ":qa<CR>")
+	vim.keymap.set("n", "<leader>wq", ":close<CR>")
 	vim.keymap.set("n", "<ESC>", ":nohl<CR>")
-	-- Move lines up and down in visual mode
-	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+	-- Move around splits using Ctrl + {h,j,k,l}
+	vim.keymap.set("n", "<C-h>", "<C-w>h")
+	vim.keymap.set("n", "<C-j>", "<C-w>j")
+	vim.keymap.set("n", "<C-k>", "<C-w>k")
+	vim.keymap.set("n", "<C-l>", "<C-w>l")
 	-- Bufferline Keys
 	vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 	vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 	vim.keymap.set("n", "<leader>bd", ":bd<CR>")
 	vim.keymap.set("n", "<leader>bb", ":%bd<CR><C-O>:bd#<CR>")
+	-- Move lines up and down in visual mode
+	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 	-- Move inside completion list with <TAB>
-	vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-	vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+	vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+	vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
+	vim.keymap.set(
+		"i",
+		"<Tab>",
+		[[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]],
+		{ expr = true }
+	)
 	-- Mini Pick
-	vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
-	vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
-	vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>", { desc = "Pick Recent Files" })
-	vim.keymap.set("n", "<leader>ft", "<CMD>Pick grep_live<CR>", { desc = "Pick Text From Files" })
-	vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>", { desc = "Picker Explorer" })
-	vim.keymap.set("n", "<leader>fg", "<CMD>Pick git_files<CR>", { desc = "Pick Project Files" })
-	vim.keymap.set("n", "<leader>fc", "<CMD>Pick git_commits<CR>", { desc = "Pick Git Commits" })
-	vim.keymap.set("n", "<leader>fo", "<CMD>Pick options<CR>", { desc = "Pick Neovim Options" })
-	vim.keymap.set("n", "<leader>fp", "<CMD>Pick registers<CR>", { desc = "Pick Neovim Registers" })
-	vim.keymap.set("n", "gr", "<Cmd>Pick lsp scope='references'<CR>", { desc = "[G]oto [R]eferences" })
-	vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>", { desc = "[G]oto [D]definition" })
-	vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>", { desc = "[G]oto [D]eclaration" })
-	-- Mini Pick
+	vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
+	vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
+	vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>")
+	vim.keymap.set("n", "<leader>ft", "<CMD>Pick grep_live<CR>")
+	vim.keymap.set("n", "<leader>fe", "<CMD>Pick explorer<CR>")
+	vim.keymap.set("n", "<leader>fg", "<CMD>Pick git_files<CR>")
+	vim.keymap.set("n", "<leader>fc", "<CMD>Pick git_commits<CR>")
+	vim.keymap.set("n", "<leader>fo", "<CMD>Pick options<CR>")
+	vim.keymap.set("n", "<leader>fp", "<CMD>Pick registers<CR>")
+	vim.keymap.set("n", "gr", "<Cmd>Pick lsp scope='references'<CR>")
+	vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>")
+	vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>")
+	-- Mini Diff
 	vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
 	-- Mini Files
-	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Files Manager" })
+	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Highlight groups                    │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+	-- Pmenu:
+	vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1d2021", fg = "#d4be98" })
+	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#89b482", fg = "#141617" })
+	vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#1d2021" })
+	vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#282828" })
+	-- Tabline:
+	vim.api.nvim_set_hl(0, "MiniTablineCurrent", { fg = "#89b482", bg = "#141617", bold = true, italic = true })
+	vim.api.nvim_set_hl(0, "MiniTablineHidden", { fg = "#928374", bg = "#141617", bold = true, italic = true })
+	vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "MiniTablineCurrent" })
+	vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "MiniTablineCurrent" })
+	vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { link = "MiniTablineCurrent" })
+	vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { link = "MiniTablineHidden" })
+	vim.api.nvim_set_hl(0, "MiniTablineTabpagesSection", { link = "MiniTablineCurrent" })
+	vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "MiniTablineCurrent" })
 end)
