@@ -252,6 +252,7 @@ now(function()
 	vim.opt.swapfile = false
 	vim.opt.writebackup = false
 	vim.opt.backup = false
+  vim.opt.spell = false
 	vim.opt.undofile = true
 	vim.opt.shada = { "'10", "<0", "s10", "h" }
 	-- UI
@@ -274,12 +275,16 @@ now(function()
 	vim.opt.showmode = false
 	vim.opt.ruler = false
 	vim.wo.signcolumn = "no"
-	vim.o.fillchars = "eob: "
+	vim.opt.statuscolumn  = ""
+	vim.opt.fillchars = "eob: "
 	-- Tabs
 	vim.opt.tabstop = 2
 	vim.opt.softtabstop = 2
 	vim.opt.shiftwidth = 2
 	vim.opt.expandtab = true
+  vim.opt.autoindent = false
+  vim.opt.smartindent = false
+  vim.opt.indentexpr = ''
 	-- Memory
 	vim.opt.hidden = true
 	vim.opt.history = 100
