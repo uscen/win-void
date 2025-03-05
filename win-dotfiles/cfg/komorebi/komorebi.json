@@ -12,11 +12,15 @@
   "border_offset": -1,
   "border_implementation": "Komorebi",
   "border_style": "Square",
-  "border_colours": {
-    "monocle": "#c8c093",
-    "single": "#957FB8",
-    "stack": "#C34043",
-    "unfocused": "#32302f"
+  "theme": {
+    "palette": "Base16",
+    "name": "GruvboxMaterialDarkMedium",
+    "accent": "Base0D",
+    "single_border": "Base0C",
+    "unfocused_border": "Base02",
+    "floating_border": "Base0C",
+    "stack_border": "Base0D",
+    "monocle_border": "Base03"
   },
   "animation": {
     "enabled": false,
