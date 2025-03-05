@@ -357,7 +357,7 @@ end)
 later(function()
 	-- Pmenu:
 	vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1d2021", fg = "#d4be98" })
-	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#89b482", fg = "#141617" })
+	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282828", fg = "#ebdbb2" })
 	vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#1d2021" })
 	vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#282828" })
 	-- Tabline:
