@@ -2,10 +2,18 @@
 # List Packages:      		                        #
 # ================================================#
 $packages=@(
+    # PACKAGE MANAGER:                                #
+    # ================================================#
     "bun",
     "yarn",
     "pnpm"
-    # "firebase-tools",
+    # LANGUGE SERVER PORTOCOL:                        #
+    # ================================================#
+    "vscode-langservers-extracted",
+    "@tailwindcss/language-server",
+    "@vtsls/language-server",
+    # LINTING:                                        #
+    # ================================================#
     # "eslint",
     # "eslint-config-airbnb",
     # "eslint-config-google",
@@ -16,6 +24,9 @@ $packages=@(
     # "eslint-plugin-promise",
     # "eslint-plugin-react",
     # "eslint-plugin-react-hooks",
+    # TOOLS:                                          #
+    # ================================================#
+    # "firebase-tools",
 )
 $extensions=@(
     "vscodevim.vim"
