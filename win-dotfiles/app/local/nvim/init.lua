@@ -28,7 +28,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
 	require("mini.icons").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -134,7 +134,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Files                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
 	require("mini.files").setup({
 		mappings = {
 			close = "q",
@@ -287,6 +287,45 @@ now(function()
 	vim.opt.synmaxcol = 200
 	vim.opt.updatetime = 250
 	vim.opt.timeoutlen = 300
+  -- Disable builtin plugins
+  local disabled_built_ins = {
+    "osc52",
+    "parser",
+    "health",
+    "man",
+    "tohtml",
+    "shadafile",
+    "spellfile",
+    "editorconfig",
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "matchit",
+    "tar",
+    "tarPlugin",
+    "rrhelper",
+    "spellfile_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "tutor",
+    "rplugin",
+    "synmenu",
+    "optwin",
+    "compiler",
+    "bugreport",
+    "ftplugin",
+  }
+  for _, plugin in pairs(disabled_built_ins) do
+    vim.g["loaded_" .. plugin] = 1
+  end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
@@ -334,25 +373,7 @@ later(function()
 	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Neovim autocmds                     │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-	-- Highlight on yank
-	vim.api.nvim_create_autocmd("TextYankPost", {
-		callback = function()
-			vim.highlight.on_yank({ higroup = "CurSearch", timeout = 200 })
-		end,
-	})
-	-- Don't Comment New Line
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "*",
-		callback = function()
-			vim.opt_local.formatoptions:remove({ "r", "o" })
-		end,
-	})
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Highlight groups                    │
+--          │                 Highlight groups                        │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
 	-- Pmenu:
