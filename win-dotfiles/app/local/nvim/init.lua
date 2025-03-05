@@ -240,7 +240,7 @@ now(function()
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
 	end)
-	vim.opt.completeopt = "menuone,noinsert,noselect"
+  vim.opt.completeopt = { "menu", "menuone", "noselect" }
 	vim.opt.compatible = false
 	vim.opt.swapfile = false
 	vim.opt.writebackup = false
@@ -305,6 +305,7 @@ now(function()
     "netrwSettings",
     "netrwFileHandlers",
     "matchit",
+    "matchparen",
     "tar",
     "tarPlugin",
     "rrhelper",
