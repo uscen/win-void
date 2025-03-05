@@ -2,10 +2,10 @@
   --red: #ea6962;
   --maroon: #ffa066;
   --yellow: #d8a657;
-  --sky: #a9b665;
+  --sky: #d8a657;
   --sapphire: #7daea3;
   --blue: #89b482;
-  --lavender: #d3869b;
+  --lavender: #a9b665;
   --text: #d4be98;
   --subtext1: #c8c093;
   --subtext0: #c8c093;
@@ -24,6 +24,7 @@
   font-family: "JetBrainsMono NFP";
   margin: 0;
   padding: 0;
+  color: var(--sky);
 }
 .yasb-bar {
   padding: 0;
@@ -45,6 +46,7 @@
 .clock-widget {
   border-top-left-radius: 14px;
   border-bottom-left-radius: 14px;
+  color: var(--sky);
 }
 .apps-widget {
   padding: 0 4px 0 2px;

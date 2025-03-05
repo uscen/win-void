@@ -84,9 +84,6 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
 	require("mini.completion").setup({
-		mappings = {
-			go_in = "<RET>",
-		},
 		window = {
 			info = { border = "solid" },
 			signature = { border = "solid" },
@@ -188,19 +185,22 @@ later(function()
 	vim.ui.select = MiniPick.ui_select
 end)
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                          Lspconfig                      ║
---          ╚═════════════════════════════════════════════════════════╝
-later(function()
-	add("neovim/nvim-lspconfig")
-	local lspconfig = require("lspconfig")
-	lspconfig.vtsls.setup({})
-end)
---          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Mason                          ║
 --          ╚═════════════════════════════════════════════════════════╝
 later(function()
 	add("williamboman/mason.nvim")
 	require("mason").setup()
+end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                          Lspconfig                      ║
+--          ╚═════════════════════════════════════════════════════════╝
+later(function()
+	add("neovim/nvim-lspconfig")
+	local lspconfig = require("lspconfig")
+	lspconfig.html.setup({})
+	lspconfig.cssls.setup({})
+	lspconfig.vtsls.setup({})
+	lspconfig.tailwindcss.setup({})
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Formatter                      ║
@@ -308,18 +308,19 @@ later(function()
 	-- Basic Keymaps:
 	vim.keymap.set("n", "<C-s>", ":up<CR>")
 	vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
-	vim.keymap.set("n", "<C-c>", "ciw")
-	vim.keymap.set("n", "U", "<C-r>")
 	vim.keymap.set("n", "<leader>qq", ":qa<CR>")
 	vim.keymap.set("n", "<ESC>", ":nohl<CR>")
 	-- Move lines up and down in visual mode
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+	-- Bufferline Keys
+	vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+	vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+	vim.keymap.set("n", "<leader>bd", ":bd<CR>")
+	vim.keymap.set("n", "<leader>bb", ":%bd<CR><C-O>:bd#<CR>")
 	-- Move inside completion list with <TAB>
 	vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
 	vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-	vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-	vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 	-- Mini Pick
 	vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>", { desc = "Pick Buffers" })
 	vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>", { desc = "Pick Files" })
@@ -333,6 +334,8 @@ later(function()
 	vim.keymap.set("n", "gr", "<Cmd>Pick lsp scope='references'<CR>", { desc = "[G]oto [R]eferences" })
 	vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>", { desc = "[G]oto [D]definition" })
 	vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>", { desc = "[G]oto [D]eclaration" })
+	-- Mini Pick
+	vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
 	-- Mini Files
 	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>", { desc = "Files Manager" })
 end)
