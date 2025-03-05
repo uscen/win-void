@@ -12,21 +12,7 @@ $packages=@(
     "vscode-langservers-extracted",
     "@tailwindcss/language-server",
     "@vtsls/language-server",
-    # LINTING:                                        #
-    # ================================================#
-    # "eslint",
-    # "eslint-config-airbnb",
-    # "eslint-config-google",
-    # "eslint-config-standard",
-    # "eslint-plugin-import",
-    # "eslint-plugin-jsx-a11y",
-    # "eslint-plugin-node",
-    # "eslint-plugin-promise",
-    # "eslint-plugin-react",
-    # "eslint-plugin-react-hooks",
-    # TOOLS:                                          #
-    # ================================================#
-    # "firebase-tools",
+    "prettier"
 )
 $extensions=@(
     "vscodevim.vim"
