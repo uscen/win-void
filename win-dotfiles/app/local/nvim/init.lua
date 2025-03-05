@@ -65,7 +65,7 @@ end)
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-	require("mini.completion").setup({})
+	require("mini.completion").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -185,6 +185,12 @@ later(function()
 	vim.ui.select = MiniPick.ui_select
 end)
 --          ╔═════════════════════════════════════════════════════════╗
+--          ║                          EMMET                          ║
+--          ╚═════════════════════════════════════════════════════════╝
+later(function()
+	add("mattn/emmet-vim")
+end)
+--          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Mason                          ║
 --          ╚═════════════════════════════════════════════════════════╝
 later(function()
@@ -238,7 +244,28 @@ end)
 --          │                     Neovim Options                      │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+	-- Global
 	vim.g.mapleader = " "
+	vim.g.user_emmet_leader_key = "<S-tab>"
+	vim.g.user_emmet_expandabbr_key = "<S-tab>"
+	vim.g.user_emmet_settings = { expandabbr_key = "<S-tab>" }
+	vim.g.user_emmet_settings = {
+		languages = {
+			typescriptreact = {
+				extends = "jsx",
+			},
+			javascriptreact = {
+				extends = "jsx",
+			},
+		},
+		-- Enable Emmet for TSX/JSX
+		typescript = {
+			extends = "jsx",
+		},
+		javascript = {
+			extends = "jsx",
+		},
+	}
 	-- General
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
