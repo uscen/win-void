@@ -1,5 +1,5 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                          MVIM                           ║
+--          ║                          Plugins                        ║
 --          ╚═════════════════════════════════════════════════════════╝
 --          ┌─────────────────────────────────────────────────────────┐
 --                Clone 'mini.nvim manually in a way that it gets
@@ -65,7 +65,7 @@ end)
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-	require("mini.completion").setup()
+   require("mini.completion").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -184,22 +184,16 @@ later(function()
 	})
 	vim.ui.select = MiniPick.ui_select
 end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                          EMMET                          ║
---          ╚═════════════════════════════════════════════════════════╝
-later(function()
-	add("mattn/emmet-vim")
-end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                          Mason                          ║
---          ╚═════════════════════════════════════════════════════════╝
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mason                               │
+--          ╰─────────────────────────────────────────────────────────╯
 later(function()
 	add("williamboman/mason.nvim")
 	require("mason").setup()
 end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                          Lspconfig                      ║
---          ╚═════════════════════════════════════════════════════════╝
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Lspconfig                           │
+--          ╰─────────────────────────────────────────────────────────╯
 later(function()
 	add("neovim/nvim-lspconfig")
 	local lspconfig = require("lspconfig")
@@ -208,9 +202,9 @@ later(function()
 	lspconfig.tailwindcss.setup({})
 	lspconfig.vtsls.setup({})
 end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                          Formatter                      ║
---          ╚═════════════════════════════════════════════════════════╝
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     formatter                           │
+--          ╰─────────────────────────────────────────────────────────╯
 later(function()
 	add("stevearc/conform.nvim")
 	local conform = require("conform")
@@ -240,32 +234,15 @@ later(function()
 		end,
 	})
 end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                          NVIM                           ║
+--          ╚═════════════════════════════════════════════════════════╝
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim Options                      │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
 	-- Global
 	vim.g.mapleader = " "
-	vim.g.user_emmet_leader_key = "<S-tab>"
-	vim.g.user_emmet_expandabbr_key = "<S-tab>"
-	vim.g.user_emmet_settings = { expandabbr_key = "<S-tab>" }
-	vim.g.user_emmet_settings = {
-		languages = {
-			typescriptreact = {
-				extends = "jsx",
-			},
-			javascriptreact = {
-				extends = "jsx",
-			},
-		},
-		-- Enable Emmet for TSX/JSX
-		typescript = {
-			extends = "jsx",
-		},
-		javascript = {
-			extends = "jsx",
-		},
-	}
 	-- General
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
@@ -312,24 +289,6 @@ now(function()
 	vim.opt.timeoutlen = 300
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Neovim autocmds                     │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-	-- Highlight on yank
-	vim.api.nvim_create_autocmd("TextYankPost", {
-		callback = function()
-			vim.highlight.on_yank({ higroup = "CurSearch", timeout = 200 })
-		end,
-	})
-	-- Don't Comment New Line
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "*",
-		callback = function()
-			vim.opt_local.formatoptions:remove({ "r", "o" })
-		end,
-	})
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -355,12 +314,7 @@ later(function()
 	-- Move inside completion list with <TAB>
 	vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
 	vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
-	vim.keymap.set(
-		"i",
-		"<Tab>",
-		[[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]],
-		{ expr = true }
-	)
+	vim.keymap.set( "i", "<Tab>",[[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]], { expr = true })
 	-- Mini Pick
 	vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
 	vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
@@ -378,6 +332,24 @@ later(function()
 	vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
 	-- Mini Files
 	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Neovim autocmds                     │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+	-- Highlight on yank
+	vim.api.nvim_create_autocmd("TextYankPost", {
+		callback = function()
+			vim.highlight.on_yank({ higroup = "CurSearch", timeout = 200 })
+		end,
+	})
+	-- Don't Comment New Line
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "*",
+		callback = function()
+			vim.opt_local.formatoptions:remove({ "r", "o" })
+		end,
+	})
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Highlight groups                    │
