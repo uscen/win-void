@@ -70,7 +70,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
 	require("mini.tabline").setup({
 		format = function(buf_id, label)
 			local suffix = vim.bo[buf_id].modified and "● " or ""
@@ -234,13 +234,16 @@ end)
 --          │                     Neovim Options                      │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-	-- Global
+  -- Diagnostics ================================================================
+  vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
+	-- Global:  =================================================================
 	vim.g.mapleader = " "
-	-- General
+	-- General: ================================================================
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
 	end)
-  vim.opt.completeopt = { "menu", "menuone", "noselect" }
+  vim.o.completeopt = 'menuone,noselect' 
+  vim.o.complete     = '.,b,kspell' 
 	vim.opt.compatible = false
 	vim.opt.swapfile = false
 	vim.opt.writebackup = false
@@ -248,14 +251,11 @@ now(function()
   vim.opt.spell = false
 	vim.opt.undofile = true
 	vim.opt.shada = { "'10", "<0", "s10", "h" }
-	-- UI
+	-- UI: ====================================================================
 	vim.opt.number = true
 	vim.opt.splitright = true
 	vim.opt.splitbelow = true
 	vim.opt.termguicolors = true
-	vim.opt.ignorecase = true
-	vim.opt.smartcase = true
-	vim.opt.hlsearch = true
 	vim.opt.confirm = true
 	vim.opt.showmatch = true
 	vim.opt.laststatus = 0
@@ -270,15 +270,19 @@ now(function()
 	vim.wo.signcolumn = "no"
 	vim.opt.statuscolumn  = ""
 	vim.opt.fillchars = "eob: "
-	-- Tabs
-	vim.opt.tabstop = 2
-	vim.opt.softtabstop = 2
-	vim.opt.shiftwidth = 2
-	vim.opt.expandtab = true
-  vim.opt.autoindent = false
-  vim.opt.smartindent = false
-  vim.opt.indentexpr = ''
-	-- Memory
+	-- Editing:  ================================================================
+  vim.o.autoindent    = true     
+  vim.o.expandtab     = true     
+  vim.o.formatoptions = 'rqnl1j' 
+  vim.o.ignorecase    = true     
+  vim.o.incsearch     = true     
+  vim.o.infercase     = true     
+  vim.o.shiftwidth    = 2        
+  vim.o.smartcase     = true     
+  vim.o.smartindent   = true     
+  vim.o.tabstop       = 2        
+  vim.o.virtualedit   = 'block'  
+	-- Memory: ================================================================
 	vim.opt.hidden = true
 	vim.opt.history = 100
 	vim.opt.lazyredraw = true
@@ -330,30 +334,30 @@ end)
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-	-- Basic Keymaps:
+	-- Basic Keymaps: ================================================================
 	vim.keymap.set("n", "<C-s>", ":up<CR>")
 	vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
 	vim.keymap.set("n", "<leader>qq", ":qa<CR>")
 	vim.keymap.set("n", "<leader>wq", ":close<CR>")
 	vim.keymap.set("n", "<ESC>", ":nohl<CR>")
-	-- Move around splits using Ctrl + {h,j,k,l}
+	-- Move around: ==================================================================
 	vim.keymap.set("n", "<C-h>", "<C-w>h")
 	vim.keymap.set("n", "<C-j>", "<C-w>j")
 	vim.keymap.set("n", "<C-k>", "<C-w>k")
 	vim.keymap.set("n", "<C-l>", "<C-w>l")
-	-- Bufferline Keys
+	-- Bufferline Keys: ==============================================================
 	vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 	vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 	vim.keymap.set("n", "<leader>bd", ":bd<CR>")
 	vim.keymap.set("n", "<leader>bb", ":%bd<CR><C-O>:bd#<CR>")
-	-- Move lines up and down in visual mode
+	-- Move lines up and down in visual mode =========================================
 	vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 	vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-	-- Move inside completion list with <TAB>
+	-- Move inside completion list with <TAB> ========================================
 	vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
 	vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
 	vim.keymap.set("i", "<Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]], { expr = true })
-	-- Mini Pick
+	-- Mini Pick =====================================================================
 	vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
 	vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
 	vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>")
@@ -366,21 +370,21 @@ later(function()
 	vim.keymap.set("n", "gr", "<Cmd>Pick lsp scope='references'<CR>")
 	vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>")
 	vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>")
-	-- Mini Diff
+	-- Mini Diff: ==================================================================
 	vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
-	-- Mini Files
+	-- Mini Files: =================================================================
 	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                 Highlight groups                        │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-	-- Pmenu:
+	-- Pmenu: =====================================================================
 	vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1d2021", fg = "#d4be98" })
 	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282828", fg = "#ebdbb2" })
 	vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#1d2021" })
 	vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#282828" })
-	-- Tabline:
+	-- Tabline :===================================================================
 	vim.api.nvim_set_hl(0, "MiniTablineCurrent", { fg = "#89b482", bg = "#141617", bold = true, italic = true })
 	vim.api.nvim_set_hl(0, "MiniTablineHidden", { fg = "#928374", bg = "#141617", bold = true, italic = true })
 	vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "MiniTablineCurrent" })
