@@ -21,6 +21,7 @@
   "workbench.tips.enabled": false,
   "window.restoreFullscreen": true,
   "window.newWindowDimensions": "maximized",
+  "window.menuBarVisibility": "toggle",
   "update.mode": "none",
   "extensions.ignoreRecommendations": true,
   // Minimal
@@ -67,7 +68,7 @@
     "editor.defaultFormatter": "Prisma.prisma"
   },
   // VIM Keybidings
-  "editor.scrollBeyondLastLine": false, // recommended by neovim
+  "editor.scrollBeyondLastLine": false,
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.neovimUseConfigFile": true,
@@ -77,9 +78,7 @@
   "vim.nohlsearch": true,
   "vim.easymotion": false,
   "vim.sneak": false,
-  "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
   "vim.relativenumber": false,
-  "vim.easymotionMarkerooundColor": "#020202",
   "vim.highlightedyank.enable": true,
   "vim.useSystemClipboard": true,
   "vim.insertModeKeyBindings": [
@@ -98,7 +97,7 @@
       "commands": ["workbench.action.nextEditor"]
     },
     {
-      "before": ["<leader>", "b", "o"],
+      "before": ["<leader>", "b", "b"],
       "commands": ["workbench.action.closeOtherEditors"]
     },
     {
@@ -118,17 +117,8 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["s"],
-      "after": ["leader", "leader", "2", "s"]
-    },
-    {
       "before": ["<Esc>"],
       "commands": [":nohl"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
     },
     {
       "before": ["<leader>", "e"],
