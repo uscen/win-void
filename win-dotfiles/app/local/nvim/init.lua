@@ -84,7 +84,7 @@ end)
 later(function()
 	require("mini.surround").setup({
 		mappings = {
-			add = "S",
+			add = "ys",
 			delete = "ds",
 			replace = "cs",
 		},

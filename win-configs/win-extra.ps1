@@ -15,16 +15,15 @@ $packages=@(
     "prettier"
 )
 $extensions=@(
+    "jdinhlife.gruvbox"
     "vscodevim.vim"
     "dsznajder.es7-react-js-snippets"
-    "bradlc.vscode-tailwindcss",
+    "bradlc.vscode-tailwindcss"
     "formulahendry.auto-close-tag"
     "formulahendry.auto-rename-tag"
-    "glenn2223.live-sass"
     "esbenp.prettier-vscode"
     "yzhang.markdown-all-in-one"
     "prisma.prisma"
-    "pkief.material-icon-theme"
 )
 
 # ================================================#
