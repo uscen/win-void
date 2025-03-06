@@ -81,6 +81,9 @@
   "vim.relativenumber": false,
   "vim.highlightedyank.enable": true,
   "vim.useSystemClipboard": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
