@@ -3,6 +3,11 @@
   // General Keybidings
   //
   {
+    "key": "tab",
+    "command": "workbench.action.acceptSelectedQuickOpenItem",
+    "when": "inQuickOpen"
+  },
+  {
     "key": "shift+u",
     "command": "extension.vim_ctrl+r",
     "when": "textInputFocus && vim.mode != 'Insert'"
