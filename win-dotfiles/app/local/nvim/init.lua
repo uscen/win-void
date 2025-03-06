@@ -376,9 +376,38 @@ later(function()
 	vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Neovim automads                     │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  -- Don't Comment New Line ========================================================
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+      vim.opt_local.formatoptions:remove({ 'r', 'o' })
+    end,
+  })
+  -- Highlight Yank ================================================================
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+  })
+  -- highlight (Jsx,Tsx) ===========================================================
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "javascriptreact", "typescriptreact" },
+    callback = function()
+      vim.cmd [[
+        syntax match jsxTag "</\?[A-Z]\k*\>"
+        highlight link jsxTag htmlTagName
+      ]]
+      vim.api.nvim_set_hl(0, 'htmlTagName', { fg = '#e78a4e'})
+    end
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                 Highlight groups                        │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
 	-- Pmenu: =====================================================================
 	vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1d2021", fg = "#ebdbb2" })
 	vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#a9b665", fg = "#141617" })
