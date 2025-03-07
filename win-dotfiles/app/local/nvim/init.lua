@@ -242,8 +242,8 @@ now(function()
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
 	end)
-  vim.o.completeopt = 'menuone,noselect' 
-  vim.o.complete     = '.,b,kspell' 
+  vim.opt.completeopt = 'menuone,noselect' 
+  vim.opt.complete = '.,b,kspell' 
 	vim.opt.compatible = false
 	vim.opt.swapfile = false
 	vim.opt.writebackup = false
@@ -271,17 +271,17 @@ now(function()
 	vim.opt.statuscolumn  = ""
 	vim.opt.fillchars = "eob: "
 	-- Editing:  ================================================================
-  vim.o.autoindent    = true     
-  vim.o.expandtab     = true     
+  vim.opt.autoindent = true     
+  vim.opt.expandtab = true     
+  vim.opt.ignorecase = true     
+  vim.opt.incsearch = true     
+  vim.opt.infercase = true     
+  vim.opt.shiftwidth = 2        
+  vim.opt.smartcase = true     
+  vim.opt.smartindent = true     
+  vim.opt.tabstop = 2        
+  vim.opt.virtualedit = 'block'  
   vim.o.formatoptions = 'rqnl1j' 
-  vim.o.ignorecase    = true     
-  vim.o.incsearch     = true     
-  vim.o.infercase     = true     
-  vim.o.shiftwidth    = 2        
-  vim.o.smartcase     = true     
-  vim.o.smartindent   = true     
-  vim.o.tabstop       = 2        
-  vim.o.virtualedit   = 'block'  
 	-- Memory: ================================================================
 	vim.opt.hidden = true
 	vim.opt.history = 100
@@ -380,14 +380,15 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Don't Comment New Line ========================================================
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
+  vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('CustomSettings', {}),
     callback = function()
-      vim.opt_local.formatoptions:remove({ 'r', 'o' })
+      vim.cmd('setlocal formatoptions-=c formatoptions-=o')
     end,
   })
   -- Highlight Yank ================================================================
   vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
       vim.highlight.on_yank()
     end,
@@ -431,24 +432,24 @@ end)
 --          ║                          Neovide                        ║
 --          ╚═════════════════════════════════════════════════════════╝
 now(function()
-    if vim.g.neovide then
-        vim.g.neovide_scroll_animation_length = 0.1
-        vim.opt.mousescroll = "ver:10,hor:6"
-        vim.opt.linespace = -1
-        vim.g.neovide_theme = "dark"
+ if vim.g.neovide then
+   vim.g.neovide_scroll_animation_length = 0.1
+   vim.opt.mousescroll = "ver:10,hor:6"
+   vim.opt.linespace = -1
+   vim.g.neovide_theme = "dark"
 
-        vim.g.neovide_floating_shadow = true
-        vim.g.neovide_floating_z_height = 2
-        vim.g.neovide_light_angle_degrees = 45
-        vim.g.neovide_light_radius = 15
+   vim.g.neovide_floating_shadow = true
+   vim.g.neovide_floating_z_height = 2
+   vim.g.neovide_light_angle_degrees = 45
+   vim.g.neovide_light_radius = 15
 
-        vim.g.neovide_floating_blur_amount_x = 10.0
-        vim.g.neovide_floating_blur_amount_y = 10.0
+   vim.g.neovide_floating_blur_amount_x = 10.0
+   vim.g.neovide_floating_blur_amount_y = 10.0
 
-        vim.o.guicursor =
-        "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
-        vim.g.neovide_cursor_animation_length = 0.03
-        vim.g.neovide_cursor_smooth_blink = true
-        vim.g.neovide_cursor_vfx_mode = "pixiedust"
-    end
+   vim.o.guicursor =
+   "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
+   vim.g.neovide_cursor_animation_length = 0.03
+   vim.g.neovide_cursor_smooth_blink = true
+   vim.g.neovide_cursor_vfx_mode = "pixiedust"
+ end
 end)
