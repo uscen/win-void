@@ -51,7 +51,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
   require("mini.icons").setup()
   MiniDeps.later(MiniIcons.tweak_lsp_kind("append"))
 end)
@@ -88,7 +88,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.tabline").setup({
     format = function(buf_id, label)
       local suffix = vim.bo[buf_id].modified and "● " or ""
@@ -127,7 +127,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Base16                         │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.base16").setup({
     palette = {
       base00 = "#141617",
@@ -152,7 +152,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Files                          │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.files").setup({
     mappings = {
       close = "q",
@@ -384,7 +384,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim automads                     │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   -- Don't Comment New Line ========================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('CustomSettings', {}),
@@ -414,7 +414,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                 Highlight groups                        │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   -- Pmenu: =====================================================================
   vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1d2021", fg = "#ebdbb2" })
   vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#a9b665", fg = "#141617" })
@@ -437,7 +437,7 @@ end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Neovide                        ║
 --          ╚═════════════════════════════════════════════════════════╝
-now(function()
+later(function()
   if vim.g.neovide then
     vim.g.neovide_scroll_animation_length = 0.1
     vim.opt.mousescroll = "ver:10,hor:6"
