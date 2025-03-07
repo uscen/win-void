@@ -26,27 +26,14 @@ end
 require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Lspconfig                           │
+--          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   local lsp_configs = { "html", "css", "json", "typescript", "lua" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Completion                     │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
   require("mini.completion").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Snippets                       │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-  require("mini.snippets").setup({
-    snippets = { require("mini.snippets").gen_loader.from_lang() }
-  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
