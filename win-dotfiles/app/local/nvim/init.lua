@@ -26,6 +26,15 @@ end
 require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Lspconfig                           │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  local lsp_configs = {"html", "css", "json", "typescript", "lua" }
+  for _, config in ipairs(lsp_configs) do
+    vim.lsp.enable(config)
+  end
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
@@ -64,8 +73,16 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
    require("mini.completion").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Snippets                       │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  require("mini.snippets").setup({
+    snippets = { require("mini.snippets").gen_loader.from_lang() }
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -185,17 +202,6 @@ later(function()
 	vim.ui.select = MiniPick.ui_select
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Lspconfig                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-	add("neovim/nvim-lspconfig")
-	local lspconfig = require("lspconfig")
-	lspconfig.html.setup({})
-	lspconfig.cssls.setup({})
-	lspconfig.tailwindcss.setup({})
-	lspconfig.vtsls.setup({})
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     formatter                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -242,7 +248,7 @@ now(function()
 	vim.schedule(function()
 		vim.opt.clipboard = "unnamedplus"
 	end)
-  vim.opt.completeopt = 'menuone,noselect' 
+  vim.opt.completeopt = 'menuone,noselect,fuzzy' 
   vim.opt.complete = '.,b,kspell' 
 	vim.opt.compatible = false
 	vim.opt.swapfile = false
