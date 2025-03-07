@@ -13,6 +13,7 @@
     "other": "off"
   },
   "terminal.integrated.fontSize": 12,
+  "terminal.integrated.defaultHeight": 10,
   "debug.console.fontSize": 12,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "workbench.colorTheme": "Gruvbox Dark Hard",
