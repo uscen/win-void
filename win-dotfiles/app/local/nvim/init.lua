@@ -51,9 +51,9 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.icons").setup()
-  MiniDeps.later(MiniIcons.tweak_lsp_kind("append"))
+  MiniIcons.tweak_lsp_kind()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
