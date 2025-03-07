@@ -35,10 +35,25 @@ now(function()
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Icons                          │
+--          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+  require("mini.completion").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Snippets                       │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  require("mini.snippets").setup({
+    snippets = { require("mini.snippets").gen_loader.from_lang() }
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Icons                          │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
   require("mini.icons").setup()
+  MiniDeps.later(MiniIcons.tweak_lsp_kind("append"))
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
@@ -69,20 +84,6 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.pairs").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Completion                     │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-  require("mini.completion").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Snippets                       │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-  require("mini.snippets").setup({
-    snippets = { require("mini.snippets").gen_loader.from_lang() }
-  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -249,7 +250,6 @@ now(function()
     vim.opt.clipboard = "unnamedplus"
   end)
   vim.opt.completeopt      = 'menuone,noselect,fuzzy'
-  vim.opt.complete         = '.,b,kspell'
   vim.opt.compatible       = false
   vim.opt.swapfile         = false
   vim.opt.writebackup      = false
@@ -268,7 +268,6 @@ now(function()
   vim.opt.cmdheight        = 0
   vim.opt.pumblend         = 10
   vim.opt.pumheight        = 10
-  vim.opt.pumwidth         = 40
   vim.opt.wrap             = false
   vim.opt.modeline         = false
   vim.opt.showmode         = false
