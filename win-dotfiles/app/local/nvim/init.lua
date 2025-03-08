@@ -29,7 +29,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  local lsp_configs = { "html", "css", "json", "typescript", "lua" }
+  local lsp_configs = { "html", "css", "json", "tailwind", "typescript", "lua" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
@@ -114,7 +114,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Base16                         │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
   require("mini.base16").setup({
     palette = {
       base00 = "#141617",
