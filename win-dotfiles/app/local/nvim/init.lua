@@ -29,7 +29,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  local lsp_configs = { "html", "css", "json", "tailwind", "typescript", "lua" }
+  local lsp_configs = { "biome", "html", "css", "json", "tailwind", "typescript", "lua" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
@@ -38,7 +38,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
   require("mini.icons").setup()
   MiniIcons.tweak_lsp_kind()
 end)
@@ -115,7 +115,7 @@ end)
 --          │                     Mini.Base16                         │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  require("mini.base16").setup({
+  require('mini.base16').setup({
     palette = {
       base00 = "#141617",
       base01 = "#141617",
@@ -134,12 +134,17 @@ now(function()
       base0E = "#a9b665",
       base0F = "#bd6f3e",
     },
+    use_cterm = true,
+    plugins = {
+      default = false,
+      ['echasnovski/mini.nvim'] = true,
+    },
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Files                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
   require("mini.files").setup({
     mappings = {
       close = "q",
@@ -188,38 +193,6 @@ later(function()
     },
   })
   vim.ui.select = MiniPick.ui_select
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     formatter                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  add("stevearc/conform.nvim")
-  local conform = require("conform")
-  conform.setup({
-    formatters_by_ft = {
-      javascript = { "prettier" },
-      typescript = { "prettier" },
-      javascriptreact = { "prettier" },
-      typescriptreact = { "prettier" },
-      svelte = { "prettier" },
-      css = { "prettier" },
-      scss = { "prettier" },
-      html = { "prettier" },
-      json = { "prettier" },
-      yaml = { "prettier" },
-      markdown = { "prettier" },
-      graphql = { "prettier" },
-      liquid = { "prettier" },
-      lua = { "stylua" },
-      python = { "isort" },
-    },
-    format_on_save = function(bufnr)
-      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-        return
-      end
-      return { timeout_ms = 500, lsp_format = "fallback" }
-    end,
-  })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          NVIM                           ║
@@ -323,6 +296,48 @@ now(function()
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Neovim automads                     │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  -- Format on save ================================================================
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+    callback = function(args)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format { async = false, id = args.data.client_id }
+        end,
+      })
+    end
+  })
+  -- Don't Comment New Line ========================================================
+  vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('CustomSettings', {}),
+    callback = function()
+      vim.cmd('setlocal formatoptions-=c formatoptions-=o')
+    end,
+  })
+  -- Highlight Yank ================================================================
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("highlight_yank", {}),
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+  })
+  -- highlight (Jsx,Tsx) ===========================================================
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "javascriptreact", "typescriptreact" },
+    callback = function()
+      vim.cmd [[
+        syntax match jsxTag "</\?[A-Z]\k*\>"
+        highlight link jsxTag htmlTagName
+      ]]
+      vim.api.nvim_set_hl(0, 'htmlTagName', { fg = '#e78a4e' })
+    end
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -367,36 +382,6 @@ later(function()
   vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
   -- Mini Files: =================================================================
   vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Neovim automads                     │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  -- Don't Comment New Line ========================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('CustomSettings', {}),
-    callback = function()
-      vim.cmd('setlocal formatoptions-=c formatoptions-=o')
-    end,
-  })
-  -- Highlight Yank ================================================================
-  vim.api.nvim_create_autocmd("TextYankPost", {
-    group = vim.api.nvim_create_augroup("highlight_yank", {}),
-    callback = function()
-      vim.highlight.on_yank()
-    end,
-  })
-  -- highlight (Jsx,Tsx) ===========================================================
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "javascriptreact", "typescriptreact" },
-    callback = function()
-      vim.cmd [[
-        syntax match jsxTag "</\?[A-Z]\k*\>"
-        highlight link jsxTag htmlTagName
-      ]]
-      vim.api.nvim_set_hl(0, 'htmlTagName', { fg = '#e78a4e' })
-    end
-  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                 Highlight groups                        │
