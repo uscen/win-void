@@ -36,9 +36,34 @@ now(function()
   require("mini.completion").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Snippets                       │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  local webPatterns = { 'web/**/*.json', '**/*.json' }
+  local lang_patterns = {
+    html = webPatterns,
+    javascript = webPatterns,
+    typescript = webPatterns,
+    javascriptreact = webPatterns,
+    typescriptreact = webPatterns,
+  }
+  require("mini.snippets").setup({
+    mappings = {
+      expand = '<C-e>',
+      jump_next = '<C-l>',
+      jump_prev = '<C-h>',
+      stop = '<Esc>',
+    },
+    snippets = {
+      require("mini.snippets").gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
+      require("mini.snippets").gen_loader.from_lang({ lang_patterns = lang_patterns })
+    }
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.icons").setup()
   MiniIcons.tweak_lsp_kind()
 end)
@@ -120,7 +145,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Base16                         │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.base16").setup({
     palette = {
       base00 = "#141617",
@@ -305,18 +330,6 @@ end)
 --          │                     Neovim automads                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- Format on save ================================================================
-  vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    callback = function(args)
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format { async = false, id = args.data.client_id }
-        end,
-      })
-    end
-  })
   -- Don't Comment New Line ========================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('CustomSettings', {}),
@@ -331,15 +344,16 @@ now(function()
       vim.highlight.on_yank()
     end,
   })
-  -- highlight (Jsx,Tsx) ===========================================================
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "javascriptreact", "typescriptreact" },
-    callback = function()
-      vim.cmd [[
-        syntax match jsxTag "</\?[A-Z]\k*\>"
-        highlight link jsxTag htmlTagName
-      ]]
-      vim.api.nvim_set_hl(0, 'htmlTagName', { fg = '#e78a4e' })
+  -- Format on save ================================================================
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+    callback = function(args)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format { async = false, id = args.data.client_id }
+        end,
+      })
     end
   })
 end)
