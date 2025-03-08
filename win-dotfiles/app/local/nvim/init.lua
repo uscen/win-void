@@ -43,6 +43,12 @@ now(function()
   MiniIcons.tweak_lsp_kind()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Notify                         │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.notify').setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -115,7 +121,7 @@ end)
 --          │                     Mini.Base16                         │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  require('mini.base16').setup({
+  require("mini.base16").setup({
     palette = {
       base00 = "#141617",
       base01 = "#141617",
@@ -342,7 +348,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   -- Basic Keymaps: ================================================================
-  vim.keymap.set("n", "<C-s>", ":up<CR>")
+  vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")

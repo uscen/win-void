@@ -1,5 +1,5 @@
 return {
-  cmd = { 'biome', 'lsp-proxy' },
+  cmd = { 'biome' },
   filetypes = {
     'astro',
     'css',
