@@ -376,7 +376,7 @@ later(function()
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
   vim.keymap.set("n", "<leader>bd", ":bd<CR>")
-  vim.keymap.set("n", "<leader>bb", ":%bd<CR><C-O>:bd#<CR>")
+  vim.keymap.set("n", "<leader>bb", ":silent %bd<CR><C-O>:bd#<CR>")
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
