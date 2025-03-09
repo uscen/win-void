@@ -52,17 +52,6 @@ if palette then
   })
   vim.g.colors_name = "minigruv"
 end
--- Typescriptreact: =============================================================
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascriptreact", "typescriptreact" },
-  callback = function()
-    vim.cmd [[
-      syntax match jsxTag "</\?[A-Z]\k*\>"
-      highlight link jsxTag htmlTagName
-    ]]
-    vim.api.nvim_set_hl(0, 'htmlTagName', { fg = palette.base0B })
-  end
-})
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base06 })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base07 })
