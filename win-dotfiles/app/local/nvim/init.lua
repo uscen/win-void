@@ -65,13 +65,14 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.icons").setup()
-  MiniIcons.tweak_lsp_kind()
+  require("mini.icons").tweak_lsp_kind()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Notify                         │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.notify').setup()
+  vim.notify = require('mini.notify').make_notify()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
