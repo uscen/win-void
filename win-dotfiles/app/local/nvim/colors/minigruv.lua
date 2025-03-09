@@ -24,8 +24,19 @@ require("mini.base16").setup({
   },
 })
 -- Pmenu: =====================================================================
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascriptreact", "typescriptreact" },
+  callback = function()
+    vim.cmd [[
+      syntax match jsxTag "</\?[A-Z]\k*\>"
+      highlight link jsxTag htmlTagName
+    ]]
+    vim.api.nvim_set_hl(0, 'htmlTagName', { fg = '#a9b665' }) -- Red color example
+  end
+})
+-- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = "#141617", fg = "#ebdbb2" })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282828", fg = "#a9b665" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#282828", fg = "#fbf1c7" })
 vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#141617" })
 vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#141617" })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = "#a9b665" })
