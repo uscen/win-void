@@ -25,7 +25,7 @@ end
 if vim.o.background == "dark" then
   palette = {
     base00 = "#141617",
-    base01 = "#141617",
+    base01 = "#1b1b1b",
     base02 = "#282828",
     base03 = "#5a524c",
     base04 = "#bdae93",
@@ -36,7 +36,7 @@ if vim.o.background == "dark" then
     base09 = "#e78a4e",
     base0A = "#d8a657",
     base0B = "#a9b665",
-    base0C = "#89b482",
+    base0C = "#b0b842",
     base0D = "#89b482",
     base0E = "#a9b665",
     base0F = "#bd6f3e",
@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 -- Pmenu: =====================================================================
-vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base00, fg = palette.base06 })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base06 })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base07 })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "PmenuMatchSel", { fg = palette.base0C })
