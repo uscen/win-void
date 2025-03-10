@@ -391,7 +391,7 @@ later(function()
   vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>")
   -- Mini Git =====================================================================
-  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push --force -u origin main<cr>")
+  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push -u origin main<cr>")
   vim.keymap.set("n", "<leader>gP", "<cmd>:Git pull<cr>")
   vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<cr>")
   vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<cr>")
