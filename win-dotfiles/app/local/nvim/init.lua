@@ -391,13 +391,14 @@ later(function()
   vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>")
   -- Mini Git =====================================================================
-  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push<cr>")
+  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push --force -u origin main<cr>")
   vim.keymap.set("n", "<leader>gP", "<cmd>:Git pull<cr>")
   vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<cr>")
   vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<cr>")
   vim.keymap.set("n", "<leader>gC", "<Cmd>Git commit --amend<CR>")
   vim.keymap.set("n", "<leader>gd", "<Cmd>Git diff<CR>")
   vim.keymap.set("n", "<leader>gD", "<Cmd>Git diff -- %<CR>")
+  vim.keymap.set("n", "<leader>gl", [[<Cmd>Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order<CR>]])
   -- Mini Diff: ==================================================================
   vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
   -- Mini Files: =================================================================
