@@ -225,11 +225,18 @@ now(function()
   -- Diagnostics ================================================================
   vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
-  vim.g.mapleader = " "
+  vim.g.mapleader          = " "
+  -- Shell: =-================================================================
+  vim.opt.sh               = "nu"
+  vim.opt.shellslash       = true
+  vim.opt.shelltemp        = false
+  vim.opt.shellcmdflag     = "--stdin --no-newline -c"
+  vim.opt.shellredir       = "out+err> %s"
+  vim.opt.shellxescape     = ""
+  vim.opt.shellxquote      = ""
+  vim.opt.shellquote       = ""
   -- General: ================================================================
-  vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
-  end)
+  vim.opt.clipboard        = "unnamedplus"
   vim.opt.completeopt      = 'menuone,noselect,fuzzy'
   vim.opt.compatible       = false
   vim.opt.swapfile         = false
