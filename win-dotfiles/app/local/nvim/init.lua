@@ -391,22 +391,13 @@ later(function()
   vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>")
   -- Mini Git =====================================================================
-  vim.keymap.set("n", "<leader>gb",
-    function() require('mini.extra').pickers.git_commits({ path = vim.fn.expand('%:p') }) end,
-    { desc = 'Git Log this File' })
-  vim.keymap.set("n", "<leader>gl", function()
-    split_sensibly()
-    vim.cmd('terminal lazygit')
-  end, { desc = 'Lazygit' })
-  vim.keymap.set("n", "<leader>gp", "<cmd>:Git pull<cr>", { desc = 'Git Push' })
-  vim.keymap.set("n", "<leader>gs", "<cmd>:Git push<cr>", { desc = 'Git Pull' })
-  vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<cr>", { desc = 'Git Add All' })
-  vim.keymap.set("n", "<leader>gc", '<cmd>:Git commit -m "Autocommit from MVIM"<cr>',
-    { desc = 'Git Autocommit' })
-  vim.keymap.set("", "<leader>gh", function() require('mini.git').show_range_history() end,
-    { desc = 'Git Range History' })
-  vim.keymap.set("n", "<leader>gx", function() require('mini.git').show_at_cursor() end,
-    { desc = 'Git Context Cursor' })
+  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push<cr>")
+  vim.keymap.set("n", "<leader>gP", "<cmd>:Git pull<cr>")
+  vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<cr>")
+  vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<cr>")
+  vim.keymap.set("n", "<leader>gC", "<Cmd>Git commit --amend<CR>")
+  vim.keymap.set("n", "<leader>gd", "<Cmd>Git diff<CR>")
+  vim.keymap.set("n", "<leader>gD", "<Cmd>Git diff -- %<CR>")
   -- Mini Diff: ==================================================================
   vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
   -- Mini Files: =================================================================
