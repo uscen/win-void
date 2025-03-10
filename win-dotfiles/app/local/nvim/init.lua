@@ -88,13 +88,19 @@ later(function()
   require("mini.ai").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.SplitJoin                      │
+--          │                     Mini.diff                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.diff").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.diff                           │
+--          │                     Mini.Git                            │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.git").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.SplitJoin                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.splitjoin").setup()
@@ -384,6 +390,23 @@ later(function()
   vim.keymap.set("n", "gr", "<Cmd>Pick lsp scope='references'<CR>")
   vim.keymap.set("n", "gd", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='declaration'<CR>")
+  -- Mini Git =====================================================================
+  vim.keymap.set("n", "<leader>gb",
+    function() require('mini.extra').pickers.git_commits({ path = vim.fn.expand('%:p') }) end,
+    { desc = 'Git Log this File' })
+  vim.keymap.set("n", "<leader>gl", function()
+    split_sensibly()
+    vim.cmd('terminal lazygit')
+  end, { desc = 'Lazygit' })
+  vim.keymap.set("n", "<leader>gp", "<cmd>:Git pull<cr>", { desc = 'Git Push' })
+  vim.keymap.set("n", "<leader>gs", "<cmd>:Git push<cr>", { desc = 'Git Pull' })
+  vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<cr>", { desc = 'Git Add All' })
+  vim.keymap.set("n", "<leader>gc", '<cmd>:Git commit -m "Autocommit from MVIM"<cr>',
+    { desc = 'Git Autocommit' })
+  vim.keymap.set("", "<leader>gh", function() require('mini.git').show_range_history() end,
+    { desc = 'Git Range History' })
+  vim.keymap.set("n", "<leader>gx", function() require('mini.git').show_at_cursor() end,
+    { desc = 'Git Context Cursor' })
   -- Mini Diff: ==================================================================
   vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
   -- Mini Files: =================================================================
