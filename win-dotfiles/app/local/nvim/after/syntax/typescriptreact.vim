@@ -1,5 +1,5 @@
 """         ╔═════════════════════════════════════════════════════════╗
-"""         ║                   Highlight Jsx Tsx                     ║
+"""         ║  Extend syntax to include additional Jsx tags           ║
 """         ╚═════════════════════════════════════════════════════════╝
 if exists('b:current_syntax')
   let s:current_syntax=b:current_syntax
