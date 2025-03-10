@@ -33,7 +33,14 @@ now(function()
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
-  require("mini.completion").setup()
+  require("mini.completion").setup({
+    mappings = {
+      force_twostep = '<C-n>',
+      force_fallback = '<S-n>',
+      scroll_down = '<C-j>',
+      scroll_up = '<C-k>',
+    },
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
@@ -344,6 +351,7 @@ later(function()
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
+  vim.keymap.set('n', '<Space>', '<Nop>')
   -- Move around: ==================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
