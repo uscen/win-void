@@ -30,7 +30,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Language Servers (v0.11)
-  -- local lsp_configs = { "html", "css", "json", "tailwind", "typescript", "lua" }
+  -- local lsp_configs = { "html", "css", "json", "tailwind", "typescript" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
   -- end
@@ -54,7 +54,7 @@ now(function()
   lspconfig.html.setup({ capabilities = capabilities, })
   lspconfig.cssls.setup({ capabilities = capabilities, })
   lspconfig.ts_ls.setup({ capabilities = capabilities, })
-  lspconfig.tailwindcss.setup({ capabilities = capabilities})
+  lspconfig.tailwindcss.setup({ capabilities = capabilities })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
