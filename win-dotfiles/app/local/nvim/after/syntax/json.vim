@@ -1,3 +1,6 @@
+"""         ╔═════════════════════════════════════════════════════════╗
+"""         ║     Extend syntax to include additional vsnip snippet   ║
+"""         ╚═════════════════════════════════════════════════════════╝
 " vsnip snippet
 syn match jsonSnippetTabstop '\$\d\+' containedin=jsonString
 syn match jsonSnippetVariable '\$[A-Z_]\+' containedin=jsonString
