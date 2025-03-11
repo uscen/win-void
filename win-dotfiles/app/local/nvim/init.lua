@@ -36,7 +36,7 @@ now(function()
   require("mini.completion").setup({
     mappings = {
       force_twostep = '<C-n>',
-      force_fallback = '<S-n>',
+      force_fallback = '<C-S-n>',
       scroll_down = '<C-j>',
       scroll_up = '<C-k>',
     },
@@ -80,6 +80,20 @@ end)
 later(function()
   require('mini.notify').setup()
   vim.notify = require('mini.notify').make_notify()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Indentscope                    │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.indentscope").setup({
+    symbol = "│",
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.CursorWord                     │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.cursorword').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │

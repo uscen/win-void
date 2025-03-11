@@ -72,3 +72,8 @@ vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { link = "MiniTablineCurren
 vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { link = "MiniTablineHidden" })
 vim.api.nvim_set_hl(0, "MiniTablineTabpagesSection", { link = "MiniTablineCurrent" })
 vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "MiniTablineCurrent" })
+-- CursorWord =================================================================
+vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02 })
+vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "MiniCursorword" })
+-- Indentscope =================================================================
+vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0E })
