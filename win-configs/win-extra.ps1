@@ -12,8 +12,7 @@ $packages=@(
     "typescript",
     "typescript-language-server",
     "vscode-langservers-extracted",
-    "@tailwindcss/language-server",
-    "@biomejs/biome"
+    "@tailwindcss/language-server"
 )
 $extensions=@(
     "jdinhlife.gruvbox"

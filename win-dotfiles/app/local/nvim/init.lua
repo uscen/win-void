@@ -29,10 +29,11 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  local lsp_configs = { "biome", "html", "css", "json", "tailwind", "typescript", "lua" }
-  for _, config in ipairs(lsp_configs) do
-    vim.lsp.enable(config)
-  end
+  -- Language Servers (v0.11)
+  -- local lsp_configs = { "html", "css", "json", "tailwind", "typescript", "lua" }
+  -- for _, config in ipairs(lsp_configs) do
+  --   vim.lsp.enable(config)
+  -- end
   require("mini.completion").setup({
     mappings = {
       force_twostep = '<C-n>',
@@ -41,6 +42,19 @@ now(function()
       scroll_up = '<C-k>',
     },
   })
+end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║               LSP_Removed_After 0.11                    ║
+--          ╚═════════════════════════════════════════════════════════╝
+now(function()
+  add("neovim/nvim-lspconfig")
+  local lspconfig = require("lspconfig")
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  lspconfig.html.setup({ capabilities = capabilities, })
+  lspconfig.cssls.setup({ capabilities = capabilities, })
+  lspconfig.ts_ls.setup({ capabilities = capabilities, })
+  lspconfig.tailwindcss.setup({ capabilities = capabilities})
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
@@ -239,7 +253,7 @@ now(function()
   -- Diagnostics ================================================================
   vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
-  vim.g.mapleader          = " "
+      vim.g.mapleader          = " "
   -- Shell: =-================================================================
   vim.opt.sh               = "nu"
   vim.opt.shellslash       = true
@@ -250,8 +264,14 @@ now(function()
   vim.opt.shellxquote      = ""
   vim.opt.shellquote       = ""
   -- General: ================================================================
-  vim.opt.clipboard        = "unnamedplus"
-  vim.opt.completeopt      = 'menuone,noselect,fuzzy'
+  vim.o.complete           = '.,b,kspell' 
+  vim.o.completeopt = 'menuone,noselect' 
+  if vim.fn.has('nvim-0.11') == 1 then
+    vim.o.completeopt = 'menuone,noselect,fuzzy' 
+  end
+  vim.schedule(function()
+    vim.opt.clipboard = 'unnamedplus'
+  end)
   vim.opt.compatible       = false
   vim.opt.swapfile         = false
   vim.opt.writebackup      = false
