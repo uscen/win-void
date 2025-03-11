@@ -53,7 +53,7 @@ if palette then
   vim.g.colors_name = "minigruv"
 end
 -- Pmenu: =====================================================================
-vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base06 })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base04 })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base07 })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "PmenuMatchSel", { fg = palette.base0C })

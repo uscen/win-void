@@ -29,9 +29,6 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  --          ╔═════════════════════════════════════════════════════════╗
-  --          ║               LSP_Added_After 0.11                      ║
-  --          ╚═════════════════════════════════════════════════════════╝
   -- local lsp_configs = { "html", "css", "json", "tailwind", "typescript" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
@@ -44,19 +41,6 @@ now(function()
       scroll_up = '<C-k>',
     },
   })
-end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║               LSP_Removed_After 0.11                    ║
---          ╚═════════════════════════════════════════════════════════╝
-now(function()
-  add("neovim/nvim-lspconfig")
-  local lspconfig = require("lspconfig")
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  lspconfig.html.setup({ capabilities = capabilities, })
-  lspconfig.cssls.setup({ capabilities = capabilities, })
-  lspconfig.ts_ls.setup({ capabilities = capabilities, })
-  lspconfig.tailwindcss.setup({ capabilities = capabilities })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
@@ -290,7 +274,7 @@ now(function()
   -- General: ================================================================
   vim.opt.clipboard        = 'unnamedplus'
   vim.o.completeopt        = 'menuone,noselect'
-  vim.o.completeopt        = 'menuone,noselect,fuzzy'
+  -- vim.o.completeopt        = 'menuone,noselect,fuzzy'
   vim.o.complete           = '.,b,kspell'
   vim.opt.compatible       = false
   vim.opt.swapfile         = false
