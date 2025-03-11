@@ -6,7 +6,6 @@
 # ================================================#
 [System.Environment]::SetEnvironmentVariable('KOMOREBI_CONFIG_HOME',"$Env:USERPROFILE\.config\komorebi", 'User')
 komorebic enable-autostart --ahk
-yasbc enable-autostart
 # ================================================#
 # HOME:						                                #
 # ================================================#

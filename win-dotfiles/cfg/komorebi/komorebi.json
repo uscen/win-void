@@ -1,90 +1,84 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
-  "window_hiding_behaviour": "Cloak",
-  "mouse_follows_focus": false,
-  "default_workspace_padding": 0,
-  "default_container_padding": 0,
-  "transparency": false,
-  "transparency_alpha": 250,
-  "border": true,
-  "border_width": 3,
-  "border_offset": -1,
-  "border_implementation": "Komorebi",
-  "border_style": "Square",
-  "theme": {
-    "palette": "Base16",
-    "name": "GruvboxMaterialDarkMedium",
-    "accent": "Base0D",
-    "single_border": "Base0C",
-    "unfocused_border": "Base02",
-    "floating_border": "Base0C",
-    "stack_border": "Base0D",
-    "monocle_border": "Base03"
-  },
-  "animation": {
-    "enabled": false,
-    "duration": 300,
-    "style": "EaseOutBack",
-    "fps": 60
-  },
-  "stackbar": {
-    "height": 25,
-    "mode": "Never",
-    "tabs": {
-      "font_family": "JetBrainsMono NF",
-      "font_size": 18,
-      "width": 100,
-      "focused_text": "#689d6a",
-      "unfocused_text": "#b3b3b3",
-      "background": "#1d2021"
-    }
-  },
-  "global_work_area_offset": {
-    "top": 32,
-    "right": 0,
-    "bottom": 32,
-    "left": 0
-  },
-  "floating_applications": [
-    {
-      "kind": "Exe",
-      "id": "mpv.exe",
-      "matching_strategy": "Equals"
-    }
-  ],
-  "monitors": [
-    {
-      "workspaces": [
-        {
-          "name": "I",
-          "layout": "VerticalStack"
-        },
-        {
-          "name": "II",
-          "layout": "VerticalStack"
-        },
-        {
-          "name": "III",
-          "layout": "VerticalStack"
-        },
-        {
-          "name": "IV",
-          "layout": "VerticalStack"
-        },
-        {
-          "name": "V",
-          "layout": "VerticalStack"
-        },
-        {
-          "name": "VI",
-          "layout": "VerticalStack"
-        },
-        {
-          "name": "VII",
-          "layout": "VerticalStack"
+    "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.33/schema.json",
+    "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
+    "window_hiding_behaviour": "Cloak",
+    "mouse_follows_focus": false,
+    "default_workspace_padding": 0,
+    "default_container_padding": 0,
+    "transparency": false,
+    "transparency_alpha": 250,
+    "border": true,
+    "border_width": 3,
+    "border_offset": -1,
+    "border_implementation": "Komorebi",
+    "border_style": "Square",
+    "theme": {
+        "palette": "Base16",
+        "name": "GruvboxMaterialDarkMedium",
+        "accent": "Base0D",
+        "single_border": "Base0C",
+        "unfocused_border": "Base02",
+        "floating_border": "Base0C",
+        "stack_border": "Base0D",
+        "monocle_border": "Base03"
+    },
+    "animation": {
+        "enabled": false,
+        "duration": 300,
+        "style": "EaseOutBack",
+        "fps": 60
+    },
+    "stackbar": {
+        "height": 25,
+        "mode": "Never",
+        "tabs": {
+            "font_family": "JetBrainsMono NF",
+            "font_size": 18,
+            "width": 100,
+            "focused_text": "#689d6a",
+            "unfocused_text": "#b3b3b3",
+            "background": "#1d2021"
         }
-      ]
-    }
-  ]
+    },
+    "floating_applications": [
+        {
+            "kind": "Exe",
+            "id": "mpv.exe",
+            "matching_strategy": "Equals"
+        }
+    ],
+    "monitors": [
+        {
+            "workspaces": [
+                {
+                    "name": "I",
+                    "layout": "VerticalStack"
+                },
+                {
+                    "name": "II",
+                    "layout": "VerticalStack"
+                },
+                {
+                    "name": "III",
+                    "layout": "VerticalStack"
+                },
+                {
+                    "name": "IV",
+                    "layout": "VerticalStack"
+                },
+                {
+                    "name": "V",
+                    "layout": "VerticalStack"
+                },
+                {
+                    "name": "VI",
+                    "layout": "VerticalStack"
+                },
+                {
+                    "name": "VII",
+                    "layout": "VerticalStack"
+                }
+            ]
+        }
+    ]
 }

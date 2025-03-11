@@ -50,6 +50,8 @@ $uninstall = @(
     "Power Automate"
 )
 $scoopPackages = @(
+    "aria2",
+    "curl",
     "nu",
     "carapace-bin",
     "gsudo",
@@ -58,7 +60,6 @@ $scoopPackages = @(
     "fd",
     "pastel",
     "fzf",
-    "curl",
     "zoxide",
     "ripgrep",
     "neovim",
@@ -74,7 +75,7 @@ $scoopPackages = @(
     "delta",
     "ntop",
     "vscode",
-    "ungoogled-chromium",
+    "chromium",
     "eza",
     "freetube",
     "komorebi",
@@ -83,9 +84,8 @@ $scoopPackages = @(
     "gimp",
     "thunderbird",
     "sumatrapdf",
-    "OpenJS.NodeJS",
     "JetBrainsMono-NF-Mono",
-    "aria2",
+    "nodejs",
     "gcc",
     "autohotkey",
     "altsnap",
