@@ -29,7 +29,9 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- Language Servers (v0.11)
+  --          ╔═════════════════════════════════════════════════════════╗
+  --          ║               LSP_Added_After 0.11                      ║
+  --          ╚═════════════════════════════════════════════════════════╝
   -- local lsp_configs = { "html", "css", "json", "tailwind", "typescript" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
@@ -236,6 +238,28 @@ later(function()
     },
   })
   vim.ui.select = MiniPick.ui_select
+  function zoxide_pick()
+    local zoxide_output = vim.fn.systemlist('zoxide query -ls')
+    local directories = {}
+    for _, line in ipairs(zoxide_output) do
+      local path = line:match("%d+%.%d+%s+(.*)")
+      if path then
+        table.insert(directories, path)
+      end
+    end
+    MiniPick.start({
+      source = {
+        items = directories,
+        name = 'Zoxide Directories',
+        choose = function(item)
+          vim.fn.chdir(item)
+          vim.schedule(function()
+            require("mini.files").open(item)
+          end)
+        end,
+      },
+    })
+  end
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          NVIM                           ║
@@ -253,7 +277,7 @@ now(function()
   -- Diagnostics ================================================================
   vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
-      vim.g.mapleader          = " "
+  vim.g.mapleader          = " "
   -- Shell: =-================================================================
   vim.opt.sh               = "nu"
   vim.opt.shellslash       = true
@@ -264,12 +288,10 @@ now(function()
   vim.opt.shellxquote      = ""
   vim.opt.shellquote       = ""
   -- General: ================================================================
-  vim.schedule(function()
-    vim.opt.clipboard      = 'unnamedplus'
-  end)
-  vim.o.completeopt        = 'menuone,noselect' 
-  -- vim.o.completeopt        = 'menuone,noselect,fuzzy' 
-  vim.o.complete           = '.,b,kspell' 
+  vim.opt.clipboard        = 'unnamedplus'
+  vim.o.completeopt        = 'menuone,noselect'
+  vim.o.completeopt        = 'menuone,noselect,fuzzy'
+  vim.o.complete           = '.,b,kspell'
   vim.opt.compatible       = false
   vim.opt.swapfile         = false
   vim.opt.writebackup      = false
@@ -417,6 +439,7 @@ later(function()
   vim.keymap.set("i", "<Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]],
     { expr = true })
   -- Mini Pick =====================================================================
+  vim.keymap.set('n', '<leader>fd', zoxide_pick)
   vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
   vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
   vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>")
