@@ -1,5 +1,5 @@
 # ================================================#
-# Windows Packages:				                  #
+# Windows Packages:				                        #
 # ================================================#
 # Change Execution Policy:                        #
 # ================================================#
@@ -49,45 +49,42 @@ $uninstall = @(
     "Xbox Game Speech Window",
     "Power Automate"
 )
-$packages = @(
-    "nushell",
-    "rsteube.Carapace",
-    "gerardog.gsudo",
-    "Alacritty.Alacritty",
-    "sxyazi.yazi",
-    "sharkdp.fd",
-    "sharkdp.pastel",
-    "fzf",
-    "cURL.cURL",
-    "ajeetdsouza.zoxide",
-    "BurntSushi.ripgrep.MSVC",
-    "Neovim.Neovim",
-    "Neovide.Neovide",
-    "hpjansson.Chafa",
-    "jqlang.jq",
-    "Fastfetch-cli.Fastfetch",
-    "sharkdp.bat",
-    "charmbracelet.glow",
-    "dbrgn.tealdeer",
-    "Starship.Starship",
-    "JesseDuffield.lazygit",
-    "dandavison.delta",
-    "gsass1.NTop",
-    "Microsoft.VisualStudioCode",
-    "Hibbiki.Chromium",
-    "eza-community.eza",
-    "PrestonN.FreeTube",
-    "LGUG2Z.komorebi",
-    "AmN.yasb",
-    "DEVCOM.JetBrainsMonoNerdFont",
-    "OBSProject.OBSStudio",
-    "Meltytech.Shotcut",
-    "GIMP.GIMP",
-    "Mozilla.Thunderbird",
-    "SumatraPDF.SumatraPDF",
-    "OpenJS.NodeJS"
-)
 $scoopPackages = @(
+    "nu",
+    "carapace-bin",
+    "gsudo",
+    "alacritty",
+    "yazi",
+    "fd",
+    "pastel",
+    "fzf",
+    "curl",
+    "zoxide",
+    "ripgrep",
+    "neovim",
+    "neovide",
+    "chafa",
+    "jq",
+    "fastfetch",
+    "bat",
+    "glow",
+    "tealdeer",
+    "starship",
+    "lazygit",
+    "delta",
+    "ntop",
+    "vscode",
+    "ungoogled-chromium",
+    "eza",
+    "freetube",
+    "komorebi",
+    "obs-studio",
+    "shotcut",
+    "gimp",
+    "thunderbird",
+    "sumatrapdf",
+    "OpenJS.NodeJS",
+    "JetBrainsMono-NF-Mono",
     "aria2",
     "gcc",
     "autohotkey",
@@ -107,13 +104,6 @@ $scoopPackages = @(
 #     Write-Host "Remove $app..."
 #     winget uninstall $app --silent --accept-source-agreements
 # }
-# Install Winget Packages:	                      #
-# ================================================#
-foreach ($package in $packages) {
-    Write-Host "Installing $package..."
-    winget install $package --exact --silent --accept-source-agreements --accept-package-agreements
-}
-Write-Host "Installation of Winget packages is complete!"
 # Install Scoop Package Manager:	              #
 # ================================================#
 if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
@@ -121,6 +111,7 @@ if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
     Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 }
 scoop bucket add extras
+scoop bucket add nerd-fonts
 foreach ($package in $scoopPackages) {
     Write-Host "Installing $package..."
     scoop install $package
