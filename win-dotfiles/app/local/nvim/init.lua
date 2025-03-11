@@ -264,14 +264,12 @@ now(function()
   vim.opt.shellxquote      = ""
   vim.opt.shellquote       = ""
   -- General: ================================================================
-  vim.o.complete           = '.,b,kspell' 
-  vim.o.completeopt = 'menuone,noselect' 
-  if vim.fn.has('nvim-0.11') == 1 then
-    vim.o.completeopt = 'menuone,noselect,fuzzy' 
-  end
   vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
+    vim.opt.clipboard      = 'unnamedplus'
   end)
+  vim.o.completeopt        = 'menuone,noselect' 
+  -- vim.o.completeopt        = 'menuone,noselect,fuzzy' 
+  vim.o.complete           = '.,b,kspell' 
   vim.opt.compatible       = false
   vim.opt.swapfile         = false
   vim.opt.writebackup      = false
