@@ -46,9 +46,10 @@ end)
 --          │                     Mini.Snippets                       │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  local webPatterns = { 'web/*.json' }
+  local webHtmlPatterns = { 'web/*.json' }
+  local webHtmlPatterns = { 'web/*.json', 'html.json' }
   local lang_patterns = {
-    html = webPatterns,
+    html = webHtmlPatterns ,
     javascript = webPatterns,
     typescript = webPatterns,
     javascriptreact = webPatterns,
