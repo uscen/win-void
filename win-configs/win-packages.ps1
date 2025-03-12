@@ -84,7 +84,7 @@ $scoopPackages = @(
     "gimp",
     "thunderbird",
     "sumatrapdf",
-    "JetBrainsMono-NF-Mono",
+    "JetBrainsMono-NF",
     "nodejs",
     "gcc",
     "autohotkey",

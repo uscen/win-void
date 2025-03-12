@@ -47,7 +47,7 @@ Capslock::Esc
 !v:: Run("neovide.exe")
 !e:: Run("thunderbird.exe")
 !y:: Run('"C:\Users\' A_UserName '\scoop\apps\freetube\current\FreeTube.exe"')
-!^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\bin\code.cmd"')
+!^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\bin\code"')
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
 !n:: Run(EnvGet("PROGRAMFILES") '\Git\bin\bash.exe -c "yazi.exe ~"')
 ; ----------------------------------------------------------
