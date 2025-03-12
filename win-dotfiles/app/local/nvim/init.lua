@@ -476,3 +476,20 @@ later(function()
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
   end
 end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                          FileType                       ║
+--          ╚═════════════════════════════════════════════════════════╝
+later(function()
+  vim.filetype.add({
+    extension = {
+      ["http"] = "http",
+    },
+    filename = {
+      ["tsconfig.json"] = "jsonc",
+      [".env"] = "env",
+    },
+    pattern = {
+      [".env.*"] = "env",
+    },
+  })
+end)

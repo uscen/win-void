@@ -1,6 +1,6 @@
 {
   // General
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.tabSize": 2,

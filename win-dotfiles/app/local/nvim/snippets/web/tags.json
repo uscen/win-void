@@ -1,24 +1,4 @@
 {
-  "HTML Template": {
-    "prefix": "doc",
-    "body": [
-      "<!DOCTYPE html>",
-      "<html lang=\"en\">",
-      "<head>",
-      "  <meta charset=\"UTF-8\">",
-      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
-      "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
-      "  <title>${1:Document}</title>",
-      "  <link rel=\"stylesheet\" href=\"${2:styles.css}\">",
-      "</head>",
-      "<body>",
-      "  ${3:<!-- Content goes here -->}",
-      "  <script src=\"${4:script.js}\"></script>",
-      "</body>",
-      "</html>"
-    ],
-    "description": "Generate a basic HTML template"
-  },
   "div": {
     "prefix": "div",
     "body": "<div>${1}</div>"

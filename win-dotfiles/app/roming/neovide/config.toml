@@ -8,5 +8,5 @@ size = 9
 hinting = "full"
 edging = "antialias"
 [[font.normal]]
-family = "JetBrainsMono NF"
+family = "JetBrainsMono Nerd Font Mono"
 style = "W600"
