@@ -33,11 +33,12 @@ alias gl = g log --oneline --graph --all -10
 alias gp = g push -uf origin main
 alias lg = lazygit
 # winget Package Manager
-alias pu = powershell -c winget upgrade --all
-alias pi = powershell -c winget install
-alias pr = powershell -c winget uninstall
-alias pq = powershell -c winget search
-alias pl = winget list
+alias pu = scoop update --all 
+alias pi = scoop install
+alias pr = scoop uninstall
+alias pq = scoop search
+alias pl = scoop list
+alias pclean = scoop cleanup --cache --all
 # BUN Package Manager
 alias buna = bun add
 alias bunr = bun remove

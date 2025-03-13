@@ -492,6 +492,7 @@ later(function()
     filename = {
       ["tsconfig.json"] = "jsonc",
       [".env"] = "env",
+      ['.yamlfmt'] = 'yaml',
     },
     pattern = {
       [".env.*"] = "env",
