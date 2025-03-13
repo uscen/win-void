@@ -1,202 +1,202 @@
 {
-  "fragment": {
-    "prefix": "<",
-    "body": "<>\n\t${0}\n</>"
-  },
-  "div": {
-    "prefix": "div",
-    "body": "<div>${0}</div>"
-  },
-  "div with id": {
-    "prefix": "div#",
-    "body": "<div id=\"${0}\">${2}</div>"
-  },
-  "div with class": {
-    "prefix": "div.",
-    "body": "<div className=\"${0}\">${2}</div>"
-  },
-  "p": {
-    "prefix": "p",
-    "body": "<p>${0}</p>"
-  },
-  "span": {
-    "prefix": "span",
-    "body": "<span>${0}</span>"
-  },
-  "h0": {
-    "prefix": "h0",
-    "body": "<h0>${0}</h0>"
-  },
-  "h2": {
-    "prefix": "h2",
-    "body": "<h2>${0}</h2>"
-  },
-  "h3": {
-    "prefix": "h3",
-    "body": "<h3>${0}</h3>"
-  },
-  "h4": {
-    "prefix": "h4",
-    "body": "<h4>${0}</h4>"
-  },
-  "h5": {
-    "prefix": "h5",
-    "body": "<h5>${0}</h5>"
-  },
-  "h6": {
-    "prefix": "h6",
-    "body": "<h6>${0}</h6>"
-  },
-  "a": {
-    "prefix": "a",
-    "body": "<a href=\"${0:#}\">${2}</a>"
-  },
-  "img": {
-    "prefix": "img",
-    "body": "<img src=\"${0}\" alt=\"${2}\" />"
-  },
-  "ul": {
-    "prefix": "ul",
-    "body": "<ul>\n\t<li>${0}</li>\n</ul>"
-  },
-  "ol": {
-    "prefix": "ol",
-    "body": "<ol>\n\t<li>${0}</li>\n</ol>"
-  },
-  "li": {
-    "prefix": "li",
-    "body": "<li>${0}</li>"
-  },
-  "button": {
-    "prefix": "button",
-    "body": "<button>${0}</button>"
-  },
-  "input": {
-    "prefix": "input",
-    "body": "<input type=\"${0:text}\" />"
-  },
-  "textarea": {
-    "prefix": "textarea",
-    "body": "<textarea>${0}</textarea>"
-  },
-  "form": {
-    "prefix": "form",
-    "body": "<form>\n\t${0}\n</form>"
-  },
-  "label": {
-    "prefix": "label",
-    "body": "<label>${0}</label>"
-  },
-  "select": {
-    "prefix": "select",
-    "body": "<select>\n\t<option>${0}</option>\n</select>"
-  },
-  "option": {
-    "prefix": "option",
-    "body": "<option>${0}</option>"
-  },
-  "table": {
-    "prefix": "table",
-    "body": "<table>\n\t<tr>\n\t\t<td>${0}</td>\n\t</tr>\n</table>"
-  },
-  "tr": {
-    "prefix": "tr",
-    "body": "<tr>\n\t<td>${0}</td>\n</tr>"
-  },
-  "td": {
-    "prefix": "td",
-    "body": "<td>${0}</td>"
-  },
-  "th": {
-    "prefix": "th",
-    "body": "<th>${0}</th>"
-  },
-  "header": {
-    "prefix": "header",
-    "body": "<header>${0}</header>"
-  },
-  "footer": {
-    "prefix": "footer",
-    "body": "<footer>${0}</footer>"
-  },
-  "section": {
-    "prefix": "section",
-    "body": "<section>${0}</section>"
-  },
-  "article": {
-    "prefix": "article",
-    "body": "<article>${0}</article>"
-  },
-  "aside": {
-    "prefix": "aside",
-    "body": "<aside>${0}</aside>"
-  },
-  "nav": {
-    "prefix": "nav",
-    "body": "<nav>${0}</nav>"
-  },
-  "main": {
-    "prefix": "main",
-    "body": "<main>${0}</main>"
-  },
-  "figure": {
-    "prefix": "figure",
-    "body": "<figure>${0}</figure>"
-  },
-  "figcaption": {
-    "prefix": "figcaption",
-    "body": "<figcaption>${0}</figcaption>"
-  },
-  "blockquote": {
-    "prefix": "blockquote",
-    "body": "<blockquote>${0}</blockquote>"
-  },
-  "code": {
-    "prefix": "code",
-    "body": "<code>${0}</code>"
-  },
-  "pre": {
-    "prefix": "pre",
-    "body": "<pre>${0}</pre>"
-  },
-  "hr": {
-    "prefix": "hr",
-    "body": "<hr />"
-  },
-  "br": {
-    "prefix": "br",
-    "body": "<br />"
-  },
-  "strong": {
-    "prefix": "strong",
-    "body": "<strong>${0}</strong>"
-  },
-  "em": {
-    "prefix": "em",
-    "body": "<em>${0}</em>"
-  },
-  "small": {
-    "prefix": "small",
-    "body": "<small>${0}</small>"
-  },
-  "mark": {
-    "prefix": "mark",
-    "body": "<mark>${0}</mark>"
-  },
-  "del": {
-    "prefix": "del",
-    "body": "<del>${0}</del>"
-  },
-  "ins": {
-    "prefix": "ins",
-    "body": "<ins>${0}</ins>"
-  },
-  "sub": {
-    "prefix": "sub",
-    "body": "<sub>${0}</sub>"
-  },
-  "sup": {
-    "prefix": "sup",
-    "body": "<sup>${0}</sup>"
-  }
+	"fragment": {
+		"prefix": "<",
+		"body": "<>\n\t${0}\n</>"
+	},
+	"div": {
+		"prefix": "div",
+		"body": "<div>${0}</div>"
+	},
+	"div with id": {
+		"prefix": "div#",
+		"body": "<div id=\"${0}\">${2}</div>"
+	},
+	"div with class": {
+		"prefix": "div.",
+		"body": "<div className=\"${0}\">${2}</div>"
+	},
+	"p": {
+		"prefix": "p",
+		"body": "<p>${0}</p>"
+	},
+	"span": {
+		"prefix": "span",
+		"body": "<span>${0}</span>"
+	},
+	"h0": {
+		"prefix": "h0",
+		"body": "<h0>${0}</h0>"
+	},
+	"h2": {
+		"prefix": "h2",
+		"body": "<h2>${0}</h2>"
+	},
+	"h3": {
+		"prefix": "h3",
+		"body": "<h3>${0}</h3>"
+	},
+	"h4": {
+		"prefix": "h4",
+		"body": "<h4>${0}</h4>"
+	},
+	"h5": {
+		"prefix": "h5",
+		"body": "<h5>${0}</h5>"
+	},
+	"h6": {
+		"prefix": "h6",
+		"body": "<h6>${0}</h6>"
+	},
+	"a": {
+		"prefix": "a",
+		"body": "<a href=\"${0:#}\">${2}</a>"
+	},
+	"img": {
+		"prefix": "img",
+		"body": "<img src=\"${0}\" alt=\"${2}\" />"
+	},
+	"ul": {
+		"prefix": "ul",
+		"body": "<ul>\n\t<li>${0}</li>\n</ul>"
+	},
+	"ol": {
+		"prefix": "ol",
+		"body": "<ol>\n\t<li>${0}</li>\n</ol>"
+	},
+	"li": {
+		"prefix": "li",
+		"body": "<li>${0}</li>"
+	},
+	"button": {
+		"prefix": "button",
+		"body": "<button>${0}</button>"
+	},
+	"input": {
+		"prefix": "input",
+		"body": "<input type=\"${0:text}\" />"
+	},
+	"textarea": {
+		"prefix": "textarea",
+		"body": "<textarea>${0}</textarea>"
+	},
+	"form": {
+		"prefix": "form",
+		"body": "<form>\n\t${0}\n</form>"
+	},
+	"label": {
+		"prefix": "label",
+		"body": "<label>${0}</label>"
+	},
+	"select": {
+		"prefix": "select",
+		"body": "<select>\n\t<option>${0}</option>\n</select>"
+	},
+	"option": {
+		"prefix": "option",
+		"body": "<option>${0}</option>"
+	},
+	"table": {
+		"prefix": "table",
+		"body": "<table>\n\t<tr>\n\t\t<td>${0}</td>\n\t</tr>\n</table>"
+	},
+	"tr": {
+		"prefix": "tr",
+		"body": "<tr>\n\t<td>${0}</td>\n</tr>"
+	},
+	"td": {
+		"prefix": "td",
+		"body": "<td>${0}</td>"
+	},
+	"th": {
+		"prefix": "th",
+		"body": "<th>${0}</th>"
+	},
+	"header": {
+		"prefix": "header",
+		"body": "<header>${0}</header>"
+	},
+	"footer": {
+		"prefix": "footer",
+		"body": "<footer>${0}</footer>"
+	},
+	"section": {
+		"prefix": "section",
+		"body": "<section>${0}</section>"
+	},
+	"article": {
+		"prefix": "article",
+		"body": "<article>${0}</article>"
+	},
+	"aside": {
+		"prefix": "aside",
+		"body": "<aside>${0}</aside>"
+	},
+	"nav": {
+		"prefix": "nav",
+		"body": "<nav>${0}</nav>"
+	},
+	"main": {
+		"prefix": "main",
+		"body": "<main>${0}</main>"
+	},
+	"figure": {
+		"prefix": "figure",
+		"body": "<figure>${0}</figure>"
+	},
+	"figcaption": {
+		"prefix": "figcaption",
+		"body": "<figcaption>${0}</figcaption>"
+	},
+	"blockquote": {
+		"prefix": "blockquote",
+		"body": "<blockquote>${0}</blockquote>"
+	},
+	"code": {
+		"prefix": "code",
+		"body": "<code>${0}</code>"
+	},
+	"pre": {
+		"prefix": "pre",
+		"body": "<pre>${0}</pre>"
+	},
+	"hr": {
+		"prefix": "hr",
+		"body": "<hr />"
+	},
+	"br": {
+		"prefix": "br",
+		"body": "<br />"
+	},
+	"strong": {
+		"prefix": "strong",
+		"body": "<strong>${0}</strong>"
+	},
+	"em": {
+		"prefix": "em",
+		"body": "<em>${0}</em>"
+	},
+	"small": {
+		"prefix": "small",
+		"body": "<small>${0}</small>"
+	},
+	"mark": {
+		"prefix": "mark",
+		"body": "<mark>${0}</mark>"
+	},
+	"del": {
+		"prefix": "del",
+		"body": "<del>${0}</del>"
+	},
+	"ins": {
+		"prefix": "ins",
+		"body": "<ins>${0}</ins>"
+	},
+	"sub": {
+		"prefix": "sub",
+		"body": "<sub>${0}</sub>"
+	},
+	"sup": {
+		"prefix": "sup",
+		"body": "<sup>${0}</sup>"
+	}
 }
