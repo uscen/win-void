@@ -46,6 +46,7 @@ end)
 --          │                     Mini.Snippets                       │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
+  -- Languge Patterns: ================================================================
   local webPatterns = { 'web/*.json' }
   local webHtmlPatterns = { 'web/*.json', 'html.json' }
   local lang_patterns = {
@@ -55,18 +56,29 @@ later(function()
     javascriptreact = webPatterns,
     typescriptreact = webPatterns,
   }
-  require("mini.snippets").setup({
+  -- Do not match with whitespace to cursor's left =================================
+  local match_strict = function(snips)
+    return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
+  end
+  -- Setup Snippets ==================================================================
+  require('mini.snippets').setup({
+    snippets = {
+      require('mini.snippets').gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
+      require('mini.snippets').gen_loader.from_lang({ lang_patterns = lang_patterns })
+    },
     mappings = {
       expand = '<C-e>',
       jump_next = '<C-l>',
       jump_prev = '<C-h>',
       stop = '<C-c>',
     },
-    snippets = {
-      require("mini.snippets").gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
-      require("mini.snippets").gen_loader.from_lang({ lang_patterns = lang_patterns })
-    }
+    expand   = { match = match_strict },
   })
+  -- Expand Snippets Or complete by Tab ===============================================
+  expand_or_complete = function()
+    if #MiniSnippets.expand({ insert = false }) > 0 then vim.schedule(MiniSnippets.expand); return '' end
+    return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or "<Tab>"
+  end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
@@ -486,8 +498,9 @@ later(function()
   vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set("i", "<C-p>", [[pumvisible() ? "\<C-e>" : "\<C-p>"]], { expr = true })
-  vim.keymap.set("i", "<Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]],
-    { expr = true })
+  vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
+  -- vim.keymap.set("i", "<Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]],
+  --   { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
   vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
