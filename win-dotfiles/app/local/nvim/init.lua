@@ -30,6 +30,24 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   local servers = {
+    biome = {
+      cmd = { 'biome.cmd', 'lsp-proxy' },
+      filetypes = {
+        'astro',
+        'css',
+        'graphql',
+        'javascript',
+        'javascriptreact',
+        'json',
+        'jsonc',
+        'svelte',
+        'typescript',
+        'typescript.tsx',
+        'typescriptreact',
+        'vue',
+      },
+      root_markers = { 'biome.json' }
+    },
     lua = {
       cmd = { 'lua-language-server' },
       filetypes = { 'lua' },
@@ -91,7 +109,7 @@ now(function()
   --          ╭─────────────────────────────────────────────────────────╮
   --          │                  Lsp Added In 0.11                      │
   --          ╰─────────────────────────────────────────────────────────╯
-  -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript" }
+  -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript", "biome" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
   -- end
