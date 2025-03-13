@@ -46,7 +46,7 @@ end)
 --          │                     Mini.Snippets                       │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  -- Languge Patterns: ================================================================
+  -- Languge Patterns: ==============================================================
   local webPatterns = { 'web/*.json' }
   local webHtmlPatterns = { 'web/*.json', 'html.json' }
   local lang_patterns = {
@@ -56,7 +56,7 @@ later(function()
     javascriptreact = webPatterns,
     typescriptreact = webPatterns,
   }
-  -- Do not match with whitespace to cursor's left =================================
+  -- Do not match with whitespace to cursor's left ==================================
   local match_strict = function(snips)
     return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
   end
