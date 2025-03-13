@@ -2,6 +2,11 @@
 --          ║                  Lsp Removed In 0.11                    ║
 --          ╚═════════════════════════════════════════════════════════╝
 local servers = {
+  lua = {
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    root_markers = { '.luarc.json' },
+  },
   css = {
     cmd = { 'vscode-css-language-server.cmd', '--stdio' },
     filetypes = { 'css', 'scss', 'less' },
@@ -24,11 +29,6 @@ local servers = {
       'vue',
     },
     root_markers = { 'biome.json' }
-  },
-  lua = {
-    cmd = { 'lua-language-server' },
-    filetypes = { 'lua' },
-    root_markers = { '.luarc.json' },
   },
   typescript = {
     cmd = { 'typescript-language-server.cmd', '--stdio' },
