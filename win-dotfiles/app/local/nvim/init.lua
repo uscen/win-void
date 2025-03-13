@@ -56,9 +56,12 @@ later(function()
     javascriptreact = webPatterns,
     typescriptreact = webPatterns,
   }
-  -- Do not match with whitespace to cursor's left ==================================
+  -- Expand Patterns: ==============================================================
   local match_strict = function(snips)
-    return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
+      -- Do not match with whitespace to cursor's left ==================================
+      -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
+      -- Match exact from the start to the end of the string ============================
+      return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
   end
   -- Setup Snippets ==================================================================
   require('mini.snippets').setup({
@@ -498,9 +501,8 @@ later(function()
   vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set("i", "<C-p>", [[pumvisible() ? "\<C-e>" : "\<C-p>"]], { expr = true })
+  vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]], { expr = true })
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
-  -- vim.keymap.set("i", "<Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]],
-  --   { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
   vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
