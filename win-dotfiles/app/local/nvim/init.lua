@@ -28,7 +28,7 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                  Lsp Removed In 0.11                    │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function() 
+later(function() 
   local servers = {
       typescript = {
           cmd = { 'typescript-language-server.cmd', '--stdio' },
@@ -64,7 +64,6 @@ now(function()
         }
       }
   }
-
   local group = vim.api.nvim_create_augroup("user.lsp.start", {})
   for name, config in pairs(servers) do
       vim.api.nvim_create_autocmd("FileType", {
