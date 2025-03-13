@@ -88,6 +88,9 @@ end)
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+  --          ╭─────────────────────────────────────────────────────────╮
+  --          │                  Lsp Added In 0.11                      │
+  --          ╰─────────────────────────────────────────────────────────╯
   -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
