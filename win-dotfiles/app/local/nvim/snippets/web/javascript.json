@@ -1,0 +1,65 @@
+{
+  "Console Log": {
+    "prefix": "log",
+    "body": ["console.log($1)$0"],
+    "description": "Console log statement"
+  },
+  "Console Log": {
+    "prefix": "clg",
+    "body": ["console.log($1)$0"],
+    "description": "Console log statement"
+  },
+  "Anonymous Function": {
+    "prefix": "anfn",
+    "body": ["($1) => {", "\t$0", "}"],
+    "description": "Anonymous arrow function"
+  },
+  "Short Anonymous Function": {
+    "prefix": "anf",
+    "body": ["($1) => $0"],
+    "description": "Anonymous arrow function"
+  },
+  "Export Default Function": {
+    "prefix": "edfn",
+    "body": ["export default function $1($2) {", "\t$0", "}"],
+    "description": "Export default function"
+  },
+  "useEffect Hook": {
+    "prefix": "uef",
+    "body": ["useEffect(() => {", "\t$1", "}, [$2])$0"],
+    "description": "React useEffect hook"
+  },
+  "useCallback Hook": {
+    "prefix": "ucb",
+    "body": ["const $1 = useCallback(($2) => {", "\t$3", "}, [$4])$0"],
+    "description": "React useCallback hook"
+  },
+  "useMemo Hook": {
+    "prefix": "umm",
+    "body": ["const $1 = useMemo(($2) => {", "\t$3", "}, [$4])$0"],
+    "description": "React useCallback hook"
+  },
+  "useState Hook": {
+    "prefix": "ust",
+    "body": ["const [$1, set$2] = useState($3)$0"],
+    "description": "React useState hook"
+  },
+  "IIFE": {
+    "prefix": "iife",
+    "body": ["(() => {", "\t$1", "})()$0"],
+    "description": "Immediately Invoked Function Expression"
+  },
+  "return": {
+    "prefix": "r",
+    "body": "return ${0}"
+  },
+  "import": {
+    "prefix": "i",
+    "body": "import ${0}"
+  },
+  "Try-Catch Statement": {
+    "prefix": "trycatch",
+    "body": ["try {", "\t$0", "} catch (${1}) {", "\t", "}"],
+    "description": "Try-Catch Statement"
+  }
+}
