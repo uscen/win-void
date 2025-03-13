@@ -1,3 +1,6 @@
+"""         ╔═════════════════════════════════════════════════════════╗
+"""         ║  Extend syntax to include additional Nushell files      ║
+"""         ╚═════════════════════════════════════════════════════════╝
 " Vim syntax file
 " Language: Nushell
 " Maintainer: El Kasztano
