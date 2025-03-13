@@ -28,62 +28,67 @@ local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                  Lsp Removed In 0.11                    │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function() 
+later(function()
   local servers = {
-      typescript = {
-          cmd = { 'typescript-language-server.cmd', '--stdio' },
-          filetypes = {
-            'javascript',
-            'javascriptreact',
-            'javascript.jsx',
-            'typescript',
-            'typescriptreact',
-            'typescript.tsx',
-          },
-          root_markers = {
-            'tsconfig.json',
-            'jsconfig.json',
-            'package.json',
-            '.git'
-          }
+    lua = {
+      cmd = { 'lua-language-server' },
+      filetypes = { 'lua' },
+      root_markers = { '.luarc.json' },
+    },
+    typescript = {
+      cmd = { 'typescript-language-server.cmd', '--stdio' },
+      filetypes = {
+        'javascript',
+        'javascriptreact',
+        'javascript.jsx',
+        'typescript',
+        'typescriptreact',
+        'typescript.tsx',
       },
-      tailwind = {
-        cmd = { "tailwindcss-language-server.cmd", "--stdio" },
-        filetypes = {
-          "html",
-          "javascript",
-          "javascriptreact",
-          "typescript",
-          "typescriptreact"
-        },
-        root_markers = {
-          'tsconfig.json',
-          'jsconfig.json',
-          'package.json',
-          '.git'
-        }
+      root_markers = {
+        'tsconfig.json',
+        'jsconfig.json',
+        'package.json',
+        '.git'
       }
+    },
+    tailwind = {
+      cmd = { "tailwindcss-language-server.cmd", "--stdio" },
+      filetypes = {
+        "html",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+      },
+      root_markers = {
+        'tsconfig.json',
+        'jsconfig.json',
+        'package.json',
+        '.git'
+      }
+    }
   }
   local group = vim.api.nvim_create_augroup("user.lsp.start", {})
   for name, config in pairs(servers) do
-      vim.api.nvim_create_autocmd("FileType", {
-          group = group,
-          pattern = config.filetypes,
-          callback = function(ev)
-              config.name = name
-              if config.root_markers then
-                  config.root_dir = vim.fs.root(ev.buf, config.root_markers)
-              end
-              vim.lsp.start(config, { bufnr = ev.buf })
-          end,
-      })
+    vim.api.nvim_create_autocmd("FileType", {
+      group = group,
+      pattern = config.filetypes,
+      callback = function(ev)
+        config.name = name
+        if config.root_markers then
+          config.root_dir = vim.fs.root(ev.buf, config.root_markers)
+        end
+        vim.lsp.start(config, { bufnr = ev.buf })
+      end,
+    })
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- local lsp_configs = { "html", "css", "json", "tailwind", "typescript" }
+  -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
   -- end
@@ -104,7 +109,7 @@ later(function()
   local webPatterns = { 'web/*.json' }
   local webHtmlPatterns = { 'web/*.json', 'html.json' }
   local lang_patterns = {
-    html = webHtmlPatterns ,
+    html = webHtmlPatterns,
     javascript = webPatterns,
     typescript = webPatterns,
     javascriptreact = webPatterns,
@@ -112,10 +117,10 @@ later(function()
   }
   -- Expand Patterns: ==============================================================
   local match_strict = function(snips)
-      -- Do not match with whitespace to cursor's left ==================================
-      -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
-      -- Match exact from the start to the end of the string ============================
-      return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
+    -- Do not match with whitespace to cursor's left ==================================
+    -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
+    -- Match exact from the start to the end of the string ============================
+    return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
   end
   -- Setup Snippets ==================================================================
   require('mini.snippets').setup({
@@ -133,7 +138,9 @@ later(function()
   })
   -- Expand Snippets Or complete by Tab ===============================================
   expand_or_complete = function()
-    if #MiniSnippets.expand({ insert = false }) > 0 then vim.schedule(MiniSnippets.expand); return '' end
+    if #MiniSnippets.expand({ insert = false }) > 0 then
+      vim.schedule(MiniSnippets.expand); return ''
+    end
     return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or "<Tab>"
   end
 end)
@@ -316,53 +323,43 @@ later(function()
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Statusline                     │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-      local statusline = require 'mini.statusline'
-      statusline.setup { use_icons = vim.g.have_nerd_font }
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Starter                        │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-   local starter = require("mini.starter")
-     local pad = string.rep(" ", 0)
-     local new_section = function(name, action, section)
-       return { name = name, action = action, section = pad .. section }
-     end
-     starter.setup({
-       evaluate_single = true,
-       items = {
-         new_section("Projects Folders", "e $HOME/Projects/", "Project"),
-         new_section("Dotfiles Folders", "e $HOME/win-void/", "Project"),
-         new_section("Neovim Folders", "e $HOME/win-void/win-dotfiles/app/local/nvim/", "Project"),
-         new_section("Find Files", "Pick files", "Picker"),
-         new_section("Recent Files", "Pick oldfiles", "Picker"),
-         new_section("Browser Files", "lua MiniFiles.open()", "Picker"),
-         new_section("Update Plugins", "DepsUpdate", "Config"),
-         new_section("Lazy Plugins", "Lazy", "Config"),
-         new_section("Manage Extensions", "Mason", "Config"),
-         new_section("Edit New", "ene | startinsert", "Builtin"),
-         new_section("Quit Neovim", "qa", "Builtin"),
-       },
-       content_hooks = {
-         function(content)
-           local blank_content_line = { { type = 'empty', string = '' } }
-           local section_coords = starter.content_coords(content, 'section')
-           -- Insert backwards to not affect coordinates
-           for i = #section_coords, 1, -1 do
-             table.insert(content, section_coords[i].line + 1, blank_content_line)
-           end
-           return content
-         end,
-         starter.gen_hook.adding_bullet("» "),
-         starter.gen_hook.aligning('center', 'center'),
-       },
-       header = [[
+  local starter = require("mini.starter")
+  local pad = string.rep(" ", 0)
+  local new_section = function(name, action, section)
+    return { name = name, action = action, section = pad .. section }
+  end
+  starter.setup({
+    evaluate_single = true,
+    items = {
+      new_section("Projects Folders", "e $HOME/Projects/", "Project"),
+      new_section("Dotfiles Folders", "e $HOME/win-void/", "Project"),
+      new_section("Neovim Folders", "e $HOME/win-void/win-dotfiles/app/local/nvim/", "Project"),
+      new_section("Find Files", "Pick files", "Picker"),
+      new_section("Recent Files", "Pick oldfiles", "Picker"),
+      new_section("Browser Files", "lua MiniFiles.open()", "Picker"),
+      new_section("Update Plugins", "DepsUpdate", "Config"),
+      new_section("Lazy Plugins", "Lazy", "Config"),
+      new_section("Manage Extensions", "Mason", "Config"),
+      new_section("Edit New", "ene | startinsert", "Builtin"),
+      new_section("Quit Neovim", "qa", "Builtin"),
+    },
+    content_hooks = {
+      function(content)
+        local blank_content_line = { { type = 'empty', string = '' } }
+        local section_coords = starter.content_coords(content, 'section')
+        -- Insert backwards to not affect coordinates
+        for i = #section_coords, 1, -1 do
+          table.insert(content, section_coords[i].line + 1, blank_content_line)
+        end
+        return content
+      end,
+      starter.gen_hook.adding_bullet("» "),
+      starter.gen_hook.aligning('center', 'center'),
+    },
+    header = [[
             ▄ ▄
         ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄
         █ ▄ █▄█ ▄▄▄ █ █▄█ █ █
@@ -373,8 +370,8 @@ now(function()
  █▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
      █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
         ]],
-       footer = '',
-     })
+    footer = '',
+  })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          NVIM                           ║
@@ -392,23 +389,23 @@ now(function()
   -- Diagnostics ================================================================
   vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
-  vim.g.mapleader          = " "
+  vim.g.mapleader      = " "
   -- Shell: =-================================================================
-  vim.opt.sh               = "nu"
-  vim.opt.shellslash       = true
-  vim.opt.shelltemp        = false
-  vim.opt.shellcmdflag     = "--stdin --no-newline -c"
-  vim.opt.shellredir       = "out+err> %s"
-  vim.opt.shellxescape     = ""
-  vim.opt.shellxquote      = ""
-  vim.opt.shellquote       = ""
+  vim.opt.sh           = "nu"
+  vim.opt.shellslash   = true
+  vim.opt.shelltemp    = false
+  vim.opt.shellcmdflag = "--stdin --no-newline -c"
+  vim.opt.shellredir   = "out+err> %s"
+  vim.opt.shellxescape = ""
+  vim.opt.shellxquote  = ""
+  vim.opt.shellquote   = ""
   -- General: ================================================================
   vim.schedule(function()
-    vim.opt.clipboard      = 'unnamedplus'
+    vim.opt.clipboard = 'unnamedplus'
   end)
-  vim.o.completeopt        = 'menuone,noselect'
+  vim.o.completeopt = 'menuone,noselect'
   if vim.fn.has('nvim-0.11') == 1 then
-    vim.o.completeopt      = 'menuone,noselect,fuzzy' 
+    vim.o.completeopt = 'menuone,noselect,fuzzy'
   end
   vim.o.complete           = '.,b,kspell'
   vim.opt.compatible       = false
@@ -555,7 +552,8 @@ later(function()
   vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set("i", "<C-p>", [[pumvisible() ? "\<C-e>" : "\<C-p>"]], { expr = true })
-  vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]], { expr = true })
+  vim.keymap.set("i", "<S-Tab>",
+    [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<Tab>"]], { expr = true })
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
