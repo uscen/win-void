@@ -545,7 +545,8 @@ later(function()
   -- Mini Diff: ==================================================================
   vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
   -- Mini Files: =================================================================
-  vim.keymap.set("n", "<leader>e", "<CMD>lua MiniFiles.open()<CR>")
+  vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end)
+  vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Neovide                        ║
