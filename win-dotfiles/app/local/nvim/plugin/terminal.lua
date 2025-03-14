@@ -2,6 +2,7 @@
 --          ║              Toggle Floating Terminal                   ║
 --          ╚═════════════════════════════════════════════════════════╝
 local group = vim.api.nvim_create_augroup("terminal", { clear = true })
+
 vim.api.nvim_create_autocmd("TermOpen", {
   desc = "terminal options",
   group = group,
@@ -11,12 +12,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.cmd.startinsert()
   end,
 })
+
 local floating_terminal_state = {
   buf = -1,
   win = -1,
   insert = nil,
   winview = nil,
 }
+
 vim.keymap.set({ "n", "t" }, "<C-t>", function()
   if not vim.api.nvim_win_is_valid(floating_terminal_state.win) then
     if not vim.api.nvim_buf_is_valid(floating_terminal_state.buf) then
