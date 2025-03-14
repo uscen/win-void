@@ -26,86 +26,11 @@ end
 require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Completion                     │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-  -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript", "biome" }
-  -- for _, config in ipairs(lsp_configs) do
-  --   vim.lsp.enable(config)
-  -- end
-  require("mini.completion").setup({
-    mappings = {
-      force_twostep = '<C-n>',
-      force_fallback = '<C-S-n>',
-      scroll_down = '<C-j>',
-      scroll_up = '<C-k>',
-    },
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Snippets                       │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  -- Languge Patterns: ==============================================================
-  local webPatterns = { 'web/*.json' }
-  local webHtmlPatterns = { 'web/*.json', 'html.json' }
-  local lang_patterns = {
-    html = webHtmlPatterns,
-    javascript = webPatterns,
-    typescript = webPatterns,
-    javascriptreact = webPatterns,
-    typescriptreact = webPatterns,
-  }
-  -- Expand Patterns: ==============================================================
-  local match_strict = function(snips)
-    -- Do not match with whitespace to cursor's left ==================================
-    -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
-    -- Match exact from the start to the end of the string ============================
-    return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
-  end
-  -- Setup Snippets ==================================================================
-  require('mini.snippets').setup({
-    snippets = {
-      require('mini.snippets').gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
-      require('mini.snippets').gen_loader.from_lang({ lang_patterns = lang_patterns })
-    },
-    mappings = {
-      expand = '<C-e>',
-      jump_next = '<C-l>',
-      jump_prev = '<C-h>',
-      stop = '<C-c>',
-    },
-    expand   = { match = match_strict },
-  })
-  -- Expand Snippets Or complete by Tab ===============================================
-  expand_or_complete = function()
-    if #MiniSnippets.expand({ insert = false }) > 0 then
-      vim.schedule(MiniSnippets.expand); return ''
-    end
-    return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or "<Tab>"
-  end
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.icons").setup()
   require("mini.icons").tweak_lsp_kind()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Notify                         │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.notify').setup()
-  vim.notify = require('mini.notify').make_notify()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Indentscope                    │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.indentscope").setup({
-    symbol = "│",
-  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.CursorWord                     │
@@ -154,6 +79,21 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.pairs").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Notify                         │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.notify').setup()
+  vim.notify = require('mini.notify').make_notify()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Indentscope                    │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.indentscope").setup({
+    symbol = "│",
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -269,6 +209,66 @@ later(function()
       },
     })
   end
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Snippets                       │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  -- Languge Patterns: ==============================================================
+  local webPatterns = { 'web/*.json' }
+  local webHtmlPatterns = { 'web/*.json', 'html.json' }
+  local lang_patterns = {
+    html = webHtmlPatterns,
+    javascript = webPatterns,
+    typescript = webPatterns,
+    javascriptreact = webPatterns,
+    typescriptreact = webPatterns,
+  }
+  -- Expand Patterns: ==============================================================
+  local match_strict = function(snips)
+    -- Do not match with whitespace to cursor's left ==================================
+    -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
+    -- Match exact from the start to the end of the string ============================
+    return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
+  end
+  -- Setup Snippets ==================================================================
+  require('mini.snippets').setup({
+    snippets = {
+      require('mini.snippets').gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
+      require('mini.snippets').gen_loader.from_lang({ lang_patterns = lang_patterns })
+    },
+    mappings = {
+      expand = '<C-e>',
+      jump_next = '<C-l>',
+      jump_prev = '<C-h>',
+      stop = '<C-c>',
+    },
+    expand   = { match = match_strict },
+  })
+  -- Expand Snippets Or complete by Tab ===============================================
+  expand_or_complete = function()
+    if #MiniSnippets.expand({ insert = false }) > 0 then
+      vim.schedule(MiniSnippets.expand); return ''
+    end
+    return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or "<Tab>"
+  end
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Completion                     │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript", "biome" }
+  -- for _, config in ipairs(lsp_configs) do
+  --   vim.lsp.enable(config)
+  -- end
+  require("mini.completion").setup({
+    mappings = {
+      force_twostep = '<C-n>',
+      force_fallback = '<C-S-n>',
+      scroll_down = '<C-j>',
+      scroll_up = '<C-k>',
+    },
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Starter                        │
@@ -444,7 +444,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim automads                     │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   -- Remove Space && Last_Lines ====================================================
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = "MiniTrailspace",
