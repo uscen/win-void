@@ -264,7 +264,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
   -- Languge Patterns: ==============================================================
   local webPatterns = { 'web/*.json' }
   local webHtmlPatterns = { 'web/*.json', 'html.json' }
