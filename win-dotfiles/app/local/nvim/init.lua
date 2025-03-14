@@ -114,6 +114,12 @@ later(function()
   require('mini.cursorword').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.CursorWord                     │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.trailspace").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -229,6 +235,7 @@ later(function()
     },
     options = {
       use_cache = true,
+      content_from_bottom = false
     },
     window = {
       config = {
@@ -438,6 +445,14 @@ end)
 --          │                     Neovim automads                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+  -- Remove Space && Last_Lines ====================================================
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "MiniTrailspace",
+    callback = function()
+      MiniTrailspace.trim()
+      MiniTrailspace.trim_last_lines()
+    end,
+  })
   -- Don't Comment New Line ========================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('CustomSettings', {}),
