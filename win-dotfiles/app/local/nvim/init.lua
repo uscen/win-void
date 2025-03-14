@@ -135,32 +135,6 @@ later(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Files                          │
---          ╰─────────────────────────────────────────────────────────╯
-now(function()
-  require("mini.files").setup({
-    mappings = {
-      close = "q",
-      go_in = "l",
-      go_in_plus = "<Tab>",
-      go_out = "h",
-      go_out_plus = "<C-h>",
-      mark_goto = "'",
-      mark_set = "m",
-      reset = "gh",
-      reveal_cwd = "@",
-      show_help = "g?",
-      synchronize = "<C-s>",
-      trim_left = "<",
-      trim_right = ">",
-    },
-    windows = {
-      max_number = 1,
-      width_focus = 999,
-    },
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pick                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -209,6 +183,32 @@ later(function()
       },
     })
   end
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Files                          │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  require("mini.files").setup({
+    mappings = {
+      close = "q",
+      go_in = "l",
+      go_in_plus = "<Tab>",
+      go_out = "h",
+      go_out_plus = "<C-h>",
+      mark_goto = "'",
+      mark_set = "m",
+      reset = "gh",
+      reveal_cwd = "@",
+      show_help = "g?",
+      synchronize = "<C-s>",
+      trim_left = "<",
+      trim_right = ">",
+    },
+    windows = {
+      max_number = 1,
+      width_focus = 999,
+    },
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Starter                        │
