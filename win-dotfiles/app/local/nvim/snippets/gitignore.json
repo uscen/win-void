@@ -1,5 +1,5 @@
 {
-	"snip_vite_react.gitignore": {
+	"react.gitignore": {
 		"prefix": "snip_vite_react.gitignore",
 		"body": [
 			"# Logs",
@@ -29,7 +29,7 @@
 		],
 		"description": "snip_vite_react.gitignore"
 	},
-	"snip_nextjs.gitignore": {
+	"nextjs.gitignore": {
 		"prefix": "snip_nextjs.gitignore",
 		"body": [
 			"### NextJS ###",
@@ -70,7 +70,7 @@
 		],
 		"description": "snip_nextjs.gitignore"
 	},
-	"snip_nodejs.gitignore": {
+	"nodejs.gitignore": {
 		"prefix": "snip_nodejs.gitignore",
 		"body": [
 			"# Environment variable files",
@@ -209,7 +209,7 @@
 		],
 		"description": "snip_nodejs.gitignore"
 	},
-	"snip_go.gitignore": {
+	"go.gitignore": {
 		"prefix": "snip_go.gitignore",
 		"body": [
 			"# Binaries for programs and plugins",
@@ -237,7 +237,7 @@
 		],
 		"description": "snip_go.gitignore"
 	},
-	"snip_lua.gitignore": {
+	"lua.gitignore": {
 		"prefix": "snip_lua.gitignore",
 		"body": [
 			"# Compiled Lua sources",
