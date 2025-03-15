@@ -1,20 +1,37 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Tgpt Ai                           ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Function to create a buffer and open a window
+-- Helpers to create a buffer and open a window
+local state = {
+  buf = nil,
+  win = nil,
+  job_id = nil
+}
+
+-- Create window Buffer in bottom placement
 local createBuffer = function()
-  WIDTH = vim.api.nvim_get_option("columns")
-  HEIGHT = vim.api.nvim_get_option("lines")
-  vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
+  if state.win and vim.api.nvim_win_is_valid(state.win) then
+    vim.api.nvim_win_close(state.win, true)
+  end
+
+  local WIDTH = vim.api.nvim_get_option("columns")
+  local HEIGHT = vim.api.nvim_get_option("lines")
+
+  state.buf = vim.api.nvim_create_buf(false, true)
+  state.win = vim.api.nvim_open_win(state.buf, true, {
     relative = 'editor',
-    width = math.floor(WIDTH / 5),
-    height = math.floor(HEIGHT / 1.1),
-    col = WIDTH,
-    row = 0,
-    anchor = "NE",
+    width = math.floor(WIDTH * 0.8),
+    height = math.floor(HEIGHT * 0.3),
+    col = math.floor((WIDTH - (WIDTH * 0.8)) / 2),
+    row = HEIGHT - 1,
+    anchor = 'SW',
     style = 'minimal',
-    border = 'single'
+    border = 'rounded'
   })
+
+  vim.api.nvim_win_set_option(state.win, 'wrap', true)
+  vim.api.nvim_win_set_option(state.win, 'number', false)
+  vim.api.nvim_win_set_option(state.win, 'relativenumber', false)
 end
 
 -- Function for interactive chat
