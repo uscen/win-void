@@ -28,5 +28,17 @@
 		"prefix": "rdh",
 		"body": "$RANDOM_HEX",
 		"description": "6 random Base-16 digits"
+	},
+	"todo": {
+		"prefix": "todo",
+		"body": ["$LINE_COMMENT TODO: $0"]
+	},
+	"fix": {
+		"prefix": "fix",
+		"body": ["$LINE_COMMENT FIXME: $0"]
+	},
+	"bc": {
+		"prefix": "block comment",
+		"body": ["$BLOCK_COMMENT_START $0 $BLOCK_COMMENT_END"]
 	}
 }
