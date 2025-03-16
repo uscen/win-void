@@ -420,7 +420,7 @@ now(function()
   vim.opt.synmaxcol        = 200
   vim.opt.updatetime       = 250
   vim.opt.timeoutlen       = 300
-  -- Disable builtin plugins
+  -- Disable builtin plugins: ===============================================
   local disabled_built_ins = {
     "osc52",
     "parser",
