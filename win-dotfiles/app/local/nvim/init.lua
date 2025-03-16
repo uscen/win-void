@@ -315,6 +315,7 @@ end)
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+  -- enable configured language servers 0.11
   -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript", "biome" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
@@ -344,7 +345,8 @@ now(function()
   -- Diagnostics ================================================================
   vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
-  vim.g.mapleader      = " "
+  vim.g.mapleader      = vim.keycode("<space>")
+  vim.g.maplocalleader = vim.keycode("<cr>")
   -- Shell: =-================================================================
   vim.opt.sh           = "nu"
   vim.opt.shellslash   = true
@@ -360,7 +362,7 @@ now(function()
   end)
   vim.o.completeopt = 'menuone,noselect'
   if vim.fn.has('nvim-0.11') == 1 then
-    vim.o.completeopt = 'menuone,noselect,fuzzy'
+    vim.o.completeopt = "menu,menuone,popup,fuzzy"
   end
   vim.o.complete           = '.,b,kspell'
   vim.opt.compatible       = false
@@ -388,6 +390,12 @@ now(function()
   vim.wo.signcolumn        = "no"
   vim.opt.statuscolumn     = ""
   vim.opt.fillchars        = "eob: "
+  vim.opt.listchars        = {
+    tab = "▏ ",
+    trail = "·",
+    extends = "»",
+    precedes = "«",
+  }
   -- Editing:  ================================================================
   vim.opt.autoindent       = true
   vim.opt.expandtab        = true
@@ -400,6 +408,11 @@ now(function()
   vim.opt.tabstop          = 2
   vim.opt.virtualedit      = 'block'
   vim.o.formatoptions      = 'rqnl1j'
+  -- Fold:  ================================================================
+  vim.o.foldenable         = true
+  vim.o.foldlevel          = 99
+  vim.o.foldmethod         = "expr"
+  vim.o.foldexpr           = "v:lua.vim.treesitter.foldexpr()"
   -- Memory: ================================================================
   vim.opt.hidden           = true
   vim.opt.history          = 100
