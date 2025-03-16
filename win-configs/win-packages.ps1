@@ -88,6 +88,7 @@ $scoopPackages = @(
     "nodejs",
     "gcc",
     "autohotkey",
+    "marksman",
     "lua-language-server",
     "altsnap",
     "imagemagick",
