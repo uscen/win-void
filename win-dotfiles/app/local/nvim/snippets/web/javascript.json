@@ -1,5 +1,5 @@
 {
-	"Console Log": {
+	"Console Log Vscode": {
 		"prefix": "log",
 		"body": ["console.log($1)$0"],
 		"description": "Console log statement"

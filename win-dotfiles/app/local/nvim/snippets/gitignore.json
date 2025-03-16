@@ -1,6 +1,6 @@
 {
 	"react.gitignore": {
-		"prefix": "snip_vite_react.gitignore",
+		"prefix": "react.gitignore",
 		"body": [
 			"# Logs",
 			"logs",
@@ -30,7 +30,7 @@
 		"description": "snip_vite_react.gitignore"
 	},
 	"nextjs.gitignore": {
-		"prefix": "snip_nextjs.gitignore",
+		"prefix": "nextjs.gitignore",
 		"body": [
 			"### NextJS ###",
 			"# dependencies",
@@ -71,7 +71,7 @@
 		"description": "snip_nextjs.gitignore"
 	},
 	"nodejs.gitignore": {
-		"prefix": "snip_nodejs.gitignore",
+		"prefix": "nodejs.gitignore",
 		"body": [
 			"# Environment variable files",
 			".env",
@@ -210,7 +210,7 @@
 		"description": "snip_nodejs.gitignore"
 	},
 	"go.gitignore": {
-		"prefix": "snip_go.gitignore",
+		"prefix": "go.gitignore",
 		"body": [
 			"# Binaries for programs and plugins",
 			"*.exe",
@@ -238,7 +238,7 @@
 		"description": "snip_go.gitignore"
 	},
 	"lua.gitignore": {
-		"prefix": "snip_lua.gitignore",
+		"prefix": "lua.gitignore",
 		"body": [
 			"# Compiled Lua sources",
 			"luac.out",
