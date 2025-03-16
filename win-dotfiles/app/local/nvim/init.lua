@@ -131,12 +131,12 @@ end)
 later(function()
   require("mini.hipatterns").setup({
     highlighters = {
-      -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+      -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE':  ============================
       fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
       hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
       todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-      -- Highlight hex color strings (`#rrggbb`) using that color
+      -- Highlight hex color strings (`#rrggbb`) using that color: =========================
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
     },
   })
@@ -282,11 +282,11 @@ now(function()
     javascriptreact = webPatterns,
     typescriptreact = webPatterns,
   }
-  -- Expand Patterns: ==============================================================
+  -- Expand Patterns: ===============================================================
   local match_strict = function(snips)
-    -- Do not match with whitespace to cursor's left ==================================
+    -- Do not match with whitespace to cursor's left ================================
     -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
-    -- Match exact from the start to the end of the string ============================
+    -- Match exact from the start to the end of the string ==========================
     return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
   end
   -- Setup Snippets ==================================================================
@@ -315,7 +315,7 @@ end)
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- enable configured language servers 0.11
+  -- enable configured language servers 0.11: ========================================
   -- local lsp_configs = { "lua", "html", "css", "json", "tailwind", "typescript", "biome" }
   -- for _, config in ipairs(lsp_configs) do
   --   vim.lsp.enable(config)
