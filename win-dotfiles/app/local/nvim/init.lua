@@ -39,7 +39,7 @@ later(function()
   require('mini.cursorword').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.CursorWord                     │
+--          │                     Mini.Trailspace                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.trailspace").setup()
