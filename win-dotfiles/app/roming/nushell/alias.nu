@@ -33,7 +33,7 @@ alias gl = g log --oneline --graph --all -10
 alias gp = g push -uf origin main
 alias lg = lazygit
 # winget Package Manager
-alias pu = scoop update --all 
+alias pu = scoop update --all
 alias pi = scoop install
 alias pr = scoop uninstall
 alias pq = scoop search
