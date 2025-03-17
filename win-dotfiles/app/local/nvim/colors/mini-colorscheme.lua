@@ -24,7 +24,7 @@ if vim.o.background == "light" then
 end
 if vim.o.background == "dark" then
   palette = {
-    base00 = "#141617",
+    base00 = "#181616",
     base01 = "#1b1b1b",
     base02 = "#282828",
     base03 = "#5a524c",
@@ -32,14 +32,14 @@ if vim.o.background == "dark" then
     base05 = "#ddc7a1",
     base06 = "#ebdbb2",
     base07 = "#fbf1c7",
-    base08 = "#ea6962",
-    base09 = "#e78a4e",
-    base0A = "#d8a657",
-    base0B = "#a9b665",
-    base0C = "#b0b842",
-    base0D = "#89b482",
-    base0E = "#a9b665",
-    base0F = "#bd6f3e",
+    base08 = "#c4746e",
+    base09 = "#e46876",
+    base0A = "#c4b28a",
+    base0B = "#8a9a7b",
+    base0C = "#8ea4a2",
+    base0D = "#8ba4b0",
+    base0E = "#a292a3",
+    base0F = "#7aa89f",
   }
 end
 if palette then
@@ -77,3 +77,5 @@ vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02 })
 vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "MiniCursorword" })
 -- Indentscope =================================================================
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0E })
+-- Snippets ====================================================================
+vim.api.nvim_set_hl(0, 'MiniSnippetsFinal', { link = "Comment" })

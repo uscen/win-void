@@ -301,7 +301,15 @@ now(function()
       jump_prev = '<C-h>',
       stop = '<C-c>',
     },
-    expand   = { match = match_strict },
+    expand   = {
+      match = match_strict,
+      insert = function(snippet)
+        return require('mini.snippets').default_insert(snippet, {
+          empty_tabstop = '',
+          empty_tabstop_final = ''
+        })
+      end
+    },
   })
   -- Expand Snippets Or complete by Tab ===============================================
   expand_or_complete = function()
@@ -336,7 +344,7 @@ end)
 --          │                     Neovim Colorscheme                  │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  vim.cmd("colorscheme minigruv")
+  vim.cmd("colorscheme mini-colorscheme")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim Options                      │
