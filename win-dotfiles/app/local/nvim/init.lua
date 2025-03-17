@@ -370,7 +370,7 @@ now(function()
   end)
   vim.o.completeopt = 'menuone,noselect'
   if vim.fn.has('nvim-0.11') == 1 then
-    vim.o.completeopt = "menu,menuone,popup,fuzzy"
+    vim.o.completeopt = 'menuone,noselect,fuzzy'
   end
   vim.o.complete           = '.,b,kspell'
   vim.opt.compatible       = false
