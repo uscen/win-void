@@ -75,12 +75,6 @@ later(function()
   require("mini.extra").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Paris                          │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.pairs").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -138,6 +132,25 @@ later(function()
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
       -- Highlight hex color strings (`#rrggbb`) using that color: =========================
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+    },
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Paris                          │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.pairs").setup({
+    modes = { insert = true, command = true, terminal = false },
+    mappings = {
+      [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+      ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+      ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+      ["["] = { action = "open", pair = "[]", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ["{"] = { action = "open", pair = "{}", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ["("] = { action = "open", pair = "()", neigh_pattern = ".[%s%z%)]", register = { cr = false } },
+      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
     },
   })
 end)

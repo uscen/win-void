@@ -35,8 +35,3 @@ vim.b.minisurround_config = {
     s = { input = { '%[%[().-()%]%]' }, output = { left = '[[', right = ']]' } },
   },
 }
-
-if MiniSnippets ~= nil then
-  local match = function(snippets) return MiniSnippets.default_match(snippets, { pattern_fuzzy = '[%w@_]*' }) end
-  vim.b.minisnippets_config = { expand = { match = match } }
-end
