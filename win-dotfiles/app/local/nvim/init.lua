@@ -385,64 +385,69 @@ now(function()
   if vim.fn.has('nvim-0.11') == 1 then
     vim.o.completeopt = 'menuone,noselect,fuzzy'
   end
-  vim.o.complete           = '.,b,kspell'
-  vim.opt.compatible       = false
-  vim.opt.swapfile         = false
-  vim.opt.writebackup      = false
-  vim.opt.backup           = false
-  vim.opt.spell            = false
-  vim.opt.undofile         = true
-  vim.opt.shada            = { "'10", "<0", "s10", "h" }
+  vim.o.complete                = '.,b,kspell'
+  vim.opt.compatible            = false
+  vim.opt.swapfile              = false
+  vim.opt.writebackup           = false
+  vim.opt.backup                = false
+  vim.opt.spell                 = false
+  vim.opt.undofile              = true
+  vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- UI: ====================================================================
-  vim.opt.number           = true
-  vim.opt.splitright       = true
-  vim.opt.splitbelow       = true
-  vim.opt.termguicolors    = true
-  vim.opt.confirm          = true
-  vim.opt.showmatch        = true
-  vim.opt.laststatus       = 0
-  vim.opt.cmdheight        = 0
-  vim.opt.pumblend         = 10
-  vim.opt.pumheight        = 10
-  vim.opt.wrap             = false
-  vim.opt.modeline         = false
-  vim.opt.showmode         = false
-  vim.opt.ruler            = false
-  vim.wo.signcolumn        = "no"
-  vim.opt.statuscolumn     = ""
-  vim.opt.fillchars        = "eob: "
-  vim.opt.listchars        = {
+  vim.opt.number                = true
+  vim.opt.splitright            = true
+  vim.opt.splitbelow            = true
+  vim.opt.termguicolors         = true
+  vim.opt.confirm               = true
+  vim.opt.showmatch             = true
+  vim.opt.laststatus            = 0
+  vim.opt.cmdheight             = 0
+  vim.opt.pumblend              = 10
+  vim.opt.pumheight             = 10
+  vim.opt.wrap                  = false
+  vim.opt.modeline              = false
+  vim.opt.showmode              = false
+  vim.opt.ruler                 = false
+  vim.wo.signcolumn             = "no"
+  vim.opt.statuscolumn          = ""
+  vim.opt.fillchars             = "eob: "
+  vim.opt.listchars             = {
     tab = "▏ ",
     trail = "·",
     extends = "»",
     precedes = "«",
   }
   -- Editing:  ================================================================
-  vim.opt.autoindent       = true
-  vim.opt.expandtab        = true
-  vim.opt.ignorecase       = true
-  vim.opt.incsearch        = true
-  vim.opt.infercase        = true
-  vim.opt.shiftwidth       = 2
-  vim.opt.smartcase        = true
-  vim.opt.smartindent      = true
-  vim.opt.tabstop          = 2
-  vim.opt.virtualedit      = 'block'
-  vim.o.formatoptions      = 'rqnl1j'
+  vim.opt.autoindent            = true
+  vim.opt.expandtab             = true
+  vim.opt.ignorecase            = true
+  vim.opt.incsearch             = true
+  vim.opt.infercase             = true
+  vim.opt.shiftwidth            = 2
+  vim.opt.smartcase             = true
+  vim.opt.smartindent           = true
+  vim.opt.tabstop               = 2
+  vim.opt.virtualedit           = 'block'
+  vim.o.formatoptions           = 'rqnl1j'
   -- Fold:  ================================================================
-  vim.o.foldenable         = true
-  vim.o.foldlevel          = 99
-  vim.o.foldmethod         = "expr"
-  vim.o.foldexpr           = "v:lua.vim.treesitter.foldexpr()"
+  vim.o.foldenable              = true
+  vim.o.foldlevel               = 99
+  vim.o.foldmethod              = "expr"
+  vim.o.foldexpr                = "v:lua.vim.treesitter.foldexpr()"
   -- Memory: ================================================================
-  vim.opt.hidden           = true
-  vim.opt.history          = 100
-  vim.opt.lazyredraw       = true
-  vim.opt.synmaxcol        = 200
-  vim.opt.updatetime       = 250
-  vim.opt.timeoutlen       = 300
+  vim.opt.hidden                = true
+  vim.opt.history               = 100
+  vim.opt.lazyredraw            = true
+  vim.opt.synmaxcol             = 200
+  vim.opt.updatetime            = 250
+  vim.opt.timeoutlen            = 300
+  -- Disable health checks for these providers:. ===========================
+  vim.g.loaded_python3_provider = 0
+  vim.g.loaded_ruby_provider    = 0
+  vim.g.loaded_perl_provider    = 0
+  vim.g.loaded_node_provider    = 0
   -- Disable builtin plugins: ===============================================
-  local disabled_built_ins = {
+  local disabled_built_ins      = {
     "osc52",
     "parser",
     "health",
