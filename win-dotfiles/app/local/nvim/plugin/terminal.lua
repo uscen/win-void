@@ -25,16 +25,16 @@ vim.keymap.set({ "n", "t" }, "<C-t>", function()
     if not vim.api.nvim_buf_is_valid(floating_terminal_state.buf) then
       floating_terminal_state.buf = vim.api.nvim_create_buf(false, true)
     end
-    local height = math.floor(vim.o.lines * 0.85)
-    local width = math.floor(vim.o.columns * 0.85)
+    local height = math.floor(vim.o.lines * 0.3)
+    local width = vim.o.columns
     floating_terminal_state.win =
         vim.api.nvim_open_win(floating_terminal_state.buf, true, {
           relative = "editor",
           border = "rounded",
           height = height,
           width = width,
-          row = math.floor((vim.o.lines - height) / 3),
-          col = math.floor((vim.o.columns - width) / 2),
+          row = vim.o.lines - height,
+          col = 0,
         })
     vim.wo[floating_terminal_state.win].winhl = "Normal:MyHighlight"
 

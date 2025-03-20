@@ -16,6 +16,8 @@ vim.filetype.add({
 
 local function on_bigfile(ev)
   vim.b.minianimate_disable = true
+  vim.b.minicursorword_disable = true
+  vim.b.miniindentscope_disable = true
   vim.schedule(function() vim.bo[ev.buf].syntax = ev.ft end)
   local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ev.buf), ":p:~:.")
   vim.notify(("Big file detected `%s`."):format(path))
