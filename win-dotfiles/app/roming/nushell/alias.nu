@@ -38,6 +38,7 @@ alias pi = scoop install
 alias pr = scoop uninstall
 alias pq = scoop search
 alias pl = scoop list
+alias pus = scoop status
 alias pclean = scoop cleanup --cache --all
 # BUN Package Manager
 alias buna = bun add

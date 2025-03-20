@@ -78,8 +78,7 @@ end)
 --          │                     Mini.misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require("mini.misc").setup()
-  MiniMisc.setup_auto_root()
+  require('mini.misc').setup_auto_root { '.git' }
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Notify                         │
@@ -215,14 +214,8 @@ now(function()
       go_in_plus = "<Tab>",
       go_out = "h",
       go_out_plus = "<C-h>",
-      mark_goto = "'",
-      mark_set = "m",
       reset = "gh",
-      reveal_cwd = "@",
-      show_help = "g?",
       synchronize = "<C-s>",
-      trim_left = "<",
-      trim_right = ">",
     },
     windows = {
       max_number = 1,
