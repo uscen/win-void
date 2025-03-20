@@ -363,11 +363,14 @@ end)
 --          │                     Neovim Options                      │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- Diagnostics ================================================================
+  -- Diagnostics ===============================================================
   vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
   vim.g.mapleader      = vim.keycode("<space>")
   vim.g.maplocalleader = vim.keycode("<cr>")
+  -- Use ripgrep as grep tool: ================================================
+  vim.opt.grepprg      = "rg --vimgrep --no-heading"
+  vim.opt.grepformat   = "%f:%l:%c:%m,%f:%l:%m"
   -- Shell: =-================================================================
   vim.opt.sh           = "nu"
   vim.opt.shellslash   = true
@@ -381,10 +384,7 @@ now(function()
   vim.schedule(function()
     vim.opt.clipboard = 'unnamedplus'
   end)
-  vim.o.completeopt = 'menuone,noselect'
-  if vim.fn.has('nvim-0.11') == 1 then
-    vim.o.completeopt = 'menuone,noselect,fuzzy'
-  end
+  vim.o.completeopt             = 'menuone,noselect'
   vim.o.complete                = '.,b,kspell'
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
@@ -442,12 +442,14 @@ now(function()
   vim.opt.updatetime            = 250
   vim.opt.timeoutlen            = 300
   -- Disable health checks for these providers:. ===========================
+  vim.g.loaded_python_provider  = 0
   vim.g.loaded_python3_provider = 0
   vim.g.loaded_ruby_provider    = 0
   vim.g.loaded_perl_provider    = 0
   vim.g.loaded_node_provider    = 0
   -- Disable builtin plugins: ===============================================
-  local disabled_built_ins      = {
+  vim.opt.shortmess:append("sI")
+  local disabled_built_ins = {
     "osc52",
     "parser",
     "health",
