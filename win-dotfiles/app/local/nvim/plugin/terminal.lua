@@ -29,7 +29,7 @@ vim.keymap.set({ "n", "t" }, "<C-t>", function()
     floating_terminal_state.win =
         vim.api.nvim_open_win(floating_terminal_state.buf, true, {
           relative = "editor",
-          border = "rounded",
+          border = "single",
           height = height,
           width = width,
           row = vim.o.lines - height,

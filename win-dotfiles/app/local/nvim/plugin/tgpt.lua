@@ -26,7 +26,7 @@ local createBuffer = function()
     row = HEIGHT - 1,
     anchor = 'SW',
     style = 'minimal',
-    border = 'rounded'
+    border = 'single'
   })
 
   vim.api.nvim_win_set_option(state.win, 'wrap', true)
