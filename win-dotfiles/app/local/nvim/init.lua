@@ -79,6 +79,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.misc').setup_auto_root { '.git' }
+  require('mini.misc').setup_restore_cursor()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Notify                         │
@@ -357,7 +358,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Diagnostics ===============================================================
-  vim.diagnostic.config({ signs = false, virtual_text = false, update_in_insert = false })
+  vim.diagnostic.config({ severity_sort = false, signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
   vim.g.mapleader      = vim.keycode("<space>")
   vim.g.maplocalleader = vim.keycode("<cr>")
