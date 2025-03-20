@@ -544,6 +544,11 @@ later(function()
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
+  -- use gl,gh to move: =============================================================
+  vim.keymap.set("n", "gh", "^")
+  vim.keymap.set("n", "gl", "$")
+  vim.keymap.set("v", "gh", "^")
+  vim.keymap.set("v", "gl", "$")
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
