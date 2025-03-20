@@ -1,8 +1,9 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                         Lazygit                         ║
+--          ║                      Wrapping Lazygit                   ║
 --          ╚═════════════════════════════════════════════════════════╝
+local group = vim.api.nvim_create_augroup("LazygitClose", { clear = true })
 vim.api.nvim_create_autocmd("TermClose", {
-  -- TODO: group
+  group = group,
   pattern = { "term://*lazygit" },
   callback = function()
     vim.api.nvim_input("<CR>")

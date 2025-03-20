@@ -1,5 +1,5 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                       Tgpt Ai                           ║
+--          ║                       Wrapping Tgpt                     ║
 --          ╚═════════════════════════════════════════════════════════╝
 -- Helpers to create a buffer and open a window
 local state = {
