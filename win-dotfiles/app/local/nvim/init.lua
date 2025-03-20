@@ -360,26 +360,24 @@ now(function()
   -- Diagnostics ===============================================================
   vim.diagnostic.config({ severity_sort = false, signs = false, virtual_text = false, update_in_insert = false })
   -- Global:  =================================================================
-  vim.g.mapleader      = vim.keycode("<space>")
-  vim.g.maplocalleader = vim.keycode("<cr>")
+  vim.g.mapleader               = vim.keycode("<space>")
+  vim.g.maplocalleader          = vim.keycode("<cr>")
   -- Use ripgrep as grep tool: ================================================
-  vim.opt.grepprg      = "rg --vimgrep --no-heading"
-  vim.opt.grepformat   = "%f:%l:%c:%m,%f:%l:%m"
+  vim.opt.grepprg               = "rg --vimgrep --no-heading"
+  vim.opt.grepformat            = "%f:%l:%c:%m,%f:%l:%m"
   -- Shell: =-================================================================
-  vim.opt.sh           = "nu"
-  vim.opt.shellslash   = true
-  vim.opt.shelltemp    = false
-  vim.opt.shellcmdflag = "--stdin --no-newline -c"
-  vim.opt.shellredir   = "out+err> %s"
-  vim.opt.shellxescape = ""
-  vim.opt.shellxquote  = ""
-  vim.opt.shellquote   = ""
+  vim.opt.sh                    = "nu"
+  vim.opt.shellslash            = true
+  vim.opt.shelltemp             = false
+  vim.opt.shellcmdflag          = "--stdin --no-newline -c"
+  vim.opt.shellredir            = "out+err> %s"
+  vim.opt.shellxescape          = ""
+  vim.opt.shellxquote           = ""
+  vim.opt.shellquote            = ""
   -- General: ================================================================
-  vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
-  end)
-  vim.o.completeopt             = 'menuone,noselect'
-  vim.o.complete                = '.,b,kspell'
+  vim.opt.clipboard             = 'unnamedplus'
+  vim.opt.completeopt           = 'menuone,noselect'
+  vim.opt.complete              = '.,b,kspell'
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
   vim.opt.writebackup           = false
@@ -422,12 +420,12 @@ now(function()
   vim.opt.smartindent           = true
   vim.opt.tabstop               = 2
   vim.opt.virtualedit           = 'block'
-  vim.o.formatoptions           = 'rqnl1j'
+  vim.opt.formatoptions         = 'rqnl1j'
   -- Fold:  ================================================================
-  vim.o.foldenable              = true
-  vim.o.foldlevel               = 99
-  vim.o.foldmethod              = "expr"
-  vim.o.foldexpr                = "v:lua.vim.treesitter.foldexpr()"
+  vim.opt.foldenable            = false
+  vim.opt.foldlevel             = 99
+  vim.opt.foldmethod            = "expr"
+  vim.opt.foldexpr              = "v:lua.vim.treesitter.foldexpr()"
   -- Memory: ================================================================
   vim.opt.hidden                = true
   vim.opt.history               = 100
