@@ -553,7 +553,14 @@ later(function()
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
   vim.keymap.set("n", "<leader>bd", ":bd<CR>")
-  vim.keymap.set("n", "<leader>bb", ":silent %bd<CR><C-O>:bd#<CR>")
+  vim.keymap.set("n", "<leader>bb", function()
+    vim.cmd("silent update")
+    local bufs = vim.tbl_filter(function(buf)
+      return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buftype ~= "terminal"
+    end, vim.api.nvim_list_bufs())
+    if #bufs > 0 then vim.cmd("bdelete " .. table.concat(bufs, " ")) end
+    vim.cmd("silent! bdelete# | e# | bd# | '\"")
+  end)
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
