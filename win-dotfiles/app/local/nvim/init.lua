@@ -459,6 +459,8 @@ now(function()
     "health",
     "man",
     "tohtml",
+    "2html",
+    "remote",
     "shadafile",
     "spellfile",
     "editorconfig",
