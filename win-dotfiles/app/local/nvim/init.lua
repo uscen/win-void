@@ -33,6 +33,13 @@ later(function()
   require("mini.icons").tweak_lsp_kind()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.misc                           │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.misc').setup_auto_root { '.git' }
+  require('mini.misc').setup_restore_cursor()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.CursorWord                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -75,17 +82,16 @@ later(function()
   require('mini.operators').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Jump                           │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.jump').setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Extra                          │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.extra").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.misc                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.misc').setup_auto_root { '.git' }
-  require('mini.misc').setup_restore_cursor()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Notify                         │
@@ -636,6 +642,7 @@ later(function()
     filename = {
       ["tsconfig.json"] = "jsonc",
       [".env"] = "env",
+      [".envrc"] = "sh",
       ['.yamlfmt'] = 'yaml',
     },
     pattern = {
