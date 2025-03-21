@@ -4,6 +4,8 @@ prepend_keymap = [
 	{ on = ["e"], run = "open" },
 	{ on = ["A"], run = "create --dir" },
 	{ on = ["l"],		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+	{ on = ["<C-h>"], run = "leave" },
+	{ on = ["<Tab>"],		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 	{ on = ["f"], run  = "plugin jump-to-char", desc = "Jump to char" },
 	{ on = ["C"], run  = "plugin ouch zip", desc = "Compress with ouch" }
 ]
