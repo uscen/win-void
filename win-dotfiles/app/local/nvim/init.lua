@@ -82,6 +82,12 @@ later(function()
   require('mini.operators').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Jump                           │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.jump').setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Extra                          │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -122,20 +128,6 @@ later(function()
       add = "ys",
       delete = "ds",
       replace = "cs",
-    },
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Jump                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.jump').setup({
-    mappings = {
-      forward = 'f',
-      backward = 'F',
-      forward_till = 't',
-      backward_till = 'T',
-      repeat_jump = 'n',
     },
   })
 end)
