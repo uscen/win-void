@@ -370,7 +370,12 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Diagnostics ===============================================================
-  vim.diagnostic.config({ severity_sort = false, signs = false, virtual_text = false, update_in_insert = false })
+  vim.diagnostic.config({
+    signs = false,
+    virtual_text = false,
+    severity_sort = false,
+    update_in_insert = false,
+  })
   -- Global:  =================================================================
   vim.g.mapleader               = vim.keycode("<space>")
   vim.g.maplocalleader          = vim.keycode("<cr>")
@@ -602,8 +607,7 @@ later(function()
   vim.keymap.set("n", "<leader>gD", "<Cmd>Git diff -- %<CR>")
   vim.keymap.set("n", "<leader>gs", "<Cmd>lua MiniGit.show_at_cursor()<CR>")
   vim.keymap.set("n", "<leader>gl", [[<Cmd>Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order<CR>]])
-  -- Mini Diff: ==================================================================
-  vim.keymap.set("n", "<leader>gh", MiniDiff.toggle_overlay)
+  vim.keymap.set("n", "<leader>gh", [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
   -- Mini Files: =================================================================
   vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
