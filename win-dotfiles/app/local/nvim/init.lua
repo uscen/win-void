@@ -296,6 +296,7 @@ now(function()
   local webHtmlPatterns = { 'web/*.json', 'html.json' }
   local lang_patterns = {
     html = webHtmlPatterns,
+    tsx = webPatterns,
     javascript = webPatterns,
     typescript = webPatterns,
     javascriptreact = webPatterns,
