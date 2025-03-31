@@ -12,6 +12,7 @@ $packages=@(
     "typescript",
     "typescript-language-server",
     "vscode-langservers-extracted",
+    "@olrtg/emmet-language-server",
     "@tailwindcss/language-server",
     "@biomejs/biome"
 )
