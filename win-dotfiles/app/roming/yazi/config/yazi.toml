@@ -18,12 +18,17 @@ max_width = 1200
 max_height = 1800
 image_quality = 90
 [opener]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
 edit = [
 	{ run = "nvim %*",   block = true, for = "windows" },
 	{ run = "nvim %*",   orphan = true, for = "windows" },
+	{ run = '$EDITOR "$@"', block = true, for = "unix" },
 ]
 play = [
-	{ run = 'mpv.exe %*', orphan = true, for = "windows" }
+	{ run = 'mpv.exe %*', orphan = true, for = "windows" },
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
 extract = [
 	{ run = 'ouch d -y "%*"', desc = "Extract here with ouch", for = "windows" },
