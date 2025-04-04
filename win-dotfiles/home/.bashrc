@@ -15,7 +15,8 @@ export BUN_INSTALL_CACHE_DIR="$HOME/.cache/bun/install/cache"
 export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
 export NI_DEFAULT_AGENT="npm"
 export NI_GLOBAL_AGENT="npm"
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+
 #####################################
 ###--------- SHELL OPTIONS -------###
 #####################################
@@ -84,27 +85,21 @@ alias gp="g push -uf origin main"
 alias lg="lazygit"
 ## Xbps Pkg Manager:                #
 #####################################
-alias pu="doas xbps-install -Syu xbps && doas xbps-install -Su"
-alias pi="doas xbps-install -S"
-alias pr="doas xbps-remove -R"
-alias pq="xbps-query -Rs"
-alias pl="xbps-query -l"
-alias pc="doas xbps-remove -Oo"
-alias pclean="doas rm -rf /var/cache/xbps/*"
-## Power Management:                #
-#####################################
-alias poweroff="doas poweroff"
-alias shutdown="doas shutdown"
-alias reboot="doas reboot"
-alias zzz="doas zzz"
+alias pu="scoop update --all"
+alias pi="scoop install"
+alias pr="scoop uninstall"
+alias pq="scoop search"
+alias pl="scoop list"
+alias pc="scoop cleanup --cache --all"
 ## For Configs Files:               #
 #####################################
-alias sucks="cd ~/.local/wayland-void/void-dotfiles/cfg/wayland-suckless/"
-alias dots="cd ~/.local/wayland-void/"
-alias riverc="nvim ~/.config/river/init"
-alias swayc="nvim ~/.config/sway/config"
-alias bashc="nvim ~/.bashrc"
-alias starc="nvim ~/.config/starship.toml"
+alias recompile="powershell  ~/win-void/win-configs/win-configs.ps1"
+alias dots="cd ~/win-void/"
+alias ahk="cd ~/win-void/win-dotfiles/cfg/ahk/"
+alias bashc="nvim ~/win-void/win-dotfiles/home/.bashrc"
+alias wmc="nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json"
+alias barc="nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml"
+alias nuc="nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu"
 # Others Usfeual Alias:             #
 #####################################
 alias yt-concats='yt-dlp --ignore-config --downloader aria2c --output "~/Videos/programming/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always -S "codec:h264"'
@@ -126,22 +121,6 @@ export FZF_DEFAULT_OPTS='
   --color hl:#dadada,hl+:#26292a,gutter:#1e2527
   --color pointer:#373d49,info:#606672
   --color border:#1e2527'
-
-#####################################
- ###------- NNN File Manager ------###
- #####################################
-export NNN_USE_EDITOR=1
-export NNN_TRASH=1
-export NNN_OPTS='RUc'
-export NNN_COLORS='2134'
-export NNN_CONTEXT_COLORS="2135"
-export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
-export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
-export NNN_TERMINAL="alacritty"
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_OPENER="$HOME/.config/nnn/plugins/nuke"
-export NNN_PLUG="m:nmount;M:mtpmount;e:suedit;n:bulknew;P:rsynccp;z:autojump;o:fzopen;f:fzcd;l:imgview;p:preview-tui;x:xdgdefault;*:togglex"
-export NNN_BMS="m:/run/media/$USER;M:/run/user/$UID/gvfs;w:$HOME/pix/wallpapers;v:$HOME/Videos/programming/;n:$HOME/.config/nvim;d:$HOME/.local/wayland-void/"
 
 #####################################
 ###-------Tab Completions --------###
