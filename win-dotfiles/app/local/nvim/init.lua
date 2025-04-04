@@ -25,10 +25,11 @@ end
 --          ╰─────────────────────────────────────────────────────────╯
 require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
+local now_if_args = vim.fn.argc(-1) > 0 and now or later
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now_if_args(function()
   require("mini.icons").setup()
   require("mini.icons").tweak_lsp_kind()
 end)
@@ -336,13 +337,15 @@ now(function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
       vim.schedule(MiniSnippets.expand); return ''
     end
-    return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or "<Tab>"
+    return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or
+        "<Tab>"
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+  -- enable configured language servers 0.11: ========================================
   local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "biome" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
@@ -357,13 +360,40 @@ now(function()
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
+--          ║                          Treesitter                     ║
+--          ╚═════════════════════════════════════════════════════════╝
+now_if_args(function()
+  add({
+    source = 'nvim-treesitter/nvim-treesitter',
+    checkout = 'master',
+    hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+  })
+  local ensure_installed = {
+    'bash', 'powershell', 'nu', 'c', 'cpp', 'python', 'regex',
+    'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
+    'json', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
+    "git_config", "git_rebase", "gitcommit", "gitignore", "gitattributes", "diff",
+  }
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = ensure_installed,
+    highlight = { enable = true },
+    indent = { enable = true },
+    incremental_selection = { enable = false },
+    textobjects = { enable = false },
+  })
+  -- Disable injections in 'lua' language
+  local ts_query = require('vim.treesitter.query')
+  local ts_query_set = vim.fn.has('nvim-0.9') == 1 and ts_query.set or ts_query.set_query
+  ts_query_set('lua', 'injections', '')
+end)
+--          ╔═════════════════════════════════════════════════════════╗
 --          ║                          NVIM                           ║
 --          ╚═════════════════════════════════════════════════════════╝
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim Colorscheme                  │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  vim.cmd("colorscheme minibase-kanagawa")
+  vim.cmd("colorscheme minibase-core")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim Options                      │
@@ -372,9 +402,10 @@ now(function()
   -- Diagnostics ===============================================================
   vim.diagnostic.config({
     signs = false,
-    virtual_text = false,
     severity_sort = false,
     update_in_insert = false,
+    virtual_lines = false,
+    virtual_text = false,
   })
   -- Global:  =================================================================
   vim.g.mapleader               = vim.keycode("<space>")
@@ -393,7 +424,7 @@ now(function()
   vim.opt.shellquote            = ""
   -- General: ================================================================
   vim.opt.clipboard             = 'unnamedplus'
-  vim.opt.completeopt           = 'menuone,noselect'
+  vim.o.completeopt             = 'menuone,noselect,fuzzy'
   vim.opt.complete              = '.,b,kspell'
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
@@ -580,7 +611,8 @@ later(function()
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set("i", "<C-p>", [[pumvisible() ? "\<C-e>" : "\<C-p>"]], { expr = true })
   vim.keymap.set("i", "<S-Tab>",
-    [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<S-Tab>"]], { expr = true })
+    [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<S-Tab>"]],
+    { expr = true })
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)

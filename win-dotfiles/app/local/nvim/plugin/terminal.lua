@@ -35,7 +35,7 @@ vim.keymap.set({ "n", "t" }, "<C-t>", function()
           row = vim.o.lines - height,
           col = 0,
         })
-    vim.wo[floating_terminal_state.win].winhl = "Normal:MyHighlight"
+    vim.wo[floating_terminal_state.win].winhl = "Normal:Normal,FloatBorder:MyBorderHighlight"
 
     if vim.bo[floating_terminal_state.buf].buftype ~= "terminal" then
       vim.cmd.terminal()
