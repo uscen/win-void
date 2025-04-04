@@ -17,7 +17,7 @@ $packages=@(
     "@biomejs/biome"
 )
 $extensions=@(
-    "jdinhlife.gruvbox"
+    "mangeshrex.everblush"
     "vscodevim.vim"
     "dsznajder.es7-react-js-snippets"
     "bradlc.vscode-tailwindcss"

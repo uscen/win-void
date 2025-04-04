@@ -1,152 +1,205 @@
 {
-  // General
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.fontSize": 12,
-  "editor.fontLigatures": true,
-  "editor.tabSize": 2,
-  "editor.minimap.enabled": false,
-  "editor.inlineSuggest.enabled": true,
-  "editor.suggestOnTriggerCharacters": false,
-  "editor.tabCompletion": "on",
-  "editor.snippetSuggestions": "never",
-  "editor.quickSuggestions": {
-    "other": "off"
-  },
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.defaultHeight": 10,
-  "debug.console.fontSize": 12,
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
-  "workbench.editor.restoreViewState": true,
-  "workbench.startupEditor": "none",
-  "workbench.tips.enabled": false,
-  "window.restoreFullscreen": true,
-  "window.newWindowDimensions": "maximized",
-  "window.menuBarVisibility": "toggle",
-  "update.mode": "none",
-  "extensions.ignoreRecommendations": true,
-  // Minimal
-  "breadcrumbs.enabled": false,
-  "editor.renderWhitespace": "none",
-  "workbench.statusBar.visible": false,
-  "workbench.activityBar.location": "hidden",
-  "editor.wordWrap": "off",
-  "editor.hideCursorInOverviewRuler": true,
-  "workbench.editor.tabActionCloseVisibility": false,
-  "explorer.decorations.colors": false,
-  "explorer.compactFolders": false,
-  "git.decorations.enabled": false,
-  "editor.bracketPairColorization.enabled": false,
-  "editor.guides.highlightActiveBracketPair": false,
-  "editor.guides.bracketPairsHorizontal": false,
-  "editor.renderLineHighlight": "none",
-  "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden",
-  "editor.showFoldingControls": "never",
-  "editor.glyphMargin": false,
-  "editor.folding": false,
-  "workbench.layoutControl.enabled": false,
-  "window.title": " ",
-  "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": "on",
-  "window.commandCenter": false,
-  "editor.occurrencesHighlight": "off",
-  "editor.matchBrackets": "never",
-  "editor.minimap.enabled": false,
-  "files.restoreUntitledEditors": false,
-  "window.restoreWindows": "none",
-  "workbench.startupEditor": "none",
-  "scm.diffDecorationsGutterPattern": {
-    "added": false,
-    "modified": false
-  },
-  // Format && AutoComplete
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "emmet.triggerExpansionOnTab": true,
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
-  },
-  "[prisma]": {
-    "editor.defaultFormatter": "Prisma.prisma"
-  },
-  // VIM Keybidings
-  "editor.scrollBeyondLastLine": false,
-  "vim.leader": "<space>",
-  "vim.enableNeovim": true,
-  "vim.neovimUseConfigFile": true,
-  "vim.surround": true,
-  "vim.incsearch": true,
-  "vim.useCtrlKeys": true,
-  "vim.nohlsearch": true,
-  "vim.easymotion": false,
-  "vim.sneak": false,
-  "vim.relativenumber": false,
-  "vim.highlightedyank.enable": true,
-  "vim.useSystemClipboard": true,
-  "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
-  },
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+    // General
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "never",
+    "editor.quickSuggestions": {
+        "other": "off"
+    },
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.defaultHeight": 10,
+    "debug.console.fontSize": 12,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.colorTheme": "Everblush",
+    "workbench.editor.restoreViewState": true,
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "window.restoreFullscreen": true,
+    "window.newWindowDimensions": "maximized",
+    "window.menuBarVisibility": "toggle",
+    "update.mode": "none",
+    "extensions.ignoreRecommendations": true,
+    // Minimal
+    "breadcrumbs.enabled": false,
+    "editor.renderWhitespace": "none",
+    "workbench.statusBar.visible": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.wordWrap": "off",
+    "editor.hideCursorInOverviewRuler": true,
+    "workbench.editor.tabActionCloseVisibility": false,
+    "explorer.decorations.colors": false,
+    "explorer.compactFolders": false,
+    "git.decorations.enabled": false,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.renderLineHighlight": "none",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.showFoldingControls": "never",
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "workbench.layoutControl.enabled": false,
+    "window.title": " ",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "window.commandCenter": false,
+    "editor.occurrencesHighlight": "off",
+    "editor.matchBrackets": "never",
+    "editor.minimap.enabled": false,
+    "files.restoreUntitledEditors": false,
+    "window.restoreWindows": "none",
+    "workbench.startupEditor": "none",
+    "scm.diffDecorationsGutterPattern": {
+        "added": false,
+        "modified": false
+    },
+    // Format && AutoComplete
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact"
+    },
+    "[prisma]": {
+        "editor.defaultFormatter": "Prisma.prisma"
+    },
+    // VIM Keybidings
+    "editor.scrollBeyondLastLine": false,
+    "vim.leader": "<space>",
+    "vim.enableNeovim": true,
+    "vim.neovimUseConfigFile": true,
+    "vim.surround": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.nohlsearch": true,
+    "vim.easymotion": false,
+    "vim.sneak": false,
+    "vim.relativenumber": false,
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": true,
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<S-tab>"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<tab>"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "b"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y",
+                "$"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "y"
+            ],
+            "after": [
+                "\"",
+                "*",
+                "y"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Esc>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-a>": true,
+        "<C-f>": true,
+        // VS Code new marker @ next occurence
+        "<C-d>": true,
+        // Copy
+        "<C-c>": false,
+        // Cut
+        "<C-x>": true,
+        // Paste
+        "<C-v>": true,
+        "<C-y>": false
     }
-  ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<S-tab>"],
-      "commands": ["workbench.action.previousEditor"]
-    },
-    {
-      "before": ["<tab>"],
-      "commands": ["workbench.action.nextEditor"]
-    },
-    {
-      "before": ["<leader>", "b", "b"],
-      "commands": ["workbench.action.closeOtherEditors"]
-    },
-    {
-      "before": ["<leader>", "b", "d"],
-      "commands": ["workbench.action.closeActiveEditor"]
-    },
-    {
-      "before": ["Y"],
-      "after": ["\"", "+", "y", "$"]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["y"],
-      "after": ["\"", "*", "y"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<Esc>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["<leader>", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    {
-      "before": ["<leader>", "f", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    }
-  ],
-  "vim.handleKeys": {
-    "<C-a>": true,
-    "<C-f>": true,
-    // VS Code new marker @ next occurence
-    "<C-d>": true,
-    // Copy
-    "<C-c>": false,
-    // Cut
-    "<C-x>": true,
-    // Paste
-    "<C-v>": true,
-    "<C-y>": false
-  }
 }

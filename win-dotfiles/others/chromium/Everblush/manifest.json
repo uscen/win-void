@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Everblush Chrome Theme",
+  "description": "A Dark, Vibrant and Beautiful Colorscheme for Chrome - Everblush",
+  "version": "3.0",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "author": "Name|Username|Nickname",
+  "theme": {
+    "colors": {
+      "frame": [20, 27, 30],
+      "frame_inactive": [20, 27, 30],
+      "frame_incognito": [35, 42, 45],
+      "frame_incognito_inactive": [35, 42, 45],
+      "bookmark_text": [218, 218, 218],
+      "tab_background_text": [218, 218, 218],
+      "tab_background_text_inactive": [179, 185, 184],
+      "tab_background_text_incognito": [218, 218, 218],
+      "tab_background_text_incognito_inactive": [179, 185, 184],
+      "tab_text": [218, 218, 218],
+      "toolbar": [20, 27, 30],
+      "toolbar_button_icon": [218, 218, 218],
+      "omnibox_text": [218, 218, 218],
+      "omnibox_background": [35, 42, 45],
+      "ntp_background": [35, 42, 45],
+      "ntp_link": [103, 176, 232],
+      "ntp_text": [179, 185, 184],
+      "button_background": [20, 27, 30]
+    },
+    "images": {
+      "theme_toolbar": "images/theme_toolbar.png"
+    },
+    "tints": {
+      "buttons": [0.5, 0.5, 0.5]
+    }
+  }
+}
