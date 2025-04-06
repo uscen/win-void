@@ -42,7 +42,7 @@ save_to_clipboard = true
 
 [colors.cursor]
   text = '0x141b1e'
-  cursor = '0xe57474'
+  cursor = '0xa9b665'
 
 # Normal colors
 [colors.normal]
