@@ -41,8 +41,8 @@ save_to_clipboard = true
   foreground =  '0xdadada'
 
 [colors.cursor]
-  text = '0xdadada'
-  cursor = '0xdadada'
+  text = '0x141b1e'
+  cursor = '0xe57474'
 
 # Normal colors
 [colors.normal]
