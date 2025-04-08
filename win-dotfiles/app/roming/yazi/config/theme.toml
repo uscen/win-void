@@ -1,82 +1,46 @@
-# vim:fileencoding=utf-8:foldmethod=marker
-
-# : Manager {{{
-
+# =============================================================================== #
+# Yazi Cli File Manager Theme:                                                    #
+# =============================================================================== #
 [manager]
 cwd = { fg = "#e57474" }
-
-# Hovered
 hovered         = { reversed = true }
 preview_hovered = { underline = true }
-
-# Find
 find_keyword  = { fg = "#e5c76b", bold = true, italic = true, underline = true }
 find_position = { fg = "#a292a3", bg = "reset", bold = true, italic = true }
-
-# Marker
 marker_copied   = { fg = "#8ccf7e",  bg = "#8ccf7e" }
 marker_cut      = { fg = "#e57474",    bg = "#e57474" }
 marker_marked   = { fg = "#e57474",   bg = "#e57474" }
 marker_selected = { fg = "#e5c76b", bg = "#e5c76b" }
-
-# Tab
 tab_active   = { reversed = true }
 tab_inactive = {}
 tab_width    = 1
-
-# Count
 count_copied   = { fg = "#343f44", bg = "#8ccf7e" }
 count_cut      = { fg = "#343f44", bg = "#e57474" }
 count_selected = { fg = "#343f44", bg = "#e5c76b" }
-
-# Border
 border_symbol = "│"
 border_style  = { fg = "#4f585e" }
-
-# Highlighting
 syntect_theme = ""
-
-# : }}}
-
-
-# : Status {{{
 
 [status]
 separator_open  = ""
 separator_close = ""
 separator_style = { fg = "#343f44", bg = "#343f44" }
-
-# Mode
 mode_normal = { bg = "#e57474", bold = true }
 mode_select = { bg = "#e57474", bold = true }
 mode_unset  = { bg = "#e57474", bold = true }
-
-# Progress
 progress_label  = { bold = true }
 progress_normal = { fg = "#e57474", bg = "#232a2e" }
 progress_error  = { fg = "#e57474", bg = "#232a2e" }
-
-# Permissions
 permissions_t = { fg = "#8ccf7e" }
 permissions_r = { fg = "#e5c76b" }
 permissions_w = { fg = "#e57474" }
 permissions_x = { fg = "#e57474" }
 permissions_s = { fg = "#2d353b" }
 
-# : }}}
-
-
-# : Select {{{
-
 [select]
 border   = { fg = "#e57474" }
 active   = { fg = "#a292a3", bold = true }
 inactive = {}
-
-# : }}}
-
-
-# : Input {{{
 
 [input]
 border   = { fg = "#e57474" }
@@ -84,35 +48,18 @@ title    = {}
 value    = {}
 selected = { reversed = true }
 
-# : }}}
-
-
-# : Completion {{{
-
 [completion]
 border   = { fg = "#e57474" }
 active   = { reversed = true }
 inactive = {}
-
-# Icons
 icon_file    = ""
 icon_folder  = ""
 icon_command = ""
-
-# : }}}
-
-
-# : Tasks {{{
 
 [tasks]
 border  = { fg = "#e57474" }
 title   = {}
 hovered = { fg = "#a292a3", underline = true }
-
-# : }}}
-
-
-# : Which {{{
 
 [which]
 cols            = 3
@@ -123,11 +70,6 @@ desc            = { fg = "#a292a3" }
 separator       = "  "
 separator_style = { fg = "#2d353b" }
 
-# : }}}
-
-
-# : Help {{{
-
 [help]
 on      = { fg = "#e57474" }
 run     = { fg = "#a292a3" }
@@ -135,45 +77,21 @@ desc    = {}
 hovered = { reversed = true, bold = true }
 footer  = { fg = "#232a2e", bg = "#d3c6aa" }
 
-# : }}}
-
-
-# : Notify {{{
-
 [notify]
 title_info  = { fg = "#8ccf7e" }
 title_warn  = { fg = "#e5c76b" }
 title_error = { fg = "#e57474" }
-
-# Icons
 icon_info  = ""
 icon_warn  = ""
 icon_error = ""
 
-# : }}}
-
-
-# : File-specific styles {{{
-
 [filetype]
-
 rules = [
-	# Images
 	{ mime = "image/*", fg = "#e57474" },
-
-	# Media
 	{ mime = "{audio,video}/*", fg = "#a292a3" },
-
-	# Archives
 	{ mime = "application/*zip", fg = "#e57474" },
 	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#e57474" },
-
-	# Documents
 	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#e57474" },
-
-	# Fallback
 	{ name = "*", fg = "#83c092" },
 	{ name = "*/", fg = "#8ccf7e" }
 ]
-
-# : }}}

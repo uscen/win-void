@@ -23,15 +23,13 @@ Capslock::Esc
 ; ----------------------------------------------------------
 ; System Controlls
 ; ----------------------------------------------------------
-#HotIf !WinActive("ahk_exe yasb.exe")
 !q:: WinClose("A")
-#HotIf
 !^q:: Shutdown 0
 !+r:: Reload
 !+m:: WinMinimize("A")
 !+s:: KeepAwake()
 !+t:: WinSetAlwaysOnTop -1, "A"
-!^f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
+!f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
 !+f:: {
     WinSetStyle "^0xC00000", "A"
     WinSetStyle "^0x840000", "A"
@@ -71,7 +69,7 @@ Komorebic(cmd) {
 !s::Komorebic("promote")
 !m::Komorebic("toggle-monocle")
 !t::Komorebic("toggle-monocle")
-!f::Komorebic("toggle-maximize")
+!^f::Komorebic("toggle-maximize")
 !+Space::Komorebic("toggle-float")
 ; Window manager options
 !r::Komorebic("retile")

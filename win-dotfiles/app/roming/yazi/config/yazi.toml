@@ -1,3 +1,6 @@
+# =============================================================================== #
+# Yazi Cli File Manager:                                                          #
+# =============================================================================== #
 [manager]
 show_hidden = false
 show_symlink = false
@@ -11,12 +14,14 @@ linemode = "mtime"
 scrolloff = 10
 title_format = "{cwd}"
 mouse_events = ["click", "scroll", "touch", "move", "drag"]
+
 [preview]
 wrap = "no"
 tab_size = 2
 max_width = 1200
 max_height = 1800
 image_quality = 90
+
 [opener]
 open = [
 	{ run = 'xdg-open "$@"', desc = "Open" },
@@ -39,6 +44,7 @@ archive = [
 	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
 	{ run = '/Applications/MacZip.app/Contents/MacOS/MacZip "$1"', orphan = true, desc = "MacZip" },
 ]
+
 [open]
 rules = [
 	{ name = "*/", use = [ "open", "edit", "reveal" ] },
@@ -62,6 +68,7 @@ rules = [
 
 	{ name = "*", use = [ "open", "reveal" ] },
 ]
+
 [plugin]
 prepend_previewers = [
 	# Archive previewer
@@ -72,6 +79,7 @@ prepend_previewers = [
 	{ mime = "application/x-rar",           run = "ouch" },
 	{ mime = "application/x-xz",            run = "ouch" },
 ]
+
 [[plugin.prepend_fetchers]]
 id   = "git"
 name = "*"

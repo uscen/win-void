@@ -1,6 +1,6 @@
-# ===================================================#
-# General:                                           #
-# ===================================================#
+# =============================================================================== #
+# General:                                                                        #
+# =============================================================================== #
 general.live_config_reload = true
 general.working_directory = "C:/Users/lli"
 [terminal.shell]
@@ -32,10 +32,9 @@ hide_when_typing = true
 
 [selection]
 save_to_clipboard = true
-# ===================================================#
-# colorsscheme:                                      #
-# ===================================================#
-# Default colors
+# =============================================================================== #
+# colorsscheme:                                                                   #
+# =============================================================================== #
 [colors.primary]
   background = '0x141b1e'
   foreground =  '0xdadada'
@@ -44,7 +43,6 @@ save_to_clipboard = true
   text = '0x141b1e'
   cursor = '0xa9b665'
 
-# Normal colors
 [colors.normal]
   black =   '0x232a2d'
   red =     '0xe57474'
@@ -55,7 +53,6 @@ save_to_clipboard = true
   cyan =    '0x6cbfbf'
   white =   '0xb3b9b8'
 
-# Bright colors
 [colors.bright]
   black =   '0x2d3437'
   red =     '0xef7e7e'
@@ -65,9 +62,9 @@ save_to_clipboard = true
   magenta = '0xce89df'
   cyan =    '0x67cbe7'
   white =   '0xbdc3c2'
-# ===================================================#
-# keybidings:                                        #
-# ===================================================#
+# =============================================================================== #
+# keybidings:                                                                     #
+# =============================================================================== #
 [keyboard]
 bindings = [
   { key = "V", mods = "Control|Shift", action = "Paste" },
