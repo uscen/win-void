@@ -83,7 +83,7 @@ alias gd="g diff"
 alias gl="g log --oneline --graph --all -10"
 alias gp="g push -uf origin main"
 alias lg="lazygit"
-## Xbps Pkg Manager:                                                              #
+# Scoop Pkg Manager:                                                             #
 # =============================================================================== #
 alias pu="scoop update --all"
 alias pi="scoop install"
@@ -91,7 +91,7 @@ alias pr="scoop uninstall"
 alias pq="scoop search"
 alias pl="scoop list"
 alias pc="scoop cleanup --cache --all"
-## For Configs Files:                                                             #
+# For Configs Files:                                                             #
 # =============================================================================== #
 alias recompile="powershell  ~/win-void/win-configs/win-configs.ps1"
 alias dots="cd ~/win-void/"
