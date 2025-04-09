@@ -27,7 +27,7 @@ cursor_blink = true
 
 [opener]
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
+	{ run = 'start chromium "%*"', desc = "Open" },
 ]
 edit = [
 	{ run = "nvim %*",   block = true, for = "windows" },
@@ -54,7 +54,9 @@ archive = [
 
 [open]
 rules = [
-	{ name = "*/", use = [ "open", "edit", "reveal" ] },
+	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ name = "*.html", use = [ "open", "edit" ] },
+	{ name = "*.json", use = "edit" },
 
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
 	{ mime = "image/*", use = [ "show", "reveal" ] },
