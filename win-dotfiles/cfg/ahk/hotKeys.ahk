@@ -45,6 +45,7 @@ Capslock::Esc
 !v:: Run("neovide.exe")
 !e:: Run("thunderbird.exe")
 !n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
+!^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
 !y::{
     if !WinExist("ahk_exe FreeTube.exe")
