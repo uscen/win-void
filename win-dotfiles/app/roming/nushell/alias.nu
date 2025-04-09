@@ -25,6 +25,10 @@ alias vm = nvim
 alias vim = nvim
 alias vd = nohup neovide 2>/dev/null 1>&2 &
 alias nd = nohup neovide 2>/dev/null 1>&2 &
+# Image Viewr:                                                                    #
+# =============================================================================== #
+alias sx = oculante
+alias imv = oculante
 # Github Command:                                                                 #
 # =============================================================================== #
 alias g = git

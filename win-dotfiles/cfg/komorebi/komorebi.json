@@ -41,6 +41,11 @@
             "kind": "Exe",
             "id": "mpv.exe",
             "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "oculante.exe",
+            "matching_strategy": "Equals"
         }
     ],
     "monitors": [

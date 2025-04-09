@@ -1,6 +1,7 @@
 # =============================================================================== #
 # Set download to best video and audio:                                           #
 # =============================================================================== #
+# --format "bestvideo[width<2000][height<=1200]+bestaudio/best[width<2000][height<=1200]/best"
 --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio"
 
 # =============================================================================== #
