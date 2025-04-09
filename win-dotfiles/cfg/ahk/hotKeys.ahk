@@ -44,10 +44,13 @@ Capslock::Esc
 !i:: Run("msedge.exe")
 !v:: Run("neovide.exe")
 !e:: Run("thunderbird.exe")
-!n:: Run("alacritty.exe -e yazi")
-!y:: Run('"C:\Users\' A_UserName '\scoop\apps\freetube\current\FreeTube.exe"')
-!^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
+!n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
+!y::{
+    if !WinExist("ahk_exe FreeTube.exe")
+      Run('"C:\Users\' A_UserName '\scoop\apps\freetube\current\FreeTube.exe"')
+    WinWaitActive("ahk_exe FreeTube.exe"), WinSetStyle("-0xC40000", "ahk_exe FreeTube.exe")
+}
 ; ----------------------------------------------------------
 ; Komorebi Window Manager:
 ; ----------------------------------------------------------
