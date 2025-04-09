@@ -22,6 +22,9 @@ max_width = 1200
 max_height = 1800
 image_quality = 90
 
+[input]
+cursor_blink = true
+
 [opener]
 open = [
 	{ run = 'xdg-open "$@"', desc = "Open" },

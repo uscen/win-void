@@ -1,95 +1,117 @@
 {
-	"$schema": "https://aka.ms/terminal-profiles-schema",
-	"$help": "https://aka.ms/terminal-documentation",
-	"defaultProfile": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
-	"copyOnSelect": true,
-	"copyFormatting": true,
-	"startOnUserLogin": false,
-	"confirmCloseAllTabs": false,
-	"initialCols": 55,
-	"initialPosition": ",",
-	"initialRows": 22,
-	"launchMode": "focus",
-	"profiles": {
-		"defaults": {
-			"colorScheme": "KanagawaDragon",
-			"cursorBlinking": false,
-			"cursorShape": "filledBox",
-			"cursorColor": "#ebdbb2",
-			"bellStyle": "none",
-			"font": {
-				"face": "JetBrainsMono Nerd Font",
-				"size": 9,
-				"weight": "normal"
-			}
-		},
-		"list": [
-			{
-				"guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
-				"name": "NuShell",
-				"commandline": "nu",
-				"startingDirectory": "%USERPROFILE%",
-				"tabTitle": "NuShell",
-				"icon": "C:\\Users\\LLI\\AppData\\Local\\Programs\\nu\\nu.ico",
-				"hidden": false
-			},
-			{
-				"guid": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
-				"name": "Bash",
-				"commandline": "C:/Program Files/Git/bin/bash.exe --login",
-				"startingDirectory": "%USERPROFILE%",
-				"tabTitle": "Bash",
-				"icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-				"hidden": false
-			}
-		]
-	},
-
-	"schemes": [
-		{
-			"name": "GruvboxMaterialHardDark",
-			"background": "#141617",
-			"black": "#665C54",
-			"blue": "#7DAEA3",
-			"brightBlack": "#928374",
-			"brightBlue": "#7DAEA3",
-			"brightCyan": "#89B482",
-			"brightGreen": "#A9B665",
-			"brightPurple": "#D3869B",
-			"brightRed": "#EA6962",
-			"brightWhite": "#D4BE98",
-			"brightYellow": "#D8A657",
-			"cyan": "#89B482",
-			"foreground": "#D4BE98",
-			"green": "#A9B665",
-			"purple": "#D3869B",
-			"red": "#EA6962",
-			"white": "#D4BE98",
-			"yellow": "#D8A657"
-		},
-		{
-			"background": "#181616",
-			"black": "#0d0c0c",
-			"brightBlack": "#a6a69c",
-			"blue": "#8ba4b0",
-			"brightBlue": "#7FB4CA",
-			"green": "#8a9a7b",
-			"brightGreen": "#87a987",
-			"purple": "#a292a3",
-			"brightPurple": "#8992a7",
-			"brightRed": "#E46876",
-			"red": "#c4746e",
-			"brightWhite": "#c5c9c5",
-			"white": "#C8C093",
-			"brightYellow": "#E6C384",
-			"yellow": "#c4b28a",
-			"brightCyan": "#7AA89F",
-			"cyan": "#8ea4a2",
-			"cursorColor": "#c5c9c5",
-			"foreground": "#C8C093",
-			"name": "KanagawaDragon",
-			"selectionBackground": "#223249"
-		}
-	],
-	"keybindings": []
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "$help": "https://aka.ms/terminal-documentation",
+    "defaultProfile": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
+    "copyOnSelect": true,
+    "copyFormatting": true,
+    "startOnUserLogin": false,
+    "confirmCloseAllTabs": false,
+    "initialCols": 55,
+    "initialPosition": ",",
+    "initialRows": 22,
+    "launchMode": "focus",
+    "profiles": {
+        "defaults": {
+            "colorScheme": "Everblush",
+            "cursorBlinking": false,
+            "cursorShape": "filledBox",
+            "cursorColor": "#ebdbb2",
+            "bellStyle": "none",
+            "font": {
+                "face": "JetBrainsMono Nerd Font",
+                "size": 9,
+                "weight": "normal"
+            }
+        },
+        "list": [
+            {
+                "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+                "name": "NuShell",
+                "commandline": "nu",
+                "startingDirectory": "%USERPROFILE%",
+                "tabTitle": "NuShell",
+                "icon": "C:\\Users\\LLI\\AppData\\Local\\Programs\\nu\\nu.ico",
+                "hidden": false
+            },
+            {
+                "guid": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
+                "name": "Bash",
+                "commandline": "C:/Program Files/Git/bin/bash.exe --login",
+                "startingDirectory": "%USERPROFILE%",
+                "tabTitle": "Bash",
+                "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "hidden": false
+            }
+        ]
+    },
+    "schemes": [
+        {
+            "name": "Everblush",
+            "cursorColor": "#dadada",
+            "selectionBackground": "#141b1e",
+            "foreground": "#dadada",
+            "background": "#141b1e",
+            "black": "#232a2d",
+            "red": "#e57474",
+            "green": "#8ccf7e",
+            "yellow": "#e5c76b",
+            "blue": "#67b0e8",
+            "purple": "#c47fd5",
+            "cyan": "#6cbfbf",
+            "white": "#b3b9b8",
+            "brightBlack": "#2d3437",
+            "brightRed": "#ef7e7e",
+            "brightGreen": "#96d988",
+            "brightYellow": "#f4d67a",
+            "brightBlue": "#71baf2",
+            "brightPurple": "#ce89df",
+            "brightCyan": "#67cbe7",
+            "brightWhite": "#bdc3c2"
+        },
+        {
+            "name": "GruvboxMaterialHardDark",
+            "background": "#141617",
+            "black": "#665C54",
+            "blue": "#7DAEA3",
+            "brightBlack": "#928374",
+            "brightBlue": "#7DAEA3",
+            "brightCyan": "#89B482",
+            "brightGreen": "#A9B665",
+            "brightPurple": "#D3869B",
+            "brightRed": "#EA6962",
+            "brightWhite": "#D4BE98",
+            "brightYellow": "#D8A657",
+            "cyan": "#89B482",
+            "foreground": "#D4BE98",
+            "green": "#A9B665",
+            "purple": "#D3869B",
+            "red": "#EA6962",
+            "white": "#D4BE98",
+            "yellow": "#D8A657"
+        },
+        {
+            "name": "KanagawaDragon",
+            "background": "#181616",
+            "black": "#0d0c0c",
+            "brightBlack": "#a6a69c",
+            "blue": "#8ba4b0",
+            "brightBlue": "#7FB4CA",
+            "green": "#8a9a7b",
+            "brightGreen": "#87a987",
+            "purple": "#a292a3",
+            "brightPurple": "#8992a7",
+            "brightRed": "#E46876",
+            "red": "#c4746e",
+            "brightWhite": "#c5c9c5",
+            "white": "#C8C093",
+            "brightYellow": "#E6C384",
+            "yellow": "#c4b28a",
+            "brightCyan": "#7AA89F",
+            "cyan": "#8ea4a2",
+            "cursorColor": "#c5c9c5",
+            "foreground": "#C8C093",
+            "selectionBackground": "#223249"
+        }
+    ],
+    "keybindings": []
 }

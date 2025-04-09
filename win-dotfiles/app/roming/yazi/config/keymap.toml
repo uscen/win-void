@@ -1,16 +1,94 @@
 # =============================================================================== #
 # Yazi Cli  File Manager Keymaps :                                                #
 # =============================================================================== #
+"$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
+
 [manager]
 prepend_keymap = [
+	# Hopping
+	{ on = "k", run = "arrow prev" },
+	{ on = "j", run = "arrow next" },
+	{ on = "<C-u>", run = "arrow -5" },
+	{ on = "<C-d>", run = "arrow 5" },
+	# Navigation
+	{ on = "h", run = "leave" },
+	{ on = "l", run = "plugin smart-enter" },
+	{ on = "<C-h>", run = "back" },
+	{ on = "<Tab>", run = "plugin smart-enter" },
+	# Find
+	{ on = "-", run = "find_arrow" },
+	{ on = "=", run = "find_arrow --previous" },
+	# Shell
+	{ on = "$", run = 'shell --block $SHELL' },
 	{ on = ["!"], run = 'shell nu --block --confirm', desc = "Open shell here" },
-	{ on = ["e"], run = "open" },
-	{ on = ["A"], run = "create --dir" },
-	{ on = ["l"],		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-	{ on = ["<C-h>"], run = "leave" },
-	{ on = ["<Tab>"],		run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-	{ on = ["f"], run  = "plugin jump-to-char", desc = "Jump to char" },
-	{ on = ["C"], run  = "plugin ouch zip", desc = "Compress with ouch" }
+]
+
+[tasks]
+prepend_keymap = [
+	{ on = "k", run = "arrow -1" },
+	{ on = "j", run = "arrow 1" },
+]
+
+[spot]
+prepend_keymap = [
+	{ on = "k", run = "arrow -1" },
+	{ on = "j", run = "arrow 1" },
+	{ on = "n", run = "swipe -1" },
+	{ on = "i", run = "swipe 1" },
+]
+
+[pick]
+prepend_keymap = [
+	{ on = "k", run = "arrow -1" },
+	{ on = "j", run = "arrow 1" },
+]
+
+[input]
+prepend_keymap = [
+	# Mode
+	{ on = "i",     run = "insert" },
+	{ on = "<C-n>", run = [ "move bol", "insert" ] },
+	{ on = "<C-i>", run = [ "move eol", "insert --append" ] },
+
+	# Character-wise movement
+	{ on = "n", run = "move -1" },
+	{ on = "i", run = "move 1" },
+
+	# Word-wise movement
+	{ on = "h", run = "forward --end-of-word" },
+
+	# Line-wise movement
+	{ on = "N", run = "move bol" },
+	{ on = "I", run = "move eol" },
+
+	# Cut/Yank/Paste
+	{ on = "x", run = [ "delete", "move 1 --in-operating" ] },
+
+	# Undo/Redo
+	{ on = "l", run = "undo" },
+	{ on = "L", run = "redo" },
+]
+
+[confirm]
+prepend_keymap = [
+	{ on = "j", run = "arrow -1" },
+	{ on = "k", run = "arrow 1" },
+]
+
+[cmp]
+prepend_keymap = [
+	{ on = "<C-k>", run = "arrow -1" },
+	{ on = "<C-j>", run = "arrow 1" },
+]
+
+[help]
+prepend_keymap = [
+	# Navigation
+	{ on = "j", run = "arrow -1" },
+	{ on = "k", run = "arrow 1" },
+
+	{ on = "<C-u>", run = "arrow -5" },
+	{ on = "<C-d>", run = "arrow 5" },
 ]
 
 [completion]

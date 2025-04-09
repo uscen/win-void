@@ -3,6 +3,7 @@
 # =============================================================================== #
 general.live_config_reload = true
 general.working_directory = "C:/Users/lli"
+
 [terminal.shell]
 program = "nu"
 
@@ -48,7 +49,7 @@ save_to_clipboard = true
   red =     '0xe57474'
   green =   '0x8ccf7e'
   yellow =  '0xe5c76b'
-  blue =     '0x67b0e8'
+  blue =    '0x67b0e8'
   magenta = '0xc47fd5'
   cyan =    '0x6cbfbf'
   white =   '0xb3b9b8'
