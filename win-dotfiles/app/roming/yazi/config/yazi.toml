@@ -38,6 +38,10 @@ play = [
 	{ run = 'mpv.exe %*', orphan = true, for = "windows" },
 	{ run = 'mpv "$@"', orphan = true, for = "unix" },
 ]
+show = [
+	{ run = 'oculante.exe %*', orphan = true, for = "windows" },
+	{ run = 'imv "$@"', orphan = true, for = "unix" },
+]
 extract = [
 	{ run = 'ouch d -y "%*"', desc = "Extract here with ouch", for = "windows" },
 	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
@@ -53,7 +57,7 @@ rules = [
 	{ name = "*/", use = [ "open", "edit", "reveal" ] },
 
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
-	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "image/*", use = [ "show", "reveal" ] },
 	{ mime = "video/*", use = [ "play", "reveal" ] },
 	{ mime = "audio/*", use = [ "play", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
