@@ -4,7 +4,7 @@
     "window_hiding_behaviour": "Cloak",
     "mouse_follows_focus": false,
     "default_workspace_padding": 0,
-    "default_container_padding": 0,
+    "default_container_padding": -1,
     "transparency": false,
     "transparency_alpha": 250,
     "border": true,
