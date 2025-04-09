@@ -26,9 +26,6 @@ image_quality = 90
 cursor_blink = true
 
 [opener]
-open = [
-	{ run = 'start chromium "%*"', desc = "Open" },
-]
 edit = [
 	{ run = "nvim %*",   block = true, for = "windows" },
 	{ run = "nvim %*",   orphan = true, for = "windows" },
@@ -51,12 +48,23 @@ archive = [
 	{ run = 'unar "%1"', desc = "Extract here", for = "windows" },
 	{ run = '/Applications/MacZip.app/Contents/MacOS/MacZip "$1"', orphan = true, desc = "MacZip" },
 ]
+reveal = [
+	{ run = 'open -R "$1"',                          desc = "Reveal", for = "macos" },
+	{ run = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
+	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+]
+open = [
+	{ run = 'start chromium "%*"', desc = "Open" },
+	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 
+]
 [open]
 rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	{ name = "*.html", use = [ "open", "edit" ] },
 	{ name = "*.json", use = "edit" },
+	{ name = "*.tsx", use = "edit" },
+	{ name = "*.jsx", use = "edit" },
 
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
 	{ mime = "image/*", use = [ "show", "reveal" ] },
@@ -74,8 +82,10 @@ rules = [
 	{ mime = "application/x-bzip2",         use = [ "extract", "reveal", "archive" ] },
 	{ mime = "application/x-7z-compressed", use = [ "extract", "reveal", "archive" ] },
 	{ mime = "application/x-rar",           use = [ "extract", "reveal", "archive" ] },
+	{ mime = "application/xz",              use = [ "extract", "reveal" ] },
 
-	{ name = "*", use = [ "open", "reveal" ] },
+
+	{ name = "*", use = [ "edit", "open", "reveal" ] },
 ]
 
 [plugin]
