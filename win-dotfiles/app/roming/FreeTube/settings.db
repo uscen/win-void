@@ -1,12 +1,12 @@
 {"_id":"backendPreference","value":"local"}
 {"_id":"barColor","value":false}
 {"_id":"baseTheme","value":"catppuccinMocha"}
-{"_id":"bounds","value":{"x":-6,"y":1,"width":972,"height":1205,"maximized":false,"fullScreen":false}}
+{"_id":"bounds","value":{"x":1,"y":1,"width":958,"height":1198,"maximized":false,"fullScreen":false}}
 {"_id":"defaultProfile","value":"qXqJ1JvFrSjUSdWH"}
-{"_id":"defaultQuality","value":"2160"}
+{"_id":"defaultQuality","value":"720"}
 {"_id":"defaultViewingMode","value":"external_player"}
 {"_id":"displayVideoPlayButton","value":false}
-{"_id":"enableSubtitlesByDefault","value":true}
+{"_id":"enableSubtitlesByDefault","value":false}
 {"_id":"enterFullscreenOnDisplayRotate","value":true}
 {"_id":"expandSideBar","value":false}
 {"_id":"externalPlayer","value":"mpv"}
@@ -28,7 +28,7 @@
 {"_id":"onlyShowLatestFromChannelNumber","value":1}
 {"_id":"openDeepLinksInNewWindow","value":true}
 {"_id":"playNextVideo","value":true}
-{"_id":"proxyVideos","value":true}
+{"_id":"proxyVideos","value":false}
 {"_id":"quickBookmarkTargetPlaylistId","value":"favorites"}
 {"_id":"region","value":"MA"}
 {"_id":"secColor","value":"Teal"}
@@ -36,6 +36,6 @@
 {"_id":"unsubscriptionPopupStatus","value":true}
 {"_id":"useRssFeeds","value":false}
 {"_id":"useSponsorBlock","value":true}
-{"_id":"videoPlaybackRateMouseScroll","value":true}
+{"_id":"videoPlaybackRateMouseScroll","value":false}
 {"_id":"videoSkipMouseScroll","value":false}
 {"_id":"videoVolumeMouseScroll","value":false}
