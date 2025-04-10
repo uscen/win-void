@@ -25,7 +25,7 @@ $env.config = {
       clickable_links: false
   }
   rm: {
-      always_trash: false
+      always_trash: true
   }
   table: {
     mode: heavy
