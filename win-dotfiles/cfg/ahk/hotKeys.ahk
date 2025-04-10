@@ -35,29 +35,10 @@ Capslock::Esc
     WinSetStyle "^0x840000", "A"
 }
 ; # =============================================================================== #
-; # Focus Next/Previews Opend App:                                                  #
+; # Focus Next/Previews:                                                            #
 ; # =============================================================================== #
-; ; Focus Next Window
-; !j:: {
-;  WinMoveBottom 'A'
-;  For hWnd in WinGetList()
-;   If visible(hWnd)
-;    Return WinActivate(hWnd)
-; }
-; ; Focus Prev Window
-; !k:: {
-;  WinMoveBottom 'A'
-;  For hWnd in WinGetList()
-;   If visible(hWnd)
-;    Return WinActivate(hWnd)
-; }
-; visible(winTitle) {
-;  If WinExist(winTitle) {
-;   dwStyle := WinGetStyle()
-;   Return !(WinGetTitle() = '' || dwStyle & 0x8000000 || !(dwStyle & 0x10000000)
-;         || WinGetExStyle() & 0x80 || WinGetClass() = 'TApplication')
-;  }
-; }
+; !k::Send "!{Escape}"
+; !j::Send "!+{Escape}"
 ; # =============================================================================== #
 ; # Run App:                                                                        #
 ; # =============================================================================== #
