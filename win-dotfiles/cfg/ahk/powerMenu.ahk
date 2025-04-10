@@ -1,6 +1,6 @@
-; ----------------------------------------------------------
-; Start Menu
-; ----------------------------------------------------------
+; # =============================================================================== #
+; # Start Menu:                                                                     #
+; # =============================================================================== #
 myMenu := Menu()
 myMenu.Add("SHUTDOWN", myMenuHandler)
 myMenu.Add()
@@ -9,18 +9,19 @@ myMenu.Add()
 myMenu.Add("SUSPEND", myMenuHandler)
 myMenu.Add()
 myMenu.Add("LOGOUT", myMenuHandler)
-; ----------------------------------------------------------
-; Added Icons
-; ----------------------------------------------------------
-;myMenu.SetIcon("Shutdown", A_AhkPath, -207) ; icon with resource ID 207
-;myMenu.SetIcon("Restart", A_AhkPath, -207) ; 2nd icon group from the file
-;myMenu.SetIcon("Logout", A_AhkPath, -207) ; icon with resource ID 206
-; ----------------------------------------------------------
-; When an item is selected, the following parameters are automatically passsed:
-; itemName - name of the item selected
-; pos - the position of the selected item in the list
-; menuObj - the menu object that called this function
-; ----------------------------------------------------------
+; # =============================================================================== #
+; # Added Icons:                                                                    #
+; # =============================================================================== #
+; # =============================================================================== #
+; # myMenu.SetIcon("Shutdown", A_AhkPath, -207) ; icon with resource ID 207
+; # myMenu.SetIcon("Restart", A_AhkPath, -207) ; 2nd icon group from the file
+; # myMenu.SetIcon("Logout", A_AhkPath, -207) ; icon with resource ID 206
+; # =============================================================================== #
+; # When an item is selected, the following parameters are automatically passsed:
+; # itemName - name of the item selected
+; # pos - the position of the selected item in the list
+; # menuObj - the menu object that called this function
+; # =============================================================================== #
 myMenuHandler(itemName, pos, menuObj) {
     switch pos {
         case 1:
@@ -34,9 +35,9 @@ myMenuHandler(itemName, pos, menuObj) {
     }
 }
 !+p::myMenu.Show()
-; ----------------------------------------------------------
-; Force menus to use dark mode
-; ----------------------------------------------------------
+; # =============================================================================== #
+; # Force menus to use dark mode:                                                   #
+; # =============================================================================== #
 MenuDark(2)
 /**
  * Sets menu light or dark mode

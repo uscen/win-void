@@ -1,9 +1,9 @@
-; ----------------------------------------------------------
-; Controll Windows Usings Mouse
-; ----------------------------------------------------------
+; # =============================================================================== #
+; # Controll Windows Usings Mouse:                                                  #
+; # =============================================================================== #
 ; Instructions - Logi options+ -> Thumb button -> Keyboard shortcut -> Windows + Alt + ` (tilda)
 ; MEDIA - right click
-; -------------------
+; # =============================================================================== #
 
 RButton::RButton
 RButton & WheelUp::Volume_Up
@@ -13,8 +13,10 @@ RButton & XButton1::Media_Prev
 RButton & XButton2::Media_Next
 
 
-; RIGHT CLICK FIX WHEN USED AS A MODIFIER
-; ------------------
+
+; # =============================================================================== #
+; # RIGHT CLICK FIX WHEN USED AS A MODIFIER:                                        #
+; # =============================================================================== #
 IgnoreRightClick := false
 #HotIf IgnoreRightClick
 *RButton Up::{
@@ -23,8 +25,9 @@ IgnoreRightClick := false
 #HotIf
 
 
-; XButton1 FIX WHEN USED AS A MODIFIER
-; ------------------
+; # =============================================================================== #
+; # XButton1 FIX WHEN USED AS A MODIFIER:                                           #
+; # =============================================================================== #
 IgnoreXButton1Click := false
 #HotIf IgnoreXButton1Click
 *XButton1 Up::{
@@ -33,8 +36,9 @@ IgnoreXButton1Click := false
 #HotIf
 
 
-; XButton2 FIX WHEN USED AS A MODIFIER
-; ------------------
+; # =============================================================================== #
+; # XButton2 FIX WHEN USED AS A MODIFIER:                                           #
+; # =============================================================================== #
 IgnoreXButton2Click := true
 #HotIf IgnoreXButton2Click
 XButton2::{
@@ -42,8 +46,9 @@ XButton2::{
 }
 #HotIf
 
-; GLOBAL
-; ------------------
+; # =============================================================================== #
+; # GLOBAL:                                                                         #
+; # =============================================================================== #
 
 
 ; copy and paste
@@ -173,8 +178,9 @@ WinTabSend(key, stop:=false) {
     }
 }
 
-; CHROME
-; ------------------
+; # =============================================================================== #
+; # CHROME:                                                                         #
+; # =============================================================================== #
 
 #HotIf WinActive("ahk_exe chrome.exe")
 !#RButton::{
@@ -186,8 +192,9 @@ WinTabSend(key, stop:=false) {
 #HotIf
 
 
-; VS
-; ------------------
+; # =============================================================================== #
+; # VS:                                                                             #
+; # =============================================================================== #
 
 #HotIf WinActive("ahk_exe devenv.exe")
 !#MButton::Send("^{F12}") ; go to Implementation
@@ -199,8 +206,9 @@ WinTabSend(key, stop:=false) {
 #HotIf
 
 
-; VSCode
-; ------------------
+; # =============================================================================== #
+; # VSCode:                                                                         #
+; # =============================================================================== #
 
 #HotIf WinActive("ahk_exe Code.exe")
 !#MButton::Send("^{F12}") ; go to Implementation
@@ -210,4 +218,3 @@ WinTabSend(key, stop:=false) {
 	Send("+{F12}") ; view references popup
 }
 #HotIf
-

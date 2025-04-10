@@ -1,30 +1,32 @@
-; ----------------------------------------------------------
-; Script     MouseWindowManager.ahk
-; License:   MIT License
-; Author:    Bence Markiel (bceenaeiklmr)
-; Github:    https://github.com/bceenaeiklmr/MouseWindowManager
-; Date       18.05.2024
-; Version    0.1
-; ----------------------------------------------------------
-; ----------------------------------------------------------
-; To disable the warning dialog entirely
-; ----------------------------------------------------------
+; # =============================================================================== #
+; # Script     MouseWindowManager.ahk
+; # License:   MIT License
+; # Author:    Bence Markiel (bceenaeiklmr)
+; # Github:    https://github.com/bceenaeiklmr/MouseWindowManager
+; # Date       18.05.2024
+; # Version    0.1
+; # =============================================================================== #
+; # =============================================================================== #
+; # To disable the warning dialog entirely:                                         #
+; # =============================================================================== #
 A_HotkeyInterval := 0
-; ----------------------------------------------------------
-; Hotkeys for cycling window size
-; ----------------------------------------------------------
+; # =============================================================================== #
+; Hotkeys for cycling window size:                                                  #
+; # =============================================================================== #
 #+WheelUp::CycleWindowSize(1)      ; Increase size on Win+WheelUp
 #+WheelDown::CycleWindowSize(0)    ; Decrease size on Win+WheelDown
 
-; ----------------------------------------------------------
-; Hotkeys for cycling window transparency
-; ----------------------------------------------------------
+; # =============================================================================== #
+; # Hotkeys for cycling window transparency:                                        #
+; # =============================================================================== #
 #WheelUp::CycleWindowTransparency(1)   ; Increase transparency on Win+Alt+WheelUp
 #WheelDown::CycleWindowTransparency(0) ; Decrease transparency on Win+Alt+WheelDown
 
 ;AsciiProgressbarTest()
 
-; Function to test the ASCII progress bar
+; # =============================================================================== #
+; # Function to test the ASCII progress bar:                                        #
+; # =============================================================================== #
 AsciiProgressbarTest() {
     output := '' ; Initialize the output string
     ; Append the progress bar for each value to the output string
@@ -36,11 +38,13 @@ AsciiProgressbarTest() {
     g.Show('NA') ; Show the GUI without activating it
 }
 
-; Generate a horizontal ASCII progress bar
-; Current: Current value
-; Goal: Goal value (default 100)
-; Char: Character for filled portion (default '◼')
-; Char2: Character for empty portion (default '◻')
+; # =============================================================================== #
+; # Generate a horizontal ASCII progress bar
+; # Current: Current value
+; # Goal: Goal value (default 100)
+; # Char: Character for filled portion (default '◼')
+; # Char2: Character for empty portion (default '◻')
+; # =============================================================================== #
 AsciiProgressbarHorizontal(Current, Goal := 100, Char := '◼', Char2 := '◻') {
     str := '' ; Initialize the progress bar string
     progress := Round(Current / Goal * 10) ; Calculate progress in 10 steps
@@ -98,9 +102,12 @@ CycleWindowSize(Increment := 1) {
     PrevState := x y Width Height ; Update the previous state
 }
 
-; Cycle through window transparency levels
-; Increment: Direction of transparency change (1 for increase, 0 for decrease)
-; Step: Amount to change transparency by (default 17)
+
+; # =============================================================================== #
+; # Cycle through window transparency levels
+; # Increment: Direction of transparency change (1 for increase, 0 for decrease)
+; # Step: Amount to change transparency by (default 17)
+; # =============================================================================== #
 CycleWindowTransparency(Increment := 1, Step := 17) {
     ; Clamp step value between 1 and 255
     Step := (Step > 255) ? 255 : (Step < 1) ? 1 : Step
