@@ -1,10 +1,8 @@
 ; # =============================================================================== #
 ; # Maximize-Windows.ahk
-;
 ; # Purpose: Find all windows that match the names listed in the variable "processes"
 ; #          and maximize them all at once.
 ; # =============================================================================== #
-
 !a::maximize_all()
 
 maximize_all()
