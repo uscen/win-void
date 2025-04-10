@@ -1,6 +1,6 @@
-# ================================================#
-# Change Keyboard Rate:		                        #
-# ================================================#
+# =============================================================================== #
+# Change Keyboard Rate:		                                                        #
+# =============================================================================== #
 Set-Location "HKCU:\Control Panel\Accessibility\Keyboard Response"
 Set-ItemProperty -Path . -Name AutoRepeatDelay       -Value 200
 Set-ItemProperty -Path . -Name AutoRepeatRate        -Value 10

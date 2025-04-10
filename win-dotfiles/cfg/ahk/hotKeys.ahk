@@ -72,7 +72,6 @@ Komorebic(cmd) {
 ; Manipulate windows
 !s::Komorebic("promote")
 !m::Komorebic("toggle-monocle")
-!t::Komorebic("toggle-monocle")
 !^f::Komorebic("toggle-maximize")
 !+Space::Komorebic("toggle-float")
 ; Window manager options
