@@ -21,7 +21,7 @@ if !toggle {
 ^CapsLock::CapsLock
 Capslock::Esc
 ; # =============================================================================== #
-; System Controlls:                                                                 #
+; # System Controlls:                                                               #
 ; # =============================================================================== #
 !q:: WinClose("A")
 !^q:: Shutdown 0
@@ -34,6 +34,30 @@ Capslock::Esc
     WinSetStyle "^0xC00000", "A"
     WinSetStyle "^0x840000", "A"
 }
+; # =============================================================================== #
+; # Focus Next/Previews Opend App:                                                  #
+; # =============================================================================== #
+; ; Focus Next Window
+; !j:: {
+;  WinMoveBottom 'A'
+;  For hWnd in WinGetList()
+;   If visible(hWnd)
+;    Return WinActivate(hWnd)
+; }
+; ; Focus Prev Window
+; !k:: {
+;  WinMoveBottom 'A'
+;  For hWnd in WinGetList()
+;   If visible(hWnd)
+;    Return WinActivate(hWnd)
+; }
+; visible(winTitle) {
+;  If WinExist(winTitle) {
+;   dwStyle := WinGetStyle()
+;   Return !(WinGetTitle() = '' || dwStyle & 0x8000000 || !(dwStyle & 0x10000000)
+;         || WinGetExStyle() & 0x80 || WinGetClass() = 'TApplication')
+;  }
+; }
 ; # =============================================================================== #
 ; # Run App:                                                                        #
 ; # =============================================================================== #
