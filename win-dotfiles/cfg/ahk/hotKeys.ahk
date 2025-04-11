@@ -46,6 +46,7 @@ Capslock::Esc
 !i:: Run("msedge.exe")
 !v:: Run("neovide.exe")
 !e:: Run("thunderbird.exe")
+!z:: Run("zed.exe")
 !n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
 !^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
