@@ -189,7 +189,7 @@ later(function()
         height = 20,
         width = 999,
       },
-      prompt_cursor = "▏",
+      prompt_caret = "▏",
       prompt_prefix = "» ",
     },
   })

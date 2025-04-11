@@ -30,10 +30,7 @@ Capslock::Esc
 !+s:: KeepAwake()
 !+t:: WinSetAlwaysOnTop -1, "A"
 !f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
-!+f:: {
-    WinSetStyle "^0xC00000", "A"
-    WinSetStyle "^0x840000", "A"
-}
+!+f::  WinSetStyle "^0xC40000", "A"
 ; # =============================================================================== #
 ; # Focus Next/Previews:                                                            #
 ; # =============================================================================== #
