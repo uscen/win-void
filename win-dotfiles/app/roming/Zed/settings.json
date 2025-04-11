@@ -2,131 +2,150 @@
 // # Zed Configurations:                                                             #
 // # =============================================================================== #
 {
-    "vim_mode": true,
-    "ui_font_size": 14,
-    "buffer_font_size": 12,
-    "buffer_line_height": {
-        "custom": 1.3
+  "vim_mode": true,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 14,
+  "buffer_font_size": 12,
+  "tab_size": 2,
+  "cursor_blink": true,
+  "preferred_line_length": 80,
+  "buffer_line_height": "comfortable",
+  "confirm_quit": false,
+  "hover_popover_enabled": true,
+  "bracket_pairing": "always",
+  "formatter": "prettier",
+  "linter": "eslint",
+  "autosave": "on_focus_change",
+  "autosave_delay": 1500,
+  "autosave_on_focus_change": true,
+  "autosave_on_window_change": true,
+  "autosave_on_build": true,
+  "autosave_on_build_delay": 1500,
+  "autosave_on_build_events": ["build", "run", "debug"],
+  "autosave_on_build_events_delay": 1500,
+  "features": {
+    "copilot": false
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "centered_layout": {
+    "left_padding": 0.1,
+    "right_padding": 0.1
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Everblush"
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": false,
+    "enable_preview_from_code_navigation": false
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "typeHints": true,
+    "parameterHints": true,
+    "chainingHints": true
+  },
+  "terminal": {
+    "shell": {
+      "program": "nu"
     },
-    "telemetry": {
-        "diagnostics": false
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "env": {},
+    "font_family": null,
+    "font_features": null,
+    "font_size": null,
+    "option_as_meta": false
+  },
+  "git": {
+    "enabled": true,
+    "autoFetch": true,
+    "autoFetchInterval": 300,
+    "autoFetchOnFocus": true,
+    "autoFetchOnWindowChange": true,
+    "autoFetchOnBuild": true,
+    "git_status": true,
+    "autoFetchOnBuildEvents": ["build", "run", "debug"],
+    "autoFetchOnBuildEventsDelay": 1500,
+    "autoFetchOnBuildDelay": 1500,
+    "git_gutter": "tracked_files"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid",
+    "proseWrap": "preserve",
+    "endOfLine": "lf"
+  },
+  "scrollbar": {
+    "show": "never",
+    "cursors": false,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "all"
+  },
+  "eslint": {
+    "enabled": true,
+    "autoFixOnSave": true,
+    "autoFixOnFormat": true,
+    "autoFixOnFormatDelay": 1500
+  },
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     },
-    "tab_bar": {
-        "show": true,
-        "show_nav_history_buttons": false,
-        "show_tab_bar_buttons": false
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.fixAll.eslint": true
+      }
     },
-    "toolbar": {
-        "breadcrumbs": false,
-        "quick_actions": false
-    },
-    "theme": {
-        "mode": "system",
-        "light": "One Light",
-        "dark": "Everblush"
-    },
-    "terminal": {
-        "font_family": "JetBrainsMono Nerd Font",
-        "blinking": "on",
-        "shell": {
-            "program": "nu"
-        }
-    },
-    "scrollbar": {
-        "show": "never",
-        "cursors": false,
-        "git_diff": true,
-        "search_results": true,
-        "selected_symbol": true,
-        "diagnostics": "all"
-    },
-    "preview_tabs": {
-        "enabled": true,
-        "enable_preview_from_file_finder": false,
-        "enable_preview_from_code_navigation": false
-    },
-    "centered_layout": {
-        "left_padding": 0.1,
-        "right_padding": 0.1
-    },
-    "git": {
-        "git_gutter": "tracked_files",
-        "inline_blame": {
-            "enabled": false
-        }
-    },
-    "jupyter": {
-        "kernel_selections": {
-            "python": "conda-env",
-            "typescript": "node",
-            "javascript": "node",
-            "r": "ark"
-        }
-    },
-    "languages": {
-        "Python": {
-            "language_servers": [
-                "pylsp",
-                "ruff"
-            ],
-            "format_on_save": "on"
-        },
-        "typescript": {
-            "language_servers": [
-                "tsserver",
-                "prettier",
-                "!eslint"
-            ],
-            "format_on_save": "on"
-        },
-        "typescriptreact": {
-            "language_servers": [
-                "tsserver",
-                "prettier",
-                "!eslint"
-            ],
-            "format_on_save": "on"
-        },
-        "javascriptreact": {
-            "language_servers": [
-                "tsserver",
-                "prettier",
-                "!eslint"
-            ],
-            "format_on_save": "on"
-        },
-        "javascript": {
-            "language_servers": [
-                "tsserver",
-                "prettier",
-                "!eslint"
-            ],
-            "format_on_save": "on"
-        },
-        "html": {
-            "language_servers": [
-                "tsserver",
-                "prettier",
-                "!eslint"
-            ],
-            "format_on_save": "on"
-        }
-    },
-    "lsp": {
-        "pylsp": {
-            "settings": {
-                "pylsp.plugins.pylsp_django": {
-                    "enabled": true
-                },
-                "pylsp.plugins.jedi_completion": {
-                    "include_params": true
-                }
-            }
-        },
-        "ruff": {
-            "initialization_options": {
-                "settings": {}
-            }
-        }
+    "TSX": {
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+        "source.fixAll.eslint": true
+      }
     }
+  },
+  "lsp": {
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": true,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayEnumMemberValueHints": true
+        }
+      }
+    }
+  }
 }

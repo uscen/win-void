@@ -20,8 +20,12 @@ prepend_keymap = [
 	{ on = "=", run = "find_arrow --previous" },
 	# Shell
 	{ on = "$", run = 'shell --block $SHELL' },
-	{ on = ["!"], run = 'shell nu --block --confirm', desc = "Open shell here" },
+	{ on = ["!"], run = 'shell nu --block --confirm' },
+	# BookMarks
+  { on   = [ "g", "v" ], run  = 'cd "C:\\Users\lli\Videos\programming"', desc = "Go To Videos Programming" },
+  { on   = [ "g", "p" ], run  = 'cd "C:\\Users\lli\Pictures\pix"', desc = "Go To Pictures" }
 ]
+
 
 [tasks]
 prepend_keymap = [
