@@ -9,31 +9,25 @@
       // Git
       "space g h": "editor::ToggleSelectedDiffHunks",
       "space g g": "git_panel::ToggleFocus",
-
       // Toggle inlay hints
       "space t i": "editor::ToggleInlayHints",
-
       // Toggle soft wrap
       "space u w": "editor::ToggleSoftWrap",
-
       // NOTE: Toggle Zen mode, not fully working yet
       "space w c": "workspace::ToggleCenteredLayout",
-
       // Open markdown preview
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide",
-
       // Open recent project
       "space f f": "file_finder::Toggle",
       "space f r": "projects::OpenRecent",
       // Search word under cursor
       "space s w": "pane::DeploySearch",
-
       // Chat with AI
       "space a c": "assistant::ToggleFocus",
       // Go to file with `gf`
-      "g f": "editor::OpenExcerpts",
-    },
+      "g f": "editor::OpenExcerpts"
+    }
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -45,7 +39,6 @@
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-
       // +LSP
       "space c a": "editor::ToggleCodeActions",
       "space .": "editor::ToggleCodeActions",
@@ -67,21 +60,18 @@
       "s S": "project_symbols::Toggle",
       // Diagnostic
       "space x x": "diagnostics::Deploy",
-
       // +Git
       // Git prev/next hunk
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
-
       // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
-
       // + Buffers
       // Switch between buffers
       "shift-Tab": "pane::ActivatePreviousItem",
       "Tab": "pane::ActivateNextItem",
       // Close active panel
       "shift-q": "pane::CloseActiveItem",
-      "ctrl-q": "pane::CloseActiveItem",
+      "space wq": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
       // Close other items
       "space b b": "pane::CloseInactiveItems",
@@ -91,11 +81,11 @@
       // File finder
       "space space": "file_finder::Toggle",
       // Project search
-      "space /": "pane::DeploySearch",
+      "space t": "pane::DeploySearch",
       // TODO: Open other files
       // Show project panel with current file
-      "space e": "pane::RevealInProjectPanel",
-    },
+      // "space e": "pane::RevealInProjectPanel"
+    }
   },
   // Empty pane, set of keybindings that are available when there is no active editor
   {
@@ -112,15 +102,28 @@
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
       // visual, visual line & visual block modes
-      "g c": "editor::ToggleComments",
+      "g c": "editor::ToggleComments"
+    }
+  },
+  // Menu  Completions
+  {
+    "context": "Editor && vim_mode == insert && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl+n": "editor::OpenContextMenu",
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious",
+      "pageup": "editor::ContextMenuFirst",
+      "pagedown": "editor::ContextMenuLast"
     },
   },
+  // Rename
   // Better escape
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
-      "j j": "vim::NormalBefore", // remap jj in insert mode to escape
-      "j k": "vim::NormalBefore", // remap jk in insert mode to escape
+      "j j": "vim::NormalBefore",
+      "j k": "vim::NormalBefore",
+
     },
   },
   // Rename
@@ -153,8 +156,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown",
-    },
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
   },
   // File panel (netrw)
   {
@@ -167,15 +170,18 @@
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
       "p": "project_panel::Paste",
+      "v": "project_panel::ExpandSelectedEntry",
+      "z": "project_panel::CollapseAllEntries",
+      "q": "workspace::ToggleLeftDock",
+      "Tab": "project_panel::OpenPermanent",
       // Close project panel as project file panel on the right
-      "q": "workspace::ToggleRightDock",
-      "space e": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleLeftDock",
       // Navigate between panel
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown",
-    },
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
   },
   // Panel nagivation
   {
@@ -184,31 +190,31 @@
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w l": "workspace::ActivatePaneRight",
       "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown",
-    },
+      "ctrl-w j": "workspace::ActivatePaneDown"
+    }
   },
   {
     "context": "Workspace",
     "bindings": {
       // Map VSCode like keybindings
-      "cmd-b": "workspace::ToggleRightDock",
-    },
+      "space e": "workspace::ToggleLeftDock"
+    }
   },
   // Run nearest task
   {
     "context": "EmptyPane || SharedScreen || vim_mode == normal",
     "bindings": {
-      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }],
-    },
+      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }]
+    }
   },
   // Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       "s": ["vim::PushSneak", {}],
-      "S": ["vim::PushSneakBackward", {}],
-    },
-  },
+      "S": ["vim::PushSneakBackward", {}]
+    }
+  }
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
   //   "context": "VimControl && !menu",
