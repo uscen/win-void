@@ -346,7 +346,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable configured language servers 0.11: ========================================
-  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "biome" }
+  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
@@ -380,6 +380,30 @@ now_if_args(function()
     indent = { enable = true },
     incremental_selection = { enable = false },
     textobjects = { enable = false },
+  })
+end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                         Formatting                      ║
+--          ╚═════════════════════════════════════════════════════════╝
+later(function()
+  add('stevearc/conform.nvim')
+  require('conform').setup({
+    formatters_by_ft = {
+      lua = { "stylua" },
+      javascript = { "biome", "biome-organize-imports" },
+      typescript = { "biome", "biome-organize-imports" },
+      javascriptreact = { "biome", "biome-organize-imports" },
+      typescriptreact = { "biome", "biome-organize-imports" },
+      jsx = { "biome", "biome-organize-imports" },
+      tsx = { "biome", "biome-organize-imports" },
+      json = { "biome", "biome-organize-imports" },
+      jsonc = { "biome", "biome-organize-imports" },
+      css = { "biome", "biome-organize-imports" },
+    },
+    format_on_save = {
+      lsp_format = "fallback",
+      timeout_ms = 500,
+    },
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
@@ -552,18 +576,6 @@ later(function()
     callback = function()
       vim.highlight.on_yank()
     end,
-  })
-  -- Format on save ================================================================
-  vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    callback = function(args)
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format { async = false }
-        end,
-      })
-    end
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
