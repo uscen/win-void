@@ -16,20 +16,8 @@ $packages=@(
     "@tailwindcss/language-server",
     "@biomejs/biome"
 )
-$extensions=@(
-    "mangeshrex.everblush"
-    "vscodevim.vim"
-    "dsznajder.es7-react-js-snippets"
-    "bradlc.vscode-tailwindcss"
-    "formulahendry.auto-close-tag"
-    "formulahendry.auto-rename-tag"
-    "esbenp.prettier-vscode"
-    "yzhang.markdown-all-in-one"
-    "prisma.prisma"
-)
-
 # =============================================================================== #
-# NPM Paclages:      		                                                          #
+# NPM Packages:      		                                                          #
 # =============================================================================== #
 foreach ($package in $packages) {
         Write-Host "Installing $package..."
@@ -37,9 +25,21 @@ foreach ($package in $packages) {
 }
 Write-Host "Installation Of NPM Packages Is Complete!"
 # =============================================================================== #
-# Vscode Paclages:      		                                                      #
+# Vscode Extension:      		                                                      #
 # =============================================================================== #
-foreach ($extension in $extensions) {
-        code --install-extension $extension --force
-}
-Write-Host "Installation Of Visual Studio Code extensions Is Complete!"
+# $extensions=@(
+#     "mangeshrex.everblush"
+#     "vscodevim.vim"
+#     "dsznajder.es7-react-js-snippets"
+#     "bradlc.vscode-tailwindcss"
+#     "formulahendry.auto-close-tag"
+#     "formulahendry.auto-rename-tag"
+#     "esbenp.prettier-vscode"
+#     "yzhang.markdown-all-in-one"
+#     "prisma.prisma"
+# )
+
+# foreach ($extension in $extensions) {
+#         code --install-extension $extension --force
+# }
+# Write-Host "Installation Of Visual Studio Code extensions Is Complete!"
