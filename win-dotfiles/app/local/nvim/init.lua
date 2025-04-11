@@ -371,7 +371,7 @@ now_if_args(function()
   local ensure_installed = {
     'bash', 'powershell', 'nu', 'c', 'cpp', 'python', 'regex',
     'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
-    'json', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
+    'json5', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
     "git_config", "git_rebase", "gitcommit", "gitignore", "gitattributes", "diff",
   }
   require('nvim-treesitter.configs').setup({

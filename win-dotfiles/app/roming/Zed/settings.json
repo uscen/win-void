@@ -12,7 +12,9 @@
     "diagnostics": false
   },
   "tab_bar": {
-    "show": true
+    "show": true,
+    "show_nav_history_buttons": true,
+    "show_tab_bar_buttons": true
   },
   "toolbar": {
     "breadcrumbs": false,
