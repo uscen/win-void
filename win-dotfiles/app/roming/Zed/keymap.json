@@ -5,41 +5,86 @@
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in normal & visual mode
-      // Git
+      // # =============================================================================== #
+      // # put key-bindings here if you want them to work in normal & visual mode:         #
+      // # =============================================================================== #
+      // # =============================================================================== #
+      // # Git:                                                                            #
+      // # =============================================================================== #
       "space g h": "editor::ToggleSelectedDiffHunks",
       "space g g": "git_panel::ToggleFocus",
-      // Toggle inlay hints
+      // # =============================================================================== #
+      // # Toggle inlay hints:                                                             #
+      // # =============================================================================== #
       "space t i": "editor::ToggleInlayHints",
-      // Toggle soft wrap
+      // # =============================================================================== #
+      // # Toggle soft wrap:                                                               #
+      // # =============================================================================== #
       "space u w": "editor::ToggleSoftWrap",
-      // NOTE: Toggle Zen mode, not fully working yet
+      // # =============================================================================== #
+      // # NOTE: Toggle Zen mode, not fully working yet:                                   #
+      // # =============================================================================== #
       "space w c": "workspace::ToggleCenteredLayout",
-      // Open markdown preview
+      // # =============================================================================== #
+      // # Open markdown preview:                                                          #
+      // # =============================================================================== #
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide",
-      // Open recent project
+      // # =============================================================================== #
+      // # Open recent project:                                                            #
+      // # =============================================================================== #
       "space f f": "file_finder::Toggle",
       "space f r": "projects::OpenRecent",
-      // Search word under cursor
+      // # =============================================================================== #
+      // # Search word under cursor:                                                       #
+      // # =============================================================================== #
       "space s w": "pane::DeploySearch",
-      // Chat with AI
+      // # =============================================================================== #
+      // # Chat with AI:                                                                   #
+      // # =============================================================================== #
       "space a c": "assistant::ToggleFocus",
-      // Go to file with `gf`
-      "g f": "editor::OpenExcerpts"
+      // # =============================================================================== #
+      // # Go to file with `gf`:                                                           #
+      // # =============================================================================== #
+      "g f": "editor::OpenExcerpts",
+      // # =============================================================================== #
+      // # New file:                                                                       #
+      // # =============================================================================== #
+      "space f n": "workspace::NewFile",
+      // # =============================================================================== #
+     // # Search in all the files:                                                         #
+     // # ===============================================================================  #
+			"space s g": "workspace::NewSearch",
+			// # =============================================================================== #
+		  // # Quit zed:                                                                       #
+			// # =============================================================================== #
+			"space q q": "zed::Quit"
     }
   },
+ 	{
+      // # =============================================================================== #
+		  // # Git Pannel:                                                                     #
+			// # =============================================================================== #
+		"context": "GitPanel",
+		"bindings": {
+			"q": "git_panel::Close"
+		}
+	},
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work only in normal mode
-      // Window movement bindings
-      // Ctrl jklk to move between panes
+      // # =============================================================================== #
+      // # put key-bindings here if you want them to work only in normal mode              #
+      // # Window movement bindings                                                        #
+      // # Ctrl jklk to move between panes                                                 #
+      // # =============================================================================== #
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown",
-      // +LSP
+      // # =============================================================================== #
+      // # +LSP:                                                                           #
+      // # =============================================================================== #
       "space c a": "editor::ToggleCodeActions",
       "space .": "editor::ToggleCodeActions",
       "space c r": "editor::Rename",
@@ -52,60 +97,95 @@
       "g r": "editor::FindAllReferences",
       "] d": "editor::GoToDiagnostic",
       "[ d": "editor::GoToPreviousDiagnostic",
-      // TODO: Go to next/prev error
+      // # =============================================================================== #
+      // # TODO: Go to next/prev error:                                                    #
+      // # =============================================================================== #
       "] e": "editor::GoToDiagnostic",
       "[ e": "editor::GoToPreviousDiagnostic",
-      // Symbol search
+      // # =============================================================================== #
+      // # Symbol search:                                                                  #
+      // # =============================================================================== #
       "s s": "outline::Toggle",
       "s S": "project_symbols::Toggle",
-      // Diagnostic
+      // # =============================================================================== #
+      // # Diagnostic:                                                                     #
+      // # =============================================================================== #
       "space x x": "diagnostics::Deploy",
-      // +Git
-      // Git prev/next hunk
+      // # =============================================================================== #
+      // # +Git:                                                                           #
+      // # Git prev/next hunk:                                                             #
+      // # =============================================================================== #
       "] h": "editor::GoToHunk",
       "[ h": "editor::GoToPreviousHunk",
-      // TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
-      // + Buffers
-      // Switch between buffers
+      // # TODO: git diff is not ready yet, refer https://github.com/zed-industries/zed/issues/8665#issuecomment-2194000497
+      // # + Buffers                                                                       #
+      // # =============================================================================== #
+      // # =============================================================================== #
+      // # Switch between buffers:                                                         #
+      // # =============================================================================== #
       "shift-Tab": "pane::ActivatePreviousItem",
       "Tab": "pane::ActivateNextItem",
-      // Close active panel
+      // # =============================================================================== #
+      // Close active panel:                                                               #
+      // # =============================================================================== #
       "shift-q": "pane::CloseActiveItem",
       "space wq": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
-      // Close other items
+      // # =============================================================================== #
+      // # Close other items:                                                              #
+      // # =============================================================================== #
       "space b b": "pane::CloseInactiveItems",
       "space b o": "pane::CloseInactiveItems",
-      // Save file
+      // # =============================================================================== #
+      // # Save file:                                                                      #
+      // # =============================================================================== #
       "ctrl-s": "workspace::Save",
-      // File finder
+      // # =============================================================================== #
+      // # File finder:                                                                    #
+      // # =============================================================================== #
       "space space": "file_finder::Toggle",
-      // Project search
+      // # =============================================================================== #
+      // # Project search:                                                                 #
+      // # =============================================================================== #
       "space t": "pane::DeploySearch",
+      // # =============================================================================== #
       // TODO: Open other files
       // Show project panel with current file
       // "space e": "pane::RevealInProjectPanel"
+      // # =============================================================================== #
     }
   },
-  // Empty pane, set of keybindings that are available when there is no active editor
+  // # =============================================================================== #
+  // # Empty pane, set of keybindings that are available when there is no active editor#
+  // # =============================================================================== #
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
-      // Open file finder
+      // # =============================================================================== #
+      // Open file finder:                                                                 #
+      // # =============================================================================== #
       "space f f": "file_finder::Toggle",
-      // Open recent project
+      // # =============================================================================== #
+      // # Open recent project:                                                            #
+      // # =============================================================================== #
       "space f r": "projects::OpenRecent",
     },
   },
-  // Comment code
+  // # =============================================================================== #
+  // # Comment code:                                                                   #
+  // # =============================================================================== #
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
-      // visual, visual line & visual block modes
+      // # =============================================================================== #
+      // # visual, visual line & visual block modes:                                       #
+      // # =============================================================================== #
       "g c": "editor::ToggleComments"
     }
   },
-  // Menu  Completions
+  // # =============================================================================== #
+  // # Menu  Completions:                                                              #
+  // # =============================================================================== #
   {
     "context": "Editor && vim_mode == insert && (showing_code_actions || showing_completions)",
     "bindings": {
@@ -116,8 +196,9 @@
       "pagedown": "editor::ContextMenuLast"
     },
   },
-  // Rename
-  // Better escape
+  // # =============================================================================== #
+  // # Better escape:                                                                  #
+  // # =============================================================================== #
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
@@ -126,15 +207,19 @@
 
     },
   },
-  // Rename
+  // # =============================================================================== #
+  // # Rename:                                                                         #
+  // # =============================================================================== #
   {
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "r": "editor::Rename", // zed specific
+      "r": "editor::Rename"
     },
   },
-  // Code Action
+  // # =============================================================================== #
+  // # Code Action:                                                                    #
+  // # =============================================================================== #
   {
     "context": "Editor && vim_operator == c",
     "bindings": {
@@ -142,7 +227,9 @@
       "a": "editor::ToggleCodeActions", // zed specific
     },
   },
-  // Toggle terminal
+  // # =============================================================================== #
+  // # Toggle terminal:                                                                #
+  // # =============================================================================== #
   {
     "context": "Workspace",
     "bindings": {
@@ -159,7 +246,9 @@
       "ctrl-j": "workspace::ActivatePaneDown"
     }
   },
-  // File panel (netrw)
+  // # =============================================================================== #
+  // # File panel (netrw):                                                             #
+  // # =============================================================================== #
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
@@ -170,20 +259,37 @@
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
       "p": "project_panel::Paste",
-      "v": "project_panel::ExpandSelectedEntry",
       "z": "project_panel::CollapseAllEntries",
       "q": "workspace::ToggleLeftDock",
       "Tab": "project_panel::OpenPermanent",
-      // Close project panel as project file panel on the right
+   	   ":": "command_palette::Toggle",
+			"%": "project_panel::NewFile",
+			"/": "project_panel::NewSearchInDirectory",
+			"enter": "project_panel::OpenPermanent",
+			"escape": "project_panel::ToggleFocus",
+			"h": "project_panel::CollapseSelectedEntry",
+			"j": "menu::SelectNext",
+			"k": "menu::SelectPrevious",
+			"l": "project_panel::ExpandSelectedEntry",
+			"o": "project_panel::OpenPermanent",
+			"shift-d": "project_panel::Delete",
+			"shift-r": "project_panel::Rename",
+			"t": "project_panel::OpenPermanent",
+			"v": "project_panel::OpenPermanent",
+			"shift-g": "menu::SelectLast",
+			"g g": "menu::SelectFirst",
+			"-": "project_panel::SelectParent",
+			"ctrl-6": "pane::AlternateFile",
       "space e": "workspace::ToggleLeftDock",
-      // Navigate between panel
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-j": "workspace::ActivatePaneDown"
     }
   },
-  // Panel nagivation
+  // # =============================================================================== #
+  // # Panel nagivation:                                                               #
+  // # =============================================================================== #
   {
     "context": "Dock",
     "bindings": {
@@ -196,18 +302,21 @@
   {
     "context": "Workspace",
     "bindings": {
-      // Map VSCode like keybindings
       "space e": "workspace::ToggleLeftDock"
     }
   },
-  // Run nearest task
+  // # =============================================================================== #
+  // # Run nearest task:                                                               #
+  // # =============================================================================== #
   {
     "context": "EmptyPane || SharedScreen || vim_mode == normal",
     "bindings": {
       "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }]
     }
   },
-  // Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
+  // # =============================================================================== #
+  // Sneak motion:                                                                     #
+  // # =============================================================================== #
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {

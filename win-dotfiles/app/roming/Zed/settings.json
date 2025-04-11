@@ -31,7 +31,7 @@
   "tabs": { "show_diagnostics": "errors" },
   "telemetry": { "diagnostics": false, "metrics": false },
   "toolbar": { "breadcrumbs": false, "quick_actions": false },
-  "indent_guides": { "enabled": true, "coloring": "indent_aware" },
+  "indent_guides": { "enabled": true, "coloring": "fixed" },
   "centered_layout": { "left_padding": 0.1, "right_padding": 0.1 },
   "theme": { "mode": "system", "light": "One Light", "dark": "Everblush" },
   "tab_bar": { "show": true, "show_nav_history_buttons": false, "show_tab_bar_buttons": false },
@@ -70,7 +70,7 @@
     "blinking": "terminal_controlled",
     "copy_on_select": false,
     "env": { "EDITOR": "zed --wait" },
-    "font_family": null,
+    "font_family": "JetBrainsMonoNL Nerd Font",
     "font_features": null,
     "font_size": null,
     "option_as_meta": false
@@ -115,6 +115,13 @@
     "autoFixOnFormat": true,
     "autoFixOnFormatDelay": 1500
   },
+  "space g g": [
+    "task::Spawn",
+    {
+      "task_name": "lazygit",
+      "reveal_target": "center"
+    }
+  ],
   "languages": {
     "JavaScript": {
       "code_actions_on_format": {
