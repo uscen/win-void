@@ -2,11 +2,6 @@
 # Windows Config:				                                                          #
 # =============================================================================== #
 # =============================================================================== #
-# Enable AutoStart Window Manager && status bar:                                  #
-# =============================================================================== #
-[System.Environment]::SetEnvironmentVariable('KOMOREBI_CONFIG_HOME',"$Env:USERPROFILE\.config\komorebi", 'User')
-komorebic enable-autostart --ahk
-# =============================================================================== #
 # HOME:						                                                                #
 # =============================================================================== #
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\home\* -Destination $Env:USERPROFILE\ -Recurse -Force
