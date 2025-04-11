@@ -22,8 +22,11 @@ prepend_keymap = [
 	{ on = "$", run = 'shell --block $SHELL' },
 	{ on = ["!"], run = 'shell nu --block --confirm' },
 	# BookMarks
-  { on   = [ "g", "v" ], run  = 'cd "C:\\Users\lli\Videos\programming"', desc = "Go To Videos Programming" },
-  { on   = [ "g", "p" ], run  = 'cd "C:\\Users\lli\Pictures\pix"', desc = "Go To Pictures" }
+  { on   = [ "~" ], run  = 'cd "C:\\Users\lli"', desc = "Go To Downloads" },
+  { on   = [ "b", "h" ], run  = 'cd "C:\\Users\lli"', desc = "Go To Downloads" },
+  { on   = [ "b", "d" ], run  = 'cd "C:\\Users\lli\Downloads"', desc = "Go To Downloads" },
+  { on   = [ "b", "v" ], run  = 'cd "C:\\Users\lli\Videos\programming"', desc = "Go To Videos Programming" },
+  { on   = [ "b", "p" ], run  = 'cd "C:\\Users\lli\Pictures\pix"', desc = "Go To Pictures" }
 ]
 
 
