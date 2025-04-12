@@ -149,7 +149,7 @@
       // # =============================================================================== #
       // # Project search:                                                                 #
       // # =============================================================================== #
-      "space t": "pane::DeploySearch",
+      "space t": "pane::DeploySearch"
       // # =============================================================================== #
       // TODO: Open other files
       // Show project panel with current file
@@ -170,8 +170,8 @@
       // # =============================================================================== #
       // # Open recent project:                                                            #
       // # =============================================================================== #
-      "space f r": "projects::OpenRecent",
-    },
+      "space f r": "projects::OpenRecent"
+    }
   },
   // # =============================================================================== #
   // # Comment code:                                                                   #
@@ -196,7 +196,7 @@
       "ctrl-k": "editor::ContextMenuPrevious",
       "pageup": "editor::ContextMenuFirst",
       "pagedown": "editor::ContextMenuLast"
-    },
+    }
   },
   // # =============================================================================== #
   // # Insert Mode:                                                                    #
@@ -218,7 +218,7 @@
     "bindings": {
       "c": "vim::CurrentLine",
       "r": "editor::Rename"
-    },
+    }
   },
   // # =============================================================================== #
   // # Code Action:                                                                    #
@@ -227,8 +227,8 @@
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "a": "editor::ToggleCodeActions", // zed specific
-    },
+      "a": "editor::ToggleCodeActions"
+    }
   },
   // # =============================================================================== #
   // # Toggle terminal:                                                                #
@@ -236,8 +236,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-t": "terminal_panel::ToggleFocus",
-    },
+      "ctrl-t": "terminal_panel::ToggleFocus"
+    }
   },
   {
     "context": "Terminal",
