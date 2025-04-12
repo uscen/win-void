@@ -34,7 +34,7 @@
   "show_signature_help_after_edits": false,
   "auto_signature_help": false,
   // # =============================================================================== #
-  // # AutoSave:                                                                        #
+  // # AutoSave:                                                                       #
   // # =============================================================================== #
   "autosave": "on_focus_change",
   "autosave_delay": 1500,
@@ -58,6 +58,15 @@
     "W": "w",
     "Wq": "wq",
     "Q": "q"
+  },
+  // # =============================================================================== #
+  // # Hints:                                                                          #
+  // # =============================================================================== #
+  "inlay_hints": {
+    "enabled": false,
+    "typeHints": true,
+    "parameterHints": true,
+    "chainingHints": true
   },
   // # =============================================================================== #
   // # UI:                                                                             #
@@ -101,18 +110,18 @@
     "enable_preview_from_file_finder": false,
     "enable_preview_from_code_navigation": false
   },
+  "gutter": {
+    "line_numbers": true,
+    "code_actions": false,
+    "runnables": false,
+    "folds": false
+  },
   "indent_guides": {
     "enabled": true,
     "coloring": "fixed",
     "background_coloring": "disabled",
     "active_line_width": 1,
     "line_width": 1
-  },
-  "inlay_hints": {
-    "enabled": false,
-    "typeHints": true,
-    "parameterHints": true,
-    "chainingHints": true
   },
   "project_panel": {
     "button": true,
