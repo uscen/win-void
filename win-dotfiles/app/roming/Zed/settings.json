@@ -111,7 +111,7 @@
     "enable_preview_from_code_navigation": false
   },
   "gutter": {
-    "line_numbers": true,
+    "line_numbers": false,
     "code_actions": false,
     "runnables": false,
     "folds": false
@@ -200,7 +200,10 @@
     "autoFetchOnBuildEvents": ["build", "run", "debug"],
     "autoFetchOnBuildEventsDelay": 1500,
     "autoFetchOnBuildDelay": 1500,
-    "git_gutter": "tracked_files"
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false
+    }
   },
   // # =============================================================================== #
   // # prettier:                                                                       #
