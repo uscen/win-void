@@ -6,6 +6,7 @@
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "base_keymap": "VSCode",
+  "relative_line_numbers": false,
   "ui_font_size": 14,
   "buffer_font_size": 12,
   "tab_size": 2,
@@ -15,9 +16,14 @@
   "confirm_quit": false,
   "hover_popover_enabled": true,
   "bracket_pairing": "always",
+  "wrap_guides": [],
   "formatter": "prettier",
   "linter": "eslint",
   "autosave": "on_focus_change",
+  "show_inline_completions": false,
+  "show_completions_on_input": true,
+  "show_completion_documentation": true,
+  "auto_signature_help": true,
   "autosave_delay": 1500,
   "autosave_on_focus_change": true,
   "autosave_on_window_change": true,
@@ -27,15 +33,16 @@
   "autosave_on_build_events_delay": 1500,
   "features": { "copilot": false },
   "vim": { "enable_vim_sneak": true },
+  "command_aliases": { "W": "w", "Wq": "wq", "Q": "q" },
   "file_finder": { "modal_width": "medium" },
   "tabs": { "show_diagnostics": "errors" },
   "telemetry": { "diagnostics": false, "metrics": false },
-  "toolbar": { "breadcrumbs": false, "quick_actions": false },
-  "indent_guides": { "enabled": true, "coloring": "fixed" },
+  "toolbar": {"selections_menu":false, "breadcrumbs": false, "quick_actions": false },
   "centered_layout": { "left_padding": 0.1, "right_padding": 0.1 },
   "theme": { "mode": "system", "light": "One Light", "dark": "Everblush" },
   "tab_bar": { "show": true, "show_nav_history_buttons": false, "show_tab_bar_buttons": false },
   "preview_tabs": { "enabled": true, "enable_preview_from_file_finder": false, "enable_preview_from_code_navigation": false },
+  "indent_guides": { "enabled": true, "coloring": "fixed", "background_coloring": "disabled", "active_line_width": 1, "line_width": 1  },
   "inlay_hints": { "enabled": true, "typeHints": true, "parameterHints": true, "chainingHints": true },
   "project_panel": { "button": true, "dock": "left", "git_status": true},
   "outline_panel": { "dock": "right" },
@@ -64,6 +71,14 @@
     "**/report",
     "**/node_modules",
   ],
+  "scrollbar": {
+    "show": "never",
+    "cursors": false,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "all"
+  },
   "terminal": {
     "shell": { "program": "nu" },
     "alternate_scroll": "off",
@@ -101,60 +116,37 @@
     "proseWrap": "preserve",
     "endOfLine": "lf"
   },
-  "scrollbar": {
-    "show": "never",
-    "cursors": false,
-    "git_diff": true,
-    "search_results": true,
-    "selected_symbol": true,
-    "diagnostics": "all"
-  },
   "eslint": {
     "enabled": true,
     "autoFixOnSave": true,
     "autoFixOnFormat": true,
     "autoFixOnFormatDelay": 1500
   },
-  "space g g": [
-    "task::Spawn",
-    {
-      "task_name": "lazygit",
-      "reveal_target": "center"
-    }
-  ],
-  "languages": {
-    "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
-    },
-    "TypeScript": {
-      "inlay_hints": {
-        "enabled": true,
-        "show_parameter_hints": false,
-        "show_other_hints": true,
-        "show_type_hints": true,
-      }
-    },
-      "code_actions_on_format": {
-        "source.organizeImports": true,
-        "source.fixAll.eslint": true
-      }
+"languages": {
+  "TypeScript": {
+    "language_servers": ["typescript-language-server", "!vtsls", "..."]
   },
-  "lsp": {
-    "typescript-language-server": {
-      "initialization_options": {
-        "preferences": {
-          "includeInlayParameterNameHints": "all",
-          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
-          "includeInlayFunctionParameterTypeHints": true,
-          "includeInlayVariableTypeHints": true,
-          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
-          "includeInlayPropertyDeclarationTypeHints": true,
-          "includeInlayFunctionLikeReturnTypeHints": true,
-          "includeInlayEnumMemberValueHints": true
-        }
+  "TSX": {
+    "language_servers": ["typescript-language-server", "!vtsls", "..."]
+  },
+  "JavaScript": {
+    "language_servers": ["typescript-language-server", "!vtsls", "..."]
+  }
+},
+"lsp": {
+  "typescript-language-server": {
+    "initialization_options": {
+      "preferences": {
+        "includeInlayParameterNameHints": "all",
+        "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+        "includeInlayFunctionParameterTypeHints": true,
+        "includeInlayVariableTypeHints": true,
+        "includeInlayVariableTypeHintsWhenTypeMatchesName": true,
+        "includeInlayPropertyDeclarationTypeHints": true,
+        "includeInlayFunctionLikeReturnTypeHints": true,
+        "includeInlayEnumMemberValueHints": true
       }
     }
   }
+}
 }
