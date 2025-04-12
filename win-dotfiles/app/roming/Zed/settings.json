@@ -1,5 +1,5 @@
 // # =============================================================================== #
-// # Zed configurat:                                                                 #
+// # Zed configuration:                                                              #
 // # =============================================================================== #
 {
 	"vim_mode": true,
@@ -159,7 +159,6 @@
 		"autoFixOnFormat": true,
 		"autoFixOnFormatDelay": 1500
 	},
-	"language_servers": ["vtsls", "typescript-language-server", "eslint"],
 	"languages": {
 		"TypeScript": {
 			"language_servers": ["typescript-language-server", "!vtsls", "..."],
