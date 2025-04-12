@@ -111,7 +111,7 @@
     "enable_preview_from_code_navigation": false
   },
   "gutter": {
-    "line_numbers": false,
+    "line_numbers": true,
     "code_actions": false,
     "runnables": false,
     "folds": false
@@ -178,13 +178,17 @@
   "terminal": {
     "shell": { "program": "nu" },
     "alternate_scroll": "off",
+    "working_directory": "first_project_directory",
     "blinking": "terminal_controlled",
     "copy_on_select": true,
     "env": { "EDITOR": "zed --wait" },
     "font_family": "JetBrainsMonoNL Nerd Font",
     "font_features": null,
     "font_size": null,
-    "option_as_meta": false
+    "option_as_meta": false,
+    "toolbar": {
+      "breadcrumbs": false
+    }
   },
   // # =============================================================================== #
   // # Git:                                                                            #
@@ -267,6 +271,11 @@
         "source.organizeImports": true
       },
       "format_on_save": "on"
+    },
+    "EMMET": {
+      "prettier": {
+        "allowed": true
+      }
     },
     "HTML": {
       "prettier": {

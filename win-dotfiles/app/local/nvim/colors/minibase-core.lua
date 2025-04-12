@@ -219,6 +219,8 @@ if palette then
   })
   vim.g.colors_name = "Minibase-Core"
 end
+-- General: =====================================================================
+vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base04, bg = palette.base00 })
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base04 })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base07 })
