@@ -34,14 +34,21 @@
       "space m p": "markdown::OpenPreview",
       "space m P": "markdown::OpenPreviewToTheSide",
       // # =============================================================================== #
-      // # Open recent project:                                                            #
+      // # Open project:                                                                   #
+      // # =============================================================================== #
+      "space f r": "projects::OpenRecent",
+      // # =============================================================================== #
+      // # Fuzzy Search project:                                                           #
       // # =============================================================================== #
       "space f f": "file_finder::Toggle",
-      "space f r": "projects::OpenRecent",
+      // # =============================================================================== #
+      // # Search in all the files:                                                         #
+      // # ===============================================================================  #
+      "space f t": "workspace::NewSearch",
       // # =============================================================================== #
       // # Search word under cursor:                                                       #
       // # =============================================================================== #
-      "space s w": "pane::DeploySearch",
+      "space f w": "pane::DeploySearch",
       // # =============================================================================== #
       // # Chat with AI:                                                                   #
       // # =============================================================================== #
@@ -55,24 +62,20 @@
       // # =============================================================================== #
       "space f n": "workspace::NewFile",
       // # =============================================================================== #
-     // # Search in all the files:                                                         #
-     // # ===============================================================================  #
-			"space s g": "workspace::NewSearch",
-			// # =============================================================================== #
-		  // # Quit zed:                                                                       #
-			// # =============================================================================== #
-			"space q q": "zed::Quit"
+      // # Quit zed:                                                                       #
+      // # =============================================================================== #
+      "space q q": "zed::Quit"
     }
   },
- 	{
-      // # =============================================================================== #
-		  // # Git Pannel:                                                                     #
-			// # =============================================================================== #
-		"context": "GitPanel",
-		"bindings": {
-			"q": "git_panel::Close"
-		}
-	},
+  {
+    // # =============================================================================== #
+    // # Git Pannel:                                                                     #
+    // # =============================================================================== #
+    "context": "GitPanel",
+    "bindings": {
+      "q": "git_panel::Close"
+    }
+  },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
@@ -163,25 +166,16 @@
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
-      // # =============================================================================== #
-      // Open file finder:                                                                 #
-      // # =============================================================================== #
       "space f f": "file_finder::Toggle",
-      // # =============================================================================== #
-      // # Open recent project:                                                            #
-      // # =============================================================================== #
       "space f r": "projects::OpenRecent"
     }
   },
   // # =============================================================================== #
-  // # Comment code:                                                                   #
+  // # visual, visual line & visual block modes:                                       #
   // # =============================================================================== #
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
-      // # =============================================================================== #
-      // # visual, visual line & visual block modes:                                       #
-      // # =============================================================================== #
       "g c": "editor::ToggleComments"
     }
   },
@@ -204,9 +198,7 @@
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
-      "j j": "vim::NormalBefore",
-      "j k": "vim::NormalBefore",
-      "tab": "menu::SelectNext",
+      "ctrl+j": "menu::SelectNext",
       "ctrl+k": "menu::SelectNext"
     }
   },
@@ -265,24 +257,24 @@
       "z": "project_panel::CollapseAllEntries",
       "q": "workspace::ToggleLeftDock",
       "Tab": "project_panel::OpenPermanent",
-   	   ":": "command_palette::Toggle",
-			"%": "project_panel::NewFile",
-			"/": "project_panel::NewSearchInDirectory",
-			"enter": "project_panel::OpenPermanent",
-			"escape": "project_panel::ToggleFocus",
-			"h": "project_panel::CollapseSelectedEntry",
-			"j": "menu::SelectNext",
-			"k": "menu::SelectPrevious",
-			"l": "project_panel::ExpandSelectedEntry",
-			"o": "project_panel::OpenPermanent",
-			"shift-d": "project_panel::Delete",
-			"shift-r": "project_panel::Rename",
-			"t": "project_panel::OpenPermanent",
-			"v": "project_panel::OpenPermanent",
-			"shift-g": "menu::SelectLast",
-			"g g": "menu::SelectFirst",
-			"-": "project_panel::SelectParent",
-			"ctrl-6": "pane::AlternateFile",
+      ":": "command_palette::Toggle",
+      "%": "project_panel::NewFile",
+      "/": "project_panel::NewSearchInDirectory",
+      "enter": "project_panel::OpenPermanent",
+      "escape": "project_panel::ToggleFocus",
+      "h": "project_panel::CollapseSelectedEntry",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "l": "project_panel::ExpandSelectedEntry",
+      "o": "project_panel::OpenPermanent",
+      "shift-d": "project_panel::Delete",
+      "shift-r": "project_panel::Rename",
+      "t": "project_panel::OpenPermanent",
+      "v": "project_panel::OpenPermanent",
+      "shift-g": "menu::SelectLast",
+      "g g": "menu::SelectFirst",
+      "-": "project_panel::SelectParent",
+      "ctrl-6": "pane::AlternateFile",
       "space e": "workspace::ToggleLeftDock",
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",

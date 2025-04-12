@@ -28,9 +28,10 @@
   // # =============================================================================== #
   // # Completions:                                                                    #
   // # =============================================================================== #
-  "show_inline_completions": false,
   "show_completions_on_input": true,
+  "show_inline_completions": false,
   "show_completion_documentation": false,
+  "show_signature_help_after_edits": false,
   "auto_signature_help": false,
   // # =============================================================================== #
   // # AutoSave:                                                                        #
@@ -108,7 +109,7 @@
     "line_width": 1
   },
   "inlay_hints": {
-    "enabled": true,
+    "enabled": false,
     "typeHints": true,
     "parameterHints": true,
     "chainingHints": true
