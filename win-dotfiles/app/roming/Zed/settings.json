@@ -1,215 +1,332 @@
 // # =============================================================================== #
-// # Zed configuration:                                                              #
+// # Zed Configurations:                                                             #
 // # =============================================================================== #
 {
-	"vim_mode": true,
-	"auto_update": false,
-	"buffer_font_family": "JetBrainsMono Nerd Font",
-	"ui_font_family": "JetBrainsMono Nerd Font",
-	"base_keymap": "VSCode",
-	"relative_line_numbers": false,
-	"ui_font_size": 14,
-	"buffer_font_size": 12,
-	"tab_size": 2,
-	"cursor_blink": true,
-	"preferred_line_length": 80,
-	"buffer_line_height": "comfortable",
-	"confirm_quit": false,
-	"extend_comment_on_newline": false,
-	"hover_popover_enabled": true,
-	"bracket_pairing": "always",
-	"wrap_guides": [],
-	"format_on_save": "on",
-	"formatter": "prettier",
-	"linter": "eslint",
-	"show_inline_completions": false,
-	"show_completions_on_input": true,
-	"show_completion_documentation": false,
-	"auto_signature_help": false,
-	"autosave": "on_focus_change",
-	"autosave_delay": 1500,
-	"autosave_on_focus_change": true,
-	"autosave_on_window_change": true,
-	"autosave_on_build": true,
-	"autosave_on_build_delay": 1500,
-	"autosave_on_build_events": ["build", "run", "debug"],
-	"autosave_on_build_events_delay": 1500,
-	"features": { "copilot": false, "inline_completion_provider": "supermaven" },
-	"vim": {
-		"highlight_on_yank_duration": 100,
-		"use_multiline_find": true,
-		"enable_vim_sneak": true
-	},
-	"command_aliases": { "W": "w", "Wq": "wq", "Q": "q" },
-	"file_finder": { "modal_width": "medium" },
-	"tabs": {
-		"show_diagnostics": "errors",
-		"close_position": "right",
-		"git_status": false
-	},
-	"telemetry": { "diagnostics": false, "metrics": false },
-	"toolbar": {
-		"selections_menu": false,
-		"breadcrumbs": false,
-		"quick_actions": false
-	},
-	"centered_layout": { "left_padding": 0.1, "right_padding": 0.1 },
-	"theme": { "mode": "system", "light": "One Light", "dark": "Everblush" },
-	"tab_bar": {
-		"show": true,
-		"show_nav_history_buttons": false,
-		"show_tab_bar_buttons": false
-	},
-	"preview_tabs": {
-		"enabled": true,
-		"enable_preview_from_file_finder": false,
-		"enable_preview_from_code_navigation": false
-	},
-	"indent_guides": {
-		"enabled": true,
-		"coloring": "fixed",
-		"background_coloring": "disabled",
-		"active_line_width": 1,
-		"line_width": 1
-	},
-	"inlay_hints": {
-		"enabled": true,
-		"typeHints": true,
-		"parameterHints": true,
-		"chainingHints": true
-	},
-	"project_panel": { "button": true, "dock": "left", "git_status": true },
-	"outline_panel": { "dock": "right" },
-	"collaboration_panel": { "dock": "right" },
-	"file_types": {
-		"*.mdx": ["markdown"],
-		"Dockerfile": ["Dockerfile", "Dockerfile.*"],
-		"JSON": ["json", "jsonc", "*.code-snippets"]
-	},
-	"file_scan_exclusions": [
-		"**/.git",
-		"**/.svn",
-		"**/.hg",
-		"**/CVS",
-		"**/.DS_Store",
-		"**/Thumbs.db",
-		"**/.classpath",
-		"**/.settings",
-		"**/out",
-		"**/dist",
-		"**/.husky",
-		"**/.turbo",
-		"**/.vscode-test",
-		"**/.vscode",
-		"**/.next",
-		"**/.storybook",
-		"**/.tap",
-		"**/.nyc_output",
-		"**/report",
-		"**/node_modules"
-	],
-	"scrollbar": {
-		"show": "never",
-		"cursors": false,
-		"git_diff": true,
-		"search_results": true,
-		"selected_symbol": true,
-		"diagnostics": "all"
-	},
-	"terminal": {
-		"shell": { "program": "nu" },
-		"alternate_scroll": "off",
-		"blinking": "terminal_controlled",
-		"copy_on_select": true,
-		"env": { "EDITOR": "zed --wait" },
-		"font_family": "JetBrainsMonoNL Nerd Font",
-		"font_features": null,
-		"font_size": null,
-		"option_as_meta": false
-	},
-	"git": {
-		"enabled": true,
-		"autoFetch": true,
-		"autoFetchInterval": 300,
-		"autoFetchOnFocus": true,
-		"autoFetchOnWindowChange": true,
-		"autoFetchOnBuild": true,
-		"git_status": true,
-		"autoFetchOnBuildEvents": ["build", "run", "debug"],
-		"autoFetchOnBuildEventsDelay": 1500,
-		"autoFetchOnBuildDelay": 1500,
-		"git_gutter": "tracked_files"
-	},
-	"prettier": {
-		"printWidth": 80,
-		"tabWidth": 2,
-		"useTabs": false,
-		"semi": true,
-		"singleQuote": true,
-		"trailingComma": "all",
-		"bracketSpacing": true,
-		"jsxBracketSameLine": false,
-		"arrowParens": "avoid",
-		"proseWrap": "preserve",
-		"endOfLine": "lf"
-	},
-	"eslint": {
-		"enabled": true,
-		"autoFixOnSave": true,
-		"autoFixOnFormat": true,
-		"autoFixOnFormatDelay": 1500
-	},
-	"languages": {
-		"TypeScript": {
-			"language_servers": ["typescript-language-server", "!vtsls", "..."],
-			"show_edit_predictions": true,
-			"formatter": "prettier",
-			"code_actions_on_format": {
-				"source.fixAll.eslint": true,
-				"source.organizeImports": true
-			},
-			"format_on_save": "on"
-		},
-		"TSX": {
-			"language_servers": ["typescript-language-server", "!vtsls", "..."],
-			"formatter": "prettier",
-			"code_actions_on_format": {
-				"source.fixAll.eslint": true,
-				"source.organizeImports": true
-			},
-			"format_on_save": "on"
-		},
-		"JavaScript": {
-			"language_servers": ["typescript-language-server", "!vtsls", "..."],
-			"formatter": "prettier",
-			"code_actions_on_format": {
-				"source.fixAll.eslint": true,
-				"source.organizeImports": true
-			},
-			"format_on_save": "on"
-		}
-	},
-	"lsp": {
-		"typescript-language-server": {
-			"initialization_options": {
-				"preferences": {
-					"includeInlayParameterNameHints": "all",
-					"includeInlayParameterNameHintsWhenArgumentMatchesName": true,
-					"includeInlayFunctionParameterTypeHints": true,
-					"includeInlayVariableTypeHints": true,
-					"includeInlayVariableTypeHintsWhenTypeMatchesName": true,
-					"includeInlayPropertyDeclarationTypeHints": true,
-					"includeInlayFunctionLikeReturnTypeHints": true,
-					"includeInlayEnumMemberValueHints": true
-				}
-			}
-		},
-		"eslint": {
-			"settings": {
-				"codeActionOnSave": {
-					"rules": ["import/order"]
-				}
-			}
-		}
-	}
+  // # =============================================================================== #
+  // # General:                                                                        #
+  // # =============================================================================== #
+  "vim_mode": true,
+  "auto_update": false,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "base_keymap": "VSCode",
+  "relative_line_numbers": false,
+  "ui_font_size": 14,
+  "buffer_font_size": 12,
+  "tab_size": 2,
+  "cursor_blink": true,
+  "preferred_line_length": 80,
+  "buffer_line_height": "comfortable",
+  "confirm_quit": false,
+  "extend_comment_on_newline": false,
+  "hover_popover_enabled": true,
+  "bracket_pairing": "always",
+  "wrap_guides": [],
+  "format_on_save": "on",
+  "formatter": "prettier",
+  "linter": "eslint",
+  // # =============================================================================== #
+  // # Completions:                                                                    #
+  // # =============================================================================== #
+  "show_inline_completions": false,
+  "show_completions_on_input": true,
+  "show_completion_documentation": false,
+  "auto_signature_help": false,
+  // # =============================================================================== #
+  // # AutoSave:                                                                        #
+  // # =============================================================================== #
+  "autosave": "on_focus_change",
+  "autosave_delay": 1500,
+  "autosave_on_focus_change": true,
+  "autosave_on_window_change": true,
+  "autosave_on_build": true,
+  "autosave_on_build_delay": 1500,
+  "autosave_on_build_events": ["build", "run", "debug"],
+  "autosave_on_build_events_delay": 1500,
+  // # =============================================================================== #
+  // # VIM:                                                                            #
+  // # =============================================================================== #
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true,
+    "use_smartcase_find": false,
+    "highlight_on_yank_duration": 100,
+    "enable_vim_sneak": true
+  },
+  "command_aliases": {
+    "W": "w",
+    "Wq": "wq",
+    "Q": "q"
+  },
+  // # =============================================================================== #
+  // # UI:                                                                             #
+  // # =============================================================================== #
+  "features": {
+    "copilot": false
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "file_finder": {
+    "modal_width": "medium"
+  },
+  "tabs": {
+    "show_diagnostics": "errors",
+    "close_position": "right",
+    "git_status": false
+  },
+  "toolbar": {
+    "selections_menu": false,
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "centered_layout": {
+    "left_padding": 0.1,
+    "right_padding": 0.1
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Everblush"
+  },
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": false,
+    "enable_preview_from_code_navigation": false
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "fixed",
+    "background_coloring": "disabled",
+    "active_line_width": 1,
+    "line_width": 1
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "typeHints": true,
+    "parameterHints": true,
+    "chainingHints": true
+  },
+  "project_panel": {
+    "button": true,
+    "dock": "left",
+    "git_status": true
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "scrollbar": {
+    "show": "never",
+    "cursors": false,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "all"
+  },
+  // # =============================================================================== #
+  // # FileType:                                                                       #
+  // # =============================================================================== #
+  "file_types": {
+    "*.mdx": ["markdown"],
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"]
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/out",
+    "**/dist",
+    "**/.husky",
+    "**/.turbo",
+    "**/.vscode-test",
+    "**/.vscode",
+    "**/.next",
+    "**/.storybook",
+    "**/.tap",
+    "**/.nyc_output",
+    "**/report",
+    "**/node_modules"
+  ],
+  // # =============================================================================== #
+  // # Terminal:                                                                       #
+  // # =============================================================================== #
+  "terminal": {
+    "shell": { "program": "nu" },
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": true,
+    "env": { "EDITOR": "zed --wait" },
+    "font_family": "JetBrainsMonoNL Nerd Font",
+    "font_features": null,
+    "font_size": null,
+    "option_as_meta": false
+  },
+  // # =============================================================================== #
+  // # Git:                                                                            #
+  // # =============================================================================== #
+  "git": {
+    "enabled": true,
+    "autoFetch": true,
+    "autoFetchInterval": 300,
+    "autoFetchOnFocus": true,
+    "autoFetchOnWindowChange": true,
+    "autoFetchOnBuild": true,
+    "git_status": true,
+    "autoFetchOnBuildEvents": ["build", "run", "debug"],
+    "autoFetchOnBuildEventsDelay": 1500,
+    "autoFetchOnBuildDelay": 1500,
+    "git_gutter": "tracked_files"
+  },
+  // # =============================================================================== #
+  // # prettier:                                                                       #
+  // # =============================================================================== #
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "arrowParens": "avoid",
+    "proseWrap": "preserve",
+    "endOfLine": "lf"
+  },
+  // # =============================================================================== #
+  // # Eslint:                                                                         #
+  // # =============================================================================== #
+  "eslint": {
+    "enabled": true,
+    "autoFixOnSave": true,
+    "autoFixOnFormat": true,
+    "autoFixOnFormatDelay": 1500
+  },
+  // # =============================================================================== #
+  // # Languages:                                                                      #
+  // # =============================================================================== #
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "show_edit_predictions": true,
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "format_on_save": "on"
+    },
+    "TSX": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "formatter": "prettier",
+      "prettier": {
+        "allowed": true
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "format_on_save": "on"
+    },
+    "JavaScript": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+      "formatter": "prettier",
+      "prettier": {
+        "allowed": true
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "format_on_save": "on"
+    },
+    "HTML": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "CSS": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "SCSS": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "GraphQL": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "JSON": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "JSONC": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "YAML": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Vue.js": {
+      "prettier": {
+        "allowed": true
+      }
+    },
+    "Markdown": {
+      "format_on_save": "off",
+      "use_on_type_format": false,
+      "prettier": {
+        "allowed": true
+      }
+    }
+  },
+  // # =============================================================================== #
+  // # LSP:                                                                            #
+  // # =============================================================================== #
+  "lsp": {
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": true,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": true,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayEnumMemberValueHints": true
+        }
+      }
+    },
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": ["import/order"]
+        }
+      }
+    }
+  }
 }
