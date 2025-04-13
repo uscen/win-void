@@ -166,6 +166,8 @@ later(function()
       ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
     },
   })
+
+  vim.keymap.set('i', '<CR>', 'v:lua.Config.cr_action()', { expr = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pick                           │
@@ -371,7 +373,7 @@ now_if_args(function()
   local ensure_installed = {
     'bash', 'powershell', 'nu', 'c', 'cpp', 'python', 'regex',
     'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
-    'json5', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
+    'json', 'jsonc', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
     "git_config", "git_rebase", "gitcommit", "gitignore", "gitattributes", "diff",
   }
   require('nvim-treesitter.configs').setup({
