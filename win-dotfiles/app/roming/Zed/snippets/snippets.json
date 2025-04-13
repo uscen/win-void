@@ -1,44 +1,130 @@
 {
-	"Current datetime": {
-		"prefix": "cdtm",
-		"body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
-		"description": "Insert current datetime (YYYY-mm-dd HH:MM:SS)"
-	},
-	"Current date": {
-		"prefix": "cdate",
-		"body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-		"description": "Insert current date (YYYY-mm-dd)"
-	},
-	"Current time": {
-		"prefix": "ctime",
-		"body": "$CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
-		"description": "Insert current time (HH:MM:SS)"
-	},
-	"UUID": {
-		"prefix": "uuid",
-		"body": "$UUID",
-		"description": "Insert a version 4 UUID"
-	},
-	"Random digits": {
-		"prefix": "rd",
-		"body": "$RANDOM",
-		"description": "6 random Base-10 digits"
-	},
-	"Random hex digits": {
-		"prefix": "rdh",
-		"body": "$RANDOM_HEX",
-		"description": "6 random Base-16 digits"
-	},
-	"todo": {
-		"prefix": "todo",
-		"body": ["$LINE_COMMENT TODO: $0"]
-	},
-	"fix": {
-		"prefix": "fix",
-		"body": ["$LINE_COMMENT FIXME: $0"]
-	},
-	"bc": {
-		"prefix": "block comment",
-		"body": ["$BLOCK_COMMENT_START $0 $BLOCK_COMMENT_END"]
-	}
+  "Current datetime": {
+    "prefix": "cdtm",
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+    "description": "Insert current datetime (YYYY-mm-dd HH:MM:SS)",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Current date": {
+    "prefix": "cdate",
+    "body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+    "description": "Insert current date (YYYY-mm-dd)",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Current time": {
+    "prefix": "ctime",
+    "body": "$CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+    "description": "Insert current time (HH:MM:SS)",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "UUID": {
+    "prefix": "uuid",
+    "body": "$UUID",
+    "description": "Insert a version 4 UUID",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Random digits": {
+    "prefix": "rd",
+    "body": "$RANDOM",
+    "description": "6 random Base-10 digits",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Random hex digits": {
+    "prefix": "rdh",
+    "body": "$RANDOM_HEX",
+    "description": "6 random Base-16 digits",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "todo": {
+    "prefix": "todo",
+    "body": ["$LINE_COMMENT TODO: $0"],
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "fix": {
+    "prefix": "fix",
+    "body": ["$LINE_COMMENT FIXME: $0"],
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "bc": {
+    "prefix": "block comment",
+    "body": ["$BLOCK_COMMENT_START $0 $BLOCK_COMMENT_END"],
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Console Log Vscode": {
+    "prefix": "log",
+    "body": ["console.log($1)$0"],
+    "description": "Console log statement",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Console Log": {
+    "prefix": "clg",
+    "body": ["console.log($1)$0"],
+    "description": "Console log statement",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Anonymous Function": {
+    "prefix": "anfn",
+    "body": ["($1) => {", "\t$0", "}"],
+    "description": "Anonymous arrow function",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Short Anonymous Function": {
+    "prefix": "anf",
+    "body": ["($1) => $0"],
+    "description": "Anonymous arrow function",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Export Default Function": {
+    "prefix": "edfn",
+    "body": ["export default function $1($2) {", "\t$0", "}"],
+    "description": "Export default function",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "useEffect Hook": {
+    "prefix": "uef",
+    "body": ["useEffect(() => {", "\t$1", "}, [$2])$0"],
+    "description": "React useEffect hook",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "useCallback Hook": {
+    "prefix": "ucb",
+    "body": ["const $1 = useCallback(($2) => {", "\t$3", "}, [$4])$0"],
+    "description": "React useCallback hook",
+
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "useMemo Hook": {
+    "prefix": "umm",
+    "body": ["const $1 = useMemo(($2) => {", "\t$3", "}, [$4])$0"],
+    "description": "React useCallback hook",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "useState Hook": {
+    "prefix": "ust",
+    "body": ["const [$1, set$2] = useState($3)$0"],
+    "description": "React useState hook",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "IIFE": {
+    "prefix": "iife",
+    "body": ["(() => {", "\t$1", "})()$0"],
+    "description": "Immediately Invoked Function Expression",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "return": {
+    "prefix": "r",
+    "body": "return ${0}",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "import": {
+    "prefix": "i",
+    "body": "import ${0}",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
+  "Try-Catch Statement": {
+    "prefix": "trycatch",
+    "body": ["try {", "\t$0", "} catch (${1}) {", "\t", "}"],
+    "description": "Try-Catch Statement",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  }
 }
