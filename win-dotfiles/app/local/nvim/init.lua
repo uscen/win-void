@@ -455,6 +455,7 @@ now(function()
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- UI: ====================================================================
   vim.opt.number                = true
+  vim.opt.cursorline            = true
   vim.opt.splitright            = true
   vim.opt.splitbelow            = true
   vim.opt.termguicolors         = true
@@ -658,10 +659,13 @@ end)
 later(function()
   if vim.g.neovide then
     -- General Animations: ==============================================================
-    vim.g.neovide_scroll_animation_length = 0.1
+    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_scroll_animation_length = 0.2
+    vim.g.neovide_remember_window_size = true
     vim.opt.mousescroll = "ver:10,hor:6"
     vim.opt.linespace = -1
     vim.g.neovide_theme = "dark"
+    vim.g.experimental_layer_grouping = true
     -- Floating Animations: =============================================================
     vim.g.neovide_floating_shadow = true
     vim.g.neovide_floating_z_height = 2

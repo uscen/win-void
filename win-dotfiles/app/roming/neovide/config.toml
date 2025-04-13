@@ -12,4 +12,4 @@ hinting = "full"
 edging = "antialias"
 [[font.normal]]
 family = "JetBrainsMono Nerd Font"
-style = "W600"
+style = "W400"

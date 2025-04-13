@@ -3,7 +3,6 @@
 # =============================================================================== #
 "$schema" = 'https://starship.rs/config-schema.json'
 format = """
-[](color_aqua)\
 $os\
 $username\
 [](bg:color_blue fg:color_aqua)\
@@ -46,27 +45,8 @@ disabled = false
 style = "bg:color_aqua fg:color_fg0"
 
 [os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
-Pop = ""
-Void = " "
+Windows = " 󰍲 "
+Void = "  "
 
 [username]
 show_always = true
