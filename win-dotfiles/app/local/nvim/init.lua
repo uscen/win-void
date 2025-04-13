@@ -166,8 +166,6 @@ later(function()
       ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
     },
   })
-
-  vim.keymap.set('i', '<CR>', 'v:lua.Config.cr_action()', { expr = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pick                           │
