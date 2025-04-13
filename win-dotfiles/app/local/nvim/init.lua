@@ -693,6 +693,7 @@ later(function()
   vim.filetype.add({
     extension = {
       ["http"] = "http",
+      ["json"] = "jsonc",
     },
     filename = {
       ["xhtml"] = "html",
