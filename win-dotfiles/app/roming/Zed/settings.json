@@ -10,6 +10,7 @@
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "base_keymap": "VSCode",
+  "restore_on_startup": "none",
   "relative_line_numbers": false,
   "ui_font_size": 14,
   "buffer_font_size": 12,
