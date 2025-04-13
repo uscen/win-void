@@ -39,6 +39,22 @@ $env.config = {
     }
     header_on_separator: false
   }
+  explore: {
+      status_bar_background: {fg: "#1D1F21", bg: "#C4C9C6"},
+      command_bar_text: {fg: "#C4C9C6"},
+      highlight: {fg: "black", bg: "yellow"},
+      status: {
+          error: {fg: "white", bg: "red"},
+          warn: {}
+          info: {}
+      },
+      table: {
+          split_line: {fg: "#404040"},
+          selected_cell: {bg: light_blue},
+          selected_row: {},
+          selected_column: {},
+      },
+  }
   history: {
       max_size: 100_000
       sync_on_enter: true
@@ -82,6 +98,13 @@ $env.config = {
     keycode: char_u
     mode: [emacs, vi_normal, vi_insert]
     event: { edit: clear }
+  }
+  {
+      name: open_command_editor
+      modifier: none
+      keycode: char_v
+      mode: [vi_normal]
+      event: { send: openeditor }
   }
   {
     name: fuzzy_change_directory
@@ -153,6 +176,15 @@ $env.PROMPT_INDICATOR = ""
 $env.PROMPT_INDICATOR_VI_INSERT = ""
 $env.PROMPT_INDICATOR_VI_NORMAL = ""
 $env.PROMPT_MULTILINE_INDICATOR = ""
+# =============================================================================== #
+# Completer:                                                                      #
+# =============================================================================== #
+let carapace_completer = {|spans|
+    carapace $spans.0 nushell ...$spans | from json
+}
+let zoxide_completer = {|spans|
+    $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
+}
 # =============================================================================== #
 # END OF FILE:                                                                    #
 # =============================================================================== #

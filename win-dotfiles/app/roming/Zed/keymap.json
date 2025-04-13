@@ -3,6 +3,16 @@
 // # =============================================================================== #
 [
   {
+    // # =============================================================================== #
+    // # global key bindings:                                                            #
+    // # =============================================================================== #
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious",
+      "tab": "menu::Confirm"
+    }
+  },
+  {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       // # =============================================================================== #
@@ -76,6 +86,14 @@
       "space g g": [
         "task::Spawn",
         { "task_name": "Lazygit", "reveal_target": "center" }
+      ],
+      "space f d": [
+        "task::Spawn",
+        { "task_name": "Zoxide", "reveal_target": "center" }
+      ],
+      "space f p": [
+        "task::Spawn",
+        { "task_name": "File_finder", "reveal_target": "center" }
       ]
     }
   },
