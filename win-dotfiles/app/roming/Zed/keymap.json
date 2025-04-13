@@ -21,7 +21,7 @@
       // # Git:                                                                            #
       // # =============================================================================== #
       "space g h": "editor::ToggleSelectedDiffHunks",
-      "space g z": "git_panel::ToggleFocus",
+      "space g g": "git_panel::ToggleFocus",
       // # =============================================================================== #
       // # Toggle File Explorer :                                                           #
       // # =============================================================================== #
@@ -83,7 +83,7 @@
   {
     "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
     "bindings": {
-      "space g g": [
+      "space g l": [
         "task::Spawn",
         { "task_name": "Lazygit", "reveal_target": "center" }
       ],
@@ -91,7 +91,7 @@
         "task::Spawn",
         { "task_name": "Zoxide", "reveal_target": "center" }
       ],
-      "space f p": [
+      "space g p": [
         "task::Spawn",
         { "task_name": "File_finder", "reveal_target": "center" }
       ]
