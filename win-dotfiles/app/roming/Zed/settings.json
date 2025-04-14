@@ -19,8 +19,12 @@
   "hard_tabs": false,
   "cursor_blink": true,
   "restore_on_startup": "none",
-  "confirm_quit": false,
+  "restore_on_file_reopen": true,
+  "when_closing_with_no_tabs": "close_window",
+  "on_last_window_closed": "quit_app",
+  "use_system_path_prompts": false,
   "extend_comment_on_newline": false,
+  "confirm_quit": false,
   "hover_popover_enabled": true,
   "remove_trailing_whitespace_on_save": true,
   "ensure_final_newline_on_save": false,
@@ -92,7 +96,8 @@
     "metrics": false
   },
   "file_finder": {
-    "modal_width": "medium"
+    "file_icons": true,
+    "modal_max_width": "full"
   },
   "tabs": {
     "show_diagnostics": "errors",

@@ -659,24 +659,42 @@ end)
 later(function()
   if vim.g.neovide then
     -- General Animations: ==============================================================
-    vim.g.neovide_refresh_rate = 60
-    vim.g.neovide_scroll_animation_length = 0.3
-    vim.g.neovide_remember_window_size = true
     vim.opt.mousescroll = "ver:10,hor:6"
     vim.opt.linespace = -1
     vim.g.neovide_theme = "dark"
+    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_fullscreen = false
+    vim.g.neovide_remember_window_size = true
     vim.g.experimental_layer_grouping = true
+    -- Padding Animations: =============================================================
+    vim.g.neovide_padding_top = 10
+    vim.g.neovide_padding_bottom = 10
+    vim.g.neovide_padding_right = 10
+    vim.g.neovide_padding_left = 10
     -- Floating Animations: =============================================================
     vim.g.neovide_floating_shadow = true
     vim.g.neovide_floating_z_height = 2
+    vim.g.neovide_floating_blur_amount_x = 4.0
+    vim.g.neovide_floating_blur_amount_y = 4.0
     vim.g.neovide_light_angle_degrees = 45
     vim.g.neovide_light_radius = 15
+    vim.g.floaterm_winblend = 15
     -- Cursor Animations: ===============================================================
     vim.o.guicursor =
     "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
-    vim.g.neovide_cursor_animation_length = 0.1
+    vim.g.neovide_cursor_animation_length = 0.13
+    vim.g.neovide_cursor_trail_length = 0.8
     vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_unfocused_outline_width = 0.125
+    vim.g.neovide_scroll_animation_length = 0.3
+    -- Cursor Animations: ===============================================================
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.g.neovide_cursor_vfx_opacity = 200.0
+    vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
+    vim.g.neovide_cursor_vfx_particle_density = 7.0
+    vim.g.neovide_cursor_vfx_particle_speed = 10.0
+    vim.g.neovide_cursor_vfx_particle_phase = 1.5
+    vim.g.neovide_cursor_vfx_particle_curl = 1.0
     -- Resize Fonts:  ===================================================================
     vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
     vim.keymap.set({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
