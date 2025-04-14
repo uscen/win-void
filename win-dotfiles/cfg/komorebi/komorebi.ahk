@@ -15,12 +15,11 @@
 ; #include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
 ; #include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
 ; # =============================================================================== #
-; # Keybidings Systems:                                                             #
+; # Maximize Apps:                                                                  #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\WindowsSystemCommand.ahk
 ; #include C:\Users\%A_UserName%\.config\ahk\maximizeAllWindows.ahk
 ; # =============================================================================== #
-; # Keybidings App:                                                                 #
+; # Keybidings Apps:                                                                #
 ; # =============================================================================== #
 #include C:\Users\%A_UserName%\.config\ahk\hotKeys.ahk
 ; # =============================================================================== #
