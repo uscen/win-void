@@ -5,6 +5,8 @@
 
 [manager]
 prepend_keymap = [
+	# General
+	{ on = "A", run = "create --dir" },
 	# Hopping
 	{ on = "k", run = "arrow prev" },
 	{ on = "j", run = "arrow next" },
