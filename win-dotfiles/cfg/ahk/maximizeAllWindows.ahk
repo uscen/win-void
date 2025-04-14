@@ -4,19 +4,20 @@
 ; #          and maximize them all at once.
 ; # =============================================================================== #
 !a::maximize_all()
-
 maximize_all()
 {
     ; Map of exe names
     ; Mapping is faster than iterating through an array or parsing a string
-    processes := Map("chrome.exe",1
-                    ,"cmd.exe",1
+    processes := Map("cmd.exe",1
+                    ,"PowerShell.exe",1
+                    ,"pwsh.exe",1
+                    ,"zed.exe",1
+                    ,"chrome.exe",1
+                    ,"alacritty.exe",1
                     ,"WindowsTerminal.exe",1
                     ,"mintty.exe",1
                     ,"notepad++.exe",1
-                    ,"PowerShell.exe",1
-                    ,"alacritty.exe",1
-                    ,"pwsh.exe",1
+                    ,"explorer.exe",1
                     ,"Termius.exe",1)
     processes.Default := 0                      ; Set a default when key not found
 
