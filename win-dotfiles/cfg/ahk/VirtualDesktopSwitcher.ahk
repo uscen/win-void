@@ -88,10 +88,20 @@ bufferCompare(buf1, buf2, size := -1) {
     return true
 }
 
+createNewDesktop() {
+    SendInput("^#d")
+    Sleep(500)
+    mapDesktopsFromRegistry() ;
+}
+
 switchDesktopByNumber(targetDesktop) {
     global DesktopCount, CurrentDesktop
     mapDesktopsFromRegistry()
-
+    if (targetDesktop > DesktopCount) {
+        while (DesktopCount < targetDesktop) {
+            createNewDesktop()
+        }
+    }
     if (targetDesktop < 1 || targetDesktop > DesktopCount)
         return
 
