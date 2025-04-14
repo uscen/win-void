@@ -14,6 +14,7 @@ maximize_all()
                     ,"zed.exe",1
                     ,"chrome.exe",1
                     ,"alacritty.exe",1
+                    ,"neovide.exe",1
                     ,"WindowsTerminal.exe",1
                     ,"mintty.exe",1
                     ,"notepad++.exe",1
