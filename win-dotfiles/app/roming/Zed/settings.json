@@ -7,33 +7,29 @@
   // # =============================================================================== #
   "vim_mode": true,
   "auto_update": false,
+  "base_keymap": "VSCode",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
-  "base_keymap": "VSCode",
-  "restore_on_startup": "none",
-  "relative_line_numbers": false,
-  "ui_font_size": 14,
-  "buffer_font_size": 12,
-  "tab_size": 2,
-  "cursor_blink": true,
-  "preferred_line_length": 80,
   "buffer_line_height": "comfortable",
+  "buffer_font_weight": 400,
+  "preferred_line_length": 80,
+  "buffer_font_size": 12,
+  "ui_font_size": 14,
+  "tab_size": 2,
+  "hard_tabs": false,
+  "cursor_blink": true,
+  "restore_on_startup": "none",
   "confirm_quit": false,
   "extend_comment_on_newline": false,
   "hover_popover_enabled": true,
-  "bracket_pairing": "always",
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": false,
+  "relative_line_numbers": false,
   "wrap_guides": [],
-  "format_on_save": "on",
+  "bracket_pairing": "always",
   "formatter": "prettier",
   "linter": "eslint",
-  // # =============================================================================== #
-  // # Completions:                                                                    #
-  // # =============================================================================== #
-  "show_completions_on_input": true,
-  "show_inline_completions": false,
-  "show_completion_documentation": false,
-  "show_signature_help_after_edits": false,
-  "auto_signature_help": false,
+  "format_on_save": "on",
   // # =============================================================================== #
   // # AutoSave:                                                                       #
   // # =============================================================================== #
@@ -46,9 +42,25 @@
   "autosave_on_build_events": ["build", "run", "debug"],
   "autosave_on_build_events_delay": 1500,
   // # =============================================================================== #
+  // # Completions:                                                                    #
+  // # =============================================================================== #
+  "show_completions_on_input": true,
+  "show_inline_completions": false,
+  "show_completion_documentation": false,
+  "show_signature_help_after_edits": false,
+  "auto_signature_help": false,
+  "completions": {
+    "words": "enabled",
+    "lsp": true,
+    "lsp_fetch_timeout_ms": 0,
+    "lsp_insert_mode": "replace_suffix"
+  },
+  // # =============================================================================== #
   // # VIM:                                                                            #
   // # =============================================================================== #
   "vim": {
+    "default_mode": "normal",
+    "toggle_relative_line_numbers": false,
     "use_system_clipboard": "always",
     "use_multiline_find": true,
     "use_smartcase_find": false,
@@ -288,37 +300,27 @@
         "allowed": true
       }
     },
-    "GraphQL": {
-      "prettier": {
-        "allowed": true
-      }
+    "Markdown": {
+      "tab_size": 2,
+      "formatter": "prettier"
     },
-    "JSON": {
-      "prettier": {
-        "allowed": true
-      }
-    },
-    "JSONC": {
-      "prettier": {
-        "allowed": true
-      }
+    "TOML": {
+      "tab_size": 2,
+      "formatter": "prettier"
     },
     "YAML": {
-      "prettier": {
-        "allowed": true
-      }
+      "tab_size": 2,
+      "formatter": "prettier"
     },
-    "Vue.js": {
-      "prettier": {
-        "allowed": true
-      }
+    "JSON": {
+      "tab_size": 2,
+      "preferred_line_length": 120,
+      "formatter": "prettier"
     },
-    "Markdown": {
-      "format_on_save": "off",
-      "use_on_type_format": false,
-      "prettier": {
-        "allowed": true
-      }
+    "JSONC": {
+      "tab_size": 2,
+      "preferred_line_length": 120,
+      "formatter": "prettier"
     }
   },
   // # =============================================================================== #
