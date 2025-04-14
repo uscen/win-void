@@ -667,10 +667,10 @@ later(function()
     vim.g.neovide_remember_window_size = true
     vim.g.experimental_layer_grouping = true
     -- Padding Animations: =============================================================
-    vim.g.neovide_padding_top = 10
-    vim.g.neovide_padding_bottom = 10
-    vim.g.neovide_padding_right = 10
-    vim.g.neovide_padding_left = 10
+    vim.g.neovide_padding_top = 0
+    vim.g.neovide_padding_bottom = 0
+    vim.g.neovide_padding_right = 0
+    vim.g.neovide_padding_left = 0
     -- Floating Animations: =============================================================
     vim.g.neovide_floating_shadow = true
     vim.g.neovide_floating_z_height = 2

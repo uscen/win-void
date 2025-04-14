@@ -1,163 +1,66 @@
 {
-    "accent_color": [
-        0,
-        255,
-        156
-    ],
-    "background_color": [
-        24,
-        36,
-        34
-    ],
-    "vsync": true,
-    "force_redraw": false,
-    "shortcuts": {
-        "AlwaysOnTop": [
-            "T"
-        ],
-        "Fullscreen": [
-            "F"
-        ],
-        "InfoMode": [
-            "I"
-        ],
-        "EditMode": [
-            "E"
-        ],
-        "NextImage": [
-            "N"
-        ],
-        "FirstImage": [
-            "G",
-            "G"
-        ],
-        "LastImage": [
-            "LShift",
-            "G"
-        ],
-        "PreviousImage": [
-            "P"
-        ],
-        "RedChannel": [
-            "R"
-        ],
-        "GreenChannel": [
-            "G"
-        ],
-        "BlueChannel": [
-            "B"
-        ],
-        "AlphaChannel": [
-            "A"
-        ],
-        "RGBChannel": [
-            "U"
-        ],
-        "RGBAChannel": [
-            "C"
-        ],
-        "ResetView": [
-            "V"
-        ],
-        "ZoomOut": [
-            "LControl",
-            "Minus"
-        ],
-        "ZoomIn": [
-            "LControl",
-            "Equals"
-        ],
-        "ZoomActualSize": [
-            "LControl",
-            "0"
-        ],
-        "ZoomDouble": [
-            "Key2"
-        ],
-        "ZoomThree": [
-            "Key3"
-        ],
-        "ZoomFour": [
-            "Key4"
-        ],
-        "ZoomFive": [
-            "Key5"
-        ],
-        "CompareNext": [
-            "C",
-            "LShift"
-        ],
-        "PanLeft": [
-            "LShift",
-            "Left"
-        ],
-        "PanRight": [
-            "LShift",
-            "Right"
-        ],
-        "PanUp": [
-            "LShift",
-            "Up"
-        ],
-        "PanDown": [
-            "Down",
-            "LShift"
-        ],
-        "DeleteFile": [
-            "Delete"
-        ],
-        "ClearImage": [
-            "Delete",
-            "LShift"
-        ],
-        "LosslessRotateRight": [
-            "RBracket"
-        ],
-        "LosslessRotateLeft": [
-            "LBracket"
-        ],
-        "Copy": [
-            "C",
-            "LControl"
-        ],
-        "Paste": [
-            "LControl",
-            "V"
-        ],
-        "Browse": [
-            "E",
-            "LControl"
-        ],
-        "Quit": [
-            "Q"
-        ],
-        "ZenMode": [
-            "Z"
-        ]
-    },
-    "keep_view": false,
-    "max_cache": 30,
-    "show_scrub_bar": false,
-    "wrap_folder": true,
-    "keep_edits": false,
-    "title_format": "{APP} | {VERSION} | {FULLPATH}",
-    "info_enabled": false,
-    "edit_enabled": false,
-    "show_checker_background": false,
-    "show_minimap": false,
-    "show_frame": false,
-    "svg_scale": 1.0,
-    "zen_mode": true,
-    "theme": "System",
-    "linear_mag_filter": false,
-    "linear_min_filter": true,
-    "use_mipmaps": true,
-    "fit_image_on_window_resize": false,
-    "zoom_multiplier": 1.0,
-    "borderless": true,
-    "min_window_size": [
-        100,
-        100
-    ],
-    "experimental_features": true
+	"accent_color": [0, 255, 156],
+	"background_color": [24, 36, 34],
+	"vsync": true,
+	"force_redraw": true,
+	"shortcuts": {
+		"AlwaysOnTop": ["T"],
+		"Fullscreen": ["F"],
+		"InfoMode": ["I"],
+		"EditMode": ["E"],
+		"NextImage": ["N"],
+		"FirstImage": ["G", "G"],
+		"LastImage": ["LShift", "G"],
+		"PreviousImage": ["P"],
+		"RedChannel": ["R"],
+		"GreenChannel": ["G"],
+		"BlueChannel": ["B"],
+		"AlphaChannel": ["A"],
+		"RGBChannel": ["U"],
+		"RGBAChannel": ["C"],
+		"ResetView": ["V"],
+		"ZoomOut": ["LControl", "Minus"],
+		"ZoomIn": ["LControl", "Equals"],
+		"ZoomActualSize": ["LControl", "0"],
+		"ZoomDouble": ["Key2"],
+		"ZoomThree": ["Key3"],
+		"ZoomFour": ["Key4"],
+		"ZoomFive": ["Key5"],
+		"CompareNext": ["C", "LShift"],
+		"PanLeft": ["LShift", "Left"],
+		"PanRight": ["LShift", "Right"],
+		"PanUp": ["LShift", "Up"],
+		"PanDown": ["Down", "LShift"],
+		"DeleteFile": ["Delete"],
+		"ClearImage": ["Delete", "LShift"],
+		"LosslessRotateRight": ["RBracket"],
+		"LosslessRotateLeft": ["LBracket"],
+		"Copy": ["C", "LControl"],
+		"Paste": ["LControl", "V"],
+		"Browse": ["E", "LControl"],
+		"Quit": ["Q"],
+		"ZenMode": ["Z"]
+	},
+	"keep_view": false,
+	"max_cache": 30,
+	"show_scrub_bar": false,
+	"wrap_folder": true,
+	"keep_edits": false,
+	"title_format": "{APP} | {VERSION} | {FULLPATH}",
+	"info_enabled": false,
+	"edit_enabled": false,
+	"show_checker_background": false,
+	"show_minimap": false,
+	"show_frame": false,
+	"svg_scale": 1.0,
+	"zen_mode": true,
+	"theme": "System",
+	"linear_mag_filter": false,
+	"linear_min_filter": true,
+	"use_mipmaps": true,
+	"fit_image_on_window_resize": true,
+	"zoom_multiplier": 1.0,
+	"borderless": true,
+	"min_window_size": [100, 100],
+	"experimental_features": true
 }
