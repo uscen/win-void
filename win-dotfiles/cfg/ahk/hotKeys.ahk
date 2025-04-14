@@ -32,6 +32,20 @@ Capslock::Esc
 !f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
 !+f::  WinSetStyle "^0xC40000", "A"
 ; # =============================================================================== #
+; # EMPTY RECYCLE BIN:                                                              #
+; # =============================================================================== #
+!t::
+{
+    try
+        FileRecycleEmpty
+    catch
+    {
+        ComObj := ComObject("SAPI.SpVoice").Speak("Failed to empty the trash")
+        MsgBox("Failed to empty the trash",, "T2")
+        Reload
+    }
+}
+; # =============================================================================== #
 ; # Focus Next/Previews:                                                            #
 ; # =============================================================================== #
 ; !k::Send "!{Escape}"
