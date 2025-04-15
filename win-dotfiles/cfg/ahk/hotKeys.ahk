@@ -86,6 +86,7 @@ Capslock::Esc
 Komorebic(cmd) {
     RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
+RunWait(format("komorebic.exe start"), , "Hide")
 ; Focus windows
 !k::Komorebic("cycle-focus previous")
 !j::Komorebic("cycle-focus next")
