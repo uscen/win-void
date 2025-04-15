@@ -94,7 +94,7 @@
         "task::Spawn",
         { "task_name": "Zoxide", "reveal_target": "center" }
       ],
-      "space g p": [
+      "space f z": [
         "task::Spawn",
         { "task_name": "File_finder", "reveal_target": "center" }
       ]
