@@ -21,6 +21,8 @@
       // # Git:                                                                            #
       // # =============================================================================== #
       "space g h": "editor::ToggleSelectedDiffHunks",
+      "space g a": "git::StageAll",
+      "space g c": "git::Commit",
       "space g g": "git_panel::ToggleFocus",
       // # =============================================================================== #
       // # Toggle File Explorer :                                                           #
@@ -103,6 +105,7 @@
     // # =============================================================================== #
     "context": "GitPanel",
     "bindings": {
+      "space g g": "git_panel::ToggleFocus",
       "q": "git_panel::Close"
     }
   },
