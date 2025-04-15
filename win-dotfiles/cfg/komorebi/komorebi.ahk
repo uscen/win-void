@@ -15,6 +15,10 @@
 ; #include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
 ; #include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
 ; # =============================================================================== #
+; # Move Apps In Grid Layout:                                                       #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.config\ahk\moveWindowGrid.ahk
+; # =============================================================================== #
 ; # Maximize Apps:                                                                  #
 ; # =============================================================================== #
 #include C:\Users\%A_UserName%\.config\ahk\maximizeAllWindows.ahk
