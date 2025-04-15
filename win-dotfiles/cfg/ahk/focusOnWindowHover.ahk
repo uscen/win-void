@@ -10,7 +10,7 @@ AppExit(*){
   ExitApp
 }
 
-SetActiveWindowTracking(Track, OnTop := True, Delay := 100) {
+SetActiveWindowTracking(Track, OnTop := True, Delay := 10) {
   Static FirstCall := True
   Static SPITrack := 0
   Static SPIOnTop := 0
