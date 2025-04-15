@@ -1,10 +1,6 @@
 #Requires AutoHotkey v2.0+
 #SingleInstance Force
 ; # =============================================================================== #
-; # Virtual Desktop Switcher:                                                       #
-; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\VirtualDesktopSwitcher.ahk
-; # =============================================================================== #
 ; # Active Border:                                                                  #
 ; # =============================================================================== #
 ; #include C:\Users\%A_UserName%\.config\ahk\activateWindowBorder.ahk
@@ -14,6 +10,10 @@
 ; #include C:\Users\%A_UserName%\.config\ahk\mouseKeys.ahk
 ; #include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
 ; #include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
+; # =============================================================================== #
+; # Virtual Desktop Switcher:                                                       #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.config\ahk\virtualDesktopSwitcher.ahk
 ; # =============================================================================== #
 ; # Move Apps In Grid Layout:                                                       #
 ; # =============================================================================== #

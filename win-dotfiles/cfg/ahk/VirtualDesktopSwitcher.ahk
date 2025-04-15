@@ -162,7 +162,7 @@ switchDesktopByNumber(targetDesktop) {
 
 loop 9 {
     num := A_Index
-    Hotkey("!" num, switchToDesktop.Bind(num))
+    Hotkey("#" num, switchToDesktop.Bind(num))
 }
 
 switchToDesktop(num, *) {
