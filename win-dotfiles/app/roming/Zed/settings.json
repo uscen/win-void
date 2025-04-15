@@ -55,7 +55,7 @@
   "show_signature_help_after_edits": false,
   "auto_signature_help": false,
   "completions": {
-    "words": "enabled",
+    "words": "disabled",
     "lsp": true,
     "lsp_fetch_timeout_ms": 0,
     "lsp_insert_mode": "replace_suffix"
@@ -98,7 +98,7 @@
   },
   "file_finder": {
     "file_icons": true,
-    "modal_max_width": "full"
+    "modal_max_width": "small"
   },
   "tabs": {
     "show_diagnostics": "errors",
@@ -118,6 +118,11 @@
     "mode": "system",
     "light": "One Light",
     "dark": "Everblush"
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Mocha"
   },
   "tab_bar": {
     "show": true,
@@ -359,7 +364,8 @@
   // # Extension:                                                                      #
   // # =============================================================================== #
   "auto_install_extensions": {
+    "catppuccin-icons":true,
     "html": true,
-    "emmet": true
+    "emmet": true,
   }
 }
