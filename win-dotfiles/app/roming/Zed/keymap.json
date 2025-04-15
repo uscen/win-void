@@ -23,6 +23,7 @@
       "space g h": "editor::ToggleSelectedDiffHunks",
       "space g a": "git::StageAll",
       "space g c": "git::Commit",
+      "space g C": "git::Uncommit",
       "space g p": "git::Push",
       "space g g": "git_panel::ToggleFocus",
       // # =============================================================================== #
