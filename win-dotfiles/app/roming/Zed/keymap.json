@@ -20,11 +20,15 @@
       // # =============================================================================== #
       // # Git:                                                                            #
       // # =============================================================================== #
-      "space g h": "editor::ToggleSelectedDiffHunks",
+      "space g i": "git::Init",
       "space g a": "git::StageAll",
+      "space g A": "git::UnstageAll",
       "space g c": "git::Commit",
       "space g C": "git::Uncommit",
       "space g p": "git::Push",
+      "space g P": "git::Pull",
+      "space g d": "git::Diff",
+      "space g h": "editor::ToggleSelectedDiffHunks",
       "space g g": "git_panel::ToggleFocus",
       // # =============================================================================== #
       // # Toggle File Explorer :                                                           #
