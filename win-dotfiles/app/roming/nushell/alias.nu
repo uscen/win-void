@@ -1,5 +1,5 @@
 # =============================================================================== #
-# Alias :                                                                         #
+# Name Alias :                                                                    #
 # =============================================================================== #
 # Changing "ls" to "eza":                                                         #
 # =============================================================================== #
@@ -78,3 +78,21 @@ alias cls = clear
 alias chrome = start chrome
 alias firefox = start firefox
 alias zen = start zen
+# =============================================================================== #
+# Functions Alias :                                                               #
+# =============================================================================== #
+# Universal Terminal alias for bun, pnpm, npm, and yarn:                          #
+# =============================================================================== #
+def p [...args] {
+    if ("bun.lockb" | path exists) {
+        bun ...$args
+    } else if ("pnpm-lock.yaml" | path exists) {
+        pnpm ...$args
+    } else if ("yarn.lock" | path exists) {
+        yarn ...$args
+    } else if ("package-lock.json" | path exists) {
+        npm ...$args
+    } else {
+        pnpm ...$args
+    }
+}
