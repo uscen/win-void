@@ -13,19 +13,19 @@
 ; # =============================================================================== #
 ; # Focus On Mouse Hover:                                                           #
 ; # =============================================================================== #
-#include C:\Users\%A_UserName%\.config\ahk\focusOnWindowHover.ahk
+; #include C:\Users\%A_UserName%\.config\ahk\focusOnWindowHover.ahk
 ; # =============================================================================== #
 ; # Virtual Desktop Switcher:                                                       #
 ; # =============================================================================== #
-#include C:\Users\%A_UserName%\.config\ahk\virtualDesktopSwitcher.ahk
+; #include C:\Users\%A_UserName%\.config\ahk\virtualDesktopSwitcher.ahk
 ; # =============================================================================== #
 ; # Move Apps In Grid Layout:                                                       #
 ; # =============================================================================== #
-#include C:\Users\%A_UserName%\.config\ahk\moveWindowGrid.ahk
+; #include C:\Users\%A_UserName%\.config\ahk\moveWindowGrid.ahk
 ; # =============================================================================== #
 ; # Maximize Apps:                                                                  #
 ; # =============================================================================== #
-#include C:\Users\%A_UserName%\.config\ahk\maximizeAllWindows.ahk
+; #include C:\Users\%A_UserName%\.config\ahk\maximizeAllWindows.ahk
 ; # =============================================================================== #
 ; # Keybidings Apps:                                                                #
 ; # =============================================================================== #

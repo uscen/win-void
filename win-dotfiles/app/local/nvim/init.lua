@@ -351,6 +351,7 @@ now(function()
     vim.lsp.enable(config)
   end
   require("mini.completion").setup({
+    delay = { completion = 10, info = 10, signature = 10 },
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',
