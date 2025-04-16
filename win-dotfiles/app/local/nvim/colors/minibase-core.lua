@@ -223,7 +223,7 @@ end
 vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base04, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = palette.base00, bg = "#a9b665" })
 -- Pmenu: =====================================================================
-vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base04 })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = "#888888" })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base07 })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "PmenuMatchSel", { fg = palette.base0B })
@@ -262,7 +262,7 @@ vim.api.nvim_set_hl(0, "MiniFilesTitle", { link = "MiniFilesBorder" })
 vim.api.nvim_set_hl(0, "MiniFilesTitleFocused", { link = "MiniFilesBorder" })
 -- PICKER ======================================================================
 vim.api.nvim_set_hl(0, "MiniPickBorder", { fg = palette.base0B, bg = palette.base00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, "MiniPickNormal", { fg = "#5d6466", bg = palette.base00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, "MiniPickNormal", { fg = "#888888", bg = palette.base00, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { fg = palette.base00, bg = palette.base0B, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniPickMatchMarked", { link = "MiniPickBorder" })
 vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { link = "MiniPickBorder" })
