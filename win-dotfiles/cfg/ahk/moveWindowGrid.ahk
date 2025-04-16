@@ -368,6 +368,7 @@ static __New()
 
 class Gui_Guides
 {
+    static enableGuiGuides := false                                     ; This is the control variable you can toggle
     static list := Map()                                                ; keeps track of existing gui guides
 
     __New() {
@@ -378,6 +379,9 @@ class Gui_Guides
 
     Create(coords)
     {
+        if !Gui_Guides.enableGuiGuides                                  ; Check if gui_guides is disabled
+            return
+
         if Window.IsMaximized(coords)                                   ; window is in maximized state
             return Gui_Guides.Destroy_Guis()                            ; destroy any gui guides and return early
 
