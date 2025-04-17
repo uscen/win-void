@@ -50,7 +50,6 @@
   // # Completions:                                                                    #
   // # =============================================================================== #
   "show_completions_on_input": true,
-  "show_inline_completions": false,
   "show_completion_documentation": false,
   "show_signature_help_after_edits": false,
   "auto_signature_help": false,
@@ -122,7 +121,7 @@
   "icon_theme": {
     "mode": "system",
     "light": "Zed (Default)",
-    "dark": "Catppuccin Mocha"
+    "dark": "Zed (Default)"
   },
   "tab_bar": {
     "show": true,
@@ -364,8 +363,6 @@
   // # Extension:                                                                      #
   // # =============================================================================== #
   "auto_install_extensions": {
-    "catppuccin-icons":true,
-    "html": true,
-    "emmet": true,
+    "html": false
   }
 }
