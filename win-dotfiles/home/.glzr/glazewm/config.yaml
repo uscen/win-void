@@ -2,12 +2,14 @@
 # General:                                                                        #
 # =============================================================================== #
 general:
+  startup_commands: []
+  shutdown_commands: []
   config_reload_commands: []
-  focus_follows_cursor: false
-  toggle_workspace_on_refocus: false
+  focus_follows_cursor: true
+  toggle_workspace_on_refocus: true
   cursor_jump:
     enabled: true
-    trigger: "monitor_focus"
+    trigger: "window_focus"
   hide_method: "cloak"
   show_all_in_taskbar: false
 
@@ -30,9 +32,9 @@ window_effects:
   focused_window:
     border:
       enabled: true
-      color: "#8dbcff"
+      color: "#8ccf7e"
     hide_title_bar:
-      enabled: false
+      enabled: true
     corner_style:
       enabled: false
       style: "square"
@@ -42,7 +44,7 @@ window_effects:
   other_windows:
     border:
       enabled: true
-      color: "#a1a1a1"
+      color: "#232a2d"
     hide_title_bar:
       enabled: false
     corner_style:
