@@ -477,12 +477,14 @@ now(function()
   vim.opt.pumblend              = 10
   vim.opt.pumheight             = 10
   vim.opt.wrap                  = false
+  vim.opt.breakindent           = true
+  vim.opt.copyindent            = true
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
   vim.wo.signcolumn             = "no"
   vim.opt.statuscolumn          = ""
-  vim.opt.fillchars             = "eob: "
+  vim.opt.fillchars             = { eob = " " }
   vim.opt.listchars             = {
     tab = "▏ ",
     trail = "·",
