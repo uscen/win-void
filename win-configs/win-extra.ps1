@@ -14,7 +14,7 @@ $packages=@(
     "vscode-langservers-extracted",
     "@olrtg/emmet-language-server",
     "@tailwindcss/language-server",
-    "@biomejs/biome"
+    "prettier"
 )
 # =============================================================================== #
 # NPM Packages:      		                                                          #

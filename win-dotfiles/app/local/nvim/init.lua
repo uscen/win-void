@@ -351,7 +351,7 @@ now(function()
     vim.lsp.enable(config)
   end
   require("mini.completion").setup({
-    delay = { completion = 0, info = 0, signature = 50 },
+    delay = { completion = 500, info = 500, signature = 50 },
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',
@@ -390,21 +390,31 @@ later(function()
   add('stevearc/conform.nvim')
   require('conform').setup({
     formatters_by_ft = {
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescriptreact = { "prettier" },
+      jsx = { "prettier" },
+      tsx = { "prettier" },
+      svelte = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
+      html = { "prettier" },
+      json = { "prettier" },
+      jsonc = { "prettier" },
+      yaml = { "prettier" },
+      markdown = { "prettier" },
+      graphql = { "prettier" },
+      liquid = { "prettier" },
       lua = { "stylua" },
-      javascript = { "biome", "biome-organize-imports" },
-      typescript = { "biome", "biome-organize-imports" },
-      javascriptreact = { "biome", "biome-organize-imports" },
-      typescriptreact = { "biome", "biome-organize-imports" },
-      jsx = { "biome", "biome-organize-imports" },
-      tsx = { "biome", "biome-organize-imports" },
-      json = { "biome", "biome-organize-imports" },
-      jsonc = { "biome", "biome-organize-imports" },
-      css = { "biome", "biome-organize-imports" },
+      python = { "isort" },
     },
-    format_on_save = {
-      lsp_format = "fallback",
-      timeout_ms = 500,
-    },
+    format_on_save = function(bufnr)
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+      return { timeout_ms = 500, lsp_format = "fallback" }
+    end,
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
@@ -578,6 +588,24 @@ later(function()
     callback = function()
       vim.highlight.on_yank()
     end,
+  })
+  -- Eable FormatOnSave =============================================================
+  vim.api.nvim_create_user_command("FormatEnable", function()
+    vim.b.disable_autoformat = false
+    vim.g.disable_autoformat = false
+  end, {
+    desc = "Re-enable autoformat-on-save",
+  })
+  -- Disable FormatOnSave =============================================================
+  vim.api.nvim_create_user_command("FormatDisable", function(args)
+    if args.bang then
+      vim.b.disable_autoformat = true
+    else
+      vim.g.disable_autoformat = true
+    end
+  end, {
+    desc = "Disable autoformat-on-save",
+    bang = true,
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
