@@ -383,6 +383,13 @@ now_if_args(function()
     textobjects = { enable = false },
   })
 end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                      TS Auto Close/Rename               │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  add("windwp/nvim-ts-autotag")
+  require('nvim-ts-autotag').setup()
+end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Formatting                      ║
 --          ╚═════════════════════════════════════════════════════════╝
@@ -588,7 +595,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank()
+      vim.highlight.on_yank({ timeout = 200 })
     end,
   })
   -- Eable FormatOnSave =============================================================
