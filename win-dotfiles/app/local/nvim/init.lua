@@ -602,6 +602,7 @@ later(function()
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
     vim.g.disable_autoformat = false
+    vim.notify("Format On Save Enable")
   end, {
     desc = "Re-enable autoformat-on-save",
   })
@@ -612,6 +613,7 @@ later(function()
     else
       vim.g.disable_autoformat = true
     end
+    vim.notify("Format On Save Disable")
   end, {
     desc = "Disable autoformat-on-save",
     bang = true,
