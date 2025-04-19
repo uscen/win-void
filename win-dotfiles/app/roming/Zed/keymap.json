@@ -13,11 +13,20 @@
     }
   },
   {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "context": "Editor || Workspace",
+    // # =============================================================================== #
+    // # Editor Or Workspace:                                                            #
+    // # =============================================================================== #
     "bindings": {
-      // # =============================================================================== #
-      // # put key-bindings here if you want them to work in normal & visual mode:         #
-      // # =============================================================================== #
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    // # =============================================================================== #
+    // # put key-bindings here if you want them to work in normal & visual mode:         #
+    // # =============================================================================== #
+    "bindings": {
       // # Git:                                                                            #
       // # =============================================================================== #
       "space g i": "git::Init",
