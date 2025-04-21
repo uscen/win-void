@@ -295,6 +295,9 @@
       },
       "format_on_save": "on"
     },
+    "Emmet": {
+      "language_servers": ["emmet-language-server"]
+    },
     "HTML": {
       "prettier": {
         "allowed": true
@@ -337,6 +340,15 @@
   // # LSP:                                                                            #
   // # =============================================================================== #
   "lsp": {
+    "emmet-language-server": {
+      "binary": {
+        "path": "C:\\Users\\lli\\scoop\\apps\\nodejs\\current\\node.exe",
+        "arguments": [
+          "C:\\Users\\lli\\scoop\\persist\\nodejs\\bin\\node_modules\\@olrtg\\emmet-language-server\\dist\\index.js",
+          "--stdio"
+        ]
+      }
+    },
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
