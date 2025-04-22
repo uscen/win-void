@@ -482,6 +482,8 @@ now(function()
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
+  vim.opt.colorcolumn           = '+1'
+  vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
   vim.wo.signcolumn             = "no"
   vim.opt.statuscolumn          = ""
