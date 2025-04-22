@@ -568,7 +568,6 @@ end)
 --          │                     Neovim Diagnostics                  │
 --          ╰─────────────────────────────────────────────────────────╯
 local diagnostic_opts = {
-  -- Define how diagnostic entries should be shown
   signs = { priority = 9999, severity = { min = 'WARN', max = 'ERROR' } },
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
   virtual_text = { current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
