@@ -453,9 +453,10 @@ now(function()
   vim.opt.shellxquote           = ""
   vim.opt.shellquote            = ""
   -- General: ================================================================
-  vim.opt.clipboard             = 'unnamedplus'
-  vim.o.completeopt             = 'menuone,noselect,fuzzy'
-  vim.opt.complete              = '.,b,kspell'
+  vim.opt.clipboard             = "unnamedplus"
+  vim.opt.completeopt           = "menuone,noselect,fuzzy"
+  vim.opt.complete              = ".,b,kspell"
+  vim.opt.switchbuf             = "usetab"
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
   vim.opt.writebackup           = false
@@ -481,6 +482,7 @@ now(function()
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
+  vim.opt.shortmess             = "FOSWaco"
   vim.wo.signcolumn             = "no"
   vim.opt.statuscolumn          = ""
   vim.opt.fillchars             = { eob = " " }
@@ -500,8 +502,8 @@ now(function()
   vim.opt.smartcase             = true
   vim.opt.smartindent           = true
   vim.opt.tabstop               = 2
-  vim.opt.virtualedit           = 'block'
-  vim.opt.formatoptions         = 'rqnl1j'
+  vim.opt.virtualedit           = "block"
+  vim.opt.formatoptions         = "rqnl1j"
   -- Fold:  ================================================================
   vim.opt.foldenable            = false
   vim.opt.foldlevel             = 99
