@@ -437,14 +437,6 @@ end)
 --          │                     Neovim Options                      │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- Diagnostics ===============================================================
-  vim.diagnostic.config({
-    signs = false,
-    severity_sort = false,
-    update_in_insert = false,
-    virtual_lines = false,
-    virtual_text = false,
-  })
   -- Global:  =================================================================
   vim.g.mapleader               = vim.keycode("<space>")
   vim.g.maplocalleader          = vim.keycode("<cr>")
@@ -581,6 +573,7 @@ local diagnostic_opts = {
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
   virtual_text = { current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
   virtual_lines = false,
+  severity_sort = false,
   update_in_insert = false,
 }
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
