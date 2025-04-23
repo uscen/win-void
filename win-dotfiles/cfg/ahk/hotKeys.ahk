@@ -86,7 +86,7 @@ Capslock::Esc
 Komorebic(cmd) {
     if !ProcessExist("komorebi.exe") {
         Run("komorebi.exe", , "Hide")
-        Sleep 1000
+        Sleep 500
     }
     RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
