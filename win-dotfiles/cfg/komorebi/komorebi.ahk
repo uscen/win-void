@@ -11,17 +11,17 @@
 ; #include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
 ; #include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
 ; # =============================================================================== #
-; # Virtual Desktop Switcher:                                                       #
-; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\virtualDesktopSwitcher.ahk
-; # =============================================================================== #
 ; # launch Apps In FullScreen Mode:                                                 #
 ; # =============================================================================== #
 ; #include C:\Users\%A_UserName%\.config\ahk\launchAsFullScreen.ahk
 ; # =============================================================================== #
 ; # Focus On Mouse Hover:                                                           #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\focusOnWindowHover.ahk
+#include C:\Users\%A_UserName%\.config\ahk\focusOnWindowHover.ahk
+; # =============================================================================== #
+; # Virtual Desktop Switcher:                                                       #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.config\ahk\virtualDesktopSwitcher.ahk
 ; # =============================================================================== #
 ; # Maximize Apps:                                                                  #
 ; # =============================================================================== #
