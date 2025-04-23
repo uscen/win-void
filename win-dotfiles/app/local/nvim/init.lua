@@ -466,6 +466,7 @@ now(function()
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- UI: ====================================================================
   vim.opt.number                = true
+  vim.opt.relativenumber        = false
   vim.opt.cursorline            = true
   vim.opt.splitright            = true
   vim.opt.splitbelow            = true

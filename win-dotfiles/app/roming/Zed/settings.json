@@ -11,8 +11,8 @@
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
   "buffer_line_height": "comfortable",
-  "buffer_font_weight": 400,
   "preferred_line_length": 80,
+  "buffer_font_weight": 400,
   "buffer_font_size": 12,
   "ui_font_size": 14,
   "tab_size": 2,
@@ -26,10 +26,10 @@
   "use_system_path_prompts": false,
   "extend_comment_on_newline": false,
   "confirm_quit": false,
-  "hover_popover_enabled": true,
-  "remove_trailing_whitespace_on_save": true,
+  "hover_popover_enabled": false,
   "ensure_final_newline_on_save": false,
   "relative_line_numbers": false,
+  "remove_trailing_whitespace_on_save": true,
   "wrap_guides": [],
   "bracket_pairing": "always",
   "formatter": "prettier",
@@ -38,7 +38,7 @@
   // # =============================================================================== #
   // # AutoSave:                                                                       #
   // # =============================================================================== #
-  "autosave": "on_focus_change",
+  "autosave": "off",
   "autosave_delay": 1500,
   "autosave_on_focus_change": true,
   "autosave_on_window_change": true,
@@ -50,11 +50,11 @@
   // # Completions:                                                                    #
   // # =============================================================================== #
   "show_completions_on_input": true,
-  "show_completion_documentation": false,
-  "show_signature_help_after_edits": false,
-  "auto_signature_help": false,
+  "show_completion_documentation": true,
+  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
   "completions": {
-    "words": "disabled",
+    "words": "fallback",
     "lsp": true,
     "lsp_fetch_timeout_ms": 0,
     "lsp_insert_mode": "replace_suffix"
