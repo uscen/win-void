@@ -662,6 +662,12 @@ later(function()
     if #bufs > 0 then vim.cmd("bdelete " .. table.concat(bufs, " ")) end
     vim.cmd("silent! bdelete# | e# | bd# | '\"")
   end)
+  -- Subtitle Keys: =================================================================
+  local function substitute()
+    local cmd = ':%s//gcI<Left><Left><Left><Left>'
+    return vim.fn.mode() == 'n' and string.format(cmd, '%s') or string.format(cmd, 's')
+  end
+  vim.keymap.set('', 'S', substitute, { expr = true })
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
