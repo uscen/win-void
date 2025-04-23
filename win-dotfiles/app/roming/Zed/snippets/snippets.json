@@ -80,6 +80,12 @@
     "description": "Export default function",
     "scope": "javascript,typescript,javascriptreact,typescriptreact"
   },
+  "React Function Component": {
+    "prefix": "rfc",
+    "body": ["export default function $1() {", "\treturn <div>$0</div>", "}"],
+    "description": "Create a React function component with export default",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact"
+  },
   "useEffect Hook": {
     "prefix": "uef",
     "body": ["useEffect(() => {", "\t$1", "}, [$2])$0"],
