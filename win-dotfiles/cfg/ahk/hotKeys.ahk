@@ -84,6 +84,10 @@ Capslock::Esc
 ; # Komorebi Window Manager:                                                        #
 ; # =============================================================================== #
 Komorebic(cmd) {
+    if !ProcessExist("komorebi.exe") {
+        Run("komorebi.exe", , "Hide")
+        Sleep 1000
+    }
     RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
 ; Focus windows
