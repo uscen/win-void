@@ -64,13 +64,9 @@ mapDesktopsFromRegistry() {
 }
 
 hexToBuffer(hex) {
-    hex := StrReplace(hex, ",")
-    bufSize := StrLen(hex) // 2
-    buf := Buffer(bufSize)
-    loop bufSize {
-        byte := "0x" SubStr(hex, 2*A_Index -1, 2)
-        NumPut("UChar", byte, buf, A_Index-1)
-    }
+    buf := Buffer(StrLen(hex)//2)
+    loop buf.Size
+        NumPut("UChar", Integer("0x" SubStr(hex, 2*A_Index-1, 2)), buf, A_Index-1)
     return buf
 }
 
