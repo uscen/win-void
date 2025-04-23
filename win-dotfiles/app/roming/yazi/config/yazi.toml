@@ -39,6 +39,10 @@ show = [
 	{ run = 'oculante.exe %*', orphan = true, for = "windows" },
 	{ run = 'imv "$@"', orphan = true, for = "unix" },
 ]
+showPDF = [
+	{ run = 'sumatrapdf.exe %*', orphan = true, for = "windows" },
+	{ run = 'zathura "$@"', orphan = true, for = "unix" },
+]
 extract = [
 	{ run = 'ouch d -y "%*"', desc = "Extract here with ouch", for = "windows" },
 	{ run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
@@ -72,6 +76,7 @@ rules = [
 	{ mime = "audio/*", use = [ "play", "reveal" ] },
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
 
+  { mime = "application/pdf", use = [ "showPDF", "reveal" ] },
 	{ mime = "application/json", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript",     use = [ "edit", "reveal" ] },
 
