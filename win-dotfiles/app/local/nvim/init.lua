@@ -722,6 +722,8 @@ later(function()
     vim.g.neovide_fullscreen = false
     vim.g.neovide_remember_window_size = true
     vim.g.experimental_layer_grouping = true
+    vim.g.neovide_detach_on_quit = "always_detach"
+    vim.g.neovide_opacity = 1
     -- Padding Animations: =============================================================
     vim.g.neovide_padding_top = 0
     vim.g.neovide_padding_bottom = 0
@@ -735,22 +737,25 @@ later(function()
     vim.g.neovide_light_angle_degrees = 45
     vim.g.neovide_light_radius = 15
     vim.g.floaterm_winblend = 15
+    vim.g.neovide_floating_corner_radius = 0.333
     -- Cursor Animations: ===============================================================
     vim.o.guicursor =
     "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
     vim.g.neovide_cursor_animation_length = 0.13
     vim.g.neovide_cursor_trail_length = 0.8
     vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_animate_command_line = true
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
     vim.g.neovide_scroll_animation_length = 0.3
     -- VFX Animations: ==================================================================
-    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.g.neovide_cursor_vfx_mode = "railgun"
     vim.g.neovide_cursor_vfx_opacity = 200.0
-    vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
-    vim.g.neovide_cursor_vfx_particle_density = 7.0
     vim.g.neovide_cursor_vfx_particle_speed = 10.0
-    vim.g.neovide_cursor_vfx_particle_phase = 1.5
-    vim.g.neovide_cursor_vfx_particle_curl = 1.0
+    vim.g.neovide_cursor_vfx_particle_curl = 0.77
+    vim.g.neovide_cursor_vfx_particle_density = 3.25
+    vim.g.neovide_cursor_vfx_particle_lifetime = 1.33
+    vim.g.neovide_cursor_vfx_particle_phase = 12.1
     -- Resize Fonts:  ===================================================================
     vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
     vim.keymap.set({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")

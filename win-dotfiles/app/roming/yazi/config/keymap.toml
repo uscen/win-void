@@ -7,6 +7,7 @@
 prepend_keymap = [
 	# General
 	{ on = "A", run = "create --dir" },
+  { on = "e", run = ["open", "quit"], desc = "edit" },
 	# Hopping
 	{ on = "k", run = "arrow prev" },
 	{ on = "j", run = "arrow next" },

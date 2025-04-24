@@ -23,6 +23,7 @@
   "restore_on_startup": "none",
   "when_closing_with_no_tabs": "close_window",
   "on_last_window_closed": "quit_app",
+  "current_line_highlight": "gutter",
   "use_system_path_prompts": false,
   "extend_comment_on_newline": false,
   "confirm_quit": false,
@@ -37,6 +38,7 @@
   "formatter": "prettier",
   "linter": "eslint",
   "format_on_save": "on",
+  "code_actions_on_format": { "source.organizeImports": true },
   // # =============================================================================== #
   // # AutoSave:                                                                       #
   // # =============================================================================== #
