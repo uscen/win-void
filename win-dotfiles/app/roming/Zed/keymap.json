@@ -18,7 +18,7 @@
     // # Editor Or Workspace:                                                            #
     // # =============================================================================== #
     "bindings": {
-      "space e": "workspace::ToggleLeftDock"
+      "ctrl+e": "workspace::ToggleLeftDock"
     }
   },
   {

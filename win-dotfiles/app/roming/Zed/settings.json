@@ -52,7 +52,7 @@
   "show_completions_on_input": true,
   "show_completion_documentation": false,
   "show_signature_help_after_edits": false,
-  "auto_signature_help": true,
+  "auto_signature_help": false,
   "completions": {
     "words": "fallback",
     "lsp": true,
