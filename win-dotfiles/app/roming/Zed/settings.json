@@ -221,7 +221,8 @@
   "file_types": {
     "*.mdx": ["markdown"],
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
-    "JSON": ["json", "jsonc", "*.code-snippets"]
+    "JSON": ["json", "jsonc", "*.code-snippets"],
+    "JSONC": ["tsconfig*.json"]
   },
   "file_scan_exclusions": [
     "**/.git",
@@ -395,7 +396,15 @@
       "tab_size": 2,
       "preferred_line_length": 120,
       "formatter": "prettier"
-    }
+    },
+  "Prisma": {
+			"formatter": {
+				"language_server": {
+					"name": "prisma-language-server"
+				}
+			},
+			"language_servers": ["prisma-language-server", "!biome"]
+		}
   },
   // # =============================================================================== #
   // # LSP:                                                                            #

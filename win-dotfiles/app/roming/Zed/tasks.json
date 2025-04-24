@@ -31,5 +31,14 @@
     "allow_concurrent_runs": true,
     "use_new_terminal": true,
     "show_command": true
-  }
+  },
+  {
+		"label": "Format Prisma",
+		"command": "npx prisma format",
+		"args": [],
+		"reveal": "never",
+		"use_new_terminal": false,
+		"allow_concurrent_runs": false,
+		"shell": "system"
+	}
 ]
