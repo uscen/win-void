@@ -375,6 +375,7 @@
   // # Extension:                                                                      #
   // # =============================================================================== #
   "auto_install_extensions": {
-    "html": false
+    "html": true,
+    "emmet":true
   }
 }
