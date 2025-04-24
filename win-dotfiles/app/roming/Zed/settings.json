@@ -30,6 +30,8 @@
   "ensure_final_newline_on_save": false,
   "relative_line_numbers": false,
   "remove_trailing_whitespace_on_save": true,
+  "pane_split_direction_horizontal": "down",
+  "pane_split_direction_vertical": "right",
   "wrap_guides": [],
   "bracket_pairing": "always",
   "formatter": "prettier",
@@ -86,6 +88,32 @@
     "chainingHints": true
   },
   // # =============================================================================== #
+  // # Search:                                                                         #
+  // # =============================================================================== #
+  "search": {
+    "whole_word": false,
+    "case_sensitive": false,
+    "include_ignored": false,
+    "regex": true
+  },
+  "slash_commands": {
+    "docs": { "enabled": true },
+    "project": { "enabled": true }
+  },
+  // # =============================================================================== #
+  // # Assistant:                                                                      #
+  // # =============================================================================== #
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-latest"
+    },
+    "default_height": 640.0,
+    "version": "2",
+    "default_width": 640
+  },
+
+  // # =============================================================================== #
   // # UI:                                                                             #
   // # =============================================================================== #
   "features": {
@@ -112,6 +140,13 @@
     "breadcrumbs": false,
     "quick_actions": false
   },
+  "project_panel": {
+    "button": true,
+    "dock": "left",
+    "git_status": true,
+    "default_width": 246,
+    "indent_size": 16,
+  },
   "centered_layout": {
     "left_padding": 0.1,
     "right_padding": 0.1
@@ -136,6 +171,11 @@
     "enable_preview_from_file_finder": false,
     "enable_preview_from_code_navigation": false
   },
+  "active_pane_modifiers": {
+    "magnification": 1.4,
+    "border_size": 1,
+    "inactive_opacity": 0.81247
+  },
   "gutter": {
     "line_numbers": true,
     "code_actions": false,
@@ -148,11 +188,6 @@
     "background_coloring": "disabled",
     "active_line_width": 1,
     "line_width": 1
-  },
-  "project_panel": {
-    "button": true,
-    "dock": "left",
-    "git_status": true
   },
   "outline_panel": {
     "dock": "right"
