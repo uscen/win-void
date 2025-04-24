@@ -743,7 +743,7 @@ later(function()
     vim.g.neovide_cursor_smooth_blink = true
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
     vim.g.neovide_scroll_animation_length = 0.3
-    -- Cursor Animations: ===============================================================
+    -- VFX Animations: ==================================================================
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
     vim.g.neovide_cursor_vfx_opacity = 200.0
     vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
