@@ -100,9 +100,12 @@
     "modal_max_width": "small"
   },
   "tabs": {
+    "git_status": true,
+    "file_icons": true,
     "show_diagnostics": "errors",
     "close_position": "right",
-    "git_status": false
+    "show_close_button": "hidden"
+
   },
   "toolbar": {
     "selections_menu": false,
@@ -200,7 +203,8 @@
   // # =============================================================================== #
   "terminal": {
     "shell": { "program": "nu" },
-    "alternate_scroll": "off",
+    "alternate_scroll": "on",
+    "default_height": 666,
     "working_directory": "first_project_directory",
     "blinking": "terminal_controlled",
     "copy_on_select": true,
@@ -211,7 +215,8 @@
     "option_as_meta": false,
     "toolbar": {
       "breadcrumbs": false
-    }
+    },
+    "max_scroll_history_lines": 100000
   },
   // # =============================================================================== #
   // # Git:                                                                            #
