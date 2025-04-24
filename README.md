@@ -27,11 +27,11 @@ I try to follow these ideas as much as i can:
 
 While this configuration does prepare a great many tools, it revolves primarily around the following:
 
-- 📝 [Neovide](https://neovide.dev/):
+- 📝 [Neovide](https://neovide.dev/)
 - ✏️ [Neovim](https://neovim.io)
 - 🐠 [nushell](nushell/nushell)
-- 💻 [alacritty](https://alacritty.org/):
-- 🔠 [JetBrains Mono](https://rubjo.github.io/victor-mono/): Best font ever. 🌟
+- 💻 [alacritty](https://alacritty.org/)
+- 🔠 [JetBrains Mono](https://rubjo.github.io/victor-mono/)
 
 ### Miscellaneous Other Tools 🎒
 
