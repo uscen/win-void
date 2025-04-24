@@ -85,7 +85,8 @@
     "enabled": false,
     "typeHints": true,
     "parameterHints": true,
-    "chainingHints": true
+    "chainingHints": true,
+    "toggle_on_modifiers_press": { "control": true }
   },
   // # =============================================================================== #
   // # Search:                                                                         #
@@ -112,7 +113,6 @@
     "version": "2",
     "default_width": 640
   },
-
   // # =============================================================================== #
   // # UI:                                                                             #
   // # =============================================================================== #
@@ -145,7 +145,7 @@
     "dock": "left",
     "git_status": true,
     "default_width": 246,
-    "indent_size": 16,
+    "indent_size": 16
   },
   "centered_layout": {
     "left_padding": 0.1,
@@ -195,6 +195,9 @@
   "collaboration_panel": {
     "dock": "right"
   },
+  "chat_panel": {
+    "default_width": 380
+  },
   "scrollbar": {
     "show": "never",
     "cursors": false,
@@ -202,6 +205,13 @@
     "search_results": true,
     "selected_symbol": true,
     "diagnostics": "all"
+  },
+  // # =============================================================================== #
+  // # Edit predictions:                                                               #
+  // # =============================================================================== #
+  "edit_predictions": {
+    "disabled_globs": ["**/dnb.ghe.com/**", "**/gitlab.tech.dnb.no/**"],
+    "mode": "eager"
   },
   // # =============================================================================== #
   // # FileType:                                                                       #
@@ -301,6 +311,15 @@
   // # Languages:                                                                      #
   // # =============================================================================== #
   "languages": {
+    "Shell Script": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": []
+        }
+      }
+    },
     "TypeScript": {
       "language_servers": ["typescript-language-server", "!vtsls", "..."],
       "show_edit_predictions": true,
