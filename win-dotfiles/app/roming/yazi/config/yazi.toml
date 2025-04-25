@@ -4,7 +4,7 @@
 [manager]
 show_hidden = false
 show_symlink = false
-ratio = [0, 1, 3]
+ratio = [0, 2, 3]
 sort_by = "natural"
 sort_sensitive = false
 sort_reverse = false

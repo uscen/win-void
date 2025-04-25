@@ -346,7 +346,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable configured language servers 0.11: ========================================
-  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript" }
+  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "markdown" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
@@ -389,6 +389,13 @@ end)
 later(function()
   add("windwp/nvim-ts-autotag")
   require('nvim-ts-autotag').setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                      Indnet line                        │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  add("lukas-reineke/indent-blankline.nvim")
+  require("ibl").setup({ scope = { enabled = false }, indent = { char = "│" } })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Formatting                      ║
