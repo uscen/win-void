@@ -34,6 +34,7 @@
   "pane_split_direction_horizontal": "down",
   "pane_split_direction_vertical": "right",
   "wrap_guides": [],
+  "soft_wrap": "none",
   "bracket_pairing": "always",
   "formatter": "prettier",
   "linter": "eslint",
@@ -169,7 +170,7 @@
     "show_tab_bar_buttons": false
   },
   "preview_tabs": {
-    "enabled": true,
+    "enabled": false,
     "enable_preview_from_file_finder": false,
     "enable_preview_from_code_navigation": false
   },
@@ -185,7 +186,7 @@
     "folds": false
   },
   "indent_guides": {
-    "enabled": true,
+    "enabled": false,
     "coloring": "fixed",
     "background_coloring": "disabled",
     "active_line_width": 1,
@@ -252,7 +253,7 @@
   "terminal": {
     "shell": { "program": "nu" },
     "alternate_scroll": "on",
-    "default_height": 666,
+    "default_height": 300,
     "working_directory": "first_project_directory",
     "blinking": "terminal_controlled",
     "copy_on_select": true,
@@ -377,7 +378,9 @@
     },
     "Markdown": {
       "tab_size": 2,
-      "formatter": "prettier"
+      "formatter": "prettier",
+      "preferred_line_length": 80,
+      "format_on_save": "off"
     },
     "TOML": {
       "tab_size": 2,
