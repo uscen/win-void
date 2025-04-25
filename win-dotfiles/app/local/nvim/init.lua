@@ -390,13 +390,6 @@ later(function()
   add("windwp/nvim-ts-autotag")
   require('nvim-ts-autotag').setup()
 end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                      Indnet line                        │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  add("lukas-reineke/indent-blankline.nvim")
-  require("ibl").setup({ scope = { enabled = false }, indent = { char = "│" } })
-end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Formatting                      ║
 --          ╚═════════════════════════════════════════════════════════╝
