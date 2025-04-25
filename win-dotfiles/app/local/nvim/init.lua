@@ -650,6 +650,11 @@ later(function()
   vim.keymap.set("n", "gl", "$")
   vim.keymap.set("v", "gh", "^")
   vim.keymap.set("v", "gl", "$")
+  -- Automatically add semicolon or comma: =========================================
+  vim.keymap.set("i", ";;", "<ESC>A;")
+  vim.keymap.set("i", ",,", "<ESC>A,")
+  vim.keymap.set("n", ";;", "A;<ESC>")
+  vim.keymap.set("n", ",,", "A,<ESC>")
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
@@ -668,6 +673,11 @@ later(function()
     return vim.fn.mode() == 'n' and string.format(cmd, '%s') or string.format(cmd, 's')
   end
   vim.keymap.set('', 'S', substitute, { expr = true })
+  --  Magick: ===================================================================
+  vim.keymap.set("n", "ycc", "yygccp", { remap = true })
+  vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
+  vim.keymap.set("x", "/", "<Esc>/\\%V")
+  vim.keymap.set("x", "R", ":s###g<left><left><left>", { desc = "Start replacement in the visual selected region" })
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -717,13 +727,17 @@ later(function()
     -- General Animations: ==============================================================
     vim.opt.mousescroll = "ver:10,hor:6"
     vim.opt.linespace = -1
-    vim.g.neovide_theme = "dark"
-    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_theme = "auto"
+    vim.g.neovide_refresh_rate = 165
     vim.g.neovide_fullscreen = false
+    vim.g.neovide_confirm_quit = false
     vim.g.neovide_remember_window_size = true
     vim.g.experimental_layer_grouping = true
+    vim.g.neovide_hide_mouse_when_typing = true
     vim.g.neovide_detach_on_quit = "always_detach"
     vim.g.neovide_opacity = 1
+    vim.g.neovide_normal_opacity = 1
+    vim.g.neovide_underline_stroke_scale = 1.5
     -- Padding Animations: =============================================================
     vim.g.neovide_padding_top = 0
     vim.g.neovide_padding_bottom = 0
@@ -731,25 +745,30 @@ later(function()
     vim.g.neovide_padding_left = 0
     -- Floating Animations: =============================================================
     vim.g.neovide_floating_shadow = true
-    vim.g.neovide_floating_z_height = 2
-    vim.g.neovide_floating_blur_amount_x = 4.0
-    vim.g.neovide_floating_blur_amount_y = 4.0
+    vim.g.neovide_floating_z_height = 5
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
     vim.g.neovide_light_angle_degrees = 45
-    vim.g.neovide_light_radius = 15
+    vim.g.neovide_light_radius = 5
     vim.g.floaterm_winblend = 15
-    vim.g.neovide_floating_corner_radius = 0.333
+    vim.g.neovide_floating_corner_radius = 0.0
     -- Cursor Animations: ===============================================================
     vim.o.guicursor =
     "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
-    vim.g.neovide_cursor_animation_length = 0.13
-    vim.g.neovide_cursor_trail_length = 0.8
-    vim.g.neovide_cursor_smooth_blink = true
-    vim.g.neovide_cursor_animate_in_insert_mode = true
-    vim.g.neovide_cursor_animate_command_line = true
+    vim.g.neovide_scroll_animation_length = 0.1
+    vim.g.neovide_cursor_animation_length = 0.05
+    vim.g.neovide_cursor_trail_length = 0.01
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
-    vim.g.neovide_scroll_animation_length = 0.3
+    vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_animate_command_line = true
+    vim.g.neovide_cursor_antialiasing = true
+    vim.g.neovide_cursor_animate_in_insert_mode = true
+    vim.g.neovide_cursor_animate_in_normal_mode = true
+    vim.g.neovide_cursor_animate_in_visual_mode = true
+    vim.g.neovide_cursor_animate_in_replace_mode = true
+    vim.g.neovide_cursor_animate_in_command_mode = true
     -- VFX Animations: ==================================================================
-    vim.g.neovide_cursor_vfx_mode = "railgun"
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
     vim.g.neovide_cursor_vfx_opacity = 200.0
     vim.g.neovide_cursor_vfx_particle_speed = 10.0
     vim.g.neovide_cursor_vfx_particle_curl = 0.77
