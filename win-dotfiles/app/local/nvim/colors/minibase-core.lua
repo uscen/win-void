@@ -222,6 +222,7 @@ end
 -- General: =====================================================================
 vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base03, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = palette.base00, bg = "#a9b665" })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.base0B })
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base00, fg = palette.base04 })
 vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base07 })
