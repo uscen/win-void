@@ -413,8 +413,15 @@ later(function()
       markdown = { "prettier" },
       graphql = { "prettier" },
       liquid = { "prettier" },
+      c = { "clang_format" },
       lua = { "stylua" },
-      python = { "isort" },
+      python = { "black" },
+      tex = { "latexindent" },
+      xml = { "xmllint" },
+      svg = { "xmllint" },
+      sql = { "sqlfluff" },
+      java = { "google-java-format" },
+      groovy = { "npm-groovy-lint" },
     },
     format_on_save = function(bufnr)
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -507,6 +514,7 @@ now(function()
   vim.opt.tabstop               = 2
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
+  vim.o.formatexpr              = "v:lua.require'conform'.formatexpr()"
   -- Fold:  ================================================================
   vim.opt.foldenable            = false
   vim.opt.foldlevel             = 99
