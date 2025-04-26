@@ -1,85 +1,85 @@
 {
-	"$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.36/schema.bar.json",
-	"app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
-	"window_hiding_behaviour": "Cloak",
-	"mouse_follows_focus": true,
-	"default_workspace_padding": 0,
-	"default_container_padding": -1,
-	"transparency": false,
-	"transparency_alpha": 250,
-	"border": true,
-	"border_width": 3,
-	"border_offset": -1,
-	"border_implementation": "Komorebi",
-	"border_style": "Square",
-	"border_colours": {
-		"single": "#8ccf7e",
-		"stack": "#67b0e8",
-		"monocle": "#e57474",
-		"unfocused": "#232a2d"
-	},
-	"animation": {
-		"enabled": false,
-		"duration": 300,
-		"style": "EaseOutBack",
-		"fps": 60
-	},
-	"stackbar": {
-		"height": 25,
-		"mode": "Never",
-		"tabs": {
-			"font_family": "JetBrainsMono NF",
-			"font_size": 18,
-			"width": 100,
-			"focused_text": "#8ccf7e",
-			"unfocused_text": "#e5c76b",
-			"background": "#141b1e"
-		}
-	},
-	"floating_applications": [
-		{
-			"kind": "Exe",
-			"id": "mpv.exe",
-			"matching_strategy": "Equals"
-		},
-		{
-			"kind": "Exe",
-			"id": "oculante.exe",
-			"matching_strategy": "Equals"
-		}
-	],
-	"monitors": [
-		{
-			"workspaces": [
-				{
-					"name": "I",
-					"layout": "VerticalStack"
-				},
-				{
-					"name": "II",
-					"layout": "VerticalStack"
-				},
-				{
-					"name": "III",
-					"layout": "VerticalStack"
-				},
-				{
-					"name": "IV",
-					"layout": "VerticalStack"
-				},
-				{
-					"name": "V",
-					"layout": "VerticalStack"
-				},
-				{
-					"name": "VI",
-					"layout": "VerticalStack"
-				},
-				{
-					"name": "VII",
-					"layout": "VerticalStack"
-				}
-			]
-		}
-	]
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.36/schema.json",
+  "app_specific_configuration_path": "C:/Users/lli/.config/komorebi/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "mouse_follows_focus": true,
+  "default_workspace_padding": 0,
+  "default_container_padding": -1,
+  "transparency": false,
+  "transparency_alpha": 250,
+  "border": true,
+  "border_width": 3,
+  "border_offset": -1,
+  "border_implementation": "Komorebi",
+  "border_style": "Square",
+  "border_colours": {
+    "single": "#8ccf7e",
+    "stack": "#67b0e8",
+    "monocle": "#e57474",
+    "unfocused": "#232a2d"
+  },
+  "animation": {
+    "enabled": false,
+    "duration": 300,
+    "style": "EaseOutBack",
+    "fps": 60
+  },
+  "stackbar": {
+    "height": 25,
+    "mode": "Never",
+    "tabs": {
+      "font_family": "JetBrainsMono NF",
+      "font_size": 18,
+      "width": 100,
+      "focused_text": "#8ccf7e",
+      "unfocused_text": "#e5c76b",
+      "background": "#141b1e"
+    }
+  },
+  "floating_applications": [
+    {
+      "kind": "Exe",
+      "id": "mpv.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "oculante.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "II",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "III",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "IV",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "V",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "VI",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "VII",
+          "layout": "VerticalStack"
+        }
+      ]
+    }
+  ]
 }
