@@ -685,8 +685,7 @@ later(function()
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set("i", "<C-p>", [[pumvisible() ? "\<C-e>" : "\<C-p>"]], { expr = true })
   vim.keymap.set("i", "<S-Tab>",
-    [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<S-Tab>"]],
-    { expr = true })
+    [[pumvisible() ? (complete_info().selected == -1 ? "\<C-n>\<C-y>" : "\<C-y>") : "\<S-Tab>"]], { expr = true })
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
@@ -786,18 +785,22 @@ end)
 later(function()
   vim.filetype.add({
     extension = {
+      ["env"] = "dotenv",
       ["http"] = "http",
       ["json"] = "jsonc",
+      ["map"] = "json",
+      ["mdx"] = "markdown",
     },
     filename = {
       ["xhtml"] = "html",
       ["tsconfig.json"] = "jsonc",
-      [".env"] = "env",
+      [".env"] = "dotenv",
       [".envrc"] = "sh",
       ['.yamlfmt'] = 'yaml',
     },
     pattern = {
-      [".env.*"] = "env",
+      ["%.env%.[%w_.-]+"] = "dotenv",
+      [".gitconfig.*"] = "gitconfig",
     },
   })
 end)
