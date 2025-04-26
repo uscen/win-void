@@ -658,11 +658,6 @@ later(function()
   vim.keymap.set("n", "gl", "$")
   vim.keymap.set("v", "gh", "^")
   vim.keymap.set("v", "gl", "$")
-  -- Automatically add semicolon or comma: =========================================
-  vim.keymap.set("i", ";;", "<ESC>A;")
-  vim.keymap.set("i", ",,", "<ESC>A,")
-  vim.keymap.set("n", ";;", "A;<ESC>")
-  vim.keymap.set("n", ",,", "A,<ESC>")
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
