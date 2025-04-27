@@ -36,18 +36,6 @@
       "background": "#141b1e"
     }
   },
-  "floating_applications": [
-    {
-      "kind": "Exe",
-      "id": "mpv.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "oculante.exe",
-      "matching_strategy": "Equals"
-    }
-  ],
   "monitors": [
     {
       "workspaces": [

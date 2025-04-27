@@ -42,6 +42,8 @@
         "title_bar.inactive_background": "#141b1e",
         "toolbar.background": "#141b1e",
         "tab_bar.background": "#141b1e",
+        "editor.indent_guide_active": "#404749",
+        "editor.indent_guide": "#141b1e",
         "tab.inactive_background": "#141b1e",
         "tab.active_background": "#232a2d",
         "search.match_background": "#67b0e866",

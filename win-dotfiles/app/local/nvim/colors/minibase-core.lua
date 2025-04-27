@@ -299,5 +299,5 @@ vim.api.nvim_set_hl(0, "MiniCompletionInfoBorderOutdated", { link = "Mini.MiniCo
 vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02 })
 vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "MiniCursorword" })
 -- Indentscope: ================================================================
-vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0B })
+vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base03 })
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "MiniIndentscopeSymbol" })

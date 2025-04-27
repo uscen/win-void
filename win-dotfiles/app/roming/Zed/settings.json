@@ -186,11 +186,11 @@
     "folds": false
   },
   "indent_guides": {
-    "enabled": false,
+    "enabled": true,
     "coloring": "fixed",
     "background_coloring": "disabled",
-    "active_line_width": 1,
-    "line_width": 1
+    "active_line_width": 2,
+    "line_width": 0
   },
   "outline_panel": {
     "dock": "right"
