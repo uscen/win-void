@@ -10,6 +10,7 @@
   "base_keymap": "VSCode",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_weight": 700,
   "buffer_line_height": "comfortable",
   "preferred_line_length": 80,
   "buffer_font_weight": 400,
@@ -19,6 +20,15 @@
   "vertical_scroll_margin": 0,
   "hard_tabs": false,
   "cursor_blink": true,
+  "hide_mouse":"on_typing_and_movement",
+  "middle_click_paste": true,
+  "use_auto_surround": true,
+  "use_autoclose": true,
+  "notification_panel": {
+    "button": true,
+    "dock":"right",
+    "default_width": 300
+  },
   "restore_on_file_reopen": true,
   "restore_on_startup": "none",
   "when_closing_with_no_tabs": "close_window",
