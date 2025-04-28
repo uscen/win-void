@@ -24,11 +24,6 @@
   "middle_click_paste": true,
   "use_auto_surround": true,
   "use_autoclose": true,
-  "notification_panel": {
-    "button": true,
-    "dock":"right",
-    "default_width": 300
-  },
   "restore_on_file_reopen": true,
   "restore_on_startup": "none",
   "when_closing_with_no_tabs": "close_window",
