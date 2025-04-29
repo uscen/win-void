@@ -733,7 +733,7 @@ later(function()
     vim.opt.mousescroll = "ver:10,hor:6"
     vim.opt.linespace = -1
     vim.g.neovide_theme = "auto"
-    vim.g.neovide_refresh_rate = 165
+    vim.g.neovide_refresh_rate = 60
     vim.g.neovide_fullscreen = false
     vim.g.neovide_confirm_quit = false
     vim.g.neovide_remember_window_size = true
@@ -780,15 +780,6 @@ later(function()
     vim.g.neovide_cursor_vfx_particle_density = 3.25
     vim.g.neovide_cursor_vfx_particle_lifetime = 1.33
     vim.g.neovide_cursor_vfx_particle_phase = 12.1
-    -- disable all Animations: ==================================================================
-    vim.g.neovide_cursor_vfx_mode = ""
-    vim.g.neovide_position_animation_length = 0
-    vim.g.neovide_cursor_animation_length = 0.00
-    vim.g.neovide_cursor_trail_size = 0
-    vim.g.neovide_cursor_animate_in_insert_mode = false
-    vim.g.neovide_cursor_animate_command_line = false
-    vim.g.neovide_scroll_animation_far_lines = 0
-    vim.g.neovide_scroll_animation_length = 0.00
     -- Resize Fonts:  ===================================================================
     vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
     vim.keymap.set({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
