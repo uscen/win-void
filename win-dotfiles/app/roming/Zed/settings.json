@@ -136,7 +136,7 @@
     "modal_max_width": "small"
   },
   "tabs": {
-    "git_status": true,
+    "git_status": false,
     "file_icons": true,
     "show_diagnostics": "errors",
     "close_position": "right",
@@ -384,7 +384,7 @@
     "Markdown": {
       "language_servers": ["marksman"],
       "tab_size": 2,
-      "formatter": "prettier",
+      "formatter": "prettier"
     },
     "TOML": {
       "tab_size": 2,
