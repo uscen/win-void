@@ -425,6 +425,7 @@ later(function()
       sql = { "sqlfluff" },
       java = { "google-java-format" },
       groovy = { "npm-groovy-lint" },
+      ['_'] = { 'trim_whitespace' },
     },
     format_on_save = function(bufnr)
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

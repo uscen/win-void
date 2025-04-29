@@ -7,6 +7,9 @@
   // # =============================================================================== #
   {
     "bindings": {
+      // # =============================================================================== #
+      // # Menu:                                                                           #
+      // # =============================================================================== #
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
       "tab": "menu::Confirm"
@@ -296,7 +299,7 @@
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-t": "terminal_panel::ToggleFocus"
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   },
   {

@@ -10,15 +10,15 @@
   "base_keymap": "VSCode",
   "buffer_font_family": "JetBrainsMono Nerd Font",
   "ui_font_family": "JetBrainsMono Nerd Font",
-  "ui_font_weight": 400,
   "buffer_line_height": "comfortable",
   "preferred_line_length": 80,
   "buffer_font_weight": 400,
-  "buffer_font_size": 11,
-  "ui_font_size": 12,
+  "buffer_font_size": 12,
+  "ui_font_size": 13,
+  "ui_font_weight": 400,
   "tab_size": 2,
-  "vertical_scroll_margin": 0,
   "hard_tabs": false,
+  "vertical_scroll_margin": 0,
   "cursor_blink": true,
   "hide_mouse":"on_typing_and_movement",
   "middle_click_paste": true,
@@ -382,10 +382,9 @@
       }
     },
     "Markdown": {
+      "language_servers": ["marksman"],
       "tab_size": 2,
       "formatter": "prettier",
-      "preferred_line_length": 80,
-      "format_on_save": "off"
     },
     "TOML": {
       "tab_size": 2,
