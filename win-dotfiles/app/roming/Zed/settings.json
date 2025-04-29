@@ -19,6 +19,7 @@
   "tab_size": 2,
   "hard_tabs": false,
   "vertical_scroll_margin": 0,
+  "horizontal_scroll_margin": 0,
   "cursor_blink": true,
   "hide_mouse":"on_typing_and_movement",
   "middle_click_paste": true,

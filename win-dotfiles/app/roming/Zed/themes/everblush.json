@@ -67,7 +67,7 @@
         "editor.active_wrap_guide": "#b3b9b81a",
         "editor.document_highlight.read_background": "#67b0e81a",
         "editor.document_highlight.write_background": "#67b0e866",
-        "editor.indent_guide": "#141b1e",
+        "editor.indent_guide": "#232a2d",
         "editor.indent_guide_active": "#8ccf7e",
         "terminal.background": "#141b1e",
         "terminal.foreground": "#dadada",
