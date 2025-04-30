@@ -199,7 +199,7 @@ if vim.o.background == "dark" then
     base01 = "#232a2d",
     base02 = "#2d3437",
     base03 = "#404749",
-    base04 = "#BBB6B6",
+    base04 = "#8C977D",
     base05 = "#cacaca",
     base06 = "#d2d2d2",
     base07 = "#dadada",
@@ -235,7 +235,7 @@ vim.api.nvim_set_hl(0, "PmenuKind", { link = "Pmenu" })
 vim.api.nvim_set_hl(0, "PmenuExtraSel", { link = "PmenuSel" })
 vim.api.nvim_set_hl(0, "PmenuKindSel", { link = "PmenuSel" })
 -- Tabline: ===================================================================
-vim.api.nvim_set_hl(0, "MiniTablineCurrent", { fg = palette.base0B, bg = palette.base00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, "MiniTablineCurrent", { fg = palette.base04, bg = palette.base00, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniTablineHidden", { fg = palette.base03, bg = palette.base00, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "MiniTablineCurrent" })
 vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "MiniTablineCurrent" })
@@ -299,5 +299,5 @@ vim.api.nvim_set_hl(0, "MiniCompletionInfoBorderOutdated", { link = "Mini.MiniCo
 vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02 })
 vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "MiniCursorword" })
 -- Indentscope: ================================================================
-vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0B })
+vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base04 })
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "MiniIndentscopeSymbol" })
