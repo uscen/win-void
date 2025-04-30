@@ -18,12 +18,6 @@
     "monocle": "#e57474",
     "unfocused": "#232a2d"
   },
-  "animation": {
-    "enabled": false,
-    "duration": 300,
-    "style": "EaseOutBack",
-    "fps": 60
-  },
   "stackbar": {
     "height": 25,
     "mode": "Never",

@@ -293,7 +293,7 @@ vim.api.nvim_set_hl(0, 'MiniDiffSignChange', { fg = palette.base0C, bg = palette
 vim.api.nvim_set_hl(0, 'MiniDiffSignDelete', { fg = palette.base08, bg = palette.base00 })
 -- Completions: ================================================================
 vim.api.nvim_set_hl(0, "MiniCompletionActiveParameter",
-  { fg = palette.base0B, bg = palette.base00, bold = true, italic = true })
+  { fg = palette.base0B, bg = palette.base02, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniCompletionInfoBorderOutdated", { link = "Mini.MiniCompletionActiveParameter" })
 -- CursorWord: =================================================================
 vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02 })

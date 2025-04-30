@@ -30,7 +30,7 @@
   "remove_trailing_whitespace_on_save": true,
   "pane_split_direction_horizontal": "down",
   "pane_split_direction_vertical": "right",
-  "hide_mouse":"on_typing_and_movement",
+  "hide_mouse": "on_typing_and_movement",
   "wrap_guides": [],
   "soft_wrap": "none",
   "bracket_pairing": "always",
@@ -145,7 +145,6 @@
     "show_diagnostics": "errors",
     "close_position": "right",
     "show_close_button": "hidden"
-
   },
   "toolbar": {
     "selections_menu": false,
@@ -154,8 +153,14 @@
   },
   "project_panel": {
     "button": true,
-    "dock": "left",
+    "file_icons": true,
     "git_status": true,
+    "folder_icons": true,
+    "hide_gitignore": true,
+    "auto_fold_dirs": false,
+    "auto_reveal_entries": false,
+    "entry_spacing": "comfortable",
+    "dock": "left",
     "default_width": 246,
     "indent_size": 16
   },
@@ -408,14 +413,14 @@
       "preferred_line_length": 120,
       "formatter": "prettier"
     },
-  "Prisma": {
-			"formatter": {
-				"language_server": {
-					"name": "prisma-language-server"
-				}
-			},
-			"language_servers": ["prisma-language-server", "!biome"]
-		}
+    "Prisma": {
+      "formatter": {
+        "language_server": {
+          "name": "prisma-language-server"
+        }
+      },
+      "language_servers": ["prisma-language-server", "!biome"]
+    }
   },
   // # =============================================================================== #
   // # LSP:                                                                            #
@@ -457,6 +462,6 @@
   // # =============================================================================== #
   "auto_install_extensions": {
     "html": true,
-    "emmet":true
+    "emmet": true
   }
 }
