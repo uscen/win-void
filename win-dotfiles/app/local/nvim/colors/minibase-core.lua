@@ -199,7 +199,7 @@ if vim.o.background == "dark" then
     base01 = "#232a2d",
     base02 = "#2d3437",
     base03 = "#404749",
-    base04 = "#888888",
+    base04 = "#BBB6B6",
     base05 = "#cacaca",
     base06 = "#d2d2d2",
     base07 = "#dadada",
@@ -253,7 +253,7 @@ vim.api.nvim_set_hl(0, "MiniStarterHeadeMiniStarterQueryr", { link = "MiniStarte
 vim.api.nvim_set_hl(0, "MiniStarterFooter", { link = "MiniStarterHeader" })
 -- Files: ======================================================================
 vim.api.nvim_set_hl(0, "MiniFilesBorder", { fg = palette.base0B, bg = palette.base00, bold = true, italic = true })
-vim.api.nvim_set_hl(0, "MiniFilesDirectory", { fg = palette.base07, bg = palette.base00, bold = true, italic = true })
+vim.api.nvim_set_hl(0, "MiniFilesDirectory", { fg = palette.base04, bg = palette.base00, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniFilesCursorLine", { fg = palette.base00, bg = palette.base0B, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniFilesBorderModified",
   { fg = palette.base0F, bg = palette.base00, bold = true, italic = true })
