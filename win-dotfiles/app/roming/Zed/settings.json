@@ -8,20 +8,11 @@
   "vim_mode": true,
   "auto_update": false,
   "base_keymap": "VSCode",
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "ui_font_family": "JetBrainsMono Nerd Font",
-  "buffer_line_height": "comfortable",
-  "preferred_line_length": 80,
-  "buffer_font_weight": 400,
-  "buffer_font_size": 12,
-  "ui_font_size": 13,
-  "ui_font_weight": 400,
   "tab_size": 2,
   "hard_tabs": false,
+  "cursor_blink": true,
   "vertical_scroll_margin": 0,
   "horizontal_scroll_margin": 0,
-  "cursor_blink": true,
-  "hide_mouse":"on_typing_and_movement",
   "middle_click_paste": true,
   "use_auto_surround": true,
   "use_autoclose": true,
@@ -39,6 +30,7 @@
   "remove_trailing_whitespace_on_save": true,
   "pane_split_direction_horizontal": "down",
   "pane_split_direction_vertical": "right",
+  "hide_mouse":"on_typing_and_movement",
   "wrap_guides": [],
   "soft_wrap": "none",
   "bracket_pairing": "always",
@@ -46,6 +38,17 @@
   "linter": "eslint",
   "format_on_save": "on",
   "code_actions_on_format": { "source.organizeImports": true },
+  // # =============================================================================== #
+  // # Fonts:                                                                          #
+  // # =============================================================================== #
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_line_height": "comfortable",
+  "preferred_line_length": 80,
+  "buffer_font_weight": 400,
+  "buffer_font_size": 12,
+  "ui_font_size": 13,
+  "ui_font_weight": 400,
   // # =============================================================================== #
   // # AutoSave:                                                                       #
   // # =============================================================================== #
