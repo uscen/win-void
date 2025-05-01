@@ -83,7 +83,13 @@
     "use_multiline_find": true,
     "use_smartcase_find": false,
     "highlight_on_yank_duration": 100,
-    "enable_vim_sneak": true
+    "enable_vim_sneak": true,
+    "cursor_shape": {
+      "normal": "block",
+      "insert": "bar",
+      "replace": "hollow",
+      "visual": "underline"
+    }
   },
   "command_aliases": {
     "W": "w",
@@ -462,6 +468,9 @@
   // # =============================================================================== #
   "auto_install_extensions": {
     "html": true,
-    "emmet": true
+    "scss":true,
+    "emmet": true,
+    "prisma": true,
+    "lua":true
   }
 }

@@ -340,8 +340,8 @@ now(function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
       vim.schedule(MiniSnippets.expand); return ''
     end
-    return vim.fn.pumvisible() == 1 and (vim.fn.complete_info().selected == -1 and "<C-n><C-y>" or "<C-y>") or
-        "<Tab>"
+    return vim.fn.pumvisible() == 1 and
+        (vim.fn.complete_info().selected == -1 and vim.keycode('<c-n><c-y>') or vim.keycode('<c-y>')) or "<Tab>"
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -354,7 +354,7 @@ now(function()
     vim.lsp.enable(config)
   end
   require("mini.completion").setup({
-    delay = { completion = 100, info = 100, signature = 50 },
+    delay = { completion = 10, info = 10, signature = 50, },
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',
