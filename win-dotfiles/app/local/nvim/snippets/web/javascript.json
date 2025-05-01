@@ -9,20 +9,20 @@
     "body": ["console.log($1)$0"],
     "description": "Console log statement"
   },
-  "af": {
-    "prefix": "af",
-    "body": "($1) => ${2:{ ${3:} \\}}",
-    "description": "arrow function"
+  "Short Anonymous Function": {
+    "prefix": "anf",
+    "body": ["($1) => $0"],
+    "description": "Anonymous arrow function"
   },
   "Anonymous Function": {
     "prefix": "anfn",
     "body": ["($1) => {", "\t$0", "}"],
     "description": "Anonymous arrow function"
   },
-  "Short Anonymous Function": {
-    "prefix": "anf",
-    "body": ["($1) => $0"],
-    "description": "Anonymous arrow function"
+  "Immediately Invoked Function Expression": {
+    "prefix": "iife",
+    "body": ["(() => {", "\t$1", "})()$0"],
+    "description": "Immediately Invoked Function Expression"
   },
   "Export Default Function": {
     "prefix": "edfn",
@@ -47,21 +47,6 @@
     ],
     "description": "Create ReactJS Functional Component Typescript"
   },
-  "Create useEffect hook": {
-    "prefix": "use",
-    "body": ["useEffect(() => {", "\t", "}, []);"],
-    "description": "Creates React useEffect hook"
-  },
-  "useCallback Hook": {
-    "prefix": "ucb",
-    "body": ["const $1 = useCallback(($2) => {", "\t$3", "}, [$4])$0"],
-    "description": "React useCallback hook"
-  },
-  "useMemo Hook": {
-    "prefix": "umm",
-    "body": ["const $1 = useMemo(($2) => {", "\t$3", "}, [$4])$0"],
-    "description": "React useCallback hook"
-  },
   "Create useState hook": {
     "prefix": "uss",
     "body": [
@@ -69,23 +54,10 @@
     ],
     "description": "Creates React useState hook"
   },
-  "IIFE": {
-    "prefix": "iife",
-    "body": ["(() => {", "\t$1", "})()$0"],
-    "description": "Immediately Invoked Function Expression"
-  },
-  "return": {
-    "prefix": "r",
-    "body": "return ${0}"
-  },
-  "import": {
-    "prefix": "i",
-    "body": "import ${0}"
-  },
-  "Import React": {
-    "prefix": "imr",
-    "body": ["import React from 'react';"],
-    "description": "Imports React"
+  "Create useEffect hook": {
+    "prefix": "use",
+    "body": ["useEffect(() => {", "\t", "}, []);"],
+    "description": "Creates React useEffect hook"
   },
   "Create useContext hook": {
     "prefix": "usc",
@@ -98,20 +70,6 @@
       "const [${1:state}, dispatch] = useReducer(${2:reducer}, initialState);"
     ],
     "description": "Creates React useReducer hook"
-  },
-  "Create useCallback hook": {
-    "prefix": "usb",
-    "body": [
-      "const ${1:memoizedCallback} = useCallback(() => {",
-      "\t",
-      "}, []);"
-    ],
-    "description": "Creates React useCallback hook"
-  },
-  "Create useMemo hook": {
-    "prefix": "usm",
-    "body": ["const ${1:memoizedValue} = useMemo(() => {", "\t", "}, []);"],
-    "description": "Creates React useMemo hook"
   },
   "Create useRef hook": {
     "prefix": "usr",
@@ -128,27 +86,18 @@
     "body": ["useLayoutEffect(() => {", "\t", "}, []);"],
     "description": "Creates React useLayoutEffect hook"
   },
-  "Create useDebugValue hook": {
-    "prefix": "usv",
-    "body": ["useDebugValue(${1:value}"],
-    "description": "Creates React useDebugValue hook"
+  "return": {
+    "prefix": "r",
+    "body": "return ${0}"
   },
-  "Create useSelector hook": {
-    "prefix": "us",
-    "body": [
-      "const ${1:selectedData} = useSelector(state => state.${2:YourObject});"
-    ],
-    "description": "Creates Redux useSelector hook"
+  "import": {
+    "prefix": "i",
+    "body": "import ${0}"
   },
-  "Create useDispatch hook": {
-    "prefix": "usd",
-    "body": ["const dispatch = useDispatch();"],
-    "description": "Creates Redux useDispatch hook"
-  },
-  "Create useStore hook": {
-    "prefix": "usr",
-    "body": ["const store = useStore();"],
-    "description": "Creates Redux useStore hook"
+  "Import React": {
+    "prefix": "imr",
+    "body": ["import React from 'react';"],
+    "description": "Imports React"
   },
   "Try-Catch Statement": {
     "prefix": "trycatch",
