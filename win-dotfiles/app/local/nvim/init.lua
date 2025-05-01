@@ -226,13 +226,13 @@ end)
 now_if_args(function()
   require("mini.files").setup({
     mappings = {
-      close = "q",
-      go_in = "l",
       go_in_plus = "<Tab>",
-      go_out = "h",
       go_out_plus = "<C-h>",
-      reset = "gh",
       synchronize = "<C-s>",
+      reset = "gh",
+      close = "q",
+      go_in = "",
+      go_out = "",
     },
     windows = {
       max_number = 1,
@@ -349,7 +349,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable configured language servers 0.11: ========================================
-  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "markdown" }
+  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "prisma", "markdown" }
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end

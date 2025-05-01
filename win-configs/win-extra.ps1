@@ -14,6 +14,7 @@ $packages=@(
     "vscode-langservers-extracted",
     "@olrtg/emmet-language-server",
     "@tailwindcss/language-server",
+    "@prisma/language-server",
     "prettier"
 )
 # =============================================================================== #
