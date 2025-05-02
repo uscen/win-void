@@ -43,7 +43,7 @@ vim.keymap.set({ "n", "t" }, "<C-t>", function()
       row = vim.o.lines - math.floor(vim.o.lines * 0.3),
       col = 0,
     })
-    vim.wo[floating_terminal_state.win].winhl = "Normal:Normal,FloatBorder:Pmenu"
+    vim.wo[floating_terminal_state.win].winhl = "Normal:Normal,FloatBorder:FloatBorder"
 
     if vim.bo[floating_terminal_state.buf].buftype ~= "terminal" then
       vim.cmd.terminal()
