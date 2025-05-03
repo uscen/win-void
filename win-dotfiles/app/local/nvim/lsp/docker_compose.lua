@@ -1,14 +1,9 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                     Html LSP                            ║
+--          ║                     Docker-Compose LSP                  ║
 --          ╚═════════════════════════════════════════════════════════╝
 return {
-  cmd = { 'vscode-html-language-server', '--stdio' },
-  filetypes = { "html", "htmldjango", "tmpl", "gotmpl", "template" },
-  init_options = {
-    provideFormatter = true,
-    embeddedLanguages = { css = true, javascript = true },
-    configurationSection = { 'html', 'css', 'javascript' },
-  },
-  root_markers = { 'package.json', '.git' },
+  cmd = { "docker-compose-langserver", "--stdio" },
+  filetypes = { "yaml.docker-compose" },
+  root_markers = { "docker-compose.yaml", "docker-compose.yml", "compose.yaml", "compose.yml" },
   single_file_support = true,
 }

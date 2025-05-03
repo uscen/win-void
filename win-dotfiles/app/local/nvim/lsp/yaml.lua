@@ -1,14 +1,16 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                     Html LSP                            ║
+--          ║                       Yaml LSP                          ║
 --          ╚═════════════════════════════════════════════════════════╝
 return {
-  cmd = { 'vscode-html-language-server', '--stdio' },
-  filetypes = { "html", "htmldjango", "tmpl", "gotmpl", "template" },
-  init_options = {
-    provideFormatter = true,
-    embeddedLanguages = { css = true, javascript = true },
-    configurationSection = { 'html', 'css', 'javascript' },
+  cmd = { "yaml-language-server", "--stdio" },
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "k8s/**/*.{yaml}",
+      },
+      redhat = { telemetry = { enabled = false } },
+    },
   },
-  root_markers = { 'package.json', '.git' },
   single_file_support = true,
+  filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
 }
