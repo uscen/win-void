@@ -29,9 +29,9 @@ While this configuration does prepare a great many tools, it revolves primarily 
 
 - 📝 [Neovide](https://neovide.dev/)
 - ✏️ [Neovim](https://neovim.io)
-- 🐠 [nushell](nushell/nushell)
-- 💻 [alacritty](https://alacritty.org/)
-- 🔠 [JetBrains Mono](https://rubjo.github.io/victor-mono/)
+- 🐠 [Nushell](nushell/nushell)
+- 💻 [Alacritty](https://alacritty.org/)
+- 🔠 [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
 ### Miscellaneous Other Tools 🎒
 
