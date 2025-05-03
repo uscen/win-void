@@ -345,9 +345,8 @@
       }
     },
     "TypeScript": {
-      "language_servers": ["typescript-language-server", "!vtsls", "..."],
-      "show_edit_predictions": true,
       "formatter": "prettier",
+      "show_edit_predictions": true,
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
         "source.organizeImports": true
@@ -355,7 +354,6 @@
       "format_on_save": "on"
     },
     "TSX": {
-      "language_servers": ["typescript-language-server", "!vtsls", "..."],
       "formatter": "prettier",
       "prettier": {
         "allowed": true
@@ -431,7 +429,62 @@
   // # =============================================================================== #
   // # LSP:                                                                            #
   // # =============================================================================== #
+
   "lsp": {
+       "vtsls": {
+         "settings": {
+           // For JavaScript:
+           "javascript": {
+             "inlayHints": {
+               "parameterNames": {
+                 "enabled": "all",
+                 "suppressWhenArgumentMatchesName": false
+               },
+               "parameterTypes": {
+                 "enabled": true
+               },
+               "variableTypes": {
+                 "enabled": true,
+                 "suppressWhenTypeMatchesName": true
+               },
+               "propertyDeclarationTypes": {
+                 "enabled": true
+               },
+               "functionLikeReturnTypes": {
+                 "enabled": true
+               },
+               "enumMemberValues": {
+                 "enabled": true
+               }
+             }
+           },
+           // For TypeScript:
+           "typescript": {
+             "inlayHints": {
+               "parameterNames": {
+                 "enabled": "all",
+                 "suppressWhenArgumentMatchesName": false
+               },
+               "parameterTypes": {
+                 "enabled": true
+               },
+               "variableTypes": {
+                 "enabled": true,
+                 "suppressWhenTypeMatchesName": true
+               },
+               "propertyDeclarationTypes": {
+                 "enabled": true
+               },
+               "functionLikeReturnTypes": {
+                 "enabled": true
+               },
+               "enumMemberValues": {
+                 "enabled": true
+               }
+             }
+           }
+         }
+     },
     "emmet-language-server": {
       "binary": {
         "path": "C:\\Users\\lli\\scoop\\apps\\nodejs\\current\\node.exe",
@@ -439,20 +492,6 @@
           "C:\\Users\\lli\\scoop\\persist\\nodejs\\bin\\node_modules\\@olrtg\\emmet-language-server\\dist\\index.js",
           "--stdio"
         ]
-      }
-    },
-    "typescript-language-server": {
-      "initialization_options": {
-        "preferences": {
-          "includeInlayParameterNameHints": "all",
-          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
-          "includeInlayFunctionParameterTypeHints": true,
-          "includeInlayVariableTypeHints": true,
-          "includeInlayVariableTypeHintsWhenTypeMatchesName": true,
-          "includeInlayPropertyDeclarationTypeHints": true,
-          "includeInlayFunctionLikeReturnTypeHints": true,
-          "includeInlayEnumMemberValueHints": true
-        }
       }
     },
     "eslint": {

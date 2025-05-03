@@ -54,6 +54,13 @@
     ],
     "description": "Creates React useState hook"
   },
+  "Create useState hook Fallback": {
+    "prefix": "ust",
+    "body": [
+      "const [${1:state}, set${1:State}] = useState(${2:defaultState});"
+    ],
+    "description": "Creates React useState hook"
+  },
   "Create useEffect hook": {
     "prefix": "use",
     "body": ["useEffect(() => {", "\t", "}, []);"],

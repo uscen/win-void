@@ -9,9 +9,8 @@ $packages=@(
     "pnpm"
     # LANGUGE SERVER PORTOCOL:                                                        #
     # =============================================================================== #
-    "typescript",
-    "typescript-language-server",
     "vscode-langservers-extracted",
+    "@vtsls/language-server",
     "@olrtg/emmet-language-server",
     "@tailwindcss/language-server",
     "@prisma/language-server",

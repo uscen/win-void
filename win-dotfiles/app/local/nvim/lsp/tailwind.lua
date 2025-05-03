@@ -21,12 +21,25 @@ return {
         invalidConfigPath = 'error',
         invalidTailwindDirective = 'error',
         recommendedVariantOrder = 'warning',
+        unusedClasses = "warning",
       },
       classAttributes = {
         'class',
         'className',
       },
-      includeLanguages = {},
+      includeLanguages = {
+        typescriptreact = "javascript",
+        javascriptreact = "javascript",
+        html = "html",
+        svelte = "html",
+        vue = "html",
+      },
+      experimental = {
+        classRegex = {
+          "cn\\(([^)]*)\\)", "clsx\\(([^)]*)\\)",
+          "cva\\(([^)]*)\\)", "twMerge\\(([^)]*)\\)",
+        },
+      },
     },
   },
   root_markers = {
