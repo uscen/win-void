@@ -454,6 +454,7 @@ now(function()
   -- Use ripgrep as grep tool: ================================================
   vim.opt.grepprg               = "rg --vimgrep --no-heading"
   vim.opt.grepformat            = "%f:%l:%c:%m,%f:%l:%m"
+  vim.opt.path                  = ".,,**"
   -- Shell: =-================================================================
   vim.opt.sh                    = "nu"
   vim.opt.shellslash            = true
@@ -486,7 +487,8 @@ now(function()
   vim.opt.showmatch             = true
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
-  vim.opt.pumblend              = 10
+  vim.opt.pumblend              = 15
+  vim.opt.pumwidth              = 20
   vim.opt.pumheight             = 10
   vim.opt.wrap                  = false
   vim.opt.breakindent           = true
@@ -494,6 +496,7 @@ now(function()
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
+  vim.opt.winborder             = "single"
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
@@ -529,7 +532,7 @@ now(function()
   vim.opt.history               = 100
   vim.opt.lazyredraw            = true
   vim.opt.synmaxcol             = 200
-  vim.opt.updatetime            = 250
+  vim.opt.updatetime            = 200
   vim.opt.timeoutlen            = 300
   -- Disable health checks for these providers:. ===========================
   vim.g.loaded_python_provider  = 0
@@ -645,6 +648,9 @@ end)
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
+  -- diagnostic: ===================================================================
+  vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+  vim.keymap.set("n", "gq", vim.diagnostic.setqflist)
   -- Basic Keymaps: ================================================================
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
@@ -657,11 +663,6 @@ later(function()
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
-  -- use gl,gh to move: =============================================================
-  vim.keymap.set("n", "gh", "^")
-  vim.keymap.set("n", "gl", "$")
-  vim.keymap.set("v", "gh", "^")
-  vim.keymap.set("v", "gl", "$")
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
