@@ -39,3 +39,8 @@
 {"_id":"videoPlaybackRateMouseScroll","value":true}
 {"_id":"videoSkipMouseScroll","value":true}
 {"_id":"videoVolumeMouseScroll","value":false}
+{"_id":"quickBookmarkTargetPlaylistId","value":"favorites"}
+{"_id":"defaultViewingMode","value":"default"}
+{"_id":"defaultViewingMode","value":"theatre"}
+{"_id":"videoSkipMouseScroll","value":false}
+{"_id":"videoVolumeMouseScroll","value":true}
