@@ -83,10 +83,10 @@ Capslock::Esc
 ; # =============================================================================== #
 ; # Komorebi Window Manager:                                                        #
 ; # =============================================================================== #
-Run("komorebi.exe", , "Hide")
+Run("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
 Komorebic(cmd) {
     if !ProcessExist("komorebi.exe") {
-        Run("komorebi.exe", , "Hide")
+        Run("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
         Sleep 500
     }
     RunWait(format("komorebic.exe {}", cmd), , "Hide")
