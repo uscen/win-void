@@ -1,9 +1,4 @@
 # =============================================================================== #
-# Enable AutoStart Window Manager && status bar:                                  #
-# =============================================================================== #
-[System.Environment]::SetEnvironmentVariable('KOMOREBI_CONFIG_HOME',"$Env:USERPROFILE\.config\komorebi", 'User')
-komorebic enable-autostart --ahk
-# =============================================================================== #
 # Change Keyboard Rate:		                                                        #
 # =============================================================================== #
 Set-Location "HKCU:\Control Panel\Accessibility\Keyboard Response"

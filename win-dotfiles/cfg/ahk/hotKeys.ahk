@@ -83,6 +83,7 @@ Capslock::Esc
 ; # =============================================================================== #
 ; # Komorebi Window Manager:                                                        #
 ; # =============================================================================== #
+Run("komorebi.exe", , "Hide")
 Komorebic(cmd) {
     if !ProcessExist("komorebi.exe") {
         Run("komorebi.exe", , "Hide")
