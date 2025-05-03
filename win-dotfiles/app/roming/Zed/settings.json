@@ -335,26 +335,46 @@
   // # Languages:                                                                      #
   // # =============================================================================== #
   "languages": {
-    "Shell Script": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "shfmt",
-          "arguments": []
-        }
+    // # Javascript:                                                                     #
+    // # =============================================================================== #
+    "JavaScript": {
+      "show_edit_predictions": true,
+      "prettier": {
+        "allowed": true
+      },
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+      },
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true
       }
     },
+    // # TypeScript:                                                                     #
+    // # =============================================================================== #
     "TypeScript": {
-      "formatter": "prettier",
       "show_edit_predictions": true,
+      "prettier": {
+        "allowed": true
+      },
       "code_actions_on_format": {
         "source.fixAll.eslint": true,
         "source.organizeImports": true
       },
-      "format_on_save": "on"
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true
+      }
     },
+    // # Tsx:                                                                           #
+    // # =============================================================================== #
     "TSX": {
-      "formatter": "prettier",
+      "show_edit_predictions": true,
       "prettier": {
         "allowed": true
       },
@@ -362,61 +382,77 @@
         "source.fixAll.eslint": true,
         "source.organizeImports": true
       },
-      "format_on_save": "on"
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": false,
+        "show_other_hints": true,
+        "show_type_hints": true
+      }
     },
-    "JavaScript": {
-      "language_servers": ["typescript-language-server", "!vtsls", "..."],
-      "formatter": "prettier",
-      "prettier": {
-        "allowed": true
-      },
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-        "source.organizeImports": true
-      },
-      "format_on_save": "on"
-    },
+    // # Emmet:                                                                          #
+    // # =============================================================================== #
     "Emmet": {
       "language_servers": ["emmet-language-server"]
     },
+    // # Html:                                                                           #
+    // # =============================================================================== #
     "HTML": {
       "prettier": {
         "allowed": true
       }
     },
+    // # Css:                                                                            #
+    // # =============================================================================== #
     "CSS": {
       "prettier": {
         "allowed": true
       }
     },
+    // # Scss:                                                                           #
+    // # =============================================================================== #
     "SCSS": {
       "prettier": {
         "allowed": true
       }
     },
+    // # Markdown:                                                                       #
+    // # =============================================================================== #
     "Markdown": {
       "language_servers": ["marksman"],
-      "tab_size": 2,
-      "formatter": "prettier"
+      "prettier": {
+        "allowed": true
+      }
     },
+    // # TOML:                                                                           #
+    // # =============================================================================== #
     "TOML": {
-      "tab_size": 2,
-      "formatter": "prettier"
+      "prettier": {
+        "allowed": true
+      }
     },
+    // # Css:                                                                            #
+    // # =============================================================================== #
     "YAML": {
-      "tab_size": 2,
-      "formatter": "prettier"
+      "prettier": {
+        "allowed": true
+      }
     },
+    // # JSON:                                                                           #
+    // # =============================================================================== #
     "JSON": {
-      "tab_size": 2,
-      "preferred_line_length": 120,
-      "formatter": "prettier"
+      "prettier": {
+        "allowed": true
+      }
     },
+    // # JSONC:                                                                          #
+    // # =============================================================================== #
     "JSONC": {
-      "tab_size": 2,
-      "preferred_line_length": 120,
-      "formatter": "prettier"
+      "prettier": {
+        "allowed": true
+      }
     },
+    // # PRISMA:                                                                         #
+    // # =============================================================================== #
     "Prisma": {
       "formatter": {
         "language_server": {
@@ -431,60 +467,9 @@
   // # =============================================================================== #
 
   "lsp": {
-       "vtsls": {
-         "settings": {
-           // For JavaScript:
-           "javascript": {
-             "inlayHints": {
-               "parameterNames": {
-                 "enabled": "all",
-                 "suppressWhenArgumentMatchesName": false
-               },
-               "parameterTypes": {
-                 "enabled": true
-               },
-               "variableTypes": {
-                 "enabled": true,
-                 "suppressWhenTypeMatchesName": true
-               },
-               "propertyDeclarationTypes": {
-                 "enabled": true
-               },
-               "functionLikeReturnTypes": {
-                 "enabled": true
-               },
-               "enumMemberValues": {
-                 "enabled": true
-               }
-             }
-           },
-           // For TypeScript:
-           "typescript": {
-             "inlayHints": {
-               "parameterNames": {
-                 "enabled": "all",
-                 "suppressWhenArgumentMatchesName": false
-               },
-               "parameterTypes": {
-                 "enabled": true
-               },
-               "variableTypes": {
-                 "enabled": true,
-                 "suppressWhenTypeMatchesName": true
-               },
-               "propertyDeclarationTypes": {
-                 "enabled": true
-               },
-               "functionLikeReturnTypes": {
-                 "enabled": true
-               },
-               "enumMemberValues": {
-                 "enabled": true
-               }
-             }
-           }
-         }
-     },
+    // # =============================================================================== #
+    // # For Emmet:                                                                      #
+    // # =============================================================================== #
     "emmet-language-server": {
       "binary": {
         "path": "C:\\Users\\lli\\scoop\\apps\\nodejs\\current\\node.exe",
@@ -494,13 +479,82 @@
         ]
       }
     },
+    // # =============================================================================== #
+    // # For TailwindCss:                                                                #
+    // # =============================================================================== #
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass", "styles"],
+      }
+    },
+    // # =============================================================================== #
+    // # For Eslint:                                                                     #
+    // # =============================================================================== #
     "eslint": {
       "settings": {
         "codeActionOnSave": {
           "rules": ["import/order"]
         }
       }
-    }
+    },
+    "vtsls": {
+      "settings": {
+        // # =============================================================================== #
+        // # For JavaScript:                                                                 #
+        // # =============================================================================== #
+        "javascript": {
+          "inlayHints": {
+            "parameterNames": {
+              "enabled": "all",
+              "suppressWhenArgumentMatchesName": false
+            },
+            "parameterTypes": {
+              "enabled": true
+            },
+            "variableTypes": {
+              "enabled": true,
+              "suppressWhenTypeMatchesName": true
+            },
+            "propertyDeclarationTypes": {
+              "enabled": true
+            },
+            "functionLikeReturnTypes": {
+              "enabled": true
+            },
+            "enumMemberValues": {
+              "enabled": true
+            }
+          }
+        },
+        // # =============================================================================== #
+        // # For TypeScript:                                                                 #
+        // # =============================================================================== #
+        "typescript": {
+          "inlayHints": {
+            "parameterNames": {
+              "enabled": "all",
+              "suppressWhenArgumentMatchesName": false
+            },
+            "parameterTypes": {
+              "enabled": true
+            },
+            "variableTypes": {
+              "enabled": true,
+              "suppressWhenTypeMatchesName": true
+            },
+            "propertyDeclarationTypes": {
+              "enabled": true
+            },
+            "functionLikeReturnTypes": {
+              "enabled": true
+            },
+            "enumMemberValues": {
+              "enabled": true
+            }
+          }
+        }
+      }
+  }
   },
   // # =============================================================================== #
   // # Extension:                                                                      #
