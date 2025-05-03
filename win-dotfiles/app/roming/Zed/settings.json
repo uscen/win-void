@@ -484,7 +484,7 @@
     // # =============================================================================== #
     "tailwindcss-language-server": {
       "settings": {
-        "classAttributes": ["class", "className", "ngClass", "styles"],
+        "classAttributes": ["class", "className", "ngClass", "styles"]
       }
     },
     // # =============================================================================== #
@@ -554,16 +554,16 @@
           }
         }
       }
-  }
+    }
   },
   // # =============================================================================== #
   // # Extension:                                                                      #
   // # =============================================================================== #
   "auto_install_extensions": {
     "html": true,
-    "scss":true,
+    "scss": true,
     "emmet": true,
     "prisma": true,
-    "lua":true
+    "lua": true
   }
 }
