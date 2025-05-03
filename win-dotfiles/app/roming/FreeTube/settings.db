@@ -4,9 +4,9 @@
 {"_id":"bounds","value":{"x":1,"y":1,"width":958,"height":1198,"maximized":false,"fullScreen":false}}
 {"_id":"defaultProfile","value":"qXqJ1JvFrSjUSdWH"}
 {"_id":"defaultQuality","value":"2160"}
-{"_id":"defaultViewingMode","value":"external_player"}
+{"_id":"defaultViewingMode","value":"theatre"}
 {"_id":"displayVideoPlayButton","value":false}
-{"_id":"enableSubtitlesByDefault","value":true}
+{"_id":"enableSubtitlesByDefault","value":false}
 {"_id":"enterFullscreenOnDisplayRotate","value":true}
 {"_id":"expandSideBar","value":false}
 {"_id":"externalPlayer","value":"mpv"}
@@ -37,10 +37,5 @@
 {"_id":"useRssFeeds","value":false}
 {"_id":"useSponsorBlock","value":true}
 {"_id":"videoPlaybackRateMouseScroll","value":true}
-{"_id":"videoSkipMouseScroll","value":true}
-{"_id":"videoVolumeMouseScroll","value":false}
-{"_id":"quickBookmarkTargetPlaylistId","value":"favorites"}
-{"_id":"defaultViewingMode","value":"default"}
-{"_id":"defaultViewingMode","value":"theatre"}
 {"_id":"videoSkipMouseScroll","value":false}
 {"_id":"videoVolumeMouseScroll","value":true}
