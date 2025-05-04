@@ -350,6 +350,18 @@ end)
 now(function()
   -- enable configured language servers 0.11: ========================================
   local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "prisma", "markdown" }
+  vim.lsp.config("*", {
+    capabilities = {
+      textDocument = {
+        semanticTokens = {
+          multilineTokenSupport = true,
+        }
+      }
+    },
+    root_markers = {
+      '.git'
+    },
+  })
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
@@ -466,6 +478,8 @@ now(function()
   vim.opt.shellquote            = ""
   -- General: ================================================================
   vim.opt.clipboard             = "unnamedplus"
+  vim.opt.wildmenu              = true
+  vim.opt.wildoptions           = "fuzzy,pum"
   vim.opt.completeopt           = "menuone,noselect,fuzzy"
   vim.opt.complete              = ".,b,kspell"
   vim.opt.switchbuf             = "usetab"
