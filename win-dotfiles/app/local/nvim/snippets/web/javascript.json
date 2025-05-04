@@ -1,4 +1,11 @@
 {
+  "Console Log with Metadata": {
+    "prefix": "clog",
+    "body": [
+      "console.log('${TM_LINE_NUMBER}', '${TM_FILENAME}', '->', ${1:identifier}, '$1');"
+    ],
+    "description": "Log with filename and line number"
+  },
   "Console Log Vscode": {
     "prefix": "log",
     "body": ["console.log($1)$0"],
@@ -28,6 +35,19 @@
     "prefix": "edfn",
     "body": ["export default function $1($2) {", "\t$0", "}"],
     "description": "Export default function"
+  },
+  "React Functional Component": {
+    "prefix": "rfcn",
+    "body": [
+      "export const ${1:Component} = ({}: {}) => {",
+      "  return (",
+      "    <div>",
+      "      Hello from ${1:Component}!",
+      "    </div>",
+      "  );",
+      "};"
+    ],
+    "description": "Creates a basic React functional component"
   },
   "React Function Component": {
     "prefix": "rfc",
