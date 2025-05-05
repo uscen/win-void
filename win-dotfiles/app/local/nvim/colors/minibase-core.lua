@@ -282,7 +282,7 @@ vim.api.nvim_set_hl(0, 'MiniSnippetsFinal', { link = "MiniSnippetsCurrent" })
 vim.api.nvim_set_hl(0, 'MiniSnippetsUnvisited', { link = "MiniSnippetsCurrent" })
 vim.api.nvim_set_hl(0, 'MiniSnippetsVisited', { link = "MiniSnippetsCurrent" })
 -- Notidy =====================================================================
-vim.api.nvim_set_hl(0, 'MiniNotifyBorder', { fg = palette.base0B, bg = palette.base00 })
+vim.api.nvim_set_hl(0, 'MiniNotifyBorder', { fg = palette.base04, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'MiniNotifyLspProgress', { link = "MiniNotifyBorder" })
 vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { link = "MiniNotifyBorder" })
 vim.api.nvim_set_hl(0, 'MiniNotifyTitle', { link = "MiniNotifyBorder" })
@@ -295,7 +295,7 @@ vim.api.nvim_set_hl(0, "MiniCompletionActiveParameter",
   { fg = palette.base0B, bg = palette.base01, bold = true, italic = true })
 vim.api.nvim_set_hl(0, "MiniCompletionInfoBorderOutdated", { link = "Mini.MiniCompletionActiveParameter" })
 -- CursorWord: =================================================================
-vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02, bold = true })
+vim.api.nvim_set_hl(0, "MiniCursorword", { bg = palette.base02 })
 vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "MiniCursorword" })
 -- Indentscope: ================================================================
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base04 })
