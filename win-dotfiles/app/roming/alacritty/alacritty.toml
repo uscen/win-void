@@ -78,7 +78,7 @@ draw_bold_text_with_bright_colors = false
 
 [colors.cursor]
   text = '0x141b1e'
-  cursor = '0xa9b665'
+  cursor = '0x8C977D'
 
 [colors.normal]
   black =   '0x232a2d'

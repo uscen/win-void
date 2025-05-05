@@ -115,8 +115,8 @@ $env.config = {
         | fzf --preview-window=right,40%
               --style=full --height=30% --border --layout reverse --preview-window right,70%
               --color fg:#5d6466,bg:#1e2527
-              --color bg+:#8ccf7e,fg+:#2c2f30
-              --color hl:#8ccf7e,hl+:#26292a,gutter:#1e2527
+              --color bg+:#232a2d,fg+:#5d6466
+              --color hl:#8ccf7e,hl+:#5d6466,gutter:#1e2527
               --color pointer:#373d49,info:#606672
               --color border:#1e2527
               --preview "eza --icons --tree {}")' }
