@@ -6,10 +6,9 @@
 	// # General:                                                                        #
 	// # =============================================================================== #
 	"auto_update": false,
-	"cursor_blink": true,
-	"restore_on_startup": "none",
 	"vertical_scroll_margin": 0,
 	"horizontal_scroll_margin": 0,
+	"restore_on_startup": "none",
 	"current_line_highlight": "none",
 	"extend_comment_on_newline": false,
 	"ensure_final_newline_on_save": false,
@@ -19,13 +18,13 @@
 	// # Fonts:                                                                          #
 	// # =============================================================================== #
 	"buffer_font_family": "JetBrainsMono Nerd Font",
-	"ui_font_family": "JetBrainsMono Nerd Font",
 	"buffer_line_height": "comfortable",
-	"preferred_line_length": 80,
-	"buffer_font_weight": 400,
 	"buffer_font_size": 12,
-	"ui_font_size": 13,
+	"buffer_font_weight": 400,
+	"preferred_line_length": 80,
+	"ui_font_family": "JetBrainsMono Nerd Font",
 	"ui_font_weight": 400,
+	"ui_font_size": 13,
 	// # =============================================================================== #
 	// # AutoSave:                                                                       #
 	// # =============================================================================== #
