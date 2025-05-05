@@ -18,11 +18,11 @@
 	// # Fonts:                                                                          #
 	// # =============================================================================== #
 	"buffer_font_family": "JetBrainsMono Nerd Font",
+	"ui_font_family": "JetBrainsMono Nerd Font",
 	"buffer_line_height": "comfortable",
 	"buffer_font_size": 12,
 	"buffer_font_weight": 400,
 	"preferred_line_length": 80,
-	"ui_font_family": "JetBrainsMono Nerd Font",
 	"ui_font_weight": 400,
 	"ui_font_size": 13,
 	// # =============================================================================== #
@@ -87,16 +87,6 @@
 		"Q": "q"
 	},
 	// # =============================================================================== #
-	// # Hints:                                                                          #
-	// # =============================================================================== #
-	"inlay_hints": {
-		"enabled": false,
-		"typeHints": true,
-		"parameterHints": true,
-		"chainingHints": true,
-		"toggle_on_modifiers_press": { "control": false }
-	},
-	// # =============================================================================== #
 	// # Search:                                                                         #
 	// # =============================================================================== #
 	"search": {
@@ -108,6 +98,16 @@
 	"slash_commands": {
 		"docs": { "enabled": true },
 		"project": { "enabled": true }
+	},
+	// # =============================================================================== #
+	// # Hints:                                                                          #
+	// # =============================================================================== #
+	"inlay_hints": {
+		"enabled": false,
+		"typeHints": true,
+		"parameterHints": true,
+		"chainingHints": true,
+		"toggle_on_modifiers_press": { "control": false }
 	},
 	// # =============================================================================== #
 	// # Assistant:                                                                      #
