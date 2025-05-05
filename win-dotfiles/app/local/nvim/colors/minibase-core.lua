@@ -222,10 +222,9 @@ end
 -- General: =====================================================================
 vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base03, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = palette.base00, bg = palette.base04 })
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.base04 })
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base00, fg = palette.base04 })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base01, fg = palette.base07 })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base01, fg = palette.base04 })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "PmenuMatchSel", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "PmenuSbar", { link = "Pmenu" })
