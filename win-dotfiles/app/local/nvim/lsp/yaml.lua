@@ -11,6 +11,6 @@ return {
       redhat = { telemetry = { enabled = false } },
     },
   },
-  single_file_support = true,
   filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
+  single_file_support = true,
 }
