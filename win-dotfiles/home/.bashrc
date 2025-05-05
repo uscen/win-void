@@ -120,7 +120,7 @@ export FZF_DEFAULT_OPTS='
   --color bg+:#232a2d,fg+:#8C977D
   --color hl:#8ccf7e,hl+:#8ccf7e,gutter:#1e2527
   --color pointer:#373d49,info:#606672
-  --color border:#1e2527'
+  --color border:#8C977D'
 
 # =============================================================================== #
 # Tab Completions:                                                                #
