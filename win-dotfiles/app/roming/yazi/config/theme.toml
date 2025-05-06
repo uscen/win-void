@@ -2,21 +2,21 @@
 # Yazi Cli File Manager Theme:                                                    #
 # =============================================================================== #
 [manager]
-cwd = { fg = "#e57474" }
+cwd = { fg = "#B66467" }
 hovered         = { reversed = true }
 preview_hovered = { underline = true }
-find_keyword  = { fg = "#e5c76b", bold = true, italic = true, underline = true }
-find_position = { fg = "#a292a3", bg = "reset", bold = true, italic = true }
-marker_copied   = { fg = "#8ccf7e",  bg = "#8ccf7e" }
-marker_cut      = { fg = "#e57474",    bg = "#e57474" }
-marker_marked   = { fg = "#e57474",   bg = "#e57474" }
-marker_selected = { fg = "#e5c76b", bg = "#e5c76b" }
+find_keyword  = { fg = "#c4b28a", bold = true, italic = true, underline = true }
+find_position = { fg = "#A988B0", bg = "reset", bold = true, italic = true }
+marker_copied   = { fg = "#8C977D",  bg = "#8C977D" }
+marker_cut      = { fg = "#B66467",    bg = "#B66467" }
+marker_marked   = { fg = "#B66467",   bg = "#B66467" }
+marker_selected = { fg = "#c4b28a", bg = "#c4b28a" }
 tab_active   = { reversed = true }
 tab_inactive = {}
 tab_width    = 1
-count_copied   = { fg = "#343f44", bg = "#8ccf7e" }
-count_cut      = { fg = "#343f44", bg = "#e57474" }
-count_selected = { fg = "#343f44", bg = "#e5c76b" }
+count_copied   = { fg = "#424242", bg = "#8C977D" }
+count_cut      = { fg = "#424242", bg = "#B66467" }
+count_selected = { fg = "#424242", bg = "#c4b28a" }
 border_symbol = "│"
 border_style  = { fg = "#4f585e" }
 syntect_theme = ""
@@ -24,32 +24,32 @@ syntect_theme = ""
 [status]
 separator_open  = ""
 separator_close = ""
-separator_style = { fg = "#343f44", bg = "#343f44" }
-mode_normal = { bg = "#e57474", bold = true }
-mode_select = { bg = "#e57474", bold = true }
-mode_unset  = { bg = "#e57474", bold = true }
+separator_style = { fg = "#424242", bg = "#424242" }
+mode_normal = { bg = "#B66467", bold = true }
+mode_select = { bg = "#B66467", bold = true }
+mode_unset  = { bg = "#B66467", bold = true }
 progress_label  = { bold = true }
-progress_normal = { fg = "#e57474", bg = "#232a2e" }
-progress_error  = { fg = "#e57474", bg = "#232a2e" }
-permissions_t = { fg = "#8ccf7e" }
-permissions_r = { fg = "#e5c76b" }
-permissions_w = { fg = "#e57474" }
-permissions_x = { fg = "#e57474" }
+progress_normal = { fg = "#B66467", bg = "#1F1F1F" }
+progress_error  = { fg = "#B66467", bg = "#1F1F1F" }
+permissions_t = { fg = "#8C977D" }
+permissions_r = { fg = "#c4b28a" }
+permissions_w = { fg = "#B66467" }
+permissions_x = { fg = "#B66467" }
 permissions_s = { fg = "#2d353b" }
 
 [select]
-border   = { fg = "#e57474" }
-active   = { fg = "#a292a3", bold = true }
+border   = { fg = "#B66467" }
+active   = { fg = "#A988B0", bold = true }
 inactive = {}
 
 [input]
-border   = { fg = "#e57474" }
+border   = { fg = "#B66467" }
 title    = {}
 value    = {}
 selected = { reversed = true }
 
 [completion]
-border   = { fg = "#e57474" }
+border   = { fg = "#B66467" }
 active   = { reversed = true }
 inactive = {}
 icon_file    = ""
@@ -57,41 +57,41 @@ icon_folder  = ""
 icon_command = ""
 
 [tasks]
-border  = { fg = "#e57474" }
+border  = { fg = "#B66467" }
 title   = {}
-hovered = { fg = "#a292a3", underline = true }
+hovered = { fg = "#A988B0", underline = true }
 
 [which]
 cols            = 3
-mask            = { bg = "#232a2e" }
-cand            = { fg = "#e57474" }
+mask            = { bg = "#1F1F1F" }
+cand            = { fg = "#B66467" }
 rest            = { fg = "#2d353b" }
-desc            = { fg = "#a292a3" }
+desc            = { fg = "#A988B0" }
 separator       = "  "
 separator_style = { fg = "#2d353b" }
 
 [help]
-on      = { fg = "#e57474" }
-run     = { fg = "#a292a3" }
+on      = { fg = "#B66467" }
+run     = { fg = "#A988B0" }
 desc    = {}
 hovered = { reversed = true, bold = true }
-footer  = { fg = "#232a2e", bg = "#d3c6aa" }
+footer  = { fg = "#1F1F1F", bg = "#d3c6aa" }
 
 [notify]
-title_info  = { fg = "#8ccf7e" }
-title_warn  = { fg = "#e5c76b" }
-title_error = { fg = "#e57474" }
+title_info  = { fg = "#8C977D" }
+title_warn  = { fg = "#c4b28a" }
+title_error = { fg = "#B66467" }
 icon_info  = ""
 icon_warn  = ""
 icon_error = ""
 
 [filetype]
 rules = [
-	{ mime = "image/*", fg = "#e57474" },
-	{ mime = "{audio,video}/*", fg = "#a292a3" },
-	{ mime = "application/*zip", fg = "#e57474" },
-	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#e57474" },
-	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#e57474" },
+	{ mime = "image/*", fg = "#B66467" },
+	{ mime = "{audio,video}/*", fg = "#8C977D" },
+	{ mime = "application/*zip", fg = "#B66467" },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#B66467" },
+	{ mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#B66467" },
 	{ name = "*", fg = "#83c092" },
-	{ name = "*/", fg = "#8ccf7e" }
+	{ name = "*/", fg = "#8C977D" }
 ]

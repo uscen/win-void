@@ -116,10 +116,10 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_ALT_C_COMMAND="fd --type=d --no-hidden --strip-cwd-prefix --exclude .git"
 export FZF_DEFAULT_OPTS='
   --style=full --height=30% --border --layout reverse --preview-window right,40%
-  --color fg:#8C977D,bg:#141b1e
-  --color bg+:#232a2d,fg+:#8C977D
-  --color hl:#8ccf7e,hl+:#8ccf7e,gutter:#1e2527
-  --color pointer:#373d49,info:#606672
+  --color fg:#8C977D,bg:#151515
+  --color bg+:#1F1F1F,fg+:#8C977D
+  --color hl:#c4b28a,hl+:#c4b28a,gutter:#151515
+  --color pointer:#424242,info:#424242
   --color border:#8C977D'
 
 # =============================================================================== #

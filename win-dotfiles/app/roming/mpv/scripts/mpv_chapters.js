@@ -9,7 +9,7 @@ var options = {
 	font_color: "8ccf7e",
 	border_size: 1.0,
 	border_color: "000000",
-	font_color_currentChapter: "8a9a7b",
+	font_color_currentChapter: "8C977D",
 };
 var playinfo = {
 	chapters: [], //array
@@ -104,7 +104,7 @@ function drawChapterList() {
 		resY += options.font_size;
 	});
 	assdraw.data = assdrawdata
-	
+
 }
 
 function toggleOverlay() {
