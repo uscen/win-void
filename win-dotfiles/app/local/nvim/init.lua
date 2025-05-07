@@ -197,6 +197,25 @@ later(function()
     },
   })
   vim.ui.select = MiniPick.ui_select
+  -- Pick Directory  Form Current Directory: ===========================================
+  function directory_pick()
+    local root_dir = vim.fn.getcwd()
+    local fd_output = vim.fn.systemlist('fd --type d --exclude ".*" . "' .. root_dir .. '"')
+    MiniPick.start({
+      source = {
+        items = fd_output,
+        name = 'Directories (fd)',
+        choose = function(item)
+          vim.fn.chdir(item)
+          vim.schedule(function()
+            require("mini.files").open(item)
+          end)
+        end,
+      },
+    })
+  end
+
+  -- Pick Directory  Form Zoxide : ======================================================
   function zoxide_pick()
     local zoxide_output = vim.fn.systemlist('zoxide query -ls')
     local directories = {}
@@ -209,7 +228,7 @@ later(function()
     MiniPick.start({
       source = {
         items = directories,
-        name = 'Zoxide Directories',
+        name = 'Directories (zoxide)',
         choose = function(item)
           vim.fn.chdir(item)
           vim.schedule(function()
@@ -711,6 +730,7 @@ later(function()
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
+  vim.keymap.set('n', '<leader>fn', directory_pick)
   vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
   vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
   vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>")
