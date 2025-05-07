@@ -63,12 +63,7 @@ prepend_keymap = [
 	# Character-wise movement
 	{ on = "n", run = "move -1" },
 	{ on = "i", run = "move 1" },
-	# Word-wise movement
-	{ on = "h", run = "forward --end-of-word" },
-	# Line-wise movement
-	{ on = "N", run = "move bol" },
-	{ on = "I", run = "move eol" },
-	# Cut/Yank/Paste
+	# Character Delete
 	{ on = "x", run = [ "delete", "move 1 --in-operating" ] },
 	# Undo/Redo
 	{ on = "u", run = "undo" },
