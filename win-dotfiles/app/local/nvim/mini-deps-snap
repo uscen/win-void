@@ -1,0 +1,6 @@
+return {
+  ["conform.nvim"] = "372fc521f8421b7830ea6db4d6ea3bae1c77548c",
+  ["mini.nvim"] = "6105b69d79fef0afed5ed576081b1997ef2b4be1",
+  ["nvim-treesitter"] = "28d480e0624b259095e56f353ec911f9f2a0f404",
+  ["nvim-ts-autotag"] = "a1d526af391f6aebb25a8795cbc05351ed3620b5"
+}
