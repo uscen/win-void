@@ -21,7 +21,7 @@ if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.deps                           │
+--          │                     Mini.Deps                           │
 --          ╰─────────────────────────────────────────────────────────╯
 require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
@@ -34,7 +34,7 @@ now_if_args(function()
   require("mini.icons").tweak_lsp_kind()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.misc                           │
+--          │                     Mini.Misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.misc').setup_auto_root { '.git' }
@@ -59,7 +59,7 @@ later(function()
   require("mini.ai").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.diff                           │
+--          │                     Mini.Diff                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.diff").setup()
@@ -77,10 +77,16 @@ later(function()
   require("mini.splitjoin").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.operators                      │
+--          │                     Mini.Operators                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.operators').setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Bracketed                      │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.bracketed").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Jump                           │
@@ -385,7 +391,7 @@ now(function()
     vim.lsp.enable(config)
   end
   require("mini.completion").setup({
-    delay = { completion = 10, info = 10, signature = 50 },
+    delay = { completion = 100, info = 100, signature = 50 },
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',
