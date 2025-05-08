@@ -31,7 +31,8 @@ prepend_keymap = [
   { on   = [ "b", "v" ], run  = 'cd "C:\\Users\lli\Videos\programming"', desc = "Go To Videos Programming" },
   { on   = [ "b", "m" ], run  = 'cd "C:\\Users\lli\Music"', desc = "Go To Videos Programming" },
   { on   = [ "b", "i" ], run  = 'cd "C:\\Users\lli\Pictures\pix"', desc = "Go To Pictures" },
-  { on   = [ "b", "p" ], run  = 'cd "C:\\Users\lli\Projects"', desc = "Go To Projects" }
+  { on   = [ "b", "p" ], run  = 'cd "C:\\Users\lli\Projects"', desc = "Go To Projects" },
+  { on   = [ "b", "w" ], run  = 'cd "C:\\Users\lli\win-void"', desc = "Go To Projects" }
 ]
 
 [tasks]
