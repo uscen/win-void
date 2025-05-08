@@ -173,7 +173,7 @@
 		"show_tab_bar_buttons": false
 	},
 	"preview_tabs": {
-		"enabled": false,
+		"enabled": true,
 		"enable_preview_from_file_finder": false,
 		"enable_preview_from_code_navigation": false
 	},

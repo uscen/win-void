@@ -676,6 +676,14 @@ later(function()
     desc = "Disable autoformat-on-save",
     bang = true,
   })
+  -- Qucikfix List: =================================================================
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "qf",
+    callback = function()
+      vim.keymap.set('n', '<Tab>', '<CR>', { buffer = true })
+      vim.keymap.set('n', 'q', ':cclose<CR>', { buffer = true, silent = true })
+    end
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
