@@ -19,17 +19,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
     end
 
-    -- -- nightly has inbuilt completions, this can replace all completion plugins
+    -- -- nightly has inbuilt completions: ==============================================
     -- if client:supports_method("textDocument/completion", bufnr) then
     --   -- Enable auto-completion
     --   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     -- end
 
-    --- Disable semantic tokens
+    --- Disable semantic tokens: =======================================================
     ---@diagnostic disable-next-line need-check-nil
     client.server_capabilities.semanticTokensProvider = nil
 
-    -- All the keymaps
+    -- All the keymaps: =================================================================
     -- stylua: ignore start
     local keymap = vim.keymap.set
     local lsp = vim.lsp
@@ -48,7 +48,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("n", "gr", lsp.buf.references, opt("Show References"))
     keymap("n", "gl", vim.diagnostic.open_float, opt("Open diagnostic in float"))
     keymap("n", "<C-k>", lsp.buf.signature_help, opts)
-    -- disable the default binding first before using a custom one
+    -- disable the default binding first before using a custom one: ======================
     pcall(vim.keymap.del, "n", "K", { buffer = ev.buf })
     keymap("n", "K", function() lsp.buf.hover({ border = "single", max_height = 30, max_width = 120 }) end,
       opt("Toggle hover"))
@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("n", "<Leader>lr", lsp.buf.rename, opt("Rename"))
     keymap("n", "<Leader>ls", lsp.buf.document_symbol, opt("Doument Symbols"))
 
-    -- diagnostic mappings
+    -- diagnostic mappings: =================================================================
     keymap("n", "<Leader>dD", function()
       local ok, diag = pcall(require, "rj.extras.workspace-diagnostic")
       if ok then
@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Command LSP                       ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Start, Stop, Restart, Log commands: ===========================================
+-- Start, Stop, Restart, Log commands: =========================================================
 vim.api.nvim_create_user_command("LspStart", function()
   vim.cmd.e()
 end, { desc = "Starts LSP clients in the current buffer" })
