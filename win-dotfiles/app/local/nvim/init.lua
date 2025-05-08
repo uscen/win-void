@@ -681,9 +681,6 @@ end)
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  -- diagnostic: ===================================================================
-  vim.keymap.set("n", "gl", vim.diagnostic.open_float)
-  vim.keymap.set("n", "gq", vim.diagnostic.setqflist)
   -- Basic Keymaps: ================================================================
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
