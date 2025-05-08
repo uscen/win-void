@@ -85,7 +85,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                       Keybiding LSP                     ║
+--          ║                       Command LSP                       ║
 --          ╚═════════════════════════════════════════════════════════╝
 -- Start, Stop, Restart, Log commands: ===========================================
 vim.api.nvim_create_user_command("LspStart", function()
