@@ -64,9 +64,14 @@ mapDesktopsFromRegistry() {
 }
 
 hexToBuffer(hex) {
+    hex := StrReplace(StrReplace(hex, ","), " ")
+    if Mod(StrLen(hex), 2)
+        throw ValueError("Hex string must have even length", -1)
+
     buf := Buffer(StrLen(hex)//2)
-    loop buf.Size
-        NumPut("UChar", Integer("0x" SubStr(hex, 2*A_Index-1, 2)), buf, A_Index-1)
+    loop buf.Size {
+        NumPut("UChar", Number("0x" SubStr(hex, 2*A_Index-1, 2)), buf, A_Index-1)
+    }
     return buf
 }
 
