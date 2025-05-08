@@ -8,7 +8,7 @@
 	"auto_update": false,
 	"vertical_scroll_margin": 0,
 	"horizontal_scroll_margin": 0,
-	"restore_on_startup": "none",
+	"restore_on_startup": "last_session",
 	"current_line_highlight": "none",
 	"extend_comment_on_newline": false,
 	"ensure_final_newline_on_save": false,
@@ -454,7 +454,6 @@
 	// # =============================================================================== #
 	// # LSP:                                                                            #
 	// # =============================================================================== #
-
 	"lsp": {
 		// # =============================================================================== #
 		// # For Emmet:                                                                      #
@@ -473,7 +472,10 @@
 		// # =============================================================================== #
 		"tailwindcss-language-server": {
 			"settings": {
-				"classAttributes": ["class", "className", "ngClass", "styles"]
+				"classAttributes": ["class", "className", "ngClass", "styles"],
+				"tailwindCSS": {
+					"emmetCompletions": true
+				}
 			}
 		},
 		// # =============================================================================== #

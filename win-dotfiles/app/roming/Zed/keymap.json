@@ -10,8 +10,6 @@
 			// # =============================================================================== #
 			// # Menu:                                                                           #
 			// # =============================================================================== #
-			"ctrl-h": "workspace::ActivatePaneLeft",
-			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-j": "menu::SelectNext",
 			"ctrl-k": "menu::SelectPrevious",
 			"tab": "menu::Confirm"
@@ -24,8 +22,8 @@
 		"context": "Editor || Workspace",
 		"bindings": {
 			"ctrl+e": "workspace::ToggleLeftDock",
-			"ctrl-k": "workspace::ActivatePaneUp",
-			"ctrl-j": "workspace::ActivatePaneDown",
+			"ctrl-h": "workspace::ActivatePaneLeft",
+			"ctrl-l": "workspace::ActivatePaneRight",
 			"ctrl-w h": "workspace::ActivatePaneLeft",
 			"ctrl-w l": "workspace::ActivatePaneRight",
 			"ctrl-w k": "workspace::ActivatePaneUp",
