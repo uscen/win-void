@@ -58,6 +58,11 @@ alias bunu = bun update
 alias buni = bun install
 alias bun-run = bun run
 alias bun-dev = bun --bun run dev
+# Node PKG Manager:                                                               #
+# =============================================================================== #
+alias npm = pnpm
+alias npx = pnpm dlx
+alias pr = pnpm run
 ## For Configs Files:                                                             #
 # =============================================================================== #
 alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
@@ -71,17 +76,10 @@ alias nuc = nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu
 # =============================================================================== #
 alias yt-concats = yt-dlp --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always
 alias yt-music = yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music"
+alias htop = ntop -u LLI -s CPU%
 alias man = tldr
 alias cat = bat
-alias htop = ntop -u LLI -s CPU%
 alias cls = clear
-alias chrome = start chrome
-alias firefox = start firefox
-alias zen = start zen
-# Node PKG Manager:                                                               #
-# =============================================================================== #
-alias npm = pnpm
-alias npx = pnpm dlx
 # =============================================================================== #
 # Functions Alias :                                                               #
 # =============================================================================== #

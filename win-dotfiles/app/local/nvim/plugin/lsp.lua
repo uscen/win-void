@@ -27,7 +27,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     --- Disable semantic tokens: =======================================================
     ---@diagnostic disable-next-line need-check-nil
-    client.server_capabilities.semanticTokensProvider = nil
+    -- client.server_capabilities.semanticTokensProvider = nil
+
+    -- Disable the default keybinds: ====================================================
+    for _, bind in ipairs({ "grn", "gra", "gri", "grr" }) do
+      pcall(vim.keymap.del, "n", bind)
+    end
 
     -- All the keymaps: =================================================================
     -- stylua: ignore start
@@ -38,12 +43,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return vim.tbl_extend("force", opts, { desc = desc }, others or {})
     end
     keymap("n", "gd", lsp.buf.definition, opt("Go to definition"))
-    keymap("n", "gD", function()
-      local ok, diag = pcall(require, "rj.extras.definition")
-      if ok then
-        diag.get_def()
-      end
-    end, opt("Get the definition in a float"))
     keymap("n", "gi", function() lsp.buf.implementation({ border = "single" }) end, opt("Go to implementation"))
     keymap("n", "gr", lsp.buf.references, opt("Show References"))
     keymap("n", "gl", vim.diagnostic.open_float, opt("Open diagnostic in float"))
@@ -62,17 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap("n", "<Leader>ll", lsp.codelens.run, opt("Run CodeLens"))
     keymap("n", "<Leader>lr", lsp.buf.rename, opt("Rename"))
     keymap("n", "<Leader>ls", lsp.buf.document_symbol, opt("Doument Symbols"))
-
     -- diagnostic mappings: =================================================================
-    keymap("n", "<Leader>dD", function()
-      local ok, diag = pcall(require, "rj.extras.workspace-diagnostic")
-      if ok then
-        for _, cur_client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
-          diag.populate_workspace_diagnostics(cur_client, 0)
-        end
-        vim.notify("INFO: Diagnostic populated")
-      end
-    end, opt("Popluate diagnostic for the whole workspace"))
     keymap("n", "<Leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, opt("Next Diagnostic"))
     keymap("n", "<Leader>dp", function() vim.diagnostic.jump({ count = -1, float = true }) end, opt("Prev Diagnostic"))
     keymap("n", "<Leader>dq", vim.diagnostic.setloclist, opt("Set LocList"))

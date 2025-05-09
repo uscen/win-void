@@ -7,7 +7,7 @@
 			"name": "Paradise",
 			"appearance": "dark",
 			"style": {
-				"border": "#151515",
+				"border": "#1F1F1F",
 				"border.variant": "#151515",
 				"border.focused": "#8C977D",
 				"border.selected": "#8C977D",

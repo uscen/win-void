@@ -539,7 +539,7 @@ now(function()
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
-  vim.wo.signcolumn             = "no"
+  vim.wo.signcolumn             = "yes"
   vim.opt.statuscolumn          = ""
   vim.opt.fillchars             = { eob = " " }
   vim.opt.listchars             = {
@@ -627,12 +627,24 @@ end)
 --          │                     Neovim Diagnostics                  │
 --          ╰─────────────────────────────────────────────────────────╯
 local diagnostic_opts = {
-  signs = { priority = 9999, severity = { min = 'WARN', max = 'ERROR' } },
-  underline = { severity = { min = 'HINT', max = 'ERROR' } },
-  virtual_text = { current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
-  virtual_lines = false,
   severity_sort = false,
   update_in_insert = false,
+  virtual_lines = false,
+  virtual_text = { current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
+  underline = { severity = { min = 'HINT', max = 'ERROR' } },
+  signs = {
+    priority = 9999,
+    severity = {
+      min = 'WARN',
+      max = 'ERROR',
+    },
+    text = {
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.ERROR] = " ",
+    },
+  },
 }
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
 later(function() vim.diagnostic.config(diagnostic_opts) end)

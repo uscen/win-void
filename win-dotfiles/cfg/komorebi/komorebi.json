@@ -30,6 +30,20 @@
       "background": "#151515"
     }
   },
+  "manage_rules": [
+    {
+      "kind": "Exe",
+      "id": "mpv.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "floating_applications": [
+    {
+      "kind": "Exe",
+      "id": "mpv.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
   "monitors": [
     {
       "workspaces": [
