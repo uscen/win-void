@@ -539,7 +539,7 @@ now(function()
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
-  vim.wo.signcolumn             = "yes"
+  vim.wo.signcolumn             = "no"
   vim.opt.statuscolumn          = ""
   vim.opt.fillchars             = { eob = " " }
   vim.opt.listchars             = {
