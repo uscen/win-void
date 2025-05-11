@@ -221,6 +221,8 @@ if palette then
 end
 -- General: =====================================================================
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = palette.base00 })
+vim.api.nvim_set_hl(0, 'Search', { fg = palette.base00, bg = palette.base09 })
+vim.api.nvim_set_hl(0, 'CurSearch', { fg = palette.base00, bg = palette.base0B })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base03, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = palette.base00, bg = palette.base0B })
 vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.base0B, bg = palette.base01 })

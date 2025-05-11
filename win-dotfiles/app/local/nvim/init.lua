@@ -644,9 +644,16 @@ local diagnostic_opts = {
       [vim.diagnostic.severity.WARN] = " ",
       [vim.diagnostic.severity.ERROR] = " ",
     },
+    -- interference With Mini.Diff ====================================================
+    -- numhl = {
+    --   [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+    --   [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+    --   [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+    --   [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+    -- },
   },
 }
--- Use `later()` to avoid sourcing `vim.diagnostic` on startup
+-- Use `later()` to avoid sourcing `vim.diagnostic` on startup: =======================
 later(function() vim.diagnostic.config(diagnostic_opts) end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim automads                     │
@@ -671,7 +678,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ timeout = 200 })
+      vim.highlight.on_yank({ higroup = 'CurSearch', timeout = 200 })
     end,
   })
   -- Eable FormatOnSave =============================================================
@@ -850,7 +857,6 @@ end)
 later(function()
   vim.filetype.add({
     extension = {
-      ["env"] = "dotenv",
       ["http"] = "http",
       ["json"] = "jsonc",
       ["map"] = "json",
@@ -859,12 +865,10 @@ later(function()
     filename = {
       ["xhtml"] = "html",
       ["tsconfig.json"] = "jsonc",
-      [".env"] = "dotenv",
-      [".envrc"] = "sh",
       ['.yamlfmt'] = 'yaml',
     },
     pattern = {
-      ["%.env%.[%w_.-]+"] = "dotenv",
+      ["%.env%.[%w_.-]+"] = "sh",
       [".gitconfig.*"] = "gitconfig",
     },
   })
