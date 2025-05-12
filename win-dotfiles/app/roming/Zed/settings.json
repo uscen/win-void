@@ -151,7 +151,7 @@
 		"entry_spacing": "comfortable",
 		"dock": "left",
 		"default_width": 246,
-		"indent_size": 16
+		"indent_size": 10
 	},
 	"centered_layout": {
 		"left_padding": 0.1,
@@ -500,20 +500,20 @@
 							"suppressWhenArgumentMatchesName": false
 						},
 						"parameterTypes": {
-							"enabled": true
+							"enabled": false
 						},
 						"variableTypes": {
-							"enabled": true,
-							"suppressWhenTypeMatchesName": true
+							"enabled": false,
+							"suppressWhenTypeMatchesName": false
 						},
 						"propertyDeclarationTypes": {
-							"enabled": true
+							"enabled": false
 						},
 						"functionLikeReturnTypes": {
-							"enabled": true
+							"enabled": false
 						},
 						"enumMemberValues": {
-							"enabled": true
+							"enabled": false
 						}
 					}
 				},
@@ -527,20 +527,20 @@
 							"suppressWhenArgumentMatchesName": false
 						},
 						"parameterTypes": {
-							"enabled": true
+							"enabled": false
 						},
 						"variableTypes": {
-							"enabled": true,
+							"enabled": false,
 							"suppressWhenTypeMatchesName": true
 						},
 						"propertyDeclarationTypes": {
-							"enabled": true
+							"enabled": false
 						},
 						"functionLikeReturnTypes": {
-							"enabled": true
+							"enabled": false
 						},
 						"enumMemberValues": {
-							"enabled": true
+							"enabled": false
 						}
 					}
 				}
