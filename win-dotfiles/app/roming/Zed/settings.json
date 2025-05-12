@@ -78,7 +78,7 @@
 			"normal": "block",
 			"insert": "bar",
 			"replace": "hollow",
-			"visual": "underline"
+			"visual": "block"
 		}
 	},
 	"command_aliases": {
@@ -150,8 +150,11 @@
 		"auto_reveal_entries": false,
 		"entry_spacing": "comfortable",
 		"dock": "left",
-		"default_width": 246,
-		"indent_size": 10
+		"default_width": 250,
+		"indent_guides": {
+			"show": "never"
+		},
+		"indent_size": 15
 	},
 	"centered_layout": {
 		"left_padding": 0.1,
