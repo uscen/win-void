@@ -106,6 +106,7 @@ draw_bold_text_with_bright_colors = false
 [keyboard]
 bindings = [
 	{ key = "Space", mods = "Control", chars = "\u0000" },
+  { key = "Space", mods ="Control|Shift",action = "ToggleViMode"},
   { key = "V", mods = "Control|Shift", action = "Paste" },
   { key = "C", mods = "Control|Shift", action = "Copy" },
   { key = "Paste", action = "Paste" },
