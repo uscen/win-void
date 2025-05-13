@@ -715,8 +715,8 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   -- Basic Keymaps: ================================================================
-  vim.keymap.set("n", "<C-s>", ":silent up<CR>")
-  vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
+  vim.keymap.set('i', '<C-s>', '<Esc><Cmd>w<CR>i')
+  vim.keymap.set('n', '<C-s>', '<Cmd>w<CR>')
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")

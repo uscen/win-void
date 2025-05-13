@@ -53,7 +53,7 @@
   "Create useState hook": {
     "prefix": ["uss", "ust"],
     "body": [
-      "const [${1:state}, set${1:State}] = useState(${2:defaultState});"
+      "const [${1:state}, set${2:State}] = useState(${3:defaultState});"
     ],
     "description": "Creates React useState hook"
   },
