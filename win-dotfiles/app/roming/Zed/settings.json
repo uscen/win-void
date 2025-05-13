@@ -68,12 +68,12 @@
 	"vim_mode": true,
 	"vim": {
 		"default_mode": "normal",
-		"toggle_relative_line_numbers": false,
 		"use_system_clipboard": "always",
-		"use_multiline_find": true,
-		"use_smartcase_find": false,
 		"highlight_mn_yank_duration": 100,
-		"enable_vim_sneak": true,
+		"toggle_relative_line_numbers": false,
+		"use_multiline_find": false,
+		"use_smartcase_find": false,
+		"enable_vim_sneak": false,
 		"cursor_shape": {
 			"normal": "block",
 			"insert": "bar",
@@ -534,7 +534,7 @@
 						},
 						"variableTypes": {
 							"enabled": false,
-							"suppressWhenTypeMatchesName": true
+							"suppressWhenTypeMatchesName": false
 						},
 						"propertyDeclarationTypes": {
 							"enabled": false
