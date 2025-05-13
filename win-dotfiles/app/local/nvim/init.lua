@@ -37,7 +37,7 @@ end)
 --          │                     Mini.Misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.misc').setup_auto_root { '.git' }
+  require('mini.misc').setup_auto_root { '.git', "package.json" }
   require('mini.misc').setup_restore_cursor()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
