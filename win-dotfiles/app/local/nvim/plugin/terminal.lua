@@ -12,7 +12,7 @@ vim.keymap.set({ "n", "t" }, "<C-t>", (function()
       row = math.floor(vim.o.lines * 0.1),
       col = math.floor(vim.o.columns * 0.1),
       style = 'minimal',
-      border = 'rounded',
+      border = 'single',
     }
   end
   return function()
