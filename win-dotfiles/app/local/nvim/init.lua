@@ -374,7 +374,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable configured language servers 0.11: ========================================
-  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "prisma", "markdown" }
+  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "eslint", "prisma", "markdown" }
   vim.lsp.config("*", {
     capabilities = {
       textDocument = {
