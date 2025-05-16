@@ -731,18 +731,15 @@ later(function()
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
   vim.keymap.set("n", "<leader>bd", ":bd<CR>")
   vim.keymap.set('n', '<space>bb', function()
-    local current_buf = vim.api.nvim_get_current_buf()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.bo[buf].buflisted and buf ~= current_buf then
-        -- Use `bd!` to force-close
+      if vim.bo[buf].buflisted and buf ~= vim.api.nvim_get_current_buf() then
         vim.cmd('silent! bd ' .. buf)
       end
     end
   end)
   -- Subtitle Keys: =================================================================
-  vim.keymap.set('', 'S', function()
-    local cmd = ':%s//gcI<Left><Left><Left><Left>'
-    return vim.fn.mode() == 'n' and string.format(cmd, '%s') or string.format(cmd, 's')
+  vim.keymap.set('n', 'S', function()
+    return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/'
   end, { expr = true })
   --  Magick: ===================================================================
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
