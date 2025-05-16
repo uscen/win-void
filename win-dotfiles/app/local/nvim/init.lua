@@ -559,7 +559,6 @@ now(function()
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
   vim.o.formatexpr              = "v:lua.require'conform'.formatexpr()"
-  vim.o.iskeyword               = '@,48-57,_,192-255,-'
   -- Fold:  ================================================================
   vim.opt.foldenable            = false
   vim.opt.foldlevel             = 99
@@ -744,7 +743,7 @@ later(function()
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
-  vim.keymap.set("x", "R", ":s###g<left><left><left>", { desc = "Start replacement in the visual selected region" })
+  vim.keymap.set("x", "R", ":s###g<left><left><left>")
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
