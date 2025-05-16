@@ -541,13 +541,11 @@ now(function()
   vim.opt.shortmess             = "FOSWaco"
   vim.wo.signcolumn             = "no"
   vim.opt.statuscolumn          = ""
-  vim.opt.fillchars             = { eob = " " }
-  vim.opt.listchars             = {
-    tab = "▏ ",
-    trail = "·",
-    extends = "»",
-    precedes = "«",
-  }
+  vim.o.fillchars               = table.concat(
+    { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
+    ','
+  )
+  vim.o.listchars               = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ================================================================
   vim.opt.autoindent            = true
   vim.opt.expandtab             = true
@@ -561,6 +559,7 @@ now(function()
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
   vim.o.formatexpr              = "v:lua.require'conform'.formatexpr()"
+  vim.o.iskeyword               = '@,48-57,_,192-255,-'
   -- Fold:  ================================================================
   vim.opt.foldenable            = false
   vim.opt.foldlevel             = 99
