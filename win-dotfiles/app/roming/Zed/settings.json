@@ -47,6 +47,7 @@
 		"file_icons": true,
 		"show_diagnostics": "errors",
 		"close_position": "right",
+		"activate_on_close": "history",
 		"show_close_button": "hidden"
 	},
 	// # =============================================================================== #

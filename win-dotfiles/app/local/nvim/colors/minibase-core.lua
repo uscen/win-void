@@ -229,7 +229,7 @@ vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base03, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = palette.base00, bg = palette.base0B })
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base00, fg = palette.base0B })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base0B })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base01, fg = palette.base0B })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.base09 })
 vim.api.nvim_set_hl(0, "PmenuMatchSel", { link = "PmenuMatch" })
 vim.api.nvim_set_hl(0, "PmenuSbar", { link = "Pmenu" })
