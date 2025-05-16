@@ -730,13 +730,14 @@ later(function()
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
   vim.keymap.set("n", "<leader>bd", ":bd<CR>")
-  vim.keymap.set("n", "<leader>bb", function()
-    vim.cmd("silent update")
-    local bufs = vim.tbl_filter(function(buf)
-      return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buftype ~= "terminal"
-    end, vim.api.nvim_list_bufs())
-    if #bufs > 0 then vim.cmd("bdelete " .. table.concat(bufs, " ")) end
-    vim.cmd("silent! bdelete# | e# | bd# | '\"")
+  vim.keymap.set('n', '<space>bb', function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.bo[buf].buflisted and buf ~= current_buf then
+        -- Use `bd!` to force-close
+        vim.cmd('silent! bd ' .. buf)
+      end
+    end
   end)
   -- Subtitle Keys: =================================================================
   vim.keymap.set('', 'S', function()
