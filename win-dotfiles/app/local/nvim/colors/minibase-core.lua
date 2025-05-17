@@ -217,7 +217,7 @@ if palette then
   require("mini.base16").setup({
     palette = palette,
   })
-  vim.g.colors_name = "Minibase-Core"
+  vim.g.colors_name = "minibase-core"
 end
 -- General: =====================================================================
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = "Normal" })
