@@ -74,7 +74,7 @@ alias barc = nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml
 alias nuc = nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
-alias yt-concats = yt-dlp --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always
+alias yt-concats = yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always -S "codec:h264"
 alias yt-music = yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music"
 alias htop = ntop -u LLI -s CPU%
 alias man = tldr

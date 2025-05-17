@@ -4,15 +4,12 @@
 return {
   cmd = { "emmet-language-server", "--stdio" },
   filetypes = {
-    "css",
-    "eruby",
     "html",
-    "javascript",
-    "javascriptreact",
+    "css",
     "less",
     "sass",
     "scss",
-    "pug",
+    "javascriptreact",
     "typescriptreact",
   },
   init_options = {
