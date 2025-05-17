@@ -1,6 +1,15 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                     Toggle Lazygit                      ║
 --          ╚═════════════════════════════════════════════════════════╝
+local group = vim.api.nvim_create_augroup("LazygitClose", { clear = true })
+vim.api.nvim_create_autocmd("TermClose", {
+  group = group,
+  pattern = { "term://*lazygit" },
+  callback = function()
+    vim.api.nvim_input("<CR>")
+  end,
+})
+
 vim.keymap.set({ "n", "t" }, "<leader>gg", (function()
   local buf, win = nil, nil
   local was_insert = true
