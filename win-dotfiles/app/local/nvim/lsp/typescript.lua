@@ -13,6 +13,16 @@ return {
   },
   root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
   settings = {
+    vtsls = {
+      autoUseWorkspaceTsdk = true,
+      experimental = {
+        maxInlayHintLength = 30,
+        -- For completion performance.
+        completion = {
+          enableServerSideFuzzyMatch = true,
+        },
+      },
+    },
     typescript = {
       preferences = {
         inlayHints = {
