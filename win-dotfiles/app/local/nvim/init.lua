@@ -526,7 +526,7 @@ now(function()
   vim.opt.showmatch             = true
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
-  vim.opt.pumblend              = 15
+  vim.opt.pumblend              = 10
   vim.opt.pumwidth              = 20
   vim.opt.pumheight             = 10
   vim.opt.wrap                  = false
