@@ -360,6 +360,7 @@ now(function()
       end
     },
   })
+  require('mini.snippets').start_lsp_server()
   -- Expand Snippets Or complete by Tab ===============================================
   expand_or_complete = function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
