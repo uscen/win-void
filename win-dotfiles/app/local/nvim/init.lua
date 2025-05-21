@@ -391,6 +391,7 @@ now(function()
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
+  -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
     delay = { completion = 100, info = 100, signature = 50 },
     mappings = {
@@ -430,6 +431,13 @@ end)
 later(function()
   add("windwp/nvim-ts-autotag")
   require('nvim-ts-autotag').setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                    TS Rainbow delimiters                │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  add("hiphish/rainbow-delimiters.nvim")
+  require('rainbow-delimiters.setup').setup()
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Formatting                      ║
