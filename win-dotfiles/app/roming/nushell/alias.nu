@@ -62,7 +62,6 @@ alias bun-dev = bun --bun run dev
 # =============================================================================== #
 alias npm = pnpm
 alias npx = pnpm dlx
-alias pr = pnpm run
 ## For Configs Files:                                                             #
 # =============================================================================== #
 alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
