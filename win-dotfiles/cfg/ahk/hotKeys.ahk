@@ -64,8 +64,8 @@ Capslock::Esc
 ; # =============================================================================== #
 ; # Run App:                                                                        #
 ; # =============================================================================== #
-!Enter:: Run("alacritty.exe")
-!+Enter:: Run("wt.exe")
+!Enter:: Run("wt.exe")
+!+Enter:: Run("alacritty.exe")
 !+n:: Run("explorer.exe")
 !w:: Run("chromium.exe")
 !i:: Run("msedge.exe")
