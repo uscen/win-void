@@ -55,10 +55,8 @@
   "window.commandCenter": false,
   "editor.occurrencesHighlight": "off",
   "editor.matchBrackets": "never",
-  "editor.minimap.enabled": false,
   "files.restoreUntitledEditors": false,
   "window.restoreWindows": "none",
-  "workbench.startupEditor": "none",
   "scm.diffDecorationsGutterPattern": {
     "added": false,
     "modified": false
