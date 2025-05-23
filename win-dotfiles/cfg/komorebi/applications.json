@@ -1563,7 +1563,7 @@
           "matching_strategy": "StartsWith"
         }
       ]
-     ]
+    ]
   },
   "Microsoft Teams": {
     "tray_and_multi_window": [
