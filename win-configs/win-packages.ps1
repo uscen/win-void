@@ -56,6 +56,7 @@ $scoopPackages = @(
     "carapace-bin",
     "gsudo",
     "alacritty",
+    "windows-terminal",
     "yazi",
     "fd",
     "pastel",

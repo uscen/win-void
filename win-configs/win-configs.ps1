@@ -27,4 +27,4 @@ Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\local\* -Destination 
 # =============================================================================== #
 # Others:					                                                                #
 # =============================================================================== #
-Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\others\wt\* -Destination $Env:localAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\ -Recurse -Force
+Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\others\wt\LocalState\* -Destination $Env:USERPROFILE\scoop\persist\windows-terminal\settings -Recurse -Force
