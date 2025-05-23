@@ -1,3 +1,6 @@
+; # =============================================================================== #
+; # PaperWM inspired scrolling window manager:                                      #
+; # =============================================================================== #
 #Requires AutoHotkey v2.0
 ; #include WinEvent.ahk
 
@@ -74,7 +77,7 @@ ShellMessage(msg_type, lparam, msg, hwnd) {
 	else if msg_type = WM_SIZE {
 		OutputDebug "resize"
 		ReflowWindows()
-	} 
+	}
 	; else if msg_type = WM_SETFOCUS {
 	; 	OutputDebug "focus"
 	; 	ScrollWindowOnScreen(lparam)
@@ -174,7 +177,7 @@ FocusNext() {
 FocusPrev() {
 	OutputDebug "In FocusPrev"
 	global FocusedWindowIndex
-	
+
 	if FocusedWindowIndex = 0 {
 		if Windows.Length > 0 {
 			FocusWindowAtIndex(Windows.Length)
