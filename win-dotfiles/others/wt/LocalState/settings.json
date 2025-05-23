@@ -19,8 +19,9 @@
       "bellStyle": "none",
       "font": {
         "face": "JetBrainsMono Nerd Font",
-        "size": 9.5,
-        "weight": "light"
+        "size": 9.33,
+        "axes": { "wght": 400 },
+        "weight": "normal"
       }
     },
     "list": [
