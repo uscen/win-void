@@ -13,7 +13,7 @@ global CurrentDesktop := 1
 global wrapAroundEnabled := true
 global pingPongDirection := false ; Right 0, Left 1 (Non-editable)
 ; # =============================================================================== #
-; # Global variables:                                                               #
+; # mapDesktopsFromRegistry:                                                        #
 ; # =============================================================================== #
 mapDesktopsFromRegistry() {
     global DesktopCount, CurrentDesktop
