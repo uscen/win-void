@@ -147,7 +147,10 @@ later(function()
       todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
       -- Highlight hex color strings (`#rrggbb`) using that color: =========================
-      hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+      hex_color = require("mini.hipatterns").gen_highlighter.hex_color({
+        style = "inline",
+        inline_text = "⬤ ",
+      }),
     },
   })
 end)
@@ -569,8 +572,8 @@ now(function()
   vim.opt.showmatch             = true
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
-  vim.opt.pumblend              = 10
   vim.opt.pumwidth              = 20
+  vim.opt.pumblend              = 10
   vim.opt.pumheight             = 10
   vim.opt.wrap                  = false
   vim.opt.breakindent           = true
@@ -599,6 +602,9 @@ now(function()
   vim.opt.smartcase             = true
   vim.opt.smartindent           = true
   vim.opt.tabstop               = 2
+  vim.o.breakindentopt          = "list:-1"
+  vim.o.formatlistpat           = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+  vim.o.iskeyword               = '@,48-57,_,192-255,-'
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
   vim.o.formatexpr              = "v:lua.require'conform'.formatexpr()"
