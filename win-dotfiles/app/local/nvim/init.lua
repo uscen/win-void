@@ -53,12 +53,6 @@ later(function()
   require("mini.trailspace").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Ai                             │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.ai").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Diff                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -173,6 +167,46 @@ later(function()
       ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
       ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
       ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+    },
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Ai                             │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.ai").setup({
+    custom_textobjects = {
+      e = {
+        {
+          -- __-1, __-U, __-l, __-1_, __-U_, __-l_
+          '[^_%-]()[_%-]+()%w()()[%s%p]',
+          '^()[_%-]+()%w()()[%s%p]',
+          -- __-123SNAKE
+          '[^_%-]()[_%-]+()%d+%u[%u%d]+()()',
+          '^()[_%-]+()%d+%u[%u%d]+()()',
+          -- __-123snake
+          '[^_%-]()[_%-]+()%d+%l[%l%d]+()()',
+          '^()[_%-]+()%d+%l[%l%d]+()()',
+          -- __-SNAKE, __-SNAKE123
+          '[^_%-]()[_%-]+()%u[%u%d]+()()',
+          '^()[_%-]+()%u[%u%d]+()()',
+          -- __-snake, __-Snake, __-snake123, __-Snake123
+          '[^_%-]()[_%-]+()[%u%l][%l%d]+()()',
+          '^()[_%-]+()[%u%l][%l%d]+()()',
+          -- UPPER, UPPER123, UPPER-__, UPPER123-__
+          -- No support: 123UPPER
+          '[^_%-%u]()()%u[%u%d]+()[_%-]*()',
+          '^()()%u[%u%d]+()[_%-]*()',
+          -- UPlower, UPlower123, UPlower-__, UPlower123-__
+          '%u%u()()[%l%d]+()[_%-]*()',
+          -- lower, lower123, lower-__, lower123-__
+          '[^_%-%u%l%d]()()[%l%d]+()[_%-]*()',
+          '^()()[%l%d]+()[_%-]*()',
+          -- Camel, Camel123, Camel-__, Camel123-__
+          '[^_%-%u]()()%u[%l%d]+()[_%-]*()',
+          '^()()%u[%l%d]+()[_%-]*()',
+        },
+      },
     },
   })
 end)
@@ -587,8 +621,7 @@ now(function()
   vim.g.loaded_perl_provider    = 0
   vim.g.loaded_node_provider    = 0
   -- Disable builtin plugins: ===============================================
-  vim.opt.shortmess:append("sI")
-  local disabled_built_ins = {
+  local disabled_built_ins      = {
     "osc52",
     "parser",
     "health",

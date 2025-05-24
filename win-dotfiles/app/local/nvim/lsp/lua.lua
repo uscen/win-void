@@ -11,6 +11,9 @@ return {
       workspace = {
         library = { vim.env.VIMRUNTIME, "${3rd}/luv/library" },
       },
+      diagnostics = {
+        globals = { "MiniDeps", "MiniPick", "MiniTabline", "MiniSnippets", "MiniTrailspace" },
+      },
       telemetry = {
         enable = false,
       },
