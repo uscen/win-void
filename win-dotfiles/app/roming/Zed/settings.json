@@ -91,6 +91,7 @@
 	// # Search:                                                                         #
 	// # =============================================================================== #
 	"search": {
+		"button": false,
 		"whole_word": false,
 		"case_sensitive": false,
 		"include_ignored": false,
@@ -127,6 +128,16 @@
 	// # =============================================================================== #
 	"features": {
 		"copilot": false
+	},
+	"minimap": {
+		"show": "never"
+	},
+	"title_bar": {
+		"show_user_picture": false,
+		"show_branch_name": false,
+		"show_branch_icon": false,
+		"show_project_items": false,
+		"show_onboarding_banner": false
 	},
 	"telemetry": {
 		"diagnostics": false,
@@ -188,7 +199,6 @@
 	},
 	"gutter": {
 		"line_numbers": true,
-		"code_actions": false,
 		"runnables": false,
 		"folds": false
 	},
