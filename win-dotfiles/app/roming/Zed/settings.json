@@ -133,7 +133,7 @@
 		"copilot": false
 	},
 	"minimap": {
-		"show": "never"
+		"show": "always"
 	},
 	"telemetry": {
 		"diagnostics": false,

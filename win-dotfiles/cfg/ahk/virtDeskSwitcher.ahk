@@ -64,14 +64,22 @@ mapDesktopsFromRegistry() {
 }
 
 hexToBuffer(hex) {
-    hex := StrReplace(StrReplace(hex, ","), " ")
-    if Mod(StrLen(hex), 2)
-        throw ValueError("Hex string must have even length", -1)
+    ; Remove all non-hex characters (0-9, A-F, a-f)
+    hex := RegExReplace(hex, "[^0-9A-Fa-f]", "")
 
-    buf := Buffer(StrLen(hex)//2)
-    loop buf.Size {
-        NumPut("UChar", Number("0x" SubStr(hex, 2*A_Index-1, 2)), buf, A_Index-1)
+    ; Ensure even length (pad with leading 0 if needed)
+    if (Mod(StrLen(hex), 2) != 0)
+        hex := "0" hex
+
+    bufSize := StrLen(hex) // 2
+    buf := Buffer(bufSize)
+
+    loop bufSize {
+        hexByte := SubStr(hex, 2*A_Index - 1, 2)
+        byte := "0x" hexByte  ; Force hex interpretation
+        NumPut("UChar", byte + 0, buf, A_Index - 1)  ; +0 ensures numeric conversion
     }
+
     return buf
 }
 
