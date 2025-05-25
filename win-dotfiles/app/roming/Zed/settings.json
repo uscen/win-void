@@ -9,6 +9,7 @@
 	"scroll_sensitivity": 2,
 	"vertical_scroll_margin": 0,
 	"horizontal_scroll_margin": 0,
+	"show_whitespaces": "none",
 	"restore_on_startup": "none",
 	"current_line_highlight": "none",
 	"extend_comment_on_newline": false,
