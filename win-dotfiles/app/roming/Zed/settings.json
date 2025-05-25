@@ -172,7 +172,7 @@
 		"auto_reveal_entries": false,
 		"entry_spacing": "comfortable",
 		"dock": "left",
-		"default_width": 100,
+		"default_width": 200,
 		"indent_guides": {
 			"show": "never"
 		},
