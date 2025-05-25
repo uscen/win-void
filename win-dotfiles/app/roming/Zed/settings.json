@@ -6,6 +6,7 @@
 	// # General:                                                                        #
 	// # =============================================================================== #
 	"auto_update": false,
+	"scroll_sensitivity": 2,
 	"vertical_scroll_margin": 0,
 	"horizontal_scroll_margin": 0,
 	"restore_on_startup": "none",
@@ -53,6 +54,7 @@
 	// # =============================================================================== #
 	// # Completions:                                                                    #
 	// # =============================================================================== #
+	"lsp_highlight_debounce": 100,
 	"show_completions_on_input": true,
 	"show_completion_documentation": false,
 	"show_signature_help_after_edits": false,
@@ -132,13 +134,6 @@
 	"minimap": {
 		"show": "never"
 	},
-	"title_bar": {
-		"show_user_picture": false,
-		"show_branch_name": false,
-		"show_branch_icon": false,
-		"show_project_items": false,
-		"show_onboarding_banner": false
-	},
 	"telemetry": {
 		"diagnostics": false,
 		"metrics": false
@@ -152,6 +147,21 @@
 		"breadcrumbs": false,
 		"quick_actions": false
 	},
+	"title_bar": {
+		"show_user_picture": false,
+		"show_branch_name": false,
+		"show_branch_icon": false,
+		"show_project_items": false,
+		"show_onboarding_banner": false
+	},
+	"scrollbar": {
+		"show": "never",
+		"cursors": false,
+		"git_diff": true,
+		"search_results": true,
+		"selected_symbol": true,
+		"diagnostics": "all"
+	},
 	"project_panel": {
 		"button": true,
 		"file_icons": true,
@@ -162,11 +172,11 @@
 		"auto_reveal_entries": false,
 		"entry_spacing": "comfortable",
 		"dock": "left",
-		"default_width": 250,
+		"default_width": 100,
 		"indent_guides": {
 			"show": "never"
 		},
-		"indent_size": 15
+		"indent_size": 12
 	},
 	"centered_layout": {
 		"left_padding": 0.1,
@@ -213,18 +223,15 @@
 		"dock": "right"
 	},
 	"collaboration_panel": {
+		"button": false,
 		"dock": "right"
 	},
 	"chat_panel": {
+		"button": "never",
 		"default_width": 380
 	},
-	"scrollbar": {
-		"show": "never",
-		"cursors": false,
-		"git_diff": true,
-		"search_results": true,
-		"selected_symbol": true,
-		"diagnostics": "all"
+	"notification_panel": {
+		"button": false
 	},
 	// # =============================================================================== #
 	// # Edit predictions:                                                               #
@@ -312,17 +319,31 @@
 		"source.organizeImports": true
 	},
 	"prettier": {
+		"allowed": true,
 		"printWidth": 80,
 		"tabWidth": 2,
 		"useTabs": false,
 		"semi": true,
 		"singleQuote": true,
-		"trailingComma": "all",
+		"quoteProps": "as-needed",
+		"jsxSingleQuote": false,
+		"trailingComma": "none",
 		"bracketSpacing": true,
 		"jsxBracketSameLine": false,
-		"arrowParens": "avoid",
+		"arrowParens": "always",
+		"requirePragma": false,
+		"insertPragma": false,
 		"proseWrap": "preserve",
-		"endOfLine": "lf"
+		"htmlWhitespaceSensitivity": "css",
+		"endOfLine": "lf",
+		"overrides": [
+			{
+				"files": ["*.json"],
+				"options": {
+					"singleQuote": false
+				}
+			}
+		]
 	},
 	// # =============================================================================== #
 	// # Eslint:                                                                         #
