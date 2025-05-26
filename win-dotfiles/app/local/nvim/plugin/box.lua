@@ -1,7 +1,7 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Box Comments                      ║
 --          ╚═════════════════════════════════════════════════════════╝
-vim.keymap.set("n", "gM", function(symbol, total_width)
+vim.keymap.set("n", "gcb", function(symbol, total_width)
   local count = vim.v.count1
 
   symbol = symbol or "─"
