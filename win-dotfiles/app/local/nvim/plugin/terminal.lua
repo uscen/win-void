@@ -116,6 +116,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup,
   callback = function()
     local set = vim.opt_local
+    set.buflisted = false
     set.number = false
     set.relativenumber = false
     set.scrolloff = 0

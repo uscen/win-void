@@ -755,6 +755,23 @@ later(function()
       vim.keymap.set('n', 'q', ':cclose<CR>', { buffer = true, silent = true })
     end
   })
+  -- Mini.Files Fix height: ==========================================================
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesWindowUpdate',
+    callback = function(args)
+      local config = vim.api.nvim_win_get_config(args.data.win_id)
+      -- Ensure fixed height
+      config.height = 10
+      -- Ensure title padding
+      if config.title[#config.title][1] ~= ' ' then
+        table.insert(config.title, { ' ', 'NormalFloat' })
+      end
+      if config.title[1][1] ~= ' ' then
+        table.insert(config.title, 1, { ' ', 'NormalFloat' })
+      end
+      vim.api.nvim_win_set_config(args.data.win_id, config)
+    end,
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
@@ -800,7 +817,15 @@ later(function()
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Terminal: ====================================================================
-  vim.keymap.set({ "n", "t" }, "<C-t>", "<CMD>FloatTermToggle<CR>")
+  vim.keymap.set({ "n", "t" }, "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
+  vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<leader>t", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 20)
+    vim.cmd("startinsert")
+  end)
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
   vim.keymap.set('n', '<leader>fn', directory_pick)
