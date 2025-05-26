@@ -799,6 +799,8 @@ later(function()
   vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
+  -- Terminal: ====================================================================
+  vim.keymap.set({ "n", "t" }, "<C-t>", "<CMD>FloatTermToggle<CR>")
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
   vim.keymap.set('n', '<leader>fn', directory_pick)
