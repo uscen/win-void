@@ -124,6 +124,18 @@ later(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                   Mini.Jump2d                           │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.jump2d").setup({
+    labels = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    view = { dim = true, n_steps_ahead = 1 },
+    allowed_lines = { cursor_at = false },
+    mappings = { start_jumping = "" },
+    silent = true,
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Surround                       │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -839,6 +851,8 @@ later(function()
   -- Mini Files: =================================================================
   vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
+  -- Mini Jump2d: ================================================================
+  vim.keymap.set({ "o", "x", "n" }, "s", "<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>")
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Neovide                        ║
