@@ -711,13 +711,13 @@ local diagnostic_opts = {
     -- },
   },
 }
--- Use `later()` to avoid sourcing `vim.diagnostic` on startup: =======================
+-- Use `later()` to avoid sourcing `vim.diagnostic` on startup: ======================
 later(function() vim.diagnostic.config(diagnostic_opts) end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim automads                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  -- Remove Space && Last_Lines ====================================================
+  -- Remove Space && Last_Lines =====================================================
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = "MiniTrailspace",
     callback = function()
@@ -747,7 +747,7 @@ later(function()
   end, {
     desc = "Re-enable autoformat-on-save",
   })
-  -- Disable FormatOnSave =============================================================
+  -- Disable FormatOnSave ===========================================================
   vim.api.nvim_create_user_command("FormatDisable", function(args)
     if args.bang then
       vim.b.disable_autoformat = true
@@ -759,12 +759,21 @@ later(function()
     desc = "Disable autoformat-on-save",
     bang = true,
   })
+  -- Disable indentscope in Terminals ===============================================
+  vim.api.nvim_create_autocmd("TermEnter", {
+    callback = function()
+      vim.b.miniindentscope_disable = true
+    end
+  })
   -- Qucikfix List: =================================================================
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
-    callback = function()
-      vim.keymap.set('n', '<Tab>', '<CR>', { buffer = true })
-      vim.keymap.set('n', 'q', ':cclose<CR>', { buffer = true, silent = true })
+    callback = function(event)
+      local opts = { buffer = event.buf, silent = true }
+      vim.keymap.set('n', '<C-j>', '<cmd>cn<CR>zz<cmd>wincmd p<CR>', opts)
+      vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', opts)
+      vim.keymap.set('n', '<Tab>', '<CR>', opts)
+      vim.keymap.set('n', 'q', '<cmd>cclose<CR>', { buffer = true })
     end
   })
 end)
