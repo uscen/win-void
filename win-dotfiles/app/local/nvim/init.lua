@@ -815,7 +815,7 @@ later(function()
       end
     end
   end)
-  -- Terminal: ====================================================================
+  -- Terminal: =====================================================================
   vim.keymap.set({ "n", "t" }, "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
   vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { noremap = true, silent = true })
   vim.keymap.set("n", "<leader>t", function()
@@ -825,6 +825,10 @@ later(function()
     vim.api.nvim_win_set_height(0, 20)
     vim.cmd("startinsert")
   end)
+  -- Mini Theme: ===================================================================
+  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<cr>", { desc = 'Dark Background' })
+  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<cr>", { desc = 'Light Background' })
+  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<cr>", { desc = 'Random Colorscheme' })
   -- Move inside completion list with <TAB> ========================================
   vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
@@ -856,6 +860,7 @@ later(function()
   vim.keymap.set("n", "<leader>gs", "<Cmd>lua MiniGit.show_at_cursor()<CR>")
   vim.keymap.set("n", "<leader>gl", [[<Cmd>Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order<CR>]])
   vim.keymap.set("n", "<leader>gh", [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
+  vim.keymap.set("n", "<leader>gx", function() require('mini.git').show_at_cursor() end)
   -- Mini Files: =================================================================
   vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
