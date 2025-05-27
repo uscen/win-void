@@ -792,14 +792,14 @@ later(function()
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
+  -- Move lines up and down in visual mode =========================================
+  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
   --  Magick: ======================================================================
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
-  -- Move lines up and down in visual mode =========================================
-  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
   -- Subtitle Keys: =================================================================
   vim.keymap.set('n', 'S', function()
     return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/'
