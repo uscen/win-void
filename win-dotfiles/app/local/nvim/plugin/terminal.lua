@@ -25,7 +25,7 @@ M.state = {
     local col = math.floor(0.8 * (current_columns - width) / 2)
     local row = math.floor((current_lines - height) / 2)
     return {
-      title = "FloatTerm",
+      title = "Terminal",
       relative = "editor",
       title_pos = "left",
       width = width,

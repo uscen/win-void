@@ -792,6 +792,10 @@ later(function()
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
+  -- Theme: ========================================================================
+  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<cr>")
+  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<cr>")
+  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<cr>")
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -825,10 +829,6 @@ later(function()
     vim.api.nvim_win_set_height(0, 20)
     vim.cmd("startinsert")
   end)
-  -- Mini Theme: ===================================================================
-  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<cr>", { desc = 'Dark Background' })
-  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<cr>", { desc = 'Light Background' })
-  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<cr>", { desc = 'Random Colorscheme' })
   -- Move inside completion list with <TAB> ========================================
   vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
   vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
