@@ -792,6 +792,18 @@ later(function()
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
+  --  Magick: ======================================================================
+  vim.keymap.set("n", "ycc", "yygccp", { remap = true })
+  vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
+  vim.keymap.set("x", "/", "<Esc>/\\%V")
+  vim.keymap.set("x", "R", ":s###g<left><left><left>")
+  -- Move lines up and down in visual mode =========================================
+  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+  -- Subtitle Keys: =================================================================
+  vim.keymap.set('n', 'S', function()
+    return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/'
+  end, { expr = true })
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
@@ -803,22 +815,6 @@ later(function()
       end
     end
   end)
-  -- Subtitle Keys: =================================================================
-  vim.keymap.set('n', 'S', function()
-    return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/'
-  end, { expr = true })
-  --  Magick: ===================================================================
-  vim.keymap.set("n", "ycc", "yygccp", { remap = true })
-  vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
-  vim.keymap.set("x", "/", "<Esc>/\\%V")
-  vim.keymap.set("x", "R", ":s###g<left><left><left>")
-  -- Move lines up and down in visual mode =========================================
-  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-  -- Move inside completion list with <TAB> ========================================
-  vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
-  vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
-  vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Terminal: ====================================================================
   vim.keymap.set({ "n", "t" }, "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
   vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { noremap = true, silent = true })
@@ -829,6 +825,10 @@ later(function()
     vim.api.nvim_win_set_height(0, 20)
     vim.cmd("startinsert")
   end)
+  -- Move inside completion list with <TAB> ========================================
+  vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+  vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
+  vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
   -- Mini Pick =====================================================================
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
   vim.keymap.set('n', '<leader>fn', directory_pick)

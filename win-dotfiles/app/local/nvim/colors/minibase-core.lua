@@ -305,3 +305,5 @@ vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "MiniCursorword" })
 -- Indentscope: ================================================================
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "MiniIndentscopeSymbol" })
+-- Trailspace: ================================================================
+vim.api.nvim_set_hl(0, "MiniTrailspace", { bg = palette.base0B })
