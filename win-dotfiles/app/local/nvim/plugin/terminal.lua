@@ -20,14 +20,14 @@ M.state = {
     local current_columns = vim.o.columns
     local current_lines = vim.o.lines
 
-    local width = math.floor(current_columns * 0.6)
-    local height = math.floor(current_lines * 0.6)
+    local width = math.floor(current_columns * 0.8)
+    local height = math.floor(current_lines * 0.8)
     local col = math.floor(0.8 * (current_columns - width) / 2)
     local row = math.floor((current_lines - height) / 2)
     return {
-      title = "Terminal",
+      title = "FloatTerm",
       relative = "editor",
-      title_pos = "center",
+      title_pos = "left",
       width = width,
       height = height,
       col = col,

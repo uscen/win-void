@@ -226,6 +226,7 @@ vim.api.nvim_set_hl(0, 'CurSearch', { fg = palette.base00, bg = palette.base0B }
 vim.api.nvim_set_hl(0, 'LineNr', { fg = palette.base03, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = palette.base00, bg = palette.base0B })
 vim.api.nvim_set_hl(0, 'FloatBorder', { fg = palette.base0B, bg = palette.base01 })
+vim.api.nvim_set_hl(0, 'FloatTitle', { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = "FloatBorder" })
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base01, fg = palette.base0B })
