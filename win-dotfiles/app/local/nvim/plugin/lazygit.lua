@@ -4,7 +4,7 @@
 local group = vim.api.nvim_create_augroup("LazygitClose", { clear = true })
 vim.api.nvim_create_autocmd("TermClose", {
   group = group,
-  pattern = { "term://*lazygit" },
+  pattern = { "term://*" },
   callback = function()
     vim.api.nvim_input("<CR>")
   end,
