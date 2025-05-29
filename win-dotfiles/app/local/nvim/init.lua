@@ -586,7 +586,7 @@ now(function()
   vim.opt.cmdheight             = 0
   vim.opt.pumwidth              = 20
   vim.opt.pumblend              = 10
-  vim.opt.pumheight             = 12
+  vim.opt.pumheight             = 10
   vim.opt.wrap                  = false
   vim.opt.breakindent           = true
   vim.opt.copyindent            = true
