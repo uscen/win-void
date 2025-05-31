@@ -890,6 +890,7 @@ later(function()
       ["json"] = "jsonc",
       ["map"] = "json",
       ["mdx"] = "markdown",
+      ["ejs"] = "ejs"
     },
     filename = {
       ["xhtml"] = "html",

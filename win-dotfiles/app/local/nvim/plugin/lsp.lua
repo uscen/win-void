@@ -25,6 +25,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     -- end
 
+    -- -- Mini.Completion support: ========================================================
+    -- vim.bo[ev.buf].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
+    --
     --- Disable semantic tokens: =======================================================
     ---@diagnostic disable-next-line need-check-nil
     -- client.server_capabilities.semanticTokensProvider = nil
