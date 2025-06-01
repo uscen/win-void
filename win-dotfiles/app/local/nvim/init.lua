@@ -102,6 +102,17 @@ later(function()
   vim.notify = require('mini.notify').make_notify()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Tabline                        │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.tabline").setup({
+    format = function(buf_id, label)
+      local suffix = vim.bo[buf_id].modified and "● " or ""
+      return MiniTabline.default_format(buf_id, label) .. suffix
+    end,
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Indentscope                    │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -112,17 +123,6 @@ later(function()
       try_as_border = true,
       border = "both",
     }
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Tabline                        │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.tabline").setup({
-    format = function(buf_id, label)
-      local suffix = vim.bo[buf_id].modified and "● " or ""
-      return MiniTabline.default_format(buf_id, label) .. suffix
-    end,
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -333,6 +333,8 @@ now_if_args(function()
       width_focus = 999,
     },
   })
+
+  -- Toggle dotfiles : ==================================================================
   local toggle = { enabled = true }
   toggle_dotfiles = function()
     function toggle:bool()
@@ -340,7 +342,7 @@ now_if_args(function()
       return self.enabled
     end
 
-    local is_enabled = not toggle:bool() -- Toggles and negates (persists)
+    local is_enabled = not toggle:bool()
     require("mini.files").refresh({
       content = {
         filter = function(fs_entry)
