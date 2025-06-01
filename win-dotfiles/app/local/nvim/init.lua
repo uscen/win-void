@@ -107,8 +107,10 @@ end)
 later(function()
   require("mini.indentscope").setup({
     symbol = "▎",
+    draw = { priority = 10000 },
     options = {
       try_as_border = true,
+      border = "both",
     }
   })
 end)
@@ -140,6 +142,13 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.surround").setup({
+    n_lines = 500,
+    custom_surroundings = {
+      ["("] = { output = { left = "(", right = ")" } },
+      ["["] = { output = { left = "[", right = "]" } },
+      ["{"] = { output = { left = "{", right = "}" } },
+      ["<"] = { output = { left = "<", right = ">" } },
+    },
     mappings = {
       add = "ys",
       delete = "ds",
@@ -171,6 +180,8 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.pairs").setup({
+    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+    skip_ts = { "string" },
     modes = { insert = true, command = true, terminal = false },
     mappings = {
       [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
@@ -182,6 +193,7 @@ later(function()
       ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
       ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
       ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
 end)
@@ -235,20 +247,21 @@ later(function()
       move_down = "<C-j>",
       move_up = "<C-k>",
       choose_in_split = "<C-v>",
-      choose_in_vsplit = "<C-b>",
+      choose_in_vsplit = "<C-h>",
+      toggle_info = "<C-i>",
       toggle_preview = "<C-p>",
     },
     options = {
       use_cache = true,
-      content_from_bottom = false
+      content_from_bottom = true
     },
     window = {
       config = {
         height = 20,
         width = 999,
       },
-      prompt_caret = "▏",
-      prompt_prefix = "» ",
+      prompt_caret = "|",
+      prompt_prefix = "󱓇 ",
     },
   })
   vim.ui.select = MiniPick.ui_select
@@ -308,11 +321,36 @@ now_if_args(function()
       go_in = "",
       go_out = "",
     },
+    content = {
+      filter = function(fs_entry)
+        local ignore = { "node_modules", "build", "depes", "incremental" }
+        local filter_hidden = not vim.tbl_contains(ignore, fs_entry.name)
+        return filter_hidden and not vim.startswith(fs_entry.name, ".")
+      end,
+    },
     windows = {
       max_number = 1,
       width_focus = 999,
     },
   })
+  local toggle = { enabled = true }
+  toggle_dotfiles = function()
+    function toggle:bool()
+      self.enabled = not self.enabled
+      return self.enabled
+    end
+
+    local is_enabled = not toggle:bool() -- Toggles and negates (persists)
+    require("mini.files").refresh({
+      content = {
+        filter = function(fs_entry)
+          local ignore = { "node_modules", "build", "depes", "incremental" }
+          local filter_hidden = not vim.tbl_contains(ignore, fs_entry.name)
+          return is_enabled and true or (filter_hidden and not vim.startswith(fs_entry.name, "."))
+        end,
+      },
+    })
+  end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Starter                        │
@@ -759,11 +797,16 @@ later(function()
     desc = "Disable autoformat-on-save",
     bang = true,
   })
-  -- Disable indentscope in Terminals ===============================================
+  -- Disable MiniIndentscope in Terminals ===============================================
   vim.api.nvim_create_autocmd("TermEnter", {
     callback = function()
       vim.b.miniindentscope_disable = true
     end
+  })
+  -- toggle_dotfiles in MiniFile ======================================================
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesBufferCreate",
+    callback = function(args) vim.keymap.set("n", ".", toggle_dotfiles, { buffer = args.data.buf_id }) end,
   })
   -- Qucikfix List: =================================================================
   vim.api.nvim_create_autocmd("FileType", {

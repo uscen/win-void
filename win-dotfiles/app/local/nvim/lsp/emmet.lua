@@ -15,9 +15,6 @@ return {
   },
   init_options = {
     showSuggestionsAsSnippets = true,
-    includeLanguages = {
-      ejs = "html",
-    },
   },
   root_markers = { 'package.json', '.git' }
 }
