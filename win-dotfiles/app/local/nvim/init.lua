@@ -371,9 +371,10 @@ end)
 now(function()
   -- Languge Patterns: ==============================================================
   local webPatterns = { 'web/*.json' }
-  local webHtmlPatterns = { 'web/*.json', 'html.json' }
+  local webHtmlPatterns = { 'web/*.json', 'html.json', "ejs.json" }
   local lang_patterns = {
     html = webHtmlPatterns,
+    ejs = webHtmlPatterns,
     tsx = webPatterns,
     javascript = webPatterns,
     typescript = webPatterns,
