@@ -248,12 +248,11 @@ later(function()
       move_up = "<C-k>",
       choose_in_split = "<C-v>",
       choose_in_vsplit = "<C-h>",
-      toggle_info = "<C-i>",
       toggle_preview = "<C-p>",
     },
     options = {
       use_cache = true,
-      content_from_bottom = true
+      content_from_bottom = false
     },
     window = {
       config = {
