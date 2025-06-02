@@ -5,7 +5,7 @@
     "description": "EJS No Output"
   },
   "EJS Output Value": {
-    "prefix": "ejsout",
+    "prefix": "ejse",
     "body": ["<%= $1 %> $2"],
     "description": "EJS outputs no value"
   },

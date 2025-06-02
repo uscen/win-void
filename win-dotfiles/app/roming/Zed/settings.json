@@ -594,6 +594,7 @@
 		"scss": true,
 		"emmet": true,
 		"prisma": true,
+		"ejs": true,
 		"lua": true
 	}
 }
