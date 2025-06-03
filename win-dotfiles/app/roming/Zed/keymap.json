@@ -391,7 +391,10 @@
 	{
 		"context": "vim_operator == a || vim_operator == i || vim_operator == cs",
 		"bindings": {
-			"b": "vim::AnyBrackets"
+			"q": "vim::MiniQuotes",
+			"b": "vim::MiniBrackets",
+			"Q": "vim::AnyQuotes",
+			"B": "vim::AnyBrackets"
 		}
 	},
 	// # =============================================================================== #
