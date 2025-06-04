@@ -809,7 +809,7 @@ later(function()
     pattern = "MiniFilesBufferCreate",
     callback = function(args) vim.keymap.set("n", ".", toggle_dotfiles, { buffer = args.data.buf_id }) end,
   })
-  -- Qucikfix List: =================================================================
+  -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
     callback = function(event)
@@ -817,8 +817,40 @@ later(function()
       vim.keymap.set('n', '<C-j>', '<cmd>cn<CR>zz<cmd>wincmd p<CR>', opts)
       vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', opts)
       vim.keymap.set('n', '<Tab>', '<CR>', opts)
-      vim.keymap.set('n', 'q', '<cmd>cclose<CR>', { buffer = true })
     end
+  })
+  -- close some filetypes with <q>: : =====================================================
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = {
+      'PlenaryTestPopup',
+      'help',
+      'lspinfo',
+      'man',
+      'notify',
+      'qf',
+      'query',
+      'spectre_panel',
+      'startuptime',
+      'tsplayground',
+      'neotest-output',
+      'checkhealth',
+      'neotest-summary',
+      'neotest-output-panel',
+      'toggleterm',
+      'neo-tree',
+      'gitsigns-blame',
+      'AvanteAsk',
+      'AvanteInput',
+      'markdown',
+      'Trouble',
+    },
+    callback = function(event)
+      local bo = vim.bo[event.buf]
+      if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
+        -- bo.buflisted = false
+        vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
+      end
+    end,
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -918,6 +950,7 @@ end)
 --          ╚═════════════════════════════════════════════════════════╝
 later(function()
   if vim.g.neovide then
+    vim.g.neovide_cursor_smooth_blink = true
     vim.o.guicursor =
     "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
     vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
