@@ -37,8 +37,8 @@ end)
 --          │                     Mini.Misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.misc').setup_auto_root { '.git', "package.json" }
   require('mini.misc').setup_restore_cursor()
+  require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.CursorWord                     │
@@ -100,6 +100,17 @@ end)
 later(function()
   require('mini.notify').setup()
   vim.notify = require('mini.notify').make_notify()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Tabline                        │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.align').setup({
+    mappings = {
+      start = '<Leader>=',
+      start_with_preview = '<Leader>+',
+    },
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -950,7 +961,6 @@ end)
 --          ╚═════════════════════════════════════════════════════════╝
 later(function()
   if vim.g.neovide then
-    vim.g.neovide_cursor_smooth_blink = true
     vim.o.guicursor =
     "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
     vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
