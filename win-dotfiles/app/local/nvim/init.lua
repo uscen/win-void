@@ -500,6 +500,18 @@ now(function()
       scroll_down = '<C-j>',
       scroll_up = '<C-k>',
     },
+    lsp_completion = {
+      source_func = 'omnifunc',
+      process_items = function(items, base)
+        return require('mini.completion').default_process_items(items, base, {
+          filtersort = 'fuzzy',
+          kind_priority = {
+            Text = -1,
+            Snippet = 99,
+          },
+        })
+      end,
+    },
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
