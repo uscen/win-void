@@ -660,7 +660,7 @@ now(function()
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
-  vim.wo.signcolumn             = "yes"
+  vim.wo.signcolumn             = "yes:1"
   vim.opt.statuscolumn          = ""
   vim.opt.fillchars             = table.concat(
     { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
@@ -668,6 +668,7 @@ now(function()
   )
   vim.o.listchars               = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ================================================================
+  vim.opt.cindent               = true
   vim.opt.autoindent            = true
   vim.opt.expandtab             = true
   vim.opt.ignorecase            = true
@@ -677,6 +678,7 @@ now(function()
   vim.opt.smartcase             = true
   vim.opt.smartindent           = true
   vim.opt.tabstop               = 2
+  vim.opt.softtabstop           = 2
   vim.opt.breakindentopt        = "list:-1"
   vim.opt.formatlistpat         = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
   vim.opt.virtualedit           = "block"

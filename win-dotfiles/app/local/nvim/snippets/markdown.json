@@ -1,0 +1,92 @@
+{
+  "Insert Note": {
+    "prefix": ["note", "n"],
+    "body": "> [!NOTE]\n> ",
+    "description": "Insert Note"
+  },
+  "Insert Tip": {
+    "prefix": ["tip", "t"],
+    "body": "> [!TIP]\n> ",
+    "description": "Insert Tip"
+  },
+  "Insert Important": {
+    "prefix": ["important", "imp"],
+    "body": "> [!IMPORTANT]\n> ",
+    "description": "Insert Important"
+  },
+  "Insert Warning": {
+    "prefix": ["warning", "w"],
+    "body": "> [!WARNING]\n> ",
+    "description": "Insert Warning"
+  },
+  "Insert Caution": {
+    "prefix": ["caution", "c"],
+    "body": "> [!CAUTION]\n> ",
+    "description": "Insert Caution"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": ["# ${0}"],
+    "description": "Add header level 1"
+  },
+  "h2": {
+    "prefix": "h2",
+    "body": ["## ${0}"],
+    "description": "Add header level 2"
+  },
+  "h3": {
+    "prefix": "h3",
+    "body": ["### ${0}"],
+    "description": "Add header level 3"
+  },
+  "h4": {
+    "prefix": "h4",
+    "body": ["#### ${0}"],
+    "description": "Add header level 4"
+  },
+  "h5": {
+    "prefix": "h5",
+    "body": ["##### ${0}"],
+    "description": "Add header level 5"
+  },
+  "h6": {
+    "prefix": "h6",
+    "body": ["###### ${0}"],
+    "description": "Add header level 6"
+  },
+  "Insert table": {
+    "prefix": "table",
+    "body": [
+      "| ${1:Column1} | ${2:Column2} | ${3:Column3} |",
+      "| ------------- | -------------- | -------------- |",
+      "| ${4:Item1} | ${5:Item1} | ${6:Item1} |",
+      "${0}"
+    ],
+    "description": "Insert table with 2 rows and 3 columns. First row is heading."
+  },
+  "Insert unordered list": {
+    "prefix": "unordered list",
+    "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"],
+    "description": "Insert unordered list"
+  },
+  "Images": {
+    "prefix": "img",
+    "body": ["![${1:alt text}](${2:path}) ${0}"],
+    "description": "Add images"
+  },
+  "Links": {
+    "prefix": "l",
+    "body": ["[${1:text}](${2:url}) ${0}"],
+    "description": "Add links"
+  },
+  "Links Clipboard": {
+    "prefix": "lc",
+    "body": ["[${1}](${CLIPBOARD})"],
+    "description": "Add links clipboard"
+  },
+  "URLS": {
+    "prefix": ["u", "url"],
+    "body": ["<${1}> ${0}"],
+    "description": "Add urls"
+  }
+}
