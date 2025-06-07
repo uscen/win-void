@@ -660,7 +660,7 @@ now(function()
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
-  vim.wo.signcolumn             = "yes:1"
+  vim.wo.signcolumn             = "yes"
   vim.opt.statuscolumn          = ""
   vim.opt.fillchars             = table.concat(
     { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
