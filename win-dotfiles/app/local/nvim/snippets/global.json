@@ -29,13 +29,21 @@
     "body": "$RANDOM_HEX",
     "description": "6 random Base-16 digits"
   },
+  "fix": {
+    "prefix": "fix",
+    "body": ["$LINE_COMMENT FIXME: $0"]
+  },
+  "hack": {
+    "prefix": "hack",
+    "body": ["$LINE_COMMENT HACK: $0"]
+  },
   "todo": {
     "prefix": "todo",
     "body": ["$LINE_COMMENT TODO: $0"]
   },
-  "fix": {
-    "prefix": "fix",
-    "body": ["$LINE_COMMENT FIXME: $0"]
+  "note": {
+    "prefix": "note",
+    "body": ["$LINE_COMMENT NOTE: $0"]
   },
   "bc": {
     "prefix": "block comment",
