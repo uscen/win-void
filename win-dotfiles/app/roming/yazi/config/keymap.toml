@@ -24,6 +24,8 @@ prepend_keymap = [
 	# Shell
 	{ on = "$", run = 'shell --block $SHELL' },
 	{ on = ["!"], run = 'shell nu --block --confirm' },
+	# Jump
+  { on   = "f", run  = "plugin jump-to-char", desc = "Jump to char" },
 	# BookMarks
   { on   = [ "~" ], run  = 'cd "C:\\Users\lli"', desc = "Go To Downloads" },
   { on   = [ "b", "h" ], run  = 'cd "C:\\Users\lli"', desc = "Go To Downloads" },

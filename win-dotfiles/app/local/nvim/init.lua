@@ -653,7 +653,7 @@ now(function()
   vim.opt.wrap                  = false
   vim.opt.breakindent           = true
   vim.opt.copyindent            = true
-  vim.opt.list                  = true
+  vim.opt.list                  = false
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
