@@ -102,7 +102,7 @@ later(function()
   vim.notify = require('mini.notify').make_notify()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Tabline                        │
+--          │                     Mini.Align                          │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.align').setup({
@@ -608,7 +608,7 @@ end)
 now(function()
   -- Global:  =================================================================
   vim.g.mapleader               = vim.keycode("<space>")
-  vim.g.maplocalleader          = vim.keycode("<cr>")
+  vim.g.maplocalleader          = vim.g.mapleader
   -- Use ripgrep as grep tool: ================================================
   vim.opt.grepprg               = "rg --vimgrep --no-heading"
   vim.opt.grepformat            = "%f:%l:%c:%m,%f:%l:%m"
@@ -648,11 +648,12 @@ now(function()
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
   vim.opt.pumwidth              = 20
-  vim.opt.pumblend              = 10
-  vim.opt.pumheight             = 10
+  vim.opt.pumblend              = 8
+  vim.opt.pumheight             = 8
   vim.opt.wrap                  = false
   vim.opt.breakindent           = true
   vim.opt.copyindent            = true
+  vim.opt.list                  = true
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
@@ -662,11 +663,14 @@ now(function()
   vim.opt.shortmess             = "FOSWaco"
   vim.wo.signcolumn             = "yes"
   vim.opt.statuscolumn          = ""
+  vim.opt.mousescroll           = "ver:3,hor:0"
+  vim.opt.guicursor             =
+  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
   vim.opt.fillchars             = table.concat(
     { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
     ','
   )
-  vim.o.listchars               = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
+  vim.opt.listchars             = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ================================================================
   vim.opt.cindent               = true
   vim.opt.autoindent            = true
@@ -677,6 +681,7 @@ now(function()
   vim.opt.shiftwidth            = 2
   vim.opt.smartcase             = true
   vim.opt.smartindent           = true
+  vim.opt.gdefault              = true
   vim.opt.tabstop               = 2
   vim.opt.softtabstop           = 2
   vim.opt.breakindentopt        = "list:-1"
@@ -975,8 +980,6 @@ end)
 --          ╚═════════════════════════════════════════════════════════╝
 later(function()
   if vim.g.neovide then
-    vim.o.guicursor =
-    "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
     vim.keymap.set({ "n", "v" }, "<C-=>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
     vim.keymap.set({ "n", "v" }, "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
     vim.keymap.set({ "n", "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
