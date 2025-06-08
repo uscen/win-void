@@ -7,7 +7,7 @@ local WINDOWS = ya.target_family() == "windows"
 -- see `bubble_up`
 local CODES = {
   excluded = 100, -- ignored directory
-  ignored = 6,   -- ignored file
+  ignored = 6,    -- ignored file
   untracked = 5,
   modified = 4,
   added = 3,
@@ -132,7 +132,7 @@ local remove = ya.sync(function(st, cwd)
 end)
 
 local function setup(st, opts)
-  st.dirs = {} -- Mapping between a directory and its corresponding repository
+  st.dirs = {}  -- Mapping between a directory and its corresponding repository
   st.repos = {} -- Mapping between a repository and the status of each of its files
 
   opts = opts or {}
@@ -190,9 +190,9 @@ local function fetch(_, job)
   -- stylua: ignore
   local output, err = Command("git")
       :cwd(tostring(cwd))
-      :args({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames",
+      :arg({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames",
         "--ignored=matching" })
-      :args(paths)
+      :arg(paths)
       :stdout(Command.PIPED)
       :output()
   if not output then
