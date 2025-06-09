@@ -493,7 +493,7 @@ now(function()
   end
   -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
-    delay = { completion = 50, info = 20, signature = 10 },
+    delay = { completion = 100, info = 100, signature = 50 },
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',

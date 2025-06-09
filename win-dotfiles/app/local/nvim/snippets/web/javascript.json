@@ -97,6 +97,10 @@
     "prefix": "i",
     "body": "import ${0}"
   },
+  "export": {
+    "prefix": "e",
+    "body": "export ${0}"
+  },
   "Import React": {
     "prefix": "imr",
     "body": ["import React from 'react';"],
