@@ -179,14 +179,14 @@ $env.PROMPT_MULTILINE_INDICATOR = ""
 # =============================================================================== #
 # Completer:                                                                      #
 # =============================================================================== #
-let carapace_completer = {|spans|
-    carapace $spans.0 nushell ...$spans | from json
-}
+# let carapace_completer = {|spans|
+#     carapace $spans.0 nushell ...$spans | from json
+# }
 let zoxide_completer = {|spans|
     $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
 }
 # =============================================================================== #
 # END OF FILE:                                                                    #
 # =============================================================================== #
-source ~/.cache/carapace/init.nu
+# source ~/.cache/carapace/init.nu
 source ~/.cache/zoxide.nu
