@@ -626,7 +626,7 @@ now(function()
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.completeopt           = "menuone,noselect,fuzzy"
+  vim.opt.completeopt           = "menuone,noinsert,fuzzy"
   vim.opt.complete              = ".,b,kspell"
   vim.opt.switchbuf             = "usetab"
   vim.opt.compatible            = false
