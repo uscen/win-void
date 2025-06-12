@@ -15,6 +15,7 @@ $env.config = {
   float_precision: 2
   use_ansi_coloring: true
   edit_mode: vi
+  error_style: "fancy"
   cursor_shape: {
     vi_insert: block
     vi_normal: block

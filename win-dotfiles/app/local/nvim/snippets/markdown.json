@@ -65,7 +65,7 @@
     "description": "Insert table with 2 rows and 3 columns. First row is heading."
   },
   "Insert unordered list": {
-    "prefix": "unordered list",
+    "prefix": "ul",
     "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"],
     "description": "Insert unordered list"
   },
@@ -75,12 +75,12 @@
     "description": "Add images"
   },
   "Links": {
-    "prefix": "l",
+    "prefix": "link",
     "body": ["[${1:text}](${2:url}) ${0}"],
     "description": "Add links"
   },
   "Links Clipboard": {
-    "prefix": "lc",
+    "prefix": "linkc",
     "body": ["[${1}](${CLIPBOARD})"],
     "description": "Add links clipboard"
   },

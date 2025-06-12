@@ -420,9 +420,11 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Languge Patterns: ==============================================================
+  local markdown = { 'markdown.json' }
   local webPatterns = { 'web/*.json' }
   local webHtmlPatterns = { 'web/*.json', 'html.json', "ejs.json" }
   local lang_patterns = {
+    markdown_inline = markdown,
     html = webHtmlPatterns,
     ejs = webHtmlPatterns,
     tsx = webPatterns,
