@@ -602,7 +602,7 @@ end)
 --          │                     Neovim Colorscheme                  │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  vim.cmd("colorscheme minibase-core")
+  vim.cmd.colorscheme("minibase-core")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim Options                      │
