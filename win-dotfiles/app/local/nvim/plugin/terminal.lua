@@ -33,7 +33,7 @@ M.state = {
       col = col,
       row = row,
       style = "minimal",
-      border = "single",
+      border = "double",
       zindex = 5,
     }
   end,

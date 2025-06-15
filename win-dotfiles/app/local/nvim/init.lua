@@ -630,8 +630,8 @@ now(function()
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.o.completeopt             = 'menuone,noselect,fuzzy'
-  vim.opt.complete              = ".,b,kspell"
+  vim.opt.completeopt           = 'menuone,noselect,fuzzy'
+  vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
@@ -640,6 +640,10 @@ now(function()
   vim.opt.spell                 = false
   vim.opt.undofile              = true
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
+  -- Spelling ================================================================
+  vim.o.spelllang               = 'en,ru,uk'
+  vim.o.spelloptions            = 'camel'
+  vim.o.dictionary              = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
   vim.opt.number                = true
   vim.opt.relativenumber        = false
@@ -661,7 +665,7 @@ now(function()
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
-  vim.opt.winborder             = "single"
+  vim.opt.winborder             = "double"
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
