@@ -259,10 +259,12 @@ end)
 later(function()
   require("mini.pick").setup({
     mappings = {
-      move_down = "<C-j>",
-      move_up = "<C-k>",
-      choose = "<Tab>",
-      toggle_preview = "<C-p>",
+      choose           = "<Tab>",
+      move_down        = "<C-j>",
+      move_up          = "<C-k>",
+      toggle_preview   = "<C-p>",
+      choose_in_split  = '<C-v>',
+      choose_in_vsplit = '<C-s>',
     },
     options = {
       use_cache = true,
@@ -636,6 +638,7 @@ now(function()
   vim.opt.completeopt           = 'menuone,noselect,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
+  vim.opt.splitkeep             = 'screen'
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
   vim.opt.writebackup           = false
@@ -644,9 +647,9 @@ now(function()
   vim.opt.undofile              = true
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
-  vim.o.spelllang               = 'en,ru,uk'
-  vim.o.spelloptions            = 'camel'
-  vim.o.dictionary              = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
+  vim.opt.spelllang             = 'en,ru,uk'
+  vim.opt.spelloptions          = 'camel'
+  vim.opt.dictionary            = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
   vim.opt.number                = true
   vim.opt.relativenumber        = false
@@ -700,11 +703,13 @@ now(function()
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
   vim.opt.formatexpr            = "v:lua.require'conform'.formatexpr()"
-  -- Fold:  ================================================================
+  -- Folds:  ================================================================
   vim.opt.foldenable            = false
-  vim.opt.foldlevel             = 99
-  vim.opt.foldmethod            = "expr"
-  vim.opt.foldexpr              = "v:lua.vim.treesitter.foldexpr()"
+  vim.opt.foldmethod            = 'indent'
+  vim.opt.foldlevel             = 1
+  vim.opt.foldnestmax           = 10
+  vim.g.markdoptwn_folding      = 1
+  vim.opt.foldtext              = ''
   -- Memory: ================================================================
   vim.opt.hidden                = true
   vim.opt.history               = 100
@@ -981,7 +986,10 @@ later(function()
   vim.keymap.set("n", "<leader>gh", [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
   vim.keymap.set("n", "<leader>gx", [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
   -- Mini Files: =================================================================
-  vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end)
+  vim.keymap.set("n", "<leader>e", function()
+    local path = vim.bo.buftype ~= "nofile" and vim.api.nvim_buf_get_name(0) or nil
+    require("mini.files").open(path, true)
+  end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
   -- Mini Misc: ==================================================================
   vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)

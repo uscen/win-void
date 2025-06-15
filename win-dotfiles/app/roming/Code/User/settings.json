@@ -52,6 +52,8 @@
   // # =============================================================================== #
   // # Workbench Settings:                                                             #
   // # =============================================================================== #
+  "workbench.desktop.sideBar.labelFontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
+  "workbench.experimental.customSidebarFontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
   "workbench.colorTheme": "Paradise",
   "workbench.editor.restoreViewState": true,
   "workbench.startupEditor": "none",
