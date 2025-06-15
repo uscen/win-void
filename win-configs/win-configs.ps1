@@ -22,6 +22,7 @@ if (-Not (Test-Path -Path $Env:AppData)) {
     New-Item -Path $Env:AppData -ItemType Directory | Out-Null
 }
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\* -Destination $Env:AppData\ -Recurse -Force
+Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\Code\User\* -Destination $Env:USERPROFILE\scoop\apps\vscode\current\data\user-data\User -Recurse -Force
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\mpv\* -Destination $Env:USERPROFILE\scoop\persist\mpv\portable_config -Recurse -Force
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\local\* -Destination $Env:localAppData\ -Recurse -Force
 # =============================================================================== #

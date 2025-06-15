@@ -72,6 +72,7 @@ Capslock::Esc
 !v:: Run("neovide.exe")
 !e:: Run("thunderbird.exe")
 !z:: Run("zed.exe")
+!^c:: Run("code", , "Hide")
 !n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
 !^n:: Run 'wt -- "C:\Program Files\Git\bin\bash.exe" -c "exec yazi ~"'
 !^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')

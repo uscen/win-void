@@ -76,6 +76,7 @@ $scoopPackages = @(
     "delta",
     "ntop",
     "zed",
+    "vscode",
     "chromium",
     "eza",
     "freetube",
