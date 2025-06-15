@@ -261,20 +261,15 @@
   },
 
   // # =============================================================================== #
-  // # Terminal:                                                                       #
-  // # =============================================================================== #
-  {
-    "key": "ctrl+t",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-  // # =============================================================================== #
   // # QucikOpen:                                                                      #
   // # =============================================================================== #
   {
     "key": "space f f",
-    "command": "workbench.action.quickOpen",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "space f r",
+    "command": "workbench.action.openRecent"
   },
   {
     "key": "tab",
@@ -290,5 +285,36 @@
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+
+  // # =============================================================================== #
+  // # Snippets :                                                                      #
+  // # =============================================================================== #
+  {
+    "key": "ctrl+l",
+    "command": "jumpToNextSnippetPlaceholder",
+    "when": "editorTextFocus && hasNextTabstop && inSnippetMode"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "jumpToPrevSnippetPlaceholder",
+    "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
+  },
+
+  // # =============================================================================== #
+  // # Terminal:                                                                       #
+  // # =============================================================================== #
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+
+  // # =============================================================================== #
+  // # close vscode:                                                                   #
+  // # =============================================================================== #
+  {
+    "key": "space q q",
+    "command": "workbench.action.closeWindow"
   }
 ]
