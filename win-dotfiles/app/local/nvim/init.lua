@@ -608,6 +608,8 @@ end)
 --          │                     Neovim Options                      │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
+  -- Colors =====================================================================
+  if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
   -- Global:  =================================================================
   vim.g.mapleader               = vim.keycode("<space>")
   vim.g.maplocalleader          = vim.g.mapleader
@@ -628,7 +630,7 @@ now(function()
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.completeopt           = "menuone,noinsert,fuzzy"
+  vim.o.completeopt             = 'menuone,noselect,fuzzy'
   vim.opt.complete              = ".,b,kspell"
   vim.opt.switchbuf             = "usetab"
   vim.opt.compatible            = false
