@@ -2,40 +2,32 @@
 // # Code Configurations:                                                            #
 // # =============================================================================== #
 {
-  // Silence the Noise
-  "breadcrumbs.enabled": false,
-  "scm.diffDecorations": "none",
-  "editor.hover.delay": 1500,
-  "editor.hover.enabled": true,
+  // Editor Settings
+  "editor.fontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "off",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.snippetSuggestions": "top",
+  "editor.cursorBlinking": "solid",
+  "editor.cursorSmoothCaretAnimation": "off",
+  "editor.scrollBeyondLastLine": false,
+
+  // Editor: Silence Visual Noise
   "editor.matchBrackets": "never",
-  "workbench.tips.enabled": false,
   "editor.colorDecorators": false,
-  "git.decorations.enabled": false,
-  "workbench.startupEditor": "none",
   "editor.lightbulb.enabled": "off",
   "editor.selectionHighlight": false,
   "editor.overviewRulerBorder": false,
   "editor.renderLineHighlight": "none",
   "editor.occurrencesHighlight": "off",
-  "problems.decorations.enabled": false,
   "editor.renderControlCharacters": false,
   "editor.hideCursorInOverviewRuler": true,
-  "editor.gotoLocation.multipleReferences": "goto",
-  "editor.gotoLocation.multipleDefinitions": "goto",
-  "editor.gotoLocation.multipleDeclarations": "goto",
   "editor.minimap.enabled": false,
   "editor.guides.indentation": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "editor.gotoLocation.multipleImplementations": "goto",
-  "editor.gotoLocation.multipleTypeDefinitions": "goto",
-  "editor.renderWhitespace": "none",
-  "workbench.statusBar.visible": false,
-  "workbench.activityBar.location": "hidden",
-  "editor.wordWrap": "off",
-  "workbench.editor.tabActionCloseVisibility": false,
-  "explorer.decorations.colors": false,
-  "explorer.compactFolders": false,
-  "editor.bracketPairColorization.enabled": false,
   "editor.guides.highlightActiveBracketPair": false,
   "editor.guides.bracketPairsHorizontal": false,
   "editor.scrollbar.horizontal": "hidden",
@@ -43,42 +35,58 @@
   "editor.showFoldingControls": "never",
   "editor.glyphMargin": false,
   "editor.folding": false,
+  "editor.renderWhitespace": "none",
+  "editor.bracketPairColorization.enabled": false,
+  "editor.hover.delay": 1500,
+  "editor.hover.enabled": true,
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+
+  // Workbench Settings
+  "workbench.colorTheme": "Paradise",
+  "workbench.editor.restoreViewState": true,
+  "workbench.startupEditor": "none",
+
+  // Workbench: Silence Visual Noise
+  "workbench.tips.enabled": false,
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.layoutControl.enabled": false,
   "workbench.editor.showTabs": "none",
-  "files.trimFinalNewlines": true,
+  "workbench.editor.tabActionCloseVisibility": false,
+
+  // Window Settings
   "window.title": " ",
-  "editor.cursorBlinking": "solid",
-  "editor.cursorSmoothCaretAnimation": "off",
   "window.commandCenter": false,
-  "files.restoreUntitledEditors": false,
+  "window.restoreFullscreen": true,
+  "window.newWindowDimensions": "maximized",
+  "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "none",
+
+  // Files Settings
+  "files.trimFinalNewlines": true,
+  "files.restoreUntitledEditors": false,
+
+  // Terminal Settings
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.5,
+
+  // Debug Settings
+  "debug.console.fontSize": 12,
+
+  // Source Control
+  "scm.diffDecorations": "none",
+  "git.decorations.enabled": false,
   "scm.diffDecorationsGutterPattern": {
     "added": false,
     "modified": false
   },
-  // Typography
-  "editor.fontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 12,
-  "editor.suggestFontSize": 12,
-  "editor.suggestLineHeight": 20,
-  "terminal.integrated.lineHeight": 1.5,
-  "terminal.integrated.fontSize": 12,
-  "debug.console.fontSize": 12,
-  // Others
-  "editor.copyWithSyntaxHighlighting": false,
-  "workbench.colorTheme": "Paradise",
-  "workbench.editor.restoreViewState": true,
-  "window.restoreFullscreen": true,
-  "window.newWindowDimensions": "maximized",
-  "window.menuBarVisibility": "toggle",
-  "update.mode": "none",
-  "editor.tabSize": 2,
-  "extensions.ignoreRecommendations": true,
-  "editor.snippetSuggestions": "top",
-  // Format && AutoComplete
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Format & Autocomplete
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
@@ -87,8 +95,8 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
-  // VIM Keybidings
-  "editor.scrollBeyondLastLine": false,
+
+  // VIM Configuration
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.neovimUseConfigFile": true,
@@ -101,68 +109,26 @@
   "vim.relativenumber": false,
   "vim.highlightedyank.enable": true,
   "vim.useSystemClipboard": true,
-  "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
-  },
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<S-tab>"],
-      "commands": ["workbench.action.previousEditor"]
-    },
-    {
-      "before": ["<tab>"],
-      "commands": ["workbench.action.nextEditor"]
-    },
-    {
-      "before": ["<leader>", "b", "b"],
-      "commands": ["workbench.action.closeOtherEditors"]
-    },
-    {
-      "before": ["<leader>", "b", "d"],
-      "commands": ["workbench.action.closeActiveEditor"]
-    },
-    {
-      "before": ["Y"],
-      "after": ["\"", "+", "y", "$"]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["y"],
-      "after": ["\"", "*", "y"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<Esc>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["<leader>", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
-    },
-    {
-      "before": ["<leader>", "f", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    }
-  ],
   "vim.handleKeys": {
     "<C-a>": true,
     "<C-f>": true,
-    // VS Code new marker @ next occurence
     "<C-d>": true,
-    // Copy
-    "<C-c>": false,
-    // Cut
     "<C-x>": true,
-    // Paste
     "<C-v>": true,
+    "<C-c>": false,
     "<C-y>": false
-  }
+  },
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+
+  // UI Elements
+  "breadcrumbs.enabled": false,
+  "problems.decorations.enabled": false,
+  "explorer.decorations.colors": false,
+  "explorer.compactFolders": false,
+
+  // Application Settings
+  "update.mode": "none",
+  "extensions.ignoreRecommendations": true
 }
