@@ -2,7 +2,9 @@
 // # Code Configurations:                                                            #
 // # =============================================================================== #
 {
-  // Editor Settings
+  // # =============================================================================== #
+  // # Editor Settings:                                                                #
+  // # =============================================================================== #
   "editor.fontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
   "editor.fontLigatures": true,
   "editor.fontSize": 12,
@@ -16,7 +18,9 @@
   "editor.cursorSmoothCaretAnimation": "off",
   "editor.scrollBeyondLastLine": false,
 
-  // Editor: Silence Visual Noise
+  // # =============================================================================== #
+  // # Editor: Silence Visual Noise:                                                   #
+  // # =============================================================================== #
   "editor.matchBrackets": "never",
   "editor.colorDecorators": false,
   "editor.lightbulb.enabled": "off",
@@ -45,12 +49,16 @@
   "editor.gotoLocation.multipleImplementations": "goto",
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
-  // Workbench Settings
+  // # =============================================================================== #
+  // # Workbench Settings:                                                             #
+  // # =============================================================================== #
   "workbench.colorTheme": "Paradise",
   "workbench.editor.restoreViewState": true,
   "workbench.startupEditor": "none",
 
-  // Workbench: Silence Visual Noise
+  // # =============================================================================== #
+  // # Workbench: Silence Visual Noise:                                                #
+  // # =============================================================================== #
   "workbench.tips.enabled": false,
   "workbench.statusBar.visible": false,
   "workbench.activityBar.location": "hidden",
@@ -59,7 +67,9 @@
   "workbench.editor.showTabs": "none",
   "workbench.editor.tabActionCloseVisibility": false,
 
-  // Window Settings
+  // # =============================================================================== #
+  // # Window Settings:                                                                #
+  // # =============================================================================== #
   "window.title": " ",
   "window.commandCenter": false,
   "window.restoreFullscreen": true,
@@ -67,18 +77,26 @@
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "none",
 
-  // Files Settings
+  // # =============================================================================== #
+  // # Files Settings:                                                                 #
+  // # =============================================================================== #
   "files.trimFinalNewlines": true,
   "files.restoreUntitledEditors": false,
 
-  // Terminal Settings
+  // # =============================================================================== #
+  // # Terminal Settings:                                                              #
+  // # =============================================================================== #
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.lineHeight": 1.5,
 
-  // Debug Settings
+  // # =============================================================================== #
+  // # Debug Settings:                                                                 #
+  // # =============================================================================== #
   "debug.console.fontSize": 12,
 
-  // Source Control
+  // # =============================================================================== #
+  // # Source Control:                                                                 #
+  // # =============================================================================== #
   "scm.diffDecorations": "none",
   "git.decorations.enabled": false,
   "scm.diffDecorationsGutterPattern": {
@@ -86,7 +104,9 @@
     "modified": false
   },
 
-  // Format & Autocomplete
+  // # =============================================================================== #
+  // # Format & Autocomplete:                                                          #
+  // # =============================================================================== #
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
@@ -96,7 +116,9 @@
     "editor.defaultFormatter": "Prisma.prisma"
   },
 
-  // VIM Configuration
+  // # =============================================================================== #
+  // # VIM Configuration:                                                              #
+  // # =============================================================================== #
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.neovimUseConfigFile": true,
@@ -122,13 +144,17 @@
     "vscodevim.vim": 1
   },
 
-  // UI Elements
+  // # =============================================================================== #
+  // # UI Elements:                                                                    #
+  // # =============================================================================== #
   "breadcrumbs.enabled": false,
   "problems.decorations.enabled": false,
   "explorer.decorations.colors": false,
   "explorer.compactFolders": false,
 
-  // Application Settings
+  // # =============================================================================== #
+  // # Application Settings:                                                           #
+  // # =============================================================================== #
   "update.mode": "none",
   "extensions.ignoreRecommendations": true
 }
