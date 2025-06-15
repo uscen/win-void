@@ -246,6 +246,19 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
   },
   // # =============================================================================== #
+  // # Suggestion :                                                                    #
+  // # =============================================================================== #
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  // # =============================================================================== #
   // # Terminal:                                                                       #
   // # =============================================================================== #
   {
