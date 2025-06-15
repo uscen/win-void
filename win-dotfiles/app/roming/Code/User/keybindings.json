@@ -265,11 +265,13 @@
   // # =============================================================================== #
   {
     "key": "space f f",
-    "command": "workbench.action.quickOpen"
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' || !activeEditor"
   },
   {
     "key": "space f r",
-    "command": "workbench.action.openRecent"
+    "command": "workbench.action.openRecent",
+    "when": "vim.mode == 'Normal' || !activeEditor"
   },
   {
     "key": "tab",
@@ -315,6 +317,7 @@
   // # =============================================================================== #
   {
     "key": "space q q",
-    "command": "workbench.action.closeWindow"
+    "command": "workbench.action.closeWindow",
+    "when": "vim.mode == 'Normal' || !activeEditor"
   }
 ]
