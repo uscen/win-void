@@ -16,17 +16,6 @@ $packages=@(
     "@prisma/language-server",
     "prettier"
 )
-# =============================================================================== #
-# NPM Packages:      		                                                          #
-# =============================================================================== #
-foreach ($package in $packages) {
-        Write-Host "Installing $package..."
-        npm install -g $package
-}
-Write-Host "Installation Of NPM Packages Is Complete!"
-# =============================================================================== #
-# Vscode Extension:      		                                                      #
-# =============================================================================== #
 $extensions=@(
     "manas.paradise-vscode"
     "vscodevim.vim"
@@ -39,6 +28,17 @@ $extensions=@(
     "prisma.prisma"
 )
 
+# =============================================================================== #
+# NPM Packages:      		                                                          #
+# =============================================================================== #
+foreach ($package in $packages) {
+        Write-Host "Installing $package..."
+        npm install -g $package
+}
+Write-Host "Installation Of NPM Packages Is Complete!"
+# =============================================================================== #
+# Vscode Extension:      		                                                      #
+# =============================================================================== #
 foreach ($extension in $extensions) {
         code --install-extension $extension --force
 }
