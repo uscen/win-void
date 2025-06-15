@@ -113,11 +113,6 @@
     "when": "(vim.mode == 'Normal' && editorTextFocus) || !inputFocus"
   },
   {
-    "key": "space f f",
-    "command": "workbench.action.quickOpen",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  },
-  {
     "key": "g d",
     "command": "editor.action.revealDefinition",
     "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -133,12 +128,17 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
+    "key": "g g",
+    "command": "cursorTop",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
     "key": "space f t",
     "command": "workbench.action.findInFiles",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "space g g",
+    "key": "space gg",
     "command": "runCommands",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)",
     "args": {
@@ -245,6 +245,7 @@
     "command": "workbench.action.debug.continue",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
   },
+
   // # =============================================================================== #
   // # Suggestion :                                                                    #
   // # =============================================================================== #
@@ -258,6 +259,7 @@
     "command": "selectNextSuggestion",
     "when": "suggestWidgetVisible"
   },
+
   // # =============================================================================== #
   // # Terminal:                                                                       #
   // # =============================================================================== #
@@ -265,5 +267,28 @@
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
+  },
+  // # =============================================================================== #
+  // # QucikOpen:                                                                      #
+  // # =============================================================================== #
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "tab",
+    "command": "workbench.action.acceptSelectedQuickOpenItem",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
   }
 ]
