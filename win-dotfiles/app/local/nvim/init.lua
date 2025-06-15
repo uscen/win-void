@@ -214,6 +214,11 @@ end)
 later(function()
   require("mini.ai").setup({
     custom_textobjects = {
+      B = require("mini.extra").gen_ai_spec.buffer(),
+      D = require("mini.extra").gen_ai_spec.diagnostic(),
+      I = require("mini.extra").gen_ai_spec.indent(),
+      L = require("mini.extra").gen_ai_spec.line(),
+      N = require("mini.extra").gen_ai_spec.number(),
       e = {
         {
           -- __-1, __-U, __-l, __-1_, __-U_, __-l_
@@ -254,11 +259,9 @@ end)
 later(function()
   require("mini.pick").setup({
     mappings = {
-      choose = "<Tab>",
       move_down = "<C-j>",
       move_up = "<C-k>",
-      choose_in_split = "<C-v>",
-      choose_in_vsplit = "<C-h>",
+      choose = "<Tab>",
       toggle_preview = "<C-p>",
     },
     options = {
@@ -980,6 +983,8 @@ later(function()
   -- Mini Files: =================================================================
   vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
+  -- Mini Misc: ==================================================================
+  vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
   -- Mini Jump2d: ================================================================
   vim.keymap.set({ "o", "x", "n" }, "s", "<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>")
 end)
