@@ -89,7 +89,14 @@
   // # Terminal Settings:                                                              #
   // # =============================================================================== #
   "terminal.integrated.fontSize": 12,
-  "terminal.integrated.lineHeight": 1.5,
+  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.profiles.windows": {
+    "nu": {
+      "path": "nu.exe",
+      "args": ["-l"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "nu",
 
   // # =============================================================================== #
   // # Debug Settings:                                                                 #
