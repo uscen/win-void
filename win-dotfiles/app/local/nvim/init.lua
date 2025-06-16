@@ -113,17 +113,6 @@ later(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Tabline                        │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.tabline").setup({
-    format = function(buf_id, label)
-      local suffix = vim.bo[buf_id].modified and "● " or ""
-      return MiniTabline.default_format(buf_id, label) .. suffix
-    end,
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Indentscope                    │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -368,6 +357,42 @@ now_if_args(function()
       },
     })
   end
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Tabline                        │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  require("mini.tabline").setup({
+    show_icons = true,
+    tabpage_section = 'right',
+    format = function(buf_id, label)
+      local suffix = vim.bo[buf_id].modified and "● " or ""
+      return MiniTabline.default_format(buf_id, label) .. suffix
+    end,
+  })
+  -- hide when only one Tabline: =====================================================
+  local get_n_listed_bufs = function()
+    local n = 0
+    for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
+      n = n + (vim.bo[buf_id].buflisted and 1 or 0)
+    end
+    return n
+  end
+  vim.api.nvim_create_autocmd({
+    'BufAdd',
+    'BufDelete',
+    'BufEnter',
+    'BufWinEnter',
+    'TabClosed',
+    'TabEnter',
+    'WinClosed',
+    'SessionLoadPost',
+  }, {
+    desc = 'Hide the tabline when empty',
+    group = group,
+    -- Schedule because 'BufDelete' is triggered when buffer is still present
+    callback = vim.schedule_wrap(function() vim.o.showtabline = get_n_listed_bufs() > 1 and 2 or 0 end),
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Starter                        │
@@ -854,20 +879,6 @@ later(function()
   vim.api.nvim_create_autocmd("User", {
     pattern = "MiniFilesBufferCreate",
     callback = function(args) vim.keymap.set("n", ".", toggle_dotfiles, { buffer = args.data.buf_id }) end,
-  })
-  -- hide when only one Tabline: =====================================================
-  local get_n_listed_bufs = function()
-    local n = 0
-    for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
-      n = n + (vim.bo[buf_id].buflisted and 1 or 0)
-    end
-    return n
-  end
-  vim.api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
-    desc = 'Hide the tabline when empty',
-    group = group,
-    -- Schedule because 'BufDelete' is triggered when buffer is still present
-    callback = vim.schedule_wrap(function() vim.o.showtabline = get_n_listed_bufs() > 1 and 2 or 0 end),
   })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
