@@ -403,7 +403,7 @@
     "key": ";",
     "command": "workbench.action.showCommands",
     "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
-  }
+  },
 
   // # =============================================================================== #
   // # Close :                                                                         #
