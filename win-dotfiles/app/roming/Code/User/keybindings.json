@@ -35,7 +35,7 @@
         "workbench.files.action.focusFilesExplorer"
       ]
     },
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !inQuickOpen"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !inQuickOpen && !terminalFocus "
   },
   {
     "key": "space e",
@@ -166,8 +166,23 @@
   // # File Explorer:                                                                  #
   // # =============================================================================== #
   {
+    "key": "q",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
     "key": "r",
     "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "/",
+    "command": "filesExplorer.findInFolder",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "?",
+    "command": "filesExplorer.findInWorkspace",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
@@ -215,11 +230,6 @@
   {
     "key": "z",
     "command": "workbench.files.action.collapseExplorerFolders",
-    "when": "filesExplorerFocus"
-  },
-  {
-    "key": ".",
-    "command": "filesExplorer.toggleHiddenFiles",
     "when": "filesExplorerFocus"
   },
   {
@@ -355,6 +365,11 @@
   {
     "key": "space r s",
     "command": "editor.action.changeAll",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
+  },
+  {
+    "key": "space r r",
+    "command": "workbench.action.replaceInFiles",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
   },
 
