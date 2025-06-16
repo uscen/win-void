@@ -35,7 +35,7 @@
         "workbench.files.action.focusFilesExplorer"
       ]
     },
-    "when": "(vim.mode == 'Normal' || !activeEditor)"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !inQuickOpen"
   },
   {
     "key": "space e",
@@ -293,17 +293,17 @@
   {
     "key": "space f f",
     "command": "workbench.action.quickOpen",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
   },
   {
     "key": "space f r",
     "command": "workbench.action.openRecent",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
   },
   {
     "key": "space f b",
     "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
   },
   {
     "key": "tab",
@@ -355,7 +355,7 @@
   {
     "key": "space r s",
     "command": "editor.action.changeAll",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus"
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
   },
 
   // # =============================================================================== #
@@ -373,12 +373,12 @@
   {
     "key": "space s",
     "command": "workbench.action.splitEditor",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !inQuickOpen"
   },
   {
     "key": "space v",
     "command": "workbench.action.splitEditorDown",
-    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !inQuickOpen"
   },
 
   // # =============================================================================== #
@@ -388,7 +388,7 @@
     "key": ";",
     "command": "workbench.action.showCommands",
     "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
-  },
+  }
 
   // # =============================================================================== #
   // # Close :                                                                         #
@@ -396,6 +396,6 @@
   {
     "key": "space q q",
     "command": "workbench.action.closeWindow",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
   }
 ]
