@@ -55,7 +55,7 @@
   "workbench.desktop.sideBar.labelFontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
   "workbench.experimental.customSidebarFontFamily": "JetBrainsMono Nerd Font, Geist Mono, Fira Code",
   "workbench.colorTheme": "Paradise",
-  "workbench.editor.restoreViewState": true,
+  "workbench.editor.restoreViewState": false,
   "workbench.startupEditor": "none",
 
   // # =============================================================================== #
@@ -74,7 +74,7 @@
   // # =============================================================================== #
   "window.title": " ",
   "window.commandCenter": false,
-  "window.restoreFullscreen": true,
+  "window.restoreFullscreen": false,
   "window.newWindowDimensions": "maximized",
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "none",
@@ -108,11 +108,11 @@
   // # =============================================================================== #
   // # Source Control:                                                                 #
   // # =============================================================================== #
-  "scm.diffDecorations": "none",
-  "git.decorations.enabled": false,
+  "git.decorations.enabled": true,
+  "scm.diffDecorations": "gutter",
   "scm.diffDecorationsGutterPattern": {
-    "added": false,
-    "modified": false
+    "added": true,
+    "modified": true
   },
 
   // # =============================================================================== #
@@ -152,16 +152,16 @@
   // # =============================================================================== #
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
+  "vim.relativenumber": false,
+  "vim.useSystemClipboard": true,
   "vim.neovimUseConfigFile": true,
+  "vim.highlightedyank.enable": true,
   "vim.surround": true,
   "vim.incsearch": true,
   "vim.useCtrlKeys": true,
   "vim.nohlsearch": true,
   "vim.easymotion": false,
   "vim.sneak": false,
-  "vim.relativenumber": false,
-  "vim.highlightedyank.enable": true,
-  "vim.useSystemClipboard": true,
   "vim.handleKeys": {
     "<C-a>": true,
     "<C-f>": true,
