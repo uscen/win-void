@@ -170,7 +170,7 @@ later(function()
       -- Highlight hex color strings (`#rrggbb`) using that color: =========================
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color({
         style = "inline",
-        inline_text = "⬤ ",
+        inline_text = "■ ",
       }),
     },
   })
@@ -526,6 +526,10 @@ now(function()
   -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
     delay = { completion = 100, info = 100, signature = 50 },
+    window = {
+      info = { border = "none" },
+      signature = { border = "none" },
+    },
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',
