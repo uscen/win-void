@@ -284,9 +284,14 @@
     "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
   },
   {
+    "key": "space f b",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
+  },
+  {
     "key": "tab",
     "command": "workbench.action.acceptSelectedQuickOpenItem",
-    "when": "inQuickOpen"
+    "when": "inQuickOpen || inEditorsPicker"
   },
   {
     "key": "ctrl+j",
@@ -297,6 +302,20 @@
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+
+  // # =============================================================================== #
+  // # Tabs:                                                                           #
+  // # =============================================================================== #
+  {
+    "key": "tab",
+    "command": "workbench.action.nextEditor",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus"
+  },
+  {
+    "key": "shift+tab",
+    "command": "workbench.action.previousEditor",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus "
   },
 
   // # =============================================================================== #
@@ -311,6 +330,15 @@
     "key": "ctrl+h",
     "command": "jumpToPrevSnippetPlaceholder",
     "when": "editorTextFocus && hasPrevTabstop && inSnippetMode"
+  },
+
+  // # =============================================================================== #
+  // # Find Anf Replace:                                                               #
+  // # =============================================================================== #
+  {
+    "key": "space r s",
+    "command": "editor.action.changeAll",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus "
   },
 
   // # =============================================================================== #
