@@ -202,6 +202,16 @@
     }
   },
   {
+    "key": "z",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": ".",
+    "command": "filesExplorer.toggleHiddenFiles",
+    "when": "filesExplorerFocus"
+  },
+  {
     "key": "tab",
     "command": "explorer.openAndPassFocus",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceIsFolder && !inputFocus"
