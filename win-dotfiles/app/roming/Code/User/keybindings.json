@@ -35,6 +35,17 @@
         "workbench.files.action.focusFilesExplorer"
       ]
     },
+    "when": "(vim.mode == 'Normal' || !activeEditor)"
+  },
+  {
+    "key": "space e",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.files.action.focusFilesExplorer"
+      ]
+    },
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
   },
   {
@@ -130,7 +141,7 @@
   {
     "key": "g g",
     "command": "cursorTop",
-    "when": "vim.mode == 'Normal' && editorTextFocus"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
     "key": "space f t",
@@ -213,7 +224,13 @@
   },
   {
     "key": "tab",
-    "command": "explorer.openAndPassFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "explorer.openAndPassFocus",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    },
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceIsFolder && !inputFocus"
   },
   {
@@ -338,7 +355,7 @@
   {
     "key": "space r s",
     "command": "editor.action.changeAll",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus "
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus"
   },
 
   // # =============================================================================== #
@@ -349,6 +366,21 @@
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
+
+  // # =============================================================================== #
+  // # Splits:                                                                         #
+  // # =============================================================================== #
+  {
+    "key": "space s",
+    "command": "workbench.action.splitEditor",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space v",
+    "command": "workbench.action.splitEditorDown",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+
   // # =============================================================================== #
   // # Others :                                                                        #
   // # =============================================================================== #
@@ -357,6 +389,7 @@
     "command": "workbench.action.showCommands",
     "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus"
   },
+
   // # =============================================================================== #
   // # Close :                                                                         #
   // # =============================================================================== #
