@@ -855,6 +855,20 @@ later(function()
     pattern = "MiniFilesBufferCreate",
     callback = function(args) vim.keymap.set("n", ".", toggle_dotfiles, { buffer = args.data.buf_id }) end,
   })
+  -- hide when only one Tabline: =====================================================
+  local get_n_listed_bufs = function()
+    local n = 0
+    for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
+      n = n + (vim.bo[buf_id].buflisted and 1 or 0)
+    end
+    return n
+  end
+  vim.api.nvim_create_autocmd({ 'BufAdd', 'BufDelete' }, {
+    desc = 'Hide the tabline when empty',
+    group = group,
+    -- Schedule because 'BufDelete' is triggered when buffer is still present
+    callback = vim.schedule_wrap(function() vim.o.showtabline = get_n_listed_bufs() > 1 and 2 or 0 end),
+  })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",

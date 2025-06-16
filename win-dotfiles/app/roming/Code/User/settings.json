@@ -66,7 +66,7 @@
   "workbench.activityBar.location": "hidden",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.layoutControl.enabled": false,
-  "workbench.editor.showTabs": "none",
+  "workbench.editor.showTabs": "multiple",
   "workbench.editor.tabActionCloseVisibility": false,
 
   // # =============================================================================== #
