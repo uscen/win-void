@@ -35,7 +35,7 @@
         "workbench.files.action.focusFilesExplorer"
       ]
     },
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !inQuickOpen && !terminalFocus "
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !inQuickOpen && !terminalFocus && !inputFocus"
   },
   {
     "key": "space e",
@@ -149,7 +149,7 @@
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
-    "key": "space gg",
+    "key": "space g g",
     "command": "runCommands",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)",
     "args": {
@@ -285,7 +285,7 @@
   },
   {
     "key": "space g c",
-    "command": "workbench.view.scm",
+    "command": "git.commit",
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
@@ -388,17 +388,17 @@
   {
     "key": "space f f",
     "command": "workbench.action.quickOpen",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
   },
   {
     "key": "space f r",
     "command": "workbench.action.openRecent",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
   },
   {
     "key": "space f b",
     "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
   },
   {
     "key": "tab",
@@ -510,6 +510,6 @@
   {
     "key": "space q q",
     "command": "workbench.action.closeWindow",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen"
+    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
   }
 ]
