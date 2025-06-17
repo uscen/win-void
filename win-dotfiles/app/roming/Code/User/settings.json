@@ -17,6 +17,15 @@
   "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "off",
   "editor.scrollBeyondLastLine": false,
+  "editor.autoClosingQuotes": "beforeWhitespace",
+  "editor.autoClosingBrackets": "beforeWhitespace",
+  "editor.autoClosingDelete": "always",
+  "editor.autoClosingOvertype": "always",
+  "editor.comments.ignoreEmptyLines": false,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.shareSuggestSelections": true,
+  "editor.suggestSelection": "recentlyUsed",
 
   // # =============================================================================== #
   // # Editor: Silence Visual Noise:                                                   #
@@ -57,6 +66,9 @@
   "workbench.colorTheme": "Paradise",
   "workbench.editor.restoreViewState": false,
   "workbench.startupEditor": "none",
+  "workbench.commandPalette.preserveInput": true,
+  "workbench.editor.decorations.badges": false,
+  "workbench.list.fastScrollSensitivity": 1,
 
   // # =============================================================================== #
   // # Workbench: Silence Visual Noise:                                                #
@@ -99,6 +111,17 @@
     }
   },
   "terminal.integrated.defaultProfile.windows": "nu",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.enableBell": true,
+  "terminal.integrated.localEchoEnabled": "on",
+  "terminal.integrated.localEchoExcludePrograms": [],
+  "terminal.integrated.macOptionClickForcesSelection": true,
+  "terminal.integrated.minimumContrastRatio": 3,
+  "terminal.integrated.tabs.focusMode": "singleClick",
+  "terminal.integrated.tabs.showActions": "never",
+  "terminal.integrated.tabs.showActiveTerminal": "never",
+  "terminal.integrated.wordSeparators": "`~!@#$%^&*()-=+[]{}\\|;:'\",.<>/?_─‘’",
 
   // # =============================================================================== #
   // # Debug Settings:                                                                 #
@@ -177,12 +200,42 @@
   },
 
   // # =============================================================================== #
+  // # Search:                                                                         #
+  // # =============================================================================== #
+  "search.collapseResults": "alwaysCollapse",
+  "search.exclude": { "**/.idea": true, "**/Cargo.lock": true },
+  "search.quickOpen.includeSymbols": true,
+  "search.searchOnTypeDebouncePeriod": 0,
+  "search.seedOnFocus": true,
+  "search.seedWithNearestWord": true,
+  "search.smartCase": true,
+  "search.sortOrder": "countDescending",
+
+  // # =============================================================================== #
+  // # Git:                                                                            #
+  // # =============================================================================== #
+  "git.autofetch": "all",
+  "git.autoStash": true,
+  "git.enableCommitSigning": true,
+  "git.enableSmartCommit": true,
+  "git.fetchOnPull": true,
+  "git.followTagsWhenSync": true,
+  "git.logLevel": "Warning",
+  "git.mergeEditor": true,
+  "git.postCommitCommand": "sync",
+  "git.rebaseWhenSync": true,
+  "git.timeline.showUncommitted": true,
+  "git.untrackedChanges": "separate",
+
+  // # =============================================================================== #
   // # UI Elements:                                                                    #
   // # =============================================================================== #
   "breadcrumbs.enabled": false,
   "problems.decorations.enabled": false,
   "explorer.decorations.colors": false,
   "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.openEditors.sortOrder": "alphabetical",
 
   // # =============================================================================== #
   // # Application Settings:                                                           #
