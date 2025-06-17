@@ -176,7 +176,7 @@ later(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Paris                          │
+--          │                     Mini.Pairs                          │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.pairs").setup({
@@ -196,6 +196,15 @@ later(function()
       ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
+  local cr_action = function()
+    if vim.fn.pumvisible() ~= 0 then
+      local item_selected = vim.fn.complete_info()['selected'] ~= -1
+      return item_selected and '\25' or '\25\r'
+    else
+      return require('mini.pairs').cr()
+    end
+  end
+  vim.keymap.set('i', '<CR>', cr_action, { expr = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │

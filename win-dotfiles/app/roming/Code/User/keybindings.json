@@ -171,6 +171,12 @@
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
+    "key": "g y",
+    "command": "copyFilePath",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+
+  {
     "key": "-",
     "command": "list.focusParent",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -212,6 +218,11 @@
   },
   {
     "key": "d",
+    "command": "moveFileToTrash",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+d",
     "command": "deleteFile",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
@@ -262,6 +273,65 @@
     "key": "tab",
     "command": "list.toggleExpand",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+  },
+
+  // # =============================================================================== #
+  // # Git:                                                                            #
+  // # =============================================================================== #
+  {
+    "key": "space g a",
+    "command": "git.stageAll",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g c",
+    "command": "workbench.view.scm",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g shift+c",
+    "command": "git.commitAmend",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g p",
+    "command": "git.push",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g shift+p",
+    "command": "git.pull",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g d",
+    "command": "workbench.view.scm",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g shift+d",
+    "command": "git.openChange",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g s",
+    "command": "gitlens.showQuickCommitDetails",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g l",
+    "command": "workbench.view.scm",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g h",
+    "command": "gitlens.toggleFileBlame",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space g x",
+    "command": "gitlens.showQuickCommitDetails",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
   },
 
   // # =============================================================================== #
@@ -347,6 +417,20 @@
   },
 
   // # =============================================================================== #
+  // # sidebar:                                                                        #
+  // # =============================================================================== #
+  {
+    "key": "j",
+    "command": "list.focusAnyDown",
+    "when": "sideBarFocus && !inputFocus"
+  },
+  {
+    "key": "k",
+    "command": "list.focusAnyUp",
+    "when": "sideBarFocus && !inputFocus"
+  },
+
+  // # =============================================================================== #
   // # Tabs:                                                                           #
   // # =============================================================================== #
   {
@@ -389,15 +473,6 @@
   },
 
   // # =============================================================================== #
-  // # Terminal:                                                                       #
-  // # =============================================================================== #
-  {
-    "key": "ctrl+t",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-
-  // # =============================================================================== #
   // # Splits:                                                                         #
   // # =============================================================================== #
   {
@@ -409,6 +484,15 @@
     "key": "space v",
     "command": "workbench.action.splitEditorDown",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && !inQuickOpen"
+  },
+
+  // # =============================================================================== #
+  // # Terminal:                                                                       #
+  // # =============================================================================== #
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
   },
 
   // # =============================================================================== #

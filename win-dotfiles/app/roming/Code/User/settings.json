@@ -212,6 +212,9 @@
   "vim.useSystemClipboard": true,
   "vim.neovimUseConfigFile": true,
   "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#8C977D",
+  "vim.highlightedyank.textColor": "#151515",
+  "vim.highlightedyank.duration": 150,
   "vim.surround": true,
   "vim.incsearch": true,
   "vim.useCtrlKeys": true,
@@ -270,7 +273,7 @@
   "explorer.decorations.colors": false,
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
-  "explorer.openEditors.sortOrder": "alphabetical",
+  "explorer.openEditors.sortOrder": "editorOrder",
 
   // # =============================================================================== #
   // # Application Settings:                                                           #
