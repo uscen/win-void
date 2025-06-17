@@ -321,53 +321,6 @@ later(function()
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Files                          │
---          ╰─────────────────────────────────────────────────────────╯
-now_if_args(function()
-  require("mini.files").setup({
-    mappings = {
-      go_in_plus = "<Tab>",
-      go_out_plus = "<C-h>",
-      synchronize = "<C-s>",
-      reset = "gh",
-      close = "q",
-      go_in = "",
-      go_out = "",
-    },
-    content = {
-      filter = function(fs_entry)
-        local ignore = { "node_modules", "build", "depes", "incremental" }
-        local filter_hidden = not vim.tbl_contains(ignore, fs_entry.name)
-        return filter_hidden and not vim.startswith(fs_entry.name, ".")
-      end,
-    },
-    windows = {
-      max_number = 1,
-      width_focus = 999,
-    },
-  })
-
-  -- Toggle dotfiles : ==================================================================
-  local toggle = { enabled = true }
-  toggle_dotfiles = function()
-    function toggle:bool()
-      self.enabled = not self.enabled
-      return self.enabled
-    end
-
-    local is_enabled = not toggle:bool()
-    require("mini.files").refresh({
-      content = {
-        filter = function(fs_entry)
-          local ignore = { "node_modules", "build", "depes", "incremental" }
-          local filter_hidden = not vim.tbl_contains(ignore, fs_entry.name)
-          return is_enabled and true or (filter_hidden and not vim.startswith(fs_entry.name, "."))
-        end,
-      },
-    })
-  end
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
@@ -455,6 +408,54 @@ now(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Completion                     │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  -- enable configured language servers 0.11: ========================================
+  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "eslint", "prisma", "markdown" }
+  vim.lsp.config("*", {
+    capabilities = {
+      textDocument = {
+        semanticTokens = {
+          multilineTokenSupport = true,
+        }
+      }
+    },
+    root_markers = {
+      '.git'
+    },
+  })
+  for _, config in ipairs(lsp_configs) do
+    vim.lsp.enable(config)
+  end
+  -- enable Mini.Completion: ==============================================================
+  require("mini.completion").setup({
+    delay = { completion = 100, info = 100, signature = 50 },
+    window = {
+      info = { border = "none" },
+      signature = { border = "none" },
+    },
+    mappings = {
+      force_twostep = '<C-n>',
+      force_fallback = '<C-S-n>',
+      scroll_down = '<C-j>',
+      scroll_up = '<C-k>',
+    },
+    lsp_completion = {
+      source_func = 'omnifunc',
+      process_items = function(items, base)
+        return require('mini.completion').default_process_items(items, base, {
+          filtersort = 'fuzzy',
+          kind_priority = {
+            Text = -1,
+            Snippet = 99,
+          },
+        })
+      end,
+    },
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
@@ -512,51 +513,73 @@ now(function()
   end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Completion                     │
+--          │                     Mini.Files                          │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
-  -- enable configured language servers 0.11: ========================================
-  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "eslint", "prisma", "markdown" }
-  vim.lsp.config("*", {
-    capabilities = {
-      textDocument = {
-        semanticTokens = {
-          multilineTokenSupport = true,
-        }
-      }
-    },
-    root_markers = {
-      '.git'
-    },
-  })
-  for _, config in ipairs(lsp_configs) do
-    vim.lsp.enable(config)
-  end
-  -- enable Mini.Completion: ==============================================================
-  require("mini.completion").setup({
-    delay = { completion = 100, info = 100, signature = 50 },
-    window = {
-      info = { border = "none" },
-      signature = { border = "none" },
-    },
+now_if_args(function()
+  require("mini.files").setup({
     mappings = {
-      force_twostep = '<C-n>',
-      force_fallback = '<C-S-n>',
-      scroll_down = '<C-j>',
-      scroll_up = '<C-k>',
+      go_in_plus = "<Tab>",
+      go_out_plus = "<C-h>",
+      synchronize = "<C-s>",
+      reset = "gh",
+      close = "q",
+      go_in = "",
+      go_out = "",
     },
-    lsp_completion = {
-      source_func = 'omnifunc',
-      process_items = function(items, base)
-        return require('mini.completion').default_process_items(items, base, {
-          filtersort = 'fuzzy',
-          kind_priority = {
-            Text = -1,
-            Snippet = 99,
-          },
-        })
+    content = {
+      filter = function(fs_entry)
+        local ignore = { "node_modules", "build", "depes", "incremental" }
+        local filter_hidden = not vim.tbl_contains(ignore, fs_entry.name)
+        return filter_hidden and not vim.startswith(fs_entry.name, ".")
       end,
     },
+    windows = {
+      max_number = 1,
+      width_focus = 999,
+    },
+  })
+  -- Toggle dotfiles : ==================================================================
+  local toggle = { enabled = true }
+  toggle_dotfiles = function()
+    function toggle:bool()
+      self.enabled = not self.enabled
+      return self.enabled
+    end
+
+    local is_enabled = not toggle:bool()
+    require("mini.files").refresh({
+      content = {
+        filter = function(fs_entry)
+          local ignore = { "node_modules", "build", "depes", "incremental" }
+          local filter_hidden = not vim.tbl_contains(ignore, fs_entry.name)
+          return is_enabled and true or (filter_hidden and not vim.startswith(fs_entry.name, "."))
+        end,
+      },
+    })
+  end
+  -- Open In Splits : ==================================================================
+  local map_split = function(buf_id, lhs, direction)
+    local rhs = function()
+      -- Make new window and set it as target
+      local cur_target = MiniFiles.get_explorer_state().target_window
+      local new_target = vim.api.nvim_win_call(cur_target, function()
+        vim.cmd(direction .. ' split')
+        return vim.api.nvim_get_current_win()
+      end)
+
+      MiniFiles.set_target_window(new_target)
+    end
+    -- Adding `desc` will result into `show_help` entries
+    local desc = 'Split ' .. direction
+    vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
+  end
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesBufferCreate',
+    callback = function(args)
+      local buf_id = args.data.buf_id
+      map_split(buf_id, '<C-v>', 'belowright horizontal')
+      map_split(buf_id, '<C-s>', 'belowright vertical')
+    end,
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
