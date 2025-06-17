@@ -197,7 +197,7 @@ later(function()
     },
   })
   local cr_action = function()
-    if vim.fn.pumvisible() ~= 0 then
+    if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info()['selected'] ~= -1 then
       local item_selected = vim.fn.complete_info()['selected'] ~= -1
       return item_selected and '\25' or '\25\r'
     else
