@@ -76,7 +76,7 @@ Capslock::Esc
 !^n:: Run 'wt -- "C:\Program Files\Git\bin\bash.exe" -c "exec yazi ~"'
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
 !^c::{
-    if !WinExist("ahk_exe FreeTube.exe")
+    if !WinExist("ahk_exe Code.exe")
       Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
     WinWaitActive("ahk_exe Code.exe"), WinSetStyle("-0xC40000", "ahk_exe Code.exe")
 }

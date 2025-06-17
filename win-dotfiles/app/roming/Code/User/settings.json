@@ -144,7 +144,7 @@
   },
   "terminal.integrated.defaultProfile.windows": "nu",
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.localEchoEnabled": "on",
   "terminal.integrated.localEchoExcludePrograms": [],
