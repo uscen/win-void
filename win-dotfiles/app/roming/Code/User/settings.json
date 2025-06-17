@@ -82,9 +82,41 @@
   "workbench.editor.tabActionCloseVisibility": false,
 
   // # =============================================================================== #
+  // # breadcrumbs:                                                                    #
+  // # =============================================================================== #
+  "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.showNull": false,
+  "breadcrumbs.showKeys": false,
+  "breadcrumbs.showEnums": false,
+  "breadcrumbs.showFiles": false,
+  "breadcrumbs.showFields": false,
+  "breadcrumbs.showArrays": false,
+  "breadcrumbs.showEvents": false,
+  "breadcrumbs.showMethods": false,
+  "breadcrumbs.showStrings": false,
+  "breadcrumbs.showStructs": false,
+  "breadcrumbs.showModules": false,
+  "breadcrumbs.showNumbers": false,
+  "breadcrumbs.showObjects": false,
+  "breadcrumbs.showClasses": false,
+  "breadcrumbs.showPackages": false,
+  "breadcrumbs.showBooleans": false,
+  "breadcrumbs.showVariables": false,
+  "breadcrumbs.showConstants": false,
+  "breadcrumbs.showFunctions": false,
+  "breadcrumbs.showOperators": false,
+  "breadcrumbs.showInterfaces": false,
+  "breadcrumbs.showProperties": false,
+  "breadcrumbs.showNamespaces": false,
+  "breadcrumbs.showEnumMembers": false,
+  "breadcrumbs.showConstructors": false,
+  "breadcrumbs.showTypeParameters": false,
+
+  // # =============================================================================== #
   // # Window Settings:                                                                #
   // # =============================================================================== #
   "window.title": " ",
+  "window.titleBarStyle": "native",
   "window.commandCenter": false,
   "window.restoreFullscreen": false,
   "window.newWindowDimensions": "maximized",
@@ -113,7 +145,7 @@
   "terminal.integrated.defaultProfile.windows": "nu",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "underline",
-  "terminal.integrated.enableBell": true,
+  "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.localEchoEnabled": "on",
   "terminal.integrated.localEchoExcludePrograms": [],
   "terminal.integrated.macOptionClickForcesSelection": true,
@@ -122,6 +154,7 @@
   "terminal.integrated.tabs.showActions": "never",
   "terminal.integrated.tabs.showActiveTerminal": "never",
   "terminal.integrated.wordSeparators": "`~!@#$%^&*()-=+[]{}\\|;:'\",.<>/?_─‘’",
+  "terminal.integrated.shellIntegration.showCommandGuide": false,
 
   // # =============================================================================== #
   // # Debug Settings:                                                                 #
@@ -131,7 +164,6 @@
   // # =============================================================================== #
   // # Source Control:                                                                 #
   // # =============================================================================== #
-  "git.decorations.enabled": true,
   "scm.diffDecorations": "gutter",
   "scm.diffDecorationsGutterPattern": {
     "added": true,
@@ -202,6 +234,7 @@
   // # =============================================================================== #
   // # Search:                                                                         #
   // # =============================================================================== #
+  "search.mode": "reuseEditor",
   "search.collapseResults": "alwaysCollapse",
   "search.exclude": { "**/.idea": true, "**/Cargo.lock": true },
   "search.quickOpen.includeSymbols": true,
@@ -214,6 +247,8 @@
   // # =============================================================================== #
   // # Git:                                                                            #
   // # =============================================================================== #
+  "git.decorations.enabled": true,
+  "git.openRepositoryInParentFolders": "always",
   "git.autofetch": "all",
   "git.autoStash": true,
   "git.enableCommitSigning": true,
@@ -241,5 +276,6 @@
   // # Application Settings:                                                           #
   // # =============================================================================== #
   "update.mode": "none",
+  "telemetry.telemetryLevel": "off",
   "extensions.ignoreRecommendations": true
 }

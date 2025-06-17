@@ -74,8 +74,12 @@ Capslock::Esc
 !z:: Run("zed.exe")
 !n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
 !^n:: Run 'wt -- "C:\Program Files\Git\bin\bash.exe" -c "exec yazi ~"'
-!^c:: Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
 !^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
+!^c::{
+    if !WinExist("ahk_exe FreeTube.exe")
+      Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
+    WinWaitActive("ahk_exe Code.exe"), WinSetStyle("-0xC40000", "ahk_exe Code.exe")
+}
 !y::{
     if !WinExist("ahk_exe FreeTube.exe")
       Run('"C:\Users\' A_UserName '\scoop\apps\freetube\current\FreeTube.exe"')
