@@ -566,7 +566,6 @@ now_if_args(function()
         vim.cmd(direction .. ' split')
         return vim.api.nvim_get_current_win()
       end)
-
       MiniFiles.set_target_window(new_target)
     end
     -- Adding `desc` will result into `show_help` entries
@@ -988,6 +987,9 @@ later(function()
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
+  -- Split: ========================================================================
+  vim.keymap.set('n', '<leader>v', ':split<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>s', ':vsplit<CR>', { noremap = true, silent = true })
   -- Subtitle Keys: =================================================================
   vim.keymap.set('n', 'S', function()
     return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/'

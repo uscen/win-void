@@ -388,17 +388,28 @@
   {
     "key": "space f f",
     "command": "workbench.action.quickOpen",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
   },
   {
     "key": "space f r",
     "command": "workbench.action.openRecent",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
   },
   {
     "key": "space f b",
     "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.closeQuickOpen",
+        "workbench.action.quickOpen"
+      ]
+    },
+    "when": "inQuickOpen"
   },
   {
     "key": "tab",
@@ -408,12 +419,12 @@
   {
     "key": "ctrl+j",
     "command": "workbench.action.quickOpenSelectNext",
-    "when": "inQuickOpen"
+    "when": "inQuickOpen || inEditorsPicker"
   },
   {
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
-    "when": "inQuickOpen"
+    "when": "inQuickOpen || inEditorsPicker"
   },
 
   // # =============================================================================== #
@@ -510,6 +521,6 @@
   {
     "key": "space q q",
     "command": "workbench.action.closeWindow",
-    "when": "(vim.mode == 'Normal' || !activeEditor) && !terminalFocus && !inQuickOpen && !inputFocus"
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
   }
 ]
