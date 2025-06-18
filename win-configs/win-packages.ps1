@@ -86,7 +86,6 @@ $scoopPackages = @(
     "sumatrapdf",
     "JetBrainsMono-NF",
     "nodejs",
-    "nvm",
     "gcc",
     "autohotkey",
     "marksman",
