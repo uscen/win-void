@@ -388,17 +388,17 @@
   {
     "key": "space f f",
     "command": "workbench.action.quickOpen",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
+    "when": "vim.mode == Normal || (!sideBarFocus && !inputFocus && !inQuickOpen)"
   },
   {
     "key": "space f r",
     "command": "workbench.action.openRecent",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
+    "when": "vim.mode == Normal || (!sideBarFocus && !inputFocus && !inQuickOpen)"
   },
   {
     "key": "space f b",
     "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
+    "when": "vim.mode == Normal || (!sideBarFocus && !inputFocus && !inQuickOpen)"
   },
   {
     "key": "ctrl+u",
@@ -521,6 +521,6 @@
   {
     "key": "space q q",
     "command": "workbench.action.closeWindow",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !inQuickOpen"
+    "when": "vim.mode == Normal || (!sideBarFocus && !inputFocus && !inQuickOpen)"
   }
 ]
