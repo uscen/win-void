@@ -721,6 +721,7 @@ now(function()
   vim.opt.showmatch             = true
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
+  vim.opt.cedit                 = ''
   vim.opt.pumwidth              = 20
   vim.opt.pumblend              = 8
   vim.opt.pumheight             = 8
