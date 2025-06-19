@@ -848,12 +848,12 @@ local diagnostic_opts = {
       [vim.diagnostic.severity.ERROR] = " ",
     },
     -- interference With Mini.Diff ====================================================
-    -- numhl = {
-    --   [vim.diagnostic.severity.ERROR] = "ErrorMsg",
-    --   [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
-    --   [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
-    --   [vim.diagnostic.severity.HINT] = "DiagnosticHint",
-    -- },
+    numhl = {
+      [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+      [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+      [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+      [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+    },
   },
 }
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup: ======================
