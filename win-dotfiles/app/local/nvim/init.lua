@@ -53,18 +53,6 @@ later(function()
   require("mini.trailspace").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Diff                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.diff").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Git                            │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.git").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.SplitJoin                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -93,6 +81,18 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.extra").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Git                            │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.git").setup()
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Diff                           │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.diff").setup({ view = { style = 'sign' } })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Notify                         │
@@ -577,7 +577,7 @@ now_if_args(function()
     callback = function(args)
       local buf_id = args.data.buf_id
       map_split(buf_id, '<C-v>', 'belowright horizontal')
-      map_split(buf_id, '<C-s>', 'belowright vertical')
+      map_split(buf_id, '<C-b>', 'belowright vertical')
     end,
   })
 end)
