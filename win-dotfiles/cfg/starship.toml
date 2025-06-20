@@ -26,9 +26,9 @@ $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
-palette = 'everblush'
+palette = 'paradise'
 command_timeout = 3600000
-[palettes.everblush]
+[palettes.paradise]
 color_fg0 = '#151515'
 color_bg1 = '#2E2E2E'
 color_bg3 = '#D9BC8C'
