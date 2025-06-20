@@ -43,6 +43,11 @@
 ; # =============================================================================== #
 #include C:\Users\%A_UserName%\.config\ahk\maximizeAllWindows.ahk
 ; # =============================================================================== #
+; # Resize And Move By Keyboard:                                                    #
+; # =============================================================================== #
+; #include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboardClass.ahk
+#include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboard.ahk
+; # =============================================================================== #
 ; # Color Picker:                                                                   #
 ; # =============================================================================== #
 #include C:\Users\%A_UserName%\.config\ahk\colorPicker.ahk
