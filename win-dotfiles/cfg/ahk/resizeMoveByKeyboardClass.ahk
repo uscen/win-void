@@ -3,23 +3,23 @@
 ; # =============================================================================== #
 #Requires AutoHotkey v2.0.19+
 
-$^#l::window.resize('R')
-$^#h::window.resize('L')
-$^#k::window.resize('U')
-$^#j::window.resize('D')
+$^#l::windowManagment.resize('R')
+$^#h::windowManagment.resize('L')
+$^#k::windowManagment.resize('U')
+$^#j::windowManagment.resize('D')
 
-$^#WheelUp::window.resize_unit_increase()
-$^#WheelDown::window.resize_unit_decrease()
+$^#WheelUp::windowManagment.resize_unit_increase()
+$^#WheelDown::windowManagment.resize_unit_decrease()
 
-$#l::window.move('R')
-$#h::window.move('L')
-$#k::window.move('U')
-$#j::window.move('D')
+$#l::windowManagment.move('R')
+$#h::windowManagment.move('L')
+$#k::windowManagment.move('U')
+$#j::windowManagment.move('D')
 
 $#WheelUp::window.move_unit_increase()
 $#WheelDown::window.move_unit_decrease()
 
-class window {
+class windowManagment {
     static move_units := 50                                                 ; Amount of pixels a window will move
     static resize_units := 50                                               ; Amount of pixels a window is resized by
     static unit_amount := 10                                                ; Amount to change units by
