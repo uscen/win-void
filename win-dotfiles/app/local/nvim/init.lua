@@ -703,11 +703,11 @@ now(function()
   vim.opt.swapfile              = false
   vim.opt.writebackup           = false
   vim.opt.backup                = false
-  vim.opt.spell                 = false
   vim.opt.undofile              = true
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
-  vim.opt.spelllang             = 'en,ru,uk'
+  vim.opt.spell                 = false
+  vim.opt.spelllang             = 'en'
   vim.opt.spelloptions          = 'camel'
   vim.opt.dictionary            = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
