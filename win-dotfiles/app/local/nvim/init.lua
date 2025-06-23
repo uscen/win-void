@@ -198,9 +198,8 @@ later(function()
     },
   })
   local cr_action = function()
-    if vim.fn.pumvisible() ~= 0 or vim.fn.complete_info()['selected'] ~= -1 then
-      local item_selected = vim.fn.complete_info()['selected'] ~= -1
-      return item_selected and '\25' or '\25\r'
+    if vim.fn.complete_info()['selected'] ~= -1 then
+      return vim.fn.complete_info()['selected'] ~= -1 and '\25' or '\25\r'
     else
       return require('mini.pairs').cr()
     end
@@ -761,6 +760,7 @@ now(function()
   vim.opt.tabstop               = 2
   vim.opt.softtabstop           = 2
   vim.opt.breakindentopt        = "list:-1"
+  vim.opt.iskeyword             = '@,48-57,_,192-255,-'
   vim.opt.formatlistpat         = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
