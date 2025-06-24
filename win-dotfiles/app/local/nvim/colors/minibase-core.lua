@@ -230,7 +230,7 @@ vim.api.nvim_set_hl(0, 'FloatTitle', { link = "FloatBorder" })
 vim.api.nvim_set_hl(0, 'NormalFloat', { link = "FloatBorder" })
 -- Pmenu: =====================================================================
 vim.api.nvim_set_hl(0, "Pmenu", { bg = palette.base00, fg = palette.base04, bold = false, italic = false })
-vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base02, fg = palette.base04, bold = true, italic = false })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = palette.base01, fg = palette.base04, bold = true, italic = false })
 vim.api.nvim_set_hl(0, "PmenuMatch", { fg = palette.base0B, bold = true, italic = false })
 vim.api.nvim_set_hl(0, "PmenuExtra", { bg = palette.base00, fg = palette.base04, bold = true, italic = false })
 vim.api.nvim_set_hl(0, "PmenuMatchSel", { link = "PmenuMatch" })
@@ -287,8 +287,8 @@ vim.api.nvim_set_hl(0, 'MiniSnippetsUnvisited', { link = "MiniSnippetsCurrent" }
 vim.api.nvim_set_hl(0, 'MiniSnippetsVisited', { link = "MiniSnippetsCurrent" })
 -- Notify =====================================================================
 vim.api.nvim_set_hl(0, 'MiniNotifyBorder', { fg = palette.base0B, bg = palette.base00 })
-vim.api.nvim_set_hl(0, 'MiniNotifyLspProgress', { link = "MiniNotifyBorder" })
-vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { link = "MiniNotifyBorder" })
+vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { fg = palette.base03, bg = palette.base00 })
+vim.api.nvim_set_hl(0, 'MiniNotifyLspProgress', { link = "MiniNotifyNormal" })
 vim.api.nvim_set_hl(0, 'MiniNotifyTitle', { link = "MiniNotifyBorder" })
 -- Diff ========================================================================
 vim.api.nvim_set_hl(0, 'MiniDiffSignAdd', { fg = palette.base0B, bg = palette.base00 })
