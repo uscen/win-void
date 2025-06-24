@@ -432,8 +432,8 @@ now(function()
   require("mini.completion").setup({
     delay = { completion = 100, info = 100, signature = 50 },
     window = {
-      info = { border = "none" },
-      signature = { border = "none" },
+      info = { border = "single" },
+      signature = { border = "single" },
     },
     mappings = {
       force_twostep = '<C-n>',
