@@ -102,6 +102,7 @@ later(function()
   require('mini.notify').setup()
   vim.notify = require('mini.notify').make_notify()
 end)
+
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Align                          │
 --          ╰─────────────────────────────────────────────────────────╯
@@ -197,6 +198,7 @@ later(function()
       ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
+  -- Can Solve This Also By Mini.Keymap: =======================================================
   local cr_action = function()
     if vim.fn.complete_info()['selected'] ~= -1 then
       return vim.fn.complete_info()['selected'] ~= -1 and '\25' or '\25\r'
