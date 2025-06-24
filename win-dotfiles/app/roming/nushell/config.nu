@@ -41,8 +41,8 @@ $env.config = {
     header_on_separator: false
   }
   explore: {
-      status_bar_background: {fg: "#151515", bg: "#E8E3E3"},
-      command_bar_text: {fg: "#E8E3E3"},
+      status_bar_background: {fg: "#141b1e", bg: "#dadada"},
+      command_bar_text: {fg: "#dadada"},
       highlight: {fg: "black", bg: "yellow"},
       status: {
           error: {fg: "white", bg: "red"},
@@ -50,7 +50,7 @@ $env.config = {
           info: {}
       },
       table: {
-          split_line: {fg: "#424242"},
+          split_line: {fg: "#232a2d"},
           selected_cell: {bg: light_blue},
           selected_row: {},
           selected_column: {},
@@ -86,8 +86,8 @@ $env.config = {
       col_padding: 2
     }
     style: {
-      text: { fg: "#8C977D" }
-      selected_text: { fg: "#151515" bg: "#8C977D" attr: b}
+      text: { fg: "#141b1e" }
+      selected_text: { fg: "#141b1e" bg: "#8ccf7e" attr: b}
       description_text: yellow
     }
   }
@@ -115,11 +115,12 @@ $env.config = {
     event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules
         | fzf --preview-window=right,30%
               --style=full --height=30% --border --layout reverse --preview-window right,40%
-              --color fg:#8C977D,bg:#151515
-              --color bg+:#1F1F1F,fg+:#8C977D
-              --color hl:#c4b28a,hl+:#c4b28a,gutter:#151515
-              --color pointer:#424242,info:#424242
-              --color border:#8C977D
+              --color fg:#5d6466,bg:#1e2527
+              --color bg+:#8ccf7e,fg+:#2c2f30
+              --color hl:#8ccf7e,hl+:#26292a,gutter:#1e2527
+              --color pointer:#373d49,info:#606672
+              --color border:#1e2527
+              --color border:#8ccf7e
               --preview "eza --icons --tree {}")' }
   }
   {
@@ -141,11 +142,12 @@ $env.config = {
              --read0
              --query (commandline)
              --style=full --height=30% --border --layout reverse --preview-window right,40%
-             --color fg:#8C977D,bg:#151515
-             --color bg+:#1F1F1F,fg+:#8C977D
-             --color hl:#c4b28a,hl+:#c4b28a,gutter:#151515
-             --color pointer:#424242,info:#424242
-             --color border:#8C977D
+             --color fg:#5d6466,bg:#1e2527
+             --color bg+:#8ccf7e,fg+:#2c2f30
+             --color hl:#8ccf7e,hl+:#26292a,gutter:#1e2527
+             --color pointer:#373d49,info:#606672
+             --color border:#1e2527
+             --color border:#8ccf7e
            | decode utf-8
            | str trim
        )"

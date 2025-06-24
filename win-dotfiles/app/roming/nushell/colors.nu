@@ -1,21 +1,21 @@
 # =============================================================================== #
 # Kanagawa theme:                                                                 #
 # =============================================================================== #
-let base00 = "#181818" # Default Background
-let base01 = "#282828" # Lighter Background (Used for status bars, line number and folding marks)
+let base00 = "#141b1e" # Default Background
+let base01 = "#232a2d" # Lighter Background (Used for status bars, line number and folding marks)
 let base02 = "#383838" # Selection Background
 let base03 = "#585858" # Comments, Invisibles, Line Highlighting
 let base04 = "#b8b8b8" # Dark Foreground (Used for status bars)
 let base05 = "#d8d8d8" # Default Foreground, Caret, Delimiters, Operators
-let base06 = "#e8e8e8" # Light Foreground (Not often used)
-let base07 = "#f8f8f8" # Light Background (Not often used)
-let base08 = "#ab4642" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+let base06 = "#b3b9b8" # Light Foreground (Not often used)
+let base07 = "#dadada" # Light Background (Not often used)
+let base08 = "#e57474" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 let base09 = "#dc9656" # Integers, Boolean, Constants, XML Attributes, Markup Link Url
-let base0a = "#f7ca88" # Classes, Markup Bold, Search Text Background
-let base0b = "#a1b56c" # Strings, Inherited Class, Markup Code, Diff Inserted
-let base0c = "#86c1b9" # Support, Regular Expressions, Escape Characters, Markup Quotes
-let base0d = "#7cafc2" # Functions, Methods, Attribute IDs, Headings
-let base0e = "#ba8baf" # Keywords, Storage, Selector, Markup Italic, Diff Changed
+let base0a = "#e5c76b" # Classes, Markup Bold, Search Text Background
+let base0b = "#8ccf7e" # Strings, Inherited Class, Markup Code, Diff Inserted
+let base0c = "#67b0e8" # Support, Regular Expressions, Escape Characters, Markup Quotes
+let base0d = "#6cbfbf" # Functions, Methods, Attribute IDs, Headings
+let base0e = "#c47fd5" # Keywords, Storage, Selector, Markup Italic, Diff Changed
 let base0f = "#a16946" # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
 let base16_theme = {
     separator: $base03

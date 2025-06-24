@@ -21,7 +21,7 @@ bold = true
 foreground = { rgb = { r = 216, g = 167, b = 87 } }
 
 [style.example_variable]
-foreground = "blue"
+foreground = "green"
 underline = true
 
 [updates]

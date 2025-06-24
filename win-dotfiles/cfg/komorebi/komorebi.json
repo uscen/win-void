@@ -13,10 +13,10 @@
   "border_implementation": "Komorebi",
   "border_style": "Square",
   "border_colours": {
-    "single": "#8C977D",
-    "stack": "#8DA3B9",
-    "monocle": "#B66467",
-    "unfocused": "#1F1F1F"
+    "single": "#8ccf7e",
+    "stack": "#6cbfbf",
+    "monocle": "#e57474",
+    "unfocused": "#232a2d"
   },
   "stackbar": {
     "height": 25,
@@ -25,9 +25,9 @@
       "font_family": "JetBrainsMono NF",
       "font_size": 18,
       "width": 100,
-      "focused_text": "#8C977D",
-      "unfocused_text": "#BBB6B6",
-      "background": "#151515"
+      "focused_text": "#8ccf7e",
+      "unfocused_text": "#b3b9b8",
+      "background": "#141b1e"
     }
   },
   "manage_rules": [

@@ -26,19 +26,19 @@ $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
-palette = 'paradise'
+palette = 'everblush'
 command_timeout = 3600000
-[palettes.paradise]
-color_fg0 = '#151515'
-color_bg1 = '#2E2E2E'
-color_bg3 = '#D9BC8C'
-color_blue = '#8C977D'
-color_aqua = '#8C977D'
-color_green = '#A988B0'
-color_orange = '#B66467'
-color_purple = '#c47fd5'
-color_red = '#B66467'
-color_yellow = '#D9BC8C'
+[palettes.everblush]
+color_fg0 = '#141b1e'
+color_bg1 = '#232a2d'
+color_bg3 = '#e5c76b'
+color_blue = '#8ccf7e'
+color_aqua = '#8ccf7e'
+color_green = '#c47fd5'
+color_orange = '#e57474'
+color_purple = '#6cbfbf'
+color_red = '#e57474'
+color_yellow = '#e5c76b'
 
 [os]
 disabled = false

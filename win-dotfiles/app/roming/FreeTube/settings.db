@@ -1,7 +1,7 @@
 {"_id":"backendPreference","value":"local"}
 {"_id":"barColor","value":false}
-{"_id":"baseTheme","value":"dark"}
-{"_id":"bounds","value":{"x":0,"y":0,"width":1920,"height":1200,"maximized":true,"fullScreen":false}}
+{"_id":"baseTheme","value":"nordic"}
+{"_id":"bounds","value":{"x":1,"y":1,"width":958,"height":1198,"maximized":false,"fullScreen":false}}
 {"_id":"defaultProfile","value":"qXqJ1JvFrSjUSdWH"}
 {"_id":"defaultQuality","value":"2160"}
 {"_id":"defaultViewingMode","value":"default"}

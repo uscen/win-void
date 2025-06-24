@@ -72,32 +72,32 @@ save_to_clipboard = true
 draw_bold_text_with_bright_colors = false
 
 [colors.primary]
-  background = '0x151515'
-  foreground =  '0xE8E3E3'
+  background = '0x141b1e'
+  foreground =  '0xdadada'
 
 [colors.cursor]
   text = '0x141b1e'
-  cursor = '0x8C977D'
+  cursor = '0x8ccf7e'
 
 [colors.normal]
-  black =   '0x151515'
-  red =     '0xB66467'
-  green =   '0x8C977D'
-  yellow =  '0xD9BC8C'
-  blue =    '0x8DA3B9'
-  magenta = '0xA988B0'
-  cyan =    '0x8AA6A2'
-  white =   '0xE8E3E3'
+  black =   '0x232a2d'
+  red =     '0xe57474'
+  green =   '0x8ccf7e'
+  yellow =  '0xe5c76b'
+  blue =     '0x67b0e8'
+  magenta = '0xc47fd5'
+  cyan =    '0x6cbfbf'
+  white =   '0xb3b9b8'
 
 [colors.bright]
-  black =   '0x424242'
-  red =     '0xB66467'
-  green =   '0x8C977D'
-  yellow =  '0xD9BC8C'
-  blue =    '0x8DA3B9'
-  magenta = '0xA988B0'
-  cyan =    '0x8AA6A2'
-  white =   '0xE8E3E3'
+  black =   '0x2d3437'
+  red =     '0xef7e7e'
+  green =   '0x96d988'
+  yellow =  '0xf4d67a'
+  blue =    '0x71baf2'
+  magenta = '0xce89df'
+  cyan =    '0x67cbe7'
+  white =   '0xbdc3c2'
 
 # =============================================================================== #
 # keybidings:                                                                     #
