@@ -1,7 +1,7 @@
 return {
-  ["conform.nvim"] = "6feb2f28f9a9385e401857b21eeac3c1b66dd628",
-  ["mini.nvim"] = "14ce72476995255fc5cb919da8067f65865e1225",
-  ["nvim-treesitter"] = "066fd6505377e3fd4aa219e61ce94c2b8bdb0b79",
+  ["conform.nvim"] = "8132ec733eed3bf415b97b76797ca41b59f51d7d",
+  ["mini.nvim"] = "01dce72f2177de6044bcab60ebb8f8e56ade0936",
+  ["nvim-treesitter"] = "42fc28ba918343ebfd5565147a42a26580579482",
   ["nvim-ts-autotag"] = "a1d526af391f6aebb25a8795cbc05351ed3620b5",
   ["rainbow-delimiters.nvim"] = "55ad4fb76ab68460f700599b7449385f0c4e858e"
 }
