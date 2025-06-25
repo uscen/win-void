@@ -198,15 +198,6 @@ later(function()
       ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
-  -- Can Solve This Also By Mini.Keymap: =======================================================
-  local cr_action = function()
-    if vim.fn.complete_info()['selected'] ~= -1 then
-      return vim.fn.complete_info()['selected'] ~= -1 and '\25' or '\25\r'
-    else
-      return require('mini.pairs').cr()
-    end
-  end
-  vim.keymap.set('i', '<CR>', cr_action, { expr = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
@@ -584,7 +575,15 @@ now_if_args(function()
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                          Treesitter                     ║
+--          ║                       Mini.Keymap                       ║
+--          ╚═════════════════════════════════════════════════════════╝
+now_if_args(function()
+  local map_multistep = require('mini.keymap').map_multistep
+  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
+  map_multistep('i', '<BS>', { 'minipairs_bs' })
+end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                      Treesitter                         ║
 --          ╚═════════════════════════════════════════════════════════╝
 now_if_args(function()
   add({
@@ -697,7 +696,7 @@ now(function()
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.completeopt           = 'menuone,noinsert,fuzzy'
+  vim.opt.completeopt           = 'menuone,noselect,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
   vim.opt.splitkeep             = 'screen'

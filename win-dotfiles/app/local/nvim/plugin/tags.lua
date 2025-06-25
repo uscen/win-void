@@ -13,7 +13,7 @@ local function check_html_char()
   -- Handle completion cases
   local complete_info = vim.fn.complete_info()
   if complete_info.selected ~= -1 then
-    return '\25' -- Return tab if in completion menu
+    return '\25'
   end
   -- Default to mini.pairs behavior
   return require('mini.pairs').cr()
