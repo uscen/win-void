@@ -2,18 +2,21 @@
 --          ║               Smart Enter Between Tags                  ║
 --          ╚═════════════════════════════════════════════════════════╝
 local function check_html_char()
-  local prev_col, next_col = vim.fn.col(".") - 1, vim.fn.col(".") ---@type number
-  local prev_char = vim.fn.getline("."):sub(prev_col, prev_col)
-  local next_char = vim.fn.getline("."):sub(next_col, next_col)
-  if prev_char:match(">") and next_char:match("<") then
+  local col = vim.fn.col(".")
+  local line = vim.fn.getline(".")
+  local prev_char = line:sub(col - 1, col - 1)
+  local next_char = line:sub(col, col)
+  -- Check if we're between HTML tags (><)
+  if prev_char == ">" and next_char == "<" then
     return "<cr><esc>ko"
-  else
-    if vim.fn.complete_info()['selected'] ~= -1 then
-      return vim.fn.complete_info()['selected'] ~= -1 and '\25' or '\25\r'
-    else
-      return require('mini.pairs').cr()
-    end
   end
+  -- Handle completion cases
+  local complete_info = vim.fn.complete_info()
+  if complete_info.selected ~= -1 then
+    return '\25' -- Return tab if in completion menu
+  end
+  -- Default to mini.pairs behavior
+  return require('mini.pairs').cr()
 end
 
 vim.api.nvim_create_autocmd('FileType', {
