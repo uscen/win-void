@@ -268,7 +268,7 @@ later(function()
     },
     options = {
       use_cache = true,
-      content_from_bottom = false
+      content_from_bottom = true
     },
     window = {
       config = {

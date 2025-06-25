@@ -25,9 +25,15 @@ export-env { load-env {
 #  FZF:                                                                           #
 # =============================================================================== #
 $env.FZF_DEFAULT_OPTS = "
---input-border --style=full
---height=40% --border --layout reverse
---preview-window right,80%
+    --prompt='󱓇  '
+    --preview-window=right,30%
+    --style=minimal --height=30% --border --preview-window right,40%
+    --color fg:#b3b9b8,bg:#141b1e
+    --color bg+:#1e2527,fg+:#dadada
+    --color hl:#8ccf7e,hl+:#8ccf7e,gutter:#141b1e
+    --color pointer:#373d49,info:#606672
+    --color border:#141b1e
+    --color border:#8ccf7e
 "
 # =============================================================================== #
 #  carapace-bin:                                                                  #

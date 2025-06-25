@@ -113,15 +113,7 @@ $env.config = {
     keycode: char_c
     mode: [emacs, vi_normal, vi_insert]
     event: { send: executehostcommand, cmd: 'cd (fd -t d -E .git -E node_modules
-        | fzf --preview-window=right,30%
-              --style=full --height=30% --border --layout reverse --preview-window right,40%
-              --color fg:#b3b9b8,bg:#141b1e
-              --color bg+:#1e2527,fg+:#dadada
-              --color hl:#8ccf7e,hl+:#8ccf7e,gutter:#141b1e
-              --color pointer:#373d49,info:#606672
-              --color border:#141b1e
-              --color border:#8ccf7e
-              --preview "eza --icons --tree {}")' }
+        | fzf --preview "eza --icons --tree {}")' }
   }
   {
     name: fuzzy_history
@@ -141,13 +133,6 @@ $env.config = {
              --scheme history
              --read0
              --query (commandline)
-             --style=full --height=30% --border --layout reverse --preview-window right,40%
-             --color fg:#b3b9b8,bg:#141b1e
-             --color bg+:#1e2527,fg+:#dadada
-             --color hl:#8ccf7e,hl+:#8ccf7e,gutter:#141b1e
-             --color pointer:#373d49,info:#606672
-             --color border:#141b1e
-             --color border:#8ccf7e
            | decode utf-8
            | str trim
        )"
