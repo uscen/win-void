@@ -25,7 +25,7 @@ export-env { load-env {
 #  FZF:                                                                           #
 # =============================================================================== #
 $env.FZF_DEFAULT_OPTS = "
-    --prompt='󱓇  '
+    --prompt='󱓇  ' --layout=reverse
     --preview-window=right,30%
     --style=minimal --height=30% --border --preview-window right,40%
     --color fg:#b3b9b8,bg:#141b1e
@@ -34,6 +34,7 @@ $env.FZF_DEFAULT_OPTS = "
     --color pointer:#373d49,info:#606672
     --color border:#141b1e
     --color border:#8ccf7e
+    --bind 'tab:accept'
 "
 # =============================================================================== #
 #  carapace-bin:                                                                  #

@@ -268,7 +268,7 @@ later(function()
     },
     options = {
       use_cache = true,
-      content_from_bottom = true
+      content_from_bottom = false
     },
     window = {
       config = {
@@ -697,7 +697,7 @@ now(function()
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.completeopt           = 'menuone,noselect,fuzzy'
+  vim.opt.completeopt           = 'menuone,noinsert,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
   vim.opt.splitkeep             = 'screen'
