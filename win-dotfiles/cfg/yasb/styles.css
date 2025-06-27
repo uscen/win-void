@@ -209,7 +209,7 @@
 
 .volume-widget .icon {
   color: var(--blue);
-  margin: 1px 2px 0 0;
+  margin: 1px 4px 0 0;
 }
 
 .brightness-widget .widget-container .icon {
@@ -217,25 +217,11 @@
   margin: 1px 2px 0 0;
 }
 
-.weather-widget,
 .battery-widget,
 .cpu-widget,
 .brightness-widget,
 .volume-widget {
   padding: 0 6px;
-}
-
-.weather-widget .icon {
-  font-size: 18px;
-  margin: 0 2px 1px 0;
-  color: var(--sky);
-}
-
-.cpu-widget .icon,
-.memory-widget .icon {
-  font-size: 14px;
-  color: var(--maroon);
-  margin: 0 2px 1px 0;
 }
 
 .media-widget {
@@ -262,6 +248,7 @@
 }
 
 .media-widget .btn.play {
+  margin: 0 4px;
   font-size: 16px;
 }
 
