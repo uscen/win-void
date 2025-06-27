@@ -13,9 +13,9 @@
   "launchMode": "focus",
   "profiles": {
     "defaults": {
-      "colorScheme": "Paradise",
+      "colorScheme": "Everblush",
       "cursorShape": "filledBox",
-      "cursorColor": "#8C977D",
+      "cursorColor": "#8ccf7e",
       "bellStyle": "none",
       "font": {
         "face": "JetBrainsMono Nerd Font",

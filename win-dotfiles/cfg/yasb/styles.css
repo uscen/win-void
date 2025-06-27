@@ -2,30 +2,30 @@
 /* Yasb Bar:                                                                       # */
 /* =============================================================================== # */
 :root {
-  --red: #ea6962;
-  --maroon: #ffa066;
-  --yellow: #d8a657;
-  --sky: #d8a657;
-  --sapphire: #7daea3;
-  --blue: #89b482;
-  --lavender: #a9b665;
-  --text: #d4be98;
-  --subtext1: #c8c093;
-  --subtext0: #c8c093;
+  --red: #e57474;
+  --maroon: #c47fd5;
+  --yellow: #e5c76b;
+  --sky: #e5c76b;
+  --sapphire: #6cbfbf;
+  --blue: #8ccf7e;
+  --lavender: #8ccf7e;
+  --text: #dadada;
+  --subtext1: #b3b9b8;
+  --subtext0: #b3b9b8;
   --overlay1: #504945;
   --surface2: #32302f;
-  --surface1: #1b1b1b;
-  --surface0: #1b1b1b;
-  --base: #141617;
-  --mantle: #141617;
-  --crust: #1b1b1b;
+  --surface1: #232a2d;
+  --surface0: #232a2d;
+  --base: #141b1e;
+  --mantle: #141b1e;
+  --crust: #232a2d;
 }
 
 * {
   font-size: 12px;
   color: var(--subtext0);
   font-weight: 600;
-  font-family: "JetBrainsMono NFP";
+  font-family: "JetBrainsMono NF";
   margin: 0;
   padding: 0;
   color: var(--sky);

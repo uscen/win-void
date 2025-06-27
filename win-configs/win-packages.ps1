@@ -79,6 +79,7 @@ $scoopPackages = @(
     "eza",
     "freetube",
     "komorebi",
+    "yasb",
     "obs-studio",
     "shotcut",
     "gimp",
