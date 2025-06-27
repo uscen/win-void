@@ -88,7 +88,7 @@ Capslock::Esc
 ; # =============================================================================== #
 ; # Komorebi Window Manager:                                                        #
 ; # =============================================================================== #
-RunWait("yasbc.exe start")
+RunWait("yasbc.exe start", , "Hide")
 RunWait("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
 Komorebic(cmd) {
     if !ProcessExist("yasb.exe") {

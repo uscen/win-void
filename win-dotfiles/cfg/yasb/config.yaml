@@ -167,28 +167,15 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\uf0f3", launch: "notification_center" }
-        - {
-            icon: "\uf00e",
-            launch: "C:\\Program Files\\Everything\\everything.exe",
-          }
-
+        - { icon: "\uf00e", launch: "everything.exe" }
         - { icon: "\uf1fe", launch: "cmd /c Taskmgr" }
         - {
             icon: "\udb81\udc48",
-            launch: "C:\\Users\\LLI\\AppData\\Local\\Programs\\FreeTube\\FreeTube.exe",
+            launch: "C:\\Users\\LLI\\scoop\\apps\\freetube\\current\\FreeTube.exe",
           }
-        - {
-            icon: "\uf370",
-            launch: "C:\\Program Files\\Mozilla Thunderbird\\thunderbird.exe",
-          }
-        - {
-            icon: "\uf268",
-            launch: "C:\\Users\\LLI\\AppData\\Local\\Chromium\\Application\\Chrome.exe",
-          }
-        - {
-            icon: "\udb82\ude1e",
-            launch: "C:\\Users\\LLI\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
-          }
+        - { icon: "\uf370", launch: "thunderbird.exe" }
+        - { icon: "\uf268", launch: "chromium.exe" }
+        - { icon: "\udb82\ude1e", launch: "vscode.exe" }
         - { icon: "\uf36f", launch: "neovide.exe C:\\Users\\LLI\\Projects" }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
