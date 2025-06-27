@@ -24,7 +24,7 @@ bars:
       border_color: System
     window_flags:
       hide_on_fullscreen: true
-      windows_app_bar: true
+      windows_app_bar: false
       always_on_top: false
       auto_hide: false
     dimensions:
