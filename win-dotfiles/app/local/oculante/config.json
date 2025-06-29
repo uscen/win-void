@@ -31,7 +31,7 @@
     "PanRight": ["LShift", "Right"],
     "PanUp": ["LShift", "Up"],
     "PanDown": ["Down", "LShift"],
-    "DeleteFile": ["Delete"],
+    "DeleteFile": ["D"],
     "ClearImage": ["Delete", "LShift"],
     "LosslessRotateRight": ["RBracket"],
     "LosslessRotateLeft": ["LBracket"],

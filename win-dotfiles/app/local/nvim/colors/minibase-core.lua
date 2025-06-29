@@ -216,6 +216,11 @@ end
 if palette then
   require("mini.base16").setup({
     palette = palette,
+    use_cterm = true,
+    plugins = {
+      default = false,
+      ['echasnovski/mini.nvim'] = true,
+    }
   })
   vim.g.colors_name = "minibase-core"
 end
@@ -287,7 +292,7 @@ vim.api.nvim_set_hl(0, 'MiniSnippetsUnvisited', { link = "MiniSnippetsCurrent" }
 vim.api.nvim_set_hl(0, 'MiniSnippetsVisited', { link = "MiniSnippetsCurrent" })
 -- Notify =====================================================================
 vim.api.nvim_set_hl(0, 'MiniNotifyBorder', { fg = palette.base0B, bg = palette.base00 })
-vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { fg = palette.base03, bg = palette.base00 })
+vim.api.nvim_set_hl(0, 'MiniNotifyNormal', { fg = palette.base04, bg = palette.base00 })
 vim.api.nvim_set_hl(0, 'MiniNotifyLspProgress', { link = "MiniNotifyNormal" })
 vim.api.nvim_set_hl(0, 'MiniNotifyTitle', { link = "MiniNotifyBorder" })
 -- Diff ========================================================================
