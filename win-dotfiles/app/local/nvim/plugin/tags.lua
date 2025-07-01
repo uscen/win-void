@@ -2,7 +2,7 @@
 --          ║               Smart Enter Between Tags                  ║
 --          ╚═════════════════════════════════════════════════════════╝
 local cr_default = vim.api.nvim_replace_termcodes('<CR>', true, true, true)
-local esc_ko = vim.api.nvim_replace_termcodes('<CR><Esc>ko', true, true, true)
+local esc_O = vim.api.nvim_replace_termcodes('<CR><Esc>O', true, true, true)
 local ctrl_y = vim.api.nvim_replace_termcodes('<C-y>', true, true, true)
 
 local function check_html_char()
@@ -14,7 +14,7 @@ local function check_html_char()
     local prev_byte = line:byte(col - 1)
     local next_byte = line:byte(col)
     if prev_byte == 62 and next_byte == 60 then -- 62='>', 60='<'
-      return esc_ko
+      return esc_O
     end
   end
 
