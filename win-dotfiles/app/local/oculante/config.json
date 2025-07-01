@@ -21,7 +21,7 @@
     "ResetView": ["V"],
     "ZoomOut": ["LControl", "Minus"],
     "ZoomIn": ["Equals", "LControl"],
-    "ZoomActualSize": ["0", "LControl"],
+    "ZoomActualSize": ["LControl", "Key0"],
     "ZoomDouble": ["Key2"],
     "ZoomThree": ["Key3"],
     "ZoomFour": ["Key4"],
