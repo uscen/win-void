@@ -17,8 +17,8 @@ $env.config = {
   edit_mode: vi
   error_style: "fancy"
   cursor_shape: {
-    vi_insert: block
     vi_normal: block
+    vi_insert: line
     emacs: line
   }
   ls: {
@@ -60,7 +60,7 @@ $env.config = {
       max_size: 100_000
       sync_on_enter: true
       file_format: "sqlite"
-      isolation: false
+      isolation: true
   }
   completions: {
       case_sensitive: false
@@ -78,7 +78,7 @@ $env.config = {
    {
     name: completion_menu
     only_buffer_difference: false
-    marker: ">> "
+    marker: "󱓇 "
     type: {
       layout: columnar
       columns: 4
@@ -88,7 +88,9 @@ $env.config = {
     style: {
       text: { fg: "#b3b9b8" }
       selected_text: { fg: "#141b1e" bg: "#8ccf7e" attr: b}
-      description_text: yellow
+      description_text: { fg: "#e5c76b" }
+      match_text: { attr: b }
+      selected_match_text: { attr: br }
     }
   }
   ]
