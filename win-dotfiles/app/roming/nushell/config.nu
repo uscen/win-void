@@ -86,7 +86,7 @@ $env.config = {
       col_padding: 2
     }
     style: {
-      text: { fg: "#141b1e" }
+      text: { fg: "#b3b9b8" }
       selected_text: { fg: "#141b1e" bg: "#8ccf7e" attr: b}
       description_text: yellow
     }
