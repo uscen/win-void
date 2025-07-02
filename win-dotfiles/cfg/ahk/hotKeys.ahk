@@ -41,6 +41,7 @@ Capslock::Esc
 !f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
 !+f::  WinSetStyle "^0xC40000", "A"
 !+s:: KeepAwake()
+!^r:: ToggleMacroRecorder()
 !b:: HideShowTaskbar()
 ; # =============================================================================== #
 ; # EMPTY RECYCLE BIN:                                                              #
@@ -74,7 +75,7 @@ Capslock::Esc
 !z:: Run("zed.exe")
 !n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
 !^n:: Run 'wt -- "C:\Program Files\Git\bin\bash.exe" -c "exec yazi ~"'
-!^+s:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\awake.ahk"')
+!^r:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\macroRecorder.ahk"')
 !^c::{
     if !WinExist("ahk_exe Code.exe")
       Run('"C:\Users\' A_UserName '\scoop\apps\vscode\current\Code.exe"')
