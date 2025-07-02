@@ -41,7 +41,6 @@ Capslock::Esc
 !f:: WinGetMinMax("A")=1 ? WinRestore("A"):WinMaximize("A")
 !+f::  WinSetStyle "^0xC40000", "A"
 !+s:: KeepAwake()
-!^r:: ToggleMacroRecorder()
 !b:: HideShowTaskbar()
 ; # =============================================================================== #
 ; # EMPTY RECYCLE BIN:                                                              #
