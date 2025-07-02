@@ -24,6 +24,10 @@
 ; #include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboard.ahk
 #include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboardClass.ahk
 ; # =============================================================================== #
+; # Resize And Move By Keyboard:                                                    #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.config\ahk\saveCurrentUrlInFolder.ahk
+; # =============================================================================== #
 ; # Maximize Apps:                                                                  #
 ; # =============================================================================== #
 #include C:\Users\%A_UserName%\.config\ahk\maximizeAllWindows.ahk

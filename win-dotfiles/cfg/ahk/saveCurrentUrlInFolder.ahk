@@ -7,7 +7,7 @@
 !^s::{
     ;replace the following placeholder with the directory that should contain the links:
     ; # =============================================================================== #
-    path := "C:\Users\lli\Links\"
+    path := "C:\Users\lli\Favorites\"
 
     filename := RegExReplace(WinGetTitle("A"),'[>:\"\/\\|?]',"") ".url"          ;these characters are not allowed in file names
     url := getUrl()
