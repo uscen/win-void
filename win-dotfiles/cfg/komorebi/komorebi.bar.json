@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.bar.json",
+  "monitor": 0,
+  "height": 30,
+  "padding": 4,
+  "widget_spacing": 8,
+  "transparency_alpha": 255,
+  "font_family": "Tahoma",
+  "grouping": {
+    "kind": "Widget",
+    "style": "DefaultWithShadowB4O1S3"
+  },
+  "theme": {
+    "palette": "Base16",
+    "name": "OnedarkDark",
+    "accent": "Base0B"
+  },
+  "left_widgets": [
+    {
+      "Komorebi": {
+        "workspaces": {
+          "enable": true,
+          "hide_empty_workspaces": false
+        },
+        "layout": {
+          "enable": true,
+          "display": "Icon"
+        }
+      }
+    }
+  ],
+  "center_widgets": [
+    {
+      "Applications": {
+        "enable": true,
+        "display": "Icon",
+        "items": [
+          {
+            "command": "C:/Users/lli/scoop/apps/windows-terminal/current/wt.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Bash",
+            "show_command_on_hover": true
+          },
+          {
+            "command": "C:/Users/lli/scoop/apps/alacritty/current/alacritty.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Alacritty",
+            "show_command_on_hover": true
+          },
+          {
+            "command": "C:/Users/lli/scoop/apps/gimp/current/bin/gimp.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Alacritty",
+            "show_command_on_hover": true
+          },
+          {
+            "command": "C:/Users/lli/scoop/apps/obs-studio/current/bin/64bit/obs64.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Alacritty",
+            "show_command_on_hover": true
+          },
+
+          {
+            "command": "C:/Users/lli/scoop/apps/shotcut/current/shotcut.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Alacritty",
+            "show_command_on_hover": true
+          },
+          {
+            "command": "C:/Users/lli/scoop/apps/thunderbird/current/thunderbird.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Alacritty",
+            "show_command_on_hover": true
+          },
+          {
+            "command": "C:/Users/lli/scoop/apps/chromium/current/chrome.exe",
+            "display": "Icon",
+            "enable": true,
+            "name": "Bash",
+            "show_command_on_hover": true
+          }
+        ]
+      }
+    }
+  ],
+  "right_widgets": [
+    {
+      "Media": {
+        "enable": true
+      }
+    },
+    {
+      "Battery": {
+        "enable": true
+      }
+    },
+    {
+      "Date": {
+        "enable": true,
+        "label_prefix": "Icon",
+        "format": "DayDateMonthYear"
+      }
+    },
+    {
+      "Time": {
+        "enable": true,
+        "format": "TwentyFourHour"
+      }
+    }
+  ]
+}

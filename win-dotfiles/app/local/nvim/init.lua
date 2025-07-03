@@ -102,6 +102,16 @@ later(function()
   require('mini.notify').setup()
   vim.notify = require('mini.notify').make_notify()
 end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                       Mini.Keymap                       ║
+--          ╚═════════════════════════════════════════════════════════╝
+later(function()
+  local map_multistep = require('mini.keymap').map_multistep
+  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
+  map_multistep('i', '<C-j>', { 'pmenu_next' })
+  map_multistep('i', '<C-k>', { 'pmenu_prev' })
+  map_multistep('i', '<BS>', { 'minipairs_bs' })
+end)
 
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Align                          │
@@ -574,16 +584,6 @@ now_if_args(function()
       map_split(buf_id, '<C-b>', 'belowright vertical')
     end,
   })
-end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                       Mini.Keymap                       ║
---          ╚═════════════════════════════════════════════════════════╝
-now_if_args(function()
-  local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
-  map_multistep('i', '<C-j>', { 'pmenu_next' })
-  map_multistep('i', '<C-k>', { 'pmenu_prev' })
-  map_multistep('i', '<BS>', { 'minipairs_bs' })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                      Treesitter                         ║
