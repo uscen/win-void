@@ -72,8 +72,8 @@ Capslock::Esc
 !v:: Run("neovide.exe")
 !e:: Run("thunderbird.exe")
 !z:: Run("zed.exe")
-!n:: Run 'alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"'
-!^n:: Run 'wt -- "C:\Program Files\Git\bin\bash.exe" -c "exec yazi ~"'
+!n:: Run('alacritty.exe -e "C:\Program Files\Git\bin\bash.exe -c yazi"')
+!^n:: Run('wt -- "C:\Program Files\Git\bin\bash.exe" -c "exec yazi ~"')
 !^r:: Run('autohotkey.exe "C:\Users\' A_UserName '\.config\ahk\macroRecorder.ahk"')
 !^c::{
     if !WinExist("ahk_exe Code.exe")
@@ -88,15 +88,12 @@ Capslock::Esc
 ; # =============================================================================== #
 ; # AutoStart App:                                                                  #
 ; # =============================================================================== #
-Run A_ComSpec " /c komorebi-bar.exe --config ~/.config/komorebi/komorebi.bar.json", , "Hide"
+; Run A_ComSpec " /c start /B komorebi-bar.exe --config ~/.config/komorebi/komorebi.bar.json", , "Hide"
 RunWait("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
 ; # =============================================================================== #
 ; # Komorebi Window Manager:                                                        #
 ; # =============================================================================== #
 Komorebic(cmd) {
-    if !ProcessExist("komorebi-bar.exe") {
-        Run("komorebi-bar.exe --config ~/.config/komorebi/komorebi.bar.json", , "Hide")
-    }
     if !ProcessExist("komorebi.exe") {
         Run("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
     }
