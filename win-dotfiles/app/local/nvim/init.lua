@@ -180,7 +180,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pairs                          │
 --          ╰─────────────────────────────────────────────────────────╯
-now(function()
+later(function()
   require("mini.pairs").setup({
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
     skip_ts = { "string" },
@@ -198,16 +198,6 @@ now(function()
       ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
-end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                       Mini.Keymap                       ║
---          ╚═════════════════════════════════════════════════════════╝
-now(function()
-  local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
-  map_multistep('i', '<C-j>', { 'pmenu_next' })
-  map_multistep('i', '<C-k>', { 'pmenu_prev' })
-  map_multistep('i', '<BS>', { 'minipairs_bs' })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
@@ -586,6 +576,16 @@ now_if_args(function()
   })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
+--          ║                       Mini.Keymap                       ║
+--          ╚═════════════════════════════════════════════════════════╝
+now_if_args(function()
+  local map_multistep = require('mini.keymap').map_multistep
+  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
+  map_multistep('i', '<C-j>', { 'pmenu_next' })
+  map_multistep('i', '<C-k>', { 'pmenu_prev' })
+  map_multistep('i', '<BS>', { 'minipairs_bs' })
+end)
+--          ╔═════════════════════════════════════════════════════════╗
 --          ║                      Treesitter                         ║
 --          ╚═════════════════════════════════════════════════════════╝
 now_if_args(function()
@@ -625,7 +625,7 @@ end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Formatting                      ║
 --          ╚═════════════════════════════════════════════════════════╝
-now(function()
+now_if_args(function()
   add('stevearc/conform.nvim')
   require('conform').setup({
     formatters_by_ft = {
