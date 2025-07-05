@@ -102,16 +102,6 @@ later(function()
   require('mini.notify').setup()
   vim.notify = require('mini.notify').make_notify()
 end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                       Mini.Keymap                       ║
---          ╚═════════════════════════════════════════════════════════╝
-later(function()
-  local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
-  map_multistep('i', '<C-j>', { 'pmenu_next' })
-  map_multistep('i', '<C-k>', { 'pmenu_prev' })
-  map_multistep('i', '<BS>', { 'minipairs_bs' })
-end)
 
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Align                          │
@@ -190,7 +180,7 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pairs                          │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now(function()
   require("mini.pairs").setup({
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
     skip_ts = { "string" },
@@ -208,6 +198,16 @@ later(function()
       ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
+end)
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                       Mini.Keymap                       ║
+--          ╚═════════════════════════════════════════════════════════╝
+now(function()
+  local map_multistep = require('mini.keymap').map_multistep
+  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
+  map_multistep('i', '<C-j>', { 'pmenu_next' })
+  map_multistep('i', '<C-k>', { 'pmenu_prev' })
+  map_multistep('i', '<BS>', { 'minipairs_bs' })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
@@ -611,21 +611,21 @@ end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                      TS Auto Close/Rename               │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now_if_args(function()
   add("windwp/nvim-ts-autotag")
   require('nvim-ts-autotag').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                    TS Rainbow delimiters                │
 --          ╰─────────────────────────────────────────────────────────╯
-later(function()
+now_if_args(function()
   add("hiphish/rainbow-delimiters.nvim")
   require('rainbow-delimiters.setup').setup()
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Formatting                      ║
 --          ╚═════════════════════════════════════════════════════════╝
-later(function()
+now(function()
   add('stevearc/conform.nvim')
   require('conform').setup({
     formatters_by_ft = {
