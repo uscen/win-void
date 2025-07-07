@@ -105,7 +105,7 @@ end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Mini.Keymap                       ║
 --          ╚═════════════════════════════════════════════════════════╝
-later(function()
+now(function()
   local map_multistep = require('mini.keymap').map_multistep
   map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
   map_multistep('i', '<C-j>', { 'pmenu_next' })
@@ -184,28 +184,6 @@ later(function()
         style = "inline",
         inline_text = "■ ",
       }),
-    },
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Pairs                          │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.pairs").setup({
-    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-    skip_ts = { "string" },
-    modes = { insert = true, command = true, terminal = false },
-    mappings = {
-      [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
-      ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
-      ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
-      ["["] = { action = "open", pair = "[]", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ["{"] = { action = "open", pair = "{}", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ["("] = { action = "open", pair = "()", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
 end)
@@ -322,6 +300,37 @@ later(function()
       },
     })
   end
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Pairs                          │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+  require("mini.pairs").setup({
+    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+    skip_ts = { "string" },
+    modes = { insert = true, command = true, terminal = false },
+    mappings = {
+      [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+      ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+      ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+      ["["] = { action = "open", pair = "[]", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ["{"] = { action = "open", pair = "{}", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ["("] = { action = "open", pair = "()", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
+    },
+  })
+  -- Can Solve This Also By Mini.Keymap: =======================================================
+  local cr_action = function()
+    if vim.fn.complete_info()['selected'] ~= -1 then
+      return vim.fn.complete_info()['selected'] ~= -1 and '\25' or '\25\r'
+    else
+      return require('mini.pairs').cr()
+    end
+  end
+  vim.keymap.set('i', '<CR>', cr_action, { expr = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
