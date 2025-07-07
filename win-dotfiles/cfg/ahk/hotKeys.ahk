@@ -1,4 +1,9 @@
 ; # =============================================================================== #
+; # AutoStart App:                                                                  #
+; # =============================================================================== #
+; Run A_ComSpec " /c start /B komorebi-bar.exe --config ~/.config/komorebi/komorebi.bar.json", , "Hide"
+RunWait("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
+; # =============================================================================== #
 ; # Helpers:                                                                        #
 ; # =============================================================================== #
 ; Toggle Taskbar
@@ -85,11 +90,6 @@ Capslock::Esc
       Run('"C:\Users\' A_UserName '\scoop\apps\freetube\current\FreeTube.exe"')
     WinWaitActive("ahk_exe FreeTube.exe"), WinSetStyle("-0xC40000", "ahk_exe FreeTube.exe")
 }
-; # =============================================================================== #
-; # AutoStart App:                                                                  #
-; # =============================================================================== #
-; Run A_ComSpec " /c start /B komorebi-bar.exe --config ~/.config/komorebi/komorebi.bar.json", , "Hide"
-RunWait("komorebi.exe --config ~/.config/komorebi/komorebi.json", , "Hide")
 ; # =============================================================================== #
 ; # Komorebi Window Manager:                                                        #
 ; # =============================================================================== #
