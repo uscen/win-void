@@ -42,12 +42,6 @@ later(function()
   require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.CursorWord                     │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.cursorword').setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Trailspace                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -58,24 +52,6 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.splitjoin").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Operators                      │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.operators').setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Bracketed                      │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.bracketed").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Jump                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.jump').setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Extra                          │
@@ -102,7 +78,6 @@ later(function()
   require('mini.notify').setup()
   vim.notify = require('mini.notify').make_notify()
 end)
-
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Align                          │
 --          ╰─────────────────────────────────────────────────────────╯
@@ -125,18 +100,6 @@ later(function()
       try_as_border = true,
       border = "both",
     }
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                   Mini.Jump2d                           │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.jump2d").setup({
-    labels = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    view = { dim = true, n_steps_ahead = 1 },
-    allowed_lines = { cursor_at = false },
-    mappings = { start_jumping = "" },
-    silent = true,
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -250,7 +213,7 @@ later(function()
   })
   vim.ui.select = MiniPick.ui_select
   -- Pick Directory  Form Current Directory: ===========================================
-  function directory_pick()
+  local function directory_pick()
     local root_dir = vim.fn.getcwd()
     local fd_output = vim.fn.systemlist('fd --type d --exclude ".*" . "' .. root_dir .. '"')
     MiniPick.start({
@@ -266,9 +229,9 @@ later(function()
       },
     })
   end
-
+  vim.keymap.set('n', '<leader>fn', directory_pick)
   -- Pick Directory  Form Zoxide : ======================================================
-  function zoxide_pick()
+  local function zoxide_pick()
     local zoxide_output = vim.fn.systemlist('zoxide query -ls')
     local directories = {}
     for _, line in ipairs(zoxide_output) do
@@ -290,6 +253,7 @@ later(function()
       },
     })
   end
+  vim.keymap.set('n', '<leader>fd', zoxide_pick)
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pairs                          │
@@ -542,9 +506,9 @@ now_if_args(function()
       width_focus = 999,
     },
   })
-  -- Toggle dotfiles : ==================================================================
+  -- Toggle dotfiles : ===================================================================
   local toggle = { enabled = true }
-  toggle_dotfiles = function()
+  local toggle_dotfiles = function()
     function toggle:bool()
       self.enabled = not self.enabled
       return self.enabled
@@ -561,6 +525,10 @@ now_if_args(function()
       },
     })
   end
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesBufferCreate",
+    callback = function(args) vim.keymap.set("n", ".", toggle_dotfiles, { buffer = args.data.buf_id }) end,
+  })
   -- Open In Splits : ==================================================================
   local map_split = function(buf_id, lhs, direction)
     local rhs = function()
@@ -914,11 +882,6 @@ later(function()
       vim.b.miniindentscope_disable = true
     end
   })
-  -- toggle_dotfiles in MiniFile ======================================================
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniFilesBufferCreate",
-    callback = function(args) vim.keymap.set("n", ".", toggle_dotfiles, { buffer = args.data.buf_id }) end,
-  })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
@@ -980,15 +943,15 @@ later(function()
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
   -- Theme: ========================================================================
-  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<cr>")
-  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<cr>")
-  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<cr>")
+  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
+  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
+  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
   -- Move lines up and down in visual mode =========================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
   --  Magick: ======================================================================
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
-  vim.keymap.set("n", "J", "mzJ`z:delmarks z<cr>")
+  vim.keymap.set("n", "J", "mzJ`z:delmarks z<CR>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
   -- Split: ========================================================================
@@ -1020,8 +983,6 @@ later(function()
     vim.cmd("startinsert")
   end)
   -- Mini Pick =====================================================================
-  vim.keymap.set('n', '<leader>fd', zoxide_pick)
-  vim.keymap.set('n', '<leader>fn', directory_pick)
   vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
   vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
   vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>")
@@ -1037,11 +998,11 @@ later(function()
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gI", "<Cmd>Pick lsp scope='declaration'<CR>")
   -- Mini Git =====================================================================
-  vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<cr>")
-  vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<cr>")
+  vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<CR>")
+  vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<CR>")
   vim.keymap.set("n", "<leader>gC", "<Cmd>Git commit --amend<CR>")
-  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push -u origin main<cr>")
-  vim.keymap.set("n", "<leader>gP", "<cmd>:Git pull<cr>")
+  vim.keymap.set("n", "<leader>gp", "<cmd>:Git push -u origin main<CR>")
+  vim.keymap.set("n", "<leader>gP", "<cmd>:Git pull<CR>")
   vim.keymap.set("n", "<leader>gd", "<Cmd>Git diff<CR>")
   vim.keymap.set("n", "<leader>gD", "<Cmd>Git diff -- %<CR>")
   vim.keymap.set("n", "<leader>gs", "<Cmd>lua MiniGit.show_at_cursor()<CR>")
@@ -1056,8 +1017,6 @@ later(function()
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
   -- Mini Misc: ==================================================================
   vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
-  -- Mini Jump2d: ================================================================
-  vim.keymap.set({ "o", "x", "n" }, "s", "<Cmd>lua MiniJump2d.start(MiniJump2d.builtin_opts.single_character)<CR>")
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Neovide                        ║
