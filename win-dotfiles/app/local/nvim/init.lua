@@ -79,30 +79,6 @@ later(function()
   vim.notify = require('mini.notify').make_notify()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Align                          │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.align').setup({
-    mappings = {
-      start = '<Leader>=',
-      start_with_preview = '<Leader>+',
-    },
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Indentscope                    │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.indentscope").setup({
-    symbol = "▎",
-    draw = { priority = 10000 },
-    options = {
-      try_as_border = true,
-      border = "both",
-    }
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Surround                       │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
