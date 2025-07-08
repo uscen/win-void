@@ -1,11 +1,11 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║               Smart Enter Between Tags                  ║
+--          ║                       Smart Enter                       ║
 --          ╚═════════════════════════════════════════════════════════╝
 local cr_default = vim.api.nvim_replace_termcodes('<CR>', true, true, true)
 local esc_O = vim.api.nvim_replace_termcodes('<CR><Esc>O', true, true, true)
 local ctrl_y = vim.api.nvim_replace_termcodes('<C-y>', true, true, true)
 
-local function check_html_char()
+local function smart_enter()
   local col = vim.fn.col('.')
   local line = vim.api.nvim_get_current_line()
 
@@ -46,12 +46,12 @@ local filetypes = {
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
     if filetypes[vim.bo[args.buf].filetype] then
-      vim.keymap.set('i', '<CR>', check_html_char, {
+      vim.keymap.set('i', '<CR>', smart_enter, {
         noremap = true,
         silent = true,
         buffer = args.buf,
         expr = true,
-        desc = "Smart enter between tags",
+        desc = "Smart Enter",
       })
     end
   end

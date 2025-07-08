@@ -654,7 +654,7 @@ now(function()
   vim.opt.termguicolors         = true
   vim.opt.number                = true
   vim.opt.relativenumber        = false
-  vim.opt.cursorline            = true
+  vim.opt.cursorline            = false
   vim.opt.splitright            = true
   vim.opt.splitbelow            = true
   vim.opt.confirm               = true
