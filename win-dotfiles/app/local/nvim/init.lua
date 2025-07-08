@@ -272,14 +272,10 @@ now(function()
     return n
   end
   vim.api.nvim_create_autocmd({
-    'BufAdd',
-    'BufDelete',
     'BufEnter',
     'BufWinEnter',
-    'TabClosed',
-    'TabEnter',
-    'WinClosed',
-    'SessionLoadPost',
+    'BufAdd',
+    'BufDelete',
   }, {
     desc = 'Hide the tabline when empty',
     group = group,
