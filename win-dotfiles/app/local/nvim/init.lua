@@ -115,6 +115,28 @@ later(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Pairs                          │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.pairs").setup({
+    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+    skip_ts = { "string" },
+    modes = { insert = true, command = true, terminal = false },
+    mappings = {
+      [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
+      ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
+      ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
+      ["["] = { action = "open", pair = "[]", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ["{"] = { action = "open", pair = "{}", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ["("] = { action = "open", pair = "()", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
+      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
+    },
+  })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -228,28 +250,6 @@ later(function()
     })
   end
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Pairs                          │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.pairs").setup({
-    skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-    skip_ts = { "string" },
-    modes = { insert = true, command = true, terminal = false },
-    mappings = {
-      [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
-      ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
-      ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
-      ["["] = { action = "open", pair = "[]", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ["{"] = { action = "open", pair = "{}", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ["("] = { action = "open", pair = "()", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
-    },
-  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Tabline                        │
@@ -444,16 +444,6 @@ now(function()
   end
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
 end)
---          ╔═════════════════════════════════════════════════════════╗
---          ║                       Mini.Keymap                       ║
---          ╚═════════════════════════════════════════════════════════╝
-later(function()
-  local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<CR>', { 'minipairs_cr' })
-  map_multistep('i', '<C-j>', { 'pmenu_next' })
-  map_multistep('i', '<C-k>', { 'pmenu_prev' })
-  map_multistep('i', '<BS>', { 'minipairs_bs' })
-end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Files                          │
 --          ╰─────────────────────────────────────────────────────────╯
@@ -526,6 +516,16 @@ now_if_args(function()
       map_split(buf_id, '<C-b>', 'belowright vertical')
     end,
   })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.keymaps                        │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  local map_multistep = require('mini.keymap').map_multistep
+  map_multistep('i', '<CR>', { 'minipairs_cr' })
+  map_multistep('i', '<BS>', { 'minipairs_bs' })
+  map_multistep('i', '<C-j>', { 'pmenu_next' })
+  map_multistep('i', '<C-k>', { 'pmenu_prev' })
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                      Treesitter                         ║
