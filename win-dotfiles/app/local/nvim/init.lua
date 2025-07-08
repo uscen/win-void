@@ -127,12 +127,10 @@ end)
 later(function()
   require("mini.hipatterns").setup({
     highlighters = {
-      -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE':  ============================
       fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
       hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
       todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-      -- Highlight hex color strings (`#rrggbb`) using that color: =========================
       hex_color = require("mini.hipatterns").gen_highlighter.hex_color({
         style = "inline",
         inline_text = "■ ",
@@ -681,23 +679,23 @@ now(function()
   vim.opt.spelloptions          = 'camel'
   vim.opt.dictionary            = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
+  vim.opt.termguicolors         = true
   vim.opt.number                = true
   vim.opt.relativenumber        = false
-  vim.opt.cursorline            = false
+  vim.opt.cursorline            = true
   vim.opt.splitright            = true
   vim.opt.splitbelow            = true
-  vim.opt.termguicolors         = true
   vim.opt.confirm               = true
   vim.opt.showmatch             = true
+  vim.opt.breakindent           = true
+  vim.opt.copyindent            = true
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
-  vim.opt.cedit                 = ''
+  vim.opt.cedit                 = '^F'
   vim.opt.pumwidth              = 20
   vim.opt.pumblend              = 8
   vim.opt.pumheight             = 8
   vim.opt.wrap                  = false
-  vim.opt.breakindent           = true
-  vim.opt.copyindent            = true
   vim.opt.list                  = false
   vim.opt.modeline              = false
   vim.opt.showmode              = false
