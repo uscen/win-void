@@ -846,12 +846,6 @@ later(function()
     desc = "Disable autoformat-on-save",
     bang = true,
   })
-  -- Disable MiniIndentscope in Terminals ===============================================
-  vim.api.nvim_create_autocmd("TermEnter", {
-    callback = function()
-      vim.b.miniindentscope_disable = true
-    end
-  })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
@@ -900,33 +894,32 @@ end)
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  -- Basic Keymaps: ================================================================
+  -- General: =======================================================================
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
   vim.keymap.set('n', '<Space>', '<Nop>')
-  -- Move around: ==================================================================
-  vim.keymap.set("n", "<C-h>", "<C-w>h")
-  vim.keymap.set("n", "<C-j>", "<C-w>j")
-  vim.keymap.set("n", "<C-k>", "<C-w>k")
-  vim.keymap.set("n", "<C-l>", "<C-w>l")
-  -- Theme: ========================================================================
-  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
-  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
-  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
-  -- Move lines up and down in visual mode =========================================
-  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-  --  Magick: ======================================================================
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<CR>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
+  -- Focus : =======================================================================
+  vim.keymap.set("n", "<C-h>", "<C-w>h")
+  vim.keymap.set("n", "<C-j>", "<C-w>j")
+  vim.keymap.set("n", "<C-k>", "<C-w>k")
+  vim.keymap.set("n", "<C-l>", "<C-w>l")
+  -- Move: ========================================================================
+  vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+  vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
   -- Split: ========================================================================
-  vim.keymap.set('n', '<leader>v', ':split<CR>', { noremap = true, silent = true })
-  vim.keymap.set('n', '<leader>s', ':vsplit<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>v', ':split<CR>')
+  vim.keymap.set('n', '<leader>s', ':vsplit<CR>')
+  -- Theme: ========================================================================
+  vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
+  vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
+  vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
   -- Subtitle Keys: =================================================================
   vim.keymap.set('n', 'S', function()
     return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/'

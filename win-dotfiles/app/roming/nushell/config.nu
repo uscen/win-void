@@ -18,7 +18,7 @@ $env.config = {
   error_style: "fancy"
   cursor_shape: {
     vi_normal: block
-    vi_insert: line
+    vi_insert: block
     emacs: line
   }
   ls: {
