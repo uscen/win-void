@@ -27,8 +27,8 @@ local function smart_enter()
   end
 
   -- Fallback to mini.pairs with safe require
-  local ok, mini_pairs = pcall(require, 'mini.pairs')
-  return ok and mini_pairs.cr() or cr_default
+  local ok = pcall(require, 'mini.pairs')
+  return ok and require('mini.pairs').cr() or cr_default
 end
 
 -- Register filetypes in a set for O(1) lookups

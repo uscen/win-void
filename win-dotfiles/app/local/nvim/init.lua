@@ -898,6 +898,7 @@ later(function()
   -- General: =======================================================================
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
+  vim.keymap.set("n", "<C-c>", "cit")
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
