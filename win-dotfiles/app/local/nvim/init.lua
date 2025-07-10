@@ -387,21 +387,22 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Languge Patterns: ==============================================================
-  local markdown = { 'markdown.json' }
-  local webPatterns = { 'web/*.json' }
+  local markdown        = { 'markdown.json' }
   local webHtmlPatterns = { 'html.json', "ejs.json" }
-  local lang_patterns = {
+  local webJsTsPatterns = { 'web/javascript.json' }
+  local webPatterns     = { 'web/*.json' }
+  local lang_patterns   = {
     markdown_inline = markdown,
     html = webHtmlPatterns,
     ejs = webHtmlPatterns,
     tsx = webPatterns,
-    javascript = webPatterns,
-    typescript = webPatterns,
     javascriptreact = webPatterns,
     typescriptreact = webPatterns,
+    javascript = webJsTsPatterns,
+    typescript = webJsTsPatterns,
   }
   -- Expand Patterns: ===============================================================
-  local match_strict = function(snips)
+  local match_strict    = function(snips)
     -- Do not match with whitespace to cursor's left ================================
     -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
     -- Match exact from the start to the end of the string ==========================
