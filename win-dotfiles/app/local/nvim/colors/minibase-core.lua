@@ -306,4 +306,4 @@ vim.api.nvim_set_hl(0, "MiniCompletionInfoBorderOutdated", { link = "Mini.MiniCo
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0B })
 vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "MiniIndentscopeSymbol" })
 -- Trailspace: ================================================================
-vim.api.nvim_set_hl(0, "MiniTrailspace", { bg = palette.base08 })
+vim.api.nvim_set_hl(0, "MiniTrailspace", { bg = palette.base01 })

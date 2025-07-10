@@ -1,0 +1,72 @@
+{
+  "React Function Component": {
+    "prefix": "rfc",
+    "body": [
+      "export default function ${1:Component}() {",
+      "  return (",
+      "    <div>",
+      "      Hello from ${1:Component}!",
+      "    </div>",
+      "  );",
+      "}"
+    ],
+    "description": "Create a React function component with export default"
+  },
+  "React Functional Component": {
+    "prefix": ["rfcn", "rfce"],
+    "body": [
+      "export const ${1:Component} = () => {",
+      "  return (",
+      "    <div>",
+      "      Hello from ${1:Component}!",
+      "    </div>",
+      "  );",
+      "};"
+    ],
+    "description": "Creates a basic React functional component"
+  },
+  "Create useState hook": {
+    "prefix": ["uss", "ust"],
+    "body": [
+      "const [${1:state}, set${2:State}] = useState(${3:defaultState});"
+    ],
+    "description": "Creates React useState hook"
+  },
+  "Create useEffect hook": {
+    "prefix": ["use", "uef"],
+    "body": ["useEffect(() => {", "\t$0", "}, []);"],
+    "description": "Creates React useEffect hook"
+  },
+  "Create useContext hook": {
+    "prefix": "usc",
+    "body": ["const ${1:value} = useContext(MyContext);"],
+    "description": "Creates React useContext hook"
+  },
+  "Create useReducer hook": {
+    "prefix": "usd",
+    "body": [
+      "const [${1:state}, dispatch] = useReducer(${2:reducer}, initialState);"
+    ],
+    "description": "Creates React useReducer hook"
+  },
+  "Create useRef hook": {
+    "prefix": "usr",
+    "body": ["const ${1:refContainer} = useRef(${2:initialValue});"],
+    "description": "Creates React useRef hook"
+  },
+  "Create useImperativeHandle hook": {
+    "prefix": "usi",
+    "body": ["useImperativeHandle(${1:initialValue}, () => {", "\t", "}, []);"],
+    "description": "Creates React useImperativeHandle hook"
+  },
+  "Create useLayoutEffect hook": {
+    "prefix": "usl",
+    "body": ["useLayoutEffect(() => {", "\t", "}, []);"],
+    "description": "Creates React useLayoutEffect hook"
+  },
+  "Import React": {
+    "prefix": "imr",
+    "body": ["import React from 'react';"],
+    "description": "Imports React"
+  }
+}
