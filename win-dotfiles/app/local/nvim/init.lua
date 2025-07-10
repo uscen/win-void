@@ -107,10 +107,7 @@ later(function()
       hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
       todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-      hex_color = require("mini.hipatterns").gen_highlighter.hex_color({
-        style = "inline",
-        inline_text = "■ ",
-      }),
+      hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
     },
   })
 end)
@@ -365,8 +362,8 @@ now(function()
     mappings = {
       force_twostep = '<C-n>',
       force_fallback = '<C-S-n>',
-      scroll_down = '<C-j>',
-      scroll_up = '<C-k>',
+      scroll_down = '<C-f>',
+      scroll_up = '<C-b>',
     },
     lsp_completion = {
       source_func = 'omnifunc',
