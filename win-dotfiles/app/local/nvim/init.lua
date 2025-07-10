@@ -214,8 +214,8 @@ later(function()
         items = fd_output,
         name = 'Directories (fd)',
         choose = function(item)
-          vim.fn.chdir(item)
           vim.schedule(function()
+            vim.fn.chdir(item)
             require("mini.files").open(item)
           end)
         end,
@@ -238,8 +238,8 @@ later(function()
         items = directories,
         name = 'Directories (zoxide)',
         choose = function(item)
-          vim.fn.chdir(item)
           vim.schedule(function()
+            vim.fn.chdir(item)
             require("mini.files").open(item)
           end)
         end,
