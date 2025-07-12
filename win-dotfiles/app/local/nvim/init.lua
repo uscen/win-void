@@ -857,12 +857,12 @@ later(function()
   -- close some filetypes with <q>: : =====================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = {
-      'help',
-      'lspinfo',
-      'man',
-      'notify',
       'qf',
+      'man',
+      'help',
       'query',
+      'notify',
+      'lspinfo',
       'startuptime',
       'checkhealth',
     },
