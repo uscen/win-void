@@ -582,7 +582,7 @@ now_if_args(function()
       graphql = { "prettier" },
       liquid = { "prettier" },
       c = { "clang_format" },
-      -- lua = { "stylua" },
+      lua = { "stylua" },
       python = { "black" },
       tex = { "latexindent" },
       xml = { "xmllint" },
