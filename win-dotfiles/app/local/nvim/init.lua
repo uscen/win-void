@@ -118,7 +118,7 @@ later(function()
   require("mini.pairs").setup({
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
     skip_ts = { "string" },
-    modes = { insert = true, command = true, terminal = false },
+    modes = { insert = true, command = true, terminal = true },
     mappings = {
       [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
       ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
@@ -260,7 +260,7 @@ now(function()
       return MiniTabline.default_format(buf_id, label) .. suffix
     end,
   })
-  -- hide when only one Tabline: =====================================================
+  -- hide when only One Buffer: =====================================================
   local get_n_listed_bufs = function()
     local n = 0
     for _, buf_id in ipairs(vim.api.nvim_list_bufs()) do
@@ -446,9 +446,9 @@ now_if_args(function()
     mappings = {
       go_in_plus = "<Tab>",
       go_out_plus = "<C-h>",
-      synchronize = "<C-s>",
-      reset = "gh",
+      synchronize = "s",
       close = "q",
+      reset = "gh",
       go_in = "",
       go_out = "",
     },
@@ -507,7 +507,7 @@ now_if_args(function()
     callback = function(args)
       local buf_id = args.data.buf_id
       map_split(buf_id, '<C-v>', 'belowright horizontal')
-      map_split(buf_id, '<C-b>', 'belowright vertical')
+      map_split(buf_id, '<C-s>', 'belowright vertical')
     end,
   })
 end)
