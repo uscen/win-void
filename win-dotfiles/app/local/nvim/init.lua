@@ -139,11 +139,11 @@ end)
 later(function()
   require("mini.ai").setup({
     custom_textobjects = {
-      B = require("mini.extra").gen_ai_spec.buffer(),
+      a = require("mini.extra").gen_ai_spec.buffer(),
       D = require("mini.extra").gen_ai_spec.diagnostic(),
-      I = require("mini.extra").gen_ai_spec.indent(),
-      L = require("mini.extra").gen_ai_spec.line(),
-      N = require("mini.extra").gen_ai_spec.number(),
+      c = require("mini.extra").gen_ai_spec.line(),
+      i = require("mini.extra").gen_ai_spec.indent(),
+      d = require("mini.extra").gen_ai_spec.number(),
       e = {
         {
           -- __-1, __-U, __-l, __-1_, __-U_, __-l_
@@ -907,7 +907,8 @@ later(function()
   vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
   -- Subtitle Keys: =================================================================
-  vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
+  vim.keymap.set('n', 'S',
+    function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
@@ -957,7 +958,8 @@ later(function()
   vim.keymap.set("n", "<leader>gh", [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
   vim.keymap.set("n", "<leader>gx", [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
   -- Mini Files: =================================================================
-  vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.bo.buftype ~= "nofile" and vim.api.nvim_buf_get_name(0) or nil, true) end)
+  vim.keymap.set("n", "<leader>e",
+    function() require("mini.files").open(vim.bo.buftype ~= "nofile" and vim.api.nvim_buf_get_name(0) or nil, true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
   -- Mini Misc: ==================================================================
   vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
