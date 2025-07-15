@@ -38,8 +38,8 @@ end)
 --          │                     Mini.Misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.misc').setup_restore_cursor()
   require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
+  require('mini.misc').setup_restore_cursor()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Trailspace                     │
@@ -444,13 +444,14 @@ end)
 now_if_args(function()
   require("mini.files").setup({
     mappings = {
-      go_in_plus = "<Tab>",
+      go_in_plus  = "<Tab>",
       go_out_plus = "<C-h>",
       synchronize = "s",
-      close = "q",
-      reset = "gh",
-      go_in = "",
-      go_out = "",
+      close       = "q",
+      reset       = "gh",
+      mark_goto   = "gb",
+      go_in       = "",
+      go_out      = "",
     },
     content = {
       filter = function(fs_entry)
@@ -463,6 +464,18 @@ now_if_args(function()
       max_number = 1,
       width_focus = 999,
     },
+  })
+  -- BookMarks: ==========================================================================
+  local minifiles_augroup = vim.api.nvim_create_augroup('ec-mini-files', {})
+  vim.api.nvim_create_autocmd('User', {
+    group = minifiles_augroup,
+    pattern = 'MiniFilesExplorerOpen',
+    callback = function()
+      MiniFiles.set_bookmark('c', vim.fn.stdpath('config'), { desc = 'Config' })
+      MiniFiles.set_bookmark('m', vim.fn.stdpath('data') .. '/site/pack/deps/start/mini.nvim', { desc = 'mini.nvim' })
+      MiniFiles.set_bookmark('p', vim.fn.stdpath('data') .. '/site/pack/deps/opt', { desc = 'Plugins' })
+      MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
+    end,
   })
   -- Toggle dotfiles : ===================================================================
   local toggle = { enabled = true }
@@ -516,7 +529,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<CR>', { 'minipairs_cr' })
+  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
   map_multistep('i', '<BS>', { 'minipairs_bs' })
   map_multistep('i', '<C-j>', { 'pmenu_next' })
   map_multistep('i', '<C-k>', { 'pmenu_prev' })
