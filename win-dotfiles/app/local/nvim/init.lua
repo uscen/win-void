@@ -645,6 +645,7 @@ now(function()
   -- General: ================================================================
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
+  vim.opt.wildmode              = "longest:full,full"
   vim.opt.wildoptions           = "fuzzy,pum"
   vim.opt.completeopt           = 'menuone,noselect,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
@@ -730,6 +731,9 @@ now(function()
   vim.opt.synmaxcol             = 200
   vim.opt.updatetime            = 200
   vim.opt.timeoutlen            = 300
+  vim.opt.ttimeoutlen           = 0
+  vim.opt.redrawtime            = 10000
+  vim.opt.maxmempattern         = 20000
   -- Disable health checks for these providers:. ===========================
   vim.g.loaded_python_provider  = 0
   vim.g.loaded_python3_provider = 0
@@ -837,6 +841,25 @@ later(function()
       vim.highlight.on_yank({ higroup = 'CurSearch', timeout = 200 })
     end,
   })
+  -- Create directories when saving files: ========================================
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = vim.api.nvim_create_augroup("UserConfig", {}),
+    callback = function()
+      local dir = vim.fn.expand('<afile>:p:h')
+      if vim.fn.isdirectory(dir) == 0 then
+        vim.fn.mkdir(dir, 'p')
+      end
+    end,
+  })
+  -- Auto-close terminal when process exits: ========================================
+  vim.api.nvim_create_autocmd("TermClose", {
+    group = vim.api.nvim_create_augroup("UserConfig", {}),
+    callback = function()
+      if vim.v.event.status == 0 then
+        vim.api.nvim_buf_delete(0, {})
+      end
+    end,
+  })
   -- Eable FormatOnSave =============================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
@@ -904,11 +927,24 @@ later(function()
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<CR>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
+  vim.keymap.set("n", "J", "mzJ`z")
+  vim.keymap.set("x", "gr", '"_dP')
+  vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim/init.lua<CR>")
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
   vim.keymap.set("n", "<C-k>", "<C-w>k")
   vim.keymap.set("n", "<C-l>", "<C-w>l")
+  -- Center:  ======================================================================
+  vim.keymap.set("n", "n", "nzzzv")
+  vim.keymap.set("n", "N", "Nzzzv")
+  vim.keymap.set("n", "<C-d>", "<C-d>zz")
+  vim.keymap.set("n", "<C-u>", "<C-u>zz")
+  -- Resize:  ======================================================================
+  vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
+  vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
+  vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
+  vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
   -- Move: ========================================================================
   vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -924,7 +960,9 @@ later(function()
     function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
   -- Bufferline Keys: ==============================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-  vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+  vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
+  vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
+  vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
   vim.keymap.set("n", "<leader>bd", ":bd<CR>")
   vim.keymap.set('n', '<space>bb', function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
