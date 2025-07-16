@@ -120,18 +120,30 @@ later(function()
     skip_ts = { "string" },
     modes = { insert = true, command = true, terminal = true },
     mappings = {
+      -- Prevents the action if the cursor is just before any character or next to a "\".
+      ["("] = { action = "open", pair = "()", neigh_pattern = "[^\\][%s%)%]%}]" },
+      ["["] = { action = "open", pair = "[]", neigh_pattern = "[^\\][%s%)%]%}]" },
+      ["{"] = { action = "open", pair = "{}", neigh_pattern = "[^\\][%s%)%]%}]" },
+      -- This is default (prevents the action if the cursor is just next to a "\").
       [")"] = { action = "close", pair = "()", neigh_pattern = "[^\\]." },
       ["]"] = { action = "close", pair = "[]", neigh_pattern = "[^\\]." },
       ["}"] = { action = "close", pair = "{}", neigh_pattern = "[^\\]." },
-      ["["] = { action = "open", pair = "[]", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ["{"] = { action = "open", pair = "{}", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ["("] = { action = "open", pair = "()", neigh_pattern = ".[%s%z%)}%]]", register = { cr = false } },
-      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
-      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w\\][^%w]", register = { cr = false } },
+      -- Prevents the action if the cursor is just before or next to any character.
+      ['"'] = { action = "closeopen", pair = '""', neigh_pattern = "[^%w][^%w]", register = { cr = false } },
+      ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "[^%w][^%w]", register = { cr = false } },
+      ["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^%w][^%w]", register = { cr = false } },
       ["<"] = { action = "closeopen", pair = "<>", neigh_pattern = "[^%S][^%S]", register = { cr = false } },
     },
   })
+  local cr_action = function()
+    if vim.fn.pumvisible() ~= 0 then
+      local item_selected = vim.fn.complete_info()['selected'] ~= -1
+      return item_selected and '\25' or '\25\r'
+    else
+      return require('mini.pairs').cr()
+    end
+  end
+  vim.keymap.set('i', '<CR>', cr_action, { expr = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Ai                             │
