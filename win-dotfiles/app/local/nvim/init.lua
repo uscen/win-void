@@ -458,7 +458,7 @@ now_if_args(function()
     mappings = {
       go_in_plus  = "<Tab>",
       go_out_plus = "<C-h>",
-      synchronize = "s",
+      synchronize = "<C-s>",
       close       = "q",
       reset       = "gh",
       mark_goto   = "gb",
@@ -531,8 +531,8 @@ now_if_args(function()
     pattern = 'MiniFilesBufferCreate',
     callback = function(args)
       local buf_id = args.data.buf_id
-      map_split(buf_id, '<C-v>', 'belowright horizontal')
-      map_split(buf_id, '<C-s>', 'belowright vertical')
+      map_split(buf_id, 'v', 'belowright horizontal')
+      map_split(buf_id, 's', 'belowright vertical')
     end,
   })
 end)
@@ -933,6 +933,7 @@ later(function()
   vim.keymap.set("n", "<C-c>", "cit")
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
+  vim.keymap.set("n", "<leader>q", ":close<CR>")
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
   vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
