@@ -970,12 +970,14 @@ later(function()
   -- Subtitle Keys: =================================================================
   vim.keymap.set('n', 'S',
     function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
-  -- Bufferline Keys: ==============================================================
+  -- Buffers: =======================================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
   vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
   vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
   vim.keymap.set("n", "<leader>bd", ":bd<CR>")
+  vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
+  vim.keymap.set("n", "<leader>m", function() require("mini.misc").zoom() end)
   vim.keymap.set('n', '<space>bb', function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
       if vim.bo[buf].buflisted and buf ~= vim.api.nvim_get_current_buf() then
@@ -993,7 +995,7 @@ later(function()
     vim.api.nvim_win_set_height(0, 20)
     vim.cmd("startinsert")
   end)
-  -- Mini Pick =====================================================================
+  -- Picker ======================================================================
   vim.keymap.set("n", "<leader>fb", "<CMD>Pick buffers include_current=false<CR>")
   vim.keymap.set("n", "<leader>ff", "<CMD>Pick files<CR>")
   vim.keymap.set("n", "<leader>fr", "<CMD>Pick oldfiles<CR>")
@@ -1008,7 +1010,7 @@ later(function()
   vim.keymap.set("n", "gR", "<Cmd>Pick lsp scope='references'<CR>")
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gI", "<Cmd>Pick lsp scope='declaration'<CR>")
-  -- Mini Git =====================================================================
+  -- Git: =======================================================================
   vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<CR>")
   vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<CR>")
   vim.keymap.set("n", "<leader>gC", "<Cmd>Git commit --amend<CR>")
@@ -1020,12 +1022,10 @@ later(function()
   vim.keymap.set("n", "<leader>gl", [[<Cmd>Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order<CR>]])
   vim.keymap.set("n", "<leader>gh", [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
   vim.keymap.set("n", "<leader>gx", [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
-  -- Mini Files: =================================================================
+  -- Explorer: ==================================================================
   vim.keymap.set("n", "<leader>e",
     function() require("mini.files").open(vim.bo.buftype ~= "nofile" and vim.api.nvim_buf_get_name(0) or nil, true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
-  -- Mini Misc: ==================================================================
-  vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Neovide                        ║
