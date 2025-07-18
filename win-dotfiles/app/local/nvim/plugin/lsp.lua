@@ -1,7 +1,7 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Keybiding LSP                     ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Create keybindings, commands, inlay hints: ===========================================
+-- Create keybindings, commands, inlay hints: =================================================
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local bufnr = ev.buf
@@ -23,16 +23,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- -- nightly has inbuilt completions: ==============================================
     -- if client:supports_method("textDocument/completion", bufnr) then
-    --   -- Enable auto-completion
     --   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     -- end
 
-    -- -- Mini.Completion support: ========================================================
-    -- vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
-    --
     --- Disable semantic tokens: =======================================================
     ---@diagnostic disable-next-line need-check-nil
-    -- client.server_capabilities.semanticTokensProvider = nil
+    client.server_capabilities.semanticTokensProvider = nil
 
     -- Disable the default keybinds: ====================================================
     for _, bind in ipairs({ "grn", "gra", "gri", "grr" }) do
