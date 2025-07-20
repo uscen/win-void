@@ -947,7 +947,7 @@ later(function()
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
   vim.keymap.set("n", "J", "mzJ`z")
   vim.keymap.set("x", "gr", '"_dP')
-  vim.keymap.set("n", "<leader>rc", ":e ~/.config/nvim/init.lua<CR>")
+  vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
