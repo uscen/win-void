@@ -3,13 +3,21 @@
 --          ╚═════════════════════════════════════════════════════════╝
 local function toggle()
   local toggles = {
-    ["true"] = "false",
-    ["yes"] = "no",
-    ["up"] = "down",
-    ["left"] = "right",
-    ["top"] = "bottom",
+    ["useState(true)"] = "useState(false)",
+    ["relative"] = "absolute",
+    ["active"] = "inactive",
+    ["enable"] = "disable",
+    ["visible"] = "hidden",
+    ["success"] = "error",
     ["always"] = "never",
-    ["disable"] = "enable",
+    ["top"] = "bottom",
+    ["left"] = "right",
+    ["true"] = "false",
+    ["allow"] = "deny",
+    ["light"] = "dark",
+    ["show"] = "hide",
+    ["up"] = "down",
+    ["yes"] = "no",
   }
 
   local cword = vim.fn.expand("<cword>")
