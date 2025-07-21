@@ -27,47 +27,6 @@ require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 local now_if_args = vim.fn.argc(-1) > 0 and now or later
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Icons                          │
---          ╰─────────────────────────────────────────────────────────╯
-now_if_args(function()
-  require("mini.icons").setup({
-    file = {
-      ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
-      ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
-      ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
-      ['.yarnrc.yml'] = { glyph = '', hl = 'MiniIconsBlue' },
-      ['eslint.config.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
-      ['package.json'] = { glyph = '', hl = 'MiniIconsGreen' },
-      ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
-      ['tsconfig.build.json'] = { glyph = '', hl = 'MiniIconsAzure' },
-      ['yarn.lock'] = { glyph = '', hl = 'MiniIconsBlue' },
-      ['vite.config.ts'] = { glyph = '', hl = 'MiniIconsYellow' },
-      ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsYellow' },
-      ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsYellow' },
-      ['.dockerignore'] = { glyph = '󰡨', hl = 'MiniIconsBlue' },
-      ['react-router.config.ts'] = { glyph = '', hl = 'MiniIconsRed' },
-      ['bun.lockb'] = { glyph = '', hl = 'MiniIconsGrey' },
-      ['bun.lock'] = { glyph = '', hl = 'MiniIconsGrey' },
-    },
-    directory = {
-      ['.vscode'] = { glyph = '', hl = 'MiniIconsBlue' },
-      ['app'] = { glyph = '󰀻', hl = 'MiniIconsRed' },
-      ['routes'] = { glyph = '󰑪', hl = 'MiniIconsGreen' },
-      ['config'] = { glyph = '', hl = 'MiniIconsGrey' },
-      ['configs'] = { glyph = '', hl = 'MiniIconsGrey' },
-      ['server'] = { glyph = '󰒋', hl = 'MiniIconsCyan' },
-      ['api'] = { glyph = '󰒋', hl = 'MiniIconsCyan' },
-      ['web'] = { glyph = '󰖟', hl = 'MiniIconsBlue' },
-      ['client'] = { glyph = '󰖟', hl = 'MiniIconsBlue' },
-      ['database'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
-      ['db'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
-      ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
-    },
-  })
-  later(MiniIcons.mock_nvim_web_devicons)
-  later(MiniIcons.tweak_lsp_kind)
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Misc                           │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -582,6 +541,47 @@ now_if_args(function()
       map_split(buf_id, 's', 'belowright vertical')
     end,
   })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Icons                          │
+--          ╰─────────────────────────────────────────────────────────╯
+now_if_args(function()
+  require("mini.icons").setup({
+    file = {
+      ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+      ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
+      ['.yarnrc.yml'] = { glyph = '', hl = 'MiniIconsBlue' },
+      ['eslint.config.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+      ['package.json'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+      ['tsconfig.build.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+      ['yarn.lock'] = { glyph = '', hl = 'MiniIconsBlue' },
+      ['vite.config.ts'] = { glyph = '', hl = 'MiniIconsYellow' },
+      ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsYellow' },
+      ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsYellow' },
+      ['.dockerignore'] = { glyph = '󰡨', hl = 'MiniIconsBlue' },
+      ['react-router.config.ts'] = { glyph = '', hl = 'MiniIconsRed' },
+      ['bun.lockb'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['bun.lock'] = { glyph = '', hl = 'MiniIconsGrey' },
+    },
+    directory = {
+      ['.vscode'] = { glyph = '', hl = 'MiniIconsBlue' },
+      ['app'] = { glyph = '󰀻', hl = 'MiniIconsRed' },
+      ['routes'] = { glyph = '󰑪', hl = 'MiniIconsGreen' },
+      ['config'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['configs'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['server'] = { glyph = '󰒋', hl = 'MiniIconsCyan' },
+      ['api'] = { glyph = '󰒋', hl = 'MiniIconsCyan' },
+      ['web'] = { glyph = '󰖟', hl = 'MiniIconsBlue' },
+      ['client'] = { glyph = '󰖟', hl = 'MiniIconsBlue' },
+      ['database'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
+      ['db'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
+      ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
+    },
+  })
+  later(MiniIcons.mock_nvim_web_devicons)
+  later(MiniIcons.tweak_lsp_kind)
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.keymaps                        │
