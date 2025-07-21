@@ -124,6 +124,8 @@ later(function()
   require("mini.pairs").setup({
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
     skip_ts = { "string" },
+    skip_unbalanced = true,
+    markdown = true,
     modes = { insert = true, command = true, terminal = true },
     mappings = {
       -- Prevents the action if the cursor is just before any character or next to a "\".
