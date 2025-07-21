@@ -30,7 +30,40 @@ local now_if_args = vim.fn.argc(-1) > 0 and now or later
 --          │                     Mini.Icons                          │
 --          ╰─────────────────────────────────────────────────────────╯
 now_if_args(function()
-  require("mini.icons").setup()
+  require("mini.icons").setup({
+    file = {
+      ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+      ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
+      ['.yarnrc.yml'] = { glyph = '', hl = 'MiniIconsBlue' },
+      ['eslint.config.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
+      ['package.json'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['tsconfig.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+      ['tsconfig.build.json'] = { glyph = '', hl = 'MiniIconsAzure' },
+      ['yarn.lock'] = { glyph = '', hl = 'MiniIconsBlue' },
+      ['vite.config.ts'] = { glyph = '', hl = 'MiniIconsYellow' },
+      ['pnpm-lock.yaml'] = { glyph = '', hl = 'MiniIconsYellow' },
+      ['pnpm-workspace.yaml'] = { glyph = '', hl = 'MiniIconsYellow' },
+      ['.dockerignore'] = { glyph = '󰡨', hl = 'MiniIconsBlue' },
+      ['react-router.config.ts'] = { glyph = '', hl = 'MiniIconsRed' },
+      ['bun.lockb'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['bun.lock'] = { glyph = '', hl = 'MiniIconsGrey' },
+    },
+    directory = {
+      ['.vscode'] = { glyph = '', hl = 'MiniIconsBlue' },
+      ['app'] = { glyph = '󰀻', hl = 'MiniIconsRed' },
+      ['routes'] = { glyph = '󰑪', hl = 'MiniIconsGreen' },
+      ['config'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['configs'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['server'] = { glyph = '󰒋', hl = 'MiniIconsCyan' },
+      ['api'] = { glyph = '󰒋', hl = 'MiniIconsCyan' },
+      ['web'] = { glyph = '󰖟', hl = 'MiniIconsBlue' },
+      ['client'] = { glyph = '󰖟', hl = 'MiniIconsBlue' },
+      ['database'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
+      ['db'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
+      ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
+    },
+  })
   later(MiniIcons.mock_nvim_web_devicons)
   later(MiniIcons.tweak_lsp_kind)
 end)
@@ -112,7 +145,16 @@ later(function()
       hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
       todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
       note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
-      hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
+      hex_color = require("mini.hipatterns").gen_highlighter.hex_color({ priority = 200 }),
+      hex_shorthand = {
+        pattern = '()#%x%x%x()%f[^%x%w]',
+        group = function(_, _, data)
+          local match = data.full_match
+          local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
+          local hex_color = '#' .. r .. r .. g .. g .. b .. b
+          return require('mini.hipatterns').compute_hex_color_group(hex_color, 'bg')
+        end,
+      },
     },
   })
 end)
@@ -371,7 +413,7 @@ now(function()
   end
   -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
-    delay = { completion = 100, info = 100, signature = 50 },
+    delay = { completion = 300, info = 200, signature = 100, },
     window = {
       info = { border = "single" },
       signature = { border = "single" },
