@@ -662,6 +662,7 @@ now(function()
   -- General: ================================================================
   vim.opt.clipboard             = "unnamedplus"
   vim.opt.wildmenu              = true
+  vim.opt.wildignorecase        = true
   vim.opt.wildmode              = "longest:full,full"
   vim.opt.wildoptions           = "fuzzy,pum"
   vim.opt.completeopt           = 'menuone,noselect,fuzzy'
@@ -687,7 +688,6 @@ now(function()
   vim.opt.splitright            = true
   vim.opt.splitbelow            = true
   vim.opt.confirm               = true
-  vim.opt.showmatch             = true
   vim.opt.breakindent           = true
   vim.opt.copyindent            = true
   vim.opt.laststatus            = 0
@@ -696,11 +696,14 @@ now(function()
   vim.opt.pumwidth              = 20
   vim.opt.pumblend              = 8
   vim.opt.pumheight             = 8
+  vim.opt.showmatch             = false
   vim.opt.wrap                  = false
   vim.opt.list                  = false
   vim.opt.modeline              = false
   vim.opt.showmode              = false
   vim.opt.ruler                 = false
+  vim.opt.cedit                 = '^F'
+  vim.opt.showbreak             = "↪"
   vim.opt.winborder             = "double"
   vim.opt.colorcolumn           = '+1'
   vim.opt.cursorlineopt         = "screenline,number"
@@ -708,6 +711,7 @@ now(function()
   vim.wo.signcolumn             = "yes"
   vim.opt.statuscolumn          = ""
   vim.opt.mousescroll           = "ver:3,hor:0"
+  vim.opt.guifont               = "JetBrainsMono NF:h9"
   vim.opt.guicursor             =
   "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
   vim.opt.fillchars             = table.concat(
@@ -743,9 +747,9 @@ now(function()
   vim.g.markdoptwn_folding      = 1
   vim.opt.foldtext              = ''
   -- Memory: ================================================================
+  vim.opt.lazyredraw            = true
   vim.opt.hidden                = true
   vim.opt.history               = 100
-  vim.opt.lazyredraw            = true
   vim.opt.synmaxcol             = 200
   vim.opt.updatetime            = 200
   vim.opt.timeoutlen            = 300
@@ -949,6 +953,7 @@ later(function()
   vim.keymap.set("n", "J", "mzJ`z")
   vim.keymap.set("x", "gr", '"_dP')
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
+  vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -974,7 +979,12 @@ later(function()
   vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
   vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
+  -- Go to end of visual selection: =================================================
+  vim.keymap.set("v", "y", "y`]")
+  vim.keymap.set("v", "p", "p`]")
+  vim.keymap.set("n", "p", "p`]")
   -- Subtitle Keys: =================================================================
+  vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
   vim.keymap.set('n', 'S',
     function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
   -- Buffers: =======================================================================
