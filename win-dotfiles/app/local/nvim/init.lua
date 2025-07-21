@@ -728,6 +728,7 @@ now(function()
   vim.opt.gdefault              = true
   vim.opt.tabstop               = 2
   vim.opt.softtabstop           = 2
+  vim.o.whichwrap               = vim.o.whichwrap .. "<>[]hl"
   vim.opt.breakindentopt        = "list:-1"
   vim.opt.iskeyword             = '@,48-57,_,192-255,-'
   vim.opt.formatlistpat         = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
