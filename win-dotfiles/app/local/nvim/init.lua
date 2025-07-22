@@ -709,7 +709,7 @@ now(function()
   vim.opt.wildignorecase        = true
   vim.opt.wildmode              = "longest:full,full"
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.completeopt           = 'menuone,noselect,fuzzy'
+  vim.opt.completeopt           = 'menuone,noselect,popup,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
   vim.opt.splitkeep             = 'screen'
@@ -750,6 +750,7 @@ now(function()
   vim.opt.showbreak             = "↪"
   vim.opt.winborder             = "double"
   vim.opt.colorcolumn           = '+1'
+  vim.opt.backspace             = "indent,eol,start"
   vim.opt.cursorlineopt         = "screenline,number"
   vim.opt.shortmess             = "FOSWaco"
   vim.wo.signcolumn             = "yes"
