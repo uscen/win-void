@@ -64,6 +64,16 @@ later(function()
   require("mini.diff").setup({ view = { style = 'sign' } })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.keymaps                        │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  local map_multistep = require('mini.keymap').map_multistep
+  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
+  map_multistep('i', '<BS>', { 'minipairs_bs' })
+  map_multistep('i', '<C-j>', { 'pmenu_next' })
+  map_multistep('i', '<C-k>', { 'pmenu_prev' })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Notify                         │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -391,7 +401,6 @@ now(function()
         return require('mini.completion').default_process_items(items, base, {
           filtersort = 'fuzzy',
           kind_priority = {
-            Text = -1,
             Snippet = 99,
           },
         })
@@ -585,16 +594,6 @@ now_if_args(function()
   later(MiniIcons.mock_nvim_web_devicons)
   later(MiniIcons.tweak_lsp_kind)
 end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.keymaps                        │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
-  map_multistep('i', '<BS>', { 'minipairs_bs' })
-  map_multistep('i', '<C-j>', { 'pmenu_next' })
-  map_multistep('i', '<C-k>', { 'pmenu_prev' })
-end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                      Treesitter                         ║
 --          ╚═════════════════════════════════════════════════════════╝
@@ -673,6 +672,13 @@ now_if_args(function()
       return { timeout_ms = 1000, lsp_format = "fallback" }
     end,
   })
+  vim.keymap.set({ "n", "v" }, "<leader>l", function()
+    require("conform").format({
+      lsp_fallback = true,
+      async = false,
+      timeout_ms = 1000,
+    })
+  end)
 end)
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          NVIM                           ║
@@ -986,19 +992,24 @@ later(function()
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
   vim.keymap.set("n", "<C-c>", "cit")
+  vim.keymap.set("n", "<ESC>", ":nohl<CR>")
+  vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<leader>q", ":close<CR>")
-  vim.keymap.set("n", "<ESC>", ":nohl<CR>")
-  vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<CR>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
-  vim.keymap.set("n", "J", "mzJ`z")
+  vim.keymap.set("v", "y", "y`]")
+  vim.keymap.set("v", "p", "p`]")
+  vim.keymap.set("n", "p", "p`]")
+  vim.keymap.set("v", "p", '"_dP')
   vim.keymap.set("x", "gr", '"_dP')
-  vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
+  vim.keymap.set("v", "<", "<gv")
+  vim.keymap.set("v", ">", ">gv")
   vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
+  vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -1025,9 +1036,6 @@ later(function()
   vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
   -- Go to end of visual selection: =================================================
-  vim.keymap.set("v", "y", "y`]")
-  vim.keymap.set("v", "p", "p`]")
-  vim.keymap.set("n", "p", "p`]")
   -- Subtitle Keys: =================================================================
   vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
   vim.keymap.set('n', 'S',
