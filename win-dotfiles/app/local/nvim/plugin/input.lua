@@ -35,7 +35,7 @@ end
 M.float_input = function(opts)
   opts = opts or {}
 
-  local width = opts.width or math.floor(vim.o.columns * 0.2)
+  local width = opts.width or math.floor(vim.o.columns * 0.5)
   local height = 1
   local buf = vim.api.nvim_create_buf(false, true)
 

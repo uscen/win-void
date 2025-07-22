@@ -374,7 +374,7 @@ now(function()
   end
   -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
-    delay = { completion = 300, info = 200, signature = 100, },
+    delay = { completion = 50, info = 40, signature = 30, },
     window = {
       info = { border = "single" },
       signature = { border = "single" },
