@@ -8,7 +8,7 @@ alias ll = eza --long --group --icons=auto --git --sort=name --group-directories
 alias lt = eza --long --group --icons=auto --git --only-dirs --tree --level=3 --sort=modified
 # Changing Directory:                                                             #
 # =============================================================================== #
-alias cd.. = cd ..
+alias cd = z
 alias cdd = cd D:/
 alias cdc = cd C:/
 # Fetch (System Info):                                                            #
