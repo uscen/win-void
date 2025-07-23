@@ -715,7 +715,8 @@ now(function()
   vim.opt.wildignorecase        = true
   vim.opt.wildmode              = "longest:full,full"
   vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.completeopt           = 'menuone,noselect,popup,fuzzy'
+  vim.opt.omnifunc              = "v:lua.vim.lsp.omnifunc"
+  vim.opt.completeopt           = 'menuone,noselect,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
   vim.opt.splitkeep             = 'screen'
@@ -724,15 +725,17 @@ now(function()
   vim.opt.writebackup           = false
   vim.opt.backup                = false
   vim.opt.undofile              = true
+  vim.opt.splitkeep             = "cursor"
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
   vim.opt.spell                 = false
-  vim.opt.spelllang             = 'en'
+  vim.opt.spelllang             = { 'en' }
   vim.opt.spelloptions          = 'camel'
   vim.opt.dictionary            = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
   vim.opt.termguicolors         = true
   vim.opt.number                = true
+  vim.opt.numberwidth           = 3
   vim.opt.relativenumber        = false
   vim.opt.cursorline            = false
   vim.opt.splitright            = true
@@ -742,6 +745,7 @@ now(function()
   vim.opt.copyindent            = true
   vim.opt.laststatus            = 0
   vim.opt.cmdheight             = 0
+  vim.opt.winminwidth           = 5
   vim.opt.cedit                 = '^F'
   vim.opt.pumwidth              = 20
   vim.opt.pumblend              = 8
@@ -783,6 +787,8 @@ now(function()
   vim.opt.gdefault              = true
   vim.opt.tabstop               = 2
   vim.opt.softtabstop           = 2
+  vim.opt.conceallevel          = 2
+  vim.opt.concealcursor         = 'c'
   vim.o.whichwrap               = vim.o.whichwrap .. "<>[]hl"
   vim.opt.breakindentopt        = "list:-1"
   vim.opt.iskeyword             = '@,48-57,_,192-255,-'
@@ -790,6 +796,7 @@ now(function()
   vim.opt.virtualedit           = "block"
   vim.opt.formatoptions         = "rqnl1j"
   vim.opt.formatexpr            = "v:lua.require'conform'.formatexpr()"
+  vim.opt.sessionoptions        = { "buffers", "curdir", "tabpages", "winsize", "globals" }
   -- Folds:  ================================================================
   vim.opt.foldenable            = false
   vim.opt.foldmethod            = 'indent'
@@ -911,7 +918,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ higroup = 'CurSearch', timeout = 200 })
+      vim.highlight.on_yank({ higroup = 'CurSearch', timeout = 100 })
     end,
   })
   -- Create directories when saving files: ========================================
@@ -1006,8 +1013,13 @@ later(function()
   vim.keymap.set("n", "p", "p`]")
   vim.keymap.set("v", "p", '"_dP')
   vim.keymap.set("x", "gr", '"_dP')
+  vim.keymap.set("n", "x", '"_x')
   vim.keymap.set("v", "<", "<gv")
   vim.keymap.set("v", ">", ">gv")
+  vim.keymap.set("v", "<TAB>", ">gv")
+  vim.keymap.set("v", "<S-TAB>", "<gv")
+  vim.keymap.set("x", "<TAB>", ">gv")
+  vim.keymap.set("x", "<S-TAB>", "<gv")
   vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
   -- Focus : =======================================================================
