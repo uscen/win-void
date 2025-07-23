@@ -358,7 +358,17 @@ now(function()
  █▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
      █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
         ]],
-    footer = '',
+    footer = table.concat({
+      "Pwd: " .. vim.fn.getcwd(),
+      "                                                ",
+      "                                                ",
+      "███╗░░██╗███████╗░█████╗░██╗░░░██╗██╗███╗░░░███╗",
+      "████╗░██║██╔════╝██╔══██╗██║░░░██║██║████╗░████║",
+      "██╔██╗██║█████╗░░██║░░██║╚██╗░██╔╝██║██╔████╔██║",
+      "██║╚████║██╔══╝░░██║░░██║░╚████╔╝░██║██║╚██╔╝██║",
+      "██║░╚███║███████╗╚█████╔╝░░╚██╔╝░░██║██║░╚═╝░██║",
+      "╚═╝░░╚══╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝",
+    }, "\n"),
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -748,7 +758,7 @@ now(function()
   vim.opt.winminwidth           = 5
   vim.opt.cedit                 = '^F'
   vim.opt.pumwidth              = 20
-  vim.opt.pumblend              = 8
+  vim.opt.pumblend              = 0
   vim.opt.pumheight             = 8
   vim.opt.showmatch             = false
   vim.opt.wrap                  = false
@@ -789,7 +799,6 @@ now(function()
   vim.opt.softtabstop           = 2
   vim.opt.conceallevel          = 2
   vim.opt.concealcursor         = 'c'
-  vim.o.whichwrap               = vim.o.whichwrap .. "<>[]hl"
   vim.opt.breakindentopt        = "list:-1"
   vim.opt.iskeyword             = '@,48-57,_,192-255,-'
   vim.opt.formatlistpat         = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
@@ -797,6 +806,10 @@ now(function()
   vim.opt.formatoptions         = "rqnl1j"
   vim.opt.formatexpr            = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions        = { "buffers", "curdir", "tabpages", "winsize", "globals" }
+  vim.opt.matchpairs            = table.concat({ "<:>" })
+  vim.o.whichwrap               = vim.o.whichwrap .. "<>[]hl"
+  vim.o.wildignore              = vim.o.wildignore ..
+      "*.png,*.jpg,*.jpeg,*.gif,*.wav,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*"
   -- Folds:  ================================================================
   vim.opt.foldenable            = false
   vim.opt.foldmethod            = 'indent'
@@ -918,7 +931,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ higroup = 'CurSearch', timeout = 100 })
+      vim.highlight.on_yank({ on_macro = true, higroup = 'CurSearch', timeout = 100 })
     end,
   })
   -- Create directories when saving files: ========================================
