@@ -813,7 +813,7 @@ now(function()
   vim.opt.timeoutlen            = 300
   vim.opt.ttimeoutlen           = 0
   vim.opt.redrawtime            = 10000
-  vim.opt.maxmempattern         = 20000
+  vim.opt.maxmempattern         = 10000
   -- Disable health checks for these providers:. ===========================
   vim.g.loaded_python_provider  = 0
   vim.g.loaded_python3_provider = 0
