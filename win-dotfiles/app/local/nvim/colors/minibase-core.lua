@@ -306,7 +306,7 @@ vim.api.nvim_set_hl(0, "MiniPickHeader", { link = "MiniPickBorder" })
 -- Snippets ====================================================================
 vim.api.nvim_set_hl(0, 'MiniSnippetsCurrent', { fg = palette.base0B })
 vim.api.nvim_set_hl(0, 'MiniSnippetsCurrentReplace', { link = "MiniSnippetsCurrent" })
-vim.api.nvim_set_hl(0, 'MiniSnippetsFinal', { link = "MiniSnippetsCurrent" })
+vim.api.nvim_set_hl(0, 'MiniSnippetsFinal', { link = "Comment" })
 vim.api.nvim_set_hl(0, 'MiniSnippetsUnvisited', { link = "MiniSnippetsCurrent" })
 vim.api.nvim_set_hl(0, 'MiniSnippetsVisited', { link = "MiniSnippetsCurrent" })
 -- Notify =====================================================================

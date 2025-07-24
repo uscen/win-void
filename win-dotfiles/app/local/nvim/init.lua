@@ -453,7 +453,7 @@ now(function()
       insert = function(snippet)
         return require('mini.snippets').default_insert(snippet, {
           empty_tabstop = '',
-          empty_tabstop_final = ''
+          empty_tabstop_final = '†'
         })
       end
     },
@@ -721,13 +721,11 @@ now(function()
   vim.opt.completeopt           = 'menuone,noselect,fuzzy'
   vim.opt.complete              = '.,w,b,kspell'
   vim.opt.switchbuf             = "usetab"
-  vim.opt.splitkeep             = 'screen'
   vim.opt.compatible            = false
   vim.opt.swapfile              = false
   vim.opt.writebackup           = false
   vim.opt.backup                = false
   vim.opt.undofile              = true
-  vim.opt.splitkeep             = "cursor"
   vim.opt.shada                 = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
   vim.opt.spell                 = false
@@ -742,6 +740,7 @@ now(function()
   vim.opt.cursorline            = false
   vim.opt.splitright            = true
   vim.opt.splitbelow            = true
+  vim.opt.splitkeep             = 'screen'
   vim.opt.confirm               = true
   vim.opt.breakindent           = true
   vim.opt.copyindent            = true
@@ -749,6 +748,7 @@ now(function()
   vim.opt.cmdheight             = 0
   vim.opt.winminwidth           = 5
   vim.opt.cedit                 = '^F'
+  vim.opt.cmdwinheight          = 30
   vim.opt.pumwidth              = 20
   vim.opt.pumblend              = 0
   vim.opt.pumheight             = 8
@@ -818,7 +818,7 @@ now(function()
   vim.opt.updatetime            = 200
   vim.opt.timeoutlen            = 300
   vim.opt.ttimeoutlen           = 0
-  vim.opt.redrawtime            = 10000
+  vim.opt.redrawtime            = 150
   vim.opt.maxmempattern         = 10000
   -- Disable health checks for these providers:. ===========================
   vim.g.loaded_python_provider  = 0

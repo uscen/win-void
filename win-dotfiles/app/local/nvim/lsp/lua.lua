@@ -14,6 +14,12 @@ return {
       diagnostics = {
         globals = { "MiniDeps", "MiniIcons", "MiniFiles", "MiniPick", "MiniTabline", "MiniSnippets", "MiniTrailspace", "group" },
       },
+      signatureHelp = {
+        enabled = true,
+      },
+      format = {
+        enable = true,
+      },
       telemetry = {
         enable = false,
       },

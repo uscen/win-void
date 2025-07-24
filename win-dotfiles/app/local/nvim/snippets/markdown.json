@@ -64,6 +64,16 @@
     ],
     "description": "Insert table with 2 rows and 3 columns. First row is heading."
   },
+  "Caption": {
+    "prefix": "caption",
+    "body": "<sub>${1:caption}</sub>",
+    "desc": "Caption template"
+  },
+  "Checkbox": {
+    "prefix": "checkbox",
+    "body": "- [ ] ",
+    "desc": "Checkbox template"
+  },
   "Insert unordered list": {
     "prefix": "ul",
     "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"],
