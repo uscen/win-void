@@ -924,7 +924,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ on_macro = true, higroup = 'PmenuSel', timeout = 200 })
+      vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'PmenuSel', timeout = 200 })
     end,
   })
   -- Create directories when saving files: ========================================
@@ -957,6 +957,21 @@ later(function()
       vim.opt_local.list       = false
       vim.opt_local.signcolumn = false
     end,
+  })
+  -- MiniGit: =====================================================================
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'git',
+    group = group,
+    callback = function()
+      vim.bo.readonly = true
+      vim.o.signcolumn = 'no'
+      vim.o.number = false
+      vim.o.colorcolumn = ''
+      vim.keymap.set('', '<enter>', function()
+        require('mini.git').show_at_cursor()
+      end, { buffer = true, desc = 'Show git information for the cursor' })
+    end,
+    desc = 'Setup MiniGit output buffers',
   })
   -- Eable FormatOnSave =============================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
