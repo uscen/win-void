@@ -149,7 +149,7 @@ end
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                   Create User Commands                  ║
 --          ╚═════════════════════════════════════════════════════════╝
-vim.cmd("command! -nargs=? LiveServerStart lua LiveServerNvim.start(<f-args>)")
-vim.cmd("command! LiveServerStop lua LiveServerNvim.stop()")
-vim.cmd("command! LiveServerToggle lua LiveServerNvim.toggle()")
-vim.cmd("command! LiveServerInstall lua LiveServerNvim.install()")
+vim.cmd("command! -nargs=? ServerRun lua LiveServerNvim.start(<f-args>)")
+vim.cmd("command! ServerStop lua LiveServerNvim.stop()")
+vim.cmd("command! ServerToggle lua LiveServerNvim.toggle()")
+vim.cmd("command! ServerInstall lua LiveServerNvim.install()")

@@ -818,7 +818,7 @@ now(function()
   vim.opt.updatetime            = 200
   vim.opt.timeoutlen            = 300
   vim.opt.ttimeoutlen           = 0
-  vim.opt.redrawtime            = 150
+  vim.opt.redrawtime            = 10000
   vim.opt.maxmempattern         = 10000
   -- Disable health checks for these providers:. ===========================
   vim.g.loaded_python_provider  = 0
@@ -924,7 +924,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'PmenuSel', timeout = 200 })
+      vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'CurSearch', timeout = 200 })
     end,
   })
   -- Auto-resize splits on window resize:  =========================================
