@@ -949,10 +949,13 @@ later(function()
   -- Eable wrap in This fils: =======================================================
   vim.api.nvim_create_autocmd('FileType', {
     desc = 'Enable wrap in these filetypes',
-    pattern = { 'gitcommit', 'markdown', 'text', 'log' },
+    pattern = { 'gitcommit', 'markdown', 'text', 'textile', 'log' },
     callback = function()
-      vim.opt_local.wrap = true
-      vim.opt_local.spell = true
+      vim.opt_local.wrap       = true
+      vim.opt_local.spell      = true
+      vim.opt_local.linebreak  = true
+      vim.opt_local.list       = false
+      vim.opt_local.signcolumn = false
     end,
   })
   -- Eable FormatOnSave =============================================================
