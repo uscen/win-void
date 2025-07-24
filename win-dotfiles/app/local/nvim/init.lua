@@ -360,14 +360,6 @@ now(function()
         ]],
     footer = table.concat({
       "Pwd: " .. vim.fn.getcwd(),
-      "                                                ",
-      "                                                ",
-      "███╗░░██╗███████╗░█████╗░██╗░░░██╗██╗███╗░░░███╗",
-      "████╗░██║██╔════╝██╔══██╗██║░░░██║██║████╗░████║",
-      "██╔██╗██║█████╗░░██║░░██║╚██╗░██╔╝██║██╔████╔██║",
-      "██║╚████║██╔══╝░░██║░░██║░╚████╔╝░██║██║╚██╔╝██║",
-      "██║░╚███║███████╗╚█████╔╝░░╚██╔╝░░██║██║░╚═╝░██║",
-      "╚═╝░░╚══╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝",
     }, "\n"),
   })
 end)
@@ -812,7 +804,8 @@ now(function()
       "*.png,*.jpg,*.jpeg,*.gif,*.wav,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*"
   -- Folds:  ================================================================
   vim.opt.foldenable            = false
-  vim.opt.foldmethod            = 'indent'
+  vim.opt.foldmethod            = 'expr'
+  vim.opt.foldexpr              = 'nvim_treesitter#foldexpr()'
   vim.opt.foldlevel             = 1
   vim.opt.foldnestmax           = 10
   vim.g.markdoptwn_folding      = 1
@@ -953,6 +946,15 @@ later(function()
       end
     end,
   })
+  -- Eable wrap in This fils: =======================================================
+  vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Enable wrap in these filetypes',
+    pattern = { 'gitcommit', 'markdown', 'text', 'log' },
+    callback = function()
+      vim.opt_local.wrap = true
+      vim.opt_local.spell = true
+    end,
+  })
   -- Eable FormatOnSave =============================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
@@ -1018,6 +1020,8 @@ later(function()
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<leader>q", ":close<CR>")
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
+  vim.keymap.set('n', 'yco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
+  vim.keymap.set('n', 'ycO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
   vim.keymap.set("n", "J", "mzJ`z:delmarks z<CR>")
   vim.keymap.set("x", "/", "<Esc>/\\%V")
   vim.keymap.set("x", "R", ":s###g<left><left><left>")
