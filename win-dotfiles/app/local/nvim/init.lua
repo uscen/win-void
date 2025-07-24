@@ -924,7 +924,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ on_macro = true, higroup = 'CurSearch', timeout = 100 })
+      vim.highlight.on_yank({ on_macro = true, higroup = 'PmenuSel', timeout = 200 })
     end,
   })
   -- Create directories when saving files: ========================================
