@@ -927,6 +927,13 @@ later(function()
       vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'PmenuSel', timeout = 200 })
     end,
   })
+  -- Auto-resize splits on window resize:  =========================================
+  vim.api.nvim_create_autocmd("VimResized", {
+    group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
+    callback = function()
+      vim.cmd("wincmd =")
+    end,
+  })
   -- Create directories when saving files: ========================================
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = vim.api.nvim_create_augroup("UserConfig", {}),
@@ -934,6 +941,18 @@ later(function()
       local dir = vim.fn.expand('<afile>:p:h')
       if vim.fn.isdirectory(dir) == 0 then
         vim.fn.mkdir(dir, 'p')
+      end
+    end,
+  })
+  -- Auto create directories before save: ==========================================
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
+    callback = function(event)
+      local file = vim.fn.fnamemodify(event.match, ':p')
+      local dir = vim.fn.fnamemodify(file, ":p:h")
+      local success, _ = vim.fn.isdirectory(dir)
+      if not success then
+        vim.fn.system({ "mkdir", "-p", dir })
       end
     end,
   })
@@ -1002,6 +1021,28 @@ later(function()
       vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', opts)
       vim.keymap.set('n', '<Tab>', '<CR>', opts)
     end
+  })
+  -- Large file handling: ===========================================================
+  vim.api.nvim_create_autocmd("BufReadPre", {
+    group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
+    callback = function(ev)
+      -- Disable certain features for files larger than 10MB
+      local max_size = 10 * 1024 * 1024 -- 10MB
+      local file_size = vim.fn.getfsize(ev.match)
+      if file_size > max_size or file_size == -2 then
+        -- Disable features that might slow down Vim
+        vim.opt_local.spell = false
+        vim.opt_local.undofile = false
+        vim.opt_local.swapfile = false
+        vim.opt_local.backup = false
+        vim.opt_local.writebackup = false
+        vim.opt_local.foldenable = false
+        vim.g.did_install_syntax_menu = 1
+        vim.cmd("syntax clear")
+        vim.cmd("syntax off")
+        vim.notify("Large file detected. Some features disabled.", vim.log.levels.WARN)
+      end
+    end,
   })
   -- close some filetypes with <q>: : =====================================================
   vim.api.nvim_create_autocmd('FileType', {
@@ -1092,13 +1133,14 @@ later(function()
   vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
   vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
   vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
-  vim.keymap.set("n", "<leader>bd", ":bd<CR>")
+  vim.keymap.set("n", "<leader>bd", function() require("mini.bufremove").delete() end)
   vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
   vim.keymap.set("n", "<leader>m", function() require("mini.misc").zoom() end)
   vim.keymap.set('n', '<space>bb', function()
-    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.bo[buf].buflisted and buf ~= vim.api.nvim_get_current_buf() then
-        vim.cmd('silent! bd ' .. buf)
+    local current = vim.fn.bufnr()
+    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+      if bufnr ~= current and vim.fn.buflisted(bufnr) == 1 then
+        require('mini.bufremove').delete(bufnr, false)
       end
     end
   end)
