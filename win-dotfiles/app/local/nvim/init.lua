@@ -82,7 +82,10 @@ later(function()
     local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
     return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad }
   end
-  require('mini.notify').setup({ window = { config = win_config } })
+  require('mini.notify').setup({
+    window = { config = win_config },
+    lsp_progress = { enable = false, },
+  })
   vim.notify = require('mini.notify').make_notify()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
@@ -468,6 +471,28 @@ now(function()
         (vim.fn.complete_info().selected == -1 and vim.keycode('<c-n><c-y>') or vim.keycode('<c-y>')) or "<Tab>"
   end
   vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
+  -- exit snippet sessions on entering normal mode: =======================================
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniSnippetsSessionStart',
+    callback = function()
+      vim.api.nvim_create_autocmd('ModeChanged', {
+        pattern = '*:n',
+        once = true,
+        callback = function()
+          while MiniSnippets.session.get() do
+            MiniSnippets.session.stop()
+          end
+        end
+      })
+    end
+  })
+  -- exit snippets upon reaching final tabstop: ========================================
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniSnippetsSessionJump',
+    callback = function(args)
+      if args.data.tabstop_to == '0' then MiniSnippets.session.stop() end
+    end
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Files                          │
@@ -745,7 +770,7 @@ now(function()
   vim.opt.confirm                = true
   vim.opt.breakindent            = true
   vim.opt.copyindent             = true
-  vim.opt.laststatus             = 3
+  vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
   vim.opt.winminwidth            = 5
   vim.opt.cedit                  = '^F'
