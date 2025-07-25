@@ -1024,6 +1024,19 @@ later(function()
     end,
     desc = 'Setup MiniGit output buffers',
   })
+  -- AutoSave: =====================================================================
+  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'VimLeavePre' }, {
+    callback = function(event)
+      local buf = event.buf
+      if vim.api.nvim_get_option_value('modified', { buf = buf }) then
+        vim.schedule(function()
+          vim.api.nvim_buf_call(buf, function()
+            vim.cmd 'silent! write'
+          end)
+        end)
+      end
+    end
+  })
   -- Eable FormatOnSave =============================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
@@ -1108,6 +1121,7 @@ later(function()
   vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
   vim.keymap.set('n', '<Space>', '<Nop>')
+  vim.keymap.set('n', 'Q', '<nop>')
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<leader>wq", ":close<CR>")
   vim.keymap.set("n", "<leader>q", ":close<CR>")
