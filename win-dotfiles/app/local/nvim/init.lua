@@ -769,10 +769,14 @@ now(function()
   vim.opt.splitkeep              = 'screen'
   vim.opt.confirm                = true
   vim.opt.breakindent            = true
+  vim.opt.breakindentopt         = "shift:2"
   vim.opt.copyindent             = true
+  vim.opt.smoothscroll           = true
   vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
+  vim.opt.winwidth               = 20
   vim.opt.winminwidth            = 5
+  vim.opt.showtabline            = 0
   vim.opt.cedit                  = '^F'
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
@@ -1175,7 +1179,6 @@ later(function()
   vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
   vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
-  -- Go to end of visual selection: =================================================
   -- Subtitle Keys: =================================================================
   vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
   vim.keymap.set('n', 'S',
