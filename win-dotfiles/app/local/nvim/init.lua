@@ -696,138 +696,145 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Global:  =================================================================
-  vim.g.mapleader               = vim.keycode("<space>")
-  vim.g.maplocalleader          = vim.g.mapleader
+  vim.g.mapleader                = vim.keycode("<space>")
+  vim.g.maplocalleader           = vim.g.mapleader
   -- Use ripgrep as grep tool: ================================================
-  vim.opt.grepprg               = "rg --vimgrep --no-heading"
-  vim.opt.grepformat            = "%f:%l:%c:%m,%f:%l:%m"
-  vim.opt.path                  = ".,,**"
+  vim.opt.grepprg                = "rg --vimgrep --no-heading"
+  vim.opt.grepformat             = "%f:%l:%c:%m,%f:%l:%m"
+  vim.opt.path                   = ".,,**"
   -- Shell: =-================================================================
-  vim.opt.sh                    = "nu"
-  vim.opt.shellslash            = true
-  vim.opt.shelltemp             = false
-  vim.opt.shellcmdflag          = "--stdin --no-newline -c"
-  vim.opt.shellredir            = "out+err> %s"
-  vim.opt.shellxescape          = ""
-  vim.opt.shellxquote           = ""
-  vim.opt.shellquote            = ""
+  vim.opt.sh                     = "nu"
+  vim.opt.shellslash             = true
+  vim.opt.shelltemp              = false
+  vim.opt.shellcmdflag           = "--stdin --no-newline -c"
+  vim.opt.shellredir             = "out+err> %s"
+  vim.opt.shellxescape           = ""
+  vim.opt.shellxquote            = ""
+  vim.opt.shellquote             = ""
   -- General: ================================================================
-  vim.opt.clipboard             = "unnamedplus"
-  vim.opt.wildmenu              = true
-  vim.opt.wildignorecase        = true
-  vim.opt.wildmode              = "longest:full,full"
-  vim.opt.wildoptions           = "fuzzy,pum"
-  vim.opt.omnifunc              = "v:lua.vim.lsp.omnifunc"
-  vim.opt.completeopt           = 'menuone,noselect,fuzzy'
-  vim.opt.complete              = '.,w,b,kspell'
-  vim.opt.switchbuf             = "usetab"
-  vim.opt.compatible            = false
-  vim.opt.swapfile              = false
-  vim.opt.writebackup           = false
-  vim.opt.backup                = false
-  vim.opt.undofile              = true
-  vim.opt.shada                 = { "'10", "<0", "s10", "h" }
+  vim.opt.fileencoding           = 'utf-8'
+  vim.opt.clipboard              = "unnamedplus"
+  vim.opt.wildmenu               = true
+  vim.opt.wildignorecase         = true
+  vim.opt.wildmode               = "longest:full,full"
+  vim.opt.wildoptions            = "fuzzy,pum"
+  vim.opt.omnifunc               = "v:lua.vim.lsp.omnifunc"
+  vim.opt.completeopt            = 'menuone,noselect,fuzzy'
+  vim.opt.complete               = '.,w,b,kspell'
+  vim.opt.switchbuf              = "usetab"
+  vim.opt.compatible             = false
+  vim.opt.swapfile               = false
+  vim.opt.writebackup            = false
+  vim.opt.backup                 = false
+  vim.opt.undofile               = true
+  vim.opt.shada                  = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
-  vim.opt.spell                 = false
-  vim.opt.spelllang             = { 'en' }
-  vim.opt.spelloptions          = 'camel'
-  vim.opt.dictionary            = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
+  vim.opt.spell                  = false
+  vim.opt.spelllang              = { 'en' }
+  vim.opt.spelloptions           = 'camel'
+  vim.opt.dictionary             = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
-  vim.opt.termguicolors         = true
-  vim.opt.number                = true
-  vim.opt.numberwidth           = 3
-  vim.opt.relativenumber        = false
-  vim.opt.cursorline            = false
-  vim.opt.splitright            = true
-  vim.opt.splitbelow            = true
-  vim.opt.splitkeep             = 'screen'
-  vim.opt.confirm               = true
-  vim.opt.breakindent           = true
-  vim.opt.copyindent            = true
-  vim.opt.laststatus            = 0
-  vim.opt.cmdheight             = 0
-  vim.opt.winminwidth           = 5
-  vim.opt.cedit                 = '^F'
-  vim.opt.cmdwinheight          = 30
-  vim.opt.pumwidth              = 20
-  vim.opt.pumblend              = 0
-  vim.opt.pumheight             = 8
-  vim.opt.showmatch             = false
-  vim.opt.wrap                  = false
-  vim.opt.list                  = false
-  vim.opt.modeline              = false
-  vim.opt.showmode              = false
-  vim.opt.ruler                 = false
-  vim.opt.cedit                 = '^F'
-  vim.opt.showbreak             = "↪"
-  vim.opt.winborder             = "double"
-  vim.opt.colorcolumn           = '+1'
-  vim.opt.backspace             = "indent,eol,start"
-  vim.opt.cursorlineopt         = "screenline,number"
-  vim.opt.shortmess             = "FOSWaco"
-  vim.wo.signcolumn             = "yes"
-  vim.opt.statuscolumn          = ""
-  vim.opt.mousescroll           = "ver:3,hor:0"
-  vim.opt.guifont               = "JetBrainsMono NF:h9"
-  vim.opt.guicursor             =
+  vim.opt.termguicolors          = true
+  vim.opt.number                 = true
+  vim.opt.numberwidth            = 3
+  vim.opt.relativenumber         = false
+  vim.opt.cursorline             = false
+  vim.opt.splitright             = true
+  vim.opt.splitbelow             = true
+  vim.opt.splitkeep              = 'screen'
+  vim.opt.confirm                = true
+  vim.opt.breakindent            = true
+  vim.opt.copyindent             = true
+  vim.opt.laststatus             = 3
+  vim.opt.cmdheight              = 0
+  vim.opt.winminwidth            = 5
+  vim.opt.cedit                  = '^F'
+  vim.opt.cmdwinheight           = 30
+  vim.opt.pumwidth               = 20
+  vim.opt.pumblend               = 0
+  vim.opt.pumheight              = 8
+  vim.opt.showmatch              = false
+  vim.opt.wrap                   = false
+  vim.opt.list                   = false
+  vim.opt.modeline               = false
+  vim.opt.showmode               = false
+  vim.opt.ruler                  = false
+  vim.opt.cedit                  = '^F'
+  vim.opt.showbreak              = '󰘍'
+  vim.opt.winborder              = "double"
+  vim.opt.colorcolumn            = '+1'
+  vim.opt.backspace              = "indent,eol,start"
+  vim.opt.cursorlineopt          = "screenline,number"
+  vim.opt.shortmess              = "FOSWaco"
+  vim.wo.signcolumn              = "yes"
+  vim.opt.statuscolumn           = ""
+  vim.opt.mousescroll            = "ver:3,hor:0"
+  vim.opt.guifont                = "JetBrainsMono NF:h9"
+  vim.opt.guicursor              =
   "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
-  vim.opt.fillchars             = table.concat(
+  vim.opt.fillchars              = table.concat(
     { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
     ','
   )
-  vim.opt.listchars             = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
+  vim.opt.listchars              = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ================================================================
-  vim.opt.cindent               = true
-  vim.opt.autoindent            = true
-  vim.opt.expandtab             = true
-  vim.opt.ignorecase            = true
-  vim.opt.incsearch             = true
-  vim.opt.infercase             = true
-  vim.opt.shiftwidth            = 2
-  vim.opt.smartcase             = true
-  vim.opt.smartindent           = true
-  vim.opt.gdefault              = true
-  vim.opt.tabstop               = 2
-  vim.opt.softtabstop           = 2
-  vim.opt.conceallevel          = 2
-  vim.opt.concealcursor         = 'c'
-  vim.opt.breakindentopt        = "list:-1"
-  vim.opt.iskeyword             = '@,48-57,_,192-255,-'
-  vim.opt.formatlistpat         = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-  vim.opt.virtualedit           = "block"
-  vim.opt.formatoptions         = "rqnl1j"
-  vim.opt.formatexpr            = "v:lua.require'conform'.formatexpr()"
-  vim.opt.sessionoptions        = { "buffers", "curdir", "tabpages", "winsize", "globals" }
-  vim.opt.matchpairs            = table.concat({ "<:>" })
-  vim.o.whichwrap               = vim.o.whichwrap .. "<>[]hl"
-  vim.o.wildignore              = vim.o.wildignore ..
+  vim.opt.cindent                = true
+  vim.opt.autoindent             = true
+  vim.opt.expandtab              = true
+  vim.opt.ignorecase             = true
+  vim.opt.incsearch              = true
+  vim.opt.infercase              = true
+  vim.opt.shiftwidth             = 2
+  vim.opt.smartcase              = true
+  vim.opt.smartindent            = true
+  vim.opt.gdefault               = true
+  vim.opt.tabstop                = 2
+  vim.opt.softtabstop            = 2
+  vim.opt.conceallevel           = 2
+  vim.opt.concealcursor          = 'c'
+  vim.opt.breakindentopt         = "list:-1"
+  vim.opt.iskeyword              = '@,48-57,_,192-255,-'
+  vim.opt.formatlistpat          = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+  vim.opt.virtualedit            = "block"
+  vim.opt.formatoptions          = "rqnl1j"
+  vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
+  vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
+  vim.opt.matchpairs             = table.concat({ "<:>" })
+  vim.o.whichwrap                = vim.o.whichwrap .. "<>[]hl"
+  vim.o.wildignore               = vim.o.wildignore ..
       "*.png,*.jpg,*.jpeg,*.gif,*.wav,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*"
   -- Folds:  ================================================================
-  vim.opt.foldenable            = false
-  vim.opt.foldmethod            = 'expr'
-  vim.opt.foldexpr              = 'nvim_treesitter#foldexpr()'
-  vim.opt.foldlevel             = 1
-  vim.opt.foldnestmax           = 10
-  vim.g.markdoptwn_folding      = 1
-  vim.opt.foldtext              = ''
+  vim.opt.foldenable             = false
+  vim.opt.foldexpr               = 'nvim_treesitter#foldexpr()'
+  vim.opt.foldmethod             = 'expr'
+  vim.opt.foldtext               = ''
+  vim.opt.foldlevel              = 99
+  vim.opt.foldnestmax            = 10
+  vim.g.markdoptwn_folding       = 1
   -- Memory: ================================================================
-  vim.opt.lazyredraw            = true
-  vim.opt.hidden                = true
-  vim.opt.history               = 100
-  vim.opt.synmaxcol             = 200
-  vim.opt.updatetime            = 200
-  vim.opt.timeoutlen            = 300
-  vim.opt.ttimeoutlen           = 0
-  vim.opt.redrawtime            = 10000
-  vim.opt.maxmempattern         = 10000
+  vim.opt.lazyredraw             = true
+  vim.opt.hidden                 = true
+  vim.opt.history                = 100
+  vim.opt.synmaxcol              = 200
+  vim.opt.updatetime             = 200
+  vim.opt.timeoutlen             = 300
+  vim.opt.ttimeoutlen            = 0
+  vim.opt.redrawtime             = 10000
+  vim.opt.maxmempattern          = 10000
+  -- Disable netrw: =========================================================
+  vim.g.loaded_netrw             = 1
+  vim.g.loaded_netrwPlugin       = 1
+  vim.g.loaded_netrwSettings     = 1
+  vim.g.loaded_netrwFileHandlers = 1
+  vim.g.loaded_netrw_gitignore   = 1
   -- Disable health checks for these providers:. ===========================
-  vim.g.loaded_python_provider  = 0
-  vim.g.loaded_python3_provider = 0
-  vim.g.loaded_ruby_provider    = 0
-  vim.g.loaded_perl_provider    = 0
-  vim.g.loaded_node_provider    = 0
+  vim.g.loaded_python_provider   = 0
+  vim.g.loaded_python3_provider  = 0
+  vim.g.loaded_ruby_provider     = 0
+  vim.g.loaded_perl_provider     = 0
+  vim.g.loaded_node_provider     = 0
   -- Disable builtin plugins: ===============================================
-  local disabled_built_ins      = {
+  local disabled_built_ins       = {
     "osc52",
     "parser",
     "health",
@@ -1073,6 +1080,7 @@ later(function()
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
   vim.keymap.set("n", "<C-c>", "cit")
+  vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
   vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
@@ -1087,9 +1095,12 @@ later(function()
   vim.keymap.set("v", "y", "y`]")
   vim.keymap.set("v", "p", "p`]")
   vim.keymap.set("n", "p", "p`]")
-  vim.keymap.set("v", "p", '"_dP')
+  vim.keymap.set('x', 'p', '"_dP')
   vim.keymap.set("x", "gr", '"_dP')
   vim.keymap.set("n", "x", '"_x')
+  vim.keymap.set('n', 'c', '"_c')
+  vim.keymap.set('n', 'cc', '"_cc')
+  vim.keymap.set('n', 'C', '"_C')
   vim.keymap.set("v", "<", "<gv")
   vim.keymap.set("v", ">", ">gv")
   vim.keymap.set("v", "<TAB>", ">gv")
@@ -1098,6 +1109,8 @@ later(function()
   vim.keymap.set("x", "<S-TAB>", "<gv")
   vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
+  vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"',
+    { expr = true, replace_keycodes = false, desc = 'Visually select changed text' })
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")

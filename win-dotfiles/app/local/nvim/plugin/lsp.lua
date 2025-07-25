@@ -42,6 +42,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --     end,
     --   })
     -- end
+    -- enable lsp folding per buffer, if supported: ===================================
+    -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    -- if client:supports_method('textDocument/foldingRange') then
+    --   local win = vim.api.nvim_get_current_win()
+    --   vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    -- end
 
     --- Disable semantic tokens: =======================================================
     ---@diagnostic disable-next-line need-check-nil
