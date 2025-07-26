@@ -797,26 +797,8 @@ now(function()
   vim.opt.shortmess              = "FOSWaco"
   vim.wo.signcolumn              = "yes"
   vim.opt.statuscolumn           = ""
-  vim.opt.mousescroll            = "ver:3,hor:0"
-  vim.opt.guifont                = "JetBrainsMono NF:h9"
   vim.opt.fillchars              = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
-  vim.opt.listchars              = {
-    eol = "↲",
-    tab = "→ ",
-    trail = "+",
-    extends = ">",
-    precedes = "<",
-    space = "·",
-    nbsp = "␣",
-  }
-  vim.opt.guicursor              = {
-    "n-v-c:block-cursor",
-    "i-ci-ve:ver25-cursor",
-    "r-cr:hor20-cursor",
-    "o:hor50-cursor",
-    "a:blinkwait100-blinkoff700-blinkon700-cursor/lcursor",
-    "sm:block-blinkwait300",
-  }
+  vim.opt.listchars              = { eol = "↲", tab = "→ ", trail = "+", extends = ">", precedes = "<", space = "·", nbsp = "␣", }
   -- Editing:  ================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
@@ -839,10 +821,6 @@ now(function()
   vim.opt.formatoptions          = "rqnl1j"
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
-  vim.opt.matchpairs             = table.concat({ "<:>" })
-  vim.o.whichwrap                = vim.o.whichwrap .. "<>[]hl"
-  vim.o.wildignore               = vim.o.wildignore ..
-      "*.png,*.jpg,*.jpeg,*.gif,*.wav,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*"
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
   vim.opt.foldexpr               = 'nvim_treesitter#foldexpr()'
@@ -1133,7 +1111,6 @@ later(function()
   vim.keymap.set("v", "y", "y`]")
   vim.keymap.set("v", "p", "p`]")
   vim.keymap.set("n", "p", "p`]")
-  vim.keymap.set('x', 'p', '"_dP')
   vim.keymap.set("x", "gr", '"_dP')
   vim.keymap.set("n", "x", '"_x')
   vim.keymap.set('n', 'c', '"_c')
@@ -1149,8 +1126,7 @@ later(function()
   vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
   vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
-  vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"',
-    { expr = true, replace_keycodes = false, desc = 'Visually select changed text' })
+  vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
   -- Split: ========================================================================
   vim.keymap.set('n', '<leader>wv', ':split<CR>')
   vim.keymap.set('n', '<leader>ws', ':vsplit<CR>')
@@ -1193,8 +1169,7 @@ later(function()
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
   -- Subtitle Keys: =================================================================
   vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-  vim.keymap.set('n', 'S',
-    function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
+  vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
   -- Buffers: =======================================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
