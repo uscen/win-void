@@ -1009,7 +1009,7 @@ later(function()
   -- Eable wrap in This fils: =======================================================
   vim.api.nvim_create_autocmd('FileType', {
     desc = 'Enable wrap in these filetypes',
-    pattern = { 'gitcommit', 'markdown', 'text', 'textile', 'log' },
+    pattern = { 'markdown', 'text', 'textile', 'log' },
     callback = function()
       vim.opt_local.wrap       = true
       vim.opt_local.spell      = true
@@ -1074,9 +1074,8 @@ later(function()
     pattern = 'gitcommit',
     group = group,
     callback = function()
-      vim.bo.readonly = true
-      vim.o.signcolumn = 'no'
       vim.o.number = false
+      vim.o.signcolumn = 'no'
       vim.o.colorcolumn = ''
       vim.keymap.set('', '<enter>', function()
         require('mini.git').show_at_cursor()
