@@ -941,13 +941,18 @@ later(function() vim.diagnostic.config(diagnostic_opts) end)
 --          │                     Neovim automads                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  -- Remove Space && Last_Lines =====================================================
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "MiniTrailspace",
-    callback = function()
-      MiniTrailspace.trim()
-      MiniTrailspace.trim_last_lines()
-    end,
+  -- AutoSave: =====================================================================
+  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'VimLeavePre' }, {
+    callback = function(event)
+      local buf = event.buf
+      if vim.api.nvim_get_option_value('modified', { buf = buf }) then
+        vim.schedule(function()
+          vim.api.nvim_buf_call(buf, function()
+            vim.cmd 'silent! write'
+          end)
+        end)
+      end
+    end
   })
   -- Don't Comment New Line ========================================================
   vim.api.nvim_create_autocmd('FileType', {
@@ -968,6 +973,15 @@ later(function()
     group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
     callback = function()
       vim.cmd("wincmd =")
+    end,
+  })
+  -- Auto-close terminal when process exits: ========================================
+  vim.api.nvim_create_autocmd("TermClose", {
+    group = vim.api.nvim_create_augroup("UserConfig", {}),
+    callback = function()
+      if vim.v.event.status == 0 then
+        vim.api.nvim_buf_delete(0, {})
+      end
     end,
   })
   -- Create directories when saving files: ========================================
@@ -992,15 +1006,6 @@ later(function()
       end
     end,
   })
-  -- Auto-close terminal when process exits: ========================================
-  vim.api.nvim_create_autocmd("TermClose", {
-    group = vim.api.nvim_create_augroup("UserConfig", {}),
-    callback = function()
-      if vim.v.event.status == 0 then
-        vim.api.nvim_buf_delete(0, {})
-      end
-    end,
-  })
   -- Eable wrap in This fils: =======================================================
   vim.api.nvim_create_autocmd('FileType', {
     desc = 'Enable wrap in these filetypes',
@@ -1012,54 +1017,6 @@ later(function()
       vim.opt_local.list       = false
       vim.opt_local.signcolumn = false
     end,
-  })
-  -- MiniGit: =====================================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'git',
-    group = group,
-    callback = function()
-      vim.bo.readonly = true
-      vim.o.signcolumn = 'no'
-      vim.o.number = false
-      vim.o.colorcolumn = ''
-      vim.keymap.set('', '<enter>', function()
-        require('mini.git').show_at_cursor()
-      end, { buffer = true, desc = 'Show git information for the cursor' })
-    end,
-    desc = 'Setup MiniGit output buffers',
-  })
-  -- AutoSave: =====================================================================
-  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'VimLeavePre' }, {
-    callback = function(event)
-      local buf = event.buf
-      if vim.api.nvim_get_option_value('modified', { buf = buf }) then
-        vim.schedule(function()
-          vim.api.nvim_buf_call(buf, function()
-            vim.cmd 'silent! write'
-          end)
-        end)
-      end
-    end
-  })
-  -- Eable FormatOnSave =============================================================
-  vim.api.nvim_create_user_command("FormatEnable", function()
-    vim.b.disable_autoformat = false
-    vim.g.disable_autoformat = false
-    vim.notify("Format On Save Enable")
-  end, {
-    desc = "Re-enable autoformat-on-save",
-  })
-  -- Disable FormatOnSave ===========================================================
-  vim.api.nvim_create_user_command("FormatDisable", function(args)
-    if args.bang then
-      vim.b.disable_autoformat = true
-    else
-      vim.g.disable_autoformat = true
-    end
-    vim.notify("Format On Save Disable")
-  end, {
-    desc = "Disable autoformat-on-save",
-    bang = true,
   })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
@@ -1095,16 +1052,7 @@ later(function()
   })
   -- close some filetypes with <q>: : =====================================================
   vim.api.nvim_create_autocmd('FileType', {
-    pattern = {
-      'qf',
-      'man',
-      'help',
-      'query',
-      'notify',
-      'lspinfo',
-      'startuptime',
-      'checkhealth',
-    },
+    pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
     callback = function(event)
       local bo = vim.bo[event.buf]
       if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
@@ -1113,22 +1061,65 @@ later(function()
       end
     end,
   })
+  -- MiniTrailspace: ================================================================
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "MiniTrailspace",
+    callback = function()
+      MiniTrailspace.trim()
+      MiniTrailspace.trim_last_lines()
+    end,
+  })
+  -- MiniGit: =====================================================================
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'gitcommit',
+    group = group,
+    callback = function()
+      vim.bo.readonly = true
+      vim.o.signcolumn = 'no'
+      vim.o.number = false
+      vim.o.colorcolumn = ''
+      vim.keymap.set('', '<enter>', function()
+        require('mini.git').show_at_cursor()
+      end, { buffer = true, desc = 'Show git information for the cursor' })
+    end,
+    desc = 'Setup MiniGit output buffers',
+  })
+  -- Eable FormatOnSave =============================================================
+  vim.api.nvim_create_user_command("FormatEnable", function()
+    vim.b.disable_autoformat = false
+    vim.g.disable_autoformat = false
+    vim.notify("Format On Save Enable")
+  end, {
+    desc = "Re-enable autoformat-on-save",
+  })
+  -- Disable FormatOnSave ===========================================================
+  vim.api.nvim_create_user_command("FormatDisable", function(args)
+    if args.bang then
+      vim.b.disable_autoformat = true
+    else
+      vim.g.disable_autoformat = true
+    end
+    vim.notify("Format On Save Disable")
+  end, {
+    desc = "Disable autoformat-on-save",
+    bang = true,
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   -- General: =======================================================================
+  vim.keymap.set("n", "<leader>q", ":close<CR>")
+  vim.keymap.set("n", "<leader>wq", ":close<CR>")
+  vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
   vim.keymap.set("n", "<C-c>", "cit")
   vim.keymap.set('n', 'U', '<C-r>')
-  vim.keymap.set("n", "<ESC>", ":nohl<CR>")
-  vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set('n', 'Q', '<nop>')
-  vim.keymap.set("n", "<leader>qq", ":qa<CR>")
-  vim.keymap.set("n", "<leader>wq", ":close<CR>")
-  vim.keymap.set("n", "<leader>q", ":close<CR>")
+  vim.keymap.set('n', '<Space>', '<Nop>')
+  vim.keymap.set("n", "<ESC>", ":nohl<CR>")
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
   vim.keymap.set('n', 'yco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
   vim.keymap.set('n', 'ycO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
@@ -1192,9 +1183,8 @@ later(function()
   vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
   vim.keymap.set("n", "<leader>m", function() require("mini.misc").zoom() end)
   vim.keymap.set('n', '<space>bb', function()
-    local current = vim.fn.bufnr()
     for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-      if bufnr ~= current and vim.fn.buflisted(bufnr) == 1 then
+      if bufnr ~= vim.fn.bufnr() and vim.fn.buflisted(bufnr) == 1 then
         require('mini.bufremove').delete(bufnr, false)
       end
     end
