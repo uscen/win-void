@@ -771,6 +771,7 @@ now(function()
   vim.opt.breakindent            = true
   vim.opt.breakindentopt         = "shift:2"
   vim.opt.copyindent             = true
+  vim.opt.mousescroll            = "ver:3,hor:0"
   vim.opt.smoothscroll           = true
   vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
