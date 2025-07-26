@@ -1069,20 +1069,6 @@ later(function()
       MiniTrailspace.trim_last_lines()
     end,
   })
-  -- MiniGit: =====================================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'gitcommit',
-    group = group,
-    callback = function()
-      vim.o.number = false
-      vim.o.signcolumn = 'no'
-      vim.o.colorcolumn = ''
-      vim.keymap.set('', '<enter>', function()
-        require('mini.git').show_at_cursor()
-      end, { buffer = true, desc = 'Show git information for the cursor' })
-    end,
-    desc = 'Setup MiniGit output buffers',
-  })
   -- Eable FormatOnSave =============================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
