@@ -755,7 +755,7 @@ now(function()
   vim.opt.shada                  = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
   vim.opt.spell                  = false
-  vim.opt.spelllang              = { 'en' }
+  vim.opt.spelllang              = 'en_us'
   vim.opt.spelloptions           = 'camel'
   vim.opt.dictionary             = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
@@ -799,13 +799,24 @@ now(function()
   vim.opt.statuscolumn           = ""
   vim.opt.mousescroll            = "ver:3,hor:0"
   vim.opt.guifont                = "JetBrainsMono NF:h9"
-  vim.opt.guicursor              =
-  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait100-blinkoff700-blinkon700-Cursor/lCursor,sm:block-blinkwait0-blinkoff300-blinkon300"
-  vim.opt.fillchars              = table.concat(
-    { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
-    ','
-  )
-  vim.opt.listchars              = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
+  vim.opt.fillchars              = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
+  vim.opt.listchars              = {
+    eol = "↲",
+    tab = "→ ",
+    trail = "+",
+    extends = ">",
+    precedes = "<",
+    space = "·",
+    nbsp = "␣",
+  }
+  vim.opt.guicursor              = {
+    "n-v-c:block-cursor",
+    "i-ci-ve:ver25-cursor",
+    "r-cr:hor20-cursor",
+    "o:hor50-cursor",
+    "a:blinkwait100-blinkoff700-blinkon700-cursor/lcursor",
+    "sm:block-blinkwait300",
+  }
   -- Editing:  ================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
@@ -845,8 +856,8 @@ now(function()
   vim.opt.hidden                 = true
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
-  vim.opt.updatetime             = 200
   vim.opt.timeoutlen             = 300
+  vim.opt.updatetime             = 0
   vim.opt.ttimeoutlen            = 0
   vim.opt.redrawtime             = 10000
   vim.opt.maxmempattern          = 10000
@@ -1006,6 +1017,16 @@ later(function()
       end
     end,
   })
+  -- go to last loc when opening a buffer: ===========================================
+  vim.api.nvim_create_autocmd("BufReadPost", {
+    callback = function()
+      local mark = vim.api.nvim_buf_get_mark(0, '"')
+      local lcount = vim.api.nvim_buf_line_count(0)
+      if mark[1] > 0 and mark[1] <= lcount then
+        pcall(vim.api.nvim_win_set_cursor, 0, mark)
+      end
+    end,
+  })
   -- Eable wrap in This fils: =======================================================
   vim.api.nvim_create_autocmd('FileType', {
     desc = 'Enable wrap in these filetypes',
@@ -1075,7 +1096,6 @@ later(function()
     vim.g.disable_autoformat = false
     vim.notify("Format On Save Enable")
   end, {
-    desc = "Re-enable autoformat-on-save",
   })
   -- Disable FormatOnSave ===========================================================
   vim.api.nvim_create_user_command("FormatDisable", function(args)
@@ -1086,7 +1106,6 @@ later(function()
     end
     vim.notify("Format On Save Disable")
   end, {
-    desc = "Disable autoformat-on-save",
     bang = true,
   })
 end)
@@ -1132,6 +1151,22 @@ later(function()
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"',
     { expr = true, replace_keycodes = false, desc = 'Visually select changed text' })
+  -- Split: ========================================================================
+  vim.keymap.set('n', '<leader>wv', ':split<CR>')
+  vim.keymap.set('n', '<leader>ws', ':vsplit<CR>')
+  vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>")
+  vim.keymap.set("n", "<leader>wT", "<cmd>wincmd T<cr>")
+  vim.keymap.set("n", "<leader>wr", "<cmd>wincmd r<cr>")
+  vim.keymap.set("n", "<leader>wR", "<cmd>wincmd R<cr>")
+  vim.keymap.set("n", "<leader>wH", "<cmd>wincmd H<cr>")
+  vim.keymap.set("n", "<leader>wJ", "<cmd>wincmd J<cr>")
+  vim.keymap.set("n", "<leader>wK", "<cmd>wincmd K<cr>")
+  vim.keymap.set("n", "<leader>wL", "<cmd>wincmd L<cr>")
+  vim.keymap.set("n", "<leader>w=", "<cmd>wincmd =<cr>")
+  vim.keymap.set("n", "<leader>wk", "<cmd>resize +5<cr>")
+  vim.keymap.set("n", "<leader>wj", "<cmd>resize -5<cr>")
+  vim.keymap.set("n", "<leader>wh", "<cmd>vertical resize +3<cr>")
+  vim.keymap.set("n", "<leader>wl", "<cmd>vertical resize -3<cr>")
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -1152,9 +1187,6 @@ later(function()
   vim.keymap.set("n", "<leader>H", "<C-w>H")
   vim.keymap.set("n", "<leader>K", "<C-w>K")
   vim.keymap.set("n", "<leader>J", "<C-w>J")
-  -- Split: ========================================================================
-  vim.keymap.set('n', '<leader>v', ':split<CR>')
-  vim.keymap.set('n', '<leader>s', ':vsplit<CR>')
   -- Theme: ========================================================================
   vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
   vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
