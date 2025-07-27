@@ -95,8 +95,7 @@ $scoopPackages = @(
     "yt-dlp",
     "ouch",
     "mpv",
-    "oculante",
-    "https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json"
+    "oculante"
 )
 
 # UnInstall Packages:	                                                            #
