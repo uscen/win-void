@@ -314,6 +314,43 @@ now(function()
   })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Statusline                     │
+--          ╰─────────────────────────────────────────────────────────╯
+now(function()
+    local mini_statusline = require("mini.statusline")
+    mini_statusline.setup({
+        content = {
+            active = function()
+                local mode, mode_hl = mini_statusline.section_mode({ trunc_width = 100 })
+                local filename = mini_statusline.section_filename({ trunc_width = 100 })
+                local fileinfo = mini_statusline.section_fileinfo({ trunc_width = 999 })
+                local location = mini_statusline.is_truncated(100) and '%2l│%-2v' or '%2l/%-2L│%2v/%-2{virtcol("$") - 1}'
+
+                return mini_statusline.combine_groups({
+                    {
+                        hl = mode_hl,
+                        strings = { mode },
+                    },
+                    "%<",
+                    {
+                        hl = "MiniStatuslineFilename",
+                        strings = { filename },
+                    },
+                    "%=",
+                    {
+                        hl = "MiniStatuslineFileinfo",
+                        strings = { fileinfo },
+                    },
+                    {
+                        hl = mode_hl,
+                        strings = { location },
+                    },
+                })
+            end,
+        },
+    })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Starter                        │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
@@ -729,29 +766,27 @@ now(function()
   vim.opt.path                   = ".,,**"
   -- Shell: =-================================================================
   vim.opt.sh                     = "nu"
-  vim.opt.shellslash             = true
-  vim.opt.shelltemp              = false
   vim.opt.shellcmdflag           = "--stdin --no-newline -c"
   vim.opt.shellredir             = "out+err> %s"
   vim.opt.shellxescape           = ""
   vim.opt.shellxquote            = ""
   vim.opt.shellquote             = ""
   -- General: ================================================================
-  vim.opt.fileencoding           = 'utf-8'
-  vim.opt.clipboard              = "unnamedplus"
+  vim.opt.undofile               = true
   vim.opt.wildmenu               = true
   vim.opt.wildignorecase         = true
+  vim.opt.compatible             = false
+  vim.opt.swapfile               = false
+  vim.opt.writebackup            = false
+  vim.opt.backup                 = false
+  vim.opt.fileencoding           = 'utf-8'
+  vim.opt.clipboard              = "unnamedplus"
   vim.opt.wildmode               = "longest:full,full"
   vim.opt.wildoptions            = "fuzzy,pum"
   vim.opt.omnifunc               = "v:lua.vim.lsp.omnifunc"
   vim.opt.completeopt            = 'menuone,noselect,fuzzy'
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = "usetab"
-  vim.opt.compatible             = false
-  vim.opt.swapfile               = false
-  vim.opt.writebackup            = false
-  vim.opt.backup                 = false
-  vim.opt.undofile               = true
   vim.opt.shada                  = { "'10", "<0", "s10", "h" }
   -- Spelling ================================================================
   vim.opt.spell                  = false
@@ -759,37 +794,29 @@ now(function()
   vim.opt.spelloptions           = 'camel'
   vim.opt.dictionary             = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
-  vim.opt.termguicolors          = true
   vim.opt.number                 = true
-  vim.opt.numberwidth            = 3
-  vim.opt.relativenumber         = false
-  vim.opt.cursorline             = false
+  vim.opt.termguicolors          = true
+  vim.opt.smoothscroll           = true
   vim.opt.splitright             = true
   vim.opt.splitbelow             = true
-  vim.opt.splitkeep              = 'screen'
-  vim.opt.confirm                = true
-  vim.opt.breakindent            = true
-  vim.opt.breakindentopt         = "shift:2"
-  vim.opt.copyindent             = true
-  vim.opt.mousescroll            = "ver:3,hor:0"
-  vim.opt.smoothscroll           = true
-  vim.opt.laststatus             = 0
-  vim.opt.cmdheight              = 0
-  vim.opt.winwidth               = 20
-  vim.opt.winminwidth            = 5
-  vim.opt.showtabline            = 0
-  vim.opt.cedit                  = '^F'
-  vim.opt.cmdwinheight           = 30
-  vim.opt.pumwidth               = 20
-  vim.opt.pumblend               = 0
-  vim.opt.pumheight              = 8
-  vim.opt.showmatch              = false
-  vim.opt.wrap                   = false
+  vim.opt.cursorline             = false
+  vim.opt.relativenumber         = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
   vim.opt.ruler                  = false
-  vim.opt.cedit                  = '^F'
+  vim.opt.numberwidth            = 3
+  vim.opt.laststatus             = 3
+  vim.opt.cmdheight              = 0
+  vim.opt.winwidth               = 20
+  vim.opt.winminwidth            = 5
+  vim.opt.showtabline            = 0
+  vim.opt.cmdwinheight           = 30
+  vim.opt.pumwidth               = 20
+  vim.opt.pumblend               = 0
+  vim.opt.pumheight              = 8
+  vim.opt.splitkeep              = 'screen'
+  vim.opt.mousescroll            = "ver:3,hor:0"
   vim.opt.showbreak              = '󰘍'
   vim.opt.winborder              = "double"
   vim.opt.colorcolumn            = '+1'
@@ -807,14 +834,20 @@ now(function()
   vim.opt.ignorecase             = true
   vim.opt.incsearch              = true
   vim.opt.infercase              = true
-  vim.opt.shiftwidth             = 2
   vim.opt.smartcase              = true
   vim.opt.smartindent            = true
   vim.opt.gdefault               = true
+  vim.opt.confirm                = true
+  vim.opt.breakindent            = true
+  vim.opt.copyindent             = true
+  vim.opt.showmatch              = false
+  vim.opt.wrap                   = false
   vim.opt.tabstop                = 2
+  vim.opt.shiftwidth             = 2
   vim.opt.softtabstop            = 2
   vim.opt.conceallevel           = 2
   vim.opt.concealcursor          = 'c'
+  vim.opt.cedit                  = '^F'
   vim.opt.breakindentopt         = "list:-1"
   vim.opt.iskeyword              = '@,48-57,_,192-255,-'
   vim.opt.formatlistpat          = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
@@ -824,20 +857,19 @@ now(function()
   vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
+  vim.opt.foldlevel              = 99
+  vim.opt.foldnestmax            = 10
   vim.opt.foldexpr               = 'nvim_treesitter#foldexpr()'
   vim.opt.foldmethod             = 'expr'
   vim.opt.foldtext               = ''
-  vim.opt.foldlevel              = 99
-  vim.opt.foldnestmax            = 10
-  vim.g.markdoptwn_folding       = 1
   -- Memory: ================================================================
   vim.opt.lazyredraw             = true
   vim.opt.hidden                 = true
+  vim.opt.updatetime             = 0
+  vim.opt.ttimeoutlen            = 0
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
   vim.opt.timeoutlen             = 300
-  vim.opt.updatetime             = 0
-  vim.opt.ttimeoutlen            = 0
   vim.opt.redrawtime             = 10000
   vim.opt.maxmempattern          = 10000
   -- Disable netrw: =========================================================
