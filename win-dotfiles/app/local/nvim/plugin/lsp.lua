@@ -20,8 +20,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.server_capabilities.definitionProvider then
       vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
     end
-
-    -- -- Built In Completions: =======================================================
+		-- Enable Inlay hints:=====================================================================
+		-- if client ~= nil and client.server_capabilities.inlayHintProvider then
+		-- 	vim.lsp.inlay_hint.enable(true)
+		-- end
+    -- Enable lsp folding per buffer, if supported: ===========================================
+    -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    -- if client:supports_method('textDocument/foldingRange') then
+    --   local win = vim.api.nvim_get_current_win()
+    --   vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+    -- end
+    -- -- Enable Built In Completions: =======================================================
     -- if client:supports_method("textDocument/completion", bufnr) then
     --   -- Optional: trigger autocompletion on EVERY keypress. May be slow!
     --   local chars = {}
@@ -31,7 +40,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --   client.server_capabilities.completionProvider.triggerCharacters = chars
     --   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     -- end
-    -- -- Built In Format: ============================================================
+    -- -- Enable Built In Format: ============================================================
     -- if not client:supports_method('textDocument/willSaveWaitUntil')
     --     and client:supports_method('textDocument/formatting') then
     --   vim.api.nvim_create_autocmd('BufWritePre', {
@@ -41,12 +50,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --       vim.lsp.buf.format({ bufnr = bufnr, id = client.id, timeout_ms = 1000 })
     --     end,
     --   })
-    -- end
-    -- enable lsp folding per buffer, if supported: ===================================
-    -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    -- if client:supports_method('textDocument/foldingRange') then
-    --   local win = vim.api.nvim_get_current_win()
-    --   vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
     -- end
 
     --- Disable semantic tokens: =======================================================
