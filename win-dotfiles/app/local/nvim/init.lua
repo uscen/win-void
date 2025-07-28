@@ -775,7 +775,7 @@ now(function()
   vim.opt.smoothscroll           = true
   vim.opt.splitright             = true
   vim.opt.splitbelow             = true
-  vim.opt.cursorline             = false
+  vim.opt.cursorline             = true
   vim.opt.relativenumber         = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
@@ -1058,7 +1058,27 @@ later(function()
       end
     end,
   })
-  -- close some filetypes with <q>: : =====================================================
+  -- show cursor line only in active window:  ===========================================
+  local cursorline_active_window_augroup = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true })
+  vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+    group = cursorline_active_window_augroup,
+    callback = function()
+      if vim.w.auto_cursorline then
+        vim.wo.cursorline = true
+        vim.w.auto_cursorline = nil
+      end
+    end,
+  })
+  vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+    group = cursorline_active_window_augroup,
+    callback = function()
+      if vim.wo.cursorline then
+        vim.w.auto_cursorline = true
+        vim.wo.cursorline = false
+      end
+    end,
+  })
+  -- close some filetypes with <q>: =======================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
     callback = function(event)
