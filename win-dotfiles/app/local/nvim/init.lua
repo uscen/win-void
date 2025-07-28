@@ -774,6 +774,7 @@ now(function()
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = "usetab"
   vim.opt.shada                  = { "'10", "<0", "s10", "h" }
+  vim.opt.undodir                = vim.fn.stdpath('data') .. '/undo'
   -- Spelling ================================================================
   vim.opt.spell                  = false
   vim.opt.spelllang              = 'en_us'
@@ -786,6 +787,7 @@ now(function()
   vim.opt.splitright             = true
   vim.opt.splitbelow             = true
   vim.opt.cursorline             = true
+  vim.opt.equalalways            = true
   vim.opt.relativenumber         = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
@@ -830,6 +832,7 @@ now(function()
   vim.opt.copyindent             = true
   vim.opt.showmatch              = false
   vim.opt.wrap                   = false
+  vim.opt.wrapscan               = false
   vim.opt.tabstop                = 2
   vim.opt.shiftwidth             = 2
   vim.opt.softtabstop            = 2
@@ -838,13 +841,13 @@ now(function()
   vim.opt.cedit                  = '^F'
   vim.opt.breakindentopt         = "list:-1"
   vim.opt.inccommand             = 'split'
+  vim.opt.whichwrap              = "b,s,<,>,[,],h,l"
   vim.opt.iskeyword              = '@,48-57,_,192-255,-'
   vim.opt.formatlistpat          = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
   vim.opt.virtualedit            = "block"
   vim.opt.formatoptions          = "rqnl1j"
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
-  vim.opt.whichwrap              = vim.opt.whichwrap + "<,>,h,l"
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevel              = 99
