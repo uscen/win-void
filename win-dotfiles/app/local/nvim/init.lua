@@ -33,12 +33,6 @@ later(function()
   require("mini.splitjoin").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Trailspace                     │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.trailspace").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Extra                          │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -62,6 +56,19 @@ end)
 later(function()
   require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
   require("mini.misc").setup_restore_cursor({ center = true })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Trailspace                     │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.trailspace").setup()
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = "MiniTrailspace",
+    callback = function()
+      MiniTrailspace.trim()
+      MiniTrailspace.trim_last_lines()
+    end,
+  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.keymaps                        │
@@ -385,23 +392,6 @@ end)
 --          │                     Mini.Completion                     │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- enable configured language servers 0.11: ========================================
-  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "eslint", "prisma" }
-  vim.lsp.config("*", {
-    capabilities = {
-      textDocument = {
-        semanticTokens = {
-          multilineTokenSupport = true,
-        }
-      }
-    },
-    root_markers = {
-      '.git'
-    },
-  })
-  for _, config in ipairs(lsp_configs) do
-    vim.lsp.enable(config)
-  end
   -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
     delay = { completion = 50, info = 40, signature = 30, },
@@ -427,6 +417,23 @@ now(function()
       end,
     },
   })
+  -- enable configured language servers 0.11: =================================================
+  local lsp_configs = { "lua", "html", "css", "emmet", "json", "tailwind", "typescript", "eslint", "prisma" }
+  vim.lsp.config("*", {
+    capabilities = {
+      textDocument = {
+        semanticTokens = {
+          multilineTokenSupport = true,
+        }
+      }
+    },
+    root_markers = {
+      '.git'
+    },
+  })
+  for _, config in ipairs(lsp_configs) do
+    vim.lsp.enable(config)
+  end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Snippets                       │
@@ -476,7 +483,7 @@ now(function()
       end
     },
   })
-  require('mini.snippets').start_lsp_server()
+  require('mini.snippets').start_lsp_server({ match = false })
   -- Expand Snippets Or complete by Tab ===============================================
   local expand_or_complete = function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
@@ -1111,14 +1118,6 @@ later(function()
         vim.cmd("syntax off")
         vim.notify("Large file detected. Some features disabled.", vim.log.levels.WARN)
       end
-    end,
-  })
-  -- MiniTrailspace: ======================================================================
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "MiniTrailspace",
-    callback = function()
-      MiniTrailspace.trim()
-      MiniTrailspace.trim_last_lines()
     end,
   })
   -- Eable FormatOnSave ====================================================================
