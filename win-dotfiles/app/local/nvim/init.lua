@@ -761,6 +761,7 @@ now(function()
   vim.opt.clipboard              = "unnamedplus"
   vim.opt.wildmode               = "longest:full,full"
   vim.opt.wildoptions            = "fuzzy,pum"
+  vim.opt.wildignore             = "*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o"
   vim.opt.omnifunc               = "v:lua.vim.lsp.omnifunc"
   vim.opt.completeopt            = 'menuone,noselect,fuzzy'
   vim.opt.complete               = '.,w,b,kspell'
@@ -975,6 +976,13 @@ later(function()
       vim.cmd("wincmd =")
     end,
   })
+  -- Remove hl search when enter Insert: ============================================
+  vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+      desc = "Remove hl search when enter Insert",
+      callback = vim.schedule_wrap(function()
+          vim.cmd.nohlsearch()
+      end),
+  })
   -- Auto-close terminal when process exits: ========================================
   vim.api.nvim_create_autocmd("TermClose", {
     group = vim.api.nvim_create_augroup("UserConfig", {}),
@@ -986,9 +994,10 @@ later(function()
   })
   -- Create directories when saving files: ========================================
   vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup("UserConfig", {}),
+    group = vim.api.nvim_create_augroup('auto-create-dir', { clear = true }),
+    pattern = '*',
     callback = function()
-      local dir = vim.fn.expand('<afile>:p:h')
+      local dir = vim.fn.expand '<afile>:p:h'
       if vim.fn.isdirectory(dir) == 0 then
         vim.fn.mkdir(dir, 'p')
       end
@@ -1080,7 +1089,7 @@ later(function()
       end
     end,
   })
-  -- close some filetypes with <q>: =======================================================
+  -- close some filetypes with <q>: ======================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
     callback = function(event)
@@ -1091,7 +1100,7 @@ later(function()
       end
     end,
   })
-  -- MiniTrailspace: ================================================================
+  -- MiniTrailspace: ======================================================================
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = "MiniTrailspace",
     callback = function()
@@ -1099,14 +1108,14 @@ later(function()
       MiniTrailspace.trim_last_lines()
     end,
   })
-  -- Eable FormatOnSave =============================================================
+  -- Eable FormatOnSave ====================================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
     vim.g.disable_autoformat = false
     vim.notify("Format On Save Enable")
   end, {
   })
-  -- Disable FormatOnSave ===========================================================
+  -- Disable FormatOnSave =================================================================
   vim.api.nvim_create_user_command("FormatDisable", function(args)
     if args.bang then
       vim.b.disable_autoformat = true
