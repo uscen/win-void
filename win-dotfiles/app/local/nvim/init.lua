@@ -31,7 +31,7 @@ local now_if_args = vim.fn.argc(-1) > 0 and now or later
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
-  require('mini.misc').setup_restore_cursor()
+  require("mini.misc").setup_restore_cursor({ center = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Trailspace                     │
@@ -171,6 +171,18 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.ai").setup({
+    n_lines = 500,
+    search_method = "cover_or_nearest",
+    mappings = {
+      around = "a",
+      inside = "i",
+      around_next = "an",
+      inside_next = "in",
+      around_last = "al",
+      inside_last = "il",
+      goto_left = "{",
+      goto_right = "}",
+    },
     custom_textobjects = {
       r = require("mini.extra").gen_ai_spec.diagnostic(),
       a = require("mini.extra").gen_ai_spec.buffer(),
@@ -362,6 +374,7 @@ now(function()
      █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
         ]],
     footer = table.concat({
+      "It's - " .. os.date('%x %X'),
       "Pwd: " .. vim.fn.getcwd(),
     }, "\n"),
   })
@@ -1224,8 +1237,7 @@ later(function()
   vim.keymap.set("n", "<leader>gh", [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
   vim.keymap.set("n", "<leader>gx", [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
   -- Explorer: ==================================================================
-  vim.keymap.set("n", "<leader>e",
-    function() require("mini.files").open(vim.bo.buftype ~= "nofile" and vim.api.nvim_buf_get_name(0) or nil, true) end)
+  vim.keymap.set("n", "<leader>e", function() require("mini.files").open(vim.bo.buftype ~= "nofile" and vim.api.nvim_buf_get_name(0) or nil, true) end)
   vim.keymap.set("n", "<leader>E", function() require("mini.files").open(vim.uv.cwd(), true) end)
 end)
 --          ╔═════════════════════════════════════════════════════════╗
