@@ -992,20 +992,9 @@ later(function()
       end
     end,
   })
-  -- Create directories when saving files: ========================================
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup('auto_create_dir', { clear = true }),
-    pattern = '*',
-    callback = function()
-      local dir = vim.fn.expand '<afile>:p:h'
-      if vim.fn.isdirectory(dir) == 0 then
-        vim.fn.mkdir(dir, 'p')
-      end
-    end,
-  })
   -- Auto create directories before save: ==========================================
   vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
+    group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),
     callback = function(event)
       local file = vim.fn.fnamemodify(event.match, ':p')
       local dir = vim.fn.fnamemodify(file, ":p:h")
@@ -1057,6 +1046,7 @@ later(function()
   })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("quickfix_list", { clear = true }),
     pattern = "qf",
     callback = function(event)
       local opts = { buffer = event.buf, silent = true }
@@ -1067,7 +1057,7 @@ later(function()
   })
   -- Large file handling: ===========================================================
   vim.api.nvim_create_autocmd("BufReadPre", {
-    group = vim.api.nvim_create_augroup("handle_bigFile", { clear = true }),
+    group = vim.api.nvim_create_augroup("disable_in_bigfile", { clear = true }),
     callback = function(ev)
       -- Disable certain features for files larger than 10MB
       local max_size = 10 * 1024 * 1024 -- 10MB
@@ -1088,9 +1078,8 @@ later(function()
     end,
   })
   -- show cursor line only in active window:  ===========================================
-  local cursorline_active_window_augroup = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true })
   vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-    group = cursorline_active_window_augroup,
+    group = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true }),
     callback = function()
       if vim.w.auto_cursorline then
         vim.wo.cursorline = true
@@ -1099,7 +1088,7 @@ later(function()
     end,
   })
   vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-    group = cursorline_active_window_augroup,
+    group = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true }),
     callback = function()
       if vim.wo.cursorline then
         vim.w.auto_cursorline = true
