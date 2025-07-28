@@ -27,23 +27,16 @@ require("mini.deps").setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 local now_if_args = vim.fn.argc(-1) > 0 and now or later
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Misc                           │
+--          │                     Mini.SplitJoin                      │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
-  require("mini.misc").setup_restore_cursor({ center = true })
+  require("mini.splitjoin").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Trailspace                     │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require("mini.trailspace").setup()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.SplitJoin                      │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.splitjoin").setup()
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Extra                          │
@@ -64,6 +57,13 @@ later(function()
   require("mini.diff").setup({ view = { style = 'sign' } })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Misc                           │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
+  require("mini.misc").setup_restore_cursor({ center = true })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.keymaps                        │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -77,14 +77,16 @@ end)
 --          │                     Mini.Notify                         │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
-  local win_config = function()
-    local has_statusline = vim.o.laststatus > 0
-    local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
-    return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad }
-  end
   require('mini.notify').setup({
-    window = { config = win_config },
-    lsp_progress = { enable = false, },
+    lsp_progress = { enable = false, duration_last = 500 },
+    window = {
+      config = function()
+        local has_statusline = vim.o.laststatus > 0
+        local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
+        return { anchor = "SE", col = vim.o.columns, row = vim.o.lines - pad }
+      end,
+      max_width_share = 0.25,
+    },
   })
   vim.notify = require('mini.notify').make_notify()
 end)
