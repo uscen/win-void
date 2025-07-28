@@ -794,6 +794,8 @@ now(function()
   vim.opt.pumwidth               = 20
   vim.opt.pumblend               = 0
   vim.opt.pumheight              = 8
+  vim.opt.guifont                = "JetBrainsMono Nerd Font:h9"
+  vim.opt.guicursor              = "i-ci-ve-t:hor30"
   vim.opt.splitkeep              = 'screen'
   vim.opt.mousescroll            = "ver:3,hor:0"
   vim.opt.showbreak              = '󰘍'
@@ -978,7 +980,7 @@ later(function()
   })
   -- Remove hl search when enter Insert: ============================================
   vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
-      group = vim.api.nvim_create_augroup("remove_hl", { clear = true }),
+      group = vim.api.nvim_create_augroup("hl_clear", { clear = true }),
       callback = vim.schedule_wrap(function()
           vim.cmd.nohlsearch()
       end),
@@ -1046,7 +1048,7 @@ later(function()
   })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("quickfix_list", { clear = true }),
+    group = vim.api.nvim_create_augroup("quickfix_keys", { clear = true }),
     pattern = "qf",
     callback = function(event)
       local opts = { buffer = event.buf, silent = true }
@@ -1056,8 +1058,9 @@ later(function()
     end
   })
   -- show cursor line only in active window:  ===========================================
+  local cursorline_active_window_augroup = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true })
   vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-    group = vim.api.nvim_create_augroup("cursorline_active_window", { clear = true }),
+    group = cursorline_active_window_augroup,
     callback = function()
       if vim.w.auto_cursorline then
         vim.wo.cursorline = true
@@ -1066,7 +1069,7 @@ later(function()
     end,
   })
   vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-    group = vim.api.nvim_create_augroup("cursorline_active_window", { clear = true }),
+    group = cursorline_active_window_augroup,
     callback = function()
       if vim.wo.cursorline then
         vim.w.auto_cursorline = true
@@ -1076,7 +1079,7 @@ later(function()
   })
   -- close some filetypes with <q>: ======================================================
   vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
+    group = vim.api.nvim_create_augroup("q_close", { clear = true }),
     pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
     callback = function(event)
       local bo = vim.bo[event.buf]
