@@ -69,7 +69,7 @@ end)
 later(function()
   local map_multistep = require('mini.keymap').map_multistep
   map_multistep('i', '<CR>', { 'pmenu_accept', 'minipairs_cr' })
-  map_multistep('i', '<BS>', { 'minipairs_bs' })
+	map_multistep("i", "<BS>", { "minipairs_bs", "decrease_indent" })
   map_multistep('i', '<C-j>', { 'pmenu_next' })
   map_multistep('i', '<C-k>', { 'pmenu_prev' })
 end)
@@ -837,6 +837,7 @@ now(function()
   vim.opt.formatoptions          = "rqnl1j"
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
+  vim.opt.whichwrap              = vim.opt.whichwrap + "<,>,h,l"
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevel              = 99
