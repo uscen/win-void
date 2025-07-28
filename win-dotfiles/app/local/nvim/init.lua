@@ -971,21 +971,21 @@ later(function()
   })
   -- Auto-resize splits on window resize:  =========================================
   vim.api.nvim_create_autocmd("VimResized", {
-    group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
+    group = vim.api.nvim_create_augroup("resize_splits", { clear = true }),
     callback = function()
       vim.cmd("wincmd =")
     end,
   })
   -- Remove hl search when enter Insert: ============================================
   vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
-      desc = "Remove hl search when enter Insert",
+      group = vim.api.nvim_create_augroup("remove_hl", { clear = true }),
       callback = vim.schedule_wrap(function()
           vim.cmd.nohlsearch()
       end),
   })
   -- Auto-close terminal when process exits: ========================================
   vim.api.nvim_create_autocmd("TermClose", {
-    group = vim.api.nvim_create_augroup("UserConfig", {}),
+    group = vim.api.nvim_create_augroup("term_close", {}),
     callback = function()
       if vim.v.event.status == 0 then
         vim.api.nvim_buf_delete(0, {})
@@ -994,7 +994,7 @@ later(function()
   })
   -- Create directories when saving files: ========================================
   vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup('auto-create-dir', { clear = true }),
+    group = vim.api.nvim_create_augroup('auto_create_dir', { clear = true }),
     pattern = '*',
     callback = function()
       local dir = vim.fn.expand '<afile>:p:h'
@@ -1017,6 +1017,7 @@ later(function()
   })
   -- go to last loc when opening a buffer: ===========================================
   vim.api.nvim_create_autocmd("BufReadPost", {
+    group = vim.api.nvim_create_augroup("last_loc", { clear = true }),
     callback = function()
       local mark = vim.api.nvim_buf_get_mark(0, '"')
       local lcount = vim.api.nvim_buf_line_count(0)
@@ -1025,9 +1026,18 @@ later(function()
       end
     end,
   })
+  -- Check if we need to reload the file when it changed: ===============================
+  vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+    group = vim.api.nvim_create_augroup("checktime", { clear = true }),
+    callback = function()
+      if vim.o.buftype ~= "nofile" then
+        vim.cmd("checktime")
+      end
+    end,
+  })
   -- Eable wrap in This fils: =======================================================
   vim.api.nvim_create_autocmd('FileType', {
-    desc = 'Enable wrap in these filetypes',
+    group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
     pattern = { 'markdown', 'text', 'textile', 'log' },
     callback = function()
       vim.opt_local.wrap       = true
@@ -1035,6 +1045,14 @@ later(function()
       vim.opt_local.linebreak  = true
       vim.opt_local.list       = false
       vim.opt_local.signcolumn = false
+    end,
+  })
+  -- Fix conceallevel for json files: ================================================
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = vim.api.nvim_create_augroup("json_conceal", { clear = true }),
+    pattern = { "json", "jsonc", "json5" },
+    callback = function()
+      vim.opt_local.conceallevel = 0
     end,
   })
   -- Qucikfix List: ==================================================================
@@ -1049,7 +1067,7 @@ later(function()
   })
   -- Large file handling: ===========================================================
   vim.api.nvim_create_autocmd("BufReadPre", {
-    group = vim.api.nvim_create_augroup("GeneralSettings", { clear = true }),
+    group = vim.api.nvim_create_augroup("handle_bigFile", { clear = true }),
     callback = function(ev)
       -- Disable certain features for files larger than 10MB
       local max_size = 10 * 1024 * 1024 -- 10MB
@@ -1091,6 +1109,7 @@ later(function()
   })
   -- close some filetypes with <q>: ======================================================
   vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
     pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
     callback = function(event)
       local bo = vim.bo[event.buf]
