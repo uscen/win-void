@@ -1055,6 +1055,37 @@ later(function()
       vim.keymap.set('n', '<Tab>', '<CR>', opts)
     end
   })
+  -- show cursor line only in active window:  ===========================================
+  vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+    group = vim.api.nvim_create_augroup("cursorline_active_window", { clear = true }),
+    callback = function()
+      if vim.w.auto_cursorline then
+        vim.wo.cursorline = true
+        vim.w.auto_cursorline = nil
+      end
+    end,
+  })
+  vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+    group = vim.api.nvim_create_augroup("cursorline_active_window", { clear = true }),
+    callback = function()
+      if vim.wo.cursorline then
+        vim.w.auto_cursorline = true
+        vim.wo.cursorline = false
+      end
+    end,
+  })
+  -- close some filetypes with <q>: ======================================================
+  vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
+    pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
+    callback = function(event)
+      local bo = vim.bo[event.buf]
+      if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
+        -- bo.buflisted = false
+        vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
+      end
+    end,
+  })
   -- Large file handling: ===========================================================
   vim.api.nvim_create_autocmd("BufReadPre", {
     group = vim.api.nvim_create_augroup("disable_in_bigfile", { clear = true }),
@@ -1074,37 +1105,6 @@ later(function()
         vim.cmd("syntax clear")
         vim.cmd("syntax off")
         vim.notify("Large file detected. Some features disabled.", vim.log.levels.WARN)
-      end
-    end,
-  })
-  -- show cursor line only in active window:  ===========================================
-  vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-    group = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true }),
-    callback = function()
-      if vim.w.auto_cursorline then
-        vim.wo.cursorline = true
-        vim.w.auto_cursorline = nil
-      end
-    end,
-  })
-  vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-    group = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true }),
-    callback = function()
-      if vim.wo.cursorline then
-        vim.w.auto_cursorline = true
-        vim.wo.cursorline = false
-      end
-    end,
-  })
-  -- close some filetypes with <q>: ======================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
-    pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
-    callback = function(event)
-      local bo = vim.bo[event.buf]
-      if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
-        -- bo.buflisted = false
-        vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
       end
     end,
   })
