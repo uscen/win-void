@@ -1,0 +1,22 @@
+{
+  "String Property": {
+    "prefix": ["p", "prop", "s", "str"],
+    "body": ["\"${1:name}\": \"${2:value}\""],
+    "description": "A json string property"
+  },
+  "Property": {
+    "prefix": ["n", "num", "b", "bool"],
+    "body": ["\"${1:name}\": ${2:value}"],
+    "description": "A json property"
+  },
+  "Array": {
+    "prefix": ["arr", "list", "a"],
+    "body": ["\"${1:name}\": [${2:value}]"],
+    "description": "A json array"
+  },
+  "Object": {
+    "prefix": ["o", "obj", "dict"],
+    "body": ["\"${1:name}\": {", "}"],
+    "description": "A json array"
+  }
+}

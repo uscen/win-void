@@ -16,6 +16,11 @@ indent_size = 2
 indent_style = space
 indent_size = 4
 
+[*.lua]
+quote_style = single
+indent_style = space
+indent_size = 2
+
 [Makefile]
 indent_style = tab
 

@@ -770,7 +770,7 @@ now(function()
   vim.opt.wildoptions            = "fuzzy,pum"
   vim.opt.wildignore             = "*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o"
   vim.opt.omnifunc               = "v:lua.vim.lsp.omnifunc"
-  vim.opt.completeopt            = 'menuone,noselect,fuzzy'
+  vim.opt.completeopt            = 'menu,menuone,popup,noselect,fuzzy'
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = "usetab"
   vim.opt.shada                  = { "'10", "<0", "s10", "h" }
@@ -848,10 +848,13 @@ now(function()
   vim.opt.formatoptions          = "rqnl1j"
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
+  vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevel              = 99
   vim.opt.foldnestmax            = 10
+  vim.opt.foldminlines           = 3
+  vim.opt.foldopen               = "hor,mark,tag,search,insert,quickfix,undo"
   vim.opt.foldexpr               = 'nvim_treesitter#foldexpr()'
   vim.opt.foldmethod             = 'expr'
   vim.opt.foldtext               = ''
@@ -980,7 +983,7 @@ later(function()
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
-      vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'CurSearch', timeout = 200 })
+      vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'IncSearch', timeout = 200 })
     end,
   })
   -- Auto-resize splits on window resize:  =========================================
@@ -1141,6 +1144,17 @@ later(function()
   end, {
     bang = true,
   })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                Neovim misspelled_commands               │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function ()
+  local misspelled_commands = { "W", "Wq", "WQ", "Q", "Qa", "QA", "Wqa", "WQa", "WQA" }
+  for _, command in pairs(misspelled_commands) do
+      vim.api.nvim_create_user_command(command, function()
+          vim.cmd(string.lower(command))
+      end, { bang = true })
+  end
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim keymaps                      │
@@ -1309,6 +1323,9 @@ later(function()
       ["ejs"] = "ejs"
     },
     filename = {
+      ["TODO"] = 'markdown',
+      ["README"] = 'markdown',
+      ["readme"] = 'markdown',
       ["xhtml"] = "html",
       ["tsconfig.json"] = "jsonc",
       ['.yamlfmt'] = 'yaml',
