@@ -1207,7 +1207,7 @@ later(function()
   vim.keymap.set("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
-  -- Split: ========================================================================
+  -- window: ========================================================================
   vim.keymap.set('n', '<leader>wv', ':split<CR>')
   vim.keymap.set('n', '<leader>ws', ':vsplit<CR>')
   vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>")
