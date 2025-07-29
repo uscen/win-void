@@ -1253,6 +1253,19 @@ later(function()
   -- Subtitle Keys: =================================================================
   vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
   vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
+  -- Brackted: =====================================================================
+  vim.keymap.set("n", "[a", "<cmd>previous<CR>")
+  vim.keymap.set("n", "]a", "<cmd>next<CR>")
+  vim.keymap.set("n", "[b", "<cmd>bprevious<CR>")
+  vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
+  vim.keymap.set("n", "[q", "<cmd>cprevious<CR>")
+  vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
+  vim.keymap.set("n", "[l", "<cmd>lprevious<CR>")
+  vim.keymap.set("n", "]l", "<cmd>lnext<CR>")
+  vim.keymap.set("n", "[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[")
+  vim.keymap.set("n", "]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<cr>']")
+  vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
   -- Buffers: =======================================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
@@ -1278,7 +1291,7 @@ later(function()
     vim.api.nvim_win_set_height(0, 20)
     vim.cmd("startinsert")
   end)
-  -- Terminal navigation: =========================================================
+  -- TermNavigation: ==============================================================
   vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
   vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
   vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
