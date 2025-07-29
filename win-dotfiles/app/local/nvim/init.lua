@@ -764,6 +764,7 @@ now(function()
   vim.opt.swapfile               = false
   vim.opt.writebackup            = false
   vim.opt.backup                 = false
+  vim.opt.undolevels             = 1024
   vim.opt.fileencoding           = 'utf-8'
   vim.opt.clipboard              = "unnamedplus"
   vim.opt.wildmode               = "longest:full,full"
@@ -788,6 +789,7 @@ now(function()
   vim.opt.splitbelow             = true
   vim.opt.cursorline             = true
   vim.opt.equalalways            = true
+  vim.opt.title                  = true
   vim.opt.relativenumber         = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
@@ -803,10 +805,12 @@ now(function()
   vim.opt.pumwidth               = 20
   vim.opt.pumblend               = 0
   vim.opt.pumheight              = 8
+  vim.opt.titlelen               = 127
+  vim.opt.guicursor              = ""
   vim.opt.guifont                = "JetBrainsMono Nerd Font:h9"
-  vim.opt.guicursor              = "i-ci-ve-t:hor30"
+  vim.opt.titlestring            = "%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim"
   vim.opt.splitkeep              = 'screen'
-  vim.opt.mousescroll            = "ver:3,hor:0"
+  vim.opt.mousescroll            = "ver:3,hor:6"
   vim.opt.showbreak              = '󰘍'
   vim.opt.winborder              = "double"
   vim.opt.colorcolumn            = '+1'
