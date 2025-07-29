@@ -407,6 +407,7 @@ now(function()
     },
     lsp_completion = {
       source_func = 'omnifunc',
+      auto_setup = false,
       process_items = function(items, base)
         return require('mini.completion').default_process_items(items, base, {
           filtersort = 'fuzzy',
@@ -834,9 +835,9 @@ now(function()
   vim.opt.confirm                = true
   vim.opt.breakindent            = true
   vim.opt.copyindent             = true
-  vim.opt.showmatch              = false
+  vim.opt.wrapscan               = true
   vim.opt.wrap                   = false
-  vim.opt.wrapscan               = false
+  vim.opt.showmatch              = false
   vim.opt.tabstop                = 2
   vim.opt.shiftwidth             = 2
   vim.opt.softtabstop            = 2
