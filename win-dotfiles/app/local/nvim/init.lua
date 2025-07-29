@@ -1065,6 +1065,12 @@ later(function()
       vim.opt_local.conceallevel = 0
     end,
   })
+  -- Start insert mode in git commit messages: =========================================
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("git_insert", { clear = true }),
+    pattern = { "gitcommit", "gitrebase" },
+    command = "startinsert | 1",
+  })
   -- Qucikfix List: ==================================================================
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("quickfix_keys", { clear = true }),
@@ -1337,6 +1343,7 @@ later(function()
     pattern = {
       ["%.env%.[%w_.-]+"] = "sh",
       [".gitconfig.*"] = "gitconfig",
+      [".*/*.conf*"] = "conf",
     },
   })
 end)
