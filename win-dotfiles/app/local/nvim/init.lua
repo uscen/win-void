@@ -840,7 +840,7 @@ now(function()
   vim.opt.tabstop                = 2
   vim.opt.shiftwidth             = 2
   vim.opt.softtabstop            = 2
-  vim.opt.conceallevel           = 2
+  vim.opt.conceallevel           = 3
   vim.opt.concealcursor          = 'c'
   vim.opt.cedit                  = '^F'
   vim.opt.breakindentopt         = "list:-1"
@@ -965,6 +965,7 @@ later(function() vim.diagnostic.config(diagnostic_opts) end)
 later(function()
   -- AutoSave: =====================================================================
   vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'VimLeavePre' }, {
+    group = vim.api.nvim_create_augroup('save_buffers', {}),
     callback = function(event)
       local buf = event.buf
       if vim.api.nvim_get_option_value('modified', { buf = buf }) then
