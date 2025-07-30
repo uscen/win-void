@@ -383,7 +383,7 @@ now(function()
      █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
         ]],
     footer = table.concat({
-     "An idiot admires complexity, a genius admires simplicity. -- Terry A. Davis",
+     "An idiot admires complexity, a genius admires simplicity.",
      "",
       "It's - " .. os.date('%x %X'),
      "",
