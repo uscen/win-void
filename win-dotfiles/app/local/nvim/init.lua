@@ -812,6 +812,7 @@ now(function()
   vim.opt.pumblend               = 0
   vim.opt.pumheight              = 8
   vim.opt.titlelen               = 127
+  vim.opt.colorcolumn            = "130"
   vim.opt.guicursor              = ""
   vim.opt.guifont                = "JetBrainsMono Nerd Font:h9"
   vim.opt.titlestring            = "%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim"
@@ -820,7 +821,6 @@ now(function()
   vim.opt.mousescroll            = "ver:3,hor:6"
   vim.opt.showbreak              = '󰘍'
   vim.opt.winborder              = "double"
-  vim.opt.colorcolumn            = '+1'
   vim.opt.backspace              = "indent,eol,start"
   vim.opt.cursorlineopt          = "screenline,number"
   vim.opt.shortmess              = "FOSWIaco"
