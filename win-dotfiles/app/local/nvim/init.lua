@@ -383,7 +383,10 @@ now(function()
      █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
         ]],
     footer = table.concat({
+     "An idiot admires complexity, a genius admires simplicity. -- Terry A. Davis",
+     "",
       "It's - " .. os.date('%x %X'),
+     "",
       "Pwd: " .. vim.fn.getcwd(),
     }, "\n"),
   })
@@ -781,6 +784,7 @@ now(function()
   vim.opt.spell                  = false
   vim.opt.spelllang              = 'en_us'
   vim.opt.spelloptions           = 'camel'
+  vim.opt.spellsuggest           = "best,8"
   vim.opt.dictionary             = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
   vim.opt.number                 = true
@@ -858,9 +862,11 @@ now(function()
   vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
-  vim.opt.foldlevel              = 99
+  vim.opt.foldlevelstart         = 99
+  vim.opt.foldlevel              = 90
   vim.opt.foldnestmax            = 10
   vim.opt.foldminlines           = 3
+  vim.opt.foldcolumn             = '0'
   vim.opt.foldopen               = "hor,mark,tag,search,insert,quickfix,undo"
   vim.opt.foldexpr               = 'nvim_treesitter#foldexpr()'
   vim.opt.foldmethod             = 'expr'
@@ -1260,6 +1266,8 @@ later(function()
   vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
   vim.keymap.set("n", "[q", "<cmd>cprevious<CR>")
   vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
+  vim.keymap.set("n", "[Q", "<cmd>cfirst<cr>")
+  vim.keymap.set("n", "]Q", "<cmd>clast<cr>")
   vim.keymap.set("n", "[l", "<cmd>lprevious<CR>")
   vim.keymap.set("n", "]l", "<cmd>lnext<CR>")
   vim.keymap.set("n", "[<space>", ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[")
