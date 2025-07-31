@@ -397,7 +397,7 @@ end)
 now(function()
   -- enable Mini.Completion: ==============================================================
   require("mini.completion").setup({
-    delay = { completion = 50, info = 40, signature = 30, },
+    delay = { completion = 100, info = 100, signature = 50 },
     window = {
       info = { border = "single" },
       signature = { border = "single" },
@@ -415,6 +415,7 @@ now(function()
         return require('mini.completion').default_process_items(items, base, {
           filtersort = 'fuzzy',
           kind_priority = {
+            Text = -1,
             Snippet = 99,
           },
         })
@@ -487,7 +488,7 @@ now(function()
       end
     },
   })
-  require('mini.snippets').start_lsp_server({ match = false })
+  require('mini.snippets').start_lsp_server()
   -- Expand Snippets Or complete by Tab ===============================================
   local expand_or_complete = function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
@@ -1189,7 +1190,7 @@ later(function()
   vim.keymap.set("n", "<leader>qq", ":qa<CR>")
   vim.keymap.set("n", "<C-s>", ":silent up<CR>")
   vim.keymap.set("i", "<C-s>", "<ESC> :up<CR>")
-  vim.keymap.set("i", "<c-u>", "<Esc>viwUea")
+  vim.keymap.set("i", "<c-y>", "<Esc>viwUea")
   vim.keymap.set("i", "<c-t>", "<Esc>b~lea")
   vim.keymap.set("i", "<C-A>", "<HOME>")
   vim.keymap.set("i", "<C-E>", "<END>")
