@@ -882,8 +882,8 @@ now(function()
   -- Memory: ================================================================
   vim.opt.lazyredraw             = true
   vim.opt.hidden                 = true
-  vim.opt.updatetime             = 0
   vim.opt.ttimeoutlen            = 0
+  vim.opt.updatetime             = 50
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
   vim.opt.timeoutlen             = 300
@@ -994,14 +994,17 @@ later(function()
       end
     end
   })
-  -- Don't Comment New Line ========================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('CustomSettings', {}),
-    callback = function()
-      vim.cmd('setlocal formatoptions-=c formatoptions-=o')
-    end,
+  -- Don't Comment New Line =========================================================
+  vim.api.nvim_create_autocmd("FileType", {
+      pattern = "*",
+      group = vim.api.nvim_create_augroup("diable-new-line-comments", {}),
+      callback = function()
+          vim.opt_local.formatoptions:remove("o")
+          vim.opt_local.formatoptions:remove("r")
+          vim.opt_local.formatoptions:remove("c")
+      end,
   })
-  -- Highlight Yank ================================================================
+  -- Highlight Yank =================================================================
   vim.api.nvim_create_autocmd("TextYankPost", {
     group = vim.api.nvim_create_augroup("highlight_yank", {}),
     callback = function()
