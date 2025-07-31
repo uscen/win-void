@@ -797,16 +797,20 @@ now(function()
   vim.opt.cursorline             = true
   vim.opt.equalalways            = true
   vim.opt.title                  = true
+  vim.opt.tgc                    = true
   vim.opt.relativenumber         = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
+  vim.opt.linespace              = 3
   vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
   vim.opt.winwidth               = 20
   vim.opt.winminwidth            = 5
+  vim.opt.scrolloff              = 5
+  vim.opt.sidescrolloff          = 5
   vim.opt.showtabline            = 0
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
@@ -1059,7 +1063,7 @@ later(function()
       end
     end,
   })
-  -- Eable wrap in This fils: =======================================================
+  -- Eable wrap in This files: ==========================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
     pattern = { 'markdown', 'text', 'textile', 'log' },
@@ -1067,8 +1071,14 @@ later(function()
       vim.opt_local.wrap       = true
       vim.opt_local.spell      = true
       vim.opt_local.linebreak  = true
-      vim.opt_local.list       = false
       vim.opt_local.signcolumn = false
+    end,
+  })
+  -- clear jump list at start:===========================================================
+  vim.api.nvim_create_autocmd("VimEnter", {
+    group = vim.api.nvim_create_augroup("clear_jumps", { clear = true }),
+    callback = function()
+      vim.cmd("clearjumps")
     end,
   })
   -- Fix conceallevel for json files: ================================================
@@ -1195,6 +1205,10 @@ later(function()
   vim.keymap.set("i", "<C-A>", "<HOME>")
   vim.keymap.set("i", "<C-E>", "<END>")
   vim.keymap.set("c", "<C-A>", "<HOME>")
+  vim.keymap.set("n", "gh", "^")
+  vim.keymap.set("n", "gl", "$")
+  vim.keymap.set("v", "gh", "^")
+  vim.keymap.set("v", "gl", "$")
   vim.keymap.set({ "n", "x" }, ";", ":")
   vim.keymap.set("n", "<C-c>", "cit")
   vim.keymap.set('n', 'U', '<C-r>')
@@ -1235,9 +1249,11 @@ later(function()
   vim.keymap.set("n", "<leader>v", "printf('`[%s`]', getregtype()[0])", { expr = true, })
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
   -- window: ========================================================================
-  vim.keymap.set('n', '<leader>wv', ':split<CR>')
-  vim.keymap.set('n', '<leader>ws', ':vsplit<CR>')
   vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>")
+  vim.keymap.set('n', '<leader>wv', "<cmd>split<cr>")
+  vim.keymap.set('n', '<leader>ws', "<cmd>vsplit<cr>")
+  vim.keymap.set("n", "<leader>|",  "<cmd>wincmd v<cr>")
+  vim.keymap.set("n", "<leader>-",  "<cmd>wincmd s<cr>")
   vim.keymap.set("n", "<leader>wT", "<cmd>wincmd T<cr>")
   vim.keymap.set("n", "<leader>wr", "<cmd>wincmd r<cr>")
   vim.keymap.set("n", "<leader>wR", "<cmd>wincmd R<cr>")
@@ -1375,6 +1391,7 @@ later(function()
       ["mdx"] = "markdown",
       ["pcss"] = "css",
       ["ejs"] = "ejs",
+      ["h"] = "c"
     },
     filename = {
       ["TODO"] = 'markdown',
