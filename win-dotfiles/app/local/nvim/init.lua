@@ -1316,13 +1316,13 @@ later(function()
   vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
   vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
   vim.keymap.set("n", "<leader>bp", ":bprevious<CR>")
-  vim.keymap.set("n", "<leader>bd", function() require("mini.bufremove").delete() end)
+  vim.keymap.set("n", "<leader>bd", ":bd<CR>")
   vim.keymap.set("n", "<leader>bm", function() require("mini.misc").zoom() end)
   vim.keymap.set("n", "<leader>m", function() require("mini.misc").zoom(0, { width = vim.o.columns, height = vim.o.lines }) end)
   vim.keymap.set('n', '<space>bb', function()
-    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-      if bufnr ~= vim.fn.bufnr() and vim.fn.buflisted(bufnr) == 1 then
-        require('mini.bufremove').delete(bufnr, false)
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      if buf ~= vim.fn.bufnr() and vim.fn.buflisted(buf) == 1 then
+        vim.cmd('silent! bd ' .. buf)
       end
     end
   end)
