@@ -92,29 +92,10 @@ later(function()
         local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
         return { anchor = "SE", col = vim.o.columns, row = vim.o.lines - pad }
       end,
-      max_width_share = 0.25,
+      max_width_share = 0.45,
     },
   })
   vim.notify = require('mini.notify').make_notify()
-end)
---          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Surround                       │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.surround").setup({
-    n_lines = 500,
-    custom_surroundings = {
-      ["("] = { output = { left = "(", right = ")" } },
-      ["["] = { output = { left = "[", right = "]" } },
-      ["{"] = { output = { left = "{", right = "}" } },
-      ["<"] = { output = { left = "<", right = ">" } },
-    },
-    mappings = {
-      add = "ys",
-      delete = "ds",
-      replace = "cs",
-    },
-  })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Hipatterns                     │
@@ -231,6 +212,62 @@ later(function()
       },
     },
   })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                     Mini.Surround                       │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function()
+  require("mini.surround").setup({
+    n_lines = 500,
+    custom_surroundings = {
+      ["("] = { output = { left = "(", right = ")" } },
+      ["["] = { output = { left = "[", right = "]" } },
+      ["{"] = { output = { left = "{", right = "}" } },
+      ["<"] = { output = { left = "<", right = ">" } },
+    },
+    mappings = {
+      add = "ys",
+      delete = "ds",
+      replace = "cs",
+    },
+  })
+  -- custom quotes surrounding rotation for quick access: ===========================
+  local function SurroundOrReplaceQuotes()
+    local word = vim.fn.expand('<cword>')
+    local row, old_pos = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.fn.search(word, 'bc', row)
+    local _, word_pos = unpack(vim.api.nvim_win_get_cursor(0))
+    local line_str = vim.api.nvim_get_current_line()
+    local before_word = line_str:sub(0, word_pos)
+    local pairs_count = 0
+    for _ in before_word:gmatch('["\'`]') do
+      pairs_count = pairs_count + 1
+    end
+    if pairs_count % 2 == 0 then
+      vim.cmd("normal ysiw\"")
+      vim.api.nvim_win_set_cursor(0, { row, old_pos + 1 })
+      return
+    end
+    for i = #before_word, 1, -1 do
+      local char = before_word:sub(i, i)
+      if char == "'" then
+        vim.cmd("normal cs'\"")
+        vim.api.nvim_win_set_cursor(0, { row, old_pos })
+        return
+      end
+      if char == '"' then
+        vim.cmd("normal cs\"`")
+        vim.api.nvim_win_set_cursor(0, { row, old_pos })
+        return
+      end
+      if char == '`' then
+        vim.cmd("normal cs`'")
+        vim.api.nvim_win_set_cursor(0, { row, old_pos })
+        return
+      end
+    end
+  end
+  vim.keymap.set({ "n" }, "sq", SurroundOrReplaceQuotes)
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Pick                           │
@@ -1230,11 +1267,15 @@ later(function()
   vim.keymap.set("i", "<C-A>", "<HOME>")
   vim.keymap.set("i", "<C-E>", "<END>")
   vim.keymap.set("c", "<C-A>", "<HOME>")
-  vim.keymap.set("n", "gh", "^")
-  vim.keymap.set("n", "gl", "$")
-  vim.keymap.set("v", "gh", "^")
-  vim.keymap.set("v", "gl", "$")
+  vim.keymap.set("i", "<C-l>", "<space>=><space>")
+  vim.keymap.set("i", "<C-h>", "<space><=<space>")
+  vim.keymap.set({ "n", "v" }, "gk", "gg")
+  vim.keymap.set({ "n", "v" }, "gj", "G")
+  vim.keymap.set({ "n", "v" }, "gh", "^")
+  vim.keymap.set({ "n", "v" }, "gl", "$")
+  vim.keymap.set({ "n", "v" }, "mm", "%")
   vim.keymap.set({ "n", "x" }, ";", ":")
+  vim.keymap.set("n", "M", "m")
   vim.keymap.set("n", "<C-c>", "cit")
   vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set('n', 'Q', '<nop>')
@@ -1273,6 +1314,7 @@ later(function()
   vim.keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {expr = true})
   vim.keymap.set("n", "<leader>v", "printf('`[%s`]', getregtype()[0])", { expr = true, })
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
+  vim.keymap.set("n", "gy", "`[v`]")
   -- window: ========================================================================
   vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>")
   vim.keymap.set('n', '<leader>wv', "<cmd>split<cr>")
@@ -1317,6 +1359,7 @@ later(function()
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
   -- Subtitle Keys: =================================================================
   vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+  vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
   vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
   -- Brackted: =====================================================================
   vim.keymap.set("n", "[a", "<cmd>previous<CR>")
