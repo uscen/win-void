@@ -488,7 +488,7 @@ now(function()
       end
     },
   })
-  require('mini.snippets').start_lsp_server({math = false})
+  require('mini.snippets').start_lsp_server({ match = false })
   -- Expand Snippets Or complete by Tab ===============================================
   local expand_or_complete = function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
