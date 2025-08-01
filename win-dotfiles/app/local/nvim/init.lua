@@ -802,6 +802,8 @@ now(function()
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
+  vim.opt.errorbells             = false
+  vim.opt.emoji                  = false
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
@@ -832,7 +834,7 @@ now(function()
   vim.wo.signcolumn              = "yes"
   vim.opt.statuscolumn           = ""
   vim.opt.fillchars              = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
-  vim.opt.listchars              = { eol = "↲", tab = "→ ", trail = "+", extends = ">", precedes = "<", space = "·", nbsp = "␣", }
+  vim.opt.listchars              = { eol = "↲", tab = '» ', trail = "+", extends = ">", precedes = "<", space = "·", nbsp = "␣", }
   -- Editing:  ================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
@@ -1129,6 +1131,14 @@ later(function()
       end
     end,
   })
+  -- Make it easier to close man-files when opened inline: ==============================
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("man_unlisted", { clear = true }),
+    pattern = { "man" },
+    callback = function(event)
+      vim.bo[event.buf].buflisted = false
+    end,
+  })
   -- close some filetypes with <q>: ======================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup("q_close", { clear = true }),
@@ -1160,6 +1170,16 @@ later(function()
         vim.cmd("syntax clear")
         vim.cmd("syntax off")
         vim.notify("Large file detected. Some features disabled.", vim.log.levels.WARN)
+      end
+    end,
+  })
+  vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = function()
+      local line_count = vim.api.nvim_buf_line_count(0)
+      if line_count > 5000 then
+        vim.cmd("syntax clear")
+        vim.cmd("syntax off")
       end
     end,
   })
