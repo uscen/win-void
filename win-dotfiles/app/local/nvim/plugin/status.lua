@@ -182,7 +182,7 @@ vim.cmd([[
 local group_styles = {
 
   ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_modifiedfile"]     = { fg = "#000000", bg = "#b3b9b8", bold = true },
+  ["statusline_modifiedfile"]     = { fg = "#000000", bg = "#8ccf7e", bold = true },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
   ["statusline_debugger_session"] = { fg = "#b3b9b8", bg = "None" },
 
