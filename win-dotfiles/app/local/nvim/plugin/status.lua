@@ -1,13 +1,14 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Function to add padding to both sides of a string
+-- Function to add padding to both sides of a string:=========================================================
 local function pad_string(str, left_pad, right_pad)
   local left = string.rep(" ", left_pad or 0)
   local right = string.rep(" ", right_pad or 0)
   return left .. str .. right
 end
 
+-- Speartor: ==================================================================================================
 local fade_start = "█▓▒░ "
 local fade_end   = " ░▒▓█"
 -- a function to obtain and format the file name:==============================================================
@@ -27,7 +28,7 @@ local function file_name()
   end
   -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 1,1) .. " " .. "%#StatuslineFade1#".. fade_end
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 4,4) .. " " .. "%#StatuslineFade1#".. fade_end
 end
 
 -- a function to obtain file type:============================================================================
@@ -87,7 +88,7 @@ local function search_position()
   if not ok or result.total == 0 then
     return ""
   end
-  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. vim.fn.getreg("/") .. " [" .. result.current .. "/" .. result.total .. "] "
+  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(vim.fn.getreg("/"), 4,1) .. " [" .. result.current .. "/" .. result.total .. pad_string("] ", 0,4)
 end
 
 -- a function to assign highlight group to the separator====================================================
@@ -118,7 +119,6 @@ function Status_line()
 end
 
 -- default with statusline but can be toggled with <leader>st:===============================================
-vim.opt["laststatus"] = 3
 vim.keymap.set( "n", "<leader>st",
   function()
     if vim.o.laststatus == 0 then
