@@ -91,8 +91,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- diagnostic mappings: =================================================================
     keymap("n", "<Leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, opt("Next Diagnostic"))
     keymap("n", "<Leader>dp", function() vim.diagnostic.jump({ count = -1, float = true }) end, opt("Prev Diagnostic"))
+    keymap("n", "<leader>df", function() vim.diagnostic.open_float(nil, { focusable = false, border = "double", source = "always", header = "Diagnostics", prefix = "● ", scope = "cursor", }) end)
     keymap("n", "<Leader>dq", vim.diagnostic.setloclist, opt("Set LocList"))
-    keymap("n", "<Leader>df", vim.diagnostic.open_float)
     keymap("n", "<leader>gq", vim.diagnostic.setqflist)
     keymap("n", "<Leader>dv", function()
       vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })

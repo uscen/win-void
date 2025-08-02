@@ -55,7 +55,6 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
-  require("mini.misc").setup_restore_cursor({ center = true })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.Trailspace                     │
@@ -1334,6 +1333,7 @@ later(function()
   vim.keymap.set("n", "gy", "`[v`]")
   -- window: ========================================================================
   vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>")
+  vim.keymap.set('n', '<leader>wo', "<cmd>only<cr>")
   vim.keymap.set('n', '<leader>wv', "<cmd>split<cr>")
   vim.keymap.set('n', '<leader>ws', "<cmd>vsplit<cr>")
   vim.keymap.set("n", "<leader>|",  "<cmd>wincmd v<cr>")
@@ -1487,9 +1487,12 @@ later(function()
       ['.yamlfmt'] = 'yaml',
     },
     pattern = {
-      ["%.env%.[%w_.-]+"] = "sh",
+      ["requirements.*.txt"] = "requirements",
+      [".*/git/config.*"] = "git_config",
       [".gitconfig.*"] = "gitconfig",
+      ["%.env%.[%w_.-]+"] = "sh",
       [".*/*.conf*"] = "conf",
+      ["*.MD"] = "markdown",
     },
   })
 end)
