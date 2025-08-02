@@ -18,13 +18,13 @@ local function file_name()
   if filename == "" then
     filename = "[NO NAME]"
   end
-  if string.match(filename, "plugin") then
+  if string.match(filename, "PLUGIN") then
     filename = "FILE"
   end
-  if string.match(filename, "main") then
+  if string.match(filename, "MAIN") then
     filename = "PICKER"
   end
-  if vim.bo.buftype == "terminal" then
+  if vim.bo.buftype == "TERMINAL" then
     filename = "TERMINAL"
   end
   -- change highlight group based on if the file has been modified:=============================================
