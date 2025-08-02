@@ -850,7 +850,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 0
+  vim.opt.laststatus             = 3
   vim.opt.cmdheight              = 0
   vim.opt.winwidth               = 20
   vim.opt.winminwidth            = 5
@@ -1290,8 +1290,8 @@ later(function()
   vim.keymap.set({ "n", "v" }, "gj", "G")
   vim.keymap.set({ "n", "v" }, "gh", "^")
   vim.keymap.set({ "n", "v" }, "gl", "$")
-  vim.keymap.set({ "n", "v" }, "mm", "%")
   vim.keymap.set({ "n", "x" }, ";", ":")
+  vim.keymap.set({ "n", "v" }, "mm", "%")
   vim.keymap.set("n", "M", "m")
   vim.keymap.set("n", "<C-c>", "cit")
   vim.keymap.set('n', 'U', '<C-r>')
