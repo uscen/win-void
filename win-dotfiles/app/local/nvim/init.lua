@@ -1103,9 +1103,9 @@ later(function()
       end
     end,
   })
-  -- go to last loc when opening a buffer: ===========================================
+  -- go to old position when opening a buffer: ===========================================
   vim.api.nvim_create_autocmd("BufReadPost", {
-    group = vim.api.nvim_create_augroup("last_loc", { clear = true }),
+    group = vim.api.nvim_create_augroup("remember_position", { clear = true }),
     callback = function()
       local mark = vim.api.nvim_buf_get_mark(0, '"')
       local lcount = vim.api.nvim_buf_line_count(0)

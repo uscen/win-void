@@ -1,27 +1,33 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
--- a function to obtain and format the file name
+-- a function to obtain and format the file name:==============================================================
 local function file_name()
   local filename = vim.fn.expand("%:t")
   if filename == "" then
     filename = "[no name]"
   end
-
-  if string.match(filename, "NvimTree") then
-    filename = "NvimTree"
+  if string.match(filename, "plugin") then
+    filename = "FILE"
   end
-
+  if string.match(filename, "main") then
+    filename = "PICKER"
+  end
   if vim.bo.buftype == "terminal" then
-    filename = "terminal"
+    filename = "TERMINAL"
   end
-  -- change highlight group based on if the file has been modified
+  -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
   return "%#" .. highlight_group .. "# " .. filename .. " "
-
 end
 
--- a function to obtain and format the current mode
+-- a function to obtain file type:============================================================================
+local function filetype()
+  local ft = string.format(" %s ", vim.bo.filetype):upper()
+  return "%#statusline_filetype#" .. ft .. "%*"
+end
+
+-- a function to obtain and format the current mode::========================================================
 local function current_mode()
   local mode = vim.fn.mode()
   local mode_aliases = {
@@ -38,40 +44,35 @@ local function current_mode()
   return "%#statusline_mode# " .. mode .. " "
 end
 
--- a function to obtain and format the diagnostics
+-- a function to obtain and format the diagnostics:=========================================================
 local function diagnostics()
   local icons = {
-    error = " ",   -- Nerd Font icon for error
-    warn  = " ",   -- Nerd Font icon for warning
-    hint  = " ",   -- Nerd Font icon for hint
-    info  = " ",   -- Nerd Font icon for information
+    error = " ",
+    warn = " ",
+    info = " ",
+    hint = " ",
   }
   local result = {}
   local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN  })
   local num_error   = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
   local num_hint    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT  })
   local num_info    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO  })
-  table.insert(result, "%#DiagnosticError#" .. icons.error .. num_error)
-  table.insert(result, "%#DiagnosticWarn#" .. icons.warn .. num_warn)
-  table.insert(result, "%#DiagnosticHint#" .. icons.hint .. num_hint)
-  table.insert(result, "%#DiagnosticInfo#" .. icons.info .. num_info)
+  if num_error > 0 then
+    table.insert(result, "%#DiagnosticError#" .. icons.error .. num_error)
+  end
+  if num_warn > 0 then
+    table.insert(result, "%#DiagnosticWarn#" .. icons.warn .. num_warn)
+  end
+  if num_hint > 0 then
+    table.insert(result, "%#DiagnosticHint#" .. icons.hint .. num_hint)
+  end
+  if num_info > 0 then
+    table.insert(result, "%#DiagnosticInfo#" .. icons.info .. num_info)
+  end
   return #result > 0 and "%#statusline_diagnostics# " .. table.concat(result, " ") .. " " or ""
 end
 
--- a function to display the current debugger session
-local function debugger_session()
-  local success, dap = pcall(require, "dap")
-  if not success then
-    return ""
-  end
-  local active_session = dap.session()
-  if active_session == nil then
-    return ""
-  end
-  return "%#statusline_debugger_session# " .. active_session.config.name .. " "
-end
-
--- a function to display the current search position
+-- a function to display the current search position:=========================================================
 local function search_position()
   local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 500 })
   if not ok or result.total == 0 then
@@ -80,7 +81,7 @@ local function search_position()
   return "%#statusline_misc# " .. vim.fn.getreg("/") .. " [" .. result.current .. "/" .. result.total .. "] "
 end
 
--- a function to assign highlight group to the separator
+-- a function to assign highlight group to the separator====================================================
 local function separator()
   local highlight_group = "statusline_separator"
   return "%#" .. highlight_group .. "#%="
@@ -95,19 +96,19 @@ local function miscellaneous()
   end
 end
 
--- a function to call and place the statusline components
+-- a function to call and place the statusline components:==================================================
 function Status_line()
   return table.concat({
     current_mode(),
+    file_name(),
     diagnostics(),
-    debugger_session(),
     separator(),
     miscellaneous(),
-    file_name(),
+    filetype()
   })
 end
 
--- default with statusline but can be toggled with <leader>s
+-- default with statusline but can be toggled with <leader>st:===============================================
 vim.opt["laststatus"] = 3
 vim.keymap.set( "n", "<leader>st",
   function()
@@ -127,19 +128,17 @@ vim.cmd([[
     au WinLeave,BufLeave * setlocal nocursorline
 ]])
 
--- set colors for each statusline components
+-- set colors for each statusline components:==============================================================
 local group_styles = {
   ["StatusLine"]                  = { fg = "#b3b9b8", bg = "#141b1e" },
   ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_modifiedfile"]     = { fg = "#141b1e", bg = "#8ccf7e", bold = true },
+  ["statusline_modifiedfile"]     = { link = "statusline_file" },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_debugger_session"] = { fg = "#b3b9b8", bg = "None" },
-
   ["statusline_separator"]    = { fg = "#1e2527", bg = "None" },
-
   ["statusline_misc"]   = { fg = "#b3b9b8", bg = "None" },
   ["statusline_branch"] = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_mode"]   = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
+  ["statusline_mode"]   = { fg = "#b3b9b8", bg = "#404749", bold = true },
+  ["statusline_filetype"] = {link = "statusline_mode"},
 }
 for group, style in pairs(group_styles) do
   vim.api.nvim_set_hl(0, group, style)

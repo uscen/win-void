@@ -212,7 +212,7 @@ if vim.o.background == "dark" then
   --   base0E = "#BB9AF7",
   --   base0F = "#F7768E",
   -- }
-  -- custom 02
+  --  One Dark
   -- palette = {
   --   base00 = "#282C34",
   --   base01 = "#353B45",
