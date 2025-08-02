@@ -130,15 +130,13 @@ vim.cmd([[
 
 -- set colors for each statusline components:==============================================================
 local group_styles = {
-  ["StatusLine"]                  = { fg = "#b3b9b8", bg = "#141b1e" },
-  ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_modifiedfile"]     = { link = "statusline_file" },
+  ["statusline_separator"]        = { fg = "#1e2527", bg = "NONE" },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_separator"]    = { fg = "#1e2527", bg = "None" },
-  ["statusline_misc"]   = { fg = "#b3b9b8", bg = "None" },
-  ["statusline_branch"] = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_mode"]   = { fg = "#b3b9b8", bg = "#404749", bold = true },
-  ["statusline_filetype"] = {link = "statusline_mode"},
+  ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
+  ["statusline_mode"]             = { fg = "#b3b9b8", bg = "#404749", bold = true },
+  ["statusline_filetype"]         = {link = "statusline_mode"},
+  ["statusline_modifiedfile"]     = { link = "statusline_file" },
+  ["statusline_misc"]             = {link = "statusline_file"},
 }
 for group, style in pairs(group_styles) do
   vim.api.nvim_set_hl(0, group, style)
