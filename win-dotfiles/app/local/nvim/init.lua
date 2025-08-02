@@ -859,7 +859,7 @@ now(function()
   vim.opt.showtabline            = 0
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
-  vim.opt.pumblend               = 0
+  vim.opt.pumblend               = 15
   vim.opt.pumheight              = 8
   vim.opt.titlelen               = 127
   vim.opt.colorcolumn            = "130"
