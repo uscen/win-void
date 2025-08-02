@@ -14,9 +14,9 @@ end
 
 -- a function to obtain and format the file name:==============================================================
 local function file_name()
-  local filename = vim.fn.expand("%:t")
+  local filename = string.format(vim.fn.expand("%:t")):upper()
   if filename == "" then
-    filename = "[no name]"
+    filename = "[NO NAME]"
   end
   if string.match(filename, "plugin") then
     filename = "FILE"
