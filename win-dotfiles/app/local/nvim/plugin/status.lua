@@ -29,7 +29,8 @@ local function file_name()
   end
   -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 4,4) .. " " .. "%#StatuslineFade1#".. fade_end
+  local modified_indicator = vim.bo.modified and "● " or ""
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 4,4).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_end
 end
 
 -- a function to obtain file type:============================================================================
