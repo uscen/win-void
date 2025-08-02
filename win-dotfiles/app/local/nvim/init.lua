@@ -1238,6 +1238,22 @@ later(function()
       end
     end,
   })
+end)
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                 Neovim user_commands                    │
+--          ╰─────────────────────────────────────────────────────────╯
+later(function ()
+  -- LSP code action:=======================================================================
+  vim.api.nvim_create_user_command("CodeAction", function()
+    vim.lsp.buf.code_action()
+  end, {})
+  -- Print and copy file full path:=========================================================
+  vim.api.nvim_create_user_command("Path", function()
+    local path = vim.fn.expand("%:p")
+    if path == "" then return end
+    print(path)
+    vim.fn.setreg("+", path)
+  end, {})
   -- Eable FormatOnSave ====================================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
@@ -1256,6 +1272,7 @@ later(function()
   end, {
     bang = true,
   })
+
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                Neovim misspelled_commands               │
