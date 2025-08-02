@@ -1,6 +1,13 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
+-- Function to add padding to both sides of a string
+local function pad_string(str, left_pad, right_pad)
+  local left = string.rep(" ", left_pad or 0)
+  local right = string.rep(" ", right_pad or 0)
+  return left .. str .. right
+end
+
 -- a function to obtain and format the file name:==============================================================
 local function file_name()
   local filename = vim.fn.expand("%:t")
@@ -18,13 +25,13 @@ local function file_name()
   end
   -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  return "%#" .. highlight_group .. "# " .. filename .. " "
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 1,1) .. " "
 end
 
 -- a function to obtain file type:============================================================================
 local function filetype()
   local ft = string.format(" %s ", vim.bo.filetype):upper()
-  return "%#statusline_filetype#" .. ft .. "%*"
+  return "%#statusline_filetype#" .. pad_string(ft, 1,1) .. "%*"
 end
 
 -- a function to obtain and format the current mode::========================================================
@@ -41,16 +48,16 @@ local function current_mode()
     [""] = "vb",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
-  return "%#statusline_mode# " .. mode .. " "
+  return "%#statusline_mode# " .. pad_string(mode, 1,1) .. " "
 end
 
 -- a function to obtain and format the diagnostics:=========================================================
 local function diagnostics()
   local icons = {
-    error = " ",
-    warn = " ",
-    info = " ",
-    hint = " ",
+    error = "  ",
+    warn = "  ",
+    info = "  ",
+    hint = "  ",
   }
   local result = {}
   local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN  })
@@ -58,16 +65,16 @@ local function diagnostics()
   local num_hint    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT  })
   local num_info    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO  })
   if num_error > 0 then
-    table.insert(result, "%#DiagnosticError#" .. icons.error .. num_error)
+    table.insert(result, "%#DiagnosticError#" .. pad_string(icons.error .. num_error, 1, 1))
   end
   if num_warn > 0 then
-    table.insert(result, "%#DiagnosticWarn#" .. icons.warn .. num_warn)
+    table.insert(result, "%#DiagnosticWarn#" .. pad_string(icons.warn .. num_warn, 1, 1))
   end
   if num_hint > 0 then
-    table.insert(result, "%#DiagnosticHint#" .. icons.hint .. num_hint)
+    table.insert(result, "%#DiagnosticHint#" .. pad_string(icons.hint .. num_hint, 1, 1))
   end
   if num_info > 0 then
-    table.insert(result, "%#DiagnosticInfo#" .. icons.info .. num_info)
+    table.insert(result, "%#DiagnosticInfo#" .. pad_string(icons.info .. num_info, 1, 1))
   end
   return #result > 0 and "%#statusline_diagnostics# " .. table.concat(result, " ") .. " " or ""
 end
@@ -130,10 +137,11 @@ vim.cmd([[
 
 -- set colors for each statusline components:==============================================================
 local group_styles = {
-  ["statusline_separator"]        = { fg = "#1e2527", bg = "NONE" },
+  ["Statusline"]                  = { fg = "#1e2527", bg = "#141b1e" },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
   ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_mode"]             = { fg = "#b3b9b8", bg = "#404749", bold = true },
+  ["statusline_mode"]             = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
+  ["statusline_separator"]        = {link = "Statusline"},
   ["statusline_filetype"]         = {link = "statusline_mode"},
   ["statusline_modifiedfile"]     = { link = "statusline_file" },
   ["statusline_misc"]             = {link = "statusline_file"},
