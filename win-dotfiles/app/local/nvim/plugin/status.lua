@@ -40,11 +40,22 @@ end
 
 -- a function to obtain and format the diagnostics
 local function diagnostics()
-  local num_warning = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN  })
+  local icons = {
+    error = " ",   -- Nerd Font icon for error
+    warn  = " ",   -- Nerd Font icon for warning
+    hint  = " ",   -- Nerd Font icon for hint
+    info  = " ",   -- Nerd Font icon for information
+  }
+  local result = {}
+  local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN  })
   local num_error   = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
   local num_hint    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT  })
   local num_info    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO  })
-  return "%#statusline_diagnostics# " .. "E" .. num_error .. " W" .. num_warning .. " H" .. num_hint .. " I" .. num_info .. " "
+  table.insert(result, "%#DiagnosticError#" .. icons.error .. num_error)
+  table.insert(result, "%#DiagnosticWarn#" .. icons.warn .. num_warn)
+  table.insert(result, "%#DiagnosticHint#" .. icons.hint .. num_hint)
+  table.insert(result, "%#DiagnosticInfo#" .. icons.info .. num_info)
+  return #result > 0 and "%#statusline_diagnostics# " .. table.concat(result, " ") .. " " or ""
 end
 
 -- a function to display the current debugger session
@@ -87,12 +98,12 @@ end
 -- a function to call and place the statusline components
 function Status_line()
   return table.concat({
-    file_name(),
+    current_mode(),
     diagnostics(),
     debugger_session(),
     separator(),
     miscellaneous(),
-    current_mode(),
+    file_name(),
   })
 end
 
@@ -128,7 +139,7 @@ local group_styles = {
 
   ["statusline_misc"]   = { fg = "#b3b9b8", bg = "None" },
   ["statusline_branch"] = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_mode"]   = { fg = "#cacaca", bg = "#1e2527", bold = true },
+  ["statusline_mode"]   = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
 }
 for group, style in pairs(group_styles) do
   vim.api.nvim_set_hl(0, group, style)
