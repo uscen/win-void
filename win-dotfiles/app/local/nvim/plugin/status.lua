@@ -27,30 +27,30 @@ local function file_name()
   end
   -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 1,1) .. " "
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 1,1) .. " " .. "%#StatuslineFade1#".. fade_end
 end
 
 -- a function to obtain file type:============================================================================
 local function filetype()
   local ft = string.format(" %s ", vim.bo.filetype):upper()
-  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(ft, 1,2) .. "%*"
+  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(ft, 1,4) .. "%*"
 end
 
 -- a function to obtain and format the current mode::========================================================
 local function current_mode()
   local mode = vim.fn.mode()
   local mode_aliases = {
-    n = "no",
-    i = "in",
-    v = "vi",
-    V = "vl",
-    t = "te",
-    c = "co",
-    s = "se",
-    [""] = "vb",
+    n = "normal",
+    i = "insert",
+    t = "terminal",
+    c = "command",
+    s = "serch",
+    v = "visual",
+    V = "visual_line",
+    [""] = "visual_block",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
-  return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
+  return "%#statusline_mode#" .. pad_string(mode, 4,1) .. " " .. "%#StatuslineFade#".. fade_end
 end
 
 -- a function to obtain and format the diagnostics:=========================================================
@@ -87,7 +87,7 @@ local function search_position()
   if not ok or result.total == 0 then
     return ""
   end
-  return "%#statusline_misc# " .. vim.fn.getreg("/") .. " [" .. result.current .. "/" .. result.total .. "] "
+  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. vim.fn.getreg("/") .. " [" .. result.current .. "/" .. result.total .. "] "
 end
 
 -- a function to assign highlight group to the separator====================================================
@@ -144,6 +144,7 @@ local group_styles = {
   ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
   ["statusline_mode"]             = { fg = "#b3b9b8", bg = "#404749", bold = true },
   ["StatuslineFade"]              = { fg = "#1e2527", bg = "#404749", bold = true },
+  ["StatuslineFade1"]              = { fg = "#141b1e", bg = "#1e2527", bold = true },
   ["statusline_separator"]        = {link = "Statusline"},
   ["statusline_filetype"]         = {link = "statusline_mode"},
   ["statusline_modifiedfile"]     = { link = "statusline_file" },
