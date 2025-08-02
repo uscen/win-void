@@ -1,6 +1,10 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
+-- Speartor: ==================================================================================================
+local fade_start = "█▓▒░ "
+local fade_end   = " ░▒▓█"
+
 -- Function to add padding to both sides of a string:=========================================================
 local function pad_string(str, left_pad, right_pad)
   local left = string.rep(" ", left_pad or 0)
@@ -8,9 +12,6 @@ local function pad_string(str, left_pad, right_pad)
   return left .. str .. right
 end
 
--- Speartor: ==================================================================================================
-local fade_start = "█▓▒░ "
-local fade_end   = " ░▒▓█"
 -- a function to obtain and format the file name:==============================================================
 local function file_name()
   local filename = vim.fn.expand("%:t")
@@ -141,9 +142,9 @@ vim.cmd([[
 local group_styles = {
   ["Statusline"]                  = { fg = "#1e2527", bg = "#141b1e" },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_mode"]             = { fg = "#b3b9b8", bg = "#404749", bold = true },
-  ["StatuslineFade"]              = { fg = "#1e2527", bg = "#404749", bold = true },
+  ["statusline_file"]             = { fg = "#8ccf7e", bg = "#1e2527", bold = true },
+  ["statusline_mode"]             = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
+  ["StatuslineFade"]              = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
   ["StatuslineFade1"]              = { fg = "#141b1e", bg = "#1e2527", bold = true },
   ["statusline_separator"]        = {link = "Statusline"},
   ["statusline_filetype"]         = {link = "statusline_mode"},
