@@ -25,14 +25,14 @@ end
 local function current_mode()
   local mode = vim.fn.mode()
   local mode_aliases = {
-    n = "n",
-    i = "i",
-    v = "v",
-    V = "v",
-    t = "t",
-    c = "c",
-    s = "s",
-    [""] = "v",
+    n = "no",
+    i = "in",
+    v = "vi",
+    V = "vl",
+    t = "te",
+    c = "co",
+    s = "se",
+    [""] = "vb",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
   return "%#statusline_mode# " .. mode .. " "
@@ -118,10 +118,10 @@ vim.cmd([[
 
 -- set colors for each statusline components
 local group_styles = {
+  ["StatusLine"]                  = { fg = "#b3b9b8", bg = "#141b1e" },
   ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_modifiedfile"]     = { fg = "#000000", bg = "#8ccf7e", bold = true },
+  ["statusline_modifiedfile"]     = { fg = "#141b1e", bg = "#8ccf7e", bold = true },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
-  ["StatusLine"]                  = { fg = "#cacaca", bg = "#141b1e" },
   ["statusline_debugger_session"] = { fg = "#b3b9b8", bg = "None" },
 
   ["statusline_separator"]    = { fg = "#1e2527", bg = "None" },
