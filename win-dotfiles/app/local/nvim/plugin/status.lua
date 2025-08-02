@@ -8,6 +8,8 @@ local function pad_string(str, left_pad, right_pad)
   return left .. str .. right
 end
 
+local fade_start = "█▓▒░ "
+local fade_end   = " ░▒▓█"
 -- a function to obtain and format the file name:==============================================================
 local function file_name()
   local filename = vim.fn.expand("%:t")
@@ -31,7 +33,7 @@ end
 -- a function to obtain file type:============================================================================
 local function filetype()
   local ft = string.format(" %s ", vim.bo.filetype):upper()
-  return "%#statusline_filetype#" .. pad_string(ft, 1,1) .. "%*"
+  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(ft, 1,2) .. "%*"
 end
 
 -- a function to obtain and format the current mode::========================================================
@@ -48,16 +50,16 @@ local function current_mode()
     [""] = "vb",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
-  return "%#statusline_mode# " .. pad_string(mode, 1,1) .. " "
+  return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
 end
 
 -- a function to obtain and format the diagnostics:=========================================================
 local function diagnostics()
   local icons = {
-    error = "  ",
-    warn = "  ",
-    info = "  ",
-    hint = "  ",
+    error = " ",
+    warn = " ",
+    info = " ",
+    hint = " ",
   }
   local result = {}
   local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN  })
@@ -140,7 +142,8 @@ local group_styles = {
   ["Statusline"]                  = { fg = "#1e2527", bg = "#141b1e" },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
   ["statusline_file"]             = { fg = "#cacaca", bg = "#1e2527", bold = true },
-  ["statusline_mode"]             = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
+  ["statusline_mode"]             = { fg = "#b3b9b8", bg = "#404749", bold = true },
+  ["StatuslineFade"]              = { fg = "#1e2527", bg = "#404749", bold = true },
   ["statusline_separator"]        = {link = "Statusline"},
   ["statusline_filetype"]         = {link = "statusline_mode"},
   ["statusline_modifiedfile"]     = { link = "statusline_file" },
