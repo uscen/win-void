@@ -834,7 +834,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 0
+  vim.opt.laststatus             = 3
   vim.opt.cmdheight              = 0
   vim.opt.winwidth               = 20
   vim.opt.winminwidth            = 5
