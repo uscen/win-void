@@ -30,7 +30,7 @@ local function file_name()
   -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
   local modified_indicator = vim.bo.modified and "●" or " "
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 5,4).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_end
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 2,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_end
 end
 
 -- a function to obtain file type:============================================================================
@@ -90,14 +90,13 @@ local function stbufnr()
 end
 local function lsp()
   if rawget(vim, "lsp") then
-    local padding = 1
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(" 󰄭  " .. string.format(client.name):upper() .. string.rep(" ", padding), 4, 6)
+        return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(" 󰄭  LSP", 1, 4)
       end
     end
   end
-  return ""
+  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(" 󰄭  NOLSP", 1, 4)
 end
 
 -- a function to assign highlight group to the separator====================================================
