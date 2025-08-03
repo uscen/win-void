@@ -127,12 +127,12 @@ vim.keymap.set( "n", "<leader>st",
 vim.cmd("set statusline=%!v:lua.Status_line()")
 -- set colors for each statusline components:==============================================================
 local group_styles = {
-  ["Statusline"]                  = { fg = "#1e2527", bg = "#1e2527" },
-  ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_file"]             = { fg = "#8ccf7e", bg = "#282f32", bold = true },
-  ["statusline_mode"]             = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
-  ["StatuslineFade"]              = { fg = "#282f32", bg = "#8ccf7e", bold = true },
-  ["StatuslineFade1"]              = { fg = "#282f32", bg = "#1e2527", bold = true },
+  ["Statusline"]                  = { fg = "#181616", bg = "#181616" },
+  ["statusline_diagnostics"]      = { fg = "#c5c9c5", bg = "#141b1e" },
+  ["statusline_file"]             = { fg = "#8a9a7b", bg = "#0d0c0c", bold = true },
+  ["statusline_mode"]             = { fg = "#181616", bg = "#8a9a7b", bold = true },
+  ["StatuslineFade"]              = { fg = "#0d0c0c", bg = "#8a9a7b", bold = true },
+  ["StatuslineFade1"]             = { fg = "#0d0c0c", bg = "#181616", bold = true },
   ["statusline_separator"]        = {link = "Statusline"},
   ["statusline_filetype"]         = {link = "statusline_mode"},
   ["statusline_modifiedfile"]     = { link = "statusline_file" },
