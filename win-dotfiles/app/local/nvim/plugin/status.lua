@@ -56,34 +56,6 @@ local function current_mode()
   return "%#statusline_mode#" .. pad_string(mode, 4,1) .. " " .. "%#StatuslineFade#".. fade_end
 end
 
--- a function to obtain and format the diagnostics:=========================================================
-local function diagnostics()
-  local icons = {
-    error = " ",
-    warn = " ",
-    info = " ",
-    hint = " ",
-  }
-  local result = {}
-  local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN  })
-  local num_error   = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-  local num_hint    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT  })
-  local num_info    = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO  })
-  if num_error > 0 then
-    table.insert(result, "%#DiagnosticError#" .. pad_string(icons.error .. num_error, 1, 1))
-  end
-  if num_warn > 0 then
-    table.insert(result, "%#DiagnosticWarn#" .. pad_string(icons.warn .. num_warn, 1, 1))
-  end
-  if num_hint > 0 then
-    table.insert(result, "%#DiagnosticHint#" .. pad_string(icons.hint .. num_hint, 1, 1))
-  end
-  if num_info > 0 then
-    table.insert(result, "%#DiagnosticInfo#" .. pad_string(icons.info .. num_info, 1, 1))
-  end
-  return #result > 0 and "%#statusline_diagnostics# " .. table.concat(result, " ") .. " " or ""
-end
-
 -- a function to obtain and format the LSP:==================================================================
 local function stbufnr()
   return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
@@ -111,7 +83,6 @@ function Status_line()
     current_mode(),
     file_name(),
     separator(),
-    diagnostics(),
     lsp(),
     filetype()
   })
