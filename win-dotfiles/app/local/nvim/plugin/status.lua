@@ -100,31 +100,10 @@ local function lsp()
   return ""
 end
 
--- a function to display the current search position:=========================================================
-local function search_position()
-  local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 500 })
-  if not ok or result.total == 0 then
-    return ""
-  end
-  if vim.v.hlsearch == 0 then
-    return ""
-  end
-  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(vim.fn.getreg("/"), 4,1) .. " [" .. result.current .. "/" .. result.total .. pad_string("] ", 0,4)
-end
-
 -- a function to assign highlight group to the separator====================================================
 local function separator()
   local highlight_group = "statusline_separator"
   return "%#" .. highlight_group .. "#%="
-end
-
-local function miscellaneous()
-  local reg = vim.fn.reg_recording()
-  if reg == "" then
-    return search_position()
-  else
-    return "%#statusline_misc# recording @" .. reg
-  end
 end
 
 -- a function to call and place the statusline components:==================================================
@@ -134,7 +113,6 @@ function Status_line()
     file_name(),
     separator(),
     diagnostics(),
-    miscellaneous(),
     lsp(),
     filetype()
   })
