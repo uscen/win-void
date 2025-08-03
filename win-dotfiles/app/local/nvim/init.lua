@@ -1219,11 +1219,9 @@ later(function()
   vim.api.nvim_create_autocmd("BufReadPre", {
     group = vim.api.nvim_create_augroup("disable_in_bigfile", { clear = true }),
     callback = function(ev)
-      -- Disable certain features for files larger than 10MB
       local max_size = 10 * 1024 * 1024 -- 10MB
       local file_size = vim.fn.getfsize(ev.match)
       if file_size > max_size or file_size == -2 then
-        -- Disable features that might slow down Vim
         vim.opt_local.spell = false
         vim.opt_local.undofile = false
         vim.opt_local.swapfile = false

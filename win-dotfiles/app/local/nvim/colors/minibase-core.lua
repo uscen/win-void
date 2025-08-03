@@ -341,8 +341,3 @@ vim.api.nvim_set_hl(0, 'MiniDiffSignDelete', { fg = palette.base08, bg = palette
 -- Completions: ================================================================
 vim.api.nvim_set_hl(0, "MiniCompletionActiveParameter", { fg = palette.base04, bg = palette.base01 })
 vim.api.nvim_set_hl(0, "MiniCompletionInfoBorderOutdated", { link = "MiniCompletionActiveParameter" })
--- Indentscope: ================================================================
-vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = palette.base0B })
-vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "MiniIndentscopeSymbol" })
--- Trailspace: ================================================================
-vim.api.nvim_set_hl(0, "MiniTrailspace", { bg = palette.base01 })
