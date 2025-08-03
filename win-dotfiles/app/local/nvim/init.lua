@@ -858,7 +858,7 @@ now(function()
   vim.opt.showtabline            = 0
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
-  vim.opt.pumblend               = 15
+  vim.opt.pumblend               = 0
   vim.opt.pumheight              = 8
   vim.opt.titlelen               = 127
   vim.opt.colorcolumn            = "130"
@@ -866,7 +866,7 @@ now(function()
   vim.opt.guifont                = "JetBrainsMono Nerd Font:h9"
   vim.opt.titlestring            = "%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim"
   vim.opt.splitkeep              = 'screen'
-  vim.opt.mousemodel             = "popup"
+  vim.opt.mousemodel             = "extend"
   vim.opt.mousescroll            = "ver:3,hor:6"
   vim.opt.showbreak              = '󰘍'
   vim.opt.winborder              = "double"
@@ -876,7 +876,7 @@ now(function()
   vim.wo.signcolumn              = "yes"
   vim.opt.statuscolumn           = ""
   vim.opt.fillchars              = "eob: ,fold: ,foldopen:,foldsep: ,foldclose:"
-  vim.opt.listchars              = { eol = "↲", tab = '» ', trail = "+", extends = ">", precedes = "<", space = "·", nbsp = "␣", }
+  vim.opt.listchars              = { eol = "↲", tab = '→ ', trail = "+", extends = "›", precedes = "‹", space = "•", nbsp = "␣", }
   -- Editing:  ================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
@@ -893,8 +893,11 @@ now(function()
   vim.opt.startofline            = true
   vim.opt.autowrite              = true
   vim.opt.wrapscan               = true
+  vim.opt.tildeop                = true
+  vim.opt.exrc                   = true
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false
+  vim.opt.joinspaces             = false
   vim.opt.textwidth              = 10
   vim.opt.wrapmargin             = 2
   vim.opt.tabstop                = 2
@@ -904,7 +907,7 @@ now(function()
   vim.opt.concealcursor          = "c"
   vim.opt.cedit                  = "^F"
   vim.opt.breakindentopt         = "list:-1"
-  vim.opt.inccommand             = "split"
+  vim.opt.inccommand             = "nosplit"
   vim.opt.jumpoptions            = "view"
   vim.opt.whichwrap              = "b,s,<,>,[,],h,l"
   vim.opt.iskeyword              = "@,48-57,_,192-255,-"
@@ -914,12 +917,13 @@ now(function()
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { "buffers", "curdir", "tabpages", "winsize", "globals" }
   vim.opt.diffopt                = { "algorithm:minimal", "closeoff", "context:8", "filler", "internal", "linematch:100", "indent-heuristic" }
+  vim.opt.suffixesadd            = { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml', }
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevelstart         = 99
   vim.opt.foldlevel              = 90
   vim.opt.foldnestmax            = 10
-  vim.opt.foldminlines           = 3
+  vim.opt.foldminlines           = 4
   vim.opt.foldcolumn             = "0"
   vim.opt.foldopen               = "hor,mark,tag,search,insert,quickfix,undo"
   vim.opt.foldexpr               = "nvim_treesitter#foldexpr()"
@@ -1172,6 +1176,7 @@ later(function()
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.w.auto_cursorline then
+        vim.wo.colorcolumn = '80'
         vim.wo.cursorline = true
         vim.w.auto_cursorline = nil
       end
@@ -1181,6 +1186,7 @@ later(function()
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.wo.cursorline then
+        vim.wo.colorcolumn = ''
         vim.w.auto_cursorline = true
         vim.wo.cursorline = false
       end
@@ -1314,6 +1320,7 @@ later(function()
   vim.keymap.set('n', 'Q', '<nop>')
   vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set("n", "<ESC>", ":nohl<CR>")
+  vim.keymap.set('n', '<C-n>', '*N', { remap = true })
   vim.keymap.set("n", "ycc", "yygccp", { remap = true })
   vim.keymap.set('n', 'yco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
   vim.keymap.set('n', 'ycO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
@@ -1367,6 +1374,9 @@ later(function()
   vim.keymap.set("n", "<leader>wj", "<cmd>resize -5<cr>")
   vim.keymap.set("n", "<leader>wh", "<cmd>vertical resize +3<cr>")
   vim.keymap.set("n", "<leader>wl", "<cmd>vertical resize -3<cr>")
+  -- Move between jumps: ==========================================================
+  vim.keymap.set('n', '<C-o>', '<C-o>')
+  vim.keymap.set('n', '<C-p>', '<C-i>')
   -- Focus : =======================================================================
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -1501,6 +1511,7 @@ later(function()
       ["readme"] = 'markdown',
       ["xhtml"] = "html",
       ["tsconfig.json"] = "jsonc",
+      ['.eslintrc.json'] = 'jsonc',
       ['.yamlfmt'] = 'yaml',
     },
     pattern = {
