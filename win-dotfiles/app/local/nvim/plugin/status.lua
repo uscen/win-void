@@ -1,39 +1,9 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Speartor: ==================================================================================================
+-- global: ======================================================================================================
 local fade_start = "▓▒░"
 local fade_end = "░▒▓"
-
--- Function to add padding to both sides of a string:=========================================================
-local function pad_string(str, left_pad, right_pad)
-  local left = string.rep(" ", left_pad or 0)
-  local right = string.rep(" ", right_pad or 0)
-  return left .. str .. right
-end
-
--- a function to obtain and format the file name:==============================================================
-local function file_name()
-  local filename = string.format(vim.fn.expand("%:t")):upper()
-  if filename == "" then
-    filename = "[NO NAME]"
-  end
-  if string.match(filename, "PLUGIN") then
-    filename = "FILE"
-  end
-  if string.match(filename, "MAIN") then
-    filename = "PICKER"
-  end
-  if vim.bo.buftype == "TERMINAL" then
-    filename = "TERMINAL"
-  end
-  -- change highlight group based on if the file has been modified:=============================================
-  local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  local modified_indicator = vim.bo.modified and "●" or " "
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 2,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_end
-end
-
--- a function to obtain file type:============================================================================
 local filetype_icons = {
   ["typescript"] = "",
   ["javascript"] = "",
@@ -61,11 +31,37 @@ local filetype_icons = {
   ["haskell"] = "",
   ["ruby"] = "",
 }
+local function pad_string(str, left_pad, right_pad)
+  local left = string.rep(" ", left_pad or 0)
+  local right = string.rep(" ", right_pad or 0)
+  return left .. str .. right
+end
+-- a function to obtain file type:============================================================================
 local function filetype()
   local ft = vim.bo.filetype
-  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(filetype_icons[ft], 1,3) .. "%*"
+  local ft_icons_or_name = filetype_icons[ft] and filetype_icons[ft] or ""
+  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(ft_icons_or_name, 1,3) .. "%*"
 end
-
+-- a function to obtain and format the file name:==============================================================
+local function file_name()
+  local filename = string.format(vim.fn.expand("%:t")):upper()
+  if filename == "" then
+    filename = "[NO NAME]"
+  end
+  if string.match(filename, "PLUGIN") then
+    filename = "FILE"
+  end
+  if string.match(filename, "MAIN") then
+    filename = "PICKER"
+  end
+  if vim.bo.buftype == "TERMINAL" then
+    filename = "TERMINAL"
+  end
+  -- change highlight group based on if the file has been modified:=============================================
+  local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
+  local modified_indicator = vim.bo.modified and "●" or " "
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 2,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_end
+end
 -- a function to obtain and format the current mode::========================================================
 local function current_mode()
   local mode = vim.fn.mode()
@@ -82,7 +78,6 @@ local function current_mode()
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
   return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
 end
-
 -- a function to obtain and format the LSP:==================================================================
 local function stbufnr()
   return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
@@ -97,15 +92,20 @@ local function lsp()
   end
   return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string("󰄭  NOLSP", 1, 2)
 end
-
 -- a function to assign highlight group to the separator====================================================
 local function separator()
   local highlight_group = "statusline_separator"
   return "%#" .. highlight_group .. "#%="
 end
-
 -- a function to call and place the statusline components:==================================================
 function Status_line()
+  local curr_ft = vim.bo.filetype
+  local disabled_filetypes = {
+    "ministarter",
+  }
+  if vim.tbl_contains(disabled_filetypes, curr_ft) then
+    return nil
+  end
   return table.concat({
     current_mode(),
     file_name(),
@@ -114,7 +114,6 @@ function Status_line()
     filetype()
   })
 end
-
 -- default with statusline but can be toggled with <leader>st:===============================================
 vim.keymap.set( "n", "<leader>st",
   function()
@@ -125,15 +124,7 @@ vim.keymap.set( "n", "<leader>st",
     end
   end
 )
-
 vim.cmd("set statusline=%!v:lua.Status_line()")
-vim.cmd([[
-  augroup Statusline
-    au!
-    au WinEnter,BufEnter * setlocal cursorline
-    au WinLeave,BufLeave * setlocal nocursorline
-]])
-
 -- set colors for each statusline components:==============================================================
 local group_styles = {
   ["Statusline"]                  = { fg = "#1e2527", bg = "#141b1e" },

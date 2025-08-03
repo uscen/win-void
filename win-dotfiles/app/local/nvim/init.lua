@@ -1176,7 +1176,7 @@ later(function()
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.w.auto_cursorline then
-        vim.wo.colorcolumn = '80'
+        vim.wo.colorcolumn = '130'
         vim.wo.cursorline = true
         vim.w.auto_cursorline = nil
       end
