@@ -57,19 +57,6 @@ later(function()
   require('mini.misc').setup_auto_root({ '.git', "package.json" }, vim.fs.dirname)
 end)
 --          ╭─────────────────────────────────────────────────────────╮
---          │                     Mini.Trailspace                     │
---          ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require("mini.trailspace").setup()
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = "MiniTrailspace",
-    callback = function()
-      MiniTrailspace.trim()
-      MiniTrailspace.trim_last_lines()
-    end,
-  })
-end)
---          ╭─────────────────────────────────────────────────────────╮
 --          │                     Mini.keymaps                        │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -1082,6 +1069,24 @@ later(function()
           vim.cmd.nohlsearch()
         end)
       end
+    end,
+  })
+  -- Remove hl search when Move Or  enter Insert : ==================================
+  local trim_space = vim.api.nvim_create_augroup("trim_spaces", { clear = true })
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = trim_space ,
+    callback = function()
+      local curpos = vim.api.nvim_win_get_cursor(0)
+      vim.cmd([[keeppatterns %s/\s\+$//e]])
+      vim.api.nvim_win_set_cursor(0, curpos)
+    end,
+  })
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = trim_space,
+    callback = function()
+      local n_lines = vim.api.nvim_buf_line_count(0)
+      local last_nonblank = vim.fn.prevnonblank(n_lines)
+      if last_nonblank < n_lines then vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {}) end
     end,
   })
   -- Auto-close terminal when process exits: ========================================
