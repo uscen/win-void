@@ -768,7 +768,7 @@ end)
 --          │                     Neovim Colorscheme                  │
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
-  vim.cmd.colorscheme("minibase-core")
+  vim.cmd.colorscheme("minimacro")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                     Neovim Options                      │
@@ -1280,6 +1280,13 @@ later(function ()
   vim.api.nvim_create_user_command("CodeAction", function()
     vim.lsp.buf.code_action()
   end, {})
+  -- Toggle inlay hints: ===================================================================
+  vim.api.nvim_create_user_command('ToggleInlayHints', function()
+      vim.g.inlay_hints = not vim.g.inlay_hints
+      vim.notify(string.format('%s inlay hints...', vim.g.inlay_hints and 'Enabling' or 'Disabling'), vim.log.levels.INFO)
+      local mode = vim.api.nvim_get_mode().mode
+      vim.lsp.inlay_hint.enable(vim.g.inlay_hints and (mode == 'n' or mode == 'v'))
+  end, { nargs = 0 })
   -- Print and copy file full path:=========================================================
   vim.api.nvim_create_user_command("Path", function()
     local path = vim.fn.expand("%:p")
@@ -1287,13 +1294,17 @@ later(function ()
     print(path)
     vim.fn.setreg("+", path)
   end, {})
+  -- Toggle conform.nvim auto-formatting: =================================================
+  vim.api.nvim_create_user_command('ToggleFormat', function()
+      vim.g.autoformat = not vim.g.autoformat
+      vim.notify(string.format('%s formatting...', vim.g.autoformat and 'Enabling' or 'Disabling'), vim.log.levels.INFO)
+  end, { nargs = 0 })
   -- Eable FormatOnSave ====================================================================
   vim.api.nvim_create_user_command("FormatEnable", function()
     vim.b.disable_autoformat = false
     vim.g.disable_autoformat = false
     vim.notify("Format On Save Enable")
-  end, {
-  })
+  end, {})
   -- Disable FormatOnSave =================================================================
   vim.api.nvim_create_user_command("FormatDisable", function(args)
     if args.bang then
@@ -1302,10 +1313,7 @@ later(function ()
       vim.g.disable_autoformat = true
     end
     vim.notify("Format On Save Disable")
-  end, {
-    bang = true,
-  })
-
+  end, { bang = true, })
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                Neovim misspelled_commands               │

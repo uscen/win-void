@@ -1,10 +1,10 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                     minimacro-kanagawa                  ║
+--          ║                       Miniushen                         ║
 --          ╚═════════════════════════════════════════════════════════╝
 
 -- Clear hlgroups and set colors_name {{{
 vim.cmd.hi('clear')
-vim.g.colors_name = 'minimacro-kanagawa'
+vim.g.colors_name = 'minimacro'
 -- }}}
 
 -- Palette {{{
