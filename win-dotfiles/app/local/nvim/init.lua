@@ -352,7 +352,7 @@ now(function()
     show_icons = true,
     tabpage_section = 'right',
     format = function(buf_id, label)
-      local suffix = vim.bo[buf_id].modified and "● " or ""
+      local suffix = vim.bo[buf_id].modified and ' ' or " "
       return MiniTabline.default_format(buf_id, label) .. suffix
     end,
   })
@@ -847,7 +847,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 3
+  vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
   vim.opt.winwidth               = 20
   vim.opt.winminwidth            = 5
