@@ -1,6 +1,6 @@
 {
-  "accent_color": [139, 207, 126],
-  "background_color": [20, 27, 30],
+  "accent_color": [138, 154, 123],
+  "background_color": [24, 26, 22],
   "vsync": true,
   "force_redraw": true,
   "shortcuts": {

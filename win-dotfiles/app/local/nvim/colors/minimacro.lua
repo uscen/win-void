@@ -220,9 +220,9 @@ local hlgroups = {
   Directory = { fg = c_macroBlue1 },
   EndOfBuffer = { fg = c_macroBg1 },
   ErrorMsg = { fg = c_lotusRed1 },
-  FloatBorder = { bg = c_macroBg0, fg = c_sumiInk6 },
-  FloatFooter = { bg = c_macroBg0, fg = c_macroBg5 },
-  FloatTitle = { bg = c_macroBg0, fg = c_macroGray2, bold = true },
+  FloatBorder = { bg = c_macroBg1, fg = c_macroGreen1 },
+  FloatFooter = { bg = c_macroBg1, fg = c_macroBg5 },
+  FloatTitle = { bg = c_macroBg1, fg = c_macroGreen1, bold = true },
   FoldColumn = { fg = c_macroBg5 },
   Folded = { bg = c_macroBg2, fg = c_lotusGray },
   Ignore = { link = 'NonText' },
@@ -235,13 +235,15 @@ local hlgroups = {
   MsgSeparator = { bg = c_macroBg0 },
   NonText = { fg = c_macroBg5 },
   Normal = { bg = c_macroBg1, fg = c_macroFg0 },
-  NormalFloat = { bg = c_macroBg0, fg = c_macroFg1 },
+  NormalFloat = { bg = c_macroBg1, fg = c_macroFg1 },
   NormalNC = { link = 'Normal' },
-  Pmenu = { bg = c_macroBg3, fg = c_macroFg1 },
+  Pmenu = { bg = c_macroBg1, fg = c_macroFg1 },
+  PmenuMatch = { fg = c_macroGreen1 },
   PmenuExtra = { fg = c_macroAsh },
-  PmenuSbar = { bg = c_macroBg4 },
-  PmenuSel = { bg = c_macroBg4, fg = 'NONE' },
-  PmenuThumb = { bg = c_macroBg5 },
+  PmenuKind = { link = 'Pmenu' },
+  PmenuSbar = { bg = c_macroBg3 },
+  PmenuSel = { bg = c_macroBg2, fg = 'NONE' },
+  PmenuThumb = { bg = c_macroGreen0 },
   Question = { link = 'MoreMsg' },
   QuickFixLine = { bg = c_winterGreen },
   Search = { bg = c_macroBg4 },
@@ -531,6 +533,68 @@ local hlgroups = {
   StatusLineHeader = { bg = c_macroBg5, fg = c_macroFg1 },
   StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg1 },
 
+  -- mini.tabline
+  MiniTablineCurrent = { bg = c_macroBg1, fg = c_macroGreen1 },
+  MiniTablineHidden = { fg = c_macroAsh, bg = c_macroBg1  },
+  MiniTablineVisible = { link = "MiniTablineCurrent" },
+  MiniTablineModifiedCurrent = { link = "MiniTablineCurrent" },
+  MiniTablineModifiedVisible = { link = "MiniTablineCurrent" },
+  MiniTablineModifiedHidden = { link = "MiniTablineHidden" },
+  MiniTablineTabpagesSection = { link = "MiniTablineCurrent" },
+  MiniTablineFill = { link = "MiniTablineCurrent" },
+
+  -- mini.pick
+  MiniPickBorder = { bg = c_macroBg1, fg = c_macroGreen1 },
+  MiniPickNormal = { bg = c_macroBg1, fg = c_macroFg1 },
+  MiniPickMatchCurrent = { bg = c_macroBg2 },
+  MiniPickMatchMarked = { bg = c_macroBg1, fg = c_macroGreen0 },
+  MiniPickPrompt = { bg = c_macroBg1, fg = c_macroFg0 },
+  MiniPickMatchRanges = { link = "MiniPickMatchMarked" },
+  MiniPickPreviewRegion = { link = "MiniPickBorder" },
+  MiniPickPreviewLine = { link = "MiniPickBorder" },
+  MiniPickBorderBusy = { link = "MiniPickBorder" },
+  MiniPickBorderText = { link = "MiniPickBorder" },
+  MiniPickIconDirectory = { link = "MiniPickBorder" },
+  MiniPickIconFile = { link = "MiniPickBorder" },
+  MiniPickHeader = { link = "MiniPickBorder" },
+
+  -- mini.file
+  MiniFilesBorder = { bg = c_macroBg1, fg = c_macroGreen1 },
+  MiniFilesNormal = { bg = c_macroBg1, fg = c_macroFg1 },
+  MiniFilesDirectory = { fg = c_macroFg1 },
+  MiniFilesCursorLine = { bg = c_macroBg2 },
+  MiniFilesBorderModified = { bg = c_macroBg1, fg = c_macroGreen0 },
+  MiniFilesFile = { link = "MiniFilesDirectory" } ,
+  MiniFilesTitle = { link = "MiniFilesBorder" },
+  MiniFilesTitleFocused = { link = "MiniFilesBorder" },
+
+  -- mini.snippets
+  MiniSnippetsCurrent = { fg = c_macroGreen1 },
+  MiniSnippetsCurrentReplace  = { link = "MiniSnippetsCurrent" },
+  MiniSnippetsUnvisited  = { link = "MiniSnippetsCurrent" },
+  MiniSnippetsVisited = { link = "MiniSnippetsCurrent" },
+  MiniSnippetsFinal  = { link = "Comment" },
+
+  -- mini.diff
+  MiniDiffSignAdd = { fg = c_autumnGreen },
+  MiniDiffSignChange = { fg = c_sumiInk6 },
+  MiniDiffSignDelete = { fg = c_lotusRed0 },
+  MiniDiffSignDeletePreview = { bg = c_winterRed },
+
+  -- mini.notify
+  MiniNotifyBorder = { bg = c_macroBg1, fg = c_macroGreen1 },
+  MiniNotifyNormal = { bg = c_macroBg1, fg = c_macroFg2 },
+  MiniNotifyLspProgress = { link = "MiniNotifyNormal" },
+  MiniNotifyTitle = { link = "MiniNotifyBorder" },
+
+  -- mini.starter
+  MiniStarterHeader = { fg = c_macroGreen1 },
+  MiniStarterFooter = { fg = c_macroGreen1 },
+  MiniStarterItemPrefix = { fg = c_macroRed },
+
+  -- mini.completion
+  MiniCompletionActiveParameter = { fg = c_macroGreen1 },
+  MiniCompletionInfoBorderOutdated = {link = "MiniCompletionActiveParameter"},
   -- }}}
 }
 -- }}}1

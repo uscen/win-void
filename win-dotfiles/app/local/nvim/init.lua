@@ -1173,9 +1173,9 @@ later(function()
       vim.keymap.set('n', '<Tab>', '<CR>', opts)
     end
   })
-  -- show cursor line only in active window:  ===========================================
+  -- show cursor line only in active window:  =======================================
   local cursorline_active_window_augroup = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true })
-  vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+  vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave","CmdlineLeave", "WinEnter" }, {
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.w.auto_cursorline then
@@ -1185,7 +1185,7 @@ later(function()
       end
     end,
   })
-  vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
+  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.wo.cursorline then
@@ -1195,9 +1195,9 @@ later(function()
       end
     end,
   })
-  -- show relativenumber only in active indow:  =============================================
-  local line_numbers_group = vim.api.nvim_create_augroup('toggle_line_numbers', {})
-  vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
+  -- show relativenumber only in active indow:  ========================================
+  local line_numbers_group = vim.api.nvim_create_augroup('toggle_line_numbers', { clear = true })
+  vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
       group = line_numbers_group,
       desc = 'Toggle relative line numbers on',
       callback = function()

@@ -116,12 +116,12 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_ALT_C_COMMAND="fd --type=d --no-hidden --strip-cwd-prefix --exclude .git"
 export FZF_DEFAULT_OPTS='
        --style=full --height=30% --border --layout reverse --preview-window right,40%
-       --color fg:#b3b9b8,bg:#141b1e
-       --color bg+:#1e2527,fg+:#dadada
-       --color hl:#8ccf7e,hl+:#8ccf7e,gutter:#141b1e
-       --color pointer:#373d49,info:#606672
-       --color border:#141b1e
-       --color border:#8ccf7e'
+       --color fg:#b3b9b8,bg:#181616
+       --color bg+:#1e2527,fg+:#c5c9c5
+       --color hl:#8a9a7b,hl+:#8a9a7b,gutter:#181616
+       --color pointer:#a6a69c,info:#606672
+       --color border:#181616
+       --color border:#8a9a7b'
 
 # =============================================================================== #
 # Tab Completions:                                                                #

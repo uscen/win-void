@@ -1,0 +1,177 @@
+/* Kanagawa Dragon Vimium Theme */
+:root {
+  /* Base & surfaces (Sumi Ink) */
+  --vimium-base: #181616; /* dragonBg */
+  --vimium-secondry: #282828; /* dragonBg */
+  --vimium-crust: #1f1f28; /* sumiInk1 */
+  --vimium-surface0: #2a2a37; /* sumiInk2 */
+  --vimium-surface1: #363646; /* sumiInk3 */
+  --vimium-surface2: #54546d; /* sumiInk4 */
+
+  /* Text */
+  --vimium-text: #c8c093; /* dragonWhite */
+  --vimium-subtext0: #54546d; /* sumiInk4 */
+  --vimium-subtext1: #767676; /* dragonComment */
+
+  /* Accent colors (Dragon) */
+  --vimium-green: #8a9a7b; /* dragonGreen - matches / success */
+  --vimium-blue: #7fb4ca; /* dragonBlue - links, selected */
+  --vimium-rosewater: #c4746e; /* dragonRed - URLs */
+  --vimium-peach: #c38a94; /* dragonOrange - warnings */
+  --vimium-lavender: #8992a7; /* dragonViolet - accents */
+  --vimium-yellow: #c0a36e; /* dragonYellow - hint highlight */
+}
+
+/* -----------------------------------------------------------
+   🌐 Link Hints
+*/
+#vimium-hint-marker-container div.vimiumHintMarker {
+  background: var(--vimium-yellow);
+  border: 1px solid var(--vimium-crust);
+}
+#vimium-hint-marker-container div.vimiumHintMarker span {
+  color: var(--vimium-base);
+  font-weight: bold;
+}
+#vimium-hint-marker-container div.vimiumHintMarker span.matchingCharacter {
+  color: var(--vimium-surface2);
+}
+
+/* -----------------------------------------------------------
+   🔍 Vomnibar
+*/
+#vomnibar {
+  background: var(--vimium-base);
+  border: 2px solid var(--vimium-green);
+  animation: show 200ms ease-out forwards;
+}
+
+@keyframes show {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#vomnibar input,
+#vomnibar #vomnibar-search-area {
+  background: var(--vimium-base);
+  color: var(--vimium-green);
+  border: none;
+  box-shadow: none;
+}
+
+#vomnibar ul {
+  background: var(--vimium-base);
+  border-top: 1px solid var(--vimium-surface0);
+}
+
+#vomnibar li {
+  background: var(--vimium-base);
+  color: var(--vimium-text);
+  border-bottom: 1px solid var(--vimium-surface0);
+}
+#vomnibar li.selected {
+  background: var(--vimium-secondry);
+}
+
+/* Item text styles */
+#vomnibar li .source {
+  color: var(--vimium-peach);
+}
+#vomnibar li .title {
+  color: var(--vimium-blue);
+  font-weight: bold;
+}
+#vomnibar li .url {
+  color: var(--vimium-rosewater);
+}
+#vomnibar li .match {
+  color: var(--vimium-green);
+  font-weight: bold;
+}
+#vomnibar li .title .match {
+  color: var(--vimium-blue);
+}
+
+/* History entries override */
+#vomnibar li.omnibar-history-item {
+  background: var(--vimium-surface1) !important;
+}
+#vomnibar li.omnibar-history-item.selected {
+  background: var(--vimium-surface2) !important;
+}
+
+/* -----------------------------------------------------------
+   🔎 Search/Find HUD
+*/
+div#hud-container {
+  background: var(--vimium-base);
+  border: 1px solid var(--vimium-text);
+  box-shadow: none;
+}
+div#hud-container span#hud-find-input,
+div#hud-container div#hud {
+  color: var(--vimium-text);
+  background: var(--vimium-crust);
+}
+
+/* -----------------------------------------------------------
+   Vimium Options & Help UI
+*/
+body.vimium-body,
+body.vimium-body header,
+body.vimium-body label {
+  background: var(--vimium-base);
+  color: var(--vimium-text);
+}
+
+body.vimium-body button,
+body.vimium-body input,
+body.vimium-body textarea,
+body.vimium-body footer {
+  background: var(--vimium-crust);
+  color: var(--vimium-text);
+  border-color: var(--vimium-surface1);
+  scrollbar-color: var(--vimium-surface2) var(--vimium-surface0);
+}
+
+body.vimium-body button:focus,
+body.vimium-body input:focus,
+body.vimium-body textarea:focus {
+  border-color: var(--vimium-blue);
+}
+body.vimium-body a {
+  color: var(--vimium-blue);
+}
+body.vimium-body #wrapper .example {
+  color: var(--vimium-subtext1);
+}
+
+/* Help dialog */
+#dialog {
+  background: var(--vimium-crust);
+  color: var(--vimium-text);
+  border: 1px solid var(--vimium-surface1);
+}
+#dialog .divider {
+  background: var(--vimium-surface1);
+}
+#dialog a,
+#dialog span.vim {
+  color: var(--vimium-blue);
+}
+#dialog a#close:hover {
+  color: var(--vimium-rosewater);
+}
+#dialog .key,
+body.vimium-body .key {
+  background: var(--vimium-crust);
+  color: var(--vimium-text);
+  border: 1px solid var(--vimium-surface1);
+  box-shadow: 0 2px 0 var(--vimium-surface0);
+}
