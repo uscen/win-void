@@ -1,5 +1,5 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                       Minibase-Core                     ║
+--          ║                        Minibase                         ║
 --          ╚═════════════════════════════════════════════════════════╝
 local palette
 if vim.o.background == "light" then
@@ -21,23 +21,41 @@ if vim.o.background == "light" then
   --   base0E = "#9E5581",
   --   base0F = "#75858C",
   -- }
+  -- palette = {
+  --   base00 = "#EFECF4",
+  --   base01 = "#E2DFE7",
+  --   base02 = "#8B8792",
+  --   base03 = "#7E7887",
+  --   base04 = "#655F6D",
+  --   base05 = "#585260",
+  --   base06 = "#26232A",
+  --   base07 = "#19171C",
+  --   base08 = "#BE4678",
+  --   base09 = "#AA573C",
+  --   base0A = "#A06E3B",
+  --   base0B = "#2A9292",
+  --   base0C = "#398BC6",
+  --   base0D = "#576DDB",
+  --   base0E = "#955AE7",
+  --   base0F = "#BF40BF",
+  -- }
   palette = {
-    base00 = "#EFECF4",
-    base01 = "#E2DFE7",
-    base02 = "#8B8792",
-    base03 = "#7E7887",
-    base04 = "#655F6D",
-    base05 = "#585260",
-    base06 = "#26232A",
-    base07 = "#19171C",
-    base08 = "#BE4678",
-    base09 = "#AA573C",
-    base0A = "#A06E3B",
-    base0B = "#2A9292",
-    base0C = "#398BC6",
-    base0D = "#576DDB",
-    base0E = "#955AE7",
-    base0F = "#BF40BF",
+      base00 = "#d6b891",
+      base01 = "#c0a179",
+      base02 = "#a28662",
+      base03 = "#887254",
+      base04 = "#1e1812",
+      base05 = "#35291d",
+      base06 = "#413325",
+      base07 = "#d6b891",
+      base08 = "#413325",
+      base09 = "#120f09",
+      base0A = "#292016",
+      base0B = "#120f09",
+      base0C = "#413325",
+      base0D = "#120f09",
+      base0E = "#292016",
+      base0F = "#66553f",
   }
 end
 if vim.o.background == "dark" then
@@ -232,24 +250,43 @@ if vim.o.background == "dark" then
   --   base0F = "#BE5046",
   -- }
   -- everblush
-  palette = {
-    base00 = "#141b1e",
-    base01 = "#1e2527",
-    base02 = "#232a2d",
-    base03 = "#404749",
-    base04 = "#b3b9b8",
-    base05 = "#cacaca",
-    base06 = "#d2d2d2",
-    base07 = "#dadada",
-    base08 = "#e57474",
-    base09 = "#e19d5c",
-    base0A = "#e5c76b",
-    base0B = "#8ccf7e",
-    base0C = "#71baf2",
-    base0D = "#67cbe7",
-    base0E = "#c47fd5",
-    base0F = "#ef7d7d",
-  }
+  -- palette = {
+  --   base00 = "#141b1e",
+  --   base01 = "#1e2527",
+  --   base02 = "#232a2d",
+  --   base03 = "#404749",
+  --   base04 = "#b3b9b8",
+  --   base05 = "#cacaca",
+  --   base06 = "#d2d2d2",
+  --   base07 = "#dadada",
+  --   base08 = "#e57474",
+  --   base09 = "#e19d5c",
+  --   base0A = "#e5c76b",
+  --   base0B = "#8ccf7e",
+  --   base0C = "#71baf2",
+  --   base0D = "#67cbe7",
+  --   base0E = "#c47fd5",
+  --   base0F = "#ef7d7d",
+  -- }
+  -- charcoal_dark
+ palette = {
+     base00 = "#120f09",
+     base01 = "#1e1812",
+     base02 = "#35291d",
+     base03 = "#66553f",
+     base04 = "#a28662",
+     base05 = "#c0a179",
+     base06 = "#d6b891",
+     base07 = "#292016",
+     base08 = "#887254",
+     base09 = "#d6b891",
+     base0A = "#c0a179",
+     base0B = "#927a60",
+     base0C = "#a28662",
+     base0D = "#d6b891",
+     base0E = "#a28662",
+     base0F = "#887254",
+ }
 end
 if palette then
   require("mini.base16").setup({
@@ -260,7 +297,7 @@ if palette then
       ['echasnovski/mini.nvim'] = true,
     }
   })
-  vim.g.colors_name = "minibase-core"
+  vim.g.colors_name = "minibase"
 end
 -- General: =====================================================================
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = palette.base00 })

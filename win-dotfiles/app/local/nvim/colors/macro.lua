@@ -1,10 +1,10 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                       Miniushen                         ║
+--          ║                       Macro                             ║
 --          ╚═════════════════════════════════════════════════════════╝
 
 -- Clear hlgroups and set colors_name {{{
 vim.cmd.hi('clear')
-vim.g.colors_name = 'minimacro'
+vim.g.colors_name = 'macro'
 -- }}}
 
 -- Palette {{{
