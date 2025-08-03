@@ -30,6 +30,7 @@ local filetype_icons = {
   ["conf"] = "",
   ["haskell"] = "",
   ["ruby"] = "",
+  ["file"] = "",
 }
 local function pad_string(str, left_pad, right_pad)
   local left = string.rep(" ", left_pad or 0)
@@ -44,23 +45,23 @@ local function filetype()
 end
 -- a function to obtain and format the file name: ==================================================================
 local function file_name()
-  local filename = string.format(vim.fn.expand("%:t")):upper()
+  local filename = string.format(vim.fn.expand("%:t"))
   if filename == "" then
     filename = "[NO NAME]"
   end
-  if string.match(filename, "PLUGIN") then
+  if string.match(filename, "plugin") then
     filename = "FILE"
   end
-  if string.match(filename, "MAIN") then
+  if string.match(filename, "main") then
     filename = "PICKER"
   end
-  if vim.bo.buftype == "TERMINAL" then
+  if vim.bo.buftype == "terminal" then
     filename = "TERMINAL"
   end
   -- change highlight group based on if the file has been modified: =============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
   local modified_indicator = vim.bo.modified and '' or " "
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 2,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_start
+  return "%#" .. highlight_group .. "# " .. pad_string(filetype_icons["file"], 2, 1) ..  pad_string(filename, 1,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_start
 end
 -- a function to obtain and format the current mode: ===========================================================
 local function current_mode()
@@ -86,11 +87,11 @@ local function lsp()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc#" .. pad_string("󰄭  LSP", 1, 2)
+        return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc#" .. pad_string("✔   LSP", 1, 2)
       end
     end
   end
-  return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc# " .. pad_string("󰄭  NOLSP", 1, 2)
+  return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc# " .. pad_string("✘  NOLSP", 1, 2)
 end
 -- a function to assign highlight group to the separator: ======================================================
 local function separator()

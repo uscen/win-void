@@ -1221,6 +1221,22 @@ later(function()
           end
       end,
   })
+  -- When at eob, bring the current line towards center screen:======================
+  vim.api.nvim_create_autocmd({ "BufEnter", "CursorMoved", "CursorHoldI" }, {
+    group = vim.api.nvim_create_augroup("at_eob", { clear = true }),
+    callback = function()
+      local win_h = vim.api.nvim_win_get_height(0)
+      local off = math.min(vim.o.scrolloff, math.floor(win_h / 2))
+      local dist = vim.fn.line("$") - vim.fn.line(".")
+      local rem = vim.fn.line("w$") - vim.fn.line("w0") + 1
+
+      if dist < off and win_h - rem + dist < off then
+        local view = vim.fn.winsaveview()
+        view.topline = view.topline + off - (win_h - rem + dist)
+        vim.fn.winrestview(view)
+      end
+    end,
+  })
   -- Make it easier to close man-files when opened inline: ==============================
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("man_unlisted", { clear = true }),
