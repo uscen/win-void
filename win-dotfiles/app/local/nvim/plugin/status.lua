@@ -84,10 +84,29 @@ local function diagnostics()
   return #result > 0 and "%#statusline_diagnostics# " .. table.concat(result, " ") .. " " or ""
 end
 
+-- a function to obtain and format the LSP:==================================================================
+local function stbufnr()
+  return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
+end
+local function lsp()
+  if rawget(vim, "lsp") then
+    local padding = 1
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
+        return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(" 󰄭  " .. string.format(client.name):upper() .. string.rep(" ", padding), 4, 6)
+      end
+    end
+  end
+  return ""
+end
+
 -- a function to display the current search position:=========================================================
 local function search_position()
   local ok, result = pcall(vim.fn.searchcount, { maxcount = 999, timeout = 500 })
   if not ok or result.total == 0 then
+    return ""
+  end
+  if vim.v.hlsearch == 0 then
     return ""
   end
   return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(vim.fn.getreg("/"), 4,1) .. " [" .. result.current .. "/" .. result.total .. pad_string("] ", 0,4)
@@ -116,6 +135,7 @@ function Status_line()
     separator(),
     diagnostics(),
     miscellaneous(),
+    lsp(),
     filetype()
   })
 end
