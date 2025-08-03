@@ -59,21 +59,21 @@ local function file_name()
   end
   -- change highlight group based on if the file has been modified:=============================================
   local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  local modified_indicator = vim.bo.modified and "●" or " "
-  return "%#" .. highlight_group .. "# " .. pad_string(filename, 2,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_end
+  local modified_indicator = vim.bo.modified and '' or " "
+  return "%#" .. highlight_group .. "# " .. pad_string(filename, 2,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_start
 end
 -- a function to obtain and format the current mode::========================================================
 local function current_mode()
   local mode = vim.fn.mode()
   local mode_aliases = {
-    n = "no",
-    i = "in",
-    t = "te",
-    c = "co",
-    s = "se",
-    v = "vi",
-    V = "vl",
-    [""] = "vb",
+    n = "N",
+    i = "I",
+    t = "T",
+    c = "C",
+    s = "S",
+    v = "V-B",
+    V = "V-L",
+    [""] = "V-B",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
   return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
@@ -86,11 +86,11 @@ local function lsp()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc#" .. pad_string("󰄭  LSP", 1, 2)
+        return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc#" .. pad_string("󰄭  LSP", 1, 2)
       end
     end
   end
-  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string("󰄭  NOLSP", 1, 2)
+  return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc# " .. pad_string("󰄭  NOLSP", 1, 2)
 end
 -- a function to assign highlight group to the separator====================================================
 local function separator()
@@ -127,12 +127,12 @@ vim.keymap.set( "n", "<leader>st",
 vim.cmd("set statusline=%!v:lua.Status_line()")
 -- set colors for each statusline components:==============================================================
 local group_styles = {
-  ["Statusline"]                  = { fg = "#1e2527", bg = "#141b1e" },
+  ["Statusline"]                  = { fg = "#1e2527", bg = "#1e2527" },
   ["statusline_diagnostics"]      = { fg = "#cacaca", bg = "#141b1e" },
-  ["statusline_file"]             = { fg = "#8ccf7e", bg = "#1e2527", bold = true },
+  ["statusline_file"]             = { fg = "#8ccf7e", bg = "#282f32", bold = true },
   ["statusline_mode"]             = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
-  ["StatuslineFade"]              = { fg = "#1e2527", bg = "#8ccf7e", bold = true },
-  ["StatuslineFade1"]              = { fg = "#141b1e", bg = "#1e2527", bold = true },
+  ["StatuslineFade"]              = { fg = "#282f32", bg = "#8ccf7e", bold = true },
+  ["StatuslineFade1"]              = { fg = "#282f32", bg = "#1e2527", bold = true },
   ["statusline_separator"]        = {link = "Statusline"},
   ["statusline_filetype"]         = {link = "statusline_mode"},
   ["statusline_modifiedfile"]     = { link = "statusline_file" },
