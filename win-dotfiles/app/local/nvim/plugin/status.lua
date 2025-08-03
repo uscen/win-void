@@ -2,8 +2,8 @@
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
 -- Speartor: ==================================================================================================
-local fade_start = "█▓▒░ "
-local fade_end   = " ░▒▓█"
+local fade_start = "▓▒░"
+local fade_end = "░▒▓"
 
 -- Function to add padding to both sides of a string:=========================================================
 local function pad_string(str, left_pad, right_pad)
@@ -34,26 +34,53 @@ local function file_name()
 end
 
 -- a function to obtain file type:============================================================================
+local filetype_icons = {
+  ["typescript"] = "",
+  ["javascript"] = "",
+  ["javascriptreact"] = "",
+  ["typescriptreact"] = "",
+  ["svelte"] = "",
+  ["python"] = "",
+  ["java"] = "",
+  ["html"] = "",
+  ["css"] = "",
+  ["scss"] = "",
+  ["php"] = "",
+  ["kotlin"] = "",
+  ["markdown"] = "",
+  ["sh"] = "",
+  ["zsh"] = "",
+  ["vim"] = "",
+  ["rust"] = "",
+  ["c"] = "",
+  ["cpp"] = "",
+  ["cs"] = "",
+  ["go"] = "",
+  ["lua"] = "",
+  ["conf"] = "",
+  ["haskell"] = "",
+  ["ruby"] = "",
+}
 local function filetype()
-  local ft = string.format(" %s ", vim.bo.filetype):upper()
-  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(ft, 1,4) .. "%*"
+  local ft = vim.bo.filetype
+  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(filetype_icons[ft], 1,3) .. "%*"
 end
 
 -- a function to obtain and format the current mode::========================================================
 local function current_mode()
   local mode = vim.fn.mode()
   local mode_aliases = {
-    n = "normal",
-    i = "insert",
-    t = "terminal",
-    c = "command",
-    s = "serch",
-    v = "visual",
-    V = "visual_line",
-    [""] = "visual_block",
+    n = "no",
+    i = "in",
+    t = "te",
+    c = "co",
+    s = "se",
+    v = "vi",
+    V = "vl",
+    [""] = "vb",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
-  return "%#statusline_mode#" .. pad_string(mode, 4,1) .. " " .. "%#StatuslineFade#".. fade_end
+  return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
 end
 
 -- a function to obtain and format the LSP:==================================================================
@@ -64,11 +91,11 @@ local function lsp()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(" 󰄭  LSP", 1, 4)
+        return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc#" .. pad_string("󰄭  LSP", 1, 2)
       end
     end
   end
-  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string(" 󰄭  NOLSP", 1, 4)
+  return "%#StatuslineFade1#".. fade_start .. "%#statusline_misc# " .. pad_string("󰄭  NOLSP", 1, 2)
 end
 
 -- a function to assign highlight group to the separator====================================================
