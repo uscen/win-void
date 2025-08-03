@@ -825,7 +825,7 @@ now(function()
   vim.opt.equalalways            = true
   vim.opt.title                  = true
   vim.opt.tgc                    = true
-  vim.opt.relativenumber         = false
+  vim.opt.relativenumber         = true
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
@@ -911,7 +911,7 @@ now(function()
   vim.opt.foldminlines           = 4
   vim.opt.foldcolumn             = "0"
   vim.opt.foldopen               = "hor,mark,tag,search,insert,quickfix,undo"
-  vim.opt.foldexpr               = "nvim_treesitter#foldexpr()"
+  vim.opt.foldexpr               = "v:lua.vim.treesitter.foldexpr()"
   vim.opt.foldmethod             = "expr"
   vim.opt.foldtext               = ""
   -- Memory: ================================================================
@@ -1072,9 +1072,9 @@ later(function()
     end,
   })
   -- Remove hl search when Move Or  enter Insert : ==================================
-  local trim_space = vim.api.nvim_create_augroup("trim_spaces", { clear = true })
+  local trim_spaces = vim.api.nvim_create_augroup("trim_spaces", { clear = true })
   vim.api.nvim_create_autocmd("BufWritePre", {
-    group = trim_space ,
+    group = trim_spaces,
     callback = function()
       local curpos = vim.api.nvim_win_get_cursor(0)
       vim.cmd([[keeppatterns %s/\s\+$//e]])
@@ -1082,7 +1082,7 @@ later(function()
     end,
   })
   vim.api.nvim_create_autocmd("BufWritePre", {
-    group = trim_space,
+    group = trim_spaces,
     callback = function()
       local n_lines = vim.api.nvim_buf_line_count(0)
       local last_nonblank = vim.fn.prevnonblank(n_lines)
@@ -1194,6 +1194,32 @@ later(function()
         vim.wo.cursorline = false
       end
     end,
+  })
+  -- show relativenumber only in active indow:  =============================================
+  local line_numbers_group = vim.api.nvim_create_augroup('toggle_line_numbers', {})
+  vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
+      group = line_numbers_group,
+      desc = 'Toggle relative line numbers on',
+      callback = function()
+          if vim.wo.nu and not vim.startswith(vim.api.nvim_get_mode().mode, 'i') then
+              vim.wo.relativenumber = true
+          end
+      end,
+  })
+  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
+      group = line_numbers_group,
+      desc = 'Toggle relative line numbers off',
+      callback = function(args)
+          if vim.wo.nu then
+              vim.wo.relativenumber = false
+          end
+          -- Redraw here to avoid having to first write something for the line numbers to update.
+          if args.event == 'CmdlineEnter' then
+              if not vim.tbl_contains({ '@', '-' }, vim.v.event.cmdtype) then
+                  vim.cmd.redraw()
+              end
+          end
+      end,
   })
   -- Make it easier to close man-files when opened inline: ==============================
   vim.api.nvim_create_autocmd("FileType", {
