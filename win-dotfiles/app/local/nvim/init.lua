@@ -875,11 +875,13 @@ now(function()
   vim.opt.confirm                = true
   vim.opt.breakindent            = true
   vim.opt.copyindent             = true
+  vim.opt.preserveindent         = true
   vim.opt.startofline            = true
   vim.opt.autowrite              = true
   vim.opt.wrapscan               = true
   vim.opt.tildeop                = true
   vim.opt.exrc                   = true
+  vim.opt.autochdir              = true
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false
   vim.opt.joinspaces             = false
@@ -894,6 +896,7 @@ now(function()
   vim.opt.breakindentopt         = "list:-1"
   vim.opt.inccommand             = "nosplit"
   vim.opt.jumpoptions            = "view"
+  vim.opt.selection              = "old"
   vim.opt.whichwrap              = "b,s,<,>,[,],h,l"
   vim.opt.iskeyword              = "@,48-57,_,192-255,-"
   vim.opt.formatlistpat          = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
@@ -995,7 +998,7 @@ local diagnostic_opts = {
       max = 'ERROR',
     },
     text = {
-      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.HINT] = "󰌵 ",
       [vim.diagnostic.severity.INFO] = " ",
       [vim.diagnostic.severity.WARN] = " ",
       [vim.diagnostic.severity.ERROR] = " ",
@@ -1056,24 +1059,17 @@ later(function()
     end,
   })
   -- Remove hl search when Move Or  enter Insert : ==================================
-  local clear_hl = vim.api.nvim_create_augroup("hl_clear", { clear = true })
-  vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
-      group = clear_hl,
+  vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "CursorMoved" }, {
+      group = vim.api.nvim_create_augroup("hl_clear", { clear = true }),
       callback = vim.schedule_wrap(function()
-          vim.cmd.nohlsearch()
+        if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
+          vim.schedule(function()
+            vim.cmd.nohlsearch()
+          end)
+        end
       end),
   })
-  vim.api.nvim_create_autocmd("CursorMoved", {
-    group = clear_hl,
-    callback = function()
-      if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
-        vim.schedule(function()
-          vim.cmd.nohlsearch()
-        end)
-      end
-    end,
-  })
-  -- Remove hl search when Move Or  enter Insert : ==================================
+  -- Trim space and lastlines if empty : ========================================
   local trim_spaces = vim.api.nvim_create_augroup("trim_spaces", { clear = true })
   vim.api.nvim_create_autocmd("BufWritePre", {
     group = trim_spaces,
@@ -1089,6 +1085,26 @@ later(function()
       local n_lines = vim.api.nvim_buf_line_count(0)
       local last_nonblank = vim.fn.prevnonblank(n_lines)
       if last_nonblank < n_lines then vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {}) end
+    end,
+  })
+  -- Execute command and stay in the command-line window: ===========================
+  vim.api.nvim_create_autocmd("CmdwinEnter", {
+    group = vim.api.nvim_create_augroup("execute_cmd_and_stay", { clear = true }),
+    callback = function(args)
+      vim.keymap.set({ "n", "i" }, "<S-CR>", "<cr>q:", { buffer = args.buf })
+    end,
+  })
+  -- don't list terminal with buffers and disable folds,numbers...:==================
+  vim.api.nvim_create_autocmd("TermOpen", {
+    group = vim.api.nvim_create_augroup("custom-term", { clear = true }),
+    callback = function()
+      vim.opt_local.scrolloff = 0
+      vim.opt_local.buflisted = false
+      vim.opt_local.number = false
+      vim.opt_local.relativenumber = false
+      vim.opt_local.foldenable = false
+      vim.opt_local.foldmethod = "manual"
+      vim.bo.filetype = "terminal"
     end,
   })
   -- Auto-close terminal when process exits: ========================================
@@ -1185,11 +1201,11 @@ later(function()
   })
   -- show cursor line only in active window:  =======================================
   local cursorline_active_window_augroup = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true })
-  vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave","CmdlineLeave", "WinEnter" }, {
+  vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.w.auto_cursorline then
-        vim.wo.colorcolumn = '130'
+        vim.wo.colorcolumn = "130"
         vim.wo.cursorline = true
         vim.w.auto_cursorline = nil
       end
@@ -1199,7 +1215,7 @@ later(function()
     group = cursorline_active_window_augroup,
     callback = function()
       if vim.wo.cursorline then
-        vim.wo.colorcolumn = ''
+        vim.wo.colorcolumn = ""
         vim.w.auto_cursorline = true
         vim.wo.cursorline = false
       end
