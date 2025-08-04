@@ -1,5 +1,5 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                        Minibase                         ║
+--          ║                         Base                            ║
 --          ╚═════════════════════════════════════════════════════════╝
 local palette
 if vim.o.background == "light" then
@@ -298,7 +298,7 @@ if palette then
       ['echasnovski/mini.nvim'] = true,
     }
   })
-  vim.g.colors_name = "minibase"
+  vim.g.colors_name = "base"
 end
 -- General: =====================================================================
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = palette.base00 })
