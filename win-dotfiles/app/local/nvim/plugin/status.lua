@@ -14,8 +14,8 @@ local function hl(str, hl_group, restore)
   return restore and table.concat({ '%#', hl_group, '#', str, '%*' })
     or table.concat({ '%#', hl_group, '#', str })
 end
--- separator: =======================================================================================================
-local function separator()
+-- get_separator: =======================================================================================================
+local function get_separator()
   local highlight_group = "StatusLineseparator"
   return "%#" .. highlight_group .. "#%="
 end
@@ -31,6 +31,8 @@ local function get_ft()
     DAB = { "sql", "mysql", "plsql", "postgresql" },
     TER = { "terminal", "toggleterm", "floaterm" },
     GIT = { "gitcommit", "gitrebase", "gitconfig" },
+    WEL = { "ministarter", "dashboard", "alpha" },
+    PLG = { "minipick", "minifiles" }
   }
   for cat, fts in pairs(categories) do
     if vim.tbl_contains(fts, ft) then
@@ -77,7 +79,7 @@ local modes = {
   ['!']      = 'SHE',
   ['t']      = 'TER',
 }
-local function current_mode()
+local function get_mode()
   local mode = vim.fn.mode()
   local mode_str = modes[mode]
   return hl(pad_string(mode_str, 2, 2), "StatusLineHeader")
@@ -143,17 +145,10 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
 })
 -- a function to call and place the statusline components: =====================================================
 function Status_line()
-  local curr_ft = vim.bo.filetype
-  local disabled_filetypes = {
-    "ministarter",
-  }
-  if vim.tbl_contains(disabled_filetypes, curr_ft) then
-    return nil
-  end
   return table.concat({
-    current_mode(),
+    get_mode(),
+    get_separator(),
     get_diagnostic(),
-    separator(),
     get_ft(),
   })
 end

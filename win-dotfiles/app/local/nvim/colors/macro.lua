@@ -530,7 +530,7 @@ local hlgroups = {
   StatusLineGitChanged = { bg = c_macroBg3, fg = c_carpYellow },
   StatusLineGitRemoved = { bg = c_macroBg3, fg = c_macroRed },
   StatusLineGitBranch = { bg = c_macroBg3, fg = c_macroAsh },
-  StatusLineHeader = { bg = c_macroBg1, fg = c_macroGray1 },
+  StatusLineHeader = { bg = c_macroBg3, fg = c_macroFg2 },
   StatusLineHeaderModified = { bg = c_macroGreen1, fg = c_macroBg1 },
   StatusLineFileType  = { link= "StatusLineHeader" },
   StatusLineDiagnostic = { bg = c_macroBg1, fg = c_macroGray2 },
