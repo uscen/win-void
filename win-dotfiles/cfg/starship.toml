@@ -30,7 +30,7 @@ palette = 'kanagawa'
 command_timeout = 3600000
 [palettes.kanagawa]
 color_fg0 = '#181616'
-color_bg1 = '#282828'
+color_bg1 = '#201d1d'
 color_bg3 = '#c4b28a'
 color_blue = '#8a9a7b'
 color_aqua = '#8a9a7b'
