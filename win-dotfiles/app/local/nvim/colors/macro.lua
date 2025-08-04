@@ -533,6 +533,7 @@ local hlgroups = {
   StatusLineHeader = { bg = c_macroBg4, fg = c_macroFg1 },
   StatusLineHeaderModified = { bg = c_macroGreen1, fg = c_macroBg1 },
   StatusLineLsp = { link= "StatusLineHeader" },
+  StatusLineNoLsp = {fg = c_macroBg1 , bg = c_macroRed },
   StatusLineDiagnostic = { bg = c_macroBg1, fg = c_macroGray2 },
   StatusLineDiagnosticError = { link = "DiagnosticSignError" },
   StatusLineDiagnosticWarn = { link = "DiagnosticSignWarn" },

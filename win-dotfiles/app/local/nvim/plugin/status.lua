@@ -126,11 +126,11 @@ local function lsp()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatusLineLsp#" .. pad_string("[LSP]", 1, 1)
+        return hl(pad_string("LP", 2, 2), "StatusLineLsp")
       end
     end
   end
-  return hl(pad_string("[NOLSP]", 1, 1), "StatusLineLsp")
+  return hl(pad_string("LP", 2, 2), "StatusLineNoLsp")
 end
 -- a function to assign highlight group to the separator: ======================================================
 local function separator()
