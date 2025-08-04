@@ -26,9 +26,9 @@ $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
-palette = 'kanagawa'
+palette = 'macro'
 command_timeout = 3600000
-[palettes.kanagawa]
+[palettes.macro]
 color_fg0 = '#181616'
 color_bg1 = '#201d1d'
 color_bg3 = '#c4b28a'

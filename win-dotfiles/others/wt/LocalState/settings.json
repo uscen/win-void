@@ -13,7 +13,7 @@
   "launchMode": "focus",
   "profiles": {
     "defaults": {
-      "colorScheme": "KanagawaDragon",
+      "colorScheme": "Macro",
       "cursorShape": "filledBox",
       "cursorColor": "#8a9a7b",
       "bellStyle": "none",
@@ -51,7 +51,7 @@
   },
   "schemes": [
     {
-      "name": "KanagawaDragon",
+      "name": "Macro",
       "background": "#181616",
       "black": "#0d0c0c",
       "brightBlack": "#a6a69c",
