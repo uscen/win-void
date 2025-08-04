@@ -7,12 +7,12 @@ local function pad_string(str, left_pad, right_pad)
   local right = string.rep(" ", right_pad or 0)
   return left .. str .. right
 end
-local function hl(str, hl, restore)
-  hl = hl or ''
+local function hl(str, hl_group, restore)
+  hl_group = hl_group or ''
   str = str and tostring(str) or ''
   restore = restore == nil or restore
-  return restore and table.concat({ '%#', hl, '#', str, '%*' })
-    or table.concat({ '%#', hl, '#', str })
+  return restore and table.concat({ '%#', hl_group, '#', str, '%*' })
+    or table.concat({ '%#', hl_group, '#', str })
 end
 -- a function to obtain and format the current mode: ===========================================================
 local modes = {
@@ -84,7 +84,7 @@ local function get_diag_sign_text(severity)
       or diag_signs_default_text[diag_severity_map[severity]]
     )
 end
-local function diag()
+local function get_diagnostic()
   if vim.b.diag_str_cache then
     return vim.b.diag_str_cache
   end
@@ -119,18 +119,11 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
   end,
 })
 -- a function to obtain and format the LSP: ====================================================================
-local function stbufnr()
-  return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
-end
-local function lsp()
-  if rawget(vim, "lsp") then
-    for _, client in ipairs(vim.lsp.get_clients()) do
-      if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return hl(pad_string("LP", 2, 2), "StatusLineLsp")
-      end
-    end
-  end
-  return hl(pad_string("LP", 2, 2), "StatusLineNoLsp")
+local function get_position()
+    local line = vim.fn.line '.'
+    local line_count = vim.api.nvim_buf_line_count(0)
+    local str = hl(pad_string(line  .. "/" .. line_count, 1, 1), "StatuslinePosition")
+    return str
 end
 -- a function to assign highlight group to the separator: ======================================================
 local function separator()
@@ -149,8 +142,8 @@ function Status_line()
   return table.concat({
     current_mode(),
     separator(),
-    diag(),
-    lsp(),
+    get_diagnostic(),
+    get_position(),
   })
 end
 -- default with statusline but can be toggled with <leader>st: ================================================
