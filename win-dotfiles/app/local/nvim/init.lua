@@ -897,6 +897,7 @@ now(function()
   vim.opt.inccommand             = "nosplit"
   vim.opt.jumpoptions            = "view"
   vim.opt.selection              = "old"
+  vim.opt.nrformats              = "bin,hex,alpha"
   vim.opt.whichwrap              = "b,s,<,>,[,],h,l"
   vim.opt.iskeyword              = "@,48-57,_,192-255,-"
   vim.opt.formatlistpat          = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
@@ -1519,7 +1520,8 @@ later(function()
     end
   end)
   -- Terminal: =====================================================================
-  vim.keymap.set({ "n", "t" }, "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
+  vim.keymap.set("t", "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
   vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { noremap = true, silent = true })
   vim.keymap.set("n", "<leader>t", function()
     vim.cmd.vnew()
