@@ -1,25 +1,25 @@
-/* Kanagawa Dragon Vimium Theme */
+/* Macro Vimium Theme */
 :root {
   /* Base & surfaces (Sumi Ink) */
-  --vimium-base: #181616; /* dragonBg */
-  --vimium-secondry: #201d1d; /* dragonBg */
-  --vimium-crust: #1f1f28; /* sumiInk1 */
-  --vimium-surface0: #2a2a37; /* sumiInk2 */
-  --vimium-surface1: #363646; /* sumiInk3 */
-  --vimium-surface2: #54546d; /* sumiInk4 */
+  --vimium-base: #181616;
+  --vimium-secondry: #201d1d;
+  --vimium-crust: #1f1f28;
+  --vimium-surface0: #2a2a37;
+  --vimium-surface1: #363646;
+  --vimium-surface2: #54546d;
 
   /* Text */
-  --vimium-text: #c8c093; /* dragonWhite */
-  --vimium-subtext0: #54546d; /* sumiInk4 */
-  --vimium-subtext1: #767676; /* dragonComment */
+  --vimium-text: #c8c093;
+  --vimium-subtext0: #54546d;
+  --vimium-subtext1: #767676;
 
-  /* Accent colors (Dragon) */
-  --vimium-green: #8a9a7b; /* dragonGreen - matches / success */
-  --vimium-blue: #7fb4ca; /* dragonBlue - links, selected */
-  --vimium-rosewater: #c4746e; /* dragonRed - URLs */
-  --vimium-peach: #c38a94; /* dragonOrange - warnings */
-  --vimium-lavender: #8992a7; /* dragonViolet - accents */
-  --vimium-yellow: #c0a36e; /* dragonYellow - hint highlight */
+  /* Accent colors (Macro) */
+  --vimium-green: #8a9a7b;
+  --vimium-blue: #7fb4ca;
+  --vimium-rosewater: #c4746e;
+  --vimium-peach: #c38a94;
+  --vimium-lavender: #8992a7;
+  --vimium-yellow: #c0a36e;
 }
 
 /* -----------------------------------------------------------
