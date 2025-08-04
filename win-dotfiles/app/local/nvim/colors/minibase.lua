@@ -39,6 +39,7 @@ if vim.o.background == "light" then
   --   base0E = "#955AE7",
   --   base0F = "#BF40BF",
   -- }
+  -- charcoal_light
   palette = {
       base00 = "#d6b891",
       base01 = "#c0a179",
