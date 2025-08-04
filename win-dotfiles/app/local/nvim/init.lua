@@ -1060,15 +1060,24 @@ later(function()
     end,
   })
   -- Remove hl search when Move Or  enter Insert : ==================================
-  vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter", "CursorMoved" }, {
-      group = vim.api.nvim_create_augroup("hl_clear", { clear = true }),
+  local clear_hl = vim.api.nvim_create_augroup("hl_clear", { clear = true })
+  vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+      group = clear_hl,
       callback = vim.schedule_wrap(function()
-        if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
-          vim.schedule(function()
-            vim.cmd.nohlsearch()
-          end)
-        end
+        vim.schedule(function()
+          vim.cmd.nohlsearch()
+        end)
       end),
+  })
+  vim.api.nvim_create_autocmd("CursorMoved", {
+    group = clear_hl,
+    callback = function()
+      if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
+        vim.schedule(function()
+          vim.cmd.nohlsearch()
+        end)
+      end
+    end,
   })
   -- Trim space and lastlines if empty : ========================================
   local trim_spaces = vim.api.nvim_create_augroup("trim_spaces", { clear = true })
