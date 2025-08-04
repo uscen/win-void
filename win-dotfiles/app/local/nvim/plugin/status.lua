@@ -67,14 +67,26 @@ end
 local function current_mode()
   local mode = vim.fn.mode()
   local mode_aliases = {
-    n = "N",
-    i = "I",
-    t = "T",
-    c = "C",
-    s = "S",
-    v = "V-B",
-    V = "V-L",
-    [""] = "V-B",
+    ["n"] = "N",
+    ["no"] = "N",
+    ["v"] = "V",
+    ["V"] = "VL",
+    [""] = "VB",
+    ["s"] = "S",
+    ["S"] = "SL",
+    [""] = "SB",
+    ["i"] = "I",
+    ["ic"] = "I",
+    ["R"] = "R",
+    ["Rv"] = "VR",
+    ["c"] = "C",
+    ["cv"] = "EX",
+    ["ce"] = "X",
+    ["r"] = "P",
+    ["rm"] = "M",
+    ["r?"] = "C",
+    ["!"] = "SH",
+    ["t"] = "T",
   }
   mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
   return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
@@ -87,11 +99,11 @@ local function lsp()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc#" .. pad_string("✔   LSP", 1, 2)
+        return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc#" .. pad_string("   [LSP]", 1, 2)
       end
     end
   end
-  return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc# " .. pad_string("✘  NOLSP", 1, 2)
+  return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc# " .. pad_string(" [NOLSP]", 1, 2)
 end
 -- a function to assign highlight group to the separator: ======================================================
 local function separator()

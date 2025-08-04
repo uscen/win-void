@@ -1050,7 +1050,9 @@ later(function()
   vim.api.nvim_create_autocmd("VimResized", {
     group = vim.api.nvim_create_augroup("resize_splits", { clear = true }),
     callback = function()
-      vim.cmd("wincmd =")
+      local current_tab = vim.fn.tabpagenr()
+      vim.cmd("tabdo wincmd =")
+      vim.cmd("tabnext " .. current_tab)
     end,
   })
   -- Remove hl search when Move Or  enter Insert : ==================================
