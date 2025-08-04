@@ -2,95 +2,122 @@
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
 -- global: ======================================================================================================
-local fade_start = "▓▒░"
-local fade_end = "░▒▓"
-local filetype_icons = {
-  ["typescript"] = "",
-  ["javascript"] = "",
-  ["javascriptreact"] = "",
-  ["typescriptreact"] = "",
-  ["svelte"] = "",
-  ["python"] = "",
-  ["java"] = "",
-  ["html"] = "",
-  ["css"] = "",
-  ["scss"] = "",
-  ["php"] = "",
-  ["kotlin"] = "",
-  ["markdown"] = "",
-  ["sh"] = "",
-  ["zsh"] = "",
-  ["vim"] = "",
-  ["rust"] = "",
-  ["c"] = "",
-  ["cpp"] = "",
-  ["cs"] = "",
-  ["go"] = "",
-  ["lua"] = "",
-  ["conf"] = "",
-  ["haskell"] = "",
-  ["ruby"] = "",
-  ["file"] = "",
-}
 local function pad_string(str, left_pad, right_pad)
   local left = string.rep(" ", left_pad or 0)
   local right = string.rep(" ", right_pad or 0)
   return left .. str .. right
 end
--- a function to obtain file type: =================================================================================
-local function filetype()
-  local ft = vim.bo.filetype
-  local ft_icons_or_name = filetype_icons[ft] and filetype_icons[ft] or ""
-  return "%#StatuslineFade#".. fade_start .. "%#statusline_filetype#" .. pad_string(ft_icons_or_name, 1,3) .. "%*"
-end
--- a function to obtain and format the file name: ==================================================================
-local function file_name()
-  local filename = string.format(vim.fn.expand("%:t"))
-  if filename == "" then
-    filename = "[NO NAME]"
-  end
-  if string.match(filename, "plugin") then
-    filename = "FILE"
-  end
-  if string.match(filename, "main") then
-    filename = "PICKER"
-  end
-  if vim.bo.buftype == "terminal" then
-    filename = "TERMINAL"
-  end
-  -- change highlight group based on if the file has been modified: =============================================
-  local highlight_group = vim.bo.modified and filename ~= "[no name]" and "statusline_modifiedfile" or "statusline_file"
-  local modified_indicator = vim.bo.modified and '' or " "
-  return "%#" .. highlight_group .. "# " .. pad_string(filetype_icons["file"], 2, 1) ..  pad_string(filename, 1,1).. modified_indicator .. " " .. "%#StatuslineFade1#".. fade_start
+local function hl(str, hl, restore)
+  hl = hl or ''
+  str = str and tostring(str) or ''
+  restore = restore == nil or restore
+  return restore and table.concat({ '%#', hl, '#', str, '%*' })
+    or table.concat({ '%#', hl, '#', str })
 end
 -- a function to obtain and format the current mode: ===========================================================
+local modes = {
+  ['n']      = 'NO',
+  ['no']     = 'OP',
+  ['nov']    = 'OC',
+  ['noV']    = 'OL',
+  ['no\x16'] = 'OB',
+  ['\x16']   = 'VB',
+  ['niI']    = 'IN',
+  ['niR']    = 'RE',
+  ['niV']    = 'RV',
+  ['nt']     = 'NT',
+  ['ntT']    = 'TM',
+  ['v']      = 'VI',
+  ['vs']     = 'VI',
+  ['V']      = 'VL',
+  ['Vs']     = 'VL',
+  ['\x16s']  = 'VB',
+  ['s']      = 'SE',
+  ['S']      = 'SL',
+  ['\x13']   = 'SB',
+  ['i']      = 'IN',
+  ['ic']     = 'IC',
+  ['ix']     = 'IX',
+  ['R']      = 'RE',
+  ['Rc']     = 'RC',
+  ['Rx']     = 'RX',
+  ['Rv']     = 'RV',
+  ['Rvc']    = 'RC',
+  ['Rvx']    = 'RX',
+  ['c']      = 'CO',
+  ['cv']     = 'CV',
+  ['r']      = 'PR',
+  ['rm']     = 'PM',
+  ['r?']     = 'P?',
+  ['!']      = 'SH',
+  ['t']      = 'TE',
+}
 local function current_mode()
+  local hl_type = vim.bo.mod and 'StatusLineHeaderModified' or 'StatusLineHeader'
   local mode = vim.fn.mode()
-  local mode_aliases = {
-    ["n"] = "N",
-    ["no"] = "N",
-    ["v"] = "V",
-    ["V"] = "VL",
-    [""] = "VB",
-    ["s"] = "S",
-    ["S"] = "SL",
-    [""] = "SB",
-    ["i"] = "I",
-    ["ic"] = "I",
-    ["R"] = "R",
-    ["Rv"] = "VR",
-    ["c"] = "C",
-    ["cv"] = "EX",
-    ["ce"] = "X",
-    ["r"] = "P",
-    ["rm"] = "M",
-    ["r?"] = "C",
-    ["!"] = "SH",
-    ["t"] = "T",
-  }
-  mode = mode and mode_aliases[mode] and mode_aliases[mode]:upper() or "?"
-  return "%#statusline_mode#" .. pad_string(mode, 2,1) .. " " .. "%#StatuslineFade#".. fade_end
+  local mode_str = (mode == 'n' and (vim.bo.ro or not vim.bo.ma)) and 'RO'
+    or modes[mode]
+  return hl(pad_string(string.format(' %s ', mode_str), 1, 1), hl_type)
 end
+-- a function to obtain and format the LSP: ====================================================================
+local diag_signs_default_text = { 'E', 'W', 'I', 'H' }
+local diag_severity_map = {
+  [1] = 'ERROR',
+  [2] = 'WARN',
+  [3] = 'INFO',
+  [4] = 'HINT',
+  ERROR = 1,
+  WARN = 2,
+  args = 3,
+  HINT = 4,
+}
+local function get_diag_sign_text(severity)
+  local diag_config = vim.diagnostic.config()
+  local signs_text = diag_config
+    and diag_config.signs
+    and type(diag_config.signs) == 'table'
+    and diag_config.signs.text
+  return signs_text
+      and (signs_text[severity] or signs_text[diag_severity_map[severity]])
+    or (
+      diag_signs_default_text[severity]
+      or diag_signs_default_text[diag_severity_map[severity]]
+    )
+end
+local function diag()
+  if vim.b.diag_str_cache then
+    return vim.b.diag_str_cache
+  end
+  local str = ''
+  local buf_cnt = vim.b.diag_cnt_cache or {}
+  for serverity_nr, severity in ipairs({ 'Error', 'Warn', 'INFO', 'Hint' }) do
+    local cnt = buf_cnt[serverity_nr] ~= vim.NIL and buf_cnt[serverity_nr] or 0
+    if cnt > 0 then
+      local icon_text = get_diag_sign_text(serverity_nr)
+      local icon_hl = 'StatusLineDiagnostic' .. severity
+      str = str
+        .. (str == '' and '' or ' ')
+        .. hl(icon_text, icon_hl)
+        .. cnt
+    end
+  end
+  if str:find('%S') then
+    str = str .. ' '
+  end
+  vim.b.diag_str_cache = str
+  return str
+end
+vim.api.nvim_create_autocmd('DiagnosticChanged', {
+  group = vim.api.nvim_create_augroup('StatusLine', {}),
+  desc = 'Update diagnostics cache for the status line.',
+  callback = function(args)
+    vim.b[args.buf].diag_cnt_cache = vim.diagnostic.count(args.buf)
+    vim.b[args.buf].diag_str_cache = nil
+    pcall(vim.cmd.redrawstatus, {
+      mods = { emsg_silent = true },
+    })
+  end,
+})
 -- a function to obtain and format the LSP: ====================================================================
 local function stbufnr()
   return vim.api.nvim_win_get_buf(vim.g.statusline_winid or 0)
@@ -99,15 +126,15 @@ local function lsp()
   if rawget(vim, "lsp") then
     for _, client in ipairs(vim.lsp.get_clients()) do
       if client.attached_buffers[stbufnr()] and client.name ~= "mini.snippets" then
-        return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc#" .. pad_string("   [LSP]", 1, 2)
+        return "%#StatusLineLsp#" .. pad_string("[LSP]", 1, 1)
       end
     end
   end
-  return "%#StatuslineFade1#".. fade_end .. "%#statusline_misc# " .. pad_string(" [NOLSP]", 1, 2)
+  return "%#StatusLineLsp#" .. pad_string("[NOLSP]", 1, 1)
 end
 -- a function to assign highlight group to the separator: ======================================================
 local function separator()
-  local highlight_group = "statusline_separator"
+  local highlight_group = "StatusLineseparator"
   return "%#" .. highlight_group .. "#%="
 end
 -- a function to call and place the statusline components: =====================================================
@@ -121,10 +148,9 @@ function Status_line()
   end
   return table.concat({
     current_mode(),
-    file_name(),
     separator(),
+    diag(),
     lsp(),
-    filetype()
   })
 end
 -- default with statusline but can be toggled with <leader>st: ================================================
@@ -138,19 +164,3 @@ vim.keymap.set( "n", "<leader>st",
   end
 )
 vim.cmd("set statusline=%!v:lua.Status_line()")
--- set colors for each statusline components: =================================================================
-local group_styles = {
-  ["Statusline"]                  = { fg = "#181616", bg = "#181616" },
-  ["statusline_diagnostics"]      = { fg = "#c5c9c5", bg = "#141b1e" },
-  ["statusline_file"]             = { fg = "#8a9a7b", bg = "#201d1d", bold = true },
-  ["statusline_mode"]             = { fg = "#181616", bg = "#8a9a7b", bold = true },
-  ["StatuslineFade"]              = { fg = "#201d1d", bg = "#8a9a7b", bold = true },
-  ["StatuslineFade1"]             = { fg = "#201d1d", bg = "#181616", bold = true },
-  ["statusline_separator"]        = {link = "Statusline"},
-  ["statusline_filetype"]         = {link = "statusline_mode"},
-  ["statusline_modifiedfile"]     = { link = "statusline_file" },
-  ["statusline_misc"]             = {link = "statusline_file"},
-}
-for group, style in pairs(group_styles) do
-  vim.api.nvim_set_hl(0, group, style)
-end

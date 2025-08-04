@@ -857,6 +857,7 @@ now(function()
   vim.opt.winborder              = "double"
   vim.opt.backspace              = "indent,eol,start"
   vim.opt.cursorlineopt          = "screenline,number"
+  vim.opt.tabclose               = 'uselast'
   vim.opt.shortmess              = "FOSWIaco"
   vim.wo.signcolumn              = "yes"
   vim.opt.statuscolumn           = ""
@@ -880,11 +881,13 @@ now(function()
   vim.opt.autowrite              = true
   vim.opt.wrapscan               = true
   vim.opt.tildeop                = true
+  vim.opt.mousemoveevent         = true
   vim.opt.exrc                   = true
   vim.opt.autochdir              = true
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false
   vim.opt.joinspaces             = false
+  vim.opt.helpheight             = 10
   vim.opt.textwidth              = 10
   vim.opt.wrapmargin             = 2
   vim.opt.tabstop                = 2
