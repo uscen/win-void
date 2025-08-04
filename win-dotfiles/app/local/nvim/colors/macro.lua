@@ -525,18 +525,19 @@ local hlgroups = {
   LazyProgressTodo = { fg = c_macroBg5 },
 
   -- statusline
-  StatusLineseparator = { bg = c_macroBg2 },
+  StatusLineseparator = { bg = c_macroBg3 },
   StatusLineGitAdded = { bg = c_macroBg3, fg = c_macroGreen1 },
   StatusLineGitChanged = { bg = c_macroBg3, fg = c_carpYellow },
   StatusLineGitRemoved = { bg = c_macroBg3, fg = c_macroRed },
   StatusLineGitBranch = { bg = c_macroBg3, fg = c_macroAsh },
-  StatusLineHeader = { bg = c_macroBg3, fg = c_macroGray2 },
+  StatusLineHeader = { bg = c_macroBg4, fg = c_macroFg1 },
   StatusLineHeaderModified = { bg = c_macroGreen1, fg = c_macroBg1 },
-  StatusLineLsp = { bg = c_macroBg3, fg = c_macroGray2 },
-  StatusLineDiagnosticError = { link = "diagnosticsignerror" },
-  StatusLineDiagnosticWarn = { link = "diagnosticsignwarn" },
-  StatusLineDiagnosticINFO = { link = "diagnosticsigninfo" },
-  StatusLineDiagnosticHint = { link = "diagnosticsignhint" },
+  StatusLineLsp = { link= "StatusLineHeader" },
+  StatusLineDiagnostic = { bg = c_macroBg1, fg = c_macroGray2 },
+  StatusLineDiagnosticError = { link = "DiagnosticSignError" },
+  StatusLineDiagnosticWarn = { link = "DiagnosticSignWarn" },
+  StatusLineDiagnosticINFO = { link = "DiagnosticSignInfo" },
+  StatusLineDiagnosticHint = { link = "DiagnosticSignHint" },
 
   -- mini.tabline
   MiniTablineCurrent = { bg = c_macroBg1, fg = c_macroGreen1 },

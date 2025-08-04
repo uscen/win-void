@@ -1,7 +1,7 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
--- global: ======================================================================================================
+-- Halpers: =======================================================================================================
 local function pad_string(str, left_pad, right_pad)
   local left = string.rep(" ", left_pad or 0)
   local right = string.rep(" ", right_pad or 0)
@@ -130,7 +130,7 @@ local function lsp()
       end
     end
   end
-  return "%#StatusLineLsp#" .. pad_string("[NOLSP]", 1, 1)
+  return hl(pad_string("[NOLSP]", 1, 1), "StatusLineLsp")
 end
 -- a function to assign highlight group to the separator: ======================================================
 local function separator()
