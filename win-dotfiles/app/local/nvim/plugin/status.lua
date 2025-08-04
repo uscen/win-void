@@ -24,11 +24,13 @@ local function get_ft()
   local ft = vim.bo.filetype:lower()
   local categories = {
     WEB = { "javascript", "typescript", "html", "css", "scss", "sass", "less", "vue", "jsx", "tsx", "markdown", "md" },
-    ENV = { "lua", "conf", "toml", "ini", "vim", "zsh", "gitconfig", "gitcommit", "dockerfile", "makefile", "cmake" },
-    CFG = { "conf", "ini", "toml", "vim", "gitconfig" },
+    ENV = { "lua", "conf", "toml", "ini", "vim", "zsh", "dockerfile", "makefile", "cmake" },
     DAT = { "csv", "xml", "json", "yaml", "toml", "hcl" },
+    CFG = { "conf", "ini", "toml", "vim", "gitconfig" },
     SYS = { "sh", "bash", "zsh", "fish", "powershell" },
     DAB = { "sql", "mysql", "plsql", "postgresql" },
+    TER = { "terminal", "toggleterm", "floaterm" },
+    GIT = { "gitcommit", "gitrebase", "gitconfig" },
   }
   for cat, fts in pairs(categories) do
     if vim.tbl_contains(fts, ft) then
