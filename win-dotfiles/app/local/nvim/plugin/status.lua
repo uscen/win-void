@@ -1,7 +1,7 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Halpers: =======================================================================================================
+-- Halpers: ========================================================================================================
 local function pad_string(str, left_pad, right_pad)
   local left = string.rep(" ", left_pad or 0)
   local right = string.rep(" ", right_pad or 0)
@@ -14,52 +14,73 @@ local function hl(str, hl_group, restore)
   return restore and table.concat({ '%#', hl_group, '#', str, '%*' })
     or table.concat({ '%#', hl_group, '#', str })
 end
--- a function to obtain and format the current mode: ===========================================================
+-- separator: =======================================================================================================
+local function separator()
+  local highlight_group = "StatusLineseparator"
+  return "%#" .. highlight_group .. "#%="
+end
+-- Filetype: =========================================================================================================
+local function get_ft()
+  local ft = vim.bo.filetype:lower()
+  local categories = {
+    WEB = { "javascript", "typescript", "html", "css", "scss", "sass", "less", "vue", "jsx", "tsx", "markdown", "md" },
+    ENV = { "lua", "conf", "toml", "ini", "vim", "zsh", "gitconfig", "gitcommit", "dockerfile", "makefile", "cmake" },
+    CFG = { "conf", "ini", "toml", "vim", "gitconfig" },
+    DAT = { "csv", "xml", "json", "yaml", "toml", "hcl" },
+    SYS = { "sh", "bash", "zsh", "fish", "powershell" },
+    DAB = { "sql", "mysql", "plsql", "postgresql" },
+  }
+  for cat, fts in pairs(categories) do
+    if vim.tbl_contains(fts, ft) then
+      return hl(pad_string(cat, 2, 2), "StatusLineFileType")
+    end
+  end
+  return hl(pad_string(ft:upper(), 2, 2), "StatusLineFileType")
+end
+-- Mode: ===========================================================================================================
 local modes = {
-  ['n']      = 'NO',
-  ['no']     = 'OP',
-  ['nov']    = 'OC',
-  ['noV']    = 'OL',
-  ['no\x16'] = 'OB',
-  ['\x16']   = 'VB',
-  ['niI']    = 'IN',
-  ['niR']    = 'RE',
-  ['niV']    = 'RV',
+  ['n']      = 'NOR',
+  ['no']     = 'OPR',
+  ['nov']    = 'OCV',
+  ['noV']    = 'OLV',
+  ['no\x16'] = 'OBV',
+  ['\x16']   = 'VLB',
+  ['niI']    = 'INS',
+  ['niR']    = 'REP',
+  ['niV']    = 'RVI',
   ['nt']     = 'NT',
-  ['ntT']    = 'TM',
-  ['v']      = 'VI',
-  ['vs']     = 'VI',
-  ['V']      = 'VL',
-  ['Vs']     = 'VL',
-  ['\x16s']  = 'VB',
+  ['ntT']    = 'TME',
+  ['v']      = 'VIS',
+  ['vs']     = 'VIS',
+  ['V']      = 'VSL',
+  ['Vs']     = 'VSL',
+  ['\x16s']  = 'VSB',
   ['s']      = 'SE',
   ['S']      = 'SL',
   ['\x13']   = 'SB',
-  ['i']      = 'IN',
+  ['i']      = 'INS',
   ['ic']     = 'IC',
   ['ix']     = 'IX',
   ['R']      = 'RE',
   ['Rc']     = 'RC',
   ['Rx']     = 'RX',
   ['Rv']     = 'RV',
-  ['Rvc']    = 'RC',
-  ['Rvx']    = 'RX',
-  ['c']      = 'CO',
+  ['Rvc']    = 'RVC',
+  ['Rvx']    = 'RVX',
+  ['c']      = 'COM',
   ['cv']     = 'CV',
   ['r']      = 'PR',
   ['rm']     = 'PM',
   ['r?']     = 'P?',
-  ['!']      = 'SH',
-  ['t']      = 'TE',
+  ['!']      = 'SHE',
+  ['t']      = 'TER',
 }
 local function current_mode()
-  local hl_type = vim.bo.mod and 'StatusLineHeaderModified' or 'StatusLineHeader'
   local mode = vim.fn.mode()
-  local mode_str = (mode == 'n' and (vim.bo.ro or not vim.bo.ma)) and 'RO'
-    or modes[mode]
-  return hl(pad_string(string.format(' %s ', mode_str), 1, 1), hl_type)
+  local mode_str = modes[mode]
+  return hl(pad_string(mode_str, 2, 2), "StatusLineHeader")
 end
--- a function to obtain and format the LSP: ====================================================================
+-- Diagnostic: =========================================================================================================
 local diag_signs_default_text = { 'E', 'W', 'I', 'H' }
 local diag_severity_map = {
   [1] = 'ERROR',
@@ -118,18 +139,6 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
     })
   end,
 })
--- a function to obtain and format the LSP: ====================================================================
-local function get_position()
-    local line = vim.fn.line '.'
-    local line_count = vim.api.nvim_buf_line_count(0)
-    local str = hl(pad_string(line  .. "/" .. line_count, 1, 1), "StatuslinePosition")
-    return str
-end
--- a function to assign highlight group to the separator: ======================================================
-local function separator()
-  local highlight_group = "StatusLineseparator"
-  return "%#" .. highlight_group .. "#%="
-end
 -- a function to call and place the statusline components: =====================================================
 function Status_line()
   local curr_ft = vim.bo.filetype
@@ -141,9 +150,9 @@ function Status_line()
   end
   return table.concat({
     current_mode(),
-    separator(),
     get_diagnostic(),
-    get_position(),
+    separator(),
+    get_ft(),
   })
 end
 -- default with statusline but can be toggled with <leader>st: ================================================
