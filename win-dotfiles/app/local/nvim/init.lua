@@ -1194,17 +1194,6 @@ later(function()
     pattern = { "gitcommit", "gitrebase" },
     command = "startinsert | 1",
   })
-  -- Qucikfix List: ==================================================================
-  vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("quickfix_keys", { clear = true }),
-    pattern = "qf",
-    callback = function(event)
-      local opts = { buffer = event.buf, silent = true }
-      vim.keymap.set('n', '<C-j>', '<cmd>cn<CR>zz<cmd>wincmd p<CR>', opts)
-      vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', opts)
-      vim.keymap.set('n', '<Tab>', '<CR>', opts)
-    end
-  })
   -- clear jump list at start:===========================================================
   vim.api.nvim_create_autocmd("VimEnter", {
     group = vim.api.nvim_create_augroup("clear_jumps", { clear = true }),

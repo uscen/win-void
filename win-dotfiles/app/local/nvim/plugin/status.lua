@@ -14,11 +14,6 @@ local function hl(str, hl_group, restore)
   return restore and table.concat({ '%#', hl_group, '#', str, '%*' })
     or table.concat({ '%#', hl_group, '#', str })
 end
--- get_separator: =======================================================================================================
-local function get_separator()
-  local highlight_group = "StatusLineseparator"
-  return "%#" .. highlight_group .. "#%="
-end
 -- Filetype: =========================================================================================================
 local function get_ft()
   local ft = vim.bo.filetype:lower()
@@ -143,16 +138,16 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
     })
   end,
 })
--- a function to call and place the statusline components: =====================================================
+-- Call: =========================================================================================================
 function Status_line()
   return table.concat({
     get_mode(),
-    get_separator(),
+    '%= ',
     get_diagnostic(),
     get_ft(),
   })
 end
--- default with statusline but can be toggled with <leader>st: ================================================
+-- Toggle: ======================================================================================================
 vim.keymap.set( "n", "<leader>st",
   function()
     if vim.o.laststatus == 0 then
