@@ -1130,6 +1130,12 @@ later(function()
       end
     end,
   })
+  -- `K` in Lua files opens Vim helpdocs: ==============================================
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'lua',
+    group = vim.api.nvim_create_augroup('FileTypeAutocmds', {}),
+    callback = function() vim.bo.keywordprg = ':help' end,
+  })
   -- Eable wrap in This files: ==========================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
@@ -1138,14 +1144,7 @@ later(function()
       vim.opt_local.wrap       = true
       vim.opt_local.spell      = true
       vim.opt_local.linebreak  = true
-      vim.opt_local.signcolumn = false
-    end,
-  })
-  -- clear jump list at start:===========================================================
-  vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("clear_jumps", { clear = true }),
-    callback = function()
-      vim.cmd("clearjumps")
+      vim.opt_local.signcolumn = "no"
     end,
   })
   -- Fix conceallevel for json files: ================================================
@@ -1153,6 +1152,8 @@ later(function()
     group = vim.api.nvim_create_augroup("json_conceal", { clear = true }),
     pattern = { "json", "jsonc", "json5" },
     callback = function()
+      vim.opt_local.formatexpr = ''
+      vim.opt_local.formatprg = 'jq'
       vim.opt_local.conceallevel = 0
     end,
   })
@@ -1172,6 +1173,13 @@ later(function()
       vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', opts)
       vim.keymap.set('n', '<Tab>', '<CR>', opts)
     end
+  })
+  -- clear jump list at start:===========================================================
+  vim.api.nvim_create_autocmd("VimEnter", {
+    group = vim.api.nvim_create_augroup("clear_jumps", { clear = true }),
+    callback = function()
+      vim.cmd("clearjumps")
+    end,
   })
   -- show cursor line only in active window:  =======================================
   local cursorline_active_window_augroup = vim.api.nvim_create_augroup("cursorline-active-window", { clear = true })
@@ -1292,6 +1300,12 @@ end)
 --          │                 Neovim user_commands                    │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function ()
+  -- Search literally, with no regex: =====================================================
+  vim.api.nvim_create_user_command('Search', ':let @/="\\\\V" . escape(<q-args>, "\\\\\") | normal! n', { nargs = 1 })
+  -- Change working directory to current file's: ==========================================
+  vim.api.nvim_create_user_command( 'CdHere', 'cd %:p:h', {})
+  -- Change tab page's working directory to current file's: =============================
+  vim.api.nvim_create_user_command( 'TcdHere', 'tcd %:p:h', {})
   -- LSP code action:=======================================================================
   vim.api.nvim_create_user_command("CodeAction", function()
     vim.lsp.buf.code_action()
@@ -1303,7 +1317,7 @@ later(function ()
       local mode = vim.api.nvim_get_mode().mode
       vim.lsp.inlay_hint.enable(vim.g.inlay_hints and (mode == 'n' or mode == 'v'))
   end, { nargs = 0 })
-  -- Print and copy file full path:=========================================================
+  -- Print and copy file full path: ========================================================
   vim.api.nvim_create_user_command("Path", function()
     local path = vim.fn.expand("%:p")
     if path == "" then return end
