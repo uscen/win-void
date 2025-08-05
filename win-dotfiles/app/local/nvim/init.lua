@@ -1249,7 +1249,7 @@ later(function()
           end
       end,
   })
-  -- When at eob, bring the current line towards center screen:======================
+  -- When at eob, bring the current line towards center screen:===========================
   vim.api.nvim_create_autocmd({ "BufEnter", "CursorMoved", "CursorHoldI" }, {
     group = vim.api.nvim_create_augroup("at_eob", { clear = true }),
     callback = function()
@@ -1265,7 +1265,7 @@ later(function()
       end
     end,
   })
-  -- Make it easier to close man-files when opened inline: ==============================
+  -- Make it easier to close man-files when opened inline: ===============================
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("man_unlisted", { clear = true }),
     pattern = { "man" },
@@ -1285,7 +1285,7 @@ later(function()
       end
     end,
   })
-  -- Large file handling: ===========================================================
+  -- Large file handling: =============================================================
   vim.api.nvim_create_autocmd("BufReadPre", {
     group = vim.api.nvim_create_augroup("disable_in_bigfile", { clear = true }),
     callback = function(ev)
@@ -1315,6 +1315,29 @@ later(function()
       end
     end,
   })
+  -- Create an autocmd group for executing files: ====================================================================
+  local exec_by_ft = vim.api.nvim_create_augroup("exec_by_ft", { clear = true })
+  local function RunKeymap(filetype, command)
+    vim.api.nvim_create_autocmd("FileType", {
+      group = exec_by_ft,
+      pattern = filetype,
+      callback = function()
+        vim.api.nvim_buf_set_keymap(
+          0,
+          "n",
+          "<leader>a",
+          ":w<CR>:split term://" .. command .. " %<CR>:resize 10<CR>",
+          { desc = "Execute File", noremap = true, silent = true }
+        )
+      end,
+    })
+  end
+  -- Define the commands for each filetype
+  RunKeymap("lua", "lua")
+  RunKeymap("python", "python3")
+  RunKeymap("javascript", "node")
+  RunKeymap("cpp", "g++ % -o %:r && ./%:r")
+  RunKeymap("c", "gcc % -o %:r && ./%:r")
 end)
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                 Neovim user_commands                    │
@@ -1323,9 +1346,9 @@ later(function ()
   -- Search literally, with no regex: =====================================================
   vim.api.nvim_create_user_command('Search', ':let @/="\\\\V" . escape(<q-args>, "\\\\\") | normal! n', { nargs = 1 })
   -- Change working directory to current file's: ==========================================
-  vim.api.nvim_create_user_command( 'CdHere', 'cd %:p:h', {})
+  vim.api.nvim_create_user_command('CdHere', 'cd %:p:h', {})
   -- Change tab page's working directory to current file's: =============================
-  vim.api.nvim_create_user_command( 'TcdHere', 'tcd %:p:h', {})
+  vim.api.nvim_create_user_command('TcdHere', 'tcd %:p:h', {})
   -- LSP code action:=======================================================================
   vim.api.nvim_create_user_command("CodeAction", function()
     vim.lsp.buf.code_action()
@@ -1435,6 +1458,7 @@ later(function()
   vim.keymap.set("n", "<leader>nc", ":e ~/.config/nvim/init.lua<CR>")
   vim.keymap.set("n", "<leader>p", "m`o<ESC>p``")
   vim.keymap.set("n", "<leader>P", "m`O<ESC>p``")
+  vim.keymap.set("n", "<leader><leader>", "zz", { silent = true })
   vim.keymap.set("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", {expr = true})
   vim.keymap.set("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {expr = true})
   vim.keymap.set("n", "<leader>v", "printf('`[%s`]', getregtype()[0])", { expr = true, })
@@ -1459,38 +1483,38 @@ later(function()
   vim.keymap.set("n", "<leader>wj", "<cmd>resize -5<cr>")
   vim.keymap.set("n", "<leader>wh", "<cmd>vertical resize +3<cr>")
   vim.keymap.set("n", "<leader>wl", "<cmd>vertical resize -3<cr>")
-  -- Move between jumps: ==========================================================
+  -- Move between jumps: ===================================================================
   vim.keymap.set('n', '<C-o>', '<C-o>')
   vim.keymap.set('n', '<C-p>', '<C-i>')
-  -- Focus : =======================================================================
-  vim.keymap.set("n", "<C-h>", "<C-w>h")
-  vim.keymap.set("n", "<C-j>", "<C-w>j")
-  vim.keymap.set("n", "<C-k>", "<C-w>k")
-  vim.keymap.set("n", "<C-l>", "<C-w>l")
-  -- Center:  ======================================================================
+  -- Center:  =============================================================================
   vim.keymap.set("n", "n", "nzzzv")
   vim.keymap.set("n", "N", "Nzzzv")
   vim.keymap.set("n", "<C-d>", "<C-d>zz")
   vim.keymap.set("n", "<C-u>", "<C-u>zz")
-  -- Resize:  ======================================================================
+  -- Resize:  =============================================================================
   vim.keymap.set("n", "<C-Up>", ":resize +2<CR>")
   vim.keymap.set("n", "<C-Down>", ":resize -2<CR>")
   vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>")
   vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>")
-  -- Move: ========================================================================
+  -- Move: ===============================================================================
   vim.keymap.set("n", "<leader>L", "<C-w>L")
   vim.keymap.set("n", "<leader>H", "<C-w>H")
   vim.keymap.set("n", "<leader>K", "<C-w>K")
   vim.keymap.set("n", "<leader>J", "<C-w>J")
-  -- Theme: ========================================================================
+  -- Theme: =============================================================================
   vim.keymap.set("n", "<leader>ud", "<cmd>set background=dark<CR>")
   vim.keymap.set("n", "<leader>ul", "<cmd>set background=light<CR>")
   vim.keymap.set("n", "<leader>ur", "<cmd>colorscheme randomhue<CR>")
-  -- Subtitle Keys: =================================================================
+  -- Subtitle Keys: ====================================================================
   vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
   vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
   vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
-  -- Brackted: =====================================================================
+  -- Focus Or Jumps : ===================================================================
+  vim.keymap.set('n', '<C-h>', function() return vim.fn.winnr('$') == 1 and '15h' or '<C-w>h' end, { expr = true })
+  vim.keymap.set('n', '<C-l>', function() return vim.fn.winnr('$') == 1 and '15l' or '<C-w>l' end, { expr = true })
+  vim.keymap.set('n', '<C-j>', function() return vim.fn.winnr('$') == 1 and '10j' or '<C-w>j' end, { expr = true })
+  vim.keymap.set('n', '<C-k>', function() return vim.fn.winnr('$') == 1 and '10k' or '<C-w>k' end, { expr = true })
+  -- Brackted: =========================================================================
   vim.keymap.set("n", "[a", "<cmd>previous<CR>")
   vim.keymap.set("n", "]a", "<cmd>next<CR>")
   vim.keymap.set("n", "[b", "<cmd>bprevious<CR>")
@@ -1505,7 +1529,7 @@ later(function()
   vim.keymap.set("n", "]<space>", ":<c-u>put =repeat(nr2char(10), v:count1)<cr>']")
   vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
   vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
-  -- Buffers: =======================================================================
+  -- Buffers: =========================================================================
   vim.keymap.set("n", "<Tab>", ":bnext<CR>")
   vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
   vim.keymap.set("n", "<leader>bn", ":bnext<CR>")
@@ -1520,7 +1544,7 @@ later(function()
       end
     end
   end)
-  -- Terminal: =====================================================================
+  -- Terminal: =======================================================================
   vim.keymap.set("n", "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
   vim.keymap.set("t", "<C-t>", "<CMD>FloatTermToggle<CR>", { noremap = true, silent = true })
   vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { noremap = true, silent = true })
