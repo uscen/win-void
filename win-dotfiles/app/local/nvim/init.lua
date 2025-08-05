@@ -924,7 +924,7 @@ now(function()
   -- Memory: ================================================================
   vim.opt.lazyredraw             = true
   vim.opt.hidden                 = true
-  vim.o.timeout                  = false
+  vim.o.timeout                  = true
   vim.opt.ttimeoutlen            = 0
   vim.opt.updatetime             = 50
   vim.opt.history                = 100
