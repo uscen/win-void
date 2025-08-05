@@ -2,38 +2,10 @@
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
-local LSP_KIND_TO_ICON = {
-    File = '',
-    Module = '',
-    Namespace = '',
-    Package = '',
-    Class = '',
-    Method = '',
-    Property = '',
-    Field = '',
-    Constructor = '',
-    Enum = '',
-    Interface = '',
-    Function = '',
-    Variable = '',
-    Constant = '',
-    String = '',
-    Number = '',
-    Boolean = '',
-    Array = '',
-    Object = '',
-    Key = '',
-    Null = '',
-    EnumMember = '',
-    Struct = '',
-    Event = '',
-    Operator = '',
-    TypeParameter = '',
-}
+-- Helpers: ===========================================================================================================
 local hi_next = function(group)
     return '%#' .. group .. '#'
 end
-
 local function debounce(func, timeout)
     local timer = vim.loop.new_timer()
     return function()
@@ -45,8 +17,51 @@ local function debounce(func, timeout)
         end
     end
 end
+-- Mode: ==============================================================================================================
+local modes = {
+  ['n']      = 'NO',
+  ['no']     = 'OP',
+  ['nov']    = 'OC',
+  ['noV']    = 'OL',
+  ['no\x16'] = 'OB',
+  ['\x16']   = 'VB',
+  ['niI']    = 'IN',
+  ['niR']    = 'RE',
+  ['niV']    = 'RV',
+  ['nt']     = 'NT',
+  ['ntT']    = 'TM',
+  ['v']      = 'VI',
+  ['vs']     = 'VI',
+  ['V']      = 'VL',
+  ['Vs']     = 'VL',
+  ['\x16s']  = 'VB',
+  ['s']      = 'SE',
+  ['S']      = 'SL',
+  ['\x13']   = 'SB',
+  ['i']      = 'IN',
+  ['ic']     = 'IC',
+  ['ix']     = 'IX',
+  ['R']      = 'RE',
+  ['Rc']     = 'RC',
+  ['Rx']     = 'RX',
+  ['Rv']     = 'RV',
+  ['Rvc']    = 'RC',
+  ['Rvx']    = 'RX',
+  ['c']      = 'CO',
+  ['cv']     = 'CV',
+  ['r']      = 'PR',
+  ['rm']     = 'PM',
+  ['r?']     = 'P?',
+  ['!']      = 'SH',
+  ['t']      = 'TE',
+}
+function M.mode()
+  local mode = vim.fn.mode()
+  local mode_str = modes[mode]
+  vim.b.statusline_mode = string.format('   %s  ', mode_str)
+end
 
--- Like `vim.lsp.status()` but debounced and only initial start up progress
+-- LSP: ================================================================================================================
 M.lsp_update_status = debounce(function()
     ---@type table<string, string>
     local lsp_status_by_client = {}
@@ -76,7 +91,6 @@ M.lsp_update_status = debounce(function()
     vim.cmd.redrawstatus()
 end, 50)
 vim.g.lsp_status = ''
-
 vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWinEnter' }, {
     pattern = { '*' },
     callback = debounce(function()
@@ -96,10 +110,8 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
             local cursor_pos = vim.api.nvim_win_get_cursor(0)
             local cursor_line = cursor_pos[1] - 1 -- Convert to 0-based index
             local cursor_col = cursor_pos[2] -- 0 based
-
             ---@type string[]
             local named_symbols = {}
-
             -- Recursively traverses symbols
             -- Gets the named nodes surrounding current cursor
             ---@param symbols lsp.DocumentSymbol[]
@@ -122,8 +134,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
                             )
                         )
                     then
-                        local icon = LSP_KIND_TO_ICON[vim.lsp.protocol.SymbolKind[symbol.kind]]
-                        table.insert(named_symbols, icon .. ' ' .. symbol.name)
+                        table.insert(named_symbols, ' ' .. symbol.name)
                         if symbol.children then
                             process_symbols(symbol.children)
                         end
@@ -132,33 +143,13 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
                 end
             end
             process_symbols(result)
-
             vim.b[bufnr].lsp_location = table.concat(named_symbols, '  ')
             vim.cmd.redrawstatus()
         end)
     end, 50),
     desc = 'Update lsp symbols for status line',
 })
-
-M.extras = {}
-
----@param fn fun(): {text: string, hi?: string | 'StatusLine'}
-function M.add_extra(fn)
-    table.insert(M.extras, fn)
-end
-
-function _G.print_statusline_extras()
-    local res = {}
-    for _, fn in ipairs(M.extras) do
-        local v = fn()
-        if #v.text > 0 then
-            table.insert(res, v.text)
-        end
-    end
-
-    return table.concat(res, ' │ ')
-end
-
+-- Setup:  ====================================================================================================
 function M.setup()
     if not vim.diagnostic.status then
         vim.diagnostic.status = function()
@@ -171,7 +162,7 @@ function M.setup()
             local signs = vim.tbl_extend('keep', user_signs, { 'E', 'W', 'I', 'H' })
             local result_str = vim.iter(pairs(counts))
                 :map(function(severity, count)
-                    return ('%s:%s'):format(signs[severity], count)
+                    return ('%s %s'):format(signs[severity], count)
                 end)
                 :join(' ')
 
@@ -179,19 +170,22 @@ function M.setup()
         end
     end
     vim.opt.statusline = table.concat({
-        ' %f%m ', -- filename, modified, readonly
-        '%<', -- conceal marker
+        hi_next('StatusLineHeader'),
+        '%{get(b:, "statusline_mode", "")}',
+        '%<',
         hi_next('Comment'),
-        '%{get(b:, "lsp_location", "")}', -- lsp symbols
-        '%= ', -- left align
-        '%*', -- reset highlight
-        '%(%{get(g:, "lsp_status")} │ %)', -- lsp status
-        '%(%{v:lua.vim.diagnostic.status()} │ %)', -- diagnostics
-        '%(%{get(b:, "minidiff_summary_string", "")} │ %)', -- git diff
-        '%(%{% v:lua.print_statusline_extras()%} │ %)', -- work extras
-        '%l:%c ', -- 'line:column'
+        '%{get(b:, "lsp_location", "")}',
+        '%= ',
+        '%*',
+        '%(%{get(g:, "lsp_status")} │ %)',
+        '%(%{v:lua.vim.diagnostic.status()} │ %)',
+        '%(%{get(b:, "minidiff_summary_string", "")} │ %)',
     }, '')
-
+    vim.api.nvim_create_autocmd({'ModeChanged', 'BufEnter'}, {
+        pattern = '*',
+        desc = 'Refresh statusline Mode',
+        callback = M.mode
+    })
     vim.api.nvim_create_autocmd('LspProgress', {
         pattern = '*',
         desc = 'Refresh statusline on LspProgress',
@@ -200,12 +194,10 @@ function M.setup()
     vim.api.nvim_create_autocmd('DiagnosticChanged', {
         pattern = '*',
         desc = 'Refresh statusline on DiagnosticChanged',
-        -- schedule redraw, otherwise throws when exiting fugitive status
         callback = debounce(function()
             vim.cmd.redrawstatus()
         end, 30),
     })
-
     vim.api.nvim_create_autocmd('User', {
         pattern = 'MiniDiffUpdated',
         desc = 'Do not print changed lines, only added and removed',
@@ -226,5 +218,5 @@ function M.setup()
         end,
     })
 end
-
-return M
+-- Call ==========================================================================================================
+M.setup()
