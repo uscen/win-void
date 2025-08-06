@@ -1408,16 +1408,23 @@ end)
 --          │                 Neovim user_commands                    │
 --          ╰─────────────────────────────────────────────────────────╯
 later(function ()
-  -- Search literally, with no regex: =====================================================
-  vim.api.nvim_create_user_command('Search', ':let @/="\\\\V" . escape(<q-args>, "\\\\\") | normal! n', { nargs = 1 })
   -- Change working directory to current file's: ==========================================
   vim.api.nvim_create_user_command('CdHere', 'cd %:p:h', {})
-  -- Change tab page's working directory to current file's: =============================
+  -- Change tab page's working directory to current file's: ==============================
   vim.api.nvim_create_user_command('TcdHere', 'tcd %:p:h', {})
+  -- Run ctags: ============================================================================
+  vim.api.nvim_create_user_command("Ctags", "!ctags -R .", {})
   -- LSP code action:=======================================================================
   vim.api.nvim_create_user_command("CodeAction", function()
     vim.lsp.buf.code_action()
   end, {})
+  -- Search literally, with no regex: =====================================================
+  vim.api.nvim_create_user_command('Search', ':let @/="\\\\V" . escape(<q-args>, "\\\\\") | normal! n', { nargs = 1 })
+  -- Grep keyword within the folder containing the current file: ==========================
+  vim.api.nvim_create_user_command("Grep", function(opts)
+    local keyword = opts.args
+    vim.cmd("grep " .. keyword .. " -g '%:p:.:h/**/*'")
+  end, { nargs = 1, })
   -- Toggle inlay hints: ===================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
       vim.g.inlay_hints = not vim.g.inlay_hints
