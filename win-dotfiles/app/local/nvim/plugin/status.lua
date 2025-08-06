@@ -176,10 +176,9 @@ function M.setup()
         hi_next('Comment'),
         '%{get(b:, "lsp_location", "")}',
         '%= ',
-        '%*',
-        '%(%{get(g:, "lsp_status")} │ %)',
-        '%(%{v:lua.vim.diagnostic.status()} │ %)',
-        '%(%{get(b:, "minidiff_summary_string", "")} │ %)',
+        '%(%{get(g:, "lsp_status")} %)',
+        '%(%{v:lua.vim.diagnostic.status()} %)',
+        '%(%{get(b:, "minidiff_summary_string", "")} %)',
     }, '')
     vim.api.nvim_create_autocmd({'ModeChanged', 'BufEnter'}, {
         pattern = '*',
