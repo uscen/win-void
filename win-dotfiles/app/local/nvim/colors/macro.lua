@@ -525,12 +525,13 @@ local hlgroups = {
   LazyProgressTodo = { fg = c_macroBg5 },
 
   -- statusline
-  StatusLineGitAdded = { bg = c_macroBg3, fg = c_macroGreen1 },
-  StatusLineGitChanged = { bg = c_macroBg3, fg = c_carpYellow },
-  StatusLineGitRemoved = { bg = c_macroBg3, fg = c_macroRed },
-  StatusLineGitBranch = { bg = c_macroBg3, fg = c_macroAsh },
-  StatusLineHeader = { bg = c_macroBg3, fg = c_macroBg5, bold = true },
+  StatusLineGitAdded = { bg = c_macroBg2, fg = c_macroGreen1 },
+  StatusLineGitChanged = { bg = c_macroBg2, fg = c_carpYellow },
+  StatusLineGitRemoved = { bg = c_macroBg2, fg = c_macroRed },
+  StatusLineGitBranch = { bg = c_macroBg2, fg = c_macroAsh },
+  StatusLineHeader = { bg = c_macroBg3, fg = c_macroFg0, bold = true },
   StatusLineFileType  = { link= "StatusLineHeader" },
+  StatusLineLSP  = { link= "Comment" },
   StatusLineDiagnosticError = { link = "DiagnosticSignError" },
   StatusLineDiagnosticWarn = { link = "DiagnosticSignWarn" },
   StatusLineDiagnosticINFO = { link = "DiagnosticSignInfo" },

@@ -162,7 +162,7 @@ function M.setup()
             local signs = vim.tbl_extend('keep', user_signs, { 'E', 'W', 'I', 'H' })
             local result_str = vim.iter(pairs(counts))
                 :map(function(severity, count)
-                    return ('%s %s'):format(signs[severity], count)
+                    return ('%s %d'):format(signs[severity], count)
                 end)
                 :join(' ')
 
@@ -173,12 +173,16 @@ function M.setup()
         hi_next('StatusLineHeader'),
         '%{get(b:, "statusline_mode", "")}',
         '%<',
-        hi_next('Comment'),
+        hi_next('StatusLineLsp'),
         '%{get(b:, "lsp_location", "")}',
         '%(%{get(g:, "lsp_status")} %)',
         '%= ',
         '%(%{v:lua.vim.diagnostic.status()} %)',
-        '%(%{get(b:, "minidiff_summary_string", "")} %)',
+        hi_next('StatusLineGitAdded'),
+        "%{get(b:,'minidiff_add',0) > 0 ? ' ' . b:minidiff_add : ''}",
+        " ",
+        hi_next('StatusLineGitRemoved'),
+        "%{get(b:,'minidiff_del',0) > 0 ? ' ' . b:minidiff_del : ''}",
     }, '')
     vim.api.nvim_create_autocmd({'ModeChanged', 'BufEnter'}, {
         pattern = '*',
@@ -202,18 +206,8 @@ function M.setup()
         desc = 'Do not print changed lines, only added and removed',
         callback = function(data)
             local summary = vim.b[data.buf].minidiff_summary or {}
-            local t = {
-                add = (summary.add or 0) + (summary.change or 0),
-                delete = (summary.delete or 0) + (summary.change or 0),
-            }
-            local res = {}
-            if t.add > 0 then
-                table.insert(res, ' ' .. t.add)
-            end
-            if t.delete > 0 then
-                table.insert(res, ' ' .. t.delete)
-            end
-            vim.b[data.buf].minidiff_summary_string = table.concat(res, ' ')
+            vim.b[data.buf].minidiff_add = (summary.add or 0) + (summary.change or 0)
+            vim.b[data.buf].minidiff_del = (summary.delete or 0) + (summary.change or 0)
         end,
     })
 end
