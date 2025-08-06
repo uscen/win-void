@@ -826,6 +826,7 @@ now(function()
   vim.opt.title                  = true
   vim.opt.tgc                    = true
   vim.opt.relativenumber         = true
+	vim.opt.ttyfast                = true
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
@@ -846,6 +847,7 @@ now(function()
   vim.opt.pumblend               = 0
   vim.opt.pumheight              = 8
   vim.opt.titlelen               = 127
+	vim.opt.scrollback             = 100000
   vim.opt.colorcolumn            = "130"
   vim.opt.guicursor              = ""
   vim.opt.guifont                = "JetBrainsMono Nerd Font:h9"
@@ -1612,6 +1614,7 @@ later(function()
       ["json"] = "jsonc",
       ["map"] = "json",
       ["mdx"] = "markdown",
+			["ipynb"] = "ipynb",
       ["pcss"] = "css",
       ["ejs"] = "ejs",
       ["h"] = "c"

@@ -175,8 +175,8 @@ function M.setup()
         '%<',
         hi_next('Comment'),
         '%{get(b:, "lsp_location", "")}',
-        '%= ',
         '%(%{get(g:, "lsp_status")} %)',
+        '%= ',
         '%(%{v:lua.vim.diagnostic.status()} %)',
         '%(%{get(b:, "minidiff_summary_string", "")} %)',
     }, '')
