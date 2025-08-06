@@ -2,6 +2,7 @@
 /* # Macro Vimium Theme                                                              # */
 /* # =============================================================================== # */
 :root {
+  --font-family: "JetBrainsMono Nerd Font";
   /* Base & surfaces (Sumi Ink) */
   --vimium-base: #181616;
   --vimium-secondry: #201d1d;
@@ -28,6 +29,7 @@
    🌐 Link Hints
 */
 #vimium-hint-marker-container div.vimiumHintMarker {
+  font-family: var(--font-family);
   background: var(--vimium-yellow);
   border: 1px solid var(--vimium-crust);
 }
@@ -43,8 +45,9 @@
    🔍 Vomnibar
 */
 #vomnibar {
+  font-family: var(--font-family);
   background: var(--vimium-base);
-  border: 2px solid var(--vimium-green);
+  border: 1px solid var(--vimium-secondry);
   animation: show 200ms ease-out forwards;
 }
 
@@ -61,6 +64,7 @@
 
 #vomnibar input,
 #vomnibar #vomnibar-search-area {
+  font-family: var(--font-family);
   background: var(--vimium-base);
   color: var(--vimium-green);
   border: none;
