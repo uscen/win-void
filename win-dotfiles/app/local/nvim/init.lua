@@ -1,3 +1,14 @@
+--          ┌─────────────────────────────────────────────────────────┐
+--                         I try to make my stuff fast
+--                        by doing some lazy loading and
+--                            using minimalist plugins
+--
+--                         This config is aimed to be:
+--                       simple, logic and well Structed
+--
+--                     feel free to get steal stuff from it
+--
+--          └─────────────────────────────────────────────────────────┘
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                          Plugins                        ║
 --          ╚═════════════════════════════════════════════════════════╝
@@ -671,6 +682,33 @@ now_if_args(function()
       ['db'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
       ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
     },
+		lsp = {
+			["text"] = { glyph = "󰉿" },
+			["method"] = { glyph = "󰆧" },
+			["function"] = { glyph = "󰊕" },
+			["constructor"]= { glyph = "" },
+			["field"] = { glyph = "󰜢" },
+			["variable"] = { glyph = "󰀫" },
+			["class"] = { glyph = "󰠱" },
+			["interface"] = { glyph = "" },
+			["module"]= { glyph = "" },
+			["property"] = { glyph = "󰜢" },
+			["unit"]= { glyph = "󰑭" },
+			["value"] = { glyph = "󰎠" },
+			["enum"] = { glyph = "" },
+			["keyword"] = { glyph = "󰌋" },
+			["snippet"] = { glyph = "" },
+			["color"] = { glyph = "󰏘" },
+			["file"] = { glyph = "󰈙", },
+			["reference"] = { glyph = "󰈇" },
+			["folder"] = { glyph = "󰉋" },
+			["enumMember"] = { glyph = "" },
+			["constant"] = { glyph = "󰏿" },
+			["struct"] = { glyph = "󰙅" },
+			["event"] = { glyph = "" },
+			["operator"] = { glyph = "󰆕" },
+			["typeParameter"] = { glyph = "" },
+		},
   })
   later(MiniIcons.mock_nvim_web_devicons)
   later(MiniIcons.tweak_lsp_kind)
@@ -1307,23 +1345,6 @@ later(function()
       if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
         -- bo.buflisted = false
         vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
-      end
-    end,
-  })
-  -- handle the loading and usage of treesitter: ==========================================
-  vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('user_treesitter', { clear = true }),
-    desc = 'handle the loading and usage of treesitter',
-    callback = function(args)
-      local bufnr = args.buf
-      if pcall(vim.treesitter.start, bufnr, vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)) then
-        vim.treesitter.start(bufnr, vim.treesitter.language.get_lang(vim.bo[bufnr].filetype))
-        vim.wo[0][0].foldmethod = 'expr'
-        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      else
-        vim.cmd [[ syntax on ]]
-        vim.wo[0][0].foldmethod = 'manual'
       end
     end,
   })
