@@ -1578,6 +1578,7 @@ later(function()
   vim.keymap.set("n", "gR", "<Cmd>Pick lsp scope='references'<CR>")
   vim.keymap.set("n", "gD", "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set("n", "gI", "<Cmd>Pick lsp scope='declaration'<CR>")
+  vim.keymap.set("n", "gA", "<Cmd>Pick lsp scope='document_symbol'<CR>")
   -- Git: =======================================================================
   vim.keymap.set("n", "<leader>ga", "<cmd>:Git add .<CR>")
   vim.keymap.set("n", "<leader>gc", "<cmd>:Git commit<CR>")
