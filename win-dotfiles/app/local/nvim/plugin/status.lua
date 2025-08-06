@@ -58,7 +58,7 @@ local modes = {
 function M.mode()
   local mode = vim.fn.mode()
   local mode_str = modes[mode]
-  vim.b.statusline_mode = string.format('   %s  ', mode_str)
+  vim.b.statusline_mode = ('   %s  '):format(mode_str)
 end
 
 -- LSP: ================================================================================================================
@@ -143,7 +143,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
                 end
             end
             process_symbols(result)
-            vim.b[bufnr].lsp_location = table.concat(named_symbols, '  ')
+            vim.b[bufnr].lsp_location = (' %s'):format(table.concat(named_symbols, '  '))
             vim.cmd.redrawstatus()
         end)
     end, 50),
@@ -209,10 +209,10 @@ function M.setup()
             }
             local res = {}
             if t.add > 0 then
-                table.insert(res, '+' .. t.add)
+                table.insert(res, ' ' .. t.add)
             end
             if t.delete > 0 then
-                table.insert(res, '-' .. t.delete)
+                table.insert(res, ' ' .. t.delete)
             end
             vim.b[data.buf].minidiff_summary_string = table.concat(res, ' ')
         end,
