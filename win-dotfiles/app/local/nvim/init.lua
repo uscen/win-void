@@ -1040,6 +1040,20 @@ later(function()
     end
   })
   -- Don't Comment New Line =========================================================
+  vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
+    desc = "Corrects terminal background color according to colorscheme",
+    callback = function()
+      if vim.api.nvim_get_hl(0, { name = "Normal" }).bg then
+        io.write(string.format("\027]11;#%06x\027\\", vim.api.nvim_get_hl(0, { name = "Normal" }).bg))
+      end
+      vim.api.nvim_create_autocmd("UILeave" , {
+        callback = function()
+          io.write("\027]111\027\\")
+        end,
+      })
+    end,
+  })
+  -- Don't Comment New Line =========================================================
   vim.api.nvim_create_autocmd("FileType", {
       pattern = "*",
       group = vim.api.nvim_create_augroup("diable-new-line-comments", {}),
