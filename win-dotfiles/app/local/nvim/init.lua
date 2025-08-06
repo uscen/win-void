@@ -778,7 +778,7 @@ now(function()
   vim.g.mapleader                = vim.keycode("<space>")
   vim.g.maplocalleader           = vim.g.mapleader
   -- Use ripgrep as grep tool: ================================================
-  vim.opt.grepprg                = "rg --vimgrep --no-heading"
+  vim.opt.grepprg                = "rg --vimgrep --smart-case --no-heading --color=never --glob !.git"
   vim.opt.grepformat             = "%f:%l:%c:%m,%f:%l:%m"
   vim.opt.path                   = ".,,**"
   -- Shell: =-================================================================
@@ -1144,6 +1144,14 @@ later(function()
       end
     end,
   })
+  -- make executable: ================================================================
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = vim.api.nvim_create_augroup('make_executable', { clear = true }),
+    pattern = { '*.sh', '*.bash', '*.zsh' },
+    callback = function()
+      vim.fn.system('chmod +x ' .. vim.fn.expand '%')
+    end,
+  })
   -- go to old position when opening a buffer: ===========================================
   vim.api.nvim_create_autocmd("BufReadPost", {
     group = vim.api.nvim_create_augroup("remember_position", { clear = true }),
@@ -1285,6 +1293,23 @@ later(function()
       if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
         -- bo.buflisted = false
         vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
+      end
+    end,
+  })
+  -- handle the loading and usage of treesitter: ==========================================
+  vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('user_treesitter', { clear = true }),
+    desc = 'handle the loading and usage of treesitter',
+    callback = function(args)
+      local bufnr = args.buf
+      if pcall(vim.treesitter.start, bufnr, vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)) then
+        vim.treesitter.start(bufnr, vim.treesitter.language.get_lang(vim.bo[bufnr].filetype))
+        vim.wo[0][0].foldmethod = 'expr'
+        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      else
+        vim.cmd [[ syntax on ]]
+        vim.wo[0][0].foldmethod = 'manual'
       end
     end,
   })
