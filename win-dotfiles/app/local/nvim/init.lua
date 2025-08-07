@@ -869,7 +869,7 @@ now(function()
   vim.opt.mousemodel             = 'extend'
   vim.opt.mousescroll            = 'ver:3,hor:6'
   vim.opt.showbreak              = '󰘍'
-  vim.opt.winborder              = 'double'
+  vim.opt.winborder              = 'bold'
   vim.opt.backspace              = 'indent,eol,start'
   vim.opt.cursorlineopt          = 'screenline,number'
   vim.opt.tabclose               = 'uselast'
@@ -1213,14 +1213,6 @@ later(function()
     pattern = 'init.lua',
     command = 'source <afile>'
   })
-  -- make executable: ================================================================
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = vim.api.nvim_create_augroup('make_executable', { clear = true }),
-    pattern = { '*.sh', '*.bash', '*.zsh' },
-    callback = function()
-      vim.fn.system('chmod +x ' .. vim.fn.expand '%')
-    end,
-  })
   -- go to old position when opening a buffer: ===========================================
   vim.api.nvim_create_autocmd('BufReadPost', {
     group = vim.api.nvim_create_augroup('remember_position', { clear = true }),
@@ -1461,20 +1453,21 @@ later(function()
   vim.keymap.set('c', '<C-A>', '<HOME>')
   vim.keymap.set('i', '<C-l>', '<space>=><space>')
   vim.keymap.set('i', '<C-h>', '<space><=<space>')
-  vim.keymap.set({ 'n', 'v' }, 'gk', 'gg')
-  vim.keymap.set({ 'n', 'v' }, 'gj', 'G')
-  vim.keymap.set({ 'n', 'v' }, 'gh', '^')
-  vim.keymap.set({ 'n', 'v' }, 'gl', '$')
-  vim.keymap.set({ 'n', 'x' }, ';', ':')
-  vim.keymap.set({ 'n', 'v' }, 'mm', '%')
-  vim.keymap.set('n', 'M', 'm')
   vim.keymap.set('n', '<C-c>', 'cit')
+  vim.keymap.set('n', 'gk', 'gg')
+  vim.keymap.set('n', 'gj', 'G')
+  vim.keymap.set('n', 'gh', '^')
+  vim.keymap.set('n', 'gl', '$')
+  vim.keymap.set('v', 'gk', 'gg')
+  vim.keymap.set('v', 'gj', 'G')
+  vim.keymap.set('v', 'gh', '^')
+  vim.keymap.set('v', 'gl', '$')
+  vim.keymap.set('n', ';', ':')
+  vim.keymap.set('x', ';', ':')
   vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set('n', 'Q', '<nop>')
   vim.keymap.set('n', '<Space>', '<Nop>')
   vim.keymap.set('n', '<ESC>', ':nohl<CR>')
-  vim.keymap.set('n', '<C-n>', '*N', { remap = true })
-  vim.keymap.set('n', 'ycc', 'yygccp', { remap = true })
   vim.keymap.set('n', 'yco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
   vim.keymap.set('n', 'ycO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>')
   vim.keymap.set('n', 'J', 'mzJ`z:delmarks z<CR>')
@@ -1503,6 +1496,9 @@ later(function()
   vim.keymap.set('n', '<leader>nc', ':e ~/.config/nvim/init.lua<CR>')
   vim.keymap.set('n', '<leader>p', 'm`o<ESC>p``')
   vim.keymap.set('n', '<leader>P', 'm`O<ESC>p``')
+  vim.keymap.set('n', '<C-m>', '%')
+  vim.keymap.set('n', '<C-n>', '*N', { remap = true })
+  vim.keymap.set('n', 'ycc', 'yygccp', { remap = true })
   vim.keymap.set('n', '<leader><leader>', 'zz', { silent = true })
   vim.keymap.set('n', '<space>o', "printf('m`%so<ESC>``', v:count1)", { expr = true })
   vim.keymap.set('n', '<space>O', "printf('m`%sO<ESC>``', v:count1)", { expr = true })

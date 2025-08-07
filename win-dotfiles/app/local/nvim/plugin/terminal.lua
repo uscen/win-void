@@ -6,7 +6,7 @@ local au = function(event, pattern, opts)
   opts = opts or {}
   vim.api.nvim_create_autocmd(
     event,
-    vim.tbl_extend("force", opts, {
+    vim.tbl_extend('force', opts, {
       pattern = pattern,
     })
   )
@@ -25,20 +25,20 @@ M.state = {
     local col = math.floor(0.8 * (current_columns - width) / 2)
     local row = math.floor((current_lines - height) / 2)
     return {
-      title = "Terminal",
-      relative = "editor",
-      title_pos = "left",
+      title = 'Terminal',
+      relative = 'editor',
+      title_pos = 'left',
       width = width,
       height = height,
       col = col,
       row = row,
-      style = "minimal",
-      border = "double",
+      style = 'minimal',
+      border = 'bold',
       zindex = 5,
     }
   end,
 }
-local TerminalFloat = vim.api.nvim_create_augroup("TerminalResize", { clear = true })
+local TerminalFloat = vim.api.nvim_create_augroup('TerminalResize', { clear = true })
 M.resize = function()
   if M.state.data.win_id == nil or not vim.api.nvim_win_is_valid(M.state.data.win_id) then return end
 
@@ -61,13 +61,13 @@ end
 
 M.winbuf = function(opts)
   opts = opts or {}
-  vim.schedule(function() vim.api.nvim_exec_autocmds("User", { pattern = "TerminalPro" }) end)
+  vim.schedule(function() vim.api.nvim_exec_autocmds('User', { pattern = 'TerminalPro' }) end)
   local overlay_buf = vim.api.nvim_create_buf(false, true)
-  vim.bo[overlay_buf].bufhidden = "wipe"
+  vim.bo[overlay_buf].bufhidden = 'wipe'
 
   local overlay_opts = {
-    style = "minimal",
-    relative = "win",
+    style = 'minimal',
+    relative = 'win',
     width = vim.o.columns,
     height = vim.o.lines,
     row = 0,
@@ -77,7 +77,7 @@ M.winbuf = function(opts)
   }
   local overlay_win = vim.api.nvim_open_win(overlay_buf, false, overlay_opts)
   vim.wo[overlay_win].winblend = 60
-  vim.wo[overlay_win]["winhighlight"] = "Normal:BLACK"
+  vim.wo[overlay_win]['winhighlight'] = 'Normal:BLACK'
 
   local buf = nil
   if vim.api.nvim_buf_is_valid(opts.buf_id) then
@@ -94,10 +94,10 @@ end
 M.winbuf_toggle = function()
   if not vim.api.nvim_win_is_valid(M.state.data.win_id) then
     M.state.data = M.winbuf { buf_id = M.state.data.buf_id }
-    if vim.bo[M.state.data.buf_id].buftype ~= "terminal" then vim.cmd.terminal() end
-    vim.cmd("startinsert")
+    if vim.bo[M.state.data.buf_id].buftype ~= 'terminal' then vim.cmd.terminal() end
+    vim.cmd('startinsert')
 
-    vim.api.nvim_create_autocmd({ "BufWipeout", "WinClosed" }, {
+    vim.api.nvim_create_autocmd({ 'BufWipeout', 'WinClosed' }, {
       buffer = M.state.data.buf_id,
       callback = function()
         if vim.api.nvim_win_is_valid(M.state.data.win_id) then
@@ -110,8 +110,8 @@ M.winbuf_toggle = function()
     vim.api.nvim_win_hide(M.state.data.win_id)
   end
 end
-vim.api.nvim_create_user_command("FloatTermToggle", M.winbuf_toggle, {})
-au("VimResized", "*", {
+vim.api.nvim_create_user_command('FloatTermToggle', M.winbuf_toggle, {})
+au('VimResized', '*', {
   group = TerminalFloat,
   callback = M.resize,
 })
