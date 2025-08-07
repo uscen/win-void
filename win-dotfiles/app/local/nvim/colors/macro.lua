@@ -552,7 +552,7 @@ local hlgroups = {
   MiniPickNormal = { bg = c_macroBg1, fg = c_macroFg1 },
   MiniPickMatchCurrent = { bg = c_macroBg2 },
   MiniPickMatchMarked = { bg = c_macroBg1, fg = c_macroGreen0 },
-  MiniPickPrompt = { bg = c_macroBg1, fg = c_macroFg0 },
+  MiniPickPrompt = { bg = c_macroBg1, fg = c_macroGreen0 },
   MiniPickMatchRanges = { link = "MiniPickMatchMarked" },
   MiniPickPreviewRegion = { link = "MiniPickBorder" },
   MiniPickPreviewLine = { link = "MiniPickBorder" },

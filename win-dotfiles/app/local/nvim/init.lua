@@ -873,7 +873,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 0
+  vim.opt.laststatus             = 3
   vim.opt.cmdheight              = 0
   vim.opt.winwidth               = 20
   vim.opt.winminwidth            = 5
@@ -1460,7 +1460,7 @@ later(function()
   -- Grep keyword within the folder containing the current file: ==========================
   vim.api.nvim_create_user_command('Grep', function(opts)
     local keyword = opts.args
-    vim.cmd('grep ' .. keyword .. " -g '%:p:.:h/**/*'")
+    vim.cmd('vimgrep ' .. keyword .. ' %:p:.:h/**/*')
   end, { nargs = 1, })
   -- Toggle inlay hints: ===================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
