@@ -529,7 +529,7 @@ local hlgroups = {
   StatusLineGitChanged = { bg = c_macroBg2, fg = c_carpYellow },
   StatusLineGitRemoved = { bg = c_macroBg2, fg = c_macroRed },
   StatusLineGitBranch = { bg = c_macroBg2, fg = c_macroAsh },
-  StatusLineHeader = { bg = c_macroBg3, fg = c_macroFg0, bold = true },
+  StatusLineHeader = { bg = c_winterGreen, fg = c_macroFg0, bold = true },
   StatusLineFileType  = { link= "StatusLineHeader" },
   StatusLineLSP  = { link= "Comment" },
   StatusLineDiagnosticError = { link = "DiagnosticSignError" },
