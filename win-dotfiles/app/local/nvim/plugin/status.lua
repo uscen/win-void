@@ -171,7 +171,7 @@ M.lsp_update_status = debounce(function()
 
   local items = {}
   for k, v in pairs(lsp_status_by_client) do
-    table.insert(items, k .. ': ' .. v)
+    table.insert(items, ' ' .. k .. ': ' .. v)
   end
 
   vim.g.lsp_status = table.concat(items, ' │ ')
@@ -271,7 +271,7 @@ function M.setup()
     hi_next('StatusLineFooter'),
     '%{get(b:, "ft_cat", "")}',
   }, '')
-  vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  vim.api.nvim_create_autocmd({ 'UIEnter', 'BufEnter' }, {
     pattern = '*',
     desc = 'Refresh statusline Filetype Category',
     callback = M.ft_cat
