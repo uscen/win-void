@@ -90,7 +90,7 @@ local modes = {
 function M.mode()
   local mode = vim.fn.mode()
   local mode_str = modes[mode]
-  vim.b.statusline_mode = ('   %s '):format(mode_str)
+  vim.b.statusline_mode = ('   %s  '):format(mode_str)
 end
 
 -- filetype :===========================================================================================================
@@ -263,7 +263,7 @@ function M.setup()
     '%(%{get(b:, "statusline_mode", "")} %)',
     '%<',
     hi_next('StatusLineLsp'),
-    '%{get(b:, "lsp_location", "")}',
+    '%(%{get(b:, "lsp_location", "")} %)',
     '%(%{get(g:, "lsp_status")} %)',
     '%= ',
     '%(%{v:lua.vim.diagnostic.status()} │ %)',
