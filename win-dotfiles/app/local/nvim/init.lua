@@ -1234,6 +1234,12 @@ later(function()
       end
     end,
   })
+  -- Reload(execute) on save:==========================================================
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    group = vim.api.nvim_create_augroup('reload_on_save', { clear = true }),
+    pattern = 'init.lua',
+    command = 'source <afile>'
+  })
   -- make executable: ================================================================
   vim.api.nvim_create_autocmd('BufWritePre', {
     group = vim.api.nvim_create_augroup('make_executable', { clear = true }),
@@ -1401,6 +1407,10 @@ later(function()
         vim.g.did_install_syntax_menu = 1
         vim.cmd('syntax clear')
         vim.cmd('syntax off')
+        vim.defer_fn(function()
+          vim.cmd('TSBufDisable highlight')
+          require('rainbow-delimiters').disable(0)
+        end, 100)
         vim.notify('Large file detected. Some features disabled.', vim.log.levels.WARN)
       end
     end,
