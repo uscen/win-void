@@ -233,12 +233,7 @@ function M.setup()
     '%(%{get(g:, "lsp_status")} %)',
     '%= ',
     '%(%{v:lua.vim.diagnostic.status()} %)',
-    hi_next('StatusLineGitAdded'),
-    "%{get(b:,'minidiff_add',0) > 0 ? ' ' . b:minidiff_add : ''}",
-    ' ',
-    hi_next('StatusLineGitRemoved'),
-    "%{get(b:,'minidiff_del',0) > 0 ? '  ' . b:minidiff_del : ''}",
-    ' ',
+    '%(%{get(b:, "minidiff_summary_string", "")} %)', -- git diff
     hi_next('StatusLineFooter'),
     '%{get(b:, "ft_cat", "")}',
   }, '')
@@ -269,8 +264,18 @@ function M.setup()
     desc = 'Do not print changed lines, only added and removed',
     callback = function(data)
       local summary = vim.b[data.buf].minidiff_summary or {}
-      vim.b[data.buf].minidiff_add = (summary.add or 0) + (summary.change or 0)
-      vim.b[data.buf].minidiff_del = (summary.delete or 0) + (summary.change or 0)
+      local t = {
+        add = (summary.add or 0) + (summary.change or 0),
+        delete = (summary.delete or 0) + (summary.change or 0),
+      }
+      local res = {}
+      if t.add > 0 then
+        table.insert(res, '+' .. t.add)
+      end
+      if t.delete > 0 then
+        table.insert(res, '-' .. t.delete)
+      end
+      vim.b[data.buf].minidiff_summary_string = table.concat(res, ' ')
     end,
   })
 end
