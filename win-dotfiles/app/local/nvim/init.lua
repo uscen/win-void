@@ -4,7 +4,7 @@
 --                            using minimalist plugins
 --
 --                         This config is aimed to be:
---                       simple, logic and well Structed
+--                       simple, logic and well structed
 --
 --                     feel free to get steal stuff from it
 --

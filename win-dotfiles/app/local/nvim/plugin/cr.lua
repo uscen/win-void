@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd('FileType', {
         silent = true,
         buffer = args.buf,
         expr = true,
-        desc = "Smart Enter",
+        desc = 'Smart Enter',
       })
     end
   end
