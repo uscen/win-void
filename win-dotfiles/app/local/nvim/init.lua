@@ -683,9 +683,9 @@ now_if_args(function()
       ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
     },
     lsp = {
+      ['function'] = { glyph = '󰊕' },
       text = { glyph = '󰉿' },
       method = { glyph = '󰆧' },
-      ['function'] = { glyph = '󰊕' },
       constructor = { glyph = '' },
       field = { glyph = '󰜢' },
       variable = { glyph = '󰀫' },
