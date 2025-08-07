@@ -861,10 +861,10 @@ now(function()
   vim.opt.splitbelow             = true
   vim.opt.cursorline             = true
   vim.opt.equalalways            = true
-  vim.opt.title                  = true
   vim.opt.tgc                    = true
   vim.opt.relativenumber         = true
   vim.opt.ttyfast                = true
+  vim.opt.title                  = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
@@ -916,11 +916,13 @@ now(function()
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
   vim.opt.expandtab              = true
-  vim.opt.ignorecase             = true
+  vim.opt.hlsearch               = true
   vim.opt.incsearch              = true
   vim.opt.infercase              = true
   vim.opt.smartcase              = true
+  vim.opt.ignorecase             = true
   vim.opt.smartindent            = true
+  vim.opt.smarttab               = true
   vim.opt.gdefault               = true
   vim.opt.confirm                = true
   vim.opt.breakindent            = true
@@ -934,6 +936,7 @@ now(function()
   vim.opt.exrc                   = true
   vim.opt.secure                 = true
   vim.opt.autochdir              = true
+  vim.opt.magic                  = false
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false
   vim.opt.joinspaces             = false
@@ -950,7 +953,7 @@ now(function()
   vim.opt.inccommand             = 'nosplit'
   vim.opt.jumpoptions            = 'view'
   vim.opt.selection              = 'old'
-  vim.opt.nrformats              = 'bin,hex,alpha'
+  vim.opt.nrformats              = 'bin,hex,alpha,unsigned'
   vim.opt.whichwrap              = 'b,s,<,>,[,],h,l'
   vim.opt.iskeyword              = '@,48-57,_,192-255,-'
   vim.opt.formatlistpat          = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
@@ -989,16 +992,16 @@ now(function()
   vim.opt.foldlevel              = 90
   vim.opt.foldnestmax            = 10
   vim.opt.foldminlines           = 4
+  vim.opt.foldtext               = ''
   vim.opt.foldcolumn             = '0'
+  vim.opt.foldmethod             = 'marker'
   vim.opt.foldopen               = 'hor,mark,tag,search,insert,quickfix,undo'
   vim.opt.foldexpr               = 'v:lua.vim.treesitter.foldexpr()'
-  vim.opt.foldmethod             = 'expr'
-  vim.opt.foldtext               = ''
   -- Memory: ================================================================
   vim.opt.lazyredraw             = true
   vim.opt.hidden                 = true
   vim.o.timeout                  = true
-  vim.opt.ttimeoutlen            = 0
+  vim.opt.ttimeoutlen            = 1
   vim.opt.updatetime             = 50
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
