@@ -879,6 +879,7 @@ now(function()
   vim.opt.winminwidth            = 5
   vim.opt.scrolloff              = 5
   vim.opt.sidescrolloff          = 5
+  vim.opt.sidescroll             = 0
   vim.opt.showtabline            = 0
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
@@ -888,6 +889,7 @@ now(function()
   vim.opt.scrollback             = 100000
   vim.opt.colorcolumn            = '130'
   vim.opt.guicursor              = ''
+  vim.opt.belloff                = 'all'
   vim.opt.guifont                = 'JetBrainsMono Nerd Font:h9'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.opt.splitkeep              = 'screen'
