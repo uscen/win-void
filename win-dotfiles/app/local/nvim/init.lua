@@ -958,10 +958,31 @@ now(function()
   vim.opt.formatoptions          = 'rqnl1j'
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { 'buffers', 'curdir', 'tabpages', 'winsize', 'globals' }
-  vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100',
-    'indent-heuristic' }
-  vim.opt.suffixesadd            = { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts',
-    '.tsx', '.yaml', '.yml', }
+  vim.opt.diffopt                = {
+    'algorithm:minimal',
+    'closeoff',
+    'context:8',
+    'filler',
+    'internal',
+    'linematch:100',
+    'indent-heuristic',
+  }
+  vim.opt.suffixesadd            = {
+    '.css',
+    '.html',
+    '.js',
+    '.json',
+    '.jsx',
+    '.lua',
+    '.md',
+    '.rs',
+    '.scss',
+    '.sh',
+    '.ts',
+    '.tsx',
+    '.yaml',
+    '.yml',
+  }
   -- Folds:  ================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevelstart         = 99
@@ -1598,21 +1619,6 @@ later(function()
   vim.keymap.set('n', '<C-l>', function() return vim.fn.winnr('$') == 1 and '15l' or '<C-w>l' end, { expr = true })
   vim.keymap.set('n', '<C-j>', function() return vim.fn.winnr('$') == 1 and '10j' or '<C-w>j' end, { expr = true })
   vim.keymap.set('n', '<C-k>', function() return vim.fn.winnr('$') == 1 and '10k' or '<C-w>k' end, { expr = true })
-  -- Brackted: =========================================================================
-  vim.keymap.set('n', '[a', '<cmd>previous<CR>')
-  vim.keymap.set('n', ']a', '<cmd>next<CR>')
-  vim.keymap.set('n', '[b', '<cmd>bprevious<CR>')
-  vim.keymap.set('n', ']b', '<cmd>bnext<CR>')
-  vim.keymap.set('n', '[q', '<cmd>cprevious<CR>')
-  vim.keymap.set('n', ']q', '<cmd>cnext<CR>')
-  vim.keymap.set('n', '[Q', '<cmd>cfirst<cr>')
-  vim.keymap.set('n', ']Q', '<cmd>clast<cr>')
-  vim.keymap.set('n', '[l', '<cmd>lprevious<CR>')
-  vim.keymap.set('n', ']l', '<cmd>lnext<CR>')
-  vim.keymap.set('n', '[<space>', ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[")
-  vim.keymap.set('n', ']<space>', ":<c-u>put =repeat(nr2char(10), v:count1)<cr>']")
-  vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
-  vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end)
   -- Buffers: =========================================================================
   vim.keymap.set('n', '<Tab>', ':bnext<CR>')
   vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>')
@@ -1645,6 +1651,35 @@ later(function()
   vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j')
   vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k')
   vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
+  -- Brackted: =========================================================================
+  vim.keymap.set('n', '[a', '<cmd>previous<CR>')
+  vim.keymap.set('n', ']a', '<cmd>next<CR>')
+  vim.keymap.set('n', '[b', '<cmd>bprevious<CR>')
+  vim.keymap.set('n', ']b', '<cmd>bnext<CR>')
+  vim.keymap.set('n', '[q', '<cmd>cprevious<CR>')
+  vim.keymap.set('n', ']q', '<cmd>cnext<CR>')
+  vim.keymap.set('n', '[Q', '<cmd>cfirst<cr>')
+  vim.keymap.set('n', ']Q', '<cmd>clast<cr>')
+  vim.keymap.set('n', '[l', '<cmd>lprevious<CR>')
+  vim.keymap.set('n', ']l', '<cmd>lnext<CR>')
+  vim.keymap.set('n', '[<space>', ":<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[")
+  vim.keymap.set('n', ']<space>', ":<c-u>put =repeat(nr2char(10), v:count1)<cr>']")
+  vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end)
+  vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end)
+  vim.keymap.set('n', '[c', function() require('mini.diff').goto_hunk('prev') end)
+  vim.keymap.set('n', ']c', function() require('mini.diff').goto_hunk('next') end)
+  -- Git: =======================================================================
+  vim.keymap.set('n', '<leader>ga', '<cmd>:Git add .<CR>')
+  vim.keymap.set('n', '<leader>gc', '<cmd>:Git commit<CR>')
+  vim.keymap.set('n', '<leader>gC', '<Cmd>Git commit --amend<CR>')
+  vim.keymap.set('n', '<leader>gp', '<cmd>:Git push -u origin main<CR>')
+  vim.keymap.set('n', '<leader>gP', '<cmd>:Git pull<CR>')
+  vim.keymap.set('n', '<leader>gd', '<Cmd>Git diff<CR>')
+  vim.keymap.set('n', '<leader>gD', '<Cmd>Git diff -- %<CR>')
+  vim.keymap.set('n', '<leader>gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>')
+  vim.keymap.set('n', '<leader>gl', [[<Cmd>Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order<CR>]])
+  vim.keymap.set('n', '<leader>gh', [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
+  vim.keymap.set('n', '<leader>gx', [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
   -- Picker ======================================================================
   vim.keymap.set('n', '<leader>fb', '<CMD>Pick buffers include_current=false<CR>')
   vim.keymap.set('n', '<leader>ff', '<CMD>Pick files<CR>')
@@ -1661,18 +1696,6 @@ later(function()
   vim.keymap.set('n', 'gD', "<Cmd>Pick lsp scope='definition'<CR>")
   vim.keymap.set('n', 'gI', "<Cmd>Pick lsp scope='declaration'<CR>")
   vim.keymap.set('n', 'gA', "<Cmd>Pick lsp scope='document_symbol'<CR>")
-  -- Git: =======================================================================
-  vim.keymap.set('n', '<leader>ga', '<cmd>:Git add .<CR>')
-  vim.keymap.set('n', '<leader>gc', '<cmd>:Git commit<CR>')
-  vim.keymap.set('n', '<leader>gC', '<Cmd>Git commit --amend<CR>')
-  vim.keymap.set('n', '<leader>gp', '<cmd>:Git push -u origin main<CR>')
-  vim.keymap.set('n', '<leader>gP', '<cmd>:Git pull<CR>')
-  vim.keymap.set('n', '<leader>gd', '<Cmd>Git diff<CR>')
-  vim.keymap.set('n', '<leader>gD', '<Cmd>Git diff -- %<CR>')
-  vim.keymap.set('n', '<leader>gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>')
-  vim.keymap.set('n', '<leader>gl', [[<Cmd>Git log --pretty=format:\%h\ \%as\ │\ \%s --topo-order<CR>]])
-  vim.keymap.set('n', '<leader>gh', [[<Cmd>lua MiniDiff.toggle_overlay()<CR>]])
-  vim.keymap.set('n', '<leader>gx', [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
   -- Explorer: ==================================================================
   vim.keymap.set('n', '<leader>e',
     function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
