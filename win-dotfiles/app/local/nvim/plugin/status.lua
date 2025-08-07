@@ -232,8 +232,8 @@ function M.setup()
     '%{get(b:, "lsp_location", "")}',
     '%(%{get(g:, "lsp_status")} %)',
     '%= ',
-    '%(%{v:lua.vim.diagnostic.status()} %)',
-    '%(%{get(b:, "minidiff_summary_string", "")} %)', -- git diff
+    '%(%{v:lua.vim.diagnostic.status()} │ %)',
+    '%(%{get(b:, "minidiff_summary_string", "")} %)',
     hi_next('StatusLineFooter'),
     '%{get(b:, "ft_cat", "")}',
   }, '')
