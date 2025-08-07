@@ -61,6 +61,61 @@ function M.mode()
   vim.b.statusline_mode = ('   %s  '):format(mode_str)
 end
 
+-- filetype :===========================================================================================================
+local ft_to_cat = {
+  javascript = 'WEB',
+  typescript = 'WEB',
+  html = 'WEB',
+  css = 'WEB',
+  scss = 'WEB',
+  sass = 'WEB',
+  less = 'WEB',
+  vue = 'WEB',
+  jsx = 'WEB',
+  tsx = 'WEB',
+  markdown = 'WEB',
+  md = 'WEB',
+  lua = 'ENV',
+  conf = 'ENV',
+  ini = 'ENV',
+  vim = 'ENV',
+  zsh = 'ENV',
+  dockerfile = 'ENV',
+  makefile = 'ENV',
+  cmake = 'ENV',
+  csv = 'DAT',
+  xml = 'DAT',
+  json = 'DAT',
+  yaml = 'DAT',
+  toml = 'DAT',
+  hcl = 'DAT',
+  sh = 'SYS',
+  bash = 'SYS',
+  fish = 'SYS',
+  powershell = 'SYS',
+  sql = 'DAB',
+  mysql = 'DAB',
+  plsql = 'DAB',
+  postgresql = 'DAB',
+  terminal = 'TER',
+  toggleterm = 'TER',
+  floaterm = 'TER',
+  gitcommit = 'GIT',
+  gitrebase = 'GIT',
+  gitconfig = 'GIT',
+  ministarter = 'WEL',
+  dashboard = 'WEL',
+  alpha = 'WEL',
+  minipick = 'PLG',
+  minifiles = 'PLG'
+}
+function M.ft_cat()
+  local ft = vim.bo.filetype:lower()
+  local cat = ft_to_cat[ft]
+  local label = cat and cat or ft:upper()
+  vim.b.ft_cat = ('   %s  '):format(label)
+end
+
 -- LSP: ================================================================================================================
 M.lsp_update_status = debounce(function()
   ---@type table<string, string>
@@ -117,7 +172,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
       ---@param symbols lsp.DocumentSymbol[]
       local function process_symbols(symbols)
         for _, symbol in ipairs(symbols) do
-          local range = symbol.range or symbol.location.range
+          local range = symbol.range
           if
               (
                 range.start.line < cursor_line
@@ -183,7 +238,14 @@ function M.setup()
     ' ',
     hi_next('StatusLineGitRemoved'),
     "%{get(b:,'minidiff_del',0) > 0 ? ' ' . b:minidiff_del : ''}",
+    hi_next('StatusLineFooter'),
+    '%{get(b:, "ft_cat", "")}',
   }, '')
+  vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+    pattern = '*',
+    desc = 'Refresh statusline Filetype Category',
+    callback = M.ft_cat
+  })
   vim.api.nvim_create_autocmd({ 'ModeChanged', 'BufEnter' }, {
     pattern = '*',
     desc = 'Refresh statusline Mode',
