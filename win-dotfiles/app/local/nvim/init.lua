@@ -832,11 +832,11 @@ now(function()
   vim.opt.smoothscroll           = true
   vim.opt.splitright             = true
   vim.opt.splitbelow             = true
-  vim.opt.cursorline             = true
   vim.opt.equalalways            = true
   vim.opt.tgc                    = true
-  vim.opt.relativenumber         = true
   vim.opt.ttyfast                = true
+  vim.opt.cursorline             = false
+  vim.opt.relativenumber         = false
   vim.opt.title                  = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
@@ -860,7 +860,7 @@ now(function()
   vim.opt.pumheight              = 8
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
-  vim.opt.colorcolumn            = '130'
+  vim.opt.colorcolumn            = ''
   vim.opt.guicursor              = ''
   vim.opt.belloff                = 'all'
   vim.opt.guifont                = 'JetBrainsMono Nerd Font:h9'
@@ -1279,53 +1279,6 @@ later(function()
     group = vim.api.nvim_create_augroup('clear_jumps', { clear = true }),
     callback = function()
       vim.cmd('clearjumps')
-    end,
-  })
-  -- show cursor line only in active window:  =======================================
-  local cursorline_active_window_augroup = vim.api.nvim_create_augroup('cursorline-active-window', { clear = true })
-  vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
-    group = cursorline_active_window_augroup,
-    callback = function()
-      if vim.w.auto_cursorline then
-        vim.wo.cursorline = true
-        vim.w.auto_cursorline = nil
-      end
-    end,
-  })
-  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
-    group = cursorline_active_window_augroup,
-    callback = function()
-      if vim.wo.cursorline then
-        vim.w.auto_cursorline = true
-        vim.wo.cursorline = false
-      end
-    end,
-  })
-  -- show relativenumber only in active indow:  ========================================
-  local line_numbers_group = vim.api.nvim_create_augroup('toggle_line_numbers', {})
-  vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
-    group = line_numbers_group,
-    desc = 'Toggle relative line numbers on',
-    callback = function()
-      if vim.wo.nu and not vim.startswith(vim.api.nvim_get_mode().mode, 'i') then
-        vim.wo.relativenumber = true
-      end
-    end,
-  })
-  vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
-    group = line_numbers_group,
-    desc = 'Toggle relative line numbers off',
-    callback = function(args)
-      if vim.wo.nu then
-        vim.wo.relativenumber = false
-      end
-
-      -- Redraw here to avoid having to first write something for the line numbers to update.
-      if args.event == 'CmdlineEnter' then
-        if not vim.tbl_contains({ '@', '-' }, vim.v.event.cmdtype) then
-          vim.cmd.redraw()
-        end
-      end
     end,
   })
   -- When at eob, bring the current line towards center screen:===========================
