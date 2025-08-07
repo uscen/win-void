@@ -113,7 +113,7 @@ function M.ft_cat()
   local ft = vim.bo.filetype:lower()
   local cat = ft_to_cat[ft]
   local label = cat and cat or ft:upper()
-  vim.b.ft_cat = ('   %s  '):format(label)
+  vim.b.ft_cat = ('  %s  '):format(label)
 end
 
 -- LSP: ================================================================================================================
@@ -237,7 +237,8 @@ function M.setup()
     "%{get(b:,'minidiff_add',0) > 0 ? ' ' . b:minidiff_add : ''}",
     ' ',
     hi_next('StatusLineGitRemoved'),
-    "%{get(b:,'minidiff_del',0) > 0 ? ' ' . b:minidiff_del : ''}",
+    "%{get(b:,'minidiff_del',0) > 0 ? '  ' . b:minidiff_del : ''}",
+    ' ',
     hi_next('StatusLineFooter'),
     '%{get(b:, "ft_cat", "")}',
   }, '')
