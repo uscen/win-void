@@ -2,6 +2,38 @@
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
+local LSP_KIND_TO_ICON = {
+  File = '',
+  Module = '',
+  Namespace = '',
+  Package = '',
+  Class = '',
+  Method = '',
+  Property = '',
+  Field = '',
+  Constructor = '',
+  Enum = '',
+  Interface = '',
+  Function = '',
+  Variable = '',
+  Constant = '',
+  String = '',
+  Number = '',
+  Boolean = '',
+  Array = '',
+  Object = '',
+  Key = '',
+  Null = '',
+  EnumMember = '',
+  Struct = '',
+  Event = '',
+  Operator = '',
+  TypeParameter = '',
+}
+local KIND_NUM_TO_NAME = {}
+for name, id in pairs(vim.lsp.protocol.SymbolKind) do
+  KIND_NUM_TO_NAME[id] = name
+end
 -- Helpers: ===========================================================================================================
 local hi_next = function(group)
   return '%#' .. group .. '#'
@@ -172,7 +204,7 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
       ---@param symbols lsp.DocumentSymbol[]
       local function process_symbols(symbols)
         for _, symbol in ipairs(symbols) do
-          local range = symbol.range
+          local range = symbol.range or symbol.location.range
           if
               (
                 range.start.line < cursor_line
@@ -189,7 +221,9 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
                 )
               )
           then
-            table.insert(named_symbols, ' ' .. symbol.name)
+            local kind_name = KIND_NUM_TO_NAME[symbol.kind] or 'File'
+            local icon = LSP_KIND_TO_ICON[kind_name] or ''
+            table.insert(named_symbols, icon .. ' ' .. symbol.name)
             if symbol.children then
               process_symbols(symbol.children)
             end
