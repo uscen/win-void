@@ -90,7 +90,7 @@ local modes = {
 function M.mode()
   local mode = vim.fn.mode()
   local mode_str = modes[mode]
-  vim.b.statusline_mode = ('   %s  '):format(mode_str)
+  vim.b.statusline_mode = ('   %s '):format(mode_str)
 end
 
 -- filetype :===========================================================================================================
@@ -260,7 +260,7 @@ function M.setup()
   end
   vim.opt.statusline = table.concat({
     hi_next('StatusLineHeader'),
-    '%{get(b:, "statusline_mode", "")}',
+    '%(%{get(b:, "statusline_mode", "")} %)',
     '%<',
     hi_next('StatusLineLsp'),
     '%{get(b:, "lsp_location", "")}',
