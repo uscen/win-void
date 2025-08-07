@@ -108,8 +108,8 @@ vim.api.nvim_create_autocmd({ 'CursorHold', 'InsertLeave', 'WinScrolled', 'BufWi
         return
       end
       local cursor_pos = vim.api.nvim_win_get_cursor(0)
-      local cursor_line = cursor_pos[1] - 1       -- Convert to 0-based index
-      local cursor_col = cursor_pos[2]            -- 0 based
+      local cursor_line = cursor_pos[1] - 1 -- Convert to 0-based index
+      local cursor_col = cursor_pos[2]      -- 0 based
       ---@type string[]
       local named_symbols = {}
       -- Recursively traverses symbols
