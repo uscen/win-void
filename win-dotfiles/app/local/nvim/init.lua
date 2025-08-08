@@ -369,7 +369,7 @@ now(function()
     'BufDelete',
   }, {
     desc = 'Hide the tabline when empty',
-    group = group,
+    group = vim.api.nvim_create_augroup('hide_when_one', {}),
     -- Schedule because 'BufDelete' is triggered when buffer is still present
     callback = vim.schedule_wrap(function() vim.o.showtabline = get_n_listed_bufs() > 1 and 2 or 0 end),
   })
@@ -681,6 +681,33 @@ now_if_args(function()
       ['database'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
       ['db'] = { glyph = '󰆼', hl = 'MiniIconsOrange' },
       ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
+    },
+    lsp = {
+      text = { glyph = '󰉿' },
+      method = { glyph = '󰆧' },
+      ['function'] = { glyph = '󰊕' },
+      constructor = { glyph = '' },
+      field = { glyph = '󰜢' },
+      variable = { glyph = '󰀫' },
+      class = { glyph = '󰠱' },
+      interface = { glyph = '' },
+      module = { glyph = '' },
+      property = { glyph = '󰜢' },
+      unit = { glyph = '󰑭' },
+      value = { glyph = '󰎠' },
+      enum = { glyph = '' },
+      keyword = { glyph = '󰌋' },
+      snippet = { glyph = '' },
+      color = { glyph = '󰏘' },
+      file = { glyph = '󰈙' },
+      reference = { glyph = '󰈇' },
+      folder = { glyph = '󰉋' },
+      enumMember = { glyph = '' },
+      constant = { glyph = '󰏿' },
+      struct = { glyph = '󰙅' },
+      event = { glyph = '' },
+      operator = { glyph = '󰆕' },
+      typeParameter = { glyph = '' },
     },
   })
   later(MiniIcons.mock_nvim_web_devicons)

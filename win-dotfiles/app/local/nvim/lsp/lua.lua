@@ -12,7 +12,7 @@ return {
         library = { vim.env.VIMRUNTIME, '${3rd}/luv/library' },
       },
       diagnostics = {
-        globals = { 'MiniDeps', 'MiniIcons', 'MiniFiles', 'MiniPick', 'MiniTabline', 'MiniSnippets', 'MiniTrailspace', 'group', 'timer' },
+        globals = { 'MiniDeps', 'MiniIcons', 'MiniFiles', 'MiniPick', 'MiniTabline', 'MiniSnippets' },
       },
       signatureHelp = {
         enabled = true,
