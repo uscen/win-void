@@ -786,6 +786,7 @@ end)
 --          ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- Global:  =================================================================
+  vim.g.is_win                   = vim.uv.os_uname().sysname:find('Windows') ~= nil
   vim.g.mapleader                = vim.keycode('<space>')
   vim.g.maplocalleader           = vim.g.mapleader
   -- Use ripgrep as grep tool: ================================================
@@ -810,6 +811,8 @@ now(function()
   vim.opt.undolevels             = 1024
   vim.opt.fileencoding           = 'utf-8'
   vim.opt.encoding               = 'utf-8'
+  vim.opt.fileformat             = 'unix'
+  vim.opt.fileformats            = 'unix,dos'
   vim.opt.clipboard              = 'unnamedplus'
   vim.opt.wildmode               = 'longest:full,full'
   vim.opt.wildoptions            = 'fuzzy,pum'
@@ -825,6 +828,7 @@ now(function()
   vim.opt.spelllang              = 'en_us'
   vim.opt.spelloptions           = 'camel'
   vim.opt.spellsuggest           = 'best,8'
+  vim.opt.spellfile              = vim.fn.stdpath('config') .. '/misc/dict/en.utf-8.add'
   vim.opt.dictionary             = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
   -- UI: ====================================================================
   vim.opt.number                 = true
@@ -901,6 +905,7 @@ now(function()
   vim.opt.gdefault               = true
   vim.opt.confirm                = true
   vim.opt.breakindent            = true
+  vim.opt.linebreak              = true
   vim.opt.copyindent             = true
   vim.opt.preserveindent         = true
   vim.opt.startofline            = true
@@ -924,6 +929,7 @@ now(function()
   vim.opt.conceallevel           = 3
   vim.opt.concealcursor          = 'c'
   vim.opt.cedit                  = '^F'
+  vim.opt.keywordprg             = ':help'
   vim.opt.breakindentopt         = 'list:-1'
   vim.opt.inccommand             = 'nosplit'
   vim.opt.jumpoptions            = 'view'
@@ -1102,6 +1108,32 @@ now_if_args(function()
       })
     end,
   })
+  -- Remove background for all WinSeparator sections ==============================
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = '*',
+    group = vim.api.nvim_create_augroup('sp_bg_removed', { clear = true }),
+    desc = 'Remove background for all WinSeparator sections',
+    callback = function()
+      vim.cmd('highlight WinSeparator guibg=None')
+    end,
+  })
+  -- change tab title to directory name when loading session ========================
+  vim.api.nvim_create_autocmd('SessionLoadPost', {
+    group = vim.api.nvim_create_augroup('change_title', { clear = true }),
+    callback = function()
+      -- return the tail path of the current working directory
+      local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+      vim.uv.set_process_title(dirname .. ' - nvim')
+    end,
+  })
+  -- Disable diagnostics in node_modules ============================================
+  vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    group = vim.api.nvim_create_augroup('disable_diagnostics', { clear = true }),
+    pattern = '*/node_modules/*',
+    callback = function()
+      vim.diagnostic.enable(false, { bufnr = 0 })
+    end,
+  })
   -- Don't Comment New Line =========================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',
@@ -1126,6 +1158,32 @@ now_if_args(function()
       local current_tab = vim.fn.tabpagenr()
       vim.cmd('tabdo wincmd =')
       vim.cmd('tabnext ' .. current_tab)
+    end,
+  })
+  -- Fix broken macro recording notification for cmdheight 0, pt1: ====================
+  local show_recordering = vim.api.nvim_create_augroup('show_recordering', { clear = true })
+  vim.api.nvim_create_autocmd('RecordingEnter', {
+    pattern = '*',
+    group = show_recordering,
+    callback = function()
+      vim.opt_local.cmdheight = 1
+    end,
+  })
+  vim.api.nvim_create_autocmd('RecordingLeave', {
+    pattern = '*',
+    group = show_recordering,
+    desc = 'Fix broken macro recording notification for cmdheight 0, pt2',
+    callback = function()
+      local timer = vim.loop.new_timer()
+      -- NOTE: Timer is here because we need to close cmdheight AFTER
+      -- the macro is ended, not during the Leave event
+      timer:start(
+        50,
+        0,
+        vim.schedule_wrap(function()
+          vim.opt_local.cmdheight = 0
+        end)
+      )
     end,
   })
   -- Remove hl search when Move Or  enter Insert : ==================================
@@ -1231,6 +1289,27 @@ now_if_args(function()
       if vim.o.buftype ~= 'nofile' then
         vim.cmd('checktime')
       end
+    end,
+  })
+  -- delete entries from a quickfix list with `dd` ======================================
+  vim.api.nvim_create_autocmd({ 'FileType' }, {
+    group = vim.api.nvim_create_augroup('quickfix', { clear = true }),
+    pattern = { 'qf' },
+    callback = function()
+      vim.keymap.set('n', 'dd', function()
+        local cursor = vim.api.nvim_win_get_cursor(0)
+        local quickfix_list = vim.fn.getqflist()
+        table.remove(quickfix_list, cursor[1])
+        vim.fn.setqflist(quickfix_list, 'r')
+        -- restore cursor position
+        vim.api.nvim_win_set_cursor(0, cursor)
+        -- close quickfix on last item remove
+        if #quickfix_list == 0 then
+          vim.cmd.cclose()
+        end
+      end, { buffer = true })
+
+      vim.keymap.set('n', '<cr>', '<cr>:cclose<cr>', { buffer = 0, silent = true })
     end,
   })
   -- `K` in Lua files opens Vim helpdocs: ==============================================
@@ -1659,7 +1738,9 @@ later(function()
       ['ipynb'] = 'ipynb',
       ['pcss'] = 'css',
       ['ejs'] = 'ejs',
-      ['h'] = 'c'
+      ['conf'] = 'conf',
+      ['ahk2'] = 'autohotkey',
+      ['h'] = 'c',
     },
     filename = {
       ['TODO'] = 'markdown',
@@ -1668,10 +1749,14 @@ later(function()
       ['xhtml'] = 'html',
       ['tsconfig.json'] = 'jsonc',
       ['.eslintrc.json'] = 'jsonc',
+      ['.prettierrc'] = 'jsonc',
+      ['.babelrc'] = 'jsonc',
+      ['.stylelintrc'] = 'jsonc',
       ['.yamlfmt'] = 'yaml',
     },
     pattern = {
       ['requirements.*.txt'] = 'requirements',
+      ['.*config/git/config'] = 'gitconfig',
       ['.*/git/config.*'] = 'git_config',
       ['.gitconfig.*'] = 'gitconfig',
       ['%.env%.[%w_.-]+'] = 'sh',
