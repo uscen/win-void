@@ -789,18 +789,18 @@ now(function()
   vim.g.is_win                   = vim.uv.os_uname().sysname:find('Windows') ~= nil
   vim.g.mapleader                = vim.keycode('<space>')
   vim.g.maplocalleader           = vim.g.mapleader
-  -- Use ripgrep as grep tool: ================================================
+  -- grep: ====================================================================
   vim.opt.grepprg                = 'rg --vimgrep --smart-case --no-heading --color=never --glob !.git'
   vim.opt.grepformat             = '%f:%l:%c:%m,%f:%l:%m'
   vim.opt.path                   = '.,,**'
-  -- Shell: =-================================================================
+  -- Shell: =-=================================================================
   vim.opt.sh                     = 'nu'
   vim.opt.shellcmdflag           = '--stdin --no-newline -c'
   vim.opt.shellredir             = 'out+err> %s'
   vim.opt.shellxescape           = ''
   vim.opt.shellxquote            = ''
   vim.opt.shellquote             = ''
-  -- General: ================================================================
+  -- General: =================================================================
   vim.opt.undofile               = true
   vim.opt.wildmenu               = true
   vim.opt.wildignorecase         = true
@@ -823,14 +823,14 @@ now(function()
   vim.opt.switchbuf              = 'usetab'
   vim.opt.shada                  = { "'10", '<0', 's10', 'h' }
   vim.opt.undodir                = vim.fn.stdpath('data') .. '/undo'
-  -- Spelling ================================================================
+  -- Spelling ==================================================================
   vim.opt.spell                  = false
   vim.opt.spelllang              = 'en_us'
   vim.opt.spelloptions           = 'camel'
   vim.opt.spellsuggest           = 'best,8'
   vim.opt.spellfile              = vim.fn.stdpath('config') .. '/misc/dict/en.utf-8.add'
   vim.opt.dictionary             = vim.fn.stdpath('config') .. '/misc/dict/english.txt'
-  -- UI: ====================================================================
+  -- UI: ========================================================================
   vim.opt.number                 = true
   vim.opt.termguicolors          = true
   vim.opt.smoothscroll           = true
@@ -891,7 +891,7 @@ now(function()
     nbsp =
     '␣',
   }
-  -- Editing:  ================================================================
+  -- Editing:  ===================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
   vim.opt.expandtab              = true
