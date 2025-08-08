@@ -1380,9 +1380,7 @@ later(function()
   -- Run ctags: ============================================================================
   vim.api.nvim_create_user_command('Ctags', '!ctags -R .', {})
   -- LSP code action:=======================================================================
-  vim.api.nvim_create_user_command('CodeAction', function()
-    vim.lsp.buf.code_action()
-  end, {})
+  vim.api.nvim_create_user_command('CodeAction', function() vim.lsp.buf.code_action() end, {})
   -- Search literally, with no regex: =====================================================
   vim.api.nvim_create_user_command('Search', ':let @/="\\\\V" . escape(<q-args>, "\\\\\") | normal! n', { nargs = 1 })
   -- Grep keyword within the folder containing the current file: ==========================
@@ -1548,7 +1546,7 @@ later(function()
   vim.keymap.set('n', '<leader>ur', '<cmd>colorscheme randomhue<CR>')
   -- Subtitle Keys: ====================================================================
   vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-  vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
+  vim.keymap.set('n', '<Leader>rs', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
   vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end,
     { expr = true })
   -- Focus Or Jumps : ===================================================================
