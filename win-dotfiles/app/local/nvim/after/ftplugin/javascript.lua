@@ -1,3 +1,4 @@
+vim.opt_local.keywordprg = ':Mdn'
 local success, textobj = pcall(require, 'textobjects')
 if not success then
   vim.notify('failed to load a plugin: textobjects')

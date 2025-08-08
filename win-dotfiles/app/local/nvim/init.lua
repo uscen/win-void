@@ -1160,7 +1160,7 @@ now_if_args(function()
       vim.cmd('tabnext ' .. current_tab)
     end,
   })
-  -- Fix broken macro recording notification for cmdheight 0, pt1: ====================
+  -- Fix broken macro recording notification for cmdheight 0 : ======================
   local show_recordering = vim.api.nvim_create_augroup('show_recordering', { clear = true })
   vim.api.nvim_create_autocmd('RecordingEnter', {
     pattern = '*',
@@ -1366,14 +1366,6 @@ now_if_args(function()
         view.topline = view.topline + off - (win_h - rem + dist)
         vim.fn.winrestview(view)
       end
-    end,
-  })
-  -- Make it easier to close man-files when opened inline: ===============================
-  vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('man_unlisted', { clear = true }),
-    pattern = { 'man' },
-    callback = function(event)
-      vim.bo[event.buf].buflisted = false
     end,
   })
   -- close some filetypes with <q>: ======================================================
