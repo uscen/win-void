@@ -1357,7 +1357,54 @@ now_if_args(function()
       end
     end,
   })
-  -- Reload buffer on enter or focus: ===================================================
+  -- Close all non-existing buffers on `FocusGained`: ====================================
+  vim.api.nvim_create_autocmd('FocusGained', {
+    group = vim.api.nvim_create_augroup('close_non_existing_buffer', { clear = true }),
+    callback = function()
+      local closedBuffers = {}
+      local allBufs = vim.fn.getbufinfo { buflisted = 1 }
+      vim.iter(allBufs):each(function(buf)
+        if not vim.api.nvim_buf_is_valid(buf.bufnr) then return end
+        local stillExists = vim.uv.fs_stat(buf.name) ~= nil
+        local specialBuffer = vim.bo[buf.bufnr].buftype ~= ''
+        local newBuffer = buf.name == ''
+        if stillExists or specialBuffer or newBuffer then return end
+        table.insert(closedBuffers, vim.fs.basename(buf.name))
+        vim.api.nvim_buf_delete(buf.bufnr, { force = false })
+      end)
+      if #closedBuffers == 0 then return end
+
+      if #closedBuffers == 1 then
+        vim.notify(closedBuffers[1], nil, { title = 'Buffer closed', icon = '󰅗' })
+      else
+        local text = '- ' .. table.concat(closedBuffers, '\n- ')
+        vim.notify(text, nil, { title = 'Buffers closed', icon = '󰅗' })
+      end
+
+      -- If ending up in empty buffer, re-open the first oldfile that exists
+      vim.schedule(function()
+        if vim.api.nvim_buf_get_name(0) ~= '' then return end
+        for _, file in ipairs(vim.v.oldfiles) do
+          if vim.uv.fs_stat(file) and vim.fs.basename(file) ~= 'COMMIT_EDITMSG' then
+            vim.cmd.edit(file)
+            return
+          end
+        end
+      end)
+    end,
+  })
+  -- Auto-cleanup. delete older files: ===================================================
+  vim.api.nvim_create_autocmd('FocusLost', {
+    group = vim.api.nvim_create_augroup('auto-cleanup', { clear = true }),
+    once = true,
+    callback = function()
+      if os.date('%a') == 'Mon' or jit.os == 'OSX' then
+        vim.system { 'find', vim.o.undodir, '-mtime', '+15d', '-delete' }
+        vim.system { 'find', vim.lsp.log.get_filename(), '-size', '+20M', '-delete' }
+      end
+    end,
+  })
+  -- Reload buffer on enter or focus: ====================================================
   vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained' }, {
     group = vim.api.nvim_create_augroup('reload_buffer_on_enteror_focus', { clear = true }),
     command = 'silent! !',
