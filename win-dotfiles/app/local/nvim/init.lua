@@ -1018,7 +1018,7 @@ now(function()
   vim.opt.foldminlines           = 4
   vim.opt.foldtext               = ''
   vim.opt.foldcolumn             = '0'
-  vim.opt.foldmethod             = 'marker'
+  vim.opt.foldmethod             = 'manual'
   vim.opt.foldopen               = 'hor,mark,tag,search,insert,quickfix,undo'
   vim.opt.foldexpr               = 'v:lua.vim.treesitter.foldexpr()'
   -- Memory: ================================================================
@@ -1502,7 +1502,7 @@ now_if_args(function()
   })
   -- Large file handling: =============================================================
   vim.api.nvim_create_autocmd('BufReadPre', {
-    group = vim.api.nvim_create_augroup('disable_in_bigfile', { clear = true }),
+    group = vim.api.nvim_create_augroup('nvim-bigfile', { clear = true }),
     callback = function(ev)
       local max_size = 10 * 1024 * 1024 -- 10MB
       local file_size = vim.fn.getfsize(ev.match)
@@ -1513,24 +1513,18 @@ now_if_args(function()
         vim.opt_local.backup = false
         vim.opt_local.writebackup = false
         vim.opt_local.foldenable = false
+        vim.opt_local.foldmethod = 'manual'
         vim.g.did_install_syntax_menu = 1
         vim.cmd('syntax clear')
         vim.cmd('syntax off')
+        vim.cmd('filetype off')
         vim.defer_fn(function()
           vim.cmd('TSBufDisable highlight')
+          vim.cmd('TSBufDisable indent')
+          vim.cmd('TSBufDisable autotag')
           require('rainbow-delimiters').disable(0)
         end, 100)
         vim.notify('Large file detected. Some features disabled.', vim.log.levels.WARN)
-      end
-    end,
-  })
-  vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = '*',
-    callback = function()
-      local line_count = vim.api.nvim_buf_line_count(0)
-      if line_count > 5000 then
-        vim.cmd('syntax clear')
-        vim.cmd('syntax off')
       end
     end,
   })
