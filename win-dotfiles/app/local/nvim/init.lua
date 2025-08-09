@@ -1515,9 +1515,9 @@ now_if_args(function()
         vim.opt_local.foldenable = false
         vim.opt_local.foldmethod = 'manual'
         vim.g.did_install_syntax_menu = 1
+        vim.cmd('filetype off')
         vim.cmd('syntax clear')
         vim.cmd('syntax off')
-        vim.cmd('filetype off')
         vim.defer_fn(function()
           vim.cmd('TSBufDisable highlight')
           vim.cmd('TSBufDisable indent')
