@@ -1,10 +1,12 @@
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                         Misc                            ║
+--          ╚═════════════════════════════════════════════════════════╝
 local M = {}
 
 function M.smartDuplicate()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   local line = vim.api.nvim_get_current_line()
   local ft = vim.bo.filetype
-
   -- FILETYPE-SPECIFIC TWEAKS
   if ft == 'css' then
     local newLine = line
@@ -22,10 +24,8 @@ function M.smartDuplicate()
   elseif ft == 'python' then
     line = line:gsub('^(%s*)if( .*:)$', '%1elif%2')
   end
-
   -- INSERT DUPLICATED LINE
   vim.api.nvim_buf_set_lines(0, row, row, false, { line })
-
   -- MOVE CURSOR DOWN, AND TO VALUE/FIELD (IF THERE IS ANY)
   local _, luadocFieldPos = line:find('%-%-%-@%w+ ')
   local _, valuePos = line:find('[:=] ')
@@ -33,4 +33,4 @@ function M.smartDuplicate()
   vim.api.nvim_win_set_cursor(0, { row + 1, targetCol })
 end
 
-return M
+vim.api.nvim_create_user_command('SmartDuplicate', M.smartDuplicate, {})

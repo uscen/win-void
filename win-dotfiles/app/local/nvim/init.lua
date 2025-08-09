@@ -1374,14 +1374,12 @@ now_if_args(function()
         vim.api.nvim_buf_delete(buf.bufnr, { force = false })
       end)
       if #closedBuffers == 0 then return end
-
       if #closedBuffers == 1 then
         vim.notify(closedBuffers[1], nil, { title = 'Buffer closed', icon = '󰅗' })
       else
         local text = '- ' .. table.concat(closedBuffers, '\n- ')
         vim.notify(text, nil, { title = 'Buffers closed', icon = '󰅗' })
       end
-
       -- If ending up in empty buffer, re-open the first oldfile that exists
       vim.schedule(function()
         if vim.api.nvim_buf_get_name(0) ~= '' then return end
