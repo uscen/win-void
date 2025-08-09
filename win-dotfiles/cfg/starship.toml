@@ -61,11 +61,19 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
+"~" = " "
+"Desktop" = "󰇄 "
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
-"Developer" = "󰲋 "
+"Projects" = "󰲋 "
+".config" = " "
+"main-vault" = "󱉽 "
+"Library/Mobile Documents/com~apple~CloudDocs" = "󰀸 "
+"phd-data-analysis" = " "
+"writing-vault" = " "
+".password-store" = " "
 
 [battery]
 format = '[[ $symbol$percentage ](fg:color_fg0 bg:color_bg3)]($style)'

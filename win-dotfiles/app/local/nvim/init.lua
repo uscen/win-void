@@ -1694,6 +1694,7 @@ later(function()
   vim.keymap.set('n', '<leader>v', "printf('`[%s`]', getregtype()[0])", { expr = true, })
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
   vim.keymap.set('n', 'gy', '`[v`]')
+  vim.keymap.set('n', '~', 'v~')
   -- window: ========================================================================
   vim.keymap.set('n', '<leader>wc', '<cmd>close<cr>')
   vim.keymap.set('n', '<leader>wo', '<cmd>only<cr>')
