@@ -73,8 +73,8 @@ function M.lspCapabilities()
     }
     local opts = { icon = '󱈄', title = client.name .. ' capabilities', ft = 'lua' }
     local header = '-- For a full view, open in notification history.\n'
-    vim.notify(header .. vim.inspect(info), vim.log.levels.DEBUG, opts)
+    vim.notify(header .. vim.inspect(info), vim.log.levels.INFO, opts)
   end)
 end
 
-vim.api.nvim_create_user_command('LSPCapabilities', M.lspCapabilities, {})
+vim.api.nvim_create_user_command('LspCapabilities', M.lspCapabilities, {})
