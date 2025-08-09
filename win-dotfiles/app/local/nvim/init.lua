@@ -952,6 +952,7 @@ now(function()
   vim.opt.preserveindent         = true
   vim.opt.startofline            = true
   vim.opt.autowrite              = true
+  vim.opt.autowriteall           = true
   vim.opt.wrapscan               = true
   vim.opt.tildeop                = true
   vim.opt.mousemoveevent         = true
