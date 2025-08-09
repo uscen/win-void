@@ -1502,7 +1502,7 @@ now_if_args(function()
   })
   -- Large file handling: =============================================================
   vim.api.nvim_create_autocmd('BufReadPre', {
-    group = vim.api.nvim_create_augroup('nvim-bigfile', { clear = true }),
+    group = vim.api.nvim_create_augroup('handle_bigfile', { clear = true }),
     callback = function(ev)
       local max_size = 10 * 1024 * 1024 -- 10MB
       local file_size = vim.fn.getfsize(ev.match)
