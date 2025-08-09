@@ -1524,6 +1524,9 @@ now_if_args(function()
           vim.cmd('TSBufDisable autotag')
           require('rainbow-delimiters').disable(0)
         end, 100)
+        vim.b.minicompletion_disable = true
+        vim.b.minisnippets_disable = true
+        vim.b.minihipatterns_disable = true
         vim.notify('Large file detected. Some features disabled.', vim.log.levels.WARN)
       end
     end,
