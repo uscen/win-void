@@ -881,7 +881,7 @@ now(function()
   vim.opt.equalalways            = true
   vim.opt.tgc                    = true
   vim.opt.ttyfast                = true
-  vim.opt.cursorline             = false
+  vim.opt.cursorline             = true
   vim.opt.relativenumber         = false
   vim.opt.title                  = false
   vim.opt.list                   = false
@@ -1248,7 +1248,7 @@ now_if_args(function()
       end
     end,
   })
-  -- Trim space and lastlines if empty : ========================================
+  -- Trim space and lastlines if empty : ===========================================
   local trim_spaces = vim.api.nvim_create_augroup('trim_spaces', { clear = true })
   vim.api.nvim_create_autocmd('BufWritePre', {
     group = trim_spaces,
@@ -1264,6 +1264,30 @@ now_if_args(function()
       local n_lines = vim.api.nvim_buf_line_count(0)
       local last_nonblank = vim.fn.prevnonblank(n_lines)
       if last_nonblank < n_lines then vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {}) end
+    end,
+  })
+  -- Add the relative file path from nearest git root to code files: ===============
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    group = vim.api.nvim_create_augroup('insert_path', { clear = true }),
+    pattern = { '*.ts', '*.tsx', '*.js', '*.jsx' },
+    callback = function(args)
+      local bufnr = args.buf
+      local filepath = args.file
+      -- Get Git root
+      local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+      if not git_root or git_root == '' then
+        return
+      end
+      -- Compute relative path and comment
+      local relpath = filepath:gsub('^' .. git_root .. '/', '')
+      local comment = '// ' .. relpath
+      -- Check if it's already the first line
+      local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
+      if first_line == comment then
+        return
+      end
+      -- Insert at the top
+      vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, { comment })
     end,
   })
   -- Execute command and stay in the command-line window: ===========================
@@ -1332,6 +1356,11 @@ now_if_args(function()
         vim.cmd('checktime')
       end
     end,
+  })
+  -- Reload buffer on enter or focus: ===================================================
+  vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained' }, {
+    group = vim.api.nvim_create_augroup('reload_buffer_on_enteror_focus', { clear = true }),
+    command = 'silent! !',
   })
   -- delete entries from a quickfix list with `dd` ======================================
   vim.api.nvim_create_autocmd({ 'FileType' }, {
@@ -1733,6 +1762,7 @@ later(function()
   vim.keymap.set('n', '<leader>gx', [[<Cmd>lua MiniGit.show_at_cursor()<CR>]])
   -- Picker ======================================================================
   vim.keymap.set('n', '<leader>fb', '<CMD>Pick buffers include_current=false<CR>')
+  vim.keymap.set('n', '<leader>fl', '<CMD>Pick buf_lines scope="current"<CR>')
   vim.keymap.set('n', '<leader>ff', '<CMD>Pick files<CR>')
   vim.keymap.set('n', '<leader>fr', '<CMD>Pick oldfiles<CR>')
   vim.keymap.set('n', '<leader>ft', '<CMD>Pick grep_live<CR>')
