@@ -2,6 +2,28 @@
 --          ║                         Misc                            ║
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
+function M.deleteOthersBuffers()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= vim.fn.bufnr() and vim.fn.buflisted(buf) == 1 then
+      vim.cmd('silent! bd ' .. buf)
+    end
+  end
+end
+
+vim.api.nvim_create_user_command('DeleteOtherBuffers', M.deleteOthersBuffers, {})
+-- Open url in buffer: ==============================================================================================
+function M.toggleTitleCase()
+  local prevCursor = vim.api.nvim_win_get_cursor(0)
+
+  local cword = vim.fn.expand('<cword>')
+  local cmd = cword == cword:lower() and 'guiwgUl' or 'guiw'
+  vim.cmd.normal { cmd, bang = true }
+
+  vim.api.nvim_win_set_cursor(0, prevCursor)
+end
+
+vim.api.nvim_create_user_command('ToggleTitleCase', M.toggleTitleCase, {})
+
 -- Open url in buffer: ==============================================================================================
 function M.openUrlInBuffer()
   local text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), '\n')
@@ -20,6 +42,7 @@ function M.openUrlInBuffer()
 end
 
 vim.api.nvim_create_user_command('OpenUrlInBuffer', M.openUrlInBuffer, {})
+
 
 -- Smart duplicate line: ==============================================================================================
 function M.smartDuplicate()
