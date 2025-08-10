@@ -1,7 +1,7 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Keybiding LSP                     ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Create keybindings, commands, inlay hints: =================================================
+-- Create keybindings, commands, inlay hints: ====================================================
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local bufnr = ev.buf
@@ -11,26 +11,26 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
     ---@diagnostic disable-next-line need-check-nil
     if client.server_capabilities.completionProvider then
-      -- Built In.Completion support: ========================================================
+      -- Built In.Completion support: ============================================================
       -- vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-      -- -- Mini.Completion support: =========================================================
+      -- -- Mini.Completion support: =============================================================
       vim.bo[bufnr].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
     end
     ---@diagnostic disable-next-line need-check-nil
     if client.server_capabilities.definitionProvider then
       vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
     end
-    -- Enable Inlay hints:=====================================================================
+    -- Enable Inlay hints:========================================================================
     -- if client ~= nil and client.server_capabilities.inlayHintProvider then
     -- 	vim.lsp.inlay_hint.enable(true)
     -- end
-    -- Enable lsp folding per buffer, if supported: ===========================================
+    -- Enable lsp folding per buffer, if supported: ==============================================
     -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
     -- if client:supports_method('textDocument/foldingRange') then
     --   local win = vim.api.nvim_get_current_win()
     --   vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
     -- end
-    -- -- Enable Built In Completions: =======================================================
+    -- -- Enable Built In Completions: ===========================================================
     -- if client:supports_method("textDocument/completion", bufnr) then
     --   -- Optional: trigger autocompletion on EVERY keypress. May be slow!
     --   local chars = {}
@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --   client.server_capabilities.completionProvider.triggerCharacters = chars
     --   vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
     -- end
-    -- -- Enable Built In Format: ============================================================
+    -- -- Enable Built In Format: ================================================================
     -- if not client:supports_method('textDocument/willSaveWaitUntil')
     --     and client:supports_method('textDocument/formatting') then
     --   vim.api.nvim_create_autocmd('BufWritePre', {
@@ -52,16 +52,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --   })
     -- end
 
-    --- Disable semantic tokens: =======================================================
+    --- Disable semantic tokens: =================================================================
     ---@diagnostic disable-next-line need-check-nil
     client.server_capabilities.semanticTokensProvider = nil
 
-    -- Disable the default keybinds: ====================================================
+    -- Disable the default keybinds: =============================================================
     for _, bind in ipairs({ 'grn', 'gra', 'gri', 'grr' }) do
       pcall(vim.keymap.del, 'n', bind)
     end
 
-    -- All the keymaps: =================================================================
+    -- All the keymaps: ==========================================================================
     -- stylua: ignore start
     local keymap = vim.keymap.set
     local lsp = vim.lsp
@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap('n', 'gr', lsp.buf.references, opt('Show References'))
     keymap('n', 'gl', vim.diagnostic.open_float, opt('Open diagnostic in float'))
     keymap('n', '<leader>k', lsp.buf.signature_help, opts)
-    -- disable the default binding first before using a custom one: ======================
+    -- disable the default binding first before using a custom one: ==============================
     pcall(vim.keymap.del, 'n', 'K', { buffer = ev.buf })
     keymap('n', 'K', function() lsp.buf.hover({ border = 'single', max_height = 30, max_width = 120 }) end,
       opt('Toggle hover'))
@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap('n', '<Leader>ll', lsp.codelens.run, opt('Run CodeLens'))
     keymap('n', '<Leader>lr', lsp.buf.rename, opt('Rename'))
     keymap('n', '<Leader>ls', lsp.buf.document_symbol, opt('Doument Symbols'))
-    -- diagnostic mappings: =================================================================
+    -- diagnostic mappings: ======================================================================
     keymap('n', '<Leader>dn', function() vim.diagnostic.jump({ count = 1, float = true }) end, opt('Next Diagnostic'))
     keymap('n', '<Leader>dp', function() vim.diagnostic.jump({ count = -1, float = true }) end, opt('Prev Diagnostic'))
     keymap('n', '<leader>df',
@@ -112,7 +112,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- Add notification to lsp rename: ============================================================
+-- Add notification to lsp rename: ===============================================================
 local originalRenameHandler = vim.lsp.handlers['textDocument/rename']
 vim.lsp.handlers['textDocument/rename'] = function(err, result, ctx, config)
   originalRenameHandler(err, result, ctx, config)
@@ -143,7 +143,7 @@ end
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Command LSP                       ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Start, Stop, Restart, Log commands: =========================================================
+-- Start, Stop, Restart, Log commands: ===========================================================
 vim.api.nvim_create_user_command('LspStart', function()
   vim.cmd.e()
 end, { desc = 'Starts LSP clients in the current buffer' })

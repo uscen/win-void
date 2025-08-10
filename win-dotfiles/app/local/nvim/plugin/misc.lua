@@ -11,7 +11,7 @@ function M.deleteOthersBuffers()
 end
 
 vim.api.nvim_create_user_command('DeleteOtherBuffers', M.deleteOthersBuffers, {})
--- Open url in buffer: ==============================================================================================
+-- Open url in buffer: ===========================================================================
 function M.toggleTitleCase()
   local prevCursor = vim.api.nvim_win_get_cursor(0)
 
@@ -24,7 +24,7 @@ end
 
 vim.api.nvim_create_user_command('ToggleTitleCase', M.toggleTitleCase, {})
 
--- Open url in buffer: ==============================================================================================
+-- Open url in buffer: ===========================================================================
 function M.openUrlInBuffer()
   local text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), '\n')
   local urls = {}
@@ -44,7 +44,7 @@ end
 vim.api.nvim_create_user_command('OpenUrlInBuffer', M.openUrlInBuffer, {})
 
 
--- Smart duplicate line: ==============================================================================================
+-- Smart duplicate line: =========================================================================
 function M.smartDuplicate()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   local line = vim.api.nvim_get_current_line()
@@ -77,7 +77,7 @@ end
 
 vim.api.nvim_create_user_command('SmartDuplicate', M.smartDuplicate, {})
 
--- Smart duplicate line: ==============================================================================================
+-- Smart duplicate line: =========================================================================
 function M.lspCapabilities()
   local clients = vim.lsp.get_clients { bufnr = 0 }
   if #clients == 0 then

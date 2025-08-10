@@ -1,10 +1,6 @@
--- INFO Simple wrapper around vim's builtin mark functionality with some extras.
--- * shows marks in the signcolumn
--- * command to cycle through marks
--- * command to set marks or unset if cursor is at the mark line
--- * command to delete all marks
---------------------------------------------------------------------------------
-
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                           Marks                         ║
+--          ╚═════════════════════════════════════════════════════════╝
 local M = {}
 local ns = vim.api.nvim_create_namespace('mark-signs')
 
@@ -14,7 +10,6 @@ local ns = vim.api.nvim_create_namespace('mark-signs')
 ---@field col integer
 ---@field bufnr integer
 ---@field path string
---------------------------------------------------------------------------------
 
 ---@param msg string
 ---@param level? "info"|"warn"|"error"
@@ -51,7 +46,7 @@ local function cursorIsAtMark(m)
   if not m then return false end
   local row = vim.api.nvim_win_get_cursor(0)[1]
   local bufnr = vim.api.nvim_get_current_buf()
-  return m.row == row and m.bufnr == bufnr -- do not check for col
+  return m.row == row and m.bufnr == bufnr
 end
 
 ---@param name string
@@ -70,20 +65,18 @@ local function setSignForMark(name)
   if m.bufnr ~= 0 then
     setExtmark(m.bufnr, m.row)
   else
-    -- setup setting signs for marks that are in files that are not opened yet
+    -- setup setting signs for marks that are in files that are not opened yet: ==================
     vim.api.nvim_create_autocmd('BufReadPost', {
       desc = 'User(once): Add signs for mark ' .. name,
       group = vim.api.nvim_create_augroup('marks-signs', { clear = true }),
       callback = function(ctx)
         if ctx.file ~= m.path then return end
         setExtmark(ctx.buf, m.row)
-        return true -- delete this autocmd
+        return true
       end,
     })
   end
 end
-
---------------------------------------------------------------------------------
 
 function M.cycleMarks()
   if not isValidMarkName(M.config.marks) then return end
@@ -102,8 +95,8 @@ function M.cycleMarks()
     return
   end
 
-  -- determine next mark
-  local nextMark = marksSet[1] -- default to first one, if not at mark
+  -- determine next mark: ========================================================================
+  local nextMark = marksSet[1]
   for i, m in ipairs(marksSet) do
     if cursorIsAtMark(m) then
       nextMark = marksSet[i == #marksSet and 1 or i + 1]
@@ -112,7 +105,7 @@ function M.cycleMarks()
   end
   assert(nextMark ~= nil)
 
-  -- goto next mark
+  -- goto next mark:==============================================================================
   local markInUnopenedFile = nextMark.bufnr == 0
   if markInUnopenedFile then
     vim.cmd.edit(nextMark.path)
@@ -166,8 +159,7 @@ function M.deleteAllMarks()
   notify('All marks deleted.')
 end
 
---------------------------------------------------------------------------------
-
+-- Setup: ========================================================================================
 ---@class Marks.Config
 local defaultConfig = {
   signs = {
@@ -197,7 +189,7 @@ function M.setup(userOpts)
   end, { nargs = 1 })
 end
 
---------------------------------------------------------------------------------
+-- Call: =========================================================================================
 M.setup({
   marks = { 'A', 'B', 'C' },
   signs = {

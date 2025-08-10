@@ -1,7 +1,7 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Abbreviations                     ║
 --          ╚═════════════════════════════════════════════════════════╝
--- Shorthands.
+-- Shorthands: ===================================================================================
 vim.cmd([[
   iabbrev lorem8 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   iabbrev lorem16 Lorem ipsum dolor sit amet consectetur, adipiscing elit sociosqu inceptos felis nam, consequat vulputate nullam erat.
@@ -11,7 +11,7 @@ vim.cmd([[
   iabbrev lorem48 Lorem ipsum dolor sit amet consectetur adipiscing elit felis pharetra, quam sollicitudin scelerisque semper nascetur ornare magnis himenaeos, elementum imperdiet condimentum litora convallis ultricies fringilla a. Pulvinar mus venenatis egestas congue viverra hac interdum, ac varius enim augue potenti at accumsan sem, vulputate vehicula velit quis malesuada praesent.
 ]])
 
--- Syntax.
+-- Syntax: =======================================================================================
 vim.cmd([[
   iabbrev asycn     async
   iabbrev cosnt     const
@@ -28,7 +28,7 @@ vim.cmd([[
   iabbrev undefiend undefined
 ]])
 
--- English words.
+-- English words: ================================================================================
 vim.cmd([[
   iabbrev Adn         And
   iabbrev Componenets Components
@@ -92,7 +92,7 @@ vim.cmd([[
   iabbrev widnows     windows
 ]])
 
--- Swedish words.
+-- Swedish words: ================================================================================
 vim.cmd([[
   iabbrev ahr har
   iabbrev itne inte
