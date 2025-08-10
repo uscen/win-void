@@ -83,16 +83,6 @@ later(function()
   require('mini.misc').setup_auto_root({ '.git', 'package.json' }, vim.fs.dirname)
 end)
 --              ╭─────────────────────────────────────────────────────────╮
---              │                     Mini.keymaps                        │
---              ╰─────────────────────────────────────────────────────────╯
-later(function()
-  local map_multistep = require('mini.keymap').map_multistep
-  map_multistep('i', '<cr>', { 'pmenu_accept', 'minipairs_cr' })
-  map_multistep('i', '<BS>', { 'minipairs_bs', 'decrease_indent' })
-  map_multistep('i', '<C-j>', { 'pmenu_next' })
-  map_multistep('i', '<C-k>', { 'pmenu_prev' })
-end)
---              ╭─────────────────────────────────────────────────────────╮
 --              │                     Mini.Notify                         │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -166,7 +156,7 @@ later(function()
   vim.keymap.set('i', '<cr>', cr_action, { expr = true })
 end)
 --              ╭─────────────────────────────────────────────────────────╮
---              │                     Mini.Ai                             │
+--              │                         Mini.Ai                         │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
   require('mini.ai').setup({
@@ -1726,6 +1716,9 @@ later(function()
   vim.keymap.set('n', 'N', 'Nzzzv')
   vim.keymap.set('n', '<C-d>', '<C-d>zz')
   vim.keymap.set('n', '<C-u>', '<C-u>zz')
+  -- Pmenu: ======================================================================================
+  vim.keymap.set('i', '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+  vim.keymap.set('i', '<C-k>', [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
   -- Theme: ======================================================================================
   vim.keymap.set('n', '<leader>td', '<cmd>set background=dark<cr>')
   vim.keymap.set('n', '<leader>tl', '<cmd>set background=light<cr>')
