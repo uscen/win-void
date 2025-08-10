@@ -882,20 +882,24 @@ now(function()
   vim.opt.tgc                    = true
   vim.opt.ttyfast                = true
   vim.opt.cursorline             = true
+  vim.opt.showcmd                = true
   vim.opt.relativenumber         = false
   vim.opt.title                  = false
   vim.opt.list                   = false
   vim.opt.modeline               = false
   vim.opt.showmode               = false
   vim.opt.errorbells             = false
+  vim.opt.visualbell             = false
   vim.opt.emoji                  = false
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
   vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
+  vim.opt.helpheight             = 12
+  vim.opt.previewheight          = 12
   vim.opt.winwidth               = 20
-  vim.opt.winminwidth            = 5
+  vim.opt.winminwidth            = 10
   vim.opt.scrolloff              = 5
   vim.opt.sidescrolloff          = 5
   vim.opt.sidescroll             = 0
@@ -903,11 +907,14 @@ now(function()
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
   vim.opt.pumblend               = 0
-  vim.opt.pumheight              = 8
+  vim.opt.pumheight              = 12
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
   vim.opt.colorcolumn            = ''
   vim.opt.guicursor              = ''
+  vim.opt.background             = 'dark'
+  vim.opt.display                = 'lastline'
+  vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
   vim.opt.guifont                = 'JetBrainsMono Nerd Font:h9'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
@@ -943,6 +950,7 @@ now(function()
   vim.opt.smartcase              = true
   vim.opt.ignorecase             = true
   vim.opt.smartindent            = true
+  vim.opt.shiftround             = true
   vim.opt.smarttab               = true
   vim.opt.gdefault               = true
   vim.opt.confirm                = true
@@ -963,8 +971,7 @@ now(function()
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false
   vim.opt.joinspaces             = false
-  vim.opt.helpheight             = 10
-  vim.opt.textwidth              = 10
+  vim.opt.textwidth              = 120
   vim.opt.wrapmargin             = 2
   vim.opt.tabstop                = 2
   vim.opt.shiftwidth             = 2
@@ -972,6 +979,7 @@ now(function()
   vim.opt.conceallevel           = 3
   vim.opt.concealcursor          = 'c'
   vim.opt.cedit                  = '^F'
+  vim.opt.breakat                = [[\ \	;:,!?]]
   vim.opt.keywordprg             = ':help'
   vim.opt.breakindentopt         = 'list:-1'
   vim.opt.inccommand             = 'nosplit'
@@ -1022,15 +1030,15 @@ now(function()
   vim.opt.foldopen               = 'hor,mark,tag,search,insert,quickfix,undo'
   vim.opt.foldexpr               = 'v:lua.vim.treesitter.foldexpr()'
   -- Memory: ================================================================
+  vim.o.timeout                  = true
   vim.opt.lazyredraw             = true
   vim.opt.hidden                 = true
-  vim.o.timeout                  = true
-  vim.opt.ttimeoutlen            = 1
+  vim.opt.ttimeoutlen            = 10
   vim.opt.updatetime             = 50
+  vim.opt.redrawtime             = 100
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
   vim.opt.timeoutlen             = 300
-  vim.opt.redrawtime             = 10000
   vim.opt.maxmempattern          = 10000
   -- Disable netrw: =========================================================
   vim.g.loaded_netrw             = 1
@@ -1303,11 +1311,14 @@ now_if_args(function()
     group = vim.api.nvim_create_augroup('custom-term', { clear = true }),
     callback = function()
       vim.opt_local.scrolloff = 0
+      vim.opt_local.spell = false
       vim.opt_local.buflisted = false
       vim.opt_local.number = false
       vim.opt_local.relativenumber = false
       vim.opt_local.foldenable = false
+      vim.opt_local.signcolumn = 'no'
       vim.opt_local.foldmethod = 'manual'
+      vim.opt_local.filetype = 'terminal'
       vim.bo.filetype = 'terminal'
     end,
   })
