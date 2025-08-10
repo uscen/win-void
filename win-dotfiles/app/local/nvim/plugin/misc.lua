@@ -109,14 +109,28 @@ vim.api.nvim_create_user_command('LspCapabilities', M.lspCapabilities, {})
 -- Capabilities: =================================================================================
 function M.toggleTitleCase()
   local prevCursor = vim.api.nvim_win_get_cursor(0)
-
   local cword = vim.fn.expand('<cword>')
   local cmd = cword == cword:lower() and 'guiwgUl' or 'guiw'
   vim.cmd.normal { cmd, bang = true }
-
   vim.api.nvim_win_set_cursor(0, prevCursor)
 end
 vim.api.nvim_create_user_command('ToggleTitleCase', M.toggleTitleCase, {})
+-- Zoom: =========================================================================================
+function M.toggleZoom()
+  local current_tab = vim.api.nvim_get_current_tabpage()
+  local zoom_status = vim.t[current_tab] and vim.t[current_tab]["simple-zoom"]
+  if not zoom_status then
+    vim.cmd("tab split")
+    vim.t[current_tab] = vim.t[current_tab] or {}
+    vim.t[current_tab]["simple-zoom"] = "zoomed"
+  else
+    vim.cmd("mkview")
+    vim.cmd("tabclose")
+    vim.cmd("loadview")
+    vim.t[current_tab]["simple-zoom"] = nil
+  end
+end
+vim.api.nvim_create_user_command("ZoomToggle", M.toggleZoom, {})
 -- Delete others buff: ============================================================================
 function M.deleteOthersBuffers()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
