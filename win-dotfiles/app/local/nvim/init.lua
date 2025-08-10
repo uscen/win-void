@@ -1705,28 +1705,41 @@ later(function()
   vim.keymap.set('n', '<C-J>', '<C-w>j')
   vim.keymap.set('n', '<C-K>', '<C-w>k')
   vim.keymap.set('n', '<C-L>', '<C-w>l')
-  -- Jumps: ======================================================================================
-  vim.keymap.set('n', '<C-o>', '<C-o>')
-  vim.keymap.set('n', '<C-p>', '<C-i>')
-  -- Center:  ====================================================================================
-  vim.keymap.set('n', 'n', 'nzzzv')
-  vim.keymap.set('n', 'N', 'Nzzzv')
-  vim.keymap.set('n', '<C-d>', '<C-d>zz')
-  vim.keymap.set('n', '<C-u>', '<C-u>zz')
-  -- Resize:  ====================================================================================
-  vim.keymap.set('n', '<C-Up>', ':resize +2<cr>')
-  vim.keymap.set('n', '<C-Down>', ':resize -2<cr>')
-  vim.keymap.set('n', '<C-Left>', ':vertical resize -2<cr>')
-  vim.keymap.set('n', '<C-Right>', ':vertical resize +2<cr>')
   -- Move: =======================================================================================
   vim.keymap.set('n', '<leader>L', '<C-w>L')
   vim.keymap.set('n', '<leader>H', '<C-w>H')
   vim.keymap.set('n', '<leader>K', '<C-w>K')
   vim.keymap.set('n', '<leader>J', '<C-w>J')
+  -- Resize:  ====================================================================================
+  vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>')
+  vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>')
+  vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>')
+  vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>')
+  -- Buffers: ====================================================================================
+  vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>')
+  vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>')
+  vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>')
+  vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>')
+  vim.keymap.set('n', '<leader>bd', '<cmd>bd<cr>')
+  -- Center:  ====================================================================================
+  vim.keymap.set('n', 'n', 'nzzzv')
+  vim.keymap.set('n', 'N', 'Nzzzv')
+  vim.keymap.set('n', '<C-d>', '<C-d>zz')
+  vim.keymap.set('n', '<C-u>', '<C-u>zz')
   -- Theme: ======================================================================================
-  vim.keymap.set('n', '<leader>ud', '<cmd>set background=dark<cr>')
-  vim.keymap.set('n', '<leader>ul', '<cmd>set background=light<cr>')
-  vim.keymap.set('n', '<leader>ur', '<cmd>colorscheme randomhue<cr>')
+  vim.keymap.set('n', '<leader>td', '<cmd>set background=dark<cr>')
+  vim.keymap.set('n', '<leader>tl', '<cmd>set background=light<cr>')
+  vim.keymap.set('n', '<leader>tr', '<cmd>colorscheme randomhue<cr>')
+  -- Marks: ======================================================================================
+  vim.keymap.set('n', '<leader>mm', '<cmd>CycleMarks<cr>')
+  vim.keymap.set('n', '<leader>mr', '<cmd>DeleteAllMarks<cr>')
+  vim.keymap.set('n', '<leader>ms', ':SetUnsetMark A')
+  -- Subtitle Keys: ==============================================================================
+  vim.keymap.set('n', '<Leader>rs', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
+  vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+  -- Jumps: ======================================================================================
+  vim.keymap.set('n', '<C-o>', '<C-o>')
+  vim.keymap.set('n', '<C-p>', '<C-i>')
   -- Misc: =======================================================================================
   vim.keymap.set('n', 'gx', '<cmd>OpenUrlInBuffer<cr>')
   vim.keymap.set('n', '<leader>s', '<cmd>ToggleWorld<cr>')
@@ -1735,6 +1748,14 @@ later(function()
   vim.keymap.set('n', '<leader>`', '<cmd>ToggleTitleCase<cr>')
   vim.keymap.set('n', '<leader>bm', '<cmd>ZoomToggle<cr>')
   vim.keymap.set('n', '<leader>bb', '<cmd>DeleteOtherBuffers<cr>')
+  -- Terminal: ===================================================================================
+  vim.keymap.set('n', '<C-t>', '<cmd>FloatTermToggle<cr>')
+  vim.keymap.set('t', '<C-t>', '<cmd>FloatTermToggle<cr>')
+  vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
+  vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h')
+  vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j')
+  vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k')
+  vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
   -- Git: ========================================================================================
   vim.keymap.set('n', '<leader>ga', '<cmd>:Git add .<cr>')
   vim.keymap.set('n', '<leader>gc', '<cmd>:Git commit<cr>')
@@ -1764,28 +1785,6 @@ later(function()
   vim.keymap.set('n', 'gD', "<Cmd>Pick lsp scope='definition'<cr>")
   vim.keymap.set('n', 'gI', "<Cmd>Pick lsp scope='declaration'<cr>")
   vim.keymap.set('n', 'gA', "<Cmd>Pick lsp scope='document_symbol'<cr>")
-  -- Subtitle Keys: ==============================================================================
-  vim.keymap.set('n', '<Leader>rs', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
-  vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { expr = true })
-  -- Buffers: ====================================================================================
-  vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>')
-  vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>')
-  vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>')
-  vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>')
-  vim.keymap.set('n', '<leader>bd', '<cmd>bd<cr>')
-  -- Marks: ======================================================================================
-  vim.keymap.set('n', '<leader>mm', '<cmd>CycleMarks<cr>')
-  vim.keymap.set('n', '<leader>mr', '<cmd>DeleteAllMarks<cr>')
-  vim.keymap.set('n', '<leader>ms', ':SetUnsetMark A')
-  -- Terminal: ===================================================================================
-  vim.keymap.set('n', '<C-t>', '<cmd>FloatTermToggle<cr>', { noremap = true, silent = true })
-  vim.keymap.set('t', '<C-t>', '<cmd>FloatTermToggle<cr>', { noremap = true, silent = true })
-  vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>', { noremap = true, silent = true })
-  -- TermNavigation: =============================================================================
-  vim.keymap.set('t', '<C-h>', '<C-\\><C-n><C-w>h')
-  vim.keymap.set('t', '<C-j>', '<C-\\><C-n><C-w>j')
-  vim.keymap.set('t', '<C-k>', '<C-\\><C-n><C-w>k')
-  vim.keymap.set('t', '<C-l>', '<C-\\><C-n><C-w>l')
   -- Brackted: ===================================================================================
   vim.keymap.set('n', '[a', '<cmd>previous<cr>')
   vim.keymap.set('n', ']a', '<cmd>next<cr>')
