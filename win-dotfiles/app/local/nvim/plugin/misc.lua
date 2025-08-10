@@ -2,28 +2,6 @@
 --          ║                         Misc                            ║
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
-function M.deleteOthersBuffers()
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if buf ~= vim.fn.bufnr() and vim.fn.buflisted(buf) == 1 then
-      vim.cmd('silent! bd ' .. buf)
-    end
-  end
-end
-
-vim.api.nvim_create_user_command('DeleteOtherBuffers', M.deleteOthersBuffers, {})
--- Open url in buffer: ===========================================================================
-function M.toggleTitleCase()
-  local prevCursor = vim.api.nvim_win_get_cursor(0)
-
-  local cword = vim.fn.expand('<cword>')
-  local cmd = cword == cword:lower() and 'guiwgUl' or 'guiw'
-  vim.cmd.normal { cmd, bang = true }
-
-  vim.api.nvim_win_set_cursor(0, prevCursor)
-end
-
-vim.api.nvim_create_user_command('ToggleTitleCase', M.toggleTitleCase, {})
-
 -- Open url in buffer: ===========================================================================
 function M.openUrlInBuffer()
   local text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), '\n')
@@ -40,10 +18,40 @@ function M.openUrlInBuffer()
     if url then vim.ui.open(url) end
   end)
 end
-
 vim.api.nvim_create_user_command('OpenUrlInBuffer', M.openUrlInBuffer, {})
-
-
+-- Toggle word: ==================================================================================
+function M.toggleWord()
+  local toggles = {
+    ['useState(true)'] = 'useState(false)',
+    ['relative'] = 'absolute',
+    ['active'] = 'inactive',
+    ['enable'] = 'disable',
+    ['visible'] = 'hidden',
+    ['success'] = 'error',
+    ['always'] = 'never',
+    ['left'] = 'right',
+    ['top'] = 'bottom',
+    ['true'] = 'false',
+    ['allow'] = 'deny',
+    ['light'] = 'dark',
+    ['show'] = 'hide',
+    ['let'] = 'const',
+    ['up'] = 'down',
+    ['yes'] = 'no',
+  }
+  local cword = vim.fn.expand('<cword>')
+  local newWord
+  for word, opposite in pairs(toggles) do
+    if cword == word then newWord = opposite end
+    if cword == opposite then newWord = word end
+  end
+  if newWord then
+    local prevCursor = vim.api.nvim_win_get_cursor(0)
+    vim.cmd.normal { '"_ciw' .. newWord, bang = true }
+    vim.api.nvim_win_set_cursor(0, prevCursor)
+  end
+end
+vim.api.nvim_create_user_command('ToggleWorld', M.toggleWord, {})
 -- Smart duplicate line: =========================================================================
 function M.smartDuplicate()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -74,10 +82,8 @@ function M.smartDuplicate()
   local targetCol = luadocFieldPos or valuePos or col
   vim.api.nvim_win_set_cursor(0, { row + 1, targetCol })
 end
-
 vim.api.nvim_create_user_command('SmartDuplicate', M.smartDuplicate, {})
-
--- Smart duplicate line: =========================================================================
+-- lspCapabilities: ==============================================================================
 function M.lspCapabilities()
   local clients = vim.lsp.get_clients { bufnr = 0 }
   if #clients == 0 then
@@ -99,5 +105,24 @@ function M.lspCapabilities()
     vim.notify(header .. vim.inspect(info), vim.log.levels.INFO, opts)
   end)
 end
-
 vim.api.nvim_create_user_command('LspCapabilities', M.lspCapabilities, {})
+-- Capabilities: =================================================================================
+function M.toggleTitleCase()
+  local prevCursor = vim.api.nvim_win_get_cursor(0)
+
+  local cword = vim.fn.expand('<cword>')
+  local cmd = cword == cword:lower() and 'guiwgUl' or 'guiw'
+  vim.cmd.normal { cmd, bang = true }
+
+  vim.api.nvim_win_set_cursor(0, prevCursor)
+end
+vim.api.nvim_create_user_command('ToggleTitleCase', M.toggleTitleCase, {})
+-- Delete others buff: ============================================================================
+function M.deleteOthersBuffers()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if buf ~= vim.fn.bufnr() and vim.fn.buflisted(buf) == 1 then
+      vim.cmd('silent! bd ' .. buf)
+    end
+  end
+end
+vim.api.nvim_create_user_command('DeleteOtherBuffers', M.deleteOthersBuffers, {})

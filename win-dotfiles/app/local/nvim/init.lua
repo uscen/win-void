@@ -246,7 +246,7 @@ later(function()
       suffix_next = 'n',
     },
   })
-  -- custom quotes surrounding rotation for quick access: ===========================
+  -- custom quotes surrounding rotation for quick access: ========================================
   local function SurroundOrReplaceQuotes()
     local word = vim.fn.expand('<cword>')
     local row, old_pos = unpack(vim.api.nvim_win_get_cursor(0))
@@ -1729,6 +1729,7 @@ later(function()
   vim.keymap.set('n', '<leader>ur', '<cmd>colorscheme randomhue<cr>')
   -- Misc: =======================================================================================
   vim.keymap.set('n', 'gx', '<cmd>OpenUrlInBuffer<cr>')
+  vim.keymap.set('n', '<leader>s', '<cmd>ToggleWorld<cr>')
   vim.keymap.set('n', '<leader>j', '<cmd>SmartDuplicate<cr>')
   vim.keymap.set('n', '<leader>lc', '<cmd>LspCapabilities<cr>')
   vim.keymap.set('n', '<leader>`', '<cmd>ToggleTitleCase<cr>')
@@ -1764,9 +1765,8 @@ later(function()
   vim.keymap.set('n', 'gI', "<Cmd>Pick lsp scope='declaration'<cr>")
   vim.keymap.set('n', 'gA', "<Cmd>Pick lsp scope='document_symbol'<cr>")
   -- Subtitle Keys: ==============================================================================
-  vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
   vim.keymap.set('n', '<Leader>rs', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
-  vim.keymap.set('n', 'S', function() return ':%s/\\<' .. vim.fn.escape(vim.fn.expand('<cword>'), '/\\') .. '\\>/' end, { expr = true })
+  vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { expr = true })
   -- Buffers: ====================================================================================
   vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>')
   vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>')
