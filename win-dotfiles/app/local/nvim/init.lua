@@ -1587,6 +1587,14 @@ later(function()
     local keyword = opts.args
     vim.cmd('vimgrep ' .. keyword .. ' %:p:.:h/**/*')
   end, { nargs = 1, })
+  -- Tmp is a command to create a temporary file: ========================================
+  vim.api.nvim_create_user_command('Tmp', function()
+    local path = vim.fn.tempname()
+    vim.cmd('e ' .. path)
+    vim.notify(path)
+    -- delete the file when the buffer is closed
+    vim.cmd('au BufDelete <buffer> !rm -f ' .. path)
+  end, { nargs = '*' })
   -- Toggle inlay hints: ===================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
     vim.g.inlay_hints = not vim.g.inlay_hints
