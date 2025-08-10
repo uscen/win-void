@@ -1039,6 +1039,7 @@ now(function()
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
   vim.opt.timeoutlen             = 300
+  vim.opt.redrawtime             = 10000
   vim.opt.maxmempattern          = 10000
   -- Disable netrw: =========================================================
   vim.g.loaded_netrw             = 1
@@ -1701,6 +1702,9 @@ later(function()
   vim.keymap.set('n', '<leader>nc', ':e ~/.config/nvim/init.lua<CR>')
   vim.keymap.set('n', '<leader>p', 'm`o<ESC>p``')
   vim.keymap.set('n', '<leader>P', 'm`O<ESC>p``')
+  vim.keymap.set('n', '<leader>uu', ':earlier ')
+  vim.keymap.set('n', '~', 'v~')
+  vim.keymap.set('n', 'gy', '`[v`]')
   vim.keymap.set('n', '<C-m>', '%')
   vim.keymap.set('n', '<C-n>', '*N', { remap = true })
   vim.keymap.set('n', 'ycc', 'yygccp', { remap = true })
@@ -1709,9 +1713,6 @@ later(function()
   vim.keymap.set('n', '<space>O', "printf('m`%sO<ESC>``', v:count1)", { expr = true })
   vim.keymap.set('n', '<leader>v', "printf('`[%s`]', getregtype()[0])", { expr = true, })
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
-  vim.keymap.set('n', 'gy', '`[v`]')
-  vim.keymap.set('n', '~', 'v~')
-  vim.keymap.set('n', '<leader>uu', ':earlier ')
   -- window: ========================================================================
   vim.keymap.set('n', '<leader>wc', '<cmd>close<cr>')
   vim.keymap.set('n', '<leader>wo', '<cmd>only<cr>')
