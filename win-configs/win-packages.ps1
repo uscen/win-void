@@ -78,7 +78,7 @@ $scoopPackages = @(
     "chromium",
     "eza",
     "freetube",
-    "komorebi",
+    "glazewm",
     "obs-studio",
     "shotcut",
     "gimp",
