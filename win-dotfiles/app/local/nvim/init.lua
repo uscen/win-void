@@ -867,7 +867,7 @@ now(function()
   vim.opt.tgc                    = true
   vim.opt.ttyfast                = true
   vim.opt.showcmd                = true
-  vim.opt.cursorline             = false
+  vim.opt.cursorline             = true
   vim.opt.relativenumber         = false
   vim.opt.title                  = false
   vim.opt.list                   = false
