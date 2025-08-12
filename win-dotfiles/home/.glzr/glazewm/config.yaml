@@ -1,7 +1,6 @@
 #                ╔═════════════════════════════════════════════════════════╗
 #                ║                          GlazeWM                        ║
 #                ╚═════════════════════════════════════════════════════════╝
-
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                        General                          │
 #                ╰─────────────────────────────────────────────────────────╯
@@ -87,6 +86,7 @@ workspaces:
 window_rules:
   - commands: ["ignore"]
     match:
+      - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
       - window_process: { equals: "zebar" }
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
@@ -105,7 +105,8 @@ window_rules:
 
   - commands: ["set-floating"]
     match:
-      - window_process: { regex: "GlassWire|mpv|qView|crow|Taskmgr|Deceive" }
+      - window_process:
+          { regex: "GlassWire|mpv|qView|crow|Taskmgr|Deceive|obs|DeepL" }
       - window_title: { regex: "Window Spy" }
       - window_title: { equals: "Calculator" }
       - window_title: { equals: "Library" }
@@ -121,7 +122,6 @@ window_rules:
 #                │                    binding_modes                        │
 #                ╰─────────────────────────────────────────────────────────╯
 binding_modes:
-  # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
     keybindings:
       - commands: ["resize --width -2%"]
@@ -132,14 +132,13 @@ binding_modes:
         bindings: ["k", "up"]
       - commands: ["resize --height -2%"]
         bindings: ["j", "down"]
-      # Press enter/escape to return to default keybindings.
       - commands: ["wm-disable-binding-mode --name resize"]
         bindings: ["escape", "enter"]
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                      keybindings                        │
 #                ╰─────────────────────────────────────────────────────────╯
 keybindings:
-  # Shift focus in a given direction.
+  # Focus: =======================================================================================
   - commands: ["focus --direction left"]
     bindings: ["alt+h", "alt+left"]
   - commands: ["focus --direction right"]
@@ -149,7 +148,7 @@ keybindings:
   - commands: ["focus --direction down"]
     bindings: ["alt+j", "alt+down"]
 
-  # Move focused window in a given direction.
+  # Move: ========================================================================================
   - commands: ["move --direction left"]
     bindings: ["alt+shift+h", "alt+shift+left"]
   - commands: ["move --direction right"]
@@ -159,7 +158,7 @@ keybindings:
   - commands: ["move --direction down"]
     bindings: ["alt+shift+j", "alt+shift+down"]
 
-  # Resize focused window by a percentage or pixel amount.
+  # Resize: ======================================================================================
   - commands: ["resize --width -2%"]
     bindings: ["alt+u"]
   - commands: ["resize --width +2%"]
@@ -169,75 +168,69 @@ keybindings:
   - commands: ["resize --height -2%"]
     bindings: ["alt+i"]
 
-  # As an alternative to the resize keybindings above, resize mode enables
-  # resizing via arrow keys or HJKL. The binding mode is defined above with
-  # the name 'resize'.
+  # mode: ========================================================================================
   - commands: ["wm-enable-binding-mode --name resize"]
     bindings: ["alt+r"]
 
-  # Disables window management and all other keybindings until alt+shift+p
-  # is pressed again.
+  # Pause : ======================================================================================
   - commands: ["wm-toggle-pause"]
     bindings: ["alt+shift+p"]
 
-  # Change tiling direction. This determines where new tiling windows will
-  # be inserted.
+  # direction: ===================================================================================
   - commands: ["toggle-tiling-direction"]
     bindings: ["alt+v"]
 
-  # Change focus from tiling windows -> floating -> fullscreen.
+  # Cycle-focus: =================================================================================
   - commands: ["wm-cycle-focus"]
     bindings: ["alt+space"]
 
-  # Change the focused window to be floating.
+  # Floating: ====================================================================================
   - commands: ["toggle-floating --centered"]
     bindings: ["alt+shift+space"]
 
-  # Change the focused window to be tiling.
+  # Tiling: ======================================================================================
   - commands: ["toggle-tiling"]
     bindings: ["alt+t"]
 
-  # Change the focused window to be fullscreen.
+  # fullscreen: ==================================================================================
   - commands: ["toggle-fullscreen"]
     bindings: ["alt+f"]
 
-  # Minimize focused window.
+  # Minimize: ====================================================================================
   - commands: ["toggle-minimized"]
     bindings: ["alt+m"]
 
-  # Close focused window.
+  # Close: =======================================================================================
   - commands: ["close"]
     bindings: ["alt+shift+q"]
 
-  # Kill GlazeWM process safely.
+  # Kill: ========================================================================================
   - commands: ["wm-exit"]
     bindings: ["alt+shift+e"]
 
-  # Re-evaluate configuration file.
+  # Reload: ======================================================================================
   - commands: ["wm-reload-config"]
     bindings: ["alt+shift+r"]
 
-  # Redraw all windows.
+  # Redraw: ======================================================================================
   - commands: ["wm-redraw"]
     bindings: ["alt+shift+w"]
 
-  # Launch CMD terminal. Alternatively, use `shell-exec wt` or
-  # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
-  # Terminal and Git Bash respectively.
-  - commands: ["shell-exec cmd"]
+  # Terminal: ====================================================================================
+  - commands: ["shell-exec alacritty"]
     bindings: ["alt+enter"]
 
-  # Focus the next/previous active workspace defined in `workspaces` config.
+  # next/previous: ===============================================================================
   - commands: ["focus --next-active-workspace"]
     bindings: ["alt+s"]
   - commands: ["focus --prev-active-workspace"]
     bindings: ["alt+a"]
 
-  # Focus the workspace that last had focus.
+  # last: ========================================================================================
   - commands: ["focus --recent-workspace"]
     bindings: ["alt+d"]
 
-  # Change focus to a workspace defined in `workspaces` config.
+  # workspace: ===================================================================================
   - commands: ["focus --workspace 1"]
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]
@@ -257,8 +250,7 @@ keybindings:
   - commands: ["focus --workspace 9"]
     bindings: ["alt+9"]
 
-  # Move the focused window's parent workspace to a monitor in a given
-  # direction.
+  # Monitor: =====================================================================================
   - commands: ["move-workspace --direction left"]
     bindings: ["alt+shift+a"]
   - commands: ["move-workspace --direction right"]
@@ -268,7 +260,7 @@ keybindings:
   - commands: ["move-workspace --direction down"]
     bindings: ["alt+shift+s"]
 
-  # Move focused window to a workspace defined in `workspaces` config.
+  # Move: ========================================================================================
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["alt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
