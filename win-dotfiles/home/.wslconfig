@@ -1,10 +1,11 @@
 [wsl2]
-guiApplications=false
-swap=0
 localhostforwarding=true
 nestedVirtualization=false
+guiApplications=false
 debugConsole=false
-memory=24GB
+memory=16GB
+processors=8
+swap=0
 
 [experimental]
 sparseVhd=true
