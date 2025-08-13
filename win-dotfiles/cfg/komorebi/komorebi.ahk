@@ -3,25 +3,25 @@
 ; # =============================================================================== #
 ; # Active Border:                                                                  #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\activateWindowBorder.ahk
+#include C:\Users\%A_UserName%\.config\ahk\activateWindowBorder.ahk
 ; # =============================================================================== #
 ; # Keybidings Mouse:                                                               #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\mouseKeys.ahk
-; #include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
-; #include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
+#include C:\Users\%A_UserName%\.config\ahk\mouseKeys.ahk
+#include C:\Users\%A_UserName%\.config\ahk\mouseWheel.ahk
+#include C:\Users\%A_UserName%\.config\ahk\middleKeys.ahk
 ; # =============================================================================== #
 ; # launch Apps In FullScreen Mode:                                                 #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\launchAsFullScreen.ahk
+#include C:\Users\%A_UserName%\.config\ahk\launchAsFullScreen.ahk
 ; # =============================================================================== #
 ; # Focus On Mouse Hover:                                                           #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\focusOnWindowHover.ahk
+#include C:\Users\%A_UserName%\.config\ahk\focusOnWindowHover.ahk
 ; # =============================================================================== #
 ; # Resize And Move By Keyboard:                                                    #
 ; # =============================================================================== #
-; #include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboard.ahk
+#include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboard.ahk
 #include C:\Users\%A_UserName%\.config\ahk\resizeMoveByKeyboardClass.ahk
 ; # =============================================================================== #
 ; # Resize And Move By Keyboard:                                                    #

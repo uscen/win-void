@@ -217,9 +217,24 @@ keybindings:
     bindings: ["alt+shift+w"]
 
   # Terminal: ====================================================================================
-  - commands: ["shell-exec alacritty"]
+  - commands: ["shell-exec wt"]
     bindings: ["alt+enter"]
+  - commands: ["shell-exec alacritty"]
+    bindings: ["alt+shift+enter"]
 
+  # Apps: ========================================================================================
+  - commands: ["shell-exec chromium"]
+    bindings: ["alt+w"]
+  - commands: ["shell-exec msedge"]
+    bindings: ["alt+i"]
+  - commands: ["shell-exec thunderbird"]
+    bindings: ["alt+e"]
+  - commands: ["shell-exec wt C:\\Program Files\\Git\\bin\\bash.exe -c yazi"]
+    bindings: ["alt+n"]
+  - commands: ["shell-exec neovide"]
+    bindings: ["alt+shift+v"]
+  - commands: ["shell-exec explorer"]
+    bindings: ["alt+shift+n"]
   # next/previous: ===============================================================================
   - commands: ["focus --next-active-workspace"]
     bindings: ["alt+s"]
