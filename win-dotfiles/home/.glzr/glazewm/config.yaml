@@ -35,7 +35,7 @@ window_effects:
       enabled: true
       color: "#87a987"
     hide_title_bar:
-      enabled: false
+      enabled: true
     corner_style:
       enabled: true
       style: "square"
@@ -48,7 +48,7 @@ window_effects:
       enabled: true
       color: "#1b1b1b"
     hide_title_bar:
-      enabled: false
+      enabled: true
     corner_style:
       enabled: true
       style: "square"
@@ -65,7 +65,7 @@ window_behavior:
       centered: true
       shown_on_top: true
     fullscreen:
-      maximized: false
+      maximized: true
       shown_on_top: true
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                        Workspaces                       │
@@ -160,13 +160,13 @@ keybindings:
 
   # Resize: ======================================================================================
   - commands: ["resize --width -2%"]
-    bindings: ["alt+u"]
+    bindings: ["alt+control+h"]
   - commands: ["resize --width +2%"]
-    bindings: ["alt+p"]
+    bindings: ["alt+control+l"]
   - commands: ["resize --height +2%"]
-    bindings: ["alt+o"]
+    bindings: ["alt+control+j"]
   - commands: ["resize --height -2%"]
-    bindings: ["alt+i"]
+    bindings: ["alt+control+k"]
 
   # mode: ========================================================================================
   - commands: ["wm-enable-binding-mode --name resize"]
