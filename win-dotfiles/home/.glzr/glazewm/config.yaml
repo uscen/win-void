@@ -84,6 +84,60 @@ workspaces:
 #                │                     Window Rules                        │
 #                ╰─────────────────────────────────────────────────────────╯
 window_rules:
+  # Workspace Rules:
+  # Workspace 1
+  - commands: ["move --workspace 1", "focus --workspace 1"]
+    match:
+      - window_process: { regex: "^[Ff]irefox" }
+      - window_process: { regex: "^Arc" }
+      - window_process: { regex: "^[Zz]en" }
+  # Workspace 2
+  - commands: ["move --workspace 2", "focus --workspace 2"]
+    match:
+      - window_process: { regex: "^[Ww]ezterm" }
+      - window_process: { regex: "^[C]ode" }
+      - window_process: { regex: "^[Cc]hrome" }
+      - window_process: { equals: "WindowsTerminal" }
+      - window_process: { regex: "^[Cc]laude" }
+      - window_process: { regex: "^[Nn]eovide" }
+  # Workspace 3
+  - commands: ["move --workspace 3", "focus --workspace 3"]
+    match:
+      - window_process: { regex: "^[Oo]bsidian" }
+  # Workspace 4
+  - commands: ["move --workspace 4", "focus --workspace 4"]
+    match:
+      - window_title: { regex: "YouTubePWA" }
+      - window_title: { regex: "VacuumTube" }
+  # Workspace 5
+  - commands: ["move --workspace 5", "focus --workspace 5"]
+    match:
+      - window_process: { regex: "^[Ss]team" }
+      - window_process: { regex: "^NMS" }
+  - commands: ["move --workspace 5", "set-fullscreen"]
+    match:
+      - window_process: { regex: "^NMS" }
+  # Workspace 6
+  - commands: ["move --workspace 6", "focus --workspace 6"]
+    match:
+      - window_process: { equals: "bambu-studio" }
+      - window_process: { regex: "[Vv][Mm]ware" }
+  # Workspace 7
+  - commands: ["move --workspace 7"]
+    match:
+      - window_process: { regex: "^[Vv]esktop" }
+      - window_process: { regex: "^[Ss]lack" }
+      - window_process: { regex: "^[Zz]oom" }
+  # Workspace 8
+  - commands: ["move --workspace 8", "focus --workspace 8"]
+    match:
+      - window_process: { equals: "ksnip" }
+      - window_title: { regex: "Galvanize SIS" }
+  - commands: ["move --workspace 9", "set-fullscreen", "focus --workspace 9"]
+    match:
+      - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
+
+  # Ignore Rules:
   - commands: ["ignore"]
     match:
       - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
@@ -103,6 +157,7 @@ window_rules:
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
 
+  # Floating Rules:
   - commands: ["set-floating"]
     match:
       - window_process:
