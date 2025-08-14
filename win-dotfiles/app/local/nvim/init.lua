@@ -892,7 +892,7 @@ now(function()
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
   vim.opt.pumblend               = 10
-  vim.opt.pumheight              = 12
+  vim.opt.pumheight              = 8
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
   vim.opt.colorcolumn            = ''
