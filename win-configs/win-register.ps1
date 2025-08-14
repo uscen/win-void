@@ -1,4 +1,13 @@
 # =============================================================================== #
+# Re Run As Administrator:		                                                    #
+# =============================================================================== #
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
+    [Security.Principal.WindowsBuiltInRole] "Administrator"))
+{
+    Start-Process powershell "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+    exit
+}
+# =============================================================================== #
 # Change Keyboard Rate:		                                                        #
 # =============================================================================== #
 Set-Location "HKCU:\Control Panel\Accessibility\Keyboard Response"
