@@ -935,14 +935,14 @@ now(function()
   vim.opt.copyindent             = true
   vim.opt.preserveindent         = true
   vim.opt.startofline            = true
-  vim.opt.autowrite              = true
-  vim.opt.autowriteall           = true
   vim.opt.wrapscan               = true
   vim.opt.tildeop                = true
   vim.opt.mousemoveevent         = true
   vim.opt.exrc                   = true
   vim.opt.secure                 = true
   vim.opt.autochdir              = true
+  vim.opt.autowrite              = false
+  vim.opt.autowriteall           = false
   vim.opt.magic                  = false
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false

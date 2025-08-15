@@ -89,7 +89,6 @@ $scoopPackages = @(
     "gcc",
     "autohotkey",
     "lua-language-server",
-    "altsnap",
     "imagemagick",
     "ffmpeg",
     "yt-dlp",
