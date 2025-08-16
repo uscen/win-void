@@ -1,8 +1,26 @@
 #Requires AutoHotkey v2.0+
 #SingleInstance Force
-#include C:\Users\%A_UserName%\.glzr\ahk\keepAwake.ahk
-#include C:\Users\%A_UserName%\.glzr\ahk\powerMenu.ahk
-#include C:\Users\%A_UserName%\.glzr\ahk\colorPicker.ahk
+; # =============================================================================== #
+; # Keybidings Strings:                                                             #
+; # =============================================================================== #
 #include C:\Users\%A_UserName%\.glzr\ahk\stringKeys.ahk
+; # =============================================================================== #
+; # Power Menu:                                                                     #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.glzr\ahk\powerMenu.ahk
+; # =============================================================================== #
+; # Color Picker:                                                                   #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.glzr\ahk\colorPicker.ahk
+; # =============================================================================== #
+; # KeepAwake:                                                                      #
+; # =============================================================================== #
+#include C:\Users\%A_UserName%\.glzr\ahk\keepAwake.ahk
+; # =============================================================================== #
+; # Move Apps In Grid Layout:                                                       #
+; # =============================================================================== #
 #include C:\Users\%A_UserName%\.glzr\ahk\moveWindowGrid.ahk
+; # =============================================================================== #
+; # Virtual Desktop Switcher:                                                       #
+; # =============================================================================== #
 #include C:\Users\%A_UserName%\.glzr\ahk\virtDeskSwitcher.ahk
