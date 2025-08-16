@@ -10,7 +10,7 @@
   "initialCols": 55,
   "initialPosition": ",",
   "initialRows": 22,
-  "launchMode": "focus",
+  "launchMode": "default",
   "profiles": {
     "defaults": {
       "colorScheme": "Macro",
