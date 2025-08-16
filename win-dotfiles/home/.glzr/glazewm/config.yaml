@@ -5,7 +5,8 @@
 #                │                        General                          │
 #                ╰─────────────────────────────────────────────────────────╯
 general:
-  startup_commands: []
+  startup_commands:
+    ["shell-exec autohotkey C:\\Users\\lli\\.glzr\\ahk\\glzr.ahk"]
   shutdown_commands: []
   config_reload_commands: []
   focus_follows_cursor: true
@@ -177,7 +178,7 @@ keybindings:
 
   # Pause : ======================================================================================
   - commands: ["wm-toggle-pause"]
-    bindings: ["alt+shift+p"]
+    bindings: ["alt+control+p"]
 
   # direction: ===================================================================================
   - commands: ["toggle-tiling-direction"]
@@ -246,9 +247,9 @@ keybindings:
 
   # next/previous: ===============================================================================
   - commands: ["focus --next-active-workspace"]
-    bindings: ["alt+shift+s"]
+    bindings: ["alt+shift+>"]
   - commands: ["focus --prev-active-workspace"]
-    bindings: ["alt+shift+a"]
+    bindings: ["alt+shift+<"]
 
   # last: ========================================================================================
   - commands: ["focus --recent-workspace"]
@@ -276,13 +277,13 @@ keybindings:
 
   # Monitor: =====================================================================================
   - commands: ["move-workspace --direction left"]
-    bindings: ["alt+shift+a"]
+    bindings: ["alt+control+a"]
   - commands: ["move-workspace --direction right"]
-    bindings: ["alt+shift+f"]
+    bindings: ["alt+control+f"]
   - commands: ["move-workspace --direction up"]
-    bindings: ["alt+shift+d"]
+    bindings: ["alt+control+d"]
   - commands: ["move-workspace --direction down"]
-    bindings: ["alt+shift+s"]
+    bindings: ["alt+control+s"]
 
   # Move: ========================================================================================
   - commands: ["move --workspace 1", "focus --workspace 1"]
