@@ -1826,6 +1826,7 @@ later(function()
       ['ejs'] = 'ejs',
       ['conf'] = 'conf',
       ['ahk2'] = 'autohotkey',
+      ['xaml'] = "xml",
       ['h'] = 'c',
     },
     filename = {
@@ -1848,6 +1849,7 @@ later(function()
       ['%.env%.[%w_.-]+'] = 'sh',
       ['.*/*.conf*'] = 'conf',
       ['*.MD'] = 'markdown',
+      ['*.user.css'] = 'ess',
     },
   })
 end)
