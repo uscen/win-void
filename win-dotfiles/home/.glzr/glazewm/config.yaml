@@ -20,12 +20,12 @@ general:
 #                ╰─────────────────────────────────────────────────────────╯
 gaps:
   scale_with_dpi: true
-  inner_gap: "2px"
+  inner_gap: "4px"
   outer_gap:
-    top: "2px"
-    right: "2px"
-    bottom: "2px"
-    left: "2px"
+    top: "4px"
+    right: "4px"
+    bottom: "4px"
+    left: "4px"
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                    Window Effects                       │
 #                ╰─────────────────────────────────────────────────────────╯
@@ -81,10 +81,10 @@ workspaces:
   - name: "8"
   - name: "9"
 #                ╭─────────────────────────────────────────────────────────╮
-#                │                     Window Rules                        │
+#                │                        Rules                            │
 #                ╰─────────────────────────────────────────────────────────╯
 window_rules:
-  # Ignore Rules:
+  # Ignore Rules: ================================================================================
   - commands: ["ignore"]
     match:
       - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
@@ -104,7 +104,7 @@ window_rules:
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
 
-  # Floating Rules:
+  # Floating Rules: ==============================================================================
   - commands: ["set-floating"]
     match:
       - window_process:
@@ -113,10 +113,11 @@ window_rules:
       - window_title: { equals: "Calculator" }
       - window_title: { equals: "Library" }
 
+  # Workspaces Rules: ============================================================================
   - commands: ["move --workspace 4"]
     match:
       - window_process: { equals: "Spotify" }
-
+  # Border Rules: ================================================================================
   - commands: ["adjust-borders --bottom -2px"]
     match:
       - window_process: { equals: "Spotify" }
@@ -237,11 +238,12 @@ keybindings:
     bindings: ["alt+shift+v"]
   - commands: ["shell-exec explorer"]
     bindings: ["alt+shift+n"]
+
   # next/previous: ===============================================================================
   - commands: ["focus --next-active-workspace"]
-    bindings: ["alt+s"]
+    bindings: ["alt+shift+s"]
   - commands: ["focus --prev-active-workspace"]
-    bindings: ["alt+a"]
+    bindings: ["alt+shift+a"]
 
   # last: ========================================================================================
   - commands: ["focus --recent-workspace"]
