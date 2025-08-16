@@ -1,0 +1,10 @@
+# =============================================================================== #
+# Bat As Cat But More Cool:                                                       #
+# =============================================================================== #
+--theme="Solarized (dark)"
+--style=plain
+--italic-text=always
+--paging=never
+--pager=never
+--color=always
+--decorations=always

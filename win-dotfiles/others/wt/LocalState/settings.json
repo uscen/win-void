@@ -10,7 +10,7 @@
   "initialCols": 55,
   "initialPosition": ",",
   "initialRows": 22,
-  "launchMode": "default",
+  "launchMode": "focus",
   "profiles": {
     "defaults": {
       "colorScheme": "Macro",
@@ -33,7 +33,7 @@
         "commandline": "nu",
         "startingDirectory": "%USERPROFILE%",
         "tabTitle": "NuShell",
-        "icon": "C:\\Users\\LLI\\AppData\\Local\\Programs\\nu\\nu.ico",
+        "icon": "C:\\Users\\lli\\AppData\\Local\\Programs\\nu\\nu.ico",
         "hidden": false,
         "padding": "0"
       },

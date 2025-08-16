@@ -18,6 +18,8 @@ export-env { load-env {
     XDG_VIDEOS_DIR: ($env.USERPROFILE | path join "Videos")
 }}
 export-env { load-env {
+    BAT_CONFIG_DIR : ($env.XDG_CONFIG_DIR | path join "bat")
+    BAT_CONFIG_PATH : ($env.XDG_CONFIG_DIR | path join "bat" "config")
     RIPGREP_CONFIG_PATH : ($env.XDG_CONFIG_DIR | path join "ripgrep" "rc")
     BUN_INSTALL_CACHE_DIR: ($env.XDG_CACHE_HOME | path join "bun" "install" "cache")
 }}
