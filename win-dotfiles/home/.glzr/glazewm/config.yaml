@@ -20,12 +20,12 @@ general:
 #                ╰─────────────────────────────────────────────────────────╯
 gaps:
   scale_with_dpi: true
-  inner_gap: "4px"
+  inner_gap: "2px"
   outer_gap:
-    top: "4px"
-    right: "4px"
-    bottom: "4px"
-    left: "4px"
+    top: "2px"
+    right: "2px"
+    bottom: "2px"
+    left: "2px"
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                    Window Effects                       │
 #                ╰─────────────────────────────────────────────────────────╯
@@ -153,7 +153,7 @@ keybindings:
 
   # Move: ========================================================================================
   - commands: ["move --direction left"]
-    bindings: ["alt+shift+h", "alt+shift+left"]
+    bindings: ["alt+shift+h", "alt+shift+left", "alt+s"]
   - commands: ["move --direction right"]
     bindings: ["alt+shift+l", "alt+shift+right"]
   - commands: ["move --direction up"]
@@ -181,7 +181,7 @@ keybindings:
 
   # direction: ===================================================================================
   - commands: ["toggle-tiling-direction"]
-    bindings: ["alt+s"]
+    bindings: ["alt+v"]
 
   # Cycle: =======================================================================================
   - commands: ["wm-cycle-focus"]
@@ -220,9 +220,9 @@ keybindings:
     bindings: ["alt+shift+w"]
 
   # Terminal: ====================================================================================
-  - commands: ["shell-exec wt"]
-    bindings: ["alt+enter"]
   - commands: ["shell-exec alacritty"]
+    bindings: ["alt+enter"]
+  - commands: ["shell-exec wt"]
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
@@ -234,6 +234,11 @@ keybindings:
     bindings: ["alt+e"]
   - commands: ["shell-exec wt C:\\Program Files\\Git\\bin\\bash.exe -c yazi"]
     bindings: ["alt+n"]
+  - commands:
+      [
+        "shell-exec C:\\Users\\lli\\scoop\\apps\\freetube\\current\\Freetube.exe",
+      ]
+    bindings: ["alt+y"]
   - commands: ["shell-exec neovide"]
     bindings: ["alt+shift+v"]
   - commands: ["shell-exec explorer"]

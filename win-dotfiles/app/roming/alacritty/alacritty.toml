@@ -20,7 +20,7 @@ TERM = "xterm-256color"
 # Window:                                                                         #
 # =============================================================================== #
 [window]
-decorations = "Full"
+decorations = "None"
 [window.dimensions]
 columns = 120
 lines = 48
