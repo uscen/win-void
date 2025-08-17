@@ -1588,7 +1588,19 @@ later(function()
     vim.g.autoformat = not vim.g.autoformat
     vim.notify(string.format('%s formatting...', vim.g.autoformat and 'Enabling' or 'Disabling'), vim.log.levels.INFO)
   end, { nargs = 0 })
-  -- Eable FormatOnSave ==========================================================================
+  -- Enable Format: ===============================================================================
+  vim.api.nvim_create_user_command('Format', function(args)
+      local range = nil
+      if args.count ~= -1 then
+          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+          range = {
+              start = { args.line1, 0 },
+              ['end'] = { args.line2, end_line:len() },
+          }
+      end
+      require('conform').format({ async = true, lsp_format = 'fallback', range = range })
+  end, { range = true })
+  -- Enable FormatOnSave ==========================================================================
   vim.api.nvim_create_user_command('FormatEnable', function()
     vim.b.disable_autoformat = false
     vim.g.disable_autoformat = false
@@ -1603,18 +1615,6 @@ later(function()
     end
     vim.notify('Format On Save Disable')
   end, { bang = true, })
-  -- format: =====================================================================================
-  vim.api.nvim_create_user_command('Format', function(args)
-      local range = nil
-      if args.count ~= -1 then
-          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-          range = {
-              start = { args.line1, 0 },
-              ['end'] = { args.line2, end_line:len() },
-          }
-      end
-      require('conform').format({ async = true, lsp_format = 'fallback', range = range })
-  end, { range = true })
 end)
 --              ╭─────────────────────────────────────────────────────────╮
 --              │                Neovim misspelled_commands               │

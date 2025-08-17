@@ -223,9 +223,9 @@ keybindings:
     bindings: ["alt+shift+w"]
 
   # Terminal: ====================================================================================
-  - commands: ["shell-exec alacritty"]
-    bindings: ["alt+enter"]
   - commands: ["shell-exec wt"]
+    bindings: ["alt+enter"]
+  - commands: ["shell-exec alacritty"]
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================

@@ -37,8 +37,22 @@
   color: var(--vimium-base);
   font-weight: bold;
 }
+#vimium-hint-marker-container div.internal-vimium-hint-marker,
+#vimium-hint-marker-container div.vimiumHintMarker {
+  padding: 3px 4px;
+  background: var(--vimium-green);
+  border: 1;
+  border-color: var(--vimium-mantle);
+  box-shadow: none;
+}
+#vimium-hint-marker-container div span {
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--vimium-mantle);
+  text-shadow: none;
+}
 #vimium-hint-marker-container div.vimiumHintMarker span.matchingCharacter {
-  color: var(--vimium-surface2);
+  color: var(--vimium-subtext0);
 }
 
 /* -----------------------------------------------------------
