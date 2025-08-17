@@ -12,7 +12,7 @@ general:
   focus_follows_cursor: true
   toggle_workspace_on_refocus: true
   hide_method: "cloak"
-  show_all_in_taskbar: false
+  show_all_in_taskbar: true
   cursor_jump:
     enabled: true
     trigger: "window_focus"
@@ -64,10 +64,10 @@ window_behavior:
   state_defaults:
     floating:
       centered: true
-      shown_on_top: true
+      shown_on_top: false
     fullscreen:
-      maximized: true
-      shown_on_top: true
+      maximized: false
+      shown_on_top: false
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                        Workspaces                       │
 #                ╰─────────────────────────────────────────────────────────╯
@@ -110,6 +110,8 @@ window_rules:
     match:
       - window_process:
           { regex: "GlassWire|mpv|qView|crow|Taskmgr|Deceive|obs|DeepL" }
+      - window_process: { equals: "VirtualBox" }
+      - window_process: { equals: "VirtualBoxVM" }
       - window_title: { regex: "Window Spy" }
       - window_title: { equals: "Calculator" }
       - window_title: { equals: "Library" }
@@ -210,7 +212,7 @@ keybindings:
 
   # Kill: ========================================================================================
   - commands: ["wm-exit"]
-    bindings: ["alt+shift+e"]
+    bindings: ["alt+control+q"]
 
   # Reload: ======================================================================================
   - commands: ["wm-reload-config"]
