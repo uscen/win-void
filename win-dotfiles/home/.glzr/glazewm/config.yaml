@@ -10,7 +10,7 @@ general:
   shutdown_commands: []
   config_reload_commands: []
   focus_follows_cursor: true
-  toggle_workspace_on_refocus: true
+  toggle_workspace_on_refocus: false
   hide_method: "cloak"
   show_all_in_taskbar: true
   cursor_jump:
@@ -23,6 +23,11 @@ gaps:
   scale_with_dpi: true
   inner_gap: "2px"
   outer_gap:
+    top: "2px"
+    right: "2px"
+    bottom: "2px"
+    left: "2px"
+  single_window_outer_gap:
     top: "2px"
     right: "2px"
     bottom: "2px"
