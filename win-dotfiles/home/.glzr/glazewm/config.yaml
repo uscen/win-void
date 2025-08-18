@@ -93,7 +93,6 @@ window_rules:
   # Ignore Rules: ================================================================================
   - commands: ["ignore"]
     match:
-      - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
       - window_process: { equals: "zebar" }
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
@@ -113,13 +112,14 @@ window_rules:
   # Floating Rules: ==============================================================================
   - commands: ["set-floating"]
     match:
-      - window_process:
-          { regex: "GlassWire|mpv|qView|crow|Taskmgr|Deceive|obs|DeepL" }
+      - window_process: { regex: "GlassWire|mpv|crow|Taskmgr|obs" }
+      - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
       - window_process: { equals: "VirtualBox" }
       - window_process: { equals: "VirtualBoxVM" }
       - window_title: { regex: "Window Spy" }
       - window_title: { equals: "Calculator" }
       - window_title: { equals: "Library" }
+      - window_title: { equals: "Settings" }
 
   # Workspaces Rules: ============================================================================
   - commands: ["move --workspace 4"]
