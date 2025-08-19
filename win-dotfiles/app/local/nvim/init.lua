@@ -1324,15 +1324,6 @@ now_if_args(function()
       end
     end,
   })
-  -- Center when inserting: ======================================================================
-  vim.api.nvim_create_autocmd('InsertEnter', {
-      callback = function()
-          local debounce = 8
-          if vim.fn.abs(vim.fn.line('.') - math.floor(vim.fn.line('w0') + vim.fn.winheight(0) / 2)) >= debounce then
-              vim.cmd('norm! zz')
-          end
-      end,
-  })
   -- Close all non-existing buffers on `FocusGained`: ============================================
   vim.api.nvim_create_autocmd('FocusGained', {
     group = vim.api.nvim_create_augroup('close_non_existing_buffer', { clear = true }),
