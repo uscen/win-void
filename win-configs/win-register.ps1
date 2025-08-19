@@ -13,3 +13,8 @@ Set-ItemProperty -Path . -Name Flags                 -Value 47
 $hexified = "00,00,00,00,00,00,00,00,02,00,00,00,01,00,3a,00,00,00,00,00".Split(',') | % { "0x$_"};
 $kbLayout = 'HKLM:\System\CurrentControlSet\Control\Keyboard Layout';
 New-ItemProperty -Path $kbLayout -Name "Scancode Map" -PropertyType Binary -Value ([byte[]]$hexified);
+# =============================================================================== #
+# High Performance:                                                               #
+# =============================================================================== #
+powercfg -duplicatescheme 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
+powercfg -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c

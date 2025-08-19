@@ -1,7 +1,7 @@
 # =============================================================================== #
 # Neovide => Neovim Gui With Smooth Animation:                                    #
 # =============================================================================== #
-frame = "full"
+frame = "none"
 maximized = false
 title-hidden = true
 idle = true

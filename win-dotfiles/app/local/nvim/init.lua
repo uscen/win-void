@@ -301,24 +301,6 @@ later(function()
     },
   })
   vim.ui.select = MiniPick.ui_select
-  -- Pick Directory  Form Current Directory: =====================================================
-  local function directory_pick()
-    local root_dir = vim.fn.getcwd()
-    local fd_output = vim.fn.systemlist('fd --type d --exclude ".*" . "' .. root_dir .. '"')
-    MiniPick.start({
-      source = {
-        items = fd_output,
-        name = 'Directories (fd)',
-        choose = function(item)
-          vim.schedule(function()
-            vim.fn.chdir(item)
-            require('mini.files').open(item)
-          end)
-        end,
-      },
-    })
-  end
-  vim.keymap.set('n', '<leader>fn', directory_pick)
   -- Pick Directory  Form Zoxide : ===============================================================
   local function zoxide_pick()
     local zoxide_output = vim.fn.systemlist('zoxide query -ls')
@@ -1229,37 +1211,6 @@ now_if_args(function()
       if last_nonblank < n_lines then vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {}) end
     end,
   })
-  -- Add the relative file path from nearest git root to code files: =============================
-  vim.api.nvim_create_autocmd('BufWritePre', {
-    group = vim.api.nvim_create_augroup('insert_path', { clear = true }),
-    pattern = { '*.ts', '*.tsx', '*.js', '*.jsx' },
-    callback = function(args)
-      local bufnr = args.buf
-      local filepath = args.file
-      -- Get Git root
-      local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
-      if not git_root or git_root == '' then
-        return
-      end
-      -- Compute relative path and comment
-      local relpath = filepath:gsub('^' .. git_root .. '/', '')
-      local comment = '// ' .. relpath
-      -- Check if it's already the first line
-      local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
-      if first_line == comment then
-        return
-      end
-      -- Insert at the top
-      vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, { comment })
-    end,
-  })
-  -- Execute command and stay in the command-line window: ========================================
-  vim.api.nvim_create_autocmd('CmdwinEnter', {
-    group = vim.api.nvim_create_augroup('execute_cmd_and_stay', { clear = true }),
-    callback = function(args)
-      vim.keymap.set({ 'n', 'i' }, '<S-CR>', '<cr>q:', { buffer = args.buf })
-    end,
-  })
   -- don't list terminal with buffers and disable folds,numbers...:===============================
   vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('custom-term', { clear = true }),
@@ -1346,7 +1297,6 @@ now_if_args(function()
         local text = '- ' .. table.concat(closedBuffers, '\n- ')
         vim.notify(text, nil, { title = 'Buffers closed', icon = '󰅗' })
       end
-      -- If ending up in empty buffer, re-open the first oldfile that exists
       vim.schedule(function()
         if vim.api.nvim_buf_get_name(0) ~= '' then return end
         for _, file in ipairs(vim.v.oldfiles) do
@@ -1390,42 +1340,12 @@ now_if_args(function()
         local quickfix_list = vim.fn.getqflist()
         table.remove(quickfix_list, cursor[1])
         vim.fn.setqflist(quickfix_list, 'r')
-        -- restore cursor position
         vim.api.nvim_win_set_cursor(0, cursor)
-        -- close quickfix on last item remove
         if #quickfix_list == 0 then
           vim.cmd.cclose()
         end
       end, { buffer = true })
-
       vim.keymap.set('n', '<cr>', '<cr>:cclose<cr>', { buffer = 0, silent = true })
-    end,
-  })
-  -- `K` in Lua files opens Vim helpdocs: ========================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'lua',
-    group = vim.api.nvim_create_augroup('FileTypeAutocmds', {}),
-    callback = function() vim.bo.keywordprg = ':help' end,
-  })
-  -- Eable wrap in This files: ===================================================================
-  vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('wrap_spell', { clear = true }),
-    pattern = { 'markdown', 'text', 'textile', 'log' },
-    callback = function()
-      vim.opt_local.wrap       = true
-      vim.opt_local.spell      = true
-      vim.opt_local.linebreak  = true
-      vim.opt_local.signcolumn = 'no'
-    end,
-  })
-  -- Fix conceallevel for json files: ============================================================
-  vim.api.nvim_create_autocmd({ 'FileType' }, {
-    group = vim.api.nvim_create_augroup('json_conceal', { clear = true }),
-    pattern = { 'json', 'jsonc', 'json5' },
-    callback = function()
-      vim.opt_local.formatexpr = ''
-      vim.opt_local.formatprg = 'jq'
-      vim.opt_local.conceallevel = 0
     end,
   })
   -- Start insert mode in git commit messages: ===================================================
@@ -1467,7 +1387,6 @@ now_if_args(function()
     callback = function(event)
       local bo = vim.bo[event.buf]
       if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
-        -- bo.buflisted = false
         vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
       end
     end,
