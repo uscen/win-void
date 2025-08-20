@@ -8,7 +8,7 @@ idle = true
 tabs = true
 theme = "auto"
 [font]
-size = 9
+size = 8
 hinting = "full"
 edging = "antialias"
 [[font.normal]]

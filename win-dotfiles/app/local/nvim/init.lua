@@ -883,7 +883,7 @@ now(function()
   vim.opt.display                = 'lastline'
   vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
-  vim.opt.guifont                = 'JetBrainsMono Nerd Font:h9'
+  vim.opt.guifont                = 'JetBrainsMono Nerd Font:h8'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.opt.splitkeep              = 'screen'
   vim.opt.mousemodel             = 'extend'
@@ -1083,7 +1083,7 @@ now_if_args(function()
   })
   -- Don't Comment New Line ======================================================================
   vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
-    desc = 'Corrects terminal background color according to colorscheme',
+    group = vim.api.nvim_create_augroup('bg_correct', {}),
     callback = function()
       if vim.api.nvim_get_hl(0, { name = 'Normal' }).bg then
         io.write(string.format('\027]11;#%06x\027\\', vim.api.nvim_get_hl(0, { name = 'Normal' }).bg))
@@ -1108,7 +1108,6 @@ now_if_args(function()
   vim.api.nvim_create_autocmd('SessionLoadPost', {
     group = vim.api.nvim_create_augroup('change_title', { clear = true }),
     callback = function()
-      -- return the tail path of the current working directory
       local dirname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
       vim.uv.set_process_title(dirname .. ' - nvim')
     end,
