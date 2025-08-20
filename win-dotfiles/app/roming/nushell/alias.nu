@@ -68,14 +68,14 @@ alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
 alias dots = cd ~/win-void/
 alias ahk = cd ~/win-void/win-dotfiles/cfg/ahk/
 alias bashc = nvim ~/win-void/win-dotfiles/home/.bashrc
-alias wmc = nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json
+alias wmc = nvim ~/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml
 alias barc = nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml
 alias nuc = nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
 alias yt-concats = yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always -S "codec:h264"
 alias yt-music = yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music"
-alias htop = ntop -u LLI -s CPU%
+alias htop = ntop -u lli -s CPU%
 alias man = tldr
 alias cat = bat
 alias cls = clear

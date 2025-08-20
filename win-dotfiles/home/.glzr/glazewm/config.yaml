@@ -38,7 +38,7 @@ gaps:
 window_effects:
   focused_window:
     border:
-      enabled: true
+      enabled: false
       color: "#87a987"
     hide_title_bar:
       enabled: false
@@ -51,7 +51,7 @@ window_effects:
 
   other_windows:
     border:
-      enabled: true
+      enabled: false
       color: "#1b1b1b"
     hide_title_bar:
       enabled: false
