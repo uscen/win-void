@@ -121,9 +121,29 @@ window_rules:
       - window_title: { equals: "Settings" }
 
   # Workspaces Rules: ============================================================================
-  - commands: ["move --workspace 4"]
+  - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
-      - window_process: { equals: "Spotify" }
+      - window_process: { regex: "[Aa]lacritty" }
+  - commands: ["move --workspace 2", "focus --workspace 2"]
+    match:
+      - window_process: { regex: "[Ee]xplorer||[Ww]indowsTerminal|[Mm]pv" }
+  - commands: ["move --workspace 3", "focus --workspace 3"]
+    match:
+      - window_process: { regex: "[cC]hrome|[Ff]irefox" }
+  - commands: ["move --workspace 4", "focus --workspace 4"]
+    match:
+      - window_process: { equals: "[Sa]potify" }
+  - commands: ["move --workspace 5", "focus --workspace 5"]
+    match:
+      - window_process: { equals: "" }
+  - commands: ["move --workspace 6", "focus --workspace 6"]
+    match:
+      - window_process: { equals: "" }
+  - commands: ["move --workspace 7", "focus --workspace 7"]
+    match:
+      - window_title: { equals: "" }
+      - window_title: { equals: "" }
+      - window_title: { equals: "" }
   # Border Rules: ================================================================================
   - commands: ["adjust-borders --bottom -2px"]
     match:

@@ -20,7 +20,7 @@
       "font": {
         "face": "JetBrainsMono Nerd Font",
         "weight": "normal",
-        "size": 8.3,
+        "size": 10,
         "cellHeight": "1.4",
         "axes": { "wght": 400 },
         "features": { "ss01": 0, "liga": 1 }
