@@ -71,7 +71,7 @@ window_behavior:
       centered: true
       shown_on_top: true
     fullscreen:
-      maximized: true
+      maximized: false
       shown_on_top: false
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                        Workspaces                       │
@@ -132,6 +132,7 @@ window_rules:
 #                │                    binding_modes                        │
 #                ╰─────────────────────────────────────────────────────────╯
 binding_modes:
+  # Resize: =======================================================================================
   - name: "resize"
     keybindings:
       - commands: ["resize --width -2%"]
@@ -144,6 +145,12 @@ binding_modes:
         bindings: ["j", "down"]
       - commands: ["wm-disable-binding-mode --name resize"]
         bindings: ["escape", "enter"]
+
+  # Pause: =======================================================================================
+  - name: "pause"
+    keybindings:
+      - commands: ["wm-disable-binding-mode --name pause"]
+        bindings: ["alt+control+p"]
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                      keybindings                        │
 #                ╰─────────────────────────────────────────────────────────╯
