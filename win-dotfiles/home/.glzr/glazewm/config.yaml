@@ -112,10 +112,9 @@ window_rules:
   # Floating Rules: ==============================================================================
   - commands: ["set-floating"]
     match:
-      - window_process: { regex: "GlassWire|mpv|crow|Taskmgr|obs" }
+      - window_process: { regex: "oculante|GlassWire|mpv|crow|Taskmgr|obs" }
       - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
-      - window_process: { equals: "VirtualBox" }
-      - window_process: { equals: "VirtualBoxVM" }
+      - window_process: { equals: "VirtualBox|VirtualBoxVM" }
       - window_title: { regex: "Window Spy" }
       - window_title: { equals: "Calculator" }
       - window_title: { equals: "Library" }
