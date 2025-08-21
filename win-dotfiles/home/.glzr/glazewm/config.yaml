@@ -127,14 +127,17 @@ window_rules:
       - window_process: { equals: "neovide" }
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
-      - window_process: { equals: "WindowsTerminal" }
       - window_process: { equals: "explorer" }
+      - window_process: { equals: "FreeTube" }
       - window_process: { equals: "mpv" }
       - window_process: { equals: "oculante" }
+      - window_process: { equals: "WindowsTerminal" }
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_process: { equals: "chrome" }
       - window_process: { equals: "firefox" }
+      - window_process: { equals: "zen" }
+      - window_process: { equals: "msedge" }
   - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
       - window_process: { equals: "gimp" }
@@ -145,9 +148,6 @@ window_rules:
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "spotify" }
-  - commands: ["move --workspace 7", "focus --workspace 7"]
-    match:
-      - window_title: { equals: "" }
   # Border Rules: ================================================================================
   - commands: ["adjust-borders --bottom -2px"]
     match:
@@ -264,7 +264,7 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
-  - commands: ["shell-exec chromium"]
+  - commands: ["shell-exec zen"]
     bindings: ["alt+w"]
   - commands: ["shell-exec msedge"]
     bindings: ["alt+i"]
