@@ -21,7 +21,7 @@ c.fonts.tabs.unselected = "11pt JetBrainsMono Nerd Font"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.statusbar.show = 'always'
+c.statusbar.show = 'never'
 c.statusbar.position = 'bottom'
 c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
 
@@ -34,7 +34,7 @@ c.tabs.show = "multiple"
 c.tabs.max_width = 240
 c.tabs.min_width = 100
 c.tabs.favicons.show = "always"
-c.tabs.favicons.scale=1.2
+c.tabs.favicons.scale=1
 c.tabs.padding = {"top": 2, "bottom": 2, "left": 2, "right": 2}
 c.tabs.indicator.width = 2
 c.tabs.wrap = True
@@ -68,14 +68,14 @@ c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.policy.images = "smart"
 c.colors.webpage.darkmode.policy.page = "smart"
 # Palette ==============================================================================
-bg0_hard   = "#1f1f28"
-bg0_normal = "#1f1f28"
-bg0_soft   = "#2a273f"
-bg1        = "#1f1f28"
-bg2        = "#181825"
-bg3        = "#2a273f"
-fg0        = "#dcd7ba"
-fg1        = "#c8c093"
+bg0_hard   = "#0d0c0c"
+bg0_normal = "#181616"
+bg0_soft   = "#201d1d"
+bg1        = "#282727"
+bg2        = "#393836"
+bg3        = "#625e5a"
+fg0        = "#c5c9c5"
+fg1        = "#b4b3a7"
 
 red        = "#c34043"
 orange     = "#ffa066"
@@ -138,7 +138,7 @@ c.colors.prompts.border       = f"1px solid {bg1}"
 c.colors.prompts.selected.bg  = bg3
 # Statusbar ===========================================================================
 c.colors.statusbar.normal.fg       = fg1
-c.colors.statusbar.normal.bg       = bg0_hard
+c.colors.statusbar.normal.bg       = bg0_normal
 c.colors.statusbar.insert.fg       = bg0_hard
 c.colors.statusbar.insert.bg       = cyan
 c.colors.statusbar.passthrough.fg  = bg0_hard
@@ -161,7 +161,7 @@ c.colors.statusbar.url.success.https.fg = fg0
 c.colors.statusbar.url.hover.fg    = orange
 c.colors.statusbar.progress.bg     = green
 # Tabs ================================================================================
-c.colors.tabs.bar.bg              = bg0_hard
+c.colors.tabs.bar.bg              = bg0_normal
 c.colors.tabs.odd.fg              = fg1
 c.colors.tabs.odd.bg              = bg2
 c.colors.tabs.even.fg             = fg1
