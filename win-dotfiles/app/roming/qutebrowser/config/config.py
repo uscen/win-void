@@ -1,16 +1,23 @@
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Load                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-config.load_autoconfig(True)
+config.load_autoconfig(False)
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                           URL                           ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.url.start_pages = ["https://web.tabliss.io/"]
+c.url.default_page = "https://web.tabliss.io/"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.fonts.default_size = '10pt'
+c.fonts.default_size = '11pt'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
-c.fonts.completion.entry = '10pt "JetBrainsMono Nerd Font"'
-c.fonts.debug_console = '10pt "JetBrainsMono Nerd Font"'
+c.fonts.completion.entry = '11pt "JetBrainsMono Nerd Font"'
+c.fonts.debug_console = '11pt "JetBrainsMono Nerd Font"'
 c.fonts.prompts = 'default_size sans-serif'
-c.fonts.statusbar = '10pt "JetBrainsMono Nerd Font"'
+c.fonts.statusbar = '11pt "JetBrainsMono Nerd Font"'
+c.fonts.tabs.selected = "11pt JetBrainsMono Nerd Font"
+c.fonts.tabs.unselected = "11pt JetBrainsMono Nerd Font"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -21,31 +28,45 @@ c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.tabs.favicons.show = 'always'
-c.tabs.favicons.scale=1.6
+c.tabs.position = "left"
+c.tabs.width = 36
+c.tabs.show = "multiple"
+c.tabs.max_width = 240
+c.tabs.min_width = 100
+c.tabs.favicons.show = "always"
+c.tabs.favicons.scale=1.2
+c.tabs.padding = {"top": 2, "bottom": 2, "left": 2, "right": 2}
+c.tabs.indicator.width = 2
+c.tabs.wrap = True
 c.tabs.background = True
-c.tabs.last_close = 'ignore'
-c.tabs.position = 'top'
-c.tabs.show = 'multiple'
-c.tabs.padding = {
-        "left": 5,
-        "right": 5,
-        "bottom": 2,
-        "top": 2,
-}
+c.tabs.last_close = "default-page"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.window.hide_decoration = True
 c.auto_save.session=True
 c.scrolling.smooth=True
-c.completion.height=200
 c.confirm_quit=["multiple-tabs", "downloads"]
+c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
+c.completion.web_history.max_items = 0
+c.completion.height=200
+c.completion.use_best_match = False
+c.completion.show = "never"
+c.content.autoplay = False
+# Adblock =============================================================================
+c.content.blocking.enabled = True
+c.content.blocking.method = "both"
+c.content.headers.do_not_track = True
+# Privacy =============================================================================
+c.content.cookies.accept = "no-3rdparty"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
-## Enable Dark Mode
-config.set("colors.webpage.darkmode.enabled", True)
-
+# Darkmode =============================================================================
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.darkmode.policy.images = "smart"
+c.colors.webpage.darkmode.policy.page = "smart"
 # Palette ==============================================================================
 bg0_hard   = "#1f1f28"
 bg0_normal = "#1f1f28"
