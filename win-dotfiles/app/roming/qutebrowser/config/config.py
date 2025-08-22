@@ -1,7 +1,7 @@
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Load                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-config.load_autoconfig(False)
+config.load_autoconfig()
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -56,10 +56,10 @@ c.downloads.position = 'bottom'
 #               ╚═════════════════════════════════════════════════════════╝
 c.completion.use_best_match = True
 c.completion.quick = True
-c.completion.web_history.max_items = 0
+c.completion.web_history.max_items = 10000
 c.completion.delay = 0
 c.completion.height=300
-c.completion.open_categories = ['quickmarks', 'bookmarks', 'filesystem']
+c.completion.open_categories = ['quickmarks', 'bookmarks', 'history', 'filesystem']
 c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
@@ -83,8 +83,8 @@ c.content.javascript.enabled = True
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.window.hide_decoration = True
-c.auto_save.session=True
 c.scrolling.smooth=True
+c.auto_save.session=False
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 c.zoom.default = "100%"
@@ -160,11 +160,19 @@ c.url.searchengines = {
     'temu': 'https://www.temu.com/search_result.html?search_key={}'
 }
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Aliases                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.aliases['e'] = 'session-load'
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 config.unbind('d')
 config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
+config.bind('co', 'download-open')
+config.bind('ce', 'download-cancel')
+config.bind('sa', 'hint all download')
+config.bind('si', 'hint images download')
 config.bind('<Ctrl-0>', 'zoom')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
@@ -176,12 +184,14 @@ config.bind('gm', 'tab-move')
 config.bind('gp', 'open -p')
 config.bind('qm', 'macro-record')
 config.bind('h', 'history')
+config.bind('<Ctrl-h>', 'history')
 config.bind('T', 'hint links tab')
-config.bind('M', 'hint images download')
-config.bind('m', 'hint links spawn mpv {hint-url}')
+config.bind('m', 'spawn mpv {url}')
+config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('tT', 'config-cycle tabs.position top left')
-config.bind('cs', 'cmd-set-text -s :config-source')
-config.bind('ce', 'config-edit')
+config.bind('ss', 'cmd-set-text -s :config-source')
+config.bind('se', 'config-edit')
 config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
 config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
 config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
