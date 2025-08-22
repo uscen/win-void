@@ -145,7 +145,7 @@ bg2        = "#393836"
 bg3        = "#625e5a"
 fg0        = "#c5c9c5"
 fg1        = "#b4b3a7"
-
+# Normal ==============================================================================
 red        = "#c34043"
 orange     = "#ffa066"
 green      = "#98bb6c"
@@ -153,7 +153,13 @@ blue       = "#7e9cd8"
 purple     = "#957fb8"
 cyan       = "#658594"
 comment    = "#727169"
-
+# Bright ==============================================================================
+red0        = "#c4746e"
+orange0     = "#b98d7b"
+green0      = "#8a9a7b"
+blue0       = "#8ba4b0"
+purple0     = "#a292a3"
+cyan0       = "#8992a7"
 # Completion ===========================================================================
 c.colors.completion.fg                            = fg0
 c.colors.completion.odd.bg                        = bg0_normal
@@ -185,7 +191,8 @@ c.colors.downloads.stop.bg                        = cyan
 c.colors.downloads.error.fg                       = red
 # Hints & Keyhint =====================================================================
 c.colors.hints.fg                                 = bg0_hard
-c.colors.hints.bg                                 = f"rgba({int(orange[1:3],16)}, {int(orange[3:5],16)}, {int(orange[5:7],16)}, 200)"
+c.colors.hints.bg                                 = green0
+c.hints.border                                    = f"3px solid {green0}"
 c.colors.hints.match.fg                           = bg3
 c.colors.keyhint.fg                               = fg1
 c.colors.keyhint.suffix.fg                        = fg0
