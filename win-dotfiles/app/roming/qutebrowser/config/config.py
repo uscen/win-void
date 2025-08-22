@@ -16,7 +16,7 @@ c.fonts.statusbar = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.tabs.selected = "10pt JetBrainsMono Nerd Font"
 c.fonts.tabs.unselected = "10pt JetBrainsMono Nerd Font"
 # Web =================================================================================
-c.fonts.web.size.default = 20
+c.fonts.web.size.default = 16
 c.fonts.web.family.fixed = 'monospace'
 c.fonts.web.family.sans_serif = 'monospace'
 c.fonts.web.family.serif = 'monospace'
@@ -40,7 +40,7 @@ c.tabs.last_close = "default-page"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.statusbar.show = 'in-mode'
+c.statusbar.show = 'never'
 c.statusbar.position = 'bottom'
 c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
 #               ╔═════════════════════════════════════════════════════════╗
@@ -61,6 +61,14 @@ c.completion.delay = 0
 c.completion.height=300
 c.completion.open_categories = ['quickmarks', 'bookmarks', 'history', 'filesystem']
 c.completion.show = "always"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Hints                           ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.hints.mode = "letter"
+c.hints.chars = "asdfghjkl"
+c.hints.min_chars = 1
+c.hints.radius = 0
+c.hints.padding =  {"top": 4, "bottom": 4, "left": 4, "right": 4}
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -87,13 +95,13 @@ c.scrolling.smooth=True
 c.auto_save.session=False
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
-c.zoom.default = "100%"
-c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
+c.zoom.default = "110%"
+c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "110%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
-c.url.start_pages = ["https://en.wikipedia.org/wiki/Special:Random"]
+c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
 c.url.searchengines = {
     # search engines ==================================================================
     'DEFAULT': 'https://duckduckgo.com/?q={}',
