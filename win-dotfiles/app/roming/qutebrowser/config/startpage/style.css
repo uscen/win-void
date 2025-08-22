@@ -1,7 +1,7 @@
-body{
-	background-color: #fbf1c7;
-	color: #fb4934;
-	font-size: 30px;
+body {
+  background-color: #fbf1c7;
+  color: #fb4934;
+  font-size: 30px;
 }
 a:link {
   color: #fb4934;
@@ -26,24 +26,26 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
-div{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+div {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-td, table{
-    border-collapse: collapse;
-	text-align: center;
+td,
+table {
+  border-collapse: collapse;
+  text-align: center;
 }
-table{
-    border: 3px solid #fb4934;
+table {
+  border: 3px solid #fb4934;
 }
-th, td {
+th,
+td {
   padding: 15px;
 }
-th{
+th {
   text-decoration: underline;
   text-decoration-color: #d79921;
 }
