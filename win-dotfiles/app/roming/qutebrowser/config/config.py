@@ -3,25 +3,25 @@
 #               ╚═════════════════════════════════════════════════════════╝
 config.load_autoconfig(False)
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                           URL                           ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.url.start_pages = ["https://web.tabliss.io/"]
-c.url.default_page = "https://web.tabliss.io/"
-#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.fonts.default_size = '11pt'
+c.fonts.default_size = '10pt'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
-c.fonts.completion.entry = '11pt "JetBrainsMono Nerd Font"'
-c.fonts.debug_console = '11pt "JetBrainsMono Nerd Font"'
+c.fonts.completion.entry = '10pt "JetBrainsMono Nerd Font"'
+c.fonts.debug_console = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.prompts = 'default_size sans-serif'
-c.fonts.statusbar = '11pt "JetBrainsMono Nerd Font"'
-c.fonts.tabs.selected = "11pt JetBrainsMono Nerd Font"
-c.fonts.tabs.unselected = "11pt JetBrainsMono Nerd Font"
+c.fonts.statusbar = '10pt "JetBrainsMono Nerd Font"'
+c.fonts.tabs.selected = "10pt JetBrainsMono Nerd Font"
+c.fonts.tabs.unselected = "10pt JetBrainsMono Nerd Font"
+c.fonts.web.family.fixed = 'monospace'
+c.fonts.web.family.sans_serif = 'monospace'
+c.fonts.web.family.serif = 'monospace'
+c.fonts.web.family.standard = 'monospace'
+c.fonts.web.size.default = 20
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.statusbar.show = 'never'
+c.statusbar.show = 'in-mode'
 c.statusbar.position = 'bottom'
 c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
 
@@ -43,22 +43,56 @@ c.tabs.last_close = "default-page"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.content.fullscreen.window = True
 c.window.hide_decoration = True
 c.auto_save.session=True
 c.scrolling.smooth=True
-c.confirm_quit=["multiple-tabs", "downloads"]
-c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
-c.completion.web_history.max_items = 0
-c.completion.height=200
-c.completion.use_best_match = False
-c.completion.show = "never"
 c.content.autoplay = False
+c.completion.use_best_match = False
+c.completion.web_history.max_items = 0
+c.completion.height=300
+c.completion.show = "always"
+c.completion.open_categories = ['quickmarks', 'bookmarks', 'filesystem']
+c.confirm_quit=["downloads"]
+c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
+c.zoom.default = "100%"
+c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 # Adblock =============================================================================
 c.content.blocking.enabled = True
 c.content.blocking.method = "both"
 c.content.headers.do_not_track = True
 # Privacy =============================================================================
 c.content.cookies.accept = "no-3rdparty"
+c.content.canvas_reading = False
+c.content.geolocation = False
+c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          URL                            ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.url.searchengines = {
+   'DEFAULT': 'https://duckduckgo.com/?q={}',
+   '!aw': 'https://wiki.archlinux.org/?search={}',
+   '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
+   '!yt': 'https://www.youtube.com/results?search_query={}',
+}
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                       Keybidings                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+config.bind('zi', 'zoom-in')
+config.bind('zo', 'zoom-out')
+config.bind('gJ', 'tab-move +')
+config.bind('gK', 'tab-move -')
+config.bind('gm', 'tab-move')
+config.bind('gp', 'open -p')
+config.bind('qm', 'macro-record')
+config.bind('h', 'history')
+config.bind('T', 'hint links tab')
+config.bind('si', 'hint images download')
+config.bind('tT', 'config-cycle tabs.position top left')
+config.bind('cs', 'cmd-set-text -s :config-source')
+config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
+config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -140,7 +174,7 @@ c.colors.prompts.selected.bg  = bg3
 c.colors.statusbar.normal.fg       = fg1
 c.colors.statusbar.normal.bg       = bg0_normal
 c.colors.statusbar.insert.fg       = bg0_hard
-c.colors.statusbar.insert.bg       = cyan
+c.colors.statusbar.insert.bg       = green
 c.colors.statusbar.passthrough.fg  = bg0_hard
 c.colors.statusbar.passthrough.bg  = blue
 c.colors.statusbar.private.fg      = purple
