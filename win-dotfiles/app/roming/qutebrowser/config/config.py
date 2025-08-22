@@ -23,20 +23,6 @@ c.fonts.web.family.serif = 'monospace'
 c.fonts.web.family.standard = 'monospace'
 c.fonts.web.family.fantasy = 'Arial'
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                         Statusbar                       ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.statusbar.show = 'in-mode'
-c.statusbar.position = 'bottom'
-c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                         Downloads                       ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.downloads.location.remember = True
-c.downloads.remove_finished = 5000
-c.downloads.location.directory = r"C:\Users\lli\Downloads"
-c.downloads.location.suggestion = "both"
-c.downloads.position = 'bottom'
-#               ╔═════════════════════════════════════════════════════════╗
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.tabs.wrap = True
@@ -51,6 +37,30 @@ c.tabs.favicons.scale=1
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.indicator.width = 0
 c.tabs.last_close = "default-page"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Statusbar                       ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.statusbar.show = 'in-mode'
+c.statusbar.position = 'bottom'
+c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Downloads                       ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.downloads.location.remember = True
+c.downloads.remove_finished = 5000
+c.downloads.location.directory = r"C:\Users\lli\Downloads"
+c.downloads.location.suggestion = "both"
+c.downloads.position = 'bottom'
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                       Completion                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.completion.use_best_match = True
+c.completion.quick = True
+c.completion.web_history.max_items = 0
+c.completion.delay = 0
+c.completion.height=300
+c.completion.open_categories = ['quickmarks', 'bookmarks', 'filesystem']
+c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -69,16 +79,6 @@ c.content.cookies.accept = "all"
 c.content.cookies.store = True
 c.content.default_encoding = "utf-8"
 c.content.javascript.enabled = True
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                       Completion                        ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.completion.use_best_match = True
-c.completion.quick = True
-c.completion.web_history.max_items = 0
-c.completion.delay = 0
-c.completion.height=300
-c.completion.open_categories = ['quickmarks', 'bookmarks', 'filesystem']
-c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
