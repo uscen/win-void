@@ -116,9 +116,9 @@ a:active {
   position: relative;
   color: #87a987;
   margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 24px;
-  text-align: center; /* Keep this for titles */
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: left; /* Keep this for titles */
   /* NEW: Prevent category title text from wrapping */
   white-space: nowrap;
   overflow: hidden; /* Hide anything that goes beyond the boundary */
