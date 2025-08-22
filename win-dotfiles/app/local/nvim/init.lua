@@ -390,7 +390,8 @@ end)
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable Mini.Completion: =====================================================================
-  require('mini.completion').setup({
+  local completion = require "mini.completion"
+  completion.setup({
     delay = { completion = 50, info = 40, signature = 30 },
     window = {
       info = { border = 'single' },
@@ -418,14 +419,10 @@ now(function()
   })
   -- enable configured language servers 0.11: ====================================================
   local lsp_configs = { 'lua', 'html', 'css', 'emmet', 'json', 'tailwind', 'typescript', 'eslint', 'prisma' }
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = vim.tbl_deep_extend("force", capabilities, completion.get_lsp_capabilities())
   vim.lsp.config('*', {
-    capabilities = {
-      textDocument = {
-        semanticTokens = {
-          multilineTokenSupport = true,
-        }
-      }
-    },
+    capabilities = capabilities,
     root_markers = {
       '.git'
     },
@@ -1573,6 +1570,8 @@ later(function()
   vim.keymap.set('n', '<leader>uu', ':earlier ')
   vim.keymap.set('n', '<leader><leader>', 'zz')
   vim.keymap.set('n', '~', 'v~')
+  vim.keymap.set("x", "/", "<esc>/\\%V")
+  vim.keymap.set('n', 'g/', '*')
   vim.keymap.set('n', 'gy', '`[v`]')
   vim.keymap.set('n', '<C-m>', '%')
   vim.keymap.set('n', '<C-n>', '*N', { remap = true })

@@ -269,7 +269,7 @@ c.colors.downloads.error.fg                       = red
 # Hints & Keyhint =====================================================================
 c.colors.hints.fg                                 = bg0_hard
 c.colors.hints.bg                                 = green0
-c.hints.border                                    = f"3px solid {green0}"
+c.hints.border                                    = f"2 solid {green}"
 c.colors.hints.match.fg                           = bg3
 c.colors.keyhint.fg                               = fg1
 c.colors.keyhint.suffix.fg                        = fg0
