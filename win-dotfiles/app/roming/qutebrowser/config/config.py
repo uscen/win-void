@@ -52,6 +52,24 @@ c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.indicator.width = 0
 c.tabs.last_close = "default-page"
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Content                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+# Adblock =============================================================================
+c.content.blocking.enabled = True
+c.content.headers.do_not_track = True
+c.content.blocking.method = "both"
+# Privacy =============================================================================
+c.content.fullscreen.window = True
+c.content.canvas_reading = False
+c.content.geolocation = False
+c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+c.content.cookies.accept = "no-3rdparty"
+c.content.autoplay = False
+c.content.cookies.accept = "all"
+c.content.cookies.store = True
+c.content.default_encoding = "utf-8"
+c.content.javascript.enabled = True
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Completion                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.completion.use_best_match = True
@@ -64,42 +82,82 @@ c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.content.fullscreen.window = True
 c.window.hide_decoration = True
 c.auto_save.session=True
 c.scrolling.smooth=True
-c.content.autoplay = False
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 c.zoom.default = "100%"
 c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
-# Adblock =============================================================================
-c.content.blocking.enabled = True
-c.content.headers.do_not_track = True
-c.content.blocking.method = "both"
-# Privacy =============================================================================
-c.content.canvas_reading = False
-c.content.geolocation = False
-c.content.webrtc_ip_handling_policy = "default-public-interface-only"
-c.content.cookies.accept = "no-3rdparty"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
+c.url.start_pages = ["https://en.wikipedia.org/wiki/Special:Random"]
 c.url.searchengines = {
-    "DEFAULT": "https://duckduckgo.com/?q={}",
-    "p":  "https://engine.presearch.org/search?q={}",
-    "b":  "https://search.brave.com/search?q={}",
-    "d":  "https://duckduckgo.com/?q={}",
-    "s":  "https://www.startpage.com/do/asearch?q={}",
-    "g":  "https://google.com/search?q={}",
-    "pr": "https://www.protondb.com/search?q={}",
-    "aw": "https://wiki.archlinux.org/?search={}",
-    "al": "https://allegro.pl/listing?string={}",
-    "yt": "https://www.youtube.com/results?search_query={}",
-    "th": "https://www.thingiverse.com/search?q={}",
-    "at": "https://alternativeto.net/browse/search?q={}",
-    "th":  "https://duckduckgo.com/?q={} site:thingiverse.com",
-    "tr":  "https://translate.google.pl/?text={}",
+    # search engines ==================================================================
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'd': 'https://duckduckgo.com/?q={}',
+    'g': 'https://www.google.com/search?q={}',
+    'gi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
+    'gn': 'https://news.google.com/search?q={}',
+    'b': 'https://www.bing.com/search?q={}',
+    'i': 'https://yandex.com/search/?text={}',
+    's': 'https://swisscows.com/web?culture=en&query={}',
+    'y': 'https://www.youtube.com/results?search_query={}&search=Search',
+    'yt': 'https://www.youtube.com/results?search_query={}&search=Search',
+    'w': 'https://en.wikipedia.org/wiki/{}',
+    # maps ============================================================================
+    'm': 'https://www.google.com/maps/search/{}',
+    # entertainment ===================================================================
+    'r': 'https://www.reddit.com/r/{}/',
+    'rr': 'https://www.reddit.com/search?q={}',
+    'p': 'https://www.pinterest.com/search/pins/?q={}',
+    'fb': 'https://www.facebook.com/s.php?q={}',
+    'ig': 'https://www.instagram.com/explore/tags/{}',
+    'tw': 'https://twitter.com/search?q={}',
+    # arch linux ======================================================================
+    'aur': 'http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K={}',
+    'arch': 'https://archlinux.org/packages/?q={}',
+    'wiki': 'https://wiki.archlinux.org/index.php/Special:Search?search={}',
+    # translate =======================================================================
+    'ro': 'https://translate.google.com/?sl=auto&tl=ro&text={}&op=translate',
+    'en': 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
+    'ru': 'https://translate.google.com/?sl=auto&tl=ru&text={}&op=translate',
+    'ja': 'https://translate.google.com/?sl=auto&tl=ja&text={}&op=translate',
+    # language ========================================================================
+    'urban': 'https://www.urbandictionary.com/define.php?term={}',
+    'dict_2': 'https://thefreedictionary.com/{}',
+    'mg': 'https://www.merriam-webster.com/dictionary/%{}',
+    'th': 'https://www.merriam-webster.com/thesaurus/%{}',
+    'pron': 'https://www.thesaurus.com/browse/{}',
+    'dex': 'https://dexonline.ro/definitie/{}',
+    # books ===========================================================================
+    'libgen': 'https://libgen.rs/search.php?req={}',
+    'ana': 'https://annas-archive.org/search?q=%{}',
+    # anime ===========================================================================
+    'z': 'https://zoro.to/search?keyword={}',
+    'torrent': 'https://www.1377x.to/search/{}/1/',
+    'pirate': 'https://thepiratebay.org/search.php?q={}',
+    # tech ============================================================================
+    'gh': 'https://github.com/search?o=desc&q={}&s=stars',
+    'gist': 'https://gist.github.com/search?q={}',
+    'hub': 'http://github.com/search?q={}',
+    'lab': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
+    'pk': 'https://porkbun.com/checkout/search?prb=ce1274dcf2&q={}&tlds=&idnLanguage=&search=search&csrf_pb=e78192c1c41609bac923887d0a45b5ec',
+    'repo': 'http://github.com/catalinplesu/{}',
+    'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
+    # md buy ==========================================================================
+    '9': 'https://999.md/ro/search?query={}',
+    'pandashop': 'https://www.pandashop.md/ro/search/?text={}',
+    'smadshop': 'https://smadshop.md/ro/search/?search={}',
+    'ultra': 'https://ultra.md/search?search={}',
+    'cacturs': 'https://www.cactus.md/ru/search/?q={}',
+    # buy china =======================================================================
+    'joom': 'https://www.joom.com/en/search/q.{}',
+    'aliexpress': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
+    'amazon': 'https://www.amazon.com/s?k={}',
+    'temu': 'https://www.temu.com/search_result.html?search_key={}'
 }
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
