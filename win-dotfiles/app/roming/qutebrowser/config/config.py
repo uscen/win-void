@@ -11,6 +11,7 @@ c.fonts.default_family = "JetBrainsMono Nerd Font"
 c.fonts.completion.entry = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.debug_console = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.prompts = 'default_size default_family'
+c.fonts.hints = 'default_size default_family'
 c.fonts.statusbar = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.tabs.selected = "10pt JetBrainsMono Nerd Font"
 c.fonts.tabs.unselected = "10pt JetBrainsMono Nerd Font"
