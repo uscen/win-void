@@ -144,9 +144,10 @@ window_rules:
     match:
       - window_process: { equals: "gimp" }
       - window_process: { equals: "shotcut" }
+      - window_process: { regex: "obs" }
   - commands: ["move --workspace 5", "focus --workspace 5"]
     match:
-      - window_process: { regex: "obs" }
+      - window_process: { regex: "thunderbird" }
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "spotify" }

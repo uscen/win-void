@@ -10,7 +10,7 @@ c.fonts.default_size = '10pt'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
 c.fonts.completion.entry = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.debug_console = '10pt "JetBrainsMono Nerd Font"'
-c.fonts.prompts = 'default_size sans-serif'
+c.fonts.prompts = 'default_size default_family'
 c.fonts.statusbar = '10pt "JetBrainsMono Nerd Font"'
 c.fonts.tabs.selected = "10pt JetBrainsMono Nerd Font"
 c.fonts.tabs.unselected = "10pt JetBrainsMono Nerd Font"
@@ -20,6 +20,7 @@ c.fonts.web.family.fixed = 'monospace'
 c.fonts.web.family.sans_serif = 'monospace'
 c.fonts.web.family.serif = 'monospace'
 c.fonts.web.family.standard = 'monospace'
+c.fonts.web.family.fantasy = 'Arial'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -27,20 +28,38 @@ c.statusbar.show = 'in-mode'
 c.statusbar.position = 'bottom'
 c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Downloads                       ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.downloads.location.remember = True
+c.downloads.remove_finished = 5000
+c.downloads.location.directory = r"C:\Users\lli\Downloads"
+c.downloads.location.suggestion = "both"
+c.downloads.position = 'bottom'
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.tabs.position = "left"
+c.tabs.wrap = True
+c.tabs.background = True
 c.tabs.width = 26
-c.tabs.show = "multiple"
 c.tabs.max_width = 240
 c.tabs.min_width = 100
+c.tabs.position = "left"
+c.tabs.show = "multiple"
 c.tabs.favicons.show = "always"
 c.tabs.favicons.scale=1
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.indicator.width = 0
-c.tabs.wrap = True
-c.tabs.background = True
 c.tabs.last_close = "default-page"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                       Completion                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.completion.use_best_match = True
+c.completion.quick = True
+c.completion.web_history.max_items = 0
+c.completion.delay = 0
+c.completion.height=300
+c.completion.open_categories = ['quickmarks', 'bookmarks', 'filesystem']
+c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -49,24 +68,19 @@ c.window.hide_decoration = True
 c.auto_save.session=True
 c.scrolling.smooth=True
 c.content.autoplay = False
-c.completion.use_best_match = False
-c.completion.web_history.max_items = 0
-c.completion.height=300
-c.completion.show = "always"
-c.completion.open_categories = ['quickmarks', 'bookmarks', 'filesystem']
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 c.zoom.default = "100%"
 c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 # Adblock =============================================================================
 c.content.blocking.enabled = True
-c.content.blocking.method = "both"
 c.content.headers.do_not_track = True
+c.content.blocking.method = "both"
 # Privacy =============================================================================
-c.content.cookies.accept = "no-3rdparty"
 c.content.canvas_reading = False
 c.content.geolocation = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+c.content.cookies.accept = "no-3rdparty"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -89,6 +103,9 @@ c.url.searchengines = {
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
+config.unbind('d')
+config.bind('dd', 'tab-close')
+config.bind('do', 'tab-only')
 config.bind('<Ctrl-0>', 'zoom')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
@@ -101,7 +118,8 @@ config.bind('gp', 'open -p')
 config.bind('qm', 'macro-record')
 config.bind('h', 'history')
 config.bind('T', 'hint links tab')
-config.bind('si', 'hint images download')
+config.bind('M', 'hint images download')
+config.bind('m', 'hint links spawn mpv {hint-url}')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('cs', 'cmd-set-text -s :config-source')
 config.bind('ce', 'config-edit')
@@ -113,11 +131,11 @@ config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
 #               ╚═════════════════════════════════════════════════════════╝
 # Darkmode =============================================================================
 c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.threshold.background = 100
+c.colors.webpage.darkmode.threshold.foreground = 150
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.policy.images = "smart"
 c.colors.webpage.darkmode.policy.page = "smart"
-c.colors.webpage.darkmode.threshold.background = 100
-c.colors.webpage.darkmode.threshold.foreground = 150
 # Palette ==============================================================================
 bg0_hard   = "#0d0c0c"
 bg0_normal = "#181616"
@@ -184,7 +202,7 @@ c.colors.messages.info.bg                         = bg0_hard
 c.colors.messages.info.border                     = bg0_hard
 # Prompts =============================================================================
 c.colors.prompts.fg                               = fg1
-c.colors.prompts.bg                               = bg2
+c.colors.prompts.bg                               = bg0_soft
 c.colors.prompts.border                           = f"1px solid {bg1}"
 c.colors.prompts.selected.bg                      = bg3
 # Statusbar ===========================================================================
