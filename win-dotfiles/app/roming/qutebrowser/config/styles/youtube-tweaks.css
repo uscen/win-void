@@ -39,12 +39,14 @@ ytd-guide-renderer {
 }
 /* Remove ads ======================================================================================= */
 #companion,
+ytd-banner-promo-renderer-layout,
+ytd-banner-promo-renderer,
 ytd-display-ad-renderer,
 ytd-promoted-sparkles-web-renderer,
 ytd-promoted-video-renderer,
 ytd-promoted-shelf-renderer,
 ytd-promoted-item-renderer,
-.ytd-compact-promoted-video-renderer,
+ytd-compact-promoted-video-renderer,
 .ytd-action-companion-ad-renderer,
 .ytd-ad-slot-renderer,
 .ytd-promoted-sparkles-web-renderer {
