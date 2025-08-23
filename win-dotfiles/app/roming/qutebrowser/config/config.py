@@ -67,8 +67,8 @@ c.completion.show = "always"
 c.hints.mode = "letter"
 c.hints.chars = "asdfghjkl"
 c.hints.min_chars = 1
-c.hints.radius = 0
-c.hints.padding =  {"top": 4, "bottom": 4, "left": 4, "right": 4}
+c.hints.radius = 2
+c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -171,6 +171,8 @@ c.url.searchengines = {
 #               ║                          Aliases                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.aliases['e'] = 'session-load'
+c.aliases['w'] = 'session-save'
+c.aliases['wq'] = 'quit --save'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -179,6 +181,8 @@ config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
 config.bind('co', 'download-open')
 config.bind('ce', 'download-cancel')
+config.bind('cc', 'download-clear')
+config.bind('cr', 'download-retry')
 config.bind('sa', 'hint all download')
 config.bind('si', 'hint images download')
 config.bind('<Ctrl-0>', 'zoom')
@@ -191,7 +195,8 @@ config.bind('gK', 'tab-move -')
 config.bind('gm', 'tab-move')
 config.bind('gp', 'open -p')
 config.bind('qm', 'macro-record')
-config.bind('h', 'history')
+config.bind('hh', 'history')
+config.bind('hc', 'history-clear')
 config.bind('<Ctrl-h>', 'history')
 config.bind('T', 'hint links tab')
 config.bind('m', 'spawn mpv {url}')
@@ -203,6 +208,9 @@ config.bind('se', 'config-edit')
 config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
 config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
 config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
+config.bind('tH', 'config-cycle tabs.show multiple never')
+config.bind('tT', 'config-cycle tabs.position top left')
+config.bind('sH', 'config-cycle statusbar.show always never')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -211,7 +219,8 @@ c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.threshold.background = 100
 c.colors.webpage.darkmode.threshold.foreground = 150
 c.colors.webpage.preferred_color_scheme = "dark"
-c.colors.webpage.darkmode.policy.images = "smart"
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.policy.page = "smart"
 # Palette ==============================================================================
 bg0_hard   = "#0d0c0c"
