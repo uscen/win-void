@@ -42,7 +42,8 @@ c.tabs.indicator.width = 0
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 10}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
-c.tabs.show = "multiple"
+c.tabs.show = "switching"
+c.tabs.show_switching_delay = 800
 c.tabs.favicons.show = "always"
 c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
@@ -86,7 +87,6 @@ c.hints.uppercase = True
 c.hints.leave_on_load = False
 c.hints.min_chars = 1
 c.hints.radius = 2
-c.hints.find_implementation = 'javascript'
 c.hints.auto_follow = 'unique-match'
 c.hints.mode = "letter"
 c.hints.chars = "asdfghjkl"
@@ -101,7 +101,6 @@ c.keyhint.blacklist = []
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 # Style ===============================================================================
-c.content.frame_flattening = True
 c.content.fullscreen.overlay_timeout = 0
 c.content.prefers_reduced_motion = True
 c.content.user_stylesheets = ['styles/youtube-tweaks.css']
@@ -144,7 +143,6 @@ c.content.cookies.accept = "no-3rdparty"
 c.content.javascript.enabled = True
 c.content.javascript.alert = True
 c.content.javascript.clipboard = 'access'
-c.content.javascript.can_close_tabs = False
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.modal_dialog = False
 c.content.javascript.prompt = True
@@ -166,9 +164,8 @@ c.window.title_format = 'qtb: {current_title}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.zoom.text_only = False
 c.zoom.mouse_divider = 512
-c.zoom.default = "95%"
+c.zoom.default = "100%"
 c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "110%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
@@ -189,7 +186,7 @@ c.prompt.radius = 0
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                        messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.messages.timeout = 3000
+c.messages.timeout = 10000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -296,7 +293,7 @@ config.bind('m', 'spawn mpv {url}')
 config.bind('M', 'hint links spawn mpv {hint-url}')
 config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('tT', 'config-cycle tabs.position top left')
-config.bind('ss', 'cmd-set-text -s :config-source')
+config.bind('ss', 'config-source')
 config.bind('se', 'config-edit')
 config.bind('<Ctrl-h>', 'history')
 config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
