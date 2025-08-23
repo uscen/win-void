@@ -1,6 +1,3 @@
-/* cosmetic and focus tweaks for yt */
-/* credit to various userstyles makers for some pieces of this */
-
 /* grid view */
 #items.ytd-grid-renderer
   > ytd-grid-video-renderer:has(
