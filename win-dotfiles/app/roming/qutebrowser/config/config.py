@@ -104,7 +104,7 @@ c.keyhint.blacklist = []
 c.content.frame_flattening = True
 c.content.fullscreen.overlay_timeout = 0
 c.content.prefers_reduced_motion = True
-c.content.user_stylesheets = ['styles/user.css', 'styles/youtube-tweaks.css']
+c.content.user_stylesheets = ['styles/youtube-tweaks.css']
 # Adblock =============================================================================
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
@@ -185,7 +185,7 @@ c.prompt.radius = 0
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Spellcheck                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.spellcheck.languages = ['en-US']
+# c.spellcheck.languages = ['en-US']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                        messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
