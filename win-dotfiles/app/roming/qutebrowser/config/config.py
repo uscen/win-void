@@ -1,47 +1,62 @@
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Load                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-config.load_autoconfig()
+config.load_autoconfig(False)
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # UI ==================================================================================
-c.fonts.default_size = '10pt'
+c.fonts.default_size = '14px'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
-c.fonts.completion.entry = '10pt "JetBrainsMono Nerd Font"'
-c.fonts.debug_console = '10pt "JetBrainsMono Nerd Font"'
+c.fonts.completion.entry = 'default_size default_family'
+c.fonts.debug_console = 'default_size default_family'
 c.fonts.prompts = 'default_size default_family'
-c.fonts.hints = 'default_size default_family'
-c.fonts.statusbar = '10pt "JetBrainsMono Nerd Font"'
-c.fonts.tabs.selected = "10pt JetBrainsMono Nerd Font"
-c.fonts.tabs.unselected = "10pt JetBrainsMono Nerd Font"
+c.fonts.hints = 'bold default_size default_family'
+c.fonts.statusbar = 'bold default_size default_family'
+c.fonts.tooltip = 'bold default_size default_family'
+c.fonts.tabs.selected = "default_size default_family"
+c.fonts.tabs.unselected = "default_size default_family"
 # Web =================================================================================
-c.fonts.web.size.default = 16
 c.fonts.web.family.fixed = 'monospace'
 c.fonts.web.family.sans_serif = 'monospace'
 c.fonts.web.family.serif = 'monospace'
 c.fonts.web.family.standard = 'monospace'
 c.fonts.web.family.fantasy = 'Arial'
+c.fonts.web.size.default = 16
+c.fonts.web.size.default_fixed = 14
+c.fonts.web.size.minimum = 4
+c.fonts.web.size.minimum_logical = 6
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.tabs.wrap = True
 c.tabs.background = True
+c.tabs.tabs_are_windows = False
+c.tabs.tooltips = False
 c.tabs.width = 26
-c.tabs.max_width = 240
+c.tabs.max_width = 320
 c.tabs.min_width = 100
+c.tabs.favicons.scale=1
+c.tabs.undo_stack_size = 24
+c.tabs.indicator.width = 0
+c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 10}
+c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "multiple"
 c.tabs.favicons.show = "always"
-c.tabs.favicons.scale=1
-c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
-c.tabs.indicator.width = 0
 c.tabs.last_close = "default-page"
+c.tabs.close_mouse_button = 'middle'
+c.tabs.close_mouse_button_on_bar = 'new-tab'
+c.tabs.select_on_remove = 'prev'
+c.tabs.title.alignment = 'left'
+c.tabs.title.format = '{current_title}'
+c.tabs.title.format_pinned = '{current_title}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.statusbar.show = 'never'
 c.statusbar.position = 'bottom'
+c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 10}
 c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Downloads                       ║
@@ -58,48 +73,128 @@ c.completion.use_best_match = True
 c.completion.quick = True
 c.completion.web_history.max_items = 10000
 c.completion.delay = 0
-c.completion.height=300
+c.completion.scrollbar.padding = 0
+c.completion.height = "20%"
+c.completion.scrollbar.width = 16
 c.completion.open_categories = ['quickmarks', 'bookmarks', 'history', 'filesystem']
+c.completion.web_history.exclude = ['https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.hints.mode = "letter"
-c.hints.chars = "asdfghjkl"
+c.hints.uppercase = True
+c.hints.leave_on_load = False
 c.hints.min_chars = 1
 c.hints.radius = 2
+c.hints.find_implementation = 'javascript'
+c.hints.auto_follow = 'unique-match'
+c.hints.mode = "letter"
+c.hints.chars = "asdfghjkl"
 c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Keyhint                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.keyhint.delay = 200
+c.keyhint.radius = 2
+c.keyhint.blacklist = []
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
+# Style ===============================================================================
+c.content.frame_flattening = True
+c.content.fullscreen.overlay_timeout = 0
+c.content.prefers_reduced_motion = True
+c.content.user_stylesheets = ['styles/user.css', 'styles/youtube-tweaks.css']
 # Adblock =============================================================================
 c.content.blocking.enabled = True
-c.content.headers.do_not_track = True
+c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
+c.content.blocking.whitelist = []
 # Privacy =============================================================================
+c.content.pdfjs = True
+c.content.headers.do_not_track = True
 c.content.fullscreen.window = True
+c.content.images = True
+c.content.xss_auditing = True
+c.content.mute = False
+c.content.autoplay = False
 c.content.canvas_reading = False
 c.content.geolocation = False
+c.content.media.audio_capture = False
+c.content.media.audio_video_capture = False
+c.content.media.video_capture = False
+c.content.desktop_capture = False
+c.content.mouse_lock = False
+c.content.persistent_storage = False
+c.content.plugins = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
-c.content.cookies.accept = "no-3rdparty"
-c.content.autoplay = False
-c.content.cookies.accept = "all"
-c.content.cookies.store = True
 c.content.default_encoding = "utf-8"
+c.content.headers.referer = 'same-domain'
+c.content.register_protocol_handler = 'ask'
+c.content.tls.certificate_errors = 'ask'
+c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
+# Notifications =======================================================================
+c.content.notifications.enabled = False
+c.content.notifications.presenter = 'messages'
+c.content.notifications.show_origin = True
+# Cookies =============================================================================
+c.content.cookies.store = True
+c.content.cookies.accept = "no-3rdparty"
+# Javascript ==========================================================================
 c.content.javascript.enabled = True
+c.content.javascript.alert = True
+c.content.javascript.clipboard = 'access'
+c.content.javascript.can_close_tabs = False
+c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.modal_dialog = False
+c.content.javascript.prompt = True
+c.content.local_content_can_access_file_urls = True
+c.content.local_content_can_access_remote_urls = True
+c.content.local_storage = True
+# Enable everything in devtools =======================================================
+for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
+    with config.pattern(tool + '://*') as t:
+        t.content.cookies.accept = 'all'
+        t.content.images = True
+        t.content.javascript.enabled = True
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Window                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.window.hide_decoration = True
+c.window.transparent = False
+c.window.title_format = 'qtb: {current_title}'
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Zoom                           ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.zoom.text_only = False
+c.zoom.mouse_divider = 512
+c.zoom.default = "95%"
+c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "110%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.window.hide_decoration = True
 c.scrolling.smooth=True
 c.auto_save.session=False
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
-c.zoom.default = "110%"
-c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "110%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         prompt                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.prompt.filebrowser = True
+c.prompt.radius = 0
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                       Spellcheck                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.spellcheck.languages = ['en-US']
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                        messages                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.url.open_base_url = True
+c.url.auto_search = 'naive'
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
 c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
 c.url.searchengines = {
@@ -176,6 +271,7 @@ c.aliases['wq'] = 'quit --save'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
+# General: ============================================================================
 config.unbind('d')
 config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
@@ -195,9 +291,6 @@ config.bind('gK', 'tab-move -')
 config.bind('gm', 'tab-move')
 config.bind('gp', 'open -p')
 config.bind('qm', 'macro-record')
-config.bind('hh', 'history')
-config.bind('hc', 'history-clear')
-config.bind('<Ctrl-h>', 'history')
 config.bind('T', 'hint links tab')
 config.bind('m', 'spawn mpv {url}')
 config.bind('M', 'hint links spawn mpv {hint-url}')
@@ -205,12 +298,44 @@ config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('ss', 'cmd-set-text -s :config-source')
 config.bind('se', 'config-edit')
+config.bind('<Ctrl-h>', 'history')
 config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
-config.bind('<Ctrl-j>', 'completion-item-focus --history next', mode='command')
-config.bind('<Ctrl-k>', 'completion-item-focus --history prev', mode='command')
 config.bind('tH', 'config-cycle tabs.show multiple never')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('sH', 'config-cycle statusbar.show always never')
+config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
+config.bind('<Return>', 'prompt-accept yes', mode='yesno')
+# hint ================================================================================
+config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
+config.bind(';', 'hint links', mode='hint')
+config.bind('B', 'hint links tab-bg', mode='hint')
+config.bind('F', 'hint all', mode='hint')
+config.bind('I', 'hint images run open -t -- {hint-url}', mode='hint')
+config.bind('O', 'hint links fill :open -r -t {hint-url}', mode='hint')
+config.bind('P', 'hint links run open -p {hint-url}', mode='hint')
+config.bind('R', 'hint --rapid links tab-bg', mode='hint')
+config.bind('T', 'hint links tab-fg', mode='hint')
+config.bind('W', 'hint links window', mode='hint')
+config.bind('m', 'hint all hover', mode='hint')
+config.bind('o', 'hint links fill :open {hint-url}', mode='hint')
+config.bind('t', 'hint inputs', mode='hint')
+config.bind('x', 'hint all delete', mode='hint')
+config.bind('y', 'hint links yank', mode='hint')
+# Completion: =========================================================================
+config.bind('<Ctrl-c>', 'mode-leave', mode='command')
+config.bind('<Ctrl-d>', 'rl-delete-char', mode='command')
+config.bind('<Ctrl-j>', 'command-history-next', mode='command')
+config.bind('<Ctrl-k>', 'command-history-prev', mode='command')
+config.bind('<Ctrl-n>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-p>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-x>', 'completion-item-del', mode='command')
+# prompt: =============================================================================
+config.bind('<Ctrl-c>', 'mode-leave', mode='prompt')
+config.bind('<Ctrl-d>', 'rl-delete-char', mode='prompt')
+config.bind('<Ctrl-j>', 'prompt-item-focus next', mode='prompt')
+config.bind('<Ctrl-k>', 'prompt-item-focus prev', mode='prompt')
+config.bind('<Ctrl-n>', 'prompt-item-focus next', mode='prompt')
+config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -340,5 +465,8 @@ c.colors.tabs.pinned.selected.even.bg             = bg0_hard
 c.colors.tabs.pinned.selected.even.fg             = fg1
 c.colors.tabs.pinned.selected.odd.bg              = bg0_hard
 c.colors.tabs.pinned.selected.odd.fg              = fg1
-# Webpage ==============================================================================
+# tooltips ============================================================================
+c.colors.tooltip.bg                                = bg0_hard
+c.colors.tooltip.fg                                = fg1
+# Webpage =============================================================================
 c.colors.webpage.bg = bg0_soft
