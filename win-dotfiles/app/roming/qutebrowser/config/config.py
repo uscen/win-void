@@ -37,6 +37,7 @@ c.tabs.wrap = True
 c.tabs.background = True
 c.tabs.tabs_are_windows = False
 c.tabs.tooltips = False
+c.tabs.mousewheel_switching = False
 c.tabs.width = 26
 c.tabs.max_width = 320
 c.tabs.min_width = 100
@@ -54,18 +55,20 @@ c.tabs.close_mouse_button = 'middle'
 c.tabs.close_mouse_button_on_bar = 'new-tab'
 c.tabs.select_on_remove = 'prev'
 c.tabs.title.alignment = 'left'
+c.tabs.title.elide = 'middle'
 c.tabs.title.format = '{current_title}'
-c.tabs.title.format_pinned = '{current_title}'
+c.tabs.title.format_pinned = '#{audio}{index}: {current_title}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.statusbar.show = 'never'
 c.statusbar.position = 'bottom'
 c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 10}
-c.statusbar.widgets = ['progress', 'keypress', 'url', 'scroll', 'history', 'tabs']
+c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', 'progress', 'clock:%a#%V %d %B %y, %H:%M ']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Downloads                       ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.downloads.location.prompt = False
 c.downloads.location.remember = True
 c.downloads.remove_finished = 5000
 c.downloads.location.directory = r"C:\Users\lli\Downloads"
@@ -175,7 +178,8 @@ c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%"
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.scrolling.smooth=True
-c.auto_save.session=False
+c.auto_save.session=True
+c.scrolling.bar = 'always'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
@@ -265,9 +269,16 @@ c.url.searchengines = {
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Aliases                        ║
 #               ╚═════════════════════════════════════════════════════════╝
+
+c.aliases['o'] = 'open'
+c.aliases['h'] = 'help -t'
 c.aliases['e'] = 'session-load'
 c.aliases['w'] = 'session-save'
 c.aliases['wq'] = 'quit --save'
+c.aliases['wqa'] = 'quit --save'
+c.aliases['sv'] = 'spawn -u split -h'
+c.aliases['sh'] = 'spawn -u split -v'
+c.aliases['localhost'] = 'spawn -u localhost'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -284,6 +295,7 @@ config.bind('si', 'hint images download')
 config.bind('<Ctrl-0>', 'zoom')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
+config.bind('<Meta+Ctrl+f>', 'fullscreen')
 config.bind('zi', 'zoom-in')
 config.bind('zo', 'zoom-out')
 config.bind('gJ', 'tab-move +')
