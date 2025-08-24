@@ -482,7 +482,7 @@ now(function()
     return vim.fn.pumvisible() == 1 and
         (vim.fn.complete_info().selected == -1 and vim.keycode('<c-n><c-y>') or vim.keycode('<c-y>')) or '<Tab>'
   end
-  vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true })
+  vim.keymap.set('i', '<Tab>', expand_or_complete, { expr = true, replace_keycodes = true })
   -- exit snippet sessions on entering normal mode: ==============================================
   vim.api.nvim_create_autocmd('User', {
     pattern = 'MiniSnippetsSessionStart',
@@ -808,6 +808,7 @@ now(function()
   vim.opt.wildignore             = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o'
   vim.opt.omnifunc               = 'v:lua.vim.lsp.omnifunc'
   vim.opt.completeopt            = 'menu,menuone,popup,noselect,fuzzy'
+  vim.opt.completeitemalign      = 'kind,abbr,menu'
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = 'usetab'
   vim.opt.shada                  = { "'10", '<0', 's10', 'h' }
@@ -1687,6 +1688,7 @@ later(function()
   vim.keymap.set('n', '<leader>fo', '<cmd>Pick options<cr>')
   vim.keymap.set('n', '<leader>fp', '<cmd>Pick registers<cr>')
   vim.keymap.set('n', '<leader>fk', '<cmd>Pick keymaps<cr>')
+  vim.keymap.set('n', '<leader>fh', '<cmd>Pick history<cr>')
   vim.keymap.set('n', '<leader>tp', '<cmd>Pick colorschemes<cr>')
   vim.keymap.set('n', 'gR', "<Cmd>Pick lsp scope='references'<cr>")
   vim.keymap.set('n', 'gD', "<Cmd>Pick lsp scope='definition'<cr>")
