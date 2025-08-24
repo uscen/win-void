@@ -184,10 +184,6 @@ c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 c.prompt.filebrowser = True
 c.prompt.radius = 0
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                       Spellcheck                        ║
-#               ╚═════════════════════════════════════════════════════════╝
-# c.spellcheck.languages = ['en-US']
-#               ╔═════════════════════════════════════════════════════════╗
 #               ║                        messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.messages.timeout = 10000
@@ -472,7 +468,7 @@ c.colors.tabs.pinned.selected.even.fg             = fg1
 c.colors.tabs.pinned.selected.odd.bg              = bg0_hard
 c.colors.tabs.pinned.selected.odd.fg              = fg1
 # tooltips ============================================================================
-c.colors.tooltip.bg                                = bg0_hard
-c.colors.tooltip.fg                                = fg1
+c.colors.tooltip.bg                               = bg0_hard
+c.colors.tooltip.fg                               = fg1
 # Webpage =============================================================================
 # c.colors.webpage.bg = bg0_soft
