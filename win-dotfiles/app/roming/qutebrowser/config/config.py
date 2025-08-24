@@ -82,7 +82,7 @@ c.completion.scrollbar.padding = 0
 c.completion.height = "20%"
 c.completion.scrollbar.width = 16
 c.completion.open_categories = ['history']
-c.completion.web_history.exclude = ['file://*','http://localhost:*' 'https://*.google.com', 'https://duckduckgo.com']
+c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
