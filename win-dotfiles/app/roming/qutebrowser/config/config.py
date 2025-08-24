@@ -22,10 +22,10 @@ c.fonts.tabs.selected = "bold default_size default_family"
 c.fonts.tabs.unselected = "bold default_size default_family"
 # Web =================================================================================
 c.fonts.web.family.fixed = 'JetBrainsMono Nerd Font'
+c.fonts.web.family.serif = 'Times New Roman'
+c.fonts.web.family.sans_serif = 'Arial'
+c.fonts.web.family.standard = 'Arial'
 c.fonts.web.family.fantasy = 'Arial'
-c.fonts.web.family.sans_serif = 'monospace'
-c.fonts.web.family.serif = 'monospace'
-c.fonts.web.family.standard = 'monospace'
 c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 14
 c.fonts.web.size.minimum = 4
@@ -47,7 +47,7 @@ c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 10}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
-c.tabs.show_switching_delay = 2000
+c.tabs.show_switching_delay = 1000
 c.tabs.favicons.show = "always"
 c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
@@ -107,7 +107,7 @@ c.keyhint.blacklist = []
 # Style ===============================================================================
 c.content.fullscreen.overlay_timeout = 0
 c.content.prefers_reduced_motion = True
-c.content.user_stylesheets = ['styles/youtube-tweaks.css']
+c.content.user_stylesheets = []
 # Adblock =============================================================================
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
@@ -146,13 +146,13 @@ c.content.cookies.accept = "no-3rdparty"
 # Javascript ==========================================================================
 c.content.javascript.enabled = True
 c.content.javascript.alert = True
-c.content.javascript.clipboard = 'access'
+c.content.javascript.prompt = True
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.modal_dialog = False
-c.content.javascript.prompt = True
 c.content.local_content_can_access_file_urls = True
 c.content.local_content_can_access_remote_urls = True
 c.content.local_storage = True
+c.content.javascript.clipboard = 'access'
 # Enable everything in devtools =======================================================
 for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
     with config.pattern(tool + '://*') as t:
