@@ -1,9 +1,10 @@
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                         Zoom                            ║
+--          ╚═════════════════════════════════════════════════════════╝
 local M = {}
-
 local state = {
     zoom_tab = nil,
 }
-
 function M.toggle()
     if state.zoom_tab then
         if vim.api.nvim_tabpage_is_valid(state.zoom_tab) then
@@ -11,27 +12,20 @@ function M.toggle()
         end
         state.zoom_tab = nil
     else
-        -- No need to zoom if there's only one window
+        -- No need to zoom if there's only one window: ===========================================
         local wins = vim.api.nvim_tabpage_list_wins(0)
         if #wins <= 1 then
             return
         end
-
-        -- Save current buffer, window info, and view
-        local buf = vim.api.nvim_get_current_buf()
-        local view = vim.fn.winsaveview()
-
-        -- Create a new tab with the current buffer
+        -- Create a new tab with the current buffer: =============================================
         vim.cmd("tab split")
-        vim.fn.winrestview(view)
-
-        -- Store the tab handle for later
+        -- Store the tab handle for later ========================================================
         state.zoom_tab = vim.api.nvim_get_current_tabpage()
     end
 end
 
 function M.setup()
-    -- Reset zoom state when the tab is closed
+    -- Reset zoom state when the tab is closed: ==================================================
     vim.api.nvim_create_autocmd('TabClosed', {
         callback = function(args)
             local tab = tonumber(args.file)
@@ -40,8 +34,7 @@ function M.setup()
             end
         end,
     })
-
-    -- Auto-cancel zoom when changing tabs
+    -- Auto-cancel zoom when changing tabs: ======================================================
     vim.api.nvim_create_autocmd('TabEnter', {
         callback = function()
             local tab = vim.api.nvim_get_current_tabpage()
