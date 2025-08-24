@@ -166,7 +166,7 @@ for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
 #               ║                          Window                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.window.hide_decoration = True
-c.window.transparent = False
+c.window.transparent = True
 c.window.title_format = 'qtb: {current_title}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
@@ -177,9 +177,9 @@ c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.auto_save.session=False
 c.scrolling.smooth=True
-c.auto_save.session=True
-c.scrolling.bar = 'always'
+c.scrolling.bar = 'never'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
