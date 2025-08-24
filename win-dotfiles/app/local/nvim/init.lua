@@ -1718,6 +1718,31 @@ end)
 --              ╚═════════════════════════════════════════════════════════╝
 later(function()
   if vim.g.neovide then
+    -- General: ==================================================================================
+    vim.opt.linespace = -2
+    vim.g.neovide_scale_factor = 1.05
+    vim.g.neovide_refresh_rate = 45
+    vim.g.neovide_padding_top = 0
+    vim.g.neovide_padding_left = 0
+    -- Appearance: ===============================================================================
+    vim.g.neovide_opacity = 1
+    vim.g.neovide_underline_stroke_scale = 2.5
+    vim.g.neovide_show_border = true
+    -- behavior: =================================================================================
+    vim.g.neovide_remember_window_size = true
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_cursor_animate_in_insert_mode = false
+    vim.g.neovide_cursor_animate_command_line = false
+    -- Cursor: ===================================================================================
+    vim.opt.guicursor = { "i-ci-c:ver25", "n-sm:block", "r-cr-o-v:hor10", "a:blinkwait200-blinkoff800-blinkon1000" }
+    vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_animation_length = 0.03
+    vim.g.neovide_cursor_trail_size = 1.0
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.g.neovide_cursor_vfx_particle_lifetime = 1.3
+    vim.g.neovide_cursor_vfx_particle_density = 0.7
+    vim.g.neovide_cursor_vfx_particle_speed = 20
+    -- Keymap: ===================================================================================
     vim.keymap.set({ 'n', 'v' }, '<C-=>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-0>', ':lua vim.g.neovide_scale_factor = 1<cr>')
