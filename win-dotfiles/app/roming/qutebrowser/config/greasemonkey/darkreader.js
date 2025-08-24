@@ -13,19 +13,19 @@
 // @noframes
 // ==/UserScript==
 
-document.addEventListener('keyup', function (e) {
-  if ('aAÅ'.indexOf(e.key) >= 0 && e.altKey && e.shiftKey) {
+document.addEventListener("keyup", function (e) {
+  if ("aAÅ".indexOf(e.key) >= 0 && e.altKey && e.shiftKey) {
     e.preventDefault();
     if (DarkReader.isEnabled()) {
       DarkReader.disable();
-      console.log('Dark Reader disabled');
+      console.log("Dark Reader disabled");
     } else {
       DarkReader.enable({
         brightness: 100,
         contrast: 100,
-        sepia: 0
+        sepia: 0,
       });
-      console.log('Dark Reader enabled');
+      console.log("Dark Reader enabled");
     }
   }
 });

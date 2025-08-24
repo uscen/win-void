@@ -9,10 +9,10 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-   'use strict';
+(function () {
+  "use strict";
 
-   const css = `
+  const css = `
        body, .side, .content, .listing-page, .subreddit, .link, .thing, .comment {
            background-color: #1a1a1b !important;
            color: #d7dadc !important;
@@ -308,7 +308,7 @@
        }
    `;
 
-   const style = document.createElement('style');
-   style.textContent = css;
-   document.head.appendChild(style);
+  const style = document.createElement("style");
+  style.textContent = css;
+  document.head.appendChild(style);
 })();
