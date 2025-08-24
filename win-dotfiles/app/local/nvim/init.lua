@@ -51,12 +51,6 @@ later(function()
   require('mini.diff').setup({ view = { style = 'sign' } })
 end)
 --              ╭─────────────────────────────────────────────────────────╮
---              │                     Mini.Misc                           │
---              ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.misc').setup_auto_root({ '.git', 'package.json' }, vim.fs.dirname)
-end)
---              ╭─────────────────────────────────────────────────────────╮
 --              │                     Mini.Notify                         │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
