@@ -21,11 +21,11 @@ c.fonts.tooltip = 'bold default_size default_family'
 c.fonts.tabs.selected = "bold default_size default_family"
 c.fonts.tabs.unselected = "bold default_size default_family"
 # Web =================================================================================
-c.fonts.web.family.fixed = 'monospace'
+c.fonts.web.family.fixed = 'JetBrainsMono Nerd Font'
+c.fonts.web.family.fantasy = 'Arial'
 c.fonts.web.family.sans_serif = 'monospace'
 c.fonts.web.family.serif = 'monospace'
 c.fonts.web.family.standard = 'monospace'
-c.fonts.web.family.fantasy = 'Arial'
 c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 14
 c.fonts.web.size.minimum = 4
