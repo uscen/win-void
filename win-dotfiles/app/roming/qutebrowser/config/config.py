@@ -82,7 +82,7 @@ c.completion.scrollbar.padding = 0
 c.completion.height = "20%"
 c.completion.scrollbar.width = 16
 c.completion.open_categories = ['history']
-c.completion.web_history.exclude = ['https://*.google.com', 'https://duckduckgo.com']
+c.completion.web_history.exclude = ['file://*','http://localhost:*' 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
@@ -170,7 +170,7 @@ c.window.title_format = 'qtb: {current_title}'
 #               ╚═════════════════════════════════════════════════════════╝
 c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
-c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "110%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
+c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -350,6 +350,9 @@ c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.policy.page = "smart"
+# Lighmode =============================================================================
+config.set("colors.webpage.darkmode.enabled", False, "file://*")
+config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
 # Palette ==============================================================================
 bg0_hard   = "#0d0c0c"
 bg0_normal = "#181616"
@@ -472,4 +475,4 @@ c.colors.tabs.pinned.selected.odd.fg              = fg1
 c.colors.tooltip.bg                                = bg0_hard
 c.colors.tooltip.fg                                = fg1
 # Webpage =============================================================================
-c.colors.webpage.bg = bg0_soft
+# c.colors.webpage.bg = bg0_soft
