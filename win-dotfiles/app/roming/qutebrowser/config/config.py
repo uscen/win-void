@@ -197,32 +197,34 @@ c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpag
 c.url.searchengines = {
     # search engines ==================================================================
     'DEFAULT': 'https://duckduckgo.com/?q={}',
-    'd': 'https://duckduckgo.com/?q={}',
-    'g': 'https://www.google.com/search?q={}',
+    'dd': 'https://duckduckgo.com/?q={}',
+    'gg': 'https://www.google.com/search?q={}',
     'gi': 'https://www.google.com/search?tbm=isch&q={}&tbs=imgo:1',
     'gn': 'https://news.google.com/search?q={}',
-    'b': 'https://www.bing.com/search?q={}',
-    'i': 'https://yandex.com/search/?text={}',
-    's': 'https://swisscows.com/web?culture=en&query={}',
-    'y': 'https://www.youtube.com/results?search_query={}&search=Search',
+    'bi': 'https://www.bing.com/search?q={}',
+    'yi': 'https://yandex.com/search/?text={}',
+    'sw': 'https://swisscows.com/web?culture=en&query={}',
+    'yy': 'https://www.youtube.com/results?search_query={}&search=Search',
     'yt': 'https://www.youtube.com/results?search_query={}&search=Search',
-    'w': 'https://en.wikipedia.org/wiki/{}',
+    'wi': 'https://en.wikipedia.org/wiki/{}',
     # maps ============================================================================
-    'm': 'https://www.google.com/maps/search/{}',
+    'ma': 'https://www.google.com/maps/search/{}',
     # entertainment ===================================================================
-    'r': 'https://www.reddit.com/r/{}/',
+    're': 'https://www.reddit.com/r/{}/',
     'rr': 'https://www.reddit.com/search?q={}',
-    'p': 'https://www.pinterest.com/search/pins/?q={}',
+    'pi': 'https://www.pinterest.com/search/pins/?q={}',
     'fb': 'https://www.facebook.com/s.php?q={}',
     'ig': 'https://www.instagram.com/explore/tags/{}',
     'tw': 'https://twitter.com/search?q={}',
-    # arch linux ======================================================================
+    # arch ============================================================================
     'aur': 'http://aur.archlinux.org/packages.php?O=0&L=0&C=0&K={}',
     'arch': 'https://archlinux.org/packages/?q={}',
     'wiki': 'https://wiki.archlinux.org/index.php/Special:Search?search={}',
     # translate =======================================================================
-    'ro': 'https://translate.google.com/?sl=auto&tl=ro&text={}&op=translate',
+    'ar': 'https://translate.google.com/?sl=auto&tl=ar&text={}&op=translate',
+    'tr': 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
     'en': 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
+    'ro': 'https://translate.google.com/?sl=auto&tl=ro&text={}&op=translate',
     'ru': 'https://translate.google.com/?sl=auto&tl=ru&text={}&op=translate',
     'ja': 'https://translate.google.com/?sl=auto&tl=ja&text={}&op=translate',
     # language ========================================================================
@@ -236,8 +238,9 @@ c.url.searchengines = {
     'libgen': 'https://libgen.rs/search.php?req={}',
     'ana': 'https://annas-archive.org/search?q=%{}',
     # anime ===========================================================================
-    'z': 'https://zoro.to/search?keyword={}',
-    'torrent': 'https://www.1377x.to/search/{}/1/',
+    'an': 'https://ww.anime4up.rest/?search_param=animes&s={}',
+    'zo': 'https://zoro.to/search?keyword={}',
+    'to': 'https://www.1377x.to/search/{}/1/',
     'pirate': 'https://thepiratebay.org/search.php?q={}',
     # tech ============================================================================
     'gh': 'https://github.com/search?o=desc&q={}&s=stars',
