@@ -43,7 +43,7 @@ c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 10}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
-c.tabs.show_switching_delay = 800
+c.tabs.show_switching_delay = 2000
 c.tabs.favicons.show = "always"
 c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
@@ -77,7 +77,7 @@ c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.height = "20%"
 c.completion.scrollbar.width = 16
-c.completion.open_categories = ['quickmarks', 'bookmarks', 'history', 'filesystem']
+c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 #               ╔═════════════════════════════════════════════════════════╗
@@ -289,8 +289,8 @@ config.bind('gm', 'tab-move')
 config.bind('gp', 'open -p')
 config.bind('qm', 'macro-record')
 config.bind('T', 'hint links tab')
-config.bind('m', 'spawn mpv {url}')
-config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind(',m', 'spawn mpv {url}')
+config.bind(',M', 'hint links spawn mpv {hint-url}')
 config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('ss', 'config-source')
@@ -300,6 +300,7 @@ config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
 config.bind('tH', 'config-cycle tabs.show multiple never')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('sH', 'config-cycle statusbar.show always never')
+config.bind('<Ctrl-Shift-i>', 'devtools')
 config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 # hint ================================================================================
@@ -321,10 +322,10 @@ config.bind('y', 'hint links yank', mode='hint')
 # Completion: =========================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='command')
 config.bind('<Ctrl-d>', 'rl-delete-char', mode='command')
-config.bind('<Ctrl-j>', 'command-history-next', mode='command')
-config.bind('<Ctrl-k>', 'command-history-prev', mode='command')
-config.bind('<Ctrl-n>', 'completion-item-focus next', mode='command')
-config.bind('<Ctrl-p>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-n>', 'command-history-next', mode='command')
+config.bind('<Ctrl-p>', 'command-history-prev', mode='command')
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 config.bind('<Ctrl-x>', 'completion-item-del', mode='command')
 # prompt: =============================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='prompt')
@@ -333,6 +334,7 @@ config.bind('<Ctrl-j>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Ctrl-k>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-n>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
+
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
