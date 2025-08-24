@@ -9,13 +9,17 @@ config.load_autoconfig(False)
 c.fonts.default_size = '14px'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
 c.fonts.completion.entry = 'default_size default_family'
-c.fonts.debug_console = 'default_size default_family'
-c.fonts.prompts = 'default_size default_family'
+c.fonts.completion.category = 'bold default_size default_family'
+c.fonts.debug_console = 'bold default_size default_family'
+c.fonts.contextmenu = 'bold default_size default_family'
+c.fonts.prompts = 'bold default_size default_family'
+c.fonts.downloads = 'bold default_size default_family'
 c.fonts.hints = 'bold default_size default_family'
+c.fonts.keyhint = 'bold default_size default_family'
 c.fonts.statusbar = 'bold default_size default_family'
 c.fonts.tooltip = 'bold default_size default_family'
-c.fonts.tabs.selected = "default_size default_family"
-c.fonts.tabs.unselected = "default_size default_family"
+c.fonts.tabs.selected = "bold default_size default_family"
+c.fonts.tabs.unselected = "bold default_size default_family"
 # Web =================================================================================
 c.fonts.web.family.fixed = 'monospace'
 c.fonts.web.family.sans_serif = 'monospace'
@@ -321,11 +325,11 @@ config.bind('x', 'hint all delete', mode='hint')
 config.bind('y', 'hint links yank', mode='hint')
 # Completion: =========================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='command')
-config.bind('<Ctrl-d>', 'rl-delete-char', mode='command')
 config.bind('<Ctrl-n>', 'command-history-next', mode='command')
 config.bind('<Ctrl-p>', 'command-history-prev', mode='command')
 config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
 config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-d>', 'completion-item-del', mode='command')
 config.bind('<Ctrl-x>', 'completion-item-del', mode='command')
 # prompt: =============================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='prompt')
