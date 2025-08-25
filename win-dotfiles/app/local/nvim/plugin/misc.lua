@@ -115,6 +115,51 @@ function M.toggleTitleCase()
   vim.api.nvim_win_set_cursor(0, prevCursor)
 end
 vim.api.nvim_create_user_command('ToggleTitleCase', M.toggleTitleCase, {})
+-- Delete buff: ==================================================================================
+local winclose = function() vim.cmd.wincmd({ args = { "c" } }) end
+local tab_win_bufnrs = function(tabnr)
+    local tab_wins = vim.tbl_filter(function(win)
+        local win_buf = vim.api.nvim_win_get_buf(win)
+        if 1 ~= vim.fn.buflisted(win_buf) then return true end
+        return true
+    end, vim.api.nvim_tabpage_list_wins(tabnr))
+    return tab_wins
+end
+local loaded_bufnrs = function()
+    local bufnrs = vim.tbl_filter(function(b)
+        if 1 ~= vim.fn.buflisted(b) then return false end
+        -- only hide unloaded buffers if opts.show_all_buffers is false, keep them listed if true or nil
+        if not vim.api.nvim_buf_is_loaded(b) then return false end
+        return true
+    end, vim.api.nvim_list_bufs())
+    return bufnrs
+end
+M.delete_buffer = function()
+    local tabnr = vim.api.nvim_get_current_tabpage()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local num_tabs = #vim.api.nvim_list_tabpages()
+    local bufs = loaded_bufnrs()
+    local tab_wins = tab_win_bufnrs(tabnr)
+
+    if #tab_wins > 1 then
+        winclose()
+    elseif num_tabs > 1 then
+        if bufs[1] == bufnr then
+            vim.cmd.tabclose()
+        else
+            winclose()
+        end
+    elseif #bufs <= 1 then
+        if bufs[1] == bufnr then
+            vim.cmd.quitall()
+        else
+            winclose()
+        end
+    else
+        require("mini.bufremove").delete()
+    end
+end
+vim.api.nvim_create_user_command('DeleteBuffer', M.delete_buffer, {})
 -- Delete others buff: ============================================================================
 function M.deleteOthersBuffers()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
