@@ -163,7 +163,6 @@ end
 function M.cycleMarksDynamic()
   local marks = M.config.marks
   local currentMark = vim.fn.getreg('m')
-
   -- Find the next mark to set/unset
   local markIndex = 1
   if currentMark ~= '' then
@@ -175,11 +174,9 @@ function M.cycleMarksDynamic()
       end
     end
   end
-
   local nextMark = marks[markIndex]
   -- Set/unset the mark using the next mark in the list
   M.setUnsetMark(nextMark)
-
   -- Store the selected mark into the 'm' register for future reference
   vim.fn.setreg('m', nextMark)
 end
@@ -187,21 +184,18 @@ end
 -- Function to pick a mark: ==================================================================
 function M.pickMark()
   if not isValidMarkName(M.config.marks) then return end
-
   local marksSet = vim
     .iter(M.config.marks)
     :map(function(name) return getMark(name) end)
     :filter(function(m) return m ~= nil end)
     :totable()
-
   if #marksSet == 0 then
     notify('No mark has been set.')
     return
   end
-
   -- Use vim.ui.select to pick a mark
   vim.ui.select(marksSet, {
-    prompt = 'Pick a mark to jump to:',
+    prompt = 'Mark (A|B|C)',
     format_item = function(mark)
       return ('[%s] %s:%d:%d'):format(mark.name, mark.path, mark.row, mark.col)
     end,
