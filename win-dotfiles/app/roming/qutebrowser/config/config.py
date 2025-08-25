@@ -378,6 +378,8 @@ bg2        = "#393836"
 bg3        = "#625e5a"
 fg0        = "#c5c9c5"
 fg1        = "#b4b3a7"
+fg2        = "#a6a69c"
+fg3        = "#9e9b93"
 # Normal ==============================================================================
 red        = "#c34043"
 orange     = "#ffa066"
@@ -394,19 +396,19 @@ blue0       = "#8ba4b0"
 purple0     = "#a292a3"
 cyan0       = "#8992a7"
 # Completion===========================================================================
-c.colors.completion.fg                            = fg0
+c.colors.completion.fg                            = bg3
 c.colors.completion.odd.bg                        = bg0_normal
 c.colors.completion.even.bg                       = bg0_normal
 c.colors.completion.category.fg                   = green
 c.colors.completion.category.bg                   = bg0_soft
 c.colors.completion.category.border.top           = bg1
 c.colors.completion.category.border.bottom        = bg1
-c.colors.completion.item.selected.fg              = fg0
+c.colors.completion.item.selected.fg              = fg3
 c.colors.completion.item.selected.bg              = bg1
 c.colors.completion.item.selected.border.top      = bg2
 c.colors.completion.item.selected.border.bottom   = bg2
 c.colors.completion.match.fg                      = green
-c.colors.completion.scrollbar.fg                  = fg0
+c.colors.completion.scrollbar.fg                  = fg3
 c.colors.completion.scrollbar.bg                  = bg1
 # Context menu ========================================================================
 c.colors.contextmenu.menu.bg                      = bg0_normal
