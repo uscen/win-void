@@ -152,10 +152,14 @@ window_rules:
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "spotify" }
-  # Border Rules: ================================================================================
-  - commands: ["adjust-borders --bottom -2px"]
+  # Fullscreen Rules: ============================================================================
+  - commands: ["toggle-fullscreen"]
     match:
-      - window_process: { equals: "Spotify" }
+      - window_process: { equals: "qutebrowser" }
+  # Border Rules: ================================================================================
+  - commands: ["adjust-borders --top 6px"]
+    match:
+      - window_process: { equals: "qutebrowser" }
 #                ╭─────────────────────────────────────────────────────────╮
 #                │                    binding_modes                        │
 #                ╰─────────────────────────────────────────────────────────╯
