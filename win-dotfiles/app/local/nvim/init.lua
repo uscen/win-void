@@ -1028,7 +1028,7 @@ local diagnostic_opts = {
       max = 'ERROR',
     },
     text = {
-      [vim.diagnostic.severity.HINT] = '󰌵 ',
+      [vim.diagnostic.severity.HINT] = '󰅽 ',
       [vim.diagnostic.severity.INFO] = ' ',
       [vim.diagnostic.severity.WARN] = ' ',
       [vim.diagnostic.severity.ERROR] = ' ',
@@ -1304,11 +1304,18 @@ now_if_args(function()
     group = vim.api.nvim_create_augroup('reload_buffer_on_enteror_focus', { clear = true }),
     command = 'silent! !',
   })
-  -- always open quickfix window automatically: ==================================================
+  -- Always open quickfix window automatically: ==================================================
   vim.api.nvim_create_autocmd("QuickFixCmdPost", {
     group = vim.api.nvim_create_augroup("auto_open_quickfix", { clear = true }),
     pattern = { "[^l]*" },
     command = "cwindow"
+  })
+  -- Always show quotes: =========================================================================
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "json", "jsonc", "markdown" },
+    callback = function()
+      vim.wo.conceallevel = 0
+    end,
   })
   -- delete entries from a quickfix list with `dd` ===============================================
   vim.api.nvim_create_autocmd({ 'FileType' }, {
