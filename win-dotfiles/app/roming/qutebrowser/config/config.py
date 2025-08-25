@@ -354,7 +354,7 @@ config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
-# Darkmode =============================================================================
+# Darkmode ============================================================================
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.threshold.background = 100
 c.colors.webpage.darkmode.threshold.foreground = 150
@@ -362,10 +362,10 @@ c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.policy.page = "smart"
-# Lighmode =============================================================================
+# Lightmode ===========================================================================
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
-# Palette ==============================================================================
+# Palette =============================================================================
 bg0_hard   = "#0d0c0c"
 bg0_normal = "#181616"
 bg0_soft   = "#201d1d"
@@ -389,7 +389,7 @@ green0      = "#8a9a7b"
 blue0       = "#8ba4b0"
 purple0     = "#a292a3"
 cyan0       = "#8992a7"
-# Completion ===========================================================================
+# Completion===========================================================================
 c.colors.completion.fg                            = fg0
 c.colors.completion.odd.bg                        = bg0_normal
 c.colors.completion.even.bg                       = bg0_normal
