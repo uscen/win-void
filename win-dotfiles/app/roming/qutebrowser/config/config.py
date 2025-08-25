@@ -115,6 +115,7 @@ c.content.user_stylesheets = []
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
+c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
 c.content.blocking.whitelist = []
 # Privacy =============================================================================
 c.content.pdfjs = True
@@ -318,9 +319,9 @@ config.bind('tH', 'config-cycle tabs.show multiple never')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('sH', 'config-cycle statusbar.show always never')
 config.bind('<Ctrl-Shift-i>', 'devtools')
-config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 config.bind("<Esc>", "clear-keychain ;; search ;; clear-messages ;; download-clear")
+config.bind('<Ctrl+x>', 'set-cmd-text :')
 # hint ================================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
 config.bind(';', 'hint links', mode='hint')
