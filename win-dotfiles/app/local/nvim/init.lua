@@ -1651,7 +1651,8 @@ later(function()
   -- Marks: ======================================================================================
   vim.keymap.set('n', '<leader>mm', '<cmd>CycleMarks<cr>')
   vim.keymap.set('n', '<leader>mr', '<cmd>DeleteAllMarks<cr>')
-  vim.keymap.set('n', '<leader>ms', ':SetUnsetMark A')
+  vim.keymap.set('n', '<leader>ms', '<cmd>SetCycleMarksDynamic<cr>')
+  vim.keymap.set('n', '<leader>fm', '<cmd>PickMark<cr>')
   -- Subtitle Keys: ==============================================================================
   vim.keymap.set('n', '<Leader>rs', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
   vim.keymap.set('n', '<leader>rr', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

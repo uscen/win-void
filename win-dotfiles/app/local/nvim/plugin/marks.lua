@@ -159,6 +159,67 @@ function M.deleteAllMarks()
   notify('All marks deleted.')
 end
 
+-- Function to pick a mark: ==================================================================
+function M.cycleMarksDynamic()
+  local marks = M.config.marks
+  local currentMark = vim.fn.getreg('m')
+
+  -- Find the next mark to set/unset
+  local markIndex = 1
+  if currentMark ~= '' then
+    -- If there's a mark in the register, get the index of the next mark
+    for i, mark in ipairs(marks) do
+      if mark == currentMark then
+        markIndex = i % #marks + 1  -- Loop back to the first mark if we reach the end
+        break
+      end
+    end
+  end
+
+  local nextMark = marks[markIndex]
+  -- Set/unset the mark using the next mark in the list
+  M.setUnsetMark(nextMark)
+
+  -- Store the selected mark into the 'm' register for future reference
+  vim.fn.setreg('m', nextMark)
+end
+
+-- Function to pick a mark: ==================================================================
+function M.pickMark()
+  if not isValidMarkName(M.config.marks) then return end
+
+  local marksSet = vim
+    .iter(M.config.marks)
+    :map(function(name) return getMark(name) end)
+    :filter(function(m) return m ~= nil end)
+    :totable()
+
+  if #marksSet == 0 then
+    notify('No mark has been set.')
+    return
+  end
+
+  -- Use vim.ui.select to pick a mark
+  vim.ui.select(marksSet, {
+    prompt = 'Pick a mark to jump to:',
+    format_item = function(mark)
+      return ('[%s] %s:%d:%d'):format(mark.name, mark.path, mark.row, mark.col)
+    end,
+  }, function(choice)
+    if choice then
+      -- Jump to the chosen mark
+      local markInUnopenedFile = choice.bufnr == 0
+      if markInUnopenedFile then
+        vim.cmd.edit(choice.path)
+      else
+        vim.api.nvim_set_current_buf(choice.bufnr)
+      end
+      vim.api.nvim_win_set_cursor(0, { choice.row, choice.col })
+      vim.cmd.normal { 'zv', bang = true } -- open folds at cursor
+    end
+  end)
+end
+
 -- Setup: ========================================================================================
 ---@class Marks.Config
 local defaultConfig = {
@@ -182,7 +243,9 @@ function M.setup(userOpts)
       setSignForMark(name)
     end
   end, 250) -- deferred to ensure shadafile is loaded
+  vim.api.nvim_create_user_command('PickMark', M.pickMark, {})
   vim.api.nvim_create_user_command('CycleMarks', M.cycleMarks, {})
+  vim.api.nvim_create_user_command('SetCycleMarksDynamic', M.cycleMarksDynamic, {})
   vim.api.nvim_create_user_command('DeleteAllMarks', M.deleteAllMarks, {})
   vim.api.nvim_create_user_command('SetUnsetMark', function(opts)
     M.setUnsetMark(opts.args)
