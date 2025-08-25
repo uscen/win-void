@@ -226,6 +226,14 @@ c.url.searchengines = {
     'fb': 'https://www.facebook.com/s.php?q={}',
     'ig': 'https://www.instagram.com/explore/tags/{}',
     'tw': 'https://twitter.com/search?q={}',
+    # tech ============================================================================
+    'gh': 'https://github.com/search?o=desc&q={}&s=stars',
+    'gs': 'https://gist.github.com/search?q={}',
+    'hb': 'http://github.com/search?q={}',
+    'gl': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
+    'pk': 'https://porkbun.com/checkout/search?prb=ce1274dcf2&q={}&tlds=&idnLanguage=&search=search&csrf_pb=e78192c1c41609bac923887d0a45b5ec',
+    'rp': 'http://github.com/catalinplesu/{}',
+    'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
     # anime ===========================================================================
     'an': 'https://ww.anime4up.rest/?search_param=animes&s={}',
     'zo': 'https://zoro.to/search?keyword={}',
@@ -244,14 +252,6 @@ c.url.searchengines = {
     'th': 'https://www.merriam-webster.com/thesaurus/%{}',
     'pron': 'https://www.thesaurus.com/browse/{}',
     'dex': 'https://dexonline.ro/definitie/{}',
-    # tech ============================================================================
-    'gh': 'https://github.com/search?o=desc&q={}&s=stars',
-    'gs': 'https://gist.github.com/search?q={}',
-    'hb': 'http://github.com/search?q={}',
-    'gl': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
-    'pk': 'https://porkbun.com/checkout/search?prb=ce1274dcf2&q={}&tlds=&idnLanguage=&search=search&csrf_pb=e78192c1c41609bac923887d0a45b5ec',
-    'rp': 'http://github.com/catalinplesu/{}',
-    'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
     # md buy ==========================================================================
     '9': 'https://999.md/ro/search?query={}',
     'pandashop': 'https://www.pandashop.md/ro/search/?text={}',
