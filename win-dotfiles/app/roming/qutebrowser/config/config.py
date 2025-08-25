@@ -63,7 +63,7 @@ c.tabs.title.format_pinned = '#{audio}{index}: {current_title}'
 #               ╚═════════════════════════════════════════════════════════╝
 c.statusbar.show = 'never'
 c.statusbar.position = 'bottom'
-c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 10}
+c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 1, 'right': 1}
 c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', 'progress', 'clock:%a#%V %d %B %y, %H:%M ']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Downloads                       ║
@@ -396,17 +396,18 @@ blue0       = "#8ba4b0"
 purple0     = "#a292a3"
 cyan0       = "#8992a7"
 # Completion===========================================================================
-c.colors.completion.fg                            = bg3
+c.colors.completion.fg                            = fg3
 c.colors.completion.odd.bg                        = bg0_normal
 c.colors.completion.even.bg                       = bg0_normal
 c.colors.completion.category.fg                   = green
 c.colors.completion.category.bg                   = bg0_soft
 c.colors.completion.category.border.top           = bg1
 c.colors.completion.category.border.bottom        = bg1
-c.colors.completion.item.selected.fg              = fg3
+c.colors.completion.item.selected.fg              = fg2
 c.colors.completion.item.selected.bg              = bg1
 c.colors.completion.item.selected.border.top      = bg2
 c.colors.completion.item.selected.border.bottom   = bg2
+c.colors.completion.item.selected.match.fg        = orange
 c.colors.completion.match.fg                      = green
 c.colors.completion.scrollbar.fg                  = fg3
 c.colors.completion.scrollbar.bg                  = bg1
@@ -456,19 +457,19 @@ c.colors.statusbar.passthrough.fg                 = bg0_hard
 c.colors.statusbar.passthrough.bg                 = blue
 c.colors.statusbar.private.fg                     = purple
 c.colors.statusbar.private.bg                     = bg0_hard
-c.colors.statusbar.command.fg                     = fg1
-c.colors.statusbar.command.bg                     = bg1
+c.colors.statusbar.command.fg                     = fg3
+c.colors.statusbar.command.bg                     = bg0_normal
 c.colors.statusbar.command.private.fg             = purple
 c.colors.statusbar.command.private.bg             = bg1
 c.colors.statusbar.caret.fg                       = bg0_hard
 c.colors.statusbar.caret.bg                       = purple
 c.colors.statusbar.caret.selection.fg             = bg0_hard
 c.colors.statusbar.caret.selection.bg             = purple
-c.colors.statusbar.url.fg                         = fg1
+c.colors.statusbar.url.fg                         = bg3
 c.colors.statusbar.url.error.fg                   = red
 c.colors.statusbar.url.warn.fg                    = orange
 c.colors.statusbar.url.success.http.fg            = red
-c.colors.statusbar.url.success.https.fg           = fg0
+c.colors.statusbar.url.success.https.fg           = bg3
 c.colors.statusbar.url.hover.fg                   = orange
 c.colors.statusbar.progress.bg                    = green
 # Tabs ================================================================================
