@@ -1,7 +1,16 @@
+reddit https://www.reddit.com/r/all/
 discord https://discord.com/app/
 telegram https://web.telegram.org/k/
+instagram https://www.instagram.com/
+facebook https://www.facebook.com/
+messenger https://www.facebook.com/messages/t
+drive https://drive.google.com/drive/u/0/my-drive
+amazon https://www.amazon.fr/
+linkedin https://www.linkedin.com/feed/
 devian https://www.deviantart.com/
 youtube https://www.youtube.com/
+yt-lib https://www.youtube.com/feed/library
+yt-hist https://www.youtube.com/feed/history
 odysee https://odysee.com/
 wallpaper https://wallhaven.cc/
 canva https://www.canva.com/
@@ -12,7 +21,11 @@ wars https://www.codewars.com/dashboard
 dev http://localhost:3000/
 wakatime https://wakatime.com/dashboard
 ushen https://github.com/u-shen
-gh https://github.com/u-shen
+github https://github.com/
+ghn https://github.com/new
+ghu https://github.com/u-shen
+cheat https://cheat.sh/
+gmail https://mail.google.com/mail/u/0/#inbox
 fake https://mail.google.com/mail/u/0/#inbox
 self https://mail.google.com/mail/u/1/#inbox
 mail https://mail.google.com/mail/u/1/#inbox
@@ -26,21 +39,8 @@ jitsi https://meet.jit.si/
 books https://allbooksworld.com/
 anime https://anibrain.ai/AI/anime-recommender
 dungeon https://play.aidungeon.io/main/home
-mastodon https://linuxrocks.online/web/getting-started
 summaries https://fourminutebooks.com/summaries/
 ebooks https://libribook.com/
 books libgen https://libgen.li/index.php
-matrix https://app.element.io/#/home
-game make guide https://www.studytonight.com/3d-game-engineering-with-unity/genres-of-game
-bevy https://bevy-cheatbook.github.io/
-scribd https://docdownloader.com/
-rc https://lms.netacad.com/course/view.php?id=1079084
-hn https://news.ycombinator.com/
-reddit https://www.reddit.com/r/all/
-uml markdown https://plantuml.com/sitemap
-plantUML https://crashedmind.github.io/PlantUMLHitchhikersGuide/layout/layout.html
 hackernews https://news.ycombinator.com/
-activitywatch http://localhost:5600/#/activity/anarchy/view/
-hub https://github.com/
-colegi https://discord.com/channels/798861887215108146/920798672873205781
-bootstrap creator https://www.layoutit.com/build
+nushell-book https://www.nushell.sh/book/
