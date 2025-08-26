@@ -176,6 +176,13 @@ c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
 c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Save                           ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.auto_save.session = True
+c.auto_save.interval = 15000
+c.session.lazy_restore = True
+c.session.default_name = "default"
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.auto_save.session=False
@@ -347,7 +354,15 @@ config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
 config.bind("<Ctrl-f>", 'completion-item-focus next-page', mode="command")
 config.bind("<Ctrl-b>", 'completion-item-focus prev-page', mode="command")
 config.bind('<Ctrl-d>', 'completion-item-del', mode='command')
-config.bind('<Ctrl-x>', 'completion-item-del', mode='command')
+config.bind('<Ctrl-a>', 'rl-beginning-of-line', mode='command')
+config.bind('<Ctrl-e>', 'rl-end-of-line', mode='command')
+config.bind('<Ctrl-l>', 'rl-forward-char', mode='command')
+config.bind('<Ctrl-h>', 'rl-backward-char', mode='command')
+config.bind('<Ctrl-w>', 'rl-forward-word', mode='command')
+config.bind('<Ctrl-b>', 'rl-backward-word', mode='command')
+config.bind('<Ctrl-x>', 'rl-backward-delete-char', mode='command')
+config.bind('<Ctrl-y>', 'rl-yank', mode='command')
+config.bind('<Tab>', 'command-accept --rapid', mode='command')
 # prompt: =============================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='prompt')
 config.bind('<Ctrl-d>', 'rl-delete-char', mode='prompt')
