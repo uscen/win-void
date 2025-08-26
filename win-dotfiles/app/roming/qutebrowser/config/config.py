@@ -324,13 +324,12 @@ config.bind('ss', 'config-source')
 config.bind('se', 'config-edit')
 config.bind('<Ctrl-h>', 'history')
 config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
-config.bind('tH', 'config-cycle tabs.show multiple never')
-config.bind('tT', 'config-cycle tabs.position top left')
-config.bind('sH', 'config-cycle statusbar.show always never')
+config.bind('xt', 'config-cycle tabs.show multiple never')
+config.bind('xT', 'config-cycle tabs.position top left')
+config.bind('xs', 'config-cycle statusbar.show always never')
 config.bind('<Ctrl-Shift-i>', 'devtools')
-config.bind('<Return>', 'prompt-accept yes', mode='yesno')
-config.bind("<Esc>", "clear-keychain ;; search ;; clear-messages ;; download-clear")
 config.bind('<Ctrl+x>', 'set-cmd-text :')
+config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 # hint ================================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
 config.bind(';', 'hint links', mode='hint')
@@ -474,7 +473,7 @@ c.colors.prompts.selected.bg                      = bg3
 # Statusbar ===========================================================================
 c.colors.statusbar.normal.fg                      = fg1
 c.colors.statusbar.normal.bg                      = bg0_normal
-c.colors.statusbar.insert.fg                      = fg3
+c.colors.statusbar.insert.fg                      = bg3
 c.colors.statusbar.insert.bg                      = bg0_normal
 c.colors.statusbar.passthrough.fg                 = bg0_hard
 c.colors.statusbar.passthrough.bg                 = blue
