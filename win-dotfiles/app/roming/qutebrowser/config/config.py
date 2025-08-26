@@ -48,7 +48,7 @@ c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 10}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
-c.tabs.show_switching_delay = 1000
+c.tabs.show_switching_delay = 3500
 c.tabs.favicons.show = "always"
 c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
@@ -58,10 +58,11 @@ c.tabs.title.alignment = 'left'
 c.tabs.title.elide = 'middle'
 c.tabs.title.format = '{current_title}'
 c.tabs.title.format_pinned = '#{audio}{index}: {current_title}'
+c.tabs.tabs_are_windows = False
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.statusbar.show = 'never'
+c.statusbar.show = 'in-mode'
 c.statusbar.position = 'bottom'
 c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 1, 'right': 1}
 c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', 'progress', 'clock:%a#%V %d %B %y, %H:%M ']
@@ -120,7 +121,7 @@ c.content.blocking.whitelist = []
 # Privacy =============================================================================
 c.content.pdfjs = True
 c.content.headers.do_not_track = True
-c.content.fullscreen.window = True
+c.content.fullscreen.window = False
 c.content.images = True
 c.content.xss_auditing = True
 c.content.mute = False
@@ -187,7 +188,7 @@ c.session.default_name = "default"
 #               ╚═════════════════════════════════════════════════════════╝
 c.auto_save.session=False
 c.scrolling.smooth=True
-c.scrolling.bar = 'never'
+c.scrolling.bar = 'when-searching'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
@@ -316,6 +317,7 @@ config.bind('qm', 'macro-record')
 config.bind('T', 'hint links tab')
 config.bind(',m', 'spawn mpv {url}')
 config.bind(',M', 'hint links spawn mpv {hint-url}')
+config.bind('Z', 'hint links spawn alacritty -e yt-dlp {hint-url}')
 config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('ss', 'config-source')
@@ -384,7 +386,12 @@ c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.policy.page = "smart"
 # Lightmode ===========================================================================
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
+config.set('colors.webpage.darkmode.enabled', False, 'https://*.vercel.app/')
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
+config.set('colors.webpage.darkmode.enabled', False, 'http://localhost/')
+config.set('colors.webpage.darkmode.enabled', False, 'https://www.kasmweb.com/')
+config.set('colors.webpage.darkmode.enabled', False, 'https://www.instapaper.com/')
+config.set('colors.webpage.darkmode.enabled', False, 'https://web.whatsapp.com/')
 # Palette =============================================================================
 bg0_hard   = "#0d0c0c"
 bg0_normal = "#181616"
@@ -467,8 +474,8 @@ c.colors.prompts.selected.bg                      = bg3
 # Statusbar ===========================================================================
 c.colors.statusbar.normal.fg                      = fg1
 c.colors.statusbar.normal.bg                      = bg0_normal
-c.colors.statusbar.insert.fg                      = bg0_hard
-c.colors.statusbar.insert.bg                      = green
+c.colors.statusbar.insert.fg                      = fg3
+c.colors.statusbar.insert.bg                      = bg0_normal
 c.colors.statusbar.passthrough.fg                 = bg0_hard
 c.colors.statusbar.passthrough.bg                 = blue
 c.colors.statusbar.private.fg                     = purple
@@ -510,4 +517,4 @@ c.colors.tabs.pinned.selected.odd.fg              = fg1
 c.colors.tooltip.bg                               = bg0_hard
 c.colors.tooltip.fg                               = fg1
 # Webpage =============================================================================
-# c.colors.webpage.bg = bg0_soft
+c.colors.webpage.bg = 'white'
