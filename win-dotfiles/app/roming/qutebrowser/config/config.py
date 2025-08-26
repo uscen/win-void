@@ -88,6 +88,7 @@ c.completion.scrollbar.width = 16
 c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
+c.completion.timestamp_format = '%d-%m-%Y %H:%M'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -121,9 +122,9 @@ c.content.blocking.whitelist = []
 # Privacy =============================================================================
 c.content.pdfjs = True
 c.content.headers.do_not_track = True
-c.content.fullscreen.window = False
 c.content.images = True
 c.content.xss_auditing = True
+c.content.fullscreen.window = False
 c.content.mute = False
 c.content.autoplay = False
 c.content.canvas_reading = False
@@ -235,6 +236,7 @@ c.url.searchengines = {
     # entertainment ===================================================================
     're': 'https://www.reddit.com/r/{}/',
     'rr': 'https://www.reddit.com/search?q={}',
+    'sr': 'https://www.reddit.com/r/{unquoted}',
     'pi': 'https://www.pinterest.com/search/pins/?q={}',
     'fb': 'https://www.facebook.com/s.php?q={}',
     'ig': 'https://www.instagram.com/explore/tags/{}',
@@ -280,7 +282,6 @@ c.url.searchengines = {
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Aliases                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-
 c.aliases['o'] = 'open'
 c.aliases['h'] = 'help -t'
 c.aliases['e'] = 'session-load'
@@ -290,6 +291,11 @@ c.aliases['wqa'] = 'quit --save'
 c.aliases['sv'] = 'spawn -u split -h'
 c.aliases['sh'] = 'spawn -u split -v'
 c.aliases['localhost'] = 'spawn -u localhost'
+
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Agent                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://drive.google.com/*')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
