@@ -673,7 +673,7 @@ now_if_args(function()
     },
   })
   later(MiniIcons.mock_nvim_web_devicons)
-  later(MiniIcons.tweak_lsp_kind)
+  later(MiniIcons.tweak_lsp_kind("replace"))
 end)
 --              ╔═════════════════════════════════════════════════════════╗
 --              ║                      Treesitter                         ║
@@ -1730,7 +1730,7 @@ end)
 later(function()
   if vim.g.neovide then
     -- General: ==================================================================================
-    vim.opt.linespace = -2
+    vim.opt.linespace = -1
     vim.g.neovide_scale_factor = 0.9
     vim.g.neovide_refresh_rate = 45
     vim.g.neovide_padding_top = 0
