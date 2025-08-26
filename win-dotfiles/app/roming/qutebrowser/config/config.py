@@ -363,7 +363,6 @@ config.bind('<Ctrl-w>', 'rl-forward-word', mode='command')
 config.bind('<Ctrl-b>', 'rl-backward-word', mode='command')
 config.bind('<Ctrl-x>', 'rl-backward-delete-char', mode='command')
 config.bind('<Ctrl-y>', 'rl-yank', mode='command')
-config.bind('<Tab>', 'command-accept --rapid', mode='command')
 # prompt: =============================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='prompt')
 config.bind('<Ctrl-d>', 'rl-delete-char', mode='prompt')
