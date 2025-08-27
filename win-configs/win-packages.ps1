@@ -75,7 +75,7 @@ $scoopPackages = @(
     "lazygit",
     "delta",
     "ntop",
-    "qutebrowser",
+    "zen-browser",
     "eza",
     "freetube",
     "glazewm",

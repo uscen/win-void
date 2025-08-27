@@ -272,7 +272,7 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
-  - commands: ["shell-exec qutebrowser"]
+  - commands: ["shell-exec zen"]
     bindings: ["alt+w"]
   - commands: ["shell-exec msedge"]
     bindings: ["alt+i"]
