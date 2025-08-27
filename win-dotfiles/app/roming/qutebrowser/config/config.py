@@ -119,11 +119,16 @@ c.content.user_stylesheets = []
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
-c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt', 'https://easylist-downloads.adblockplus.org/easylistdutch.txt', 'https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt', 'https://www.i-dont-care-about-cookies.eu/abp/', 'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt']
 c.content.blocking.whitelist = []
+c.content.blocking.adblock.lists = [
+        "https://easylist.to/easylist/easylist.txt",
+        "https://easylist.to/easylist/easyprivacy.txt",
+        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+        "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
+        "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+]
 # Privacy =============================================================================
 c.content.pdfjs = True
-c.content.headers.do_not_track = True
 c.content.images = True
 c.content.xss_auditing = True
 c.content.fullscreen.window = False
@@ -140,11 +145,15 @@ c.content.persistent_storage = False
 c.content.plugins = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.default_encoding = "utf-8"
-c.content.headers.referer = 'same-domain'
 c.content.register_protocol_handler = 'ask'
 c.content.tls.certificate_errors = 'ask-block-thirdparty'
-c.content.headers.accept_language = 'en-US,en,ca-ES,de'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
+# headers =============================================================================
+c.content.headers.do_not_track = True
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
+c.content.headers.accept_language = 'en-US,en;q=0.5'
+c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
+c.content.headers.referer = 'same-domain'
 # Notifications =======================================================================
 c.content.notifications.enabled = False
 c.content.notifications.show_origin = True
@@ -190,7 +199,6 @@ c.session.default_name = "default"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.auto_save.session=False
 c.scrolling.smooth=True
 c.scrolling.bar = 'never'
 c.confirm_quit=["downloads"]
@@ -297,11 +305,6 @@ c.aliases['wqa'] = 'quit --save'
 c.aliases['sv'] = 'spawn -u split -h'
 c.aliases['sh'] = 'spawn -u split -v'
 c.aliases['localhost'] = 'spawn -u localhost'
-
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                          Agent                          ║
-#               ╚═════════════════════════════════════════════════════════╝
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://drive.google.com/*')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -345,6 +348,11 @@ config.bind('<Ctrl-Shift-i>', 'devtools')
 config.bind('wi', 'devtools bottom')
 config.bind('<Ctrl+x>', 'set-cmd-text :')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
+# Binds for opening archived version of current page =================================
+config.bind('aa', 'open https://web.archive.org/web/*/{url}')
+config.bind('aA', 'open -t https://web.archive.org/web/*/{url}')
+config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
+config.bind('aG', 'open -t https://www.google.com/search?q=cache:{url}')
 # hint ================================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
 config.bind(';', 'hint links', mode='hint')
