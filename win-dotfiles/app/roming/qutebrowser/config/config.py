@@ -44,7 +44,7 @@ c.tabs.min_width = 100
 c.tabs.favicons.scale=1
 c.tabs.undo_stack_size = 24
 c.tabs.indicator.width = 0
-c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 10}
+c.tabs.indicator.padding = {'top': 10, 'bottom': 10, 'left': 5, 'right': 10}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
@@ -58,6 +58,8 @@ c.tabs.title.alignment = 'left'
 c.tabs.title.elide = 'middle'
 c.tabs.title.format = '{current_title}'
 c.tabs.title.format_pinned = '#{audio}{index}: {current_title}'
+c.tabs.new_position.related = 'next'
+c.tabs.new_position.unrelated = 'last'
 c.tabs.tabs_are_windows = False
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
@@ -84,7 +86,7 @@ c.completion.web_history.max_items = 0
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.height = "20%"
-c.completion.scrollbar.width = 16
+c.completion.scrollbar.width = 8
 c.completion.open_categories = ['quickmarks']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
@@ -117,7 +119,7 @@ c.content.user_stylesheets = []
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
-c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
+c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt', 'https://easylist-downloads.adblockplus.org/easylistdutch.txt', 'https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt', 'https://www.i-dont-care-about-cookies.eu/abp/', 'https://secure.fanboy.co.nz/fanboy-cookiemonster.txt']
 c.content.blocking.whitelist = []
 # Privacy =============================================================================
 c.content.pdfjs = True
@@ -140,12 +142,13 @@ c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.default_encoding = "utf-8"
 c.content.headers.referer = 'same-domain'
 c.content.register_protocol_handler = 'ask'
-c.content.tls.certificate_errors = 'ask'
+c.content.tls.certificate_errors = 'ask-block-thirdparty'
+c.content.headers.accept_language = 'en-US,en,ca-ES,de'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 # Notifications =======================================================================
 c.content.notifications.enabled = False
-c.content.notifications.presenter = 'messages'
 c.content.notifications.show_origin = True
+c.content.notifications.presenter = 'messages'
 # Cookies =============================================================================
 c.content.cookies.store = True
 c.content.cookies.accept = "no-3rdparty"
@@ -176,7 +179,7 @@ c.window.title_format = 'qtb: {current_title}'
 #               ╚═════════════════════════════════════════════════════════╝
 c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
-c.zoom.levels = ["25%", "33%", "50%", "67%", "75%", "90%", "95%", "100%", "125%", "133%", "150%", "175%", "200%", "250%", "300%"]
+c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Save                           ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -189,7 +192,7 @@ c.session.default_name = "default"
 #               ╚═════════════════════════════════════════════════════════╝
 c.auto_save.session=False
 c.scrolling.smooth=True
-c.scrolling.bar = 'when-searching'
+c.scrolling.bar = 'never'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
@@ -237,6 +240,7 @@ c.url.searchengines = {
     're': 'https://www.reddit.com/r/{}/',
     'rr': 'https://www.reddit.com/search?q={}',
     'sr': 'https://www.reddit.com/r/{unquoted}',
+    'rd': 'https://old.reddit.com/search?q={}',
     'pi': 'https://www.pinterest.com/search/pins/?q={}',
     'fb': 'https://www.facebook.com/s.php?q={}',
     'ig': 'https://www.instagram.com/explore/tags/{}',
@@ -249,8 +253,9 @@ c.url.searchengines = {
     'pk': 'https://porkbun.com/checkout/search?prb=ce1274dcf2&q={}&tlds=&idnLanguage=&search=search&csrf_pb=e78192c1c41609bac923887d0a45b5ec',
     'rp': 'http://github.com/catalinplesu/{}',
     'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
-    # anime ===========================================================================
+    # streaming =======================================================================
     'an': 'https://ww.anime4up.rest/?search_param=animes&s={}',
+    'db': 'https://www.imdb.com/find?q={}',
     'zo': 'https://zoro.to/search?keyword={}',
     'to': 'https://www.1377x.to/search/{}/1/',
     'pt': 'https://thepiratebay.org/search.php?q={}',
@@ -301,6 +306,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko
 #               ╚═════════════════════════════════════════════════════════╝
 # General: ============================================================================
 config.unbind('d')
+config.bind('e', 'cmd-set-text :open {url:pretty}')
 config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
 config.bind('co', 'download-open')
@@ -333,7 +339,9 @@ config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
 config.bind('xt', 'config-cycle tabs.show multiple never')
 config.bind('xT', 'config-cycle tabs.position top left')
 config.bind('xs', 'config-cycle statusbar.show always never')
+config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
 config.bind('<Ctrl-Shift-i>', 'devtools')
+config.bind('wi', 'devtools bottom')
 config.bind('<Ctrl+x>', 'set-cmd-text :')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 # hint ================================================================================
@@ -382,13 +390,14 @@ config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
 #               ╚═════════════════════════════════════════════════════════╝
 # Darkmode ============================================================================
 c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.threshold.background = 100
-c.colors.webpage.darkmode.threshold.foreground = 150
+c.colors.webpage.darkmode.threshold.background = 225
+c.colors.webpage.darkmode.threshold.foreground = 80
 c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.policy.page = "smart"
 # Lightmode ===========================================================================
+config.set('colors.webpage.darkmode.enabled', True, '<all-urls>')
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 config.set('colors.webpage.darkmode.enabled', False, 'https://*.vercel.app/')
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
@@ -447,10 +456,10 @@ c.colors.contextmenu.selected.bg                  = bg1
 c.colors.contextmenu.selected.fg                  = fg1
 # Downloads ===========================================================================
 c.colors.downloads.bar.bg                         = bg0_hard
-c.colors.downloads.start.fg                       = bg0_hard
-c.colors.downloads.start.bg                       = green
-c.colors.downloads.stop.fg                        = fg0
-c.colors.downloads.stop.bg                        = cyan
+c.colors.downloads.start.fg                       = fg0
+c.colors.downloads.start.bg                       = bg0_normal
+c.colors.downloads.stop.fg                        = bg0_hard
+c.colors.downloads.stop.bg                        = green
 c.colors.downloads.error.fg                       = red
 # Hints & Keyhint =====================================================================
 c.colors.hints.fg                                 = bg0_hard
