@@ -207,6 +207,7 @@ c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.qt.highdpi = True
 c.qt.args = ["disable-features=PermissionElement"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
@@ -384,6 +385,7 @@ config.bind('<Ctrl-j>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Ctrl-k>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-n>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
+config.bind('<Ctrl-o>', 'prompt-open-download', mode='prompt')
 
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
