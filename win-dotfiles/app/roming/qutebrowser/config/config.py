@@ -184,16 +184,17 @@ c.content.desktop_capture = False
 c.content.mouse_lock = False
 c.content.persistent_storage = False
 c.content.plugins = False
+c.content.webgl = False
+c.content.dns_prefetch = False
+c.content.register_protocol_handler = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.default_encoding = "utf-8"
-c.content.register_protocol_handler = 'ask'
 c.content.tls.certificate_errors = 'ask-block-thirdparty'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 # headers =============================================================================
 c.content.headers.do_not_track = True
 c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
 c.content.headers.accept_language = 'en-US,en;q=0.9'
-# c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
 c.content.headers.referer = 'same-domain'
 # Notifications =======================================================================
 c.content.notifications.enabled = False
