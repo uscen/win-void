@@ -44,7 +44,7 @@
       '.privacy-manager button[data-value="false"]',
       '.mntl-privacy-banner button[data-value="false"]',
       '[class*="privacy"] button[class*="decline"]',
-      '[class*="privacy"] button[class*="reject"]',
+      '[class*="privacy"] button[class*="reject"]'
 
       // Specific common implementations
       'button[class*="reject"]',

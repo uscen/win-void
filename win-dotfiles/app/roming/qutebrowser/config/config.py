@@ -127,7 +127,46 @@ c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
 c.content.blocking.hosts.lists = []
 c.content.blocking.whitelist = []
-c.content.blocking.adblock.lists = []
+c.content.blocking.adblock.lists = [
+    "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+    "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
+    "https://easylist-downloads.adblockplus.org/bitblock.txt",
+    "https://easylist-downloads.adblockplus.org/cntblock.txt",
+    "https://easylist-downloads.adblockplus.org/ruadlist.txt",
+    "https://easylist-msie.adblockplus.org/abp-filters-anti-cv.txt",
+    "https://easylist-msie.adblockplus.org/antiadblockfilters.txt",
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://easylist.to/easylist/fanboy-social.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_adservers.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_adservers_popup.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_general_block.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_general_block_popup.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_thirdparty.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_thirdparty_popup.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+    "https://raw.github.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt",
+    "https://raw.githubusercontent.com/LanikSJ/ubo-filters/main/filters/combined-filters.txt",
+    "https://raw.githubusercontent.com/easylist/ruadlist/refs/heads/master/advblock.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/annoyances-cookies.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/annoyances-others.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/badlists.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2020.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2021.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2022.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2023.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2024.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2025.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/quick-fixes.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/resource-abuse.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/ubo-link-shorteners.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/ubol-filters.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://www.i-dont-care-about-cookies.eu/abp/",
+]
 # Privacy =============================================================================
 c.content.pdfjs = True
 c.content.images = True
