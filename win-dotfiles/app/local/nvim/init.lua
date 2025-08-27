@@ -811,6 +811,7 @@ now(function()
   vim.opt.completeitemalign      = 'kind,abbr,menu'
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = 'usetab'
+  vim.opt.includeexpr            = "substitute(v:fname,'\\.','/','g')"
   vim.opt.shada                  = { "'10", '<0', 's10', 'h' }
   vim.opt.undodir                = vim.fn.stdpath('data') .. '/undo'
   -- Spelling ====================================================================================
@@ -1315,6 +1316,15 @@ now_if_args(function()
     pattern = { "json", "jsonc", "markdown" },
     callback = function()
       vim.wo.conceallevel = 0
+    end,
+  })
+  -- Disallow change buf for quickfix: ===========================================================
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup('noedit_quickfix', { clear = true }),
+    pattern = "qf",
+    desc = "Disallow change buf for quickfix",
+    callback = function()
+      vim.wo.winfixbuf = true
     end,
   })
   -- delete entries from a quickfix list with `dd` ===============================================
