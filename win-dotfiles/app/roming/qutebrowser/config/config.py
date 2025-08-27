@@ -82,7 +82,9 @@ c.downloads.position = 'bottom'
 #               ╚═════════════════════════════════════════════════════════╝
 c.completion.use_best_match = True
 c.completion.quick = True
+c.completion.shrink = True
 c.completion.web_history.max_items = 0
+c.completion.cmd_history_max_items = 0
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.height = "20%"
@@ -108,6 +110,10 @@ c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
 c.keyhint.delay = 200
 c.keyhint.radius = 2
 c.keyhint.blacklist = []
+c.hints.selectors["code"] = [
+    ":not(pre) > code",
+    "pre",
+]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -118,14 +124,48 @@ c.content.user_stylesheets = []
 # Adblock =============================================================================
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
-c.content.blocking.method = "both"
+c.content.blocking.method = "adblock"
+c.content.blocking.hosts.lists = []
 c.content.blocking.whitelist = []
 c.content.blocking.adblock.lists = [
-        "https://easylist.to/easylist/easylist.txt",
-        "https://easylist.to/easylist/easyprivacy.txt",
-        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
-        "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
-        "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+    "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+    "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
+    "https://easylist-downloads.adblockplus.org/bitblock.txt",
+    "https://easylist-downloads.adblockplus.org/cntblock.txt",
+    "https://easylist-downloads.adblockplus.org/ruadlist.txt",
+    "https://easylist-msie.adblockplus.org/abp-filters-anti-cv.txt",
+    "https://easylist-msie.adblockplus.org/antiadblockfilters.txt",
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://easylist.to/easylist/fanboy-social.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_adservers.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_adservers_popup.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_general_block.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_general_block_popup.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_thirdparty.txt",
+    "https://github.com/easylist/easylist/raw/refs/heads/master/easylist/easylist_thirdparty_popup.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+    "https://raw.github.com/reek/anti-adblock-killer/master/anti-adblock-killer-filters.txt",
+    "https://raw.githubusercontent.com/LanikSJ/ubo-filters/main/filters/combined-filters.txt",
+    "https://raw.githubusercontent.com/easylist/ruadlist/refs/heads/master/advblock.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/annoyances-cookies.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/annoyances-others.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/badlists.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2020.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2021.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2022.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2023.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2024.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters-2025.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/filters.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/quick-fixes.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/resource-abuse.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/ubo-link-shorteners.txt",
+    "https://raw.githubusercontent.com/uBlockOrigin/uAssets/refs/heads/master/filters/ubol-filters.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://www.i-dont-care-about-cookies.eu/abp/",
 ]
 # Privacy =============================================================================
 c.content.pdfjs = True
@@ -182,7 +222,7 @@ for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
 #               ╚═════════════════════════════════════════════════════════╝
 c.window.hide_decoration = True
 c.window.transparent = True
-c.window.title_format = 'qtb: {current_title}'
+c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -200,6 +240,7 @@ c.session.default_name = "default"
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.scrolling.smooth=True
+c.new_instance_open_target = "tab"
 c.scrolling.bar = 'never'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
@@ -216,7 +257,21 @@ c.messages.timeout = 3000
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.qt.highdpi = True
-c.qt.args = ["disable-features=PermissionElement"]
+c.qt.workarounds.disable_accelerated_2d_canvas = "never"
+c.qt.args = [
+    "enable-accelerated-video",
+    "enable-native-gpu-memory-buffers",
+    "enable-oop-rasterization",
+    "enable-quic",
+    "enable-unsafe-webgpu",
+    "enable-vulkan",
+    "enable-zero-copy",
+    "font-cache-shared-handle",
+    "ignore-gpu-blocklist",
+    "num-raster-threads=4",
+    "enable-features=VaapiIgnoreDriverChecks,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder",
+    "disable-features=PermissionElement",
+]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -264,6 +319,7 @@ c.url.searchengines = {
     'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
     # streaming =======================================================================
     'an': 'https://ww.anime4up.rest/?search_param=animes&s={}',
+    "al" : "anilist.co/search/anime?search={}",
     'db': 'https://www.imdb.com/find?q={}',
     'zo': 'https://zoro.to/search?keyword={}',
     'to': 'https://www.1377x.to/search/{}/1/',
@@ -348,7 +404,21 @@ config.bind('<Ctrl-Shift-i>', 'devtools')
 config.bind('wi', 'devtools bottom')
 config.bind('<Ctrl+x>', 'set-cmd-text :')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
-# Binds for opening archived version of current page =================================
+# Configuration management ============================================================
+config.bind("\ce", "config-edit")
+config.bind("\\rc", "config-source")
+config.bind("\\ra", "adblock-update")
+config.bind("\\rg", "greasemonkey-reload")
+# Toggle ==============================================================================
+config.bind("tbh", "config-cycle -p -t -u *://{url:host}/* content.blocking.enabled true false ;; reload")
+config.bind("tBh", "config-cycle -p -u *://{url:host}/* content.blocking.enabled true false ;; reload")
+config.bind("tbH", "config-cycle -p -t -u *://*.{url:host}/* content.blocking.enabled true false ;; reload")
+config.bind("tBH", "config-cycle -p -u *://*.{url:host}/* content.blocking.enabled true false ;; reload")
+config.bind("tbu", "config-cycle -p -t -u {url} content.blocking.enabled true false ;; reload")
+config.bind("tBu", "config-cycle -p -u {url} content.blocking.enabled true false ;; reload")
+config.bind("tqt", "config-cycle tabs.show multiple switching")
+config.bind("tqs", "config-cycle statusbar.show always in-mode")
+# Binds for opening archived version of current page ==================================
 config.bind('aa', 'open https://web.archive.org/web/*/{url}')
 config.bind('aA', 'open -t https://web.archive.org/web/*/{url}')
 config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
