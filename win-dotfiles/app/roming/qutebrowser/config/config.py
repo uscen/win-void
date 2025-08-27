@@ -118,8 +118,8 @@ c.hints.selectors["code"] = [
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 # Style ===============================================================================
-c.content.fullscreen.overlay_timeout = 0
 c.content.prefers_reduced_motion = True
+c.content.fullscreen.overlay_timeout = 0
 c.content.user_stylesheets = []
 # Adblock =============================================================================
 c.content.blocking.enabled = True
@@ -167,13 +167,14 @@ c.content.blocking.adblock.lists = [
     "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
     "https://www.i-dont-care-about-cookies.eu/abp/",
 ]
-# Privacy =============================================================================
-c.content.pdfjs = True
+# media ===============================================================================
 c.content.images = True
-c.content.xss_auditing = True
-c.content.fullscreen.window = False
+c.content.pdfjs = True
 c.content.mute = False
 c.content.autoplay = False
+# Privacy =============================================================================
+c.content.xss_auditing = True
+c.content.fullscreen.window = False
 c.content.canvas_reading = False
 c.content.geolocation = False
 c.content.media.audio_capture = False
@@ -191,7 +192,7 @@ c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 # headers =============================================================================
 c.content.headers.do_not_track = True
 c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
-c.content.headers.accept_language = 'en-US,en;q=0.5'
+c.content.headers.accept_language = 'en-US,en;q=0.9'
 # c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
 c.content.headers.referer = 'same-domain'
 # Notifications =======================================================================
@@ -390,6 +391,7 @@ config.bind('T', 'hint links tab')
 config.bind(',m', 'spawn mpv {url}')
 config.bind(',M', 'hint links spawn mpv {hint-url}')
 config.bind(',Y', 'hint links spawn alacritty -e yt-dlp {hint-url}')
+config.bind('yl', 'hint --rapid links yank')
 config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('tT', 'config-cycle tabs.position top left')
 config.bind('ss', 'config-source')
@@ -399,11 +401,17 @@ config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
 config.bind('xt', 'config-cycle tabs.show multiple never')
 config.bind('xT', 'config-cycle tabs.position top left')
 config.bind('xs', 'config-cycle statusbar.show always never')
+config.bind('xm', 'tab-mute')
 config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
 config.bind('<Ctrl-Shift-i>', 'devtools')
 config.bind('wi', 'devtools bottom')
+config.bind('wI', 'devtools window')
 config.bind('<Ctrl+x>', 'set-cmd-text :')
+config.bind(';', 'cmd-set-text :')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
+# passthrough ========================================================================
+config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
+config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
 # Configuration management ============================================================
 config.bind("\ce", "config-edit")
 config.bind("\\rc", "config-source")
@@ -472,19 +480,16 @@ config.bind('<Ctrl-o>', 'prompt-open-download', mode='prompt')
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.threshold.background = 225
 c.colors.webpage.darkmode.threshold.foreground = 80
-c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-c.colors.webpage.darkmode.policy.images = "never"
-c.colors.webpage.darkmode.policy.page = "smart"
+c.colors.webpage.darkmode.policy.images = 'smart-simple'
+c.colors.webpage.darkmode.policy.page = 'smart'
 # Lightmode ===========================================================================
-config.set('colors.webpage.darkmode.enabled', True, '<all-urls>')
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
-config.set('colors.webpage.darkmode.enabled', False, 'https://*.vercel.app/')
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
-config.set('colors.webpage.darkmode.enabled', False, 'http://localhost/')
-config.set('colors.webpage.darkmode.enabled', False, 'https://www.kasmweb.com/')
-config.set('colors.webpage.darkmode.enabled', False, 'https://www.instapaper.com/')
-config.set('colors.webpage.darkmode.enabled', False, 'https://web.whatsapp.com/')
+for domain in ['localhost', 'whatsapp.com', 'vercel.app', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
+    with config.pattern('*://*.' + domain + '/*') as d:
+        d.colors.webpage.darkmode.enabled = False
 # Palette =============================================================================
 bg0_hard   = "#0d0c0c"
 bg0_normal = "#181616"
