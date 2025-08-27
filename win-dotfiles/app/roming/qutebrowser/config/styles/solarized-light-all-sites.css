@@ -1,3 +1,6 @@
+/*                 ╔═════════════════════════════════════════════════════════╗                         */
+/*                 ║                    Solarized Theme                      ║                         */
+/*                 ╚═════════════════════════════════════════════════════════╝                         */
 * {
   border-color: #839496 !important;
 }
@@ -264,14 +267,14 @@ a.filter-item:hover,
   color: #657b83 !important;
 }
 .blob-code-addition {
-  background-color: rgba(232,255,77,0.1) !important;
+  background-color: rgba(232, 255, 77, 0.1) !important;
 }
 .blob-code-addition .x {
   background-color: #647300 !important;
   color: #b1bec2 !important;
 }
 .blob-code-deletion {
-  background-color: rgba(220,50,47,0.2) !important;
+  background-color: rgba(220, 50, 47, 0.2) !important;
 }
 .blob-code-deletion .x {
   background-color: #721513 !important;
@@ -476,7 +479,7 @@ code.commit-sha .user {
 .commit-branches *,
 .commit-tease,
 .commit-title {
-  background-color: rgba(0,0,142,0.2) !important;
+  background-color: rgba(0, 0, 142, 0.2) !important;
   border: none !important;
 }
 .commit-branches * *,
@@ -692,13 +695,13 @@ a.label {
   color: #93a1a1 !important;
 }
 .type-icon-state-closed {
-  color: rgba(202,0,0,0.65) !important;
+  color: rgba(202, 0, 0, 0.65) !important;
 }
 .type-icon-state-merged {
   color: #6c71c4 !important;
 }
 .type-icon-state-open {
-  color: rgba(68,103,0,0.65) !important;
+  color: rgba(68, 103, 0, 0.65) !important;
 }
 .octicon-alert {
   color: #fff !important;
@@ -878,7 +881,11 @@ ul.comparison-list {
   background-color: #fdf6e3 !important;
 }
 .sunken-menu {
-  background-image: linear-gradient(to right, #eee8d5 0%, #fdf6e3 8px) !important;
+  background-image: linear-gradient(
+    to right,
+    #eee8d5 0%,
+    #fdf6e3 8px
+  ) !important;
   box-shadow: 1px 0px 0px #eee8d5 inset;
 }
 .sunken-menu:before {
@@ -899,7 +906,11 @@ ul.comparison-list {
   background-color: #cb4b16 !important;
 }
 .sunken-menu-separator:before {
-  background-image: linear-gradient(to right, #eee8d5 70%, #fdf6e3 100%) !important;
+  background-image: linear-gradient(
+    to right,
+    #eee8d5 70%,
+    #fdf6e3 100%
+  ) !important;
 }
 .state {
   color: #586e75 !important;
@@ -1261,15 +1272,33 @@ table.wikitable > * > tr > th {
 table {
   background-color: #fdf6e3 !important;
 }
-#hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table,
+#hnmain
+  > tbody:nth-child(1)
+  > tr:nth-child(1)
+  > td:nth-child(1)
+  > tbody:nth-child(1)
+  > tr:nth-child(1)
+  > td:nth-child(1)
+  > table,
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > table {
   background-color: #cb4b16 !important;
 }
-#hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) a,
+#hnmain
+  > tbody:nth-child(1)
+  > tr:nth-child(1)
+  > td:nth-child(1)
+  > tbody:nth-child(1)
+  > tr:nth-child(1)
+  a,
 #hnmain > tbody:nth-child(1) > tr:nth-child(1) a {
   color: #000 !important;
 }
-#hnmain > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2),
+#hnmain
+  > tbody:nth-child(1)
+  > tr:nth-child(1)
+  > td:nth-child(1)
+  > tbody:nth-child(1)
+  > tr:nth-child(2),
 #hnmain > tbody:nth-child(1) > tr:nth-child(2) {
   background-color: #fdf6e3 !important;
 }
@@ -1305,7 +1334,7 @@ a.storylink {
   color: #93a1a1 !important;
 }
 .cdd {
-  color: rgba(202,0,0,0.65) !important;
+  color: rgba(202, 0, 0, 0.65) !important;
 }
 .comment i {
   color: #6c71c4 !important;
@@ -1313,7 +1342,14 @@ a.storylink {
 #hnmain > tbody:nth-child(1) > tr:nth-child(4) {
   background-color: #fdf6e3 !important;
 }
-#hnmain > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) {
+#hnmain
+  > tbody:nth-child(1)
+  > tr:nth-child(4)
+  > td:nth-child(1)
+  > table:nth-child(2)
+  > tbody:nth-child(1)
+  > tr:nth-child(1)
+  > td:nth-child(1) {
   background-color: #cb4b16 !important;
 }
 div#page div#header {
