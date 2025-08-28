@@ -277,8 +277,8 @@ c.messages.timeout = 3000
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.qt.highdpi = True
+c.qt.chromium.low_end_device_mode = "never"
 c.qt.chromium.experimental_web_platform_features = "always"
-c.qt.chromium.low_end_device_mode = "always"
 c.qt.workarounds.disable_accelerated_2d_canvas = "always"
 c.qt.chromium.process_model = "single-process"
 c.qt.chromium.sandboxing = "disable-all"
