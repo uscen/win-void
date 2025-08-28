@@ -84,13 +84,13 @@ c.downloads.prevent_mixed_content = True
 c.completion.use_best_match = True
 c.completion.quick = True
 c.completion.shrink = True
-c.completion.web_history.max_items = 0
-c.completion.cmd_history_max_items = 0
+c.completion.cmd_history_max_items = 100
+c.completion.web_history.max_items = 10
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.height = "20%"
 c.completion.scrollbar.width = 8
-c.completion.open_categories = ['quickmarks']
+c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 c.completion.timestamp_format = '%d-%m-%Y %H:%M'
@@ -189,6 +189,7 @@ c.content.images = True
 c.content.pdfjs = True
 c.content.mute = False
 c.content.autoplay = False
+c.content.private_browsing = False
 # Privacy =============================================================================
 c.content.webgl = True
 c.content.xss_auditing = False
@@ -431,6 +432,7 @@ config.bind('xs', 'config-cycle statusbar.show always never')
 config.bind('xm', 'tab-mute')
 config.bind('<Ctrl-Shift-m>', 'spawn mpv {url}')
 config.bind('<Ctrl-m>', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
 config.bind('<Ctrl-n>', 'tab-next')
 config.bind('<Ctrl-p>', 'tab-prev')
 config.bind('<Ctrl-e>', 'open -w')
