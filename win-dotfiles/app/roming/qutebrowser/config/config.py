@@ -555,12 +555,12 @@ purple     = "#957fb8"
 cyan       = "#658594"
 comment    = "#727169"
 # Bright ==============================================================================
-red0        = "#c4746e"
-orange0     = "#b98d7b"
-green0      = "#8a9a7b"
-blue0       = "#8ba4b0"
-purple0     = "#a292a3"
-cyan0       = "#8992a7"
+red0       = "#c4746e"
+orange0    = "#b98d7b"
+green0     = "#8a9a7b"
+blue0      = "#8ba4b0"
+purple0    = "#a292a3"
+cyan0      = "#8992a7"
 # Completion===========================================================================
 c.colors.completion.fg                            = fg3
 c.colors.completion.odd.bg                        = bg0_normal
