@@ -54,7 +54,7 @@ c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
 c.tabs.close_mouse_button_on_bar = 'new-tab'
 c.tabs.select_on_remove = 'prev'
-c.tabs.title.alignment = 'left'
+c.tabs.title.alignment = 'center'
 c.tabs.title.elide = 'middle'
 c.tabs.title.format = '{current_title}'
 c.tabs.title.format_pinned = '#{audio}{index}: {current_title}'
@@ -116,10 +116,21 @@ c.hints.selectors["code"] = [
     "pre",
 ]
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Search                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.search.incremental = True
+c.search.wrap = True
+c.search.wrap_messages = False
+c.search.ignore_case = "always"
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Input                          ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.input.match_counts = True
 c.input.insert_mode.auto_load = True
 c.input.insert_mode.auto_leave = True
+c.input.insert_mode.auto_enter = True
+c.input.insert_mode.plugins = False
+c.input.forward_unbound_keys = 'all'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -269,10 +280,9 @@ c.qt.workarounds.disable_hangouts_extension = True
 c.qt.workarounds.disable_accelerated_2d_canvas = "never"
 c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.args = [
-    "use-gl=egl",
     "enable-accelerated-video-decode"
-    "enable-gpu-rasterization",
     "enable-accelerated-video",
+    "enable-gpu-rasterization",
     "enable-native-gpu-memory-buffers",
     "enable-oop-rasterization",
     "enable-quic",
@@ -283,6 +293,8 @@ c.qt.args = [
     "ignore-gpu-blocklist",
     "num-raster-threads=4",
     "enable-features=VaapiIgnoreDriverChecks,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder",
+    "enable-features=VaapiVideoDecoder,VaapiVideoEncoder",
+    "disable-pinch",
     "disable-features=PermissionElement",
 ]
 #               ╔═════════════════════════════════════════════════════════╗
@@ -382,6 +394,7 @@ config.unbind('d')
 config.bind('e', 'cmd-set-text :open {url:pretty}')
 config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
+config.bind('dp', 'tab-pin')
 config.bind('co', 'download-open')
 config.bind('ce', 'download-cancel')
 config.bind('cc', 'download-clear')
@@ -414,12 +427,13 @@ config.bind('xt', 'config-cycle tabs.show multiple never')
 config.bind('xT', 'config-cycle tabs.position top left')
 config.bind('xs', 'config-cycle statusbar.show always never')
 config.bind('xm', 'tab-mute')
+config.bind('<Ctrl-Shift-m>', 'spawn mpv {url}')
+config.bind('<Ctrl-m>', 'hint links spawn mpv {hint-url}')
 config.bind('<Ctrl-n>', 'tab-next')
 config.bind('<Ctrl-p>', 'tab-prev')
 config.bind('<Ctrl-e>', 'open -w')
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-q>', 'tab-close')
-config.bind('<Ctrl-R>', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
 config.bind('<Ctrl-Shift-c>', 'fake-key <Ctrl-c>')
 config.bind('<Ctrl-Shift-q>', 'quit')
 config.bind('<Ctrl-Shift-i>', 'devtools')
@@ -433,6 +447,7 @@ config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
 config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
 # Keybindings: Stylesheets ============================================================
 config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
+config.bind(',r', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
 config.bind(',a', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/4chan.css ""')
 config.bind(',b', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/reddit.css ""')
 config.bind(',e', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/empornium.css ""')
@@ -499,14 +514,15 @@ config.bind('<Ctrl-k>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-n>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-o>', 'prompt-open-download', mode='prompt')
+config.bind('<Ctrl+l>', 'fake-key -g /', mode='prompt')
 
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # Darkmode ============================================================================
 c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.threshold.background = 225
-c.colors.webpage.darkmode.threshold.foreground = 80
+c.colors.webpage.darkmode.threshold.foreground = 150
+c.colors.webpage.darkmode.threshold.background = 100
 c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.policy.images = 'smart-simple'
@@ -514,7 +530,7 @@ c.colors.webpage.darkmode.policy.page = 'smart'
 # Lightmode ===========================================================================
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
-for domain in ['localhost', 'whatsapp.com', 'vercel.app', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
+for domain in ['localhost', 'whatsapp.com', 'vercel.app', 'qutebrowser.org', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
     with config.pattern('*://*.' + domain + '/*') as d:
         d.colors.webpage.darkmode.enabled = False
 # Palette =============================================================================
