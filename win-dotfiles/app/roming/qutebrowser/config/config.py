@@ -389,9 +389,6 @@ c.aliases['e'] = 'session-load'
 c.aliases['w'] = 'session-save'
 c.aliases['wq'] = 'quit --save'
 c.aliases['wqa'] = 'quit --save'
-c.aliases['sv'] = 'spawn -u split -h'
-c.aliases['sh'] = 'spawn -u split -v'
-c.aliases['localhost'] = 'spawn -u localhost'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
