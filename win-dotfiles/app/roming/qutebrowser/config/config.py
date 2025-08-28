@@ -45,7 +45,7 @@ c.tabs.favicons.scale=1.2
 c.tabs.undo_stack_size = 24
 c.tabs.indicator.width = 0
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
-c.tabs.padding = {"top": 10, "bottom": 10, "left": 4, "right": 4}
+c.tabs.padding = {"top": 8, "bottom": 8, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
 c.tabs.show_switching_delay = 1500
@@ -273,34 +273,6 @@ c.prompt.radius = 0
 #               ║                        messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.messages.timeout = 3000
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                         Qt                              ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.qt.highdpi = True
-c.qt.chromium.low_end_device_mode = "never"
-c.qt.chromium.experimental_web_platform_features = "always"
-c.qt.workarounds.disable_accelerated_2d_canvas = "always"
-c.qt.chromium.process_model = "single-process"
-c.qt.chromium.sandboxing = "disable-all"
-c.qt.force_software_rendering = "software-opengl"
-c.qt.args = [
-    "enable-accelerated-video-decode"
-    "enable-accelerated-video",
-    "enable-gpu-rasterization",
-    "enable-native-gpu-memory-buffers",
-    "enable-oop-rasterization",
-    "enable-quic",
-    "enable-unsafe-webgpu",
-    "enable-vulkan",
-    "enable-zero-copy",
-    "font-cache-shared-handle",
-    "ignore-gpu-blocklist",
-    "num-raster-threads=4",
-    "enable-features=VaapiIgnoreDriverChecks,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder",
-    "enable-features=VaapiVideoDecoder,VaapiVideoEncoder",
-    "disable-pinch",
-    "disable-features=PermissionElement",
-]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
