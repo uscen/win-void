@@ -34,18 +34,18 @@ c.fonts.web.size.minimum_logical = 6
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.tabs.wrap = True
-c.tabs.background = True
+c.tabs.background = False
 c.tabs.tabs_are_windows = False
 c.tabs.tooltips = False
 c.tabs.mousewheel_switching = False
-c.tabs.width = 26
+c.tabs.width = 30
 c.tabs.max_width = 320
 c.tabs.min_width = 100
-c.tabs.favicons.scale=1
+c.tabs.favicons.scale=1.2
 c.tabs.undo_stack_size = 24
 c.tabs.indicator.width = 0
-c.tabs.indicator.padding = {'top': 10, 'bottom': 10, 'left': 5, 'right': 10}
-c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
+c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
+c.tabs.padding = {"top": 10, "bottom": 10, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
 c.tabs.show_switching_delay = 1500
@@ -60,36 +60,35 @@ c.tabs.title.format = '{current_title}'
 c.tabs.title.format_pinned = '#{audio}{index}: {current_title}'
 c.tabs.new_position.related = 'next'
 c.tabs.new_position.unrelated = 'last'
-c.tabs.tabs_are_windows = False
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Statusbar                       ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.statusbar.show = 'in-mode'
 c.statusbar.position = 'bottom'
 c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 1, 'right': 1}
-c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', 'progress', 'clock:%a#%V %d %B %y, %H:%M ']
+c.statusbar.widgets = ['keypress', 'search_match', 'url']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Downloads                       ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.downloads.prevent_mixed_content = True
 c.downloads.location.prompt = False
-c.downloads.location.remember = True
-c.downloads.remove_finished = 5000
+c.downloads.location.remember = False
+c.downloads.remove_finished = 3000
 c.downloads.location.directory = r"C:\Users\lli\Downloads"
 c.downloads.location.suggestion = "both"
 c.downloads.position = 'bottom'
-c.downloads.prevent_mixed_content = True
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Completion                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.completion.use_best_match = True
 c.completion.quick = True
 c.completion.shrink = True
+c.completion.use_best_match = False
 c.completion.cmd_history_max_items = 100
 c.completion.web_history.max_items = 10
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
-c.completion.height = "20%"
 c.completion.scrollbar.width = 8
+c.completion.height = "20%"
 c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
@@ -105,16 +104,16 @@ c.hints.auto_follow = 'unique-match'
 c.hints.mode = "letter"
 c.hints.chars = "asdfghjkl"
 c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
+c.hints.selectors["code"] = [
+    ":not(pre) > code",
+    "pre",
+]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Keyhint                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.keyhint.delay = 100
 c.keyhint.radius = 2
 c.keyhint.blacklist = []
-c.hints.selectors["code"] = [
-    ":not(pre) > code",
-    "pre",
-]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Search                          ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -259,8 +258,9 @@ c.session.default_name = "default"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.scrolling.smooth=True
+c.scrolling.smooth=False
 c.new_instance_open_target = "tab"
+c.new_instance_open_target_window = "last-opened"
 c.scrolling.bar = 'never'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
@@ -277,9 +277,12 @@ c.messages.timeout = 3000
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.qt.highdpi = True
-c.qt.workarounds.disable_hangouts_extension = True
-c.qt.workarounds.disable_accelerated_2d_canvas = "never"
 c.qt.chromium.experimental_web_platform_features = "always"
+c.qt.chromium.low_end_device_mode = "always"
+c.qt.workarounds.disable_accelerated_2d_canvas = "always"
+c.qt.chromium.process_model = "single-process"
+c.qt.chromium.sandboxing = "disable-all"
+c.qt.force_software_rendering = "software-opengl"
 c.qt.args = [
     "enable-accelerated-video-decode"
     "enable-accelerated-video",
