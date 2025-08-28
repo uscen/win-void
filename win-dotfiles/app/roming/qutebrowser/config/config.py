@@ -48,7 +48,7 @@ c.tabs.indicator.padding = {'top': 10, 'bottom': 10, 'left': 5, 'right': 10}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
-c.tabs.show_switching_delay = 3500
+c.tabs.show_switching_delay = 1500
 c.tabs.favicons.show = "always"
 c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
@@ -438,7 +438,7 @@ config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-q>', 'tab-close')
 config.bind('<Ctrl-Shift-c>', 'fake-key <Ctrl-c>')
 config.bind('<Ctrl-Shift-q>', 'quit')
-config.bind('<Ctrl-Shift-i>', 'devtools')
+config.bind('<Ctrl-Shift-i>', 'devtools right')
 config.bind('wi', 'devtools bottom')
 config.bind('wI', 'devtools window')
 config.bind('<Ctrl+x>', 'set-cmd-text :')
