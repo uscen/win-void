@@ -77,6 +77,7 @@ c.downloads.remove_finished = 5000
 c.downloads.location.directory = r"C:\Users\lli\Downloads"
 c.downloads.location.suggestion = "both"
 c.downloads.position = 'bottom'
+c.downloads.prevent_mixed_content = True
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Completion                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -114,6 +115,11 @@ c.hints.selectors["code"] = [
     ":not(pre) > code",
     "pre",
 ]
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Input                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.input.insert_mode.auto_load = True
+c.input.insert_mode.auto_leave = True
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -173,7 +179,8 @@ c.content.pdfjs = True
 c.content.mute = False
 c.content.autoplay = False
 # Privacy =============================================================================
-c.content.xss_auditing = True
+c.content.webgl = True
+c.content.xss_auditing = False
 c.content.fullscreen.window = False
 c.content.canvas_reading = False
 c.content.geolocation = False
@@ -184,7 +191,6 @@ c.content.desktop_capture = False
 c.content.mouse_lock = False
 c.content.persistent_storage = False
 c.content.plugins = False
-c.content.webgl = False
 c.content.dns_prefetch = False
 c.content.register_protocol_handler = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
@@ -223,7 +229,7 @@ for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
 #               ║                          Window                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.window.hide_decoration = True
-c.window.transparent = True
+c.window.transparent = False
 c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
@@ -249,7 +255,7 @@ c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         prompt                          ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.prompt.filebrowser = True
+c.prompt.filebrowser = False
 c.prompt.radius = 0
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                        messages                         ║
@@ -259,8 +265,13 @@ c.messages.timeout = 3000
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.qt.highdpi = True
+c.qt.workarounds.disable_hangouts_extension = True
 c.qt.workarounds.disable_accelerated_2d_canvas = "never"
+c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.args = [
+    "use-gl=egl",
+    "enable-accelerated-video-decode"
+    "enable-gpu-rasterization",
     "enable-accelerated-video",
     "enable-native-gpu-memory-buffers",
     "enable-oop-rasterization",
@@ -417,9 +428,17 @@ config.bind('wI', 'devtools window')
 config.bind('<Ctrl+x>', 'set-cmd-text :')
 config.bind(';', 'cmd-set-text :')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
-# passthrough ========================================================================
+# passthrough =========================================================================
 config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
 config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
+# Keybindings: Stylesheets ============================================================
+config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
+config.bind(',a', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/4chan.css ""')
+config.bind(',b', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/reddit.css ""')
+config.bind(',e', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/empornium.css ""')
+config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/hacker.css ""')
+config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
+config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
 # Configuration management ============================================================
 config.bind("\ce", "config-edit")
 config.bind("\\rc", "config-source")
