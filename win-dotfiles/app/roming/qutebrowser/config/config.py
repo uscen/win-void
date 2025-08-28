@@ -108,7 +108,7 @@ c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Keyhint                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.keyhint.delay = 200
+c.keyhint.delay = 100
 c.keyhint.radius = 2
 c.keyhint.blacklist = []
 c.hints.selectors["code"] = [
@@ -142,8 +142,8 @@ c.content.user_stylesheets = []
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
-c.content.blocking.hosts.lists = []
 c.content.blocking.whitelist = []
+c.content.blocking.hosts.lists = []
 c.content.blocking.adblock.lists = [
     "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
     "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
@@ -336,6 +336,8 @@ c.url.searchengines = {
     'tw': 'https://twitter.com/search?q={}',
     # tech ============================================================================
     'gh': 'https://github.com/search?o=desc&q={}&s=stars',
+    'gu': 'https://github.com/search?q={}&type=Users',
+    'gc': 'https://github.com/search?q={}&type=Code',
     'gs': 'https://gist.github.com/search?q={}',
     'hb': 'http://github.com/search?q={}',
     'gl': 'https://gitlab.com/search?search={}&group_id=&project_id=&snippets=false&repository_ref=&nav_source=navbar',
