@@ -39,14 +39,14 @@ c.tabs.background = False
 c.tabs.tabs_are_windows = False
 c.tabs.tooltips = False
 c.tabs.mousewheel_switching = False
-c.tabs.width = 30
+c.tabs.width = 24
 c.tabs.max_width = 320
 c.tabs.min_width = 100
-c.tabs.favicons.scale=1.2
+c.tabs.favicons.scale=1
 c.tabs.undo_stack_size = 24
 c.tabs.indicator.width = 0
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
-c.tabs.padding = {"top": 8, "bottom": 8, "left": 4, "right": 4}
+c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
 c.tabs.show_switching_delay = 1500
@@ -259,7 +259,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Save                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.auto_save.session = True
+c.auto_save.session = False
 c.auto_save.interval = 15000
 c.session.lazy_restore = True
 c.session.default_name = "default"
@@ -404,63 +404,66 @@ c.aliases['mpv'] = 'spawn --detach mpv {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-# General: ============================================================================
+# General  ============================================================================
+config.unbind("q")
+config.bind('qm', 'macro-record')
+config.bind('yl', 'hint --rapid links yank')
+config.bind(';', 'cmd-set-text :')
+config.bind('<Ctrl+x>', 'cmd-set-text :')
+config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
+config.bind('<Ctrl-h>', 'history')
+# Open ================================================================================
+config.bind('ep', 'open -p')
+config.bind('ee', 'cmd-set-text :open {url:pretty}')
+config.bind('<Ctrl-e>', 'open -w')
+config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
+# Configuration =======================================================================
+config.bind("se", "config-edit")
+config.bind("ss", "config-source")
+config.bind("sa", "adblock-update")
+config.bind("sr", "greasemonkey-reload")
+# Devtools ============================================================================
+config.bind('wi', 'devtools bottom')
+config.bind('wI', 'devtools window')
+config.bind('<Ctrl-i>', 'devtools left')
+config.bind('<Ctrl-Shift-i>', 'devtools right')
+# Tabs  ===============================================================================
 config.unbind('d')
-config.bind('e', 'cmd-set-text :open {url:pretty}')
+config.bind('T', 'hint links tab')
 config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
 config.bind('dp', 'tab-pin')
+config.bind('dm', 'tab-mute')
+config.bind('dJ', 'tab-move +')
+config.bind('dK', 'tab-move -')
+config.bind('gJ', 'tab-move +')
+config.bind('gK', 'tab-move -')
+config.bind('gm', 'tab-move')
+config.bind('<Ctrl-n>', 'tab-next')
+config.bind('<Ctrl-p>', 'tab-prev')
+config.bind('<Ctrl-q>', 'tab-close')
+# Downloads  ==========================================================================
 config.bind('co', 'download-open')
 config.bind('ce', 'download-cancel')
 config.bind('cc', 'download-clear')
 config.bind('cr', 'download-retry')
-config.bind('sa', 'hint all download')
-config.bind('si', 'hint images download')
+config.bind('ca', 'hint all download')
+config.bind('ci', 'hint images download')
+# Zoom  ===============================================================================
+config.bind('zi', 'zoom-in')
+config.bind('zo', 'zoom-out')
+config.bind('z0', 'zoom')
+config.bind('zf', 'fullscreen')
 config.bind('<Ctrl-0>', 'zoom')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
-config.bind('<Meta+Ctrl+f>', 'fullscreen')
-config.bind('zi', 'zoom-in')
-config.bind('zo', 'zoom-out')
-config.bind('gJ', 'tab-move +')
-config.bind('gK', 'tab-move -')
-config.bind('gm', 'tab-move')
-config.bind('gp', 'open -p')
-config.bind('qm', 'macro-record')
-config.bind('T', 'hint links tab')
+# Videos  =============================================================================
 config.bind(',m', 'spawn mpv {url}')
 config.bind(',M', 'hint links spawn mpv {hint-url}')
 config.bind(',Y', 'hint links spawn alacritty -e yt-dlp {hint-url}')
-config.bind('yl', 'hint --rapid links yank')
 config.bind('yM', 'yank ;; spawn mpv {url}')
-config.bind('tT', 'config-cycle tabs.position top left')
-config.bind('ss', 'config-source')
-config.bind('se', 'config-edit')
-config.bind('<Ctrl-h>', 'history')
-config.bind('<ctrl-y>', 'spawn --userscript ytdl.sh')
-config.bind('xt', 'config-cycle tabs.show multiple never')
-config.bind('xT', 'config-cycle tabs.position top left')
-config.bind('xs', 'config-cycle statusbar.show always never')
-config.bind('xm', 'tab-mute')
 config.bind('<Ctrl-Shift-m>', 'spawn mpv {url}')
 config.bind('<Ctrl-m>', 'hint links spawn mpv {hint-url}')
-config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
-config.bind('<Ctrl-n>', 'tab-next')
-config.bind('<Ctrl-p>', 'tab-prev')
-config.bind('<Ctrl-e>', 'open -w')
-config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
-config.bind('<Ctrl-q>', 'tab-close')
-config.bind('<Ctrl-Shift-c>', 'fake-key <Ctrl-c>')
-config.bind('<Ctrl-Shift-q>', 'quit')
-config.bind('<Ctrl-Shift-i>', 'devtools right')
-config.bind('wi', 'devtools bottom')
-config.bind('wI', 'devtools window')
-config.bind('<Ctrl+x>', 'set-cmd-text :')
-config.bind(';', 'cmd-set-text :')
-config.bind('<Return>', 'prompt-accept yes', mode='yesno')
-# passthrough =========================================================================
-config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
-config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
 # Keybindings: Stylesheets ============================================================
 config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
 config.bind(',r', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
@@ -470,25 +473,27 @@ config.bind(',e', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/e
 config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/hacker.css ""')
 config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
 config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
-# Configuration management ============================================================
-config.bind("\ce", "config-edit")
-config.bind("\\rc", "config-source")
-config.bind("\\ra", "adblock-update")
-config.bind("\\rg", "greasemonkey-reload")
 # Toggle ==============================================================================
+config.bind("ttt", "config-cycle tabs.show multiple switching")
+config.bind('ttp', 'config-cycle tabs.position top left')
+config.bind("tst", "config-cycle statusbar.show always in-mode")
 config.bind("tbh", "config-cycle -p -t -u *://{url:host}/* content.blocking.enabled true false ;; reload")
 config.bind("tBh", "config-cycle -p -u *://{url:host}/* content.blocking.enabled true false ;; reload")
 config.bind("tbH", "config-cycle -p -t -u *://*.{url:host}/* content.blocking.enabled true false ;; reload")
 config.bind("tBH", "config-cycle -p -u *://*.{url:host}/* content.blocking.enabled true false ;; reload")
 config.bind("tbu", "config-cycle -p -t -u {url} content.blocking.enabled true false ;; reload")
 config.bind("tBu", "config-cycle -p -u {url} content.blocking.enabled true false ;; reload")
-config.bind("tqt", "config-cycle tabs.show multiple switching")
-config.bind("tqs", "config-cycle statusbar.show always in-mode")
-# Binds for opening archived version of current page ==================================
+# archived ============================================================================
 config.bind('aa', 'open https://web.archive.org/web/*/{url}')
 config.bind('aA', 'open -t https://web.archive.org/web/*/{url}')
 config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
 config.bind('aG', 'open -t https://www.google.com/search?q=cache:{url}')
+# accept  =============================================================================
+config.bind('y', 'prompt-accept yes', mode='yesno')
+config.bind('<Return>', 'prompt-accept yes', mode='yesno')
+# passthrough =========================================================================
+config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
+config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
 # hint ================================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
 config.bind(';', 'hint links', mode='hint')
@@ -610,9 +615,9 @@ c.colors.hints.fg                                 = bg0_hard
 c.colors.hints.bg                                 = green0
 c.hints.border                                    = f"2 solid {green}"
 c.colors.hints.match.fg                           = bg3
-c.colors.keyhint.fg                               = fg1
+c.colors.keyhint.fg                               = fg3
 c.colors.keyhint.suffix.fg                        = fg0
-c.colors.keyhint.bg                               = bg0_hard
+c.colors.keyhint.bg                               = bg0_normal
 # Messages ============================================================================
 c.colors.messages.error.fg                        = bg0_hard
 c.colors.messages.error.bg                        = red
