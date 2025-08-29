@@ -84,13 +84,13 @@ c.downloads.position = 'bottom'
 c.completion.quick = True
 c.completion.shrink = True
 c.completion.use_best_match = False
-c.completion.cmd_history_max_items = 100
-c.completion.web_history.max_items = 10
+c.completion.cmd_history_max_items = 0
+c.completion.web_history.max_items = 0
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width = 8
 c.completion.height = "20%"
-c.completion.open_categories = ['history']
+c.completion.open_categories = ['quickmarks']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 c.completion.timestamp_format = '%d-%m-%Y %H:%M'
@@ -288,6 +288,7 @@ c.messages.timeout = 3000
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.qt.highdpi = True
+c.qt.workarounds.remove_service_workers = True
 c.qt.chromium.low_end_device_mode = "never"
 c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.workarounds.disable_accelerated_2d_canvas = "always"
@@ -399,6 +400,7 @@ c.aliases['w'] = 'session-save'
 c.aliases['wq'] = 'quit --save'
 c.aliases['wq!'] = 'quit --save'
 c.aliases['wqa'] = 'quit --save'
+c.aliases['mpv'] = 'spawn --detach mpv {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
