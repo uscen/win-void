@@ -34,6 +34,7 @@ c.fonts.web.size.minimum_logical = 6
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.tabs.wrap = True
+c.tabs.pinned.shrink = True
 c.tabs.background = False
 c.tabs.tabs_are_windows = False
 c.tabs.tooltips = False
@@ -96,10 +97,13 @@ c.completion.timestamp_format = '%d-%m-%Y %H:%M'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.hints.scatter = True
+c.hints.hide_unmatched_rapid_hints = True
 c.hints.uppercase = True
 c.hints.leave_on_load = False
 c.hints.min_chars = 1
 c.hints.radius = 2
+c.hints.auto_follow_timeout = 0
 c.hints.auto_follow = 'unique-match'
 c.hints.mode = "letter"
 c.hints.chars = "asdfghjkl"
@@ -129,7 +133,11 @@ c.input.insert_mode.auto_load = True
 c.input.insert_mode.auto_leave = True
 c.input.insert_mode.auto_enter = True
 c.input.insert_mode.plugins = False
+c.input.links_included_in_focus_chain = True
+c.input.mouse.rocker_gestures = False
+c.input.spatial_navigation = False
 c.input.forward_unbound_keys = 'all'
+c.input.partial_timeout = 5000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -256,11 +264,14 @@ c.auto_save.interval = 15000
 c.session.lazy_restore = True
 c.session.default_name = "default"
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Instance                       ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.new_instance_open_target = "tab-bg-silent"
+c.new_instance_open_target_window = "last-focused"
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.scrolling.smooth=False
-c.new_instance_open_target = "tab"
-c.new_instance_open_target_window = "last-opened"
 c.scrolling.bar = 'never'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
