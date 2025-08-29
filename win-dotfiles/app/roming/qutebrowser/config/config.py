@@ -386,6 +386,7 @@ c.aliases['h'] = 'help -t'
 c.aliases['e'] = 'session-load'
 c.aliases['w'] = 'session-save'
 c.aliases['wq'] = 'quit --save'
+c.aliases['wq!'] = 'quit --save'
 c.aliases['wqa'] = 'quit --save'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
