@@ -274,6 +274,32 @@ c.prompt.radius = 0
 #               ╚═════════════════════════════════════════════════════════╝
 c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Qt                              ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.qt.highdpi = True
+c.qt.chromium.low_end_device_mode = "never"
+c.qt.chromium.experimental_web_platform_features = "always"
+c.qt.workarounds.disable_accelerated_2d_canvas = "always"
+c.qt.chromium.process_model = "single-process"
+c.qt.args = [
+    "enable-accelerated-video-decode"
+    "enable-accelerated-video",
+    "enable-gpu-rasterization",
+    "enable-native-gpu-memory-buffers",
+    "enable-oop-rasterization",
+    "enable-quic",
+    "enable-unsafe-webgpu",
+    "enable-vulkan",
+    "enable-zero-copy",
+    "font-cache-shared-handle",
+    "ignore-gpu-blocklist",
+    "num-raster-threads=4",
+    "enable-features=VaapiIgnoreDriverChecks,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder",
+    "enable-features=VaapiVideoDecoder,VaapiVideoEncoder",
+    "disable-pinch",
+    "disable-features=PermissionElement",
+]
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.url.open_base_url = True
