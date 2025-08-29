@@ -153,9 +153,9 @@ window_rules:
   #   match:
   #     - window_process: { equals: "spotify" }
   # Fullscreen Rules: ============================================================================
-  - commands: ["toggle-fullscreen"]
-    match:
-      - window_process: { equals: "qutebrowser" }
+  # - commands: ["toggle-fullscreen"]
+  #   match:
+  #     - window_process: { equals: "qutebrowser" }
   # Border Rules: ================================================================================
   - commands: ["adjust-borders --top 6px"]
     match:
