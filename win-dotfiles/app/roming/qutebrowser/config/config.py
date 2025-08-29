@@ -253,6 +253,7 @@ c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.zoom.text_only = True
 c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
@@ -342,8 +343,8 @@ c.url.searchengines = {
     # entertainment ===================================================================
     're': 'https://www.reddit.com/r/{}/',
     'rr': 'https://www.reddit.com/search?q={}',
-    'sr': 'https://www.reddit.com/r/{unquoted}',
-    'rd': 'https://old.reddit.com/search?q={}',
+    'rs': 'https://www.reddit.com/r/{unquoted}',
+    'ro': 'https://old.reddit.com/search?q={}',
     'pi': 'https://www.pinterest.com/search/pins/?q={}',
     'fb': 'https://www.facebook.com/s.php?q={}',
     'ig': 'https://www.instagram.com/explore/tags/{}',
@@ -397,6 +398,7 @@ c.aliases['o'] = 'open'
 c.aliases['h'] = 'help -t'
 c.aliases['e'] = 'session-load'
 c.aliases['w'] = 'session-save'
+c.aliases['wc'] = 'session-save --current --only-active-window'
 c.aliases['wq'] = 'quit --save'
 c.aliases['wq!'] = 'quit --save'
 c.aliases['wqa'] = 'quit --save'
@@ -413,8 +415,10 @@ config.bind('<Ctrl+x>', 'cmd-set-text :')
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-h>', 'history')
 # Open ================================================================================
-config.bind('ep', 'open -p')
 config.bind('ee', 'cmd-set-text :open {url:pretty}')
+config.bind('ep', 'open -p')
+config.bind('ep', 'open -w')
+config.bind('et', 'open -t')
 config.bind('<Ctrl-e>', 'open -w')
 config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
 # Configuration =======================================================================
