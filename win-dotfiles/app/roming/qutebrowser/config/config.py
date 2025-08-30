@@ -35,7 +35,7 @@ c.fonts.web.size.minimum_logical = 6
 #               ╚═════════════════════════════════════════════════════════╝
 c.tabs.wrap = True
 c.tabs.pinned.shrink = True
-c.tabs.background = False
+c.tabs.background = True
 c.tabs.tabs_are_windows = False
 c.tabs.tooltips = False
 c.tabs.mousewheel_switching = False
@@ -84,13 +84,13 @@ c.downloads.position = 'bottom'
 c.completion.quick = True
 c.completion.shrink = True
 c.completion.use_best_match = False
-c.completion.cmd_history_max_items = 0
-c.completion.web_history.max_items = 0
+c.completion.cmd_history_max_items = 100
+c.completion.web_history.max_items = 10
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width = 8
 c.completion.height = "20%"
-c.completion.open_categories = ['quickmarks']
+c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
 c.completion.timestamp_format = '%d-%m-%Y %H:%M'
@@ -137,7 +137,7 @@ c.input.links_included_in_focus_chain = True
 c.input.mouse.rocker_gestures = False
 c.input.spatial_navigation = False
 c.input.forward_unbound_keys = 'all'
-c.input.partial_timeout = 5000
+c.input.partial_timeout = 30000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -221,6 +221,10 @@ c.content.headers.do_not_track = True
 c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
 c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.referer = 'same-domain'
+# Headers per site ====================================================================
+config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/6.4.2 Chrome/102.0.5005.177 Safari/537.36", "twitter.com")
+config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/6.4.2 Chrome/102.0.5005.177 Safari/537.36", "deepseek.com")
+config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/6.4.2 Chrome/102.0.5005.177 Safari/537.36", "gitlab.com")
 # Notifications =======================================================================
 c.content.notifications.enabled = False
 c.content.notifications.show_origin = True
@@ -307,9 +311,9 @@ c.qt.args = [
     "font-cache-shared-handle",
     "ignore-gpu-blocklist",
     "num-raster-threads=4",
-    "enable-features=VaapiIgnoreDriverChecks,AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder",
-    "enable-features=VaapiVideoDecoder,VaapiVideoEncoder",
+    "disable-logging",
     "disable-pinch",
+    "disable-accelerated-2d-canvas",
     "disable-features=PermissionElement",
 ]
 #               ╔═════════════════════════════════════════════════════════╗
@@ -319,6 +323,7 @@ c.url.open_base_url = True
 c.url.auto_search = 'naive'
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
 c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
+c.url.yank_ignored_parameters += ["smid", "smtyp", "fbclid", "fb_news_token"]
 c.url.searchengines = {
     # search engines ==================================================================
     'DEFAULT': 'https://duckduckgo.com/?q={}',
@@ -406,20 +411,28 @@ c.aliases['mpv'] = 'spawn --detach mpv {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
+# Unbind =============================================================================
+unbind_keys = ['d', 'q']
+for key in unbind_keys:
+    config.unbind(key)
 # General  ============================================================================
-config.unbind("q")
 config.bind('qm', 'macro-record')
 config.bind('yl', 'hint --rapid links yank')
 config.bind(';', 'cmd-set-text :')
 config.bind('<Ctrl+x>', 'cmd-set-text :')
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-h>', 'history')
+config.bind('<ctrl-c>', "stop", mode="normal")
 config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
 # Open ================================================================================
 config.bind('ee', 'cmd-set-text :open {url:pretty}')
+config.bind('ev', 'edit-url')
 config.bind('ep', 'open -p')
-config.bind('ep', 'open -w')
+config.bind('ew', 'open -w')
 config.bind('et', 'open -t')
+config.bind('ec', "spawn chromium {url}")
+config.bind('ef', "spawn firefox {url}")
+config.bind('ei', "spawn msedge {url}")
 config.bind('<Ctrl-e>', 'open -w')
 config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
 # Configuration =======================================================================
@@ -433,12 +446,13 @@ config.bind('wI', 'devtools window')
 config.bind('<Ctrl-i>', 'devtools left')
 config.bind('<Ctrl-Shift-i>', 'devtools right')
 # Tabs  ===============================================================================
-config.unbind('d')
 config.bind('T', 'hint links tab')
 config.bind('dd', 'tab-close')
 config.bind('do', 'tab-only')
 config.bind('dp', 'tab-pin')
 config.bind('dm', 'tab-mute')
+config.bind('dl', 'tab-focus last')
+config.bind('dc', 'tab-only ;; home')
 config.bind('dJ', 'tab-move +')
 config.bind('dK', 'tab-move -')
 config.bind('gJ', 'tab-move +')
@@ -447,6 +461,7 @@ config.bind('gm', 'tab-move')
 config.bind('<Ctrl-n>', 'tab-next')
 config.bind('<Ctrl-p>', 'tab-prev')
 config.bind('<Ctrl-q>', 'tab-close')
+config.bind('<backspace>', "tab-focus last")
 # Downloads  ==========================================================================
 config.bind('co', 'download-open')
 config.bind('ce', 'download-cancel')
