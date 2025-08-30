@@ -253,7 +253,6 @@ c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.zoom.text_only = True
 c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
@@ -294,6 +293,7 @@ c.qt.chromium.low_end_device_mode = "never"
 c.qt.chromium.experimental_web_platform_features = "always"
 c.qt.workarounds.disable_accelerated_2d_canvas = "always"
 c.qt.chromium.process_model = "single-process"
+c.qt.force_software_rendering = 'qt-quick'
 c.qt.args = [
     "enable-accelerated-video-decode"
     "enable-accelerated-video",
@@ -514,7 +514,7 @@ config.bind('o', 'hint links fill :open {hint-url}', mode='hint')
 config.bind('t', 'hint inputs', mode='hint')
 config.bind('x', 'hint all delete', mode='hint')
 config.bind('y', 'hint links yank', mode='hint')
-# Completion: =========================================================================
+# Completion ==========================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='command')
 config.bind('<Ctrl-n>', 'command-history-next', mode='command')
 config.bind('<Ctrl-p>', 'command-history-prev', mode='command')
@@ -531,7 +531,7 @@ config.bind('<Ctrl-w>', 'rl-forward-word', mode='command')
 config.bind('<Ctrl-b>', 'rl-backward-word', mode='command')
 config.bind('<Ctrl-x>', 'rl-backward-delete-char', mode='command')
 config.bind('<Ctrl-y>', 'rl-yank', mode='command')
-# prompt: =============================================================================
+# prompt ==============================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='prompt')
 config.bind('<Ctrl-d>', 'rl-delete-char', mode='prompt')
 config.bind('<Ctrl-j>', 'prompt-item-focus next', mode='prompt')
@@ -540,7 +540,18 @@ config.bind('<Ctrl-n>', 'prompt-item-focus next', mode='prompt')
 config.bind('<Ctrl-p>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-o>', 'prompt-open-download', mode='prompt')
 config.bind('<Ctrl+l>', 'fake-key -g /', mode='prompt')
-
+# Insert ==============================================================================
+config.bind('<Ctrl-l>', 'fake-key <Left>', mode='insert')
+config.bind('<Ctrl-h>', 'fake-key <Right>', mode='insert')
+config.bind('<Ctrl-j>', 'fake-key <Down>', mode='insert')
+config.bind('<Ctrl-k>', 'fake-key <Up>', mode='insert')
+config.bind('<Ctrl-H>', 'fake-key <Backspace>', mode='insert')
+config.bind('<Ctrl-A>', 'fake-key <Home>', mode='insert')
+config.bind('<Ctrl-E>', 'fake-key <End>', mode='insert')
+config.bind('<Ctrl-D>', 'fake-key <Delete>', mode='insert')
+config.bind('<Ctrl-W>', 'fake-key <Ctrl-Backspace>', mode='insert')
+config.bind('<Ctrl-U>', 'fake-key <Shift-Home> ;; fake-key <Delete>', mode='insert')
+config.bind('<Ctrl-K>', 'fake-key <Shift-End> ;; fake-key <Delete>', mode='insert')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
