@@ -1741,7 +1741,7 @@ later(function()
   if vim.g.neovide then
     -- General: ==================================================================================
     vim.opt.linespace = -1
-    vim.g.neovide_scale_factor = 0.9
+    vim.g.neovide_scale_factor = 1
     vim.g.neovide_refresh_rate = 45
     vim.g.neovide_padding_top = 0
     vim.g.neovide_padding_left = 0

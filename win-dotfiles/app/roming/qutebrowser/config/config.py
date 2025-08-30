@@ -414,6 +414,7 @@ config.bind(';', 'cmd-set-text :')
 config.bind('<Ctrl+x>', 'cmd-set-text :')
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-h>', 'history')
+config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
 # Open ================================================================================
 config.bind('ee', 'cmd-set-text :open {url:pretty}')
 config.bind('ep', 'open -p')
