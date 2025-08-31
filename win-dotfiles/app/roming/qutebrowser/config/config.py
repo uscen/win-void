@@ -295,6 +295,12 @@ c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.qt.highdpi = True
+c.qt.workarounds.remove_service_workers = True
+c.qt.force_software_rendering = 'none'
+c.qt.chromium.low_end_device_mode = "never"
+c.qt.chromium.experimental_web_platform_features = "always"
+c.qt.workarounds.disable_accelerated_2d_canvas = "always"
 c.qt.chromium.process_model = "single-process"
 c.qt.args = [
     "enable-accelerated-video-decode"
