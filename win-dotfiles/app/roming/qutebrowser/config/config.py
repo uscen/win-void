@@ -3,6 +3,10 @@
 #               ╚═════════════════════════════════════════════════════════╝
 config.load_autoconfig(False)
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Backend                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.backend = 'webengine'
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # UI ==================================================================================
@@ -84,16 +88,18 @@ c.downloads.position = 'bottom'
 c.completion.quick = True
 c.completion.shrink = True
 c.completion.use_best_match = False
-c.completion.cmd_history_max_items = 0
-c.completion.web_history.max_items = 0
+c.completion.cmd_history_max_items = 100
+c.completion.web_history.max_items = 100
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width = 8
+c.completion.min_chars = 1
 c.completion.height = "20%"
-c.completion.open_categories = ['quickmarks']
-c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 c.completion.show = "always"
-c.completion.timestamp_format = '%d-%m-%Y %H:%M'
+c.completion.timestamp_format = '%Y-%m-%dT%H:%M'
+c.completion.favorite_paths = []
+c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history']
+c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -143,7 +149,7 @@ c.input.partial_timeout = 30000
 #               ╚═════════════════════════════════════════════════════════╝
 # Style ===============================================================================
 c.content.prefers_reduced_motion = True
-c.content.fullscreen.overlay_timeout = 0
+c.content.fullscreen.overlay_timeout = 3000
 c.content.user_stylesheets = []
 # Adblock =============================================================================
 c.content.blocking.enabled = True
@@ -212,6 +218,9 @@ c.content.media.video_capture = False
 c.content.desktop_capture = False
 c.content.mouse_lock = False
 c.content.register_protocol_handler = False
+c.content.hyperlink_auditing = False
+c.content.site_specific_quirks.enabled = False
+c.content.site_specific_quirks.skip = []
 c.content.proxy = 'system'
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.default_encoding = "utf-8"
@@ -219,9 +228,10 @@ c.content.tls.certificate_errors = 'ask-block-thirdparty'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 # headers =============================================================================
 c.content.headers.do_not_track = True
-c.content.headers.accept_language = 'en-US,en,ca-ES,de'
+c.content.headers.accept_language = 'en-US,en,ca-ES,de;q=0.9'
 c.content.headers.referer = 'same-domain'
 c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}'
+c.content.headers.custom = {}
 # Notifications =======================================================================
 c.content.notifications.enabled = False
 c.content.notifications.show_origin = True
@@ -233,12 +243,18 @@ c.content.cookies.accept = "no-3rdparty"
 c.content.javascript.enabled = True
 c.content.javascript.alert = True
 c.content.javascript.prompt = True
+c.content.javascript.modal_dialog = False
 c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.can_close_tabs = False
 c.content.javascript.modal_dialog = False
 c.content.local_content_can_access_file_urls = True
 c.content.local_content_can_access_remote_urls = True
 c.content.local_storage = True
+c.content.javascript.legacy_touch_events = 'never'
 c.content.javascript.clipboard = 'access'
+c.content.javascript.log = {'unknown': 'debug', 'info': 'debug', 'warning': 'debug', 'error': 'debug'}
+c.content.javascript.log_message.excludes = {'userscript:_qute_stylesheet': ['*Refused to apply inline style because it violates the following Content Security Policy directive: *']}
+c.content.javascript.log_message.levels = {'qute:*': ['error'], 'userscript:GM-*': [], 'userscript:*': ['error']}
 # Enable everything in devtools =======================================================
 for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
     with config.pattern(tool + '://*') as t:
@@ -260,7 +276,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Save                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.auto_save.session = False
+c.auto_save.session = True
 c.auto_save.interval = 15000
 c.session.lazy_restore = True
 c.session.default_name = "default"
@@ -281,6 +297,7 @@ c.fileselect.single_file.command    = ["alacritty", "-e", "bash", '-c', "yazi", 
 #               ╚═════════════════════════════════════════════════════════╝
 c.scrolling.smooth=True
 c.scrolling.bar = 'never'
+c.changelog_after_upgrade = 'minor'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
@@ -400,6 +417,8 @@ c.aliases['h'] = 'help -t'
 c.aliases['e'] = 'session-load'
 c.aliases['w'] = 'session-save'
 c.aliases['wc'] = 'session-save --current --only-active-window'
+c.aliases['bd'] = 'tab-close'
+c.aliases['bo'] = 'tab-only'
 c.aliases['wq'] = 'quit --save'
 c.aliases['wq!'] = 'quit --save'
 c.aliases['wqa'] = 'quit --save'
@@ -407,6 +426,12 @@ c.aliases['mpv'] = 'spawn --detach mpv {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.bindings.key_mappings = {
+    '<Shift-Return>': '<Return>',
+    '<Enter>': '<Return>',
+    '<Shift-Enter>': '<Return>',
+    '<Ctrl-Enter>': '<Ctrl-Return>'
+}
 # Unbind =============================================================================
 unbind_keys = ['d', 'q']
 for key in unbind_keys:
