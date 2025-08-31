@@ -199,10 +199,10 @@ c.content.autoplay = False
 c.content.private_browsing = False
 # Privacy =============================================================================
 c.content.fullscreen.window = True
-c.content.persistent_storage = True
 c.content.canvas_reading = True
-c.content.dns_prefetch = True
-c.content.webgl = True
+c.content.persistent_storage = False
+c.content.dns_prefetch = False
+c.content.webgl = False
 c.content.xss_auditing = False
 c.content.geolocation = False
 c.content.media.audio_capture = False
@@ -295,13 +295,6 @@ c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.qt.highdpi = True
-c.qt.workarounds.remove_service_workers = True
-c.qt.force_software_rendering = 'none'
-c.qt.chromium.low_end_device_mode = "never"
-c.qt.chromium.experimental_web_platform_features = "always"
-c.qt.workarounds.disable_accelerated_2d_canvas = "always"
-c.qt.chromium.process_model = "single-process"
 c.qt.args = [
     "enable-accelerated-video-decode"
     "enable-accelerated-video",
@@ -317,7 +310,6 @@ c.qt.args = [
     "num-raster-threads=4",
     "disable-logging",
     "disable-pinch",
-    "disable-accelerated-2d-canvas",
     "disable-features=PermissionElement",
 ]
 #               ╔═════════════════════════════════════════════════════════╗
