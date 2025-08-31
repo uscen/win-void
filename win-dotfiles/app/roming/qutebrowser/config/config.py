@@ -161,7 +161,7 @@ c.input.mode_override = "normal"
 #               ╚═════════════════════════════════════════════════════════╝
 # Style ===============================================================================
 c.content.prefers_reduced_motion = True
-c.content.fullscreen.overlay_timeout = 3000
+c.content.fullscreen.overlay_timeout = 1500
 c.content.user_stylesheets = []
 # Adblock =============================================================================
 c.content.blocking.enabled = True
@@ -214,17 +214,18 @@ c.content.webgl = True
 c.content.images = True
 c.content.pdfjs = True
 c.content.canvas_reading = True
-c.content.autoplay = True
 c.content.print_element_backgrounds = True
+c.content.autoplay = False
+c.content.mute = False
 # Privacy =============================================================================
+c.content.dns_prefetch = True
+c.content.fullscreen.window = True
+c.content.site_specific_quirks.enabled = True
+c.content.site_specific_quirks.skip = []
 c.content.private_browsing = False
-c.content.fullscreen.window = False
-c.content.persistent_storage = False
-c.content.dns_prefetch = False
 c.content.xss_auditing = False
 c.content.geolocation = False
 c.content.plugins = False
-c.content.mute = False
 c.content.media.audio_capture = False
 c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
@@ -232,8 +233,7 @@ c.content.desktop_capture = False
 c.content.mouse_lock = False
 c.content.register_protocol_handler = False
 c.content.hyperlink_auditing = False
-c.content.site_specific_quirks.enabled = False
-c.content.site_specific_quirks.skip = []
+c.content.persistent_storage = "ask"
 c.content.proxy = 'system'
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.default_encoding = "utf-8"
@@ -242,7 +242,7 @@ c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 c.content.netrc_file = None
 # headers =============================================================================
 c.content.headers.do_not_track = True
-c.content.headers.accept_language = 'en-US,en,ca-ES,de;q=0.9'
+c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.referer = 'same-domain'
 c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}'
 c.content.headers.custom = {}
@@ -259,16 +259,15 @@ c.content.javascript.alert = True
 c.content.javascript.prompt = True
 c.content.javascript.modal_dialog = False
 c.content.javascript.can_open_tabs_automatically = False
-c.content.javascript.modal_dialog = False
+c.content.local_content_can_access_remote_urls = False
 c.content.local_content_can_access_file_urls = True
-c.content.local_content_can_access_remote_urls = True
 c.content.local_storage = True
 c.content.javascript.legacy_touch_events = 'never'
 c.content.javascript.clipboard = 'access'
 c.content.javascript.log = {'unknown': 'debug', 'info': 'debug', 'warning': 'debug', 'error': 'debug'}
 c.content.javascript.log_message.excludes = {'userscript:_qute_stylesheet': ['*Refused to apply inline style because it violates the following Content Security Policy directive: *']}
 c.content.javascript.log_message.levels = {'qute:*': ['error'], 'userscript:GM-*': [], 'userscript:*': ['error']}
-# Enable everything in devtools =======================================================
+# Devtools ============================================================================
 for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
     with config.pattern(tool + '://*') as t:
         t.content.cookies.accept = 'all'
