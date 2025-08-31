@@ -137,7 +137,7 @@ c.keyhint.blacklist = []
 c.search.incremental = True
 c.search.wrap = True
 c.search.wrap_messages = False
-c.search.ignore_case = "always"
+c.search.ignore_case = "smart"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Input                          ║
 #               ╚═════════════════════════════════════════════════════════╝
