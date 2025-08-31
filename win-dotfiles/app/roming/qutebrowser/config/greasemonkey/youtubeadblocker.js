@@ -1,22 +1,24 @@
 // ==UserScript==
-// u/name         Auto Skip YouTube Ads
-// u/version      1.0.0
-// u/description  Speed up and skip YouTube ads automatically
-// u/author       jso8910
-// u/match        *://*.youtube.com/*
-// u/exclude      *://*.youtube.com/subscribe_embed?*
+// @name         Auto Skip YouTube Ads
+// @version      1.1.0
+// @description  Speed up and skip YouTube ads automatically
+// @author       jso8910 and others
+// @match        *://*.youtube.com/*
 // ==/UserScript==
-setInterval(() => {
-  const btn = document.querySelector(
-    ".videoAdUiSkipButton,.ytp-ad-skip-button",
-  );
-  if (btn) {
-    btn.click();
-  }
-  const ad = [...document.querySelectorAll(".ad-showing")][0];
-  if (ad) {
-    document.querySelector("video").playbackRate = 100;
-    // const vid = document.querySelector('video');
-    // vid.currentTime = vid.duration;
-  }
-}, 50);
+
+document.addEventListener(
+  "load",
+  () => {
+    const btn = document.querySelector(
+      ".videoAdUiSkipButton,.ytp-ad-skip-button-modern",
+    );
+    if (btn) {
+      btn.click();
+    }
+    const ad = [...document.querySelectorAll(".ad-showing")][0];
+    if (ad) {
+      document.querySelector("video").currentTime = 9999999999;
+    }
+  },
+  true,
+);
