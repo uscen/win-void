@@ -38,22 +38,25 @@ c.fonts.web.size.minimum_logical = 6
 #               ║                             Tabs                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.tabs.wrap = True
-c.tabs.pinned.shrink = True
 c.tabs.background = True
+c.tabs.pinned.shrink = True
+c.tabs.pinned.frozen = True
+c.tabs.new_position.stacking = True
 c.tabs.tabs_are_windows = False
 c.tabs.tooltips = False
 c.tabs.mousewheel_switching = False
 c.tabs.width = 24
-c.tabs.max_width = 320
-c.tabs.min_width = 100
+c.tabs.max_width = -1
+c.tabs.min_width = -1
 c.tabs.favicons.scale=1
 c.tabs.undo_stack_size = 24
 c.tabs.indicator.width = 0
+c.tabs.show_switching_delay = 1500
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
 c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
-c.tabs.show_switching_delay = 1500
+c.tabs.mode_on_change = 'normal'
 c.tabs.favicons.show = "always"
 c.tabs.last_close = "default-page"
 c.tabs.close_mouse_button = 'middle'
@@ -89,16 +92,16 @@ c.completion.quick = True
 c.completion.shrink = True
 c.completion.use_best_match = False
 c.completion.cmd_history_max_items = 100
-c.completion.web_history.max_items = 100
+c.completion.web_history.max_items = 15
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width = 8
 c.completion.min_chars = 1
-c.completion.height = "20%"
+c.completion.height = "30%"
 c.completion.show = "always"
 c.completion.timestamp_format = '%Y-%m-%dT%H:%M'
 c.completion.favorite_paths = []
-c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history']
+c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
@@ -113,6 +116,8 @@ c.hints.auto_follow_timeout = 0
 c.hints.auto_follow = 'unique-match'
 c.hints.mode = "letter"
 c.hints.chars = "asdfghjkl"
+c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
+c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
 c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
 c.hints.selectors["code"] = [
     ":not(pre) > code",
@@ -138,12 +143,18 @@ c.input.match_counts = True
 c.input.insert_mode.auto_load = True
 c.input.insert_mode.auto_leave = True
 c.input.insert_mode.auto_enter = True
+c.input.escape_quits_reporter = True
+c.input.insert_mode.leave_on_load = True
 c.input.insert_mode.plugins = False
 c.input.links_included_in_focus_chain = True
 c.input.mouse.rocker_gestures = False
+c.input.mouse.rocker_gestures = False
 c.input.spatial_navigation = False
+c.input.mouse.back_forward_buttons = False
+c.input.media_keys = False
 c.input.forward_unbound_keys = 'all'
 c.input.partial_timeout = 30000
+c.input.mode_override = None
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -201,9 +212,9 @@ c.content.blocking.adblock.lists = [
 c.content.webgl = True
 c.content.images = True
 c.content.pdfjs = True
-c.content.mute = False
 c.content.canvas_reading = True
 c.content.autoplay = True
+c.content.print_element_backgrounds = True
 # Privacy =============================================================================
 c.content.private_browsing = False
 c.content.fullscreen.window = False
@@ -212,6 +223,7 @@ c.content.dns_prefetch = False
 c.content.xss_auditing = False
 c.content.geolocation = False
 c.content.plugins = False
+c.content.mute = False
 c.content.media.audio_capture = False
 c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
@@ -226,6 +238,7 @@ c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.default_encoding = "utf-8"
 c.content.tls.certificate_errors = 'ask-block-thirdparty'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
+c.content.netrc_file = None
 # headers =============================================================================
 c.content.headers.do_not_track = True
 c.content.headers.accept_language = 'en-US,en,ca-ES,de;q=0.9'
@@ -245,7 +258,6 @@ c.content.javascript.alert = True
 c.content.javascript.prompt = True
 c.content.javascript.modal_dialog = False
 c.content.javascript.can_open_tabs_automatically = False
-c.content.javascript.can_close_tabs = False
 c.content.javascript.modal_dialog = False
 c.content.local_content_can_access_file_urls = True
 c.content.local_content_can_access_remote_urls = True
@@ -312,6 +324,13 @@ c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
+c.qt.highdpi = True
+c.qt.workarounds.disable_hangouts_extension = True
+c.qt.workarounds.remove_service_workers = False
+c.qt.workarounds.locale = False
+c.qt.force_software_rendering = 'none'
+c.qt.workarounds.disable_accelerated_2d_canvas = 'auto'
+c.qt.environ = {}
 c.qt.args = [
     "enable-accelerated-video-decode"
     "enable-accelerated-video",
@@ -333,10 +352,11 @@ c.qt.args = [
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.url.open_base_url = True
-c.url.auto_search = 'naive'
+c.url.auto_search = 'schemeless'
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
 c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
 c.url.yank_ignored_parameters += ["smid", "smtyp", "fbclid", "fb_news_token"]
+c.url.incdec_segments = ['path', 'query']
 c.url.searchengines = {
     # search engines ==================================================================
     'DEFAULT': 'https://duckduckgo.com/?q={}',
@@ -426,16 +446,17 @@ c.aliases['mpv'] = 'spawn --detach mpv {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.bindings.key_mappings = {
-    '<Shift-Return>': '<Return>',
-    '<Enter>': '<Return>',
-    '<Shift-Enter>': '<Return>',
-    '<Ctrl-Enter>': '<Ctrl-Return>'
-}
-# Unbind =============================================================================
+# Unbind ==============================================================================
 unbind_keys = ['d', 'q']
 for key in unbind_keys:
     config.unbind(key)
+# Remap ===============================================================================
+c.bindings.key_mappings = {
+    '<Enter>': '<Return>',
+    '<Shift-Return>': '<Return>',
+    '<Shift-Enter>': '<Return>',
+    '<Ctrl-Enter>': '<Ctrl-Return>'
+}
 # General  ============================================================================
 config.bind('qm', 'macro-record')
 config.bind('yl', 'hint --rapid links yank')
@@ -455,6 +476,16 @@ config.bind('ef', "spawn firefox {url}")
 config.bind('ei', "spawn msedge {url}")
 config.bind('<Ctrl-e>', 'open -w')
 config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
+# Focus ===============================================================================
+config.bind('<Alt-1>', 'tab-focus 1')
+config.bind('<Alt-2>', 'tab-focus 2')
+config.bind('<Alt-3>', 'tab-focus 3')
+config.bind('<Alt-4>', 'tab-focus 4')
+config.bind('<Alt-5>', 'tab-focus 5')
+config.bind('<Alt-6>', 'tab-focus 6')
+config.bind('<Alt-7>', 'tab-focus 7')
+config.bind('<Alt-8>', 'tab-focus 8')
+config.bind('<Alt-9>', 'tab-focus -1')
 # Configuration =======================================================================
 config.bind("se", "config-edit")
 config.bind("ss", "config-source")
@@ -540,6 +571,7 @@ config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
 config.bind('aG', 'open -t https://www.google.com/search?q=cache:{url}')
 # accept  =============================================================================
 config.bind('y', 'prompt-accept yes', mode='yesno')
+config.bind('n', 'prompt-accept no', mode='yesno')
 config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 # passthrough =========================================================================
 config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
