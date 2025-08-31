@@ -295,11 +295,6 @@ c.auto_save.interval = 15000
 c.session.lazy_restore = True
 c.session.default_name = "default"
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                          Instance                       ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.new_instance_open_target = "tab-bg-silent"
-c.new_instance_open_target_window = "last-focused"
-#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          FileSelect                     ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.fileselect.handler = 'default'
@@ -307,10 +302,24 @@ c.fileselect.folder.command         = ["alacritty", "-e", "bash", '-c', "yazi", 
 c.fileselect.multiple_files.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
 c.fileselect.single_file.command    = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Instance                       ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.new_instance_open_target = "tab-bg-silent"
+c.new_instance_open_target_window = "last-focused"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Prompt                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.prompt.filebrowser = False
+c.prompt.radius = 0
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Logging                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.logging.level.console = 'info'
 c.logging.level.ram = 'debug'
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                        Messages                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -320,15 +329,6 @@ c.scrolling.bar = 'never'
 c.changelog_after_upgrade = 'minor'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                         Prompt                          ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.prompt.filebrowser = False
-c.prompt.radius = 0
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                        Messages                         ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
