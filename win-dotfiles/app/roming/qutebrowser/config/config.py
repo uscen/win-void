@@ -81,10 +81,11 @@ c.statusbar.widgets = ['keypress', 'search_match', 'url']
 c.downloads.prevent_mixed_content = True
 c.downloads.location.prompt = False
 c.downloads.location.remember = False
-c.downloads.remove_finished = 3000
+c.downloads.remove_finished = 1500
 c.downloads.location.directory = r"C:\Users\lli\Downloads"
 c.downloads.location.suggestion = "both"
 c.downloads.position = 'bottom'
+c.downloads.open_dispatcher = None
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Completion                        ║
 #               ╚═════════════════════════════════════════════════════════╝
