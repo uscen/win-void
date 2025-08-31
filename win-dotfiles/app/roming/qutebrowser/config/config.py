@@ -369,7 +369,7 @@ c.qt.args = [
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.url.open_base_url = False
+c.url.open_base_url = True
 c.url.auto_search = 'schemeless'
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
 c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
