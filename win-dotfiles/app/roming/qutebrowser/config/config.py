@@ -219,7 +219,7 @@ c.content.tls.certificate_errors = 'ask-block-thirdparty'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 # headers =============================================================================
 c.content.headers.do_not_track = True
-# c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
+c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
 c.content.headers.accept_language = 'en-US,en,ca-ES,de'
 c.content.headers.referer = 'same-domain'
 # Headers per site ====================================================================
