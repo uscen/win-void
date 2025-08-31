@@ -296,13 +296,13 @@ c.session.default_name = "default"
 #               ║                          FileSelect                     ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.fileselect.handler = 'default'
-c.fileselect.folder.command         = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
+c.fileselect.folder.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
 c.fileselect.multiple_files.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
-c.fileselect.single_file.command    = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
+c.fileselect.single_file.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Instance                       ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.new_instance_open_target = "tab-bg-silent"
+c.new_instance_open_target = "tab"
 c.new_instance_open_target_window = "last-focused"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Prompt                          ║
@@ -319,14 +319,22 @@ c.logging.level.ram = 'debug'
 #               ╚═════════════════════════════════════════════════════════╝
 c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                          Others                         ║
+#               ║                          Editor                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.editor.remove_file = True
+c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
+c.editor.encoding = 'utf-8'
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Scrolling                      ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.scrolling.smooth=True
-c.history_gap_interval = 30
 c.scrolling.bar = 'never'
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Others                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.history_gap_interval = 30
 c.changelog_after_upgrade = 'minor'
 c.confirm_quit=["downloads"]
-c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
