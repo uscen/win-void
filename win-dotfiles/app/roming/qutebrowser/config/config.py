@@ -91,12 +91,12 @@ c.downloads.open_dispatcher = None
 #               ╚═════════════════════════════════════════════════════════╝
 c.completion.quick = True
 c.completion.shrink = True
-c.completion.use_best_match = False
+c.completion.use_best_match = True
 c.completion.cmd_history_max_items = 100
-c.completion.web_history.max_items = 15
+c.completion.web_history.max_items = 0
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
-c.completion.scrollbar.width = 8
+c.completion.scrollbar.width = 4
 c.completion.min_chars = 1
 c.completion.height = "30%"
 c.completion.show = "always"
