@@ -426,26 +426,20 @@ c.url.searchengines = {
     "sc": "https://scoop.sh/#/apps?q={}",
     "vo": "https://voidlinux.org/packages/?arch=x86_64&q={}",
     # books ===========================================================================
-    'li': 'https://libgen.rs/search.php?req={}',
-    'an': 'https://annas-archive.org/search?q=%{}',
+    'bl': 'https://libgen.rs/search.php?req={}',
+    'ba': 'https://annas-archive.org/search?q=%{}',
     # language ========================================================================
-    'urban': 'https://www.urbandictionary.com/define.php?term={}',
-    'dict_2': 'https://thefreedictionary.com/{}',
-    'mg': 'https://www.merriam-webster.com/dictionary/%{}',
-    'th': 'https://www.merriam-webster.com/thesaurus/%{}',
-    'pron': 'https://www.thesaurus.com/browse/{}',
-    'dex': 'https://dexonline.ro/definitie/{}',
-    # md buy ==========================================================================
-    '9': 'https://999.md/ro/search?query={}',
-    'pandashop': 'https://www.pandashop.md/ro/search/?text={}',
-    'smadshop': 'https://smadshop.md/ro/search/?search={}',
-    'ultra': 'https://ultra.md/search?search={}',
-    'cacturs': 'https://www.cactus.md/ru/search/?q={}',
-    # buy china =======================================================================
-    'joom': 'https://www.joom.com/en/search/q.{}',
-    'aliexpress': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
-    'amazon': 'https://www.amazon.com/s?k={}',
-    'temu': 'https://www.temu.com/search_result.html?search_key={}'
+    'du': 'https://www.urbandictionary.com/define.php?term={}',
+    'dt': 'https://thefreedictionary.com/{}',
+    'da': 'https://www.merriam-webster.com/dictionary/%{}',
+    'de': 'https://www.merriam-webster.com/thesaurus/%{}',
+    'dh': 'https://www.thesaurus.com/browse/{}',
+    'dx': 'https://dexonline.ro/definitie/{}',
+    # buy =============================================================================
+    'jo': 'https://www.joom.com/en/search/q.{}',
+    'ax': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
+    'az': 'https://www.amazon.com/s?k={}',
+    'tm': 'https://www.temu.com/search_result.html?search_key={}'
 }
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Aliases                        ║
