@@ -153,8 +153,8 @@ c.input.insert_mode.plugins = False
 c.input.links_included_in_focus_chain = True
 c.input.mouse.rocker_gestures = False
 c.input.spatial_navigation = False
-c.input.forward_unbound_keys = 'all'
 c.input.partial_timeout = 30000
+c.input.forward_unbound_keys = 'all'
 c.input.mode_override = "normal"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
