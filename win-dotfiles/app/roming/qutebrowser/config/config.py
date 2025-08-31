@@ -300,10 +300,15 @@ c.new_instance_open_target_window = "last-focused"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          FileSelect                     ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.fileselect.handler = 'external'
+c.fileselect.handler = 'default'
 c.fileselect.folder.command         = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
 c.fileselect.multiple_files.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
 c.fileselect.single_file.command    = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Logging                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.logging.level.console = 'info'
+c.logging.level.ram = 'debug'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -313,12 +318,12 @@ c.changelog_after_upgrade = 'minor'
 c.confirm_quit=["downloads"]
 c.editor.command = ["alacritty", "-e", "nvim", "{file}"]
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                         prompt                          ║
+#               ║                         Prompt                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.prompt.filebrowser = False
 c.prompt.radius = 0
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                        messages                         ║
+#               ║                        Messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.messages.timeout = 3000
 #               ╔═════════════════════════════════════════════════════════╗
