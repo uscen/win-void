@@ -335,6 +335,10 @@ c.qt.workarounds.remove_service_workers = False
 c.qt.workarounds.locale = False
 c.qt.force_software_rendering = 'none'
 c.qt.workarounds.disable_accelerated_2d_canvas = 'auto'
+c.qt.chromium.experimental_web_platform_features = 'never'
+c.qt.chromium.low_end_device_mode = 'auto'
+c.qt.chromium.process_model = 'process-per-site-instance'
+c.qt.chromium.sandboxing = 'enable-all'
 c.qt.environ = {}
 c.qt.args = [
     "enable-accelerated-video-decode"
@@ -356,7 +360,7 @@ c.qt.args = [
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.url.open_base_url = True
+c.url.open_base_url = False
 c.url.auto_search = 'schemeless'
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
 c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
