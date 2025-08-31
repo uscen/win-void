@@ -338,14 +338,14 @@ c.confirm_quit=["downloads"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Qt                              ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.qt.highdpi = True
 c.qt.workarounds.disable_hangouts_extension = True
 c.qt.workarounds.remove_service_workers = False
 c.qt.workarounds.locale = False
+c.qt.highdpi = False
 c.qt.force_software_rendering = 'none'
 c.qt.workarounds.disable_accelerated_2d_canvas = 'auto'
 c.qt.chromium.experimental_web_platform_features = 'never'
-c.qt.chromium.low_end_device_mode = 'auto'
+c.qt.chromium.low_end_device_mode = 'never'
 c.qt.chromium.process_model = 'process-per-site-instance'
 c.qt.chromium.sandboxing = 'enable-all'
 c.qt.environ = {}
