@@ -192,17 +192,17 @@ c.content.blocking.adblock.lists = [
     "https://www.i-dont-care-about-cookies.eu/abp/",
 ]
 # media ===============================================================================
+c.content.webgl = True
 c.content.images = True
 c.content.pdfjs = True
 c.content.mute = False
-c.content.autoplay = False
-c.content.private_browsing = False
-# Privacy =============================================================================
-c.content.fullscreen.window = True
 c.content.canvas_reading = True
+c.content.autoplay = True
+# Privacy =============================================================================
+c.content.private_browsing = False
+c.content.fullscreen.window = False
 c.content.persistent_storage = False
 c.content.dns_prefetch = False
-c.content.webgl = False
 c.content.xss_auditing = False
 c.content.geolocation = False
 c.content.media.audio_capture = False
