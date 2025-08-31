@@ -489,7 +489,7 @@ config.bind(',iY', 'hint images yank-primary')
 config.bind(',ig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
 # private =============================================================================
 config.bind('mp', 'hint all run open -p {hint-url}')
-# Keybindings: Stylesheets ============================================================
+# Stylesheets =========================================================================
 config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
 config.bind(',r', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
 config.bind(',a', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/4chan.css ""')
