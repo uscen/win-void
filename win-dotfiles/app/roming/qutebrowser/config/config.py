@@ -282,15 +282,15 @@ c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Zoom                           ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.zoom.mouse_divider = 1512
+c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 #               ╔═════════════════════════════════════════════════════════╗
-#               ║                          Save                           ║
+#               ║                          Session                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.auto_save.session = True
-c.auto_save.interval = 15000
 c.session.lazy_restore = True
+c.auto_save.interval = 15000
 c.session.default_name = "default"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          FileSelect                     ║
