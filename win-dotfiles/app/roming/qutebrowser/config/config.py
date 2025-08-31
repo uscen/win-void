@@ -219,13 +219,9 @@ c.content.tls.certificate_errors = 'ask-block-thirdparty'
 c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
 # headers =============================================================================
 c.content.headers.do_not_track = True
-c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
 c.content.headers.accept_language = 'en-US,en,ca-ES,de'
 c.content.headers.referer = 'same-domain'
-# Headers per site ====================================================================
-config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/6.4.2 Chrome/102.0.5005.177 Safari/537.36", "twitter.com")
-config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/6.4.2 Chrome/102.0.5005.177 Safari/537.36", "deepseek.com")
-config.set("content.headers.user_agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/6.4.2 Chrome/102.0.5005.177 Safari/537.36", "gitlab.com")
+c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version_short} Safari/{webkit_version}'
 # Notifications =======================================================================
 c.content.notifications.enabled = False
 c.content.notifications.show_origin = True
@@ -486,16 +482,15 @@ config.bind(',Y', 'hint links spawn alacritty -e yt-dlp {hint-url}')
 config.bind('yM', 'yank ;; spawn mpv {url}')
 config.bind('<Ctrl-Shift-m>', 'spawn mpv {url}')
 config.bind('<Ctrl-m>', 'hint links spawn mpv {hint-url}')
-# Binds for images ====================================================================
-config.unbind(';i')
-config.bind(';ii', 'hint images')
-config.bind(';io', 'hint images run open {hint-url}')
-config.bind(';iO', 'hint images run open -t {hint-url}')
-config.bind(';iy', 'hint images yank')
-config.bind(';iY', 'hint images yank-primary')
-config.bind(';ig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
-# Bind for opening link in private window ============================================
-config.bind(';p', 'hint all run open -p {hint-url}')
+# images ==============================================================================
+config.bind(',ii', 'hint images')
+config.bind(',io', 'hint images run open {hint-url}')
+config.bind(',iO', 'hint images run open -t {hint-url}')
+config.bind(',iy', 'hint images yank')
+config.bind(',iY', 'hint images yank-primary')
+config.bind(',ig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
+# private =============================================================================
+config.bind('mp', 'hint all run open -p {hint-url}')
 # Keybindings: Stylesheets ============================================================
 config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
 config.bind(',r', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
