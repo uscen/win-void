@@ -117,9 +117,10 @@ c.hints.auto_follow_timeout = 0
 c.hints.auto_follow = 'unique-match'
 c.hints.mode = "letter"
 c.hints.chars = "asdfghjkl"
+c.hints.dictionary = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\misc\dict\english.txt"
 c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
 c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
-c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
+c.hints.padding =  {"top": 0, "bottom": 2, "left": 2, "right": 0}
 c.hints.selectors["code"] = [
     ":not(pre) > code",
     "pre",
@@ -314,6 +315,7 @@ c.logging.level.ram = 'debug'
 #               ║                          Others                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.scrolling.smooth=True
+c.history_gap_interval = 30
 c.scrolling.bar = 'never'
 c.changelog_after_upgrade = 'minor'
 c.confirm_quit=["downloads"]
