@@ -61,7 +61,7 @@ thickness = 0.15
 vi_mode_style = {shape = "Block", blinking = "Off"}
 [cursor.style]
 blinking = "On"
-shape = "Beam"
+shape = "Block"
 
 # =============================================================================== #
 # scrolling:                                                                      #
