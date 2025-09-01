@@ -56,7 +56,7 @@ c.tabs.max_width = -1
 c.tabs.min_width = -1
 c.tabs.indicator.width = 0
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
-c.tabs.padding = {"top": 10, "bottom": 10, "left": 4, "right": 4}
+c.tabs.padding = {"top": 8, "bottom": 8, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
 c.tabs.mode_on_change = 'normal'
@@ -479,10 +479,11 @@ c.bindings.key_mappings = {
     '<Ctrl-Enter>': '<Ctrl-Return>'
 }
 # Unbind ==============================================================================
-unbind_keys = ['d', 'q', '<Ctrl-v>']
+unbind_keys = ['d', 'q', 'r', '<Ctrl-v>']
 for key in unbind_keys:
     config.unbind(key)
 # General  ============================================================================
+config.bind('rr', 'reload')
 config.bind('qm', 'macro-record')
 config.bind('yl', 'hint --rapid links yank')
 config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
@@ -520,16 +521,6 @@ config.bind('ef', "spawn firefox {url}")
 config.bind('ei', "spawn msedge {url}")
 config.bind('<Ctrl-e>', 'open -w')
 config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
-# Focus ===============================================================================
-config.bind('<Ctrl-1>', 'tab-focus 1')
-config.bind('<Ctrl-2>', 'tab-focus 2')
-config.bind('<Ctrl-3>', 'tab-focus 3')
-config.bind('<Ctrl-4>', 'tab-focus 4')
-config.bind('<Ctrl-5>', 'tab-focus 5')
-config.bind('<Ctrl-6>', 'tab-focus 6')
-config.bind('<Ctrl-7>', 'tab-focus 7')
-config.bind('<Ctrl-8>', 'tab-focus 8')
-config.bind('<Ctrl-9>', 'tab-focus -1')
 # Zoom  ===============================================================================
 config.bind('zi', 'zoom-in')
 config.bind('zo', 'zoom-out')
@@ -556,30 +547,18 @@ config.bind('wI', 'devtools window')
 config.bind('<Ctrl-i>', 'devtools left')
 config.bind('<Ctrl-Shift-i>', 'devtools right')
 # Videos  =============================================================================
-config.bind(',m', 'spawn mpv {url}')
-config.bind(',M', 'hint links spawn mpv {hint-url}')
-config.bind(',Y', 'hint links spawn alacritty -e yt-dlp {hint-url}')
-config.bind('yM', 'yank ;; spawn mpv {url}')
-config.bind('<Ctrl-Shift-m>', 'spawn mpv {url}')
-config.bind('<Ctrl-m>', 'hint links spawn mpv {hint-url}')
+config.bind('rvm', 'spawn mpv {url}')
+config.bind('rvM', 'hint links spawn mpv {hint-url}')
+config.bind('rvd', 'hint links spawn alacritty -e yt-dlp {hint-url}')
 # images ==============================================================================
-config.bind(',ii', 'hint images')
-config.bind(',io', 'hint images run open {hint-url}')
-config.bind(',iO', 'hint images run open -t {hint-url}')
-config.bind(',iy', 'hint images yank')
-config.bind(',iY', 'hint images yank-primary')
-config.bind(',ig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
+config.bind('rii', 'hint images')
+config.bind('rio', 'hint images run open {hint-url}')
+config.bind('riO', 'hint images run open -t {hint-url}')
+config.bind('riy', 'hint images yank')
+config.bind('riY', 'hint images yank-primary')
+config.bind('rig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
 # private =============================================================================
-config.bind('mp', 'hint all run open -p {hint-url}')
-# Stylesheets =========================================================================
-config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
-config.bind(',r', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
-config.bind(',a', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/4chan.css ""')
-config.bind(',b', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/reddit.css ""')
-config.bind(',e', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/empornium.css ""')
-config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/hacker.css ""')
-config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
-config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
+config.bind('rap', 'hint all run open -p {hint-url}')
 # Toggle ==============================================================================
 config.bind("tdt", "config-cycle colors.webpage.darkmode.enabled false true")
 config.bind("ttt", "config-cycle tabs.show multiple switching")
@@ -591,34 +570,33 @@ config.bind("tbH", "config-cycle -p -t -u *://*.{url:host}/* content.blocking.en
 config.bind("tBH", "config-cycle -p -u *://*.{url:host}/* content.blocking.enabled true false ;; reload")
 config.bind("tbu", "config-cycle -p -t -u {url} content.blocking.enabled true false ;; reload")
 config.bind("tBu", "config-cycle -p -u {url} content.blocking.enabled true false ;; reload")
+# Stylesheets =========================================================================
+config.bind(',c', 'config-cycle content.user_stylesheets "" ""')
+config.bind(',r', 'config-cycle content.user_stylesheets "~/.config/qutebrowser/styles/nord-all-sites.css" "~/.config/qutebrowser/styles/solarized-dark-all-sites.css" "~/.config/qutebrowser/styles/solarized-light-all-sites.css"  "" ')
+config.bind(',a', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/4chan.css ""')
+config.bind(',b', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/reddit.css ""')
+config.bind(',e', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/empornium.css ""')
+config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/hacker.css ""')
+config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
+config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
 # archived ============================================================================
 config.bind('aa', 'open https://web.archive.org/web/*/{url}')
 config.bind('aA', 'open -t https://web.archive.org/web/*/{url}')
 config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
 config.bind('aG', 'open -t https://www.google.com/search?q=cache:{url}')
-# accept  =============================================================================
-config.bind('y', 'prompt-accept yes', mode='yesno')
-config.bind('n', 'prompt-accept no', mode='yesno')
-config.bind('<Return>', 'prompt-accept yes', mode='yesno')
+# Focus ===============================================================================
+config.bind('<Ctrl-1>', 'tab-focus 1')
+config.bind('<Ctrl-2>', 'tab-focus 2')
+config.bind('<Ctrl-3>', 'tab-focus 3')
+config.bind('<Ctrl-4>', 'tab-focus 4')
+config.bind('<Ctrl-5>', 'tab-focus 5')
+config.bind('<Ctrl-6>', 'tab-focus 6')
+config.bind('<Ctrl-7>', 'tab-focus 7')
+config.bind('<Ctrl-8>', 'tab-focus 8')
+config.bind('<Ctrl-9>', 'tab-focus -1')
 # passthrough =========================================================================
 config.bind('<Ctrl-v>', 'mode-leave', mode='passthrough')
 config.bind('<Ctrl-Escape>', 'mode-leave', mode='passthrough')
-# hint ================================================================================
-config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
-config.bind(';', 'hint links', mode='hint')
-config.bind('B', 'hint links tab-bg', mode='hint')
-config.bind('F', 'hint all', mode='hint')
-config.bind('I', 'hint images run open -t -- {hint-url}', mode='hint')
-config.bind('O', 'hint links fill :open -r -t {hint-url}', mode='hint')
-config.bind('P', 'hint links run open -p {hint-url}', mode='hint')
-config.bind('R', 'hint --rapid links tab-bg', mode='hint')
-config.bind('T', 'hint links tab-fg', mode='hint')
-config.bind('W', 'hint links window', mode='hint')
-config.bind('m', 'hint all hover', mode='hint')
-config.bind('o', 'hint links fill :open {hint-url}', mode='hint')
-config.bind('t', 'hint inputs', mode='hint')
-config.bind('x', 'hint all delete', mode='hint')
-config.bind('y', 'hint links yank', mode='hint')
 # Completion ==========================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='command')
 config.bind('<Ctrl-n>', 'command-history-next', mode='command')
@@ -657,6 +635,26 @@ config.bind('<Ctrl-D>', 'fake-key <Delete>', mode='insert')
 config.bind('<Ctrl-W>', 'fake-key <Ctrl-Backspace>', mode='insert')
 config.bind('<Ctrl-U>', 'fake-key <Shift-Home> ;; fake-key <Delete>', mode='insert')
 config.bind('<Ctrl-K>', 'fake-key <Shift-End> ;; fake-key <Delete>', mode='insert')
+# hint ================================================================================
+config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
+config.bind(';', 'hint links', mode='hint')
+config.bind('B', 'hint links tab-bg', mode='hint')
+config.bind('F', 'hint all', mode='hint')
+config.bind('I', 'hint images run open -t -- {hint-url}', mode='hint')
+config.bind('O', 'hint links fill :open -r -t {hint-url}', mode='hint')
+config.bind('P', 'hint links run open -p {hint-url}', mode='hint')
+config.bind('R', 'hint --rapid links tab-bg', mode='hint')
+config.bind('T', 'hint links tab-fg', mode='hint')
+config.bind('W', 'hint links window', mode='hint')
+config.bind('m', 'hint all hover', mode='hint')
+config.bind('o', 'hint links fill :open {hint-url}', mode='hint')
+config.bind('t', 'hint inputs', mode='hint')
+config.bind('x', 'hint all delete', mode='hint')
+config.bind('y', 'hint links yank', mode='hint')
+# accept  =============================================================================
+config.bind('y', 'prompt-accept yes', mode='yesno')
+config.bind('n', 'prompt-accept no', mode='yesno')
+config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -671,7 +669,7 @@ c.colors.webpage.darkmode.policy.page = 'smart'
 # Lightmode ===========================================================================
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
-for domain in ['localhost', 'whatsapp.com', 'vercel.app', 'qutebrowser.org', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
+for domain in ['localhost',  'vercel.app', 'whatsapp.com', 'qutebrowser.org', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
     with config.pattern('*://*.' + domain + '/*') as d:
         d.colors.webpage.darkmode.enabled = False
 # Palette =============================================================================
