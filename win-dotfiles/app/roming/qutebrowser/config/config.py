@@ -383,7 +383,7 @@ c.qt.args = [
 #               ║                          URL                            ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.url.open_base_url = True
-c.url.auto_search = 'schemeless'
+c.url.auto_search = 'naive'
 c.url.default_page = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html"
 c.url.start_pages = [ r"C:\Users\lli\AppData\Roaming\qutebrowser\config\startpage\index.html" ]
 c.url.yank_ignored_parameters += ["smid", "smtyp", "fbclid", "fb_news_token"]
