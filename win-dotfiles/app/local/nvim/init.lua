@@ -1102,6 +1102,15 @@ now_if_args(function()
       vim.diagnostic.enable(false, { bufnr = 0 })
     end,
   })
+  -- Clear the last used search pattern when opening a new buffer ================================
+  vim.api.nvim_create_autocmd('BufReadPre', {
+    pattern = '*',
+    group = vim.api.nvim_create_augroup('clear-last-search', { clear = true }),
+    callback = function()
+      vim.fn.setreg('/', '')
+      vim.cmd 'let @/ = ""'
+    end,
+  })
   -- Don't Comment New Line ======================================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',

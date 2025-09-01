@@ -96,14 +96,14 @@ c.completion.quick = True
 c.completion.shrink = True
 c.completion.use_best_match = True
 c.completion.cmd_history_max_items = 100
-c.completion.web_history.max_items = 0
+c.completion.web_history.max_items = 15
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width = 4
 c.completion.min_chars = 1
 c.completion.height = "30%"
 c.completion.show = "always"
-c.completion.timestamp_format = '%Y-%m-%dT%H:%M'
+c.completion.timestamp_format = '%Y-%m-%d'
 c.completion.favorite_paths = []
 c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
@@ -479,13 +479,14 @@ c.bindings.key_mappings = {
     '<Ctrl-Enter>': '<Ctrl-Return>'
 }
 # Unbind ==============================================================================
-unbind_keys = ['d', 'q']
+unbind_keys = ['d', 'q', '<Ctrl-v>']
 for key in unbind_keys:
     config.unbind(key)
 # General  ============================================================================
 config.bind('qm', 'macro-record')
 config.bind('yl', 'hint --rapid links yank')
 config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
+config.bind('<Ctrl-v>', 'hint inputs --first ;; cmd-later 10 insert-text -- {clipboard}')
 config.bind('<Ctrl-h>', 'history')
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-x>', 'cmd-set-text :')
@@ -580,6 +581,7 @@ config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/h
 config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
 config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
 # Toggle ==============================================================================
+config.bind("tdt", "config-cycle colors.webpage.darkmode.enabled false true")
 config.bind("ttt", "config-cycle tabs.show multiple switching")
 config.bind('ttp', 'config-cycle tabs.position top left')
 config.bind("tst", "config-cycle statusbar.show always in-mode")
