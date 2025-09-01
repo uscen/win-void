@@ -267,6 +267,16 @@ c.content.javascript.clipboard = 'access'
 c.content.javascript.log = {'unknown': 'debug', 'info': 'debug', 'warning': 'debug', 'error': 'debug'}
 c.content.javascript.log_message.excludes = {'userscript:_qute_stylesheet': ['*Refused to apply inline style because it violates the following Content Security Policy directive: *']}
 c.content.javascript.log_message.levels = {'qute:*': ['error'], 'userscript:GM-*': [], 'userscript:*': ['error']}
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                          PerSite                        ║
+#               ╚═════════════════════════════════════════════════════════╝
+# Call ================================================================================
+with config.pattern("meet.google.com") as p:
+    p.content.notifications.enabled = True
+    p.content.media.audio_video_capture = True
+    p.content.media.audio_capture = True
+    p.content.media.video_capture = True
+    p.content.desktop_capture = True
 # Devtools ============================================================================
 for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
     with config.pattern(tool + '://*') as t:
