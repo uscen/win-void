@@ -124,14 +124,65 @@ c.hints.dictionary = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\misc\dict
 c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
 c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
 c.hints.padding =  {"top": 0, "bottom": 2, "left": 2, "right": 0}
-c.hints.selectors["code"] = [
-    ":not(pre) > code",
-    "pre",
-]
+c.hints.selectors = {
+	"all": [
+		"a",
+		"area",
+		"textarea",
+		"select",
+		'input:not([type="hidden"])',
+		"button",
+		"frame",
+		"iframe",
+		"img",
+		"link",
+		"summary",
+		'[contenteditable]:not([contenteditable="false"])',
+		"[onclick]",
+		"[onmousedown]",
+		'[role="link"]',
+		'[role="option"]',
+		'[role="button"]',
+		'[role="tab"]',
+		'[role="checkbox"]',
+		'[role="switch"]',
+		'[role="menuitem"]',
+		'[role="menuitemcheckbox"]',
+		'[role="menuitemradio"]',
+		'[role="treeitem"]',
+		"[aria-haspopup]",
+		"[ng-click]",
+		"[ngClick]",
+		"[data-ng-click]",
+		"[x-ng-click]",
+		'[tabindex]:not([tabindex="-1"])',
+	],
+	"links": ["a[href]", "area[href]", "link[href]", '[role="link"][href]'],
+	"images": ["img"],
+	"media": ["audio", "img", "video"],
+	"url": ["[src]", "[href]"],
+	"inputs": [
+		'input[type="text"]',
+		'input[type="date"]',
+		'input[type="datetime-local"]',
+		'input[type="email"]',
+		'input[type="month"]',
+		'input[type="number"]',
+		'input[type="password"]',
+		'input[type="search"]',
+		'input[type="tel"]',
+		'input[type="time"]',
+		'input[type="url"]',
+		'input[type="week"]',
+		"input:not([type])",
+		'[contenteditable]:not([contenteditable="false"])',
+		"textarea",
+	],
+}
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Keyhint                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.keyhint.delay = 100
+c.keyhint.delay = 300
 c.keyhint.radius = 2
 c.keyhint.blacklist = []
 #               ╔═════════════════════════════════════════════════════════╗
@@ -252,7 +303,7 @@ c.content.headers.custom = {}
 # Notifications =======================================================================
 c.content.notifications.enabled = False
 c.content.notifications.show_origin = True
-c.content.notifications.presenter = 'messages'
+c.content.notifications.presenter = 'auto'
 # Cookies =============================================================================
 c.content.cookies.store = True
 c.content.cookies.accept = "no-3rdparty"
@@ -310,8 +361,8 @@ c.session.default_name = "default"
 #               ╚═════════════════════════════════════════════════════════╝
 c.fileselect.handler = 'default'
 c.fileselect.folder.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
-c.fileselect.multiple_files.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
-c.fileselect.single_file.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosedir={}"]
+c.fileselect.multiple_files.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosefiles={}"]
+c.fileselect.single_file.command = ["alacritty", "-e", "bash", '-c', "yazi", "--choosefile={}"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Instance                       ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -331,6 +382,10 @@ c.logging.level.ram = 'debug'
 #               ║                        Messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.messages.timeout = 1500
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                        Spellcheck                       ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.spellcheck.languages = ["en-US"]
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Editor                         ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -418,7 +473,15 @@ c.url.searchengines = {
     'fb': 'https://www.facebook.com/s.php?q={}',
     'ig': 'https://www.instagram.com/explore/tags/{}',
     'tw': 'https://twitter.com/search?q={}',
+    # dev =============================================================================
+	"ld": "https://devdocs.io#q={}",
+	"lp": "https://devdocs.io#q=python {}",
+	"ll": "https://devdocs.io#q=lua {}",
+	"lr": "https://devdocs.io#q=rust {}",
     # tech ============================================================================
+	"ph": "https://phind.com/search?q={}",
+	"so": "https://stackoverflow.com/search?q={}",
+	"sg": "https://sourcegraph.com/search?q=context:global+{}&patternType=standard&sm=1",
     'gh': 'https://github.com/search?o=desc&q={}&s=stars',
     'gu': 'https://github.com/search?q={}&type=Users',
     'gc': 'https://github.com/search?q={}&type=Code',
@@ -429,6 +492,7 @@ c.url.searchengines = {
     'rp': 'http://github.com/catalinplesu/{}',
     'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
     # streaming =======================================================================
+	"in": "https://inv.nadeko.net/search?q={}",
     'nf': "https://www.netflix.com/search?q={}",
     'sp': "https://open.spotify.com/search/{}",
     'an': 'https://ww.anime4up.rest/?search_param=animes&s={}',
@@ -494,6 +558,7 @@ for key in unbind_keys:
 # General  ============================================================================
 config.bind('rr', 'reload')
 config.bind('qm', 'macro-record')
+config.bind("'", "mode-enter jump_mark")
 config.bind('yl', 'hint --rapid links yank')
 config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
 config.bind('<Ctrl-v>', 'hint inputs --first ;; cmd-later 10 insert-text -- {clipboard}')
@@ -506,6 +571,9 @@ config.bind('wi', 'devtools bottom')
 config.bind('wI', 'devtools window')
 config.bind('<Ctrl-i>', 'devtools left')
 config.bind('<Ctrl-Shift-i>', 'devtools right')
+# Sessions ============================================================================
+config.bind("SS", "session-save")
+config.bind("SL", "session-load default")
 # Tabs  ===============================================================================
 config.bind('T', 'hint links tab')
 config.bind('dd', 'tab-close')
@@ -524,6 +592,10 @@ config.bind('gm', 'tab-move')
 config.bind('<Ctrl-n>', 'tab-next')
 config.bind('<Ctrl-p>', 'tab-prev')
 config.bind('<Ctrl-q>', 'tab-close')
+config.bind("<Ctrl-m>", "tab-mute")
+config.bind("<Ctrl-PgDown>", "tab-next")
+config.bind("<Ctrl-PgUp>", "tab-prev")
+config.bind("<Ctrl-Tab>", "tab-focus last")
 # Open ================================================================================
 config.bind('ee', 'cmd-set-text :open {url:pretty}')
 config.bind('ev', 'edit-url')
