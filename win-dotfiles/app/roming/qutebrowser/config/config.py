@@ -401,7 +401,7 @@ c.url.searchengines = {
     'yy': 'https://www.youtube.com/results?search_query={}&search=Search',
     'yt': 'https://www.youtube.com/results?search_query={}&search=Search',
     'wi': 'https://en.wikipedia.org/wiki/{}',
-    'ma': 'https://www.google.com/maps/search/{}',
+    'mp': 'https://www.google.com/maps/search/{}',
     # translate =======================================================================
     'ar': 'https://translate.google.com/?sl=auto&tl=ar&text={}&op=translate',
     'tr': 'https://translate.google.com/?sl=auto&tl=en&text={}&op=translate',
@@ -429,8 +429,10 @@ c.url.searchengines = {
     'rp': 'http://github.com/catalinplesu/{}',
     'wolframalpha': 'http://www.wolframalpha.com/input/?i={}',
     # streaming =======================================================================
+    'nf': "https://www.netflix.com/search?q={}",
+    'sp': "https://open.spotify.com/search/{}",
     'an': 'https://ww.anime4up.rest/?search_param=animes&s={}',
-    "al" : "anilist.co/search/anime?search={}",
+    "ai": "anilist.co/search/anime?search={}",
     'db': 'https://www.imdb.com/find?q={}',
     'zo': 'https://zoro.to/search?keyword={}',
     'to': 'https://www.1377x.to/search/{}/1/',
@@ -450,9 +452,13 @@ c.url.searchengines = {
     'dx': 'https://dexonline.ro/definitie/{}',
     # buy =============================================================================
     'jo': 'https://www.joom.com/en/search/q.{}',
-    'ax': 'https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20220103075220&SearchText={}',
+    'al': "https://aliexpress.ru/wholesale?SearchText={}&g=y&page=1",
     'az': 'https://www.amazon.com/s?k={}',
-    'tm': 'https://www.temu.com/search_result.html?search_key={}'
+    'av': "https://www.avito.ru/sankt-peterburg?q={}",
+    'tm': 'https://www.temu.com/search_result.html?search_key={}',
+    # others ==========================================================================
+    'up': "https://www.reddit.com/r/unixporn/search?q={}&restrict_sr=on",
+    'up': "https://www.reddit.com/r/unixporn/search?q={}&restrict_sr=on",
 }
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Aliases                        ║
@@ -468,6 +474,10 @@ c.aliases['wq'] = 'quit --save'
 c.aliases['wq!'] = 'quit --save'
 c.aliases['wqa'] = 'quit --save'
 c.aliases['mpv'] = 'spawn --detach mpv {url}'
+c.aliases['tor'] = 'spawn --detach tor-browser {url}'
+c.aliases['ff'] = 'spawn --detach firefox {url}'
+c.aliases['ed'] = 'spawn --detach msedge {url}'
+c.aliases['ch'] = 'spawn --detach chromium {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -492,6 +502,11 @@ config.bind('<Ctrl-h>', 'history')
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-x>', 'cmd-set-text :')
 config.bind(';', 'cmd-set-text :')
+# Devtools ============================================================================
+config.bind('wi', 'devtools bottom')
+config.bind('wI', 'devtools window')
+config.bind('<Ctrl-i>', 'devtools left')
+config.bind('<Ctrl-Shift-i>', 'devtools right')
 # Tabs  ===============================================================================
 config.bind('T', 'hint links tab')
 config.bind('dd', 'tab-close')
@@ -538,14 +553,10 @@ config.bind('ca', 'hint all download')
 config.bind('ci', 'hint images download')
 # Configuration =======================================================================
 config.bind("se", "config-edit")
+config.bind("sv", "config-edit")
 config.bind("ss", "config-source")
 config.bind("sa", "adblock-update")
 config.bind("sr", "greasemonkey-reload")
-# Devtools ============================================================================
-config.bind('wi', 'devtools bottom')
-config.bind('wI', 'devtools window')
-config.bind('<Ctrl-i>', 'devtools left')
-config.bind('<Ctrl-Shift-i>', 'devtools right')
 # Videos  =============================================================================
 config.bind('rvm', 'spawn mpv {url}')
 config.bind('rvM', 'hint links spawn mpv {hint-url}')
