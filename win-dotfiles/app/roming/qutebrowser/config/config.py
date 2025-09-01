@@ -458,10 +458,6 @@ c.aliases['mpv'] = 'spawn --detach mpv {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-# Unbind ==============================================================================
-unbind_keys = ['d', 'q']
-for key in unbind_keys:
-    config.unbind(key)
 # Remap ===============================================================================
 c.bindings.key_mappings = {
     '<Enter>': '<Return>',
@@ -469,45 +465,18 @@ c.bindings.key_mappings = {
     '<Shift-Enter>': '<Return>',
     '<Ctrl-Enter>': '<Ctrl-Return>'
 }
+# Unbind ==============================================================================
+unbind_keys = ['d', 'q']
+for key in unbind_keys:
+    config.unbind(key)
 # General  ============================================================================
 config.bind('qm', 'macro-record')
 config.bind('yl', 'hint --rapid links yank')
-config.bind(';', 'cmd-set-text :')
-config.bind('<Ctrl-x>', 'cmd-set-text :')
-config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
-config.bind('<Ctrl-h>', 'history')
 config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
-# Open ================================================================================
-config.bind('ee', 'cmd-set-text :open {url:pretty}')
-config.bind('ev', 'edit-url')
-config.bind('ep', 'open -p')
-config.bind('ew', 'open -w')
-config.bind('et', 'open -t')
-config.bind('ec', "spawn chromium {url}")
-config.bind('ef', "spawn firefox {url}")
-config.bind('ei', "spawn msedge {url}")
-config.bind('<Ctrl-e>', 'open -w')
-config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
-# Focus ===============================================================================
-config.bind('<Alt-1>', 'tab-focus 1')
-config.bind('<Alt-2>', 'tab-focus 2')
-config.bind('<Alt-3>', 'tab-focus 3')
-config.bind('<Alt-4>', 'tab-focus 4')
-config.bind('<Alt-5>', 'tab-focus 5')
-config.bind('<Alt-6>', 'tab-focus 6')
-config.bind('<Alt-7>', 'tab-focus 7')
-config.bind('<Alt-8>', 'tab-focus 8')
-config.bind('<Alt-9>', 'tab-focus -1')
-# Configuration =======================================================================
-config.bind("se", "config-edit")
-config.bind("ss", "config-source")
-config.bind("sa", "adblock-update")
-config.bind("sr", "greasemonkey-reload")
-# Devtools ============================================================================
-config.bind('wi', 'devtools bottom')
-config.bind('wI', 'devtools window')
-config.bind('<Ctrl-i>', 'devtools left')
-config.bind('<Ctrl-Shift-i>', 'devtools right')
+config.bind('<Ctrl-h>', 'history')
+config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
+config.bind('<Ctrl-x>', 'cmd-set-text :')
+config.bind(';', 'cmd-set-text :')
 # Tabs  ===============================================================================
 config.bind('T', 'hint links tab')
 config.bind('dd', 'tab-close')
@@ -526,13 +495,27 @@ config.bind('gm', 'tab-move')
 config.bind('<Ctrl-n>', 'tab-next')
 config.bind('<Ctrl-p>', 'tab-prev')
 config.bind('<Ctrl-q>', 'tab-close')
-# Downloads  ==========================================================================
-config.bind('co', 'download-open')
-config.bind('ce', 'download-cancel')
-config.bind('cc', 'download-clear')
-config.bind('cr', 'download-retry')
-config.bind('ca', 'hint all download')
-config.bind('ci', 'hint images download')
+# Open ================================================================================
+config.bind('ee', 'cmd-set-text :open {url:pretty}')
+config.bind('ev', 'edit-url')
+config.bind('ep', 'open -p')
+config.bind('ew', 'open -w')
+config.bind('et', 'open -t')
+config.bind('ec', "spawn chromium {url}")
+config.bind('ef', "spawn firefox {url}")
+config.bind('ei', "spawn msedge {url}")
+config.bind('<Ctrl-e>', 'open -w')
+config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
+# Focus ===============================================================================
+config.bind('<Ctrl-1>', 'tab-focus 1')
+config.bind('<Ctrl-2>', 'tab-focus 2')
+config.bind('<Ctrl-3>', 'tab-focus 3')
+config.bind('<Ctrl-4>', 'tab-focus 4')
+config.bind('<Ctrl-5>', 'tab-focus 5')
+config.bind('<Ctrl-6>', 'tab-focus 6')
+config.bind('<Ctrl-7>', 'tab-focus 7')
+config.bind('<Ctrl-8>', 'tab-focus 8')
+config.bind('<Ctrl-9>', 'tab-focus -1')
 # Zoom  ===============================================================================
 config.bind('zi', 'zoom-in')
 config.bind('zo', 'zoom-out')
@@ -541,6 +524,23 @@ config.bind('zf', 'fullscreen')
 config.bind('<Ctrl-0>', 'zoom')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
+# Downloads  ==========================================================================
+config.bind('co', 'download-open')
+config.bind('ce', 'download-cancel')
+config.bind('cc', 'download-clear')
+config.bind('cr', 'download-retry')
+config.bind('ca', 'hint all download')
+config.bind('ci', 'hint images download')
+# Configuration =======================================================================
+config.bind("se", "config-edit")
+config.bind("ss", "config-source")
+config.bind("sa", "adblock-update")
+config.bind("sr", "greasemonkey-reload")
+# Devtools ============================================================================
+config.bind('wi', 'devtools bottom')
+config.bind('wI', 'devtools window')
+config.bind('<Ctrl-i>', 'devtools left')
+config.bind('<Ctrl-Shift-i>', 'devtools right')
 # Videos  =============================================================================
 config.bind(',m', 'spawn mpv {url}')
 config.bind(',M', 'hint links spawn mpv {hint-url}')
