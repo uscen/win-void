@@ -411,8 +411,8 @@ c.url.searchengines = {
     'ja': 'https://translate.google.com/?sl=auto&tl=ja&text={}&op=translate',
     # entertainment ===================================================================
     're': 'https://www.reddit.com/r/{}/',
-    'rr': 'https://www.reddit.com/search?q={}',
-    'rs': 'https://www.reddit.com/r/{unquoted}',
+    'rr': 'https://www.reddit.com/r/{unquoted}',
+    'rs': 'https://www.reddit.com/search?q={}',
     'ro': 'https://old.reddit.com/search?q={}',
     'pi': 'https://www.pinterest.com/search/pins/?q={}',
     'fb': 'https://www.facebook.com/s.php?q={}',
@@ -457,7 +457,6 @@ c.url.searchengines = {
     'av': "https://www.avito.ru/sankt-peterburg?q={}",
     'tm': 'https://www.temu.com/search_result.html?search_key={}',
     # others ==========================================================================
-    'up': "https://www.reddit.com/r/unixporn/search?q={}&restrict_sr=on",
     'up': "https://www.reddit.com/r/unixporn/search?q={}&restrict_sr=on",
 }
 #               ╔═════════════════════════════════════════════════════════╗
