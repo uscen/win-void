@@ -108,6 +108,37 @@ c.completion.favorite_paths = []
 c.completion.open_categories = ['history']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 #               ╔═════════════════════════════════════════════════════════╗
+#               ║                          Input                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.input.match_counts = True
+c.input.escape_quits_reporter = True
+c.input.mouse.back_forward_buttons = True
+c.input.media_keys = True
+c.input.insert_mode.auto_enter = True
+c.input.insert_mode.auto_leave = True
+c.input.insert_mode.leave_on_load = True
+c.input.insert_mode.auto_load = False
+c.input.insert_mode.plugins = False
+c.input.links_included_in_focus_chain = True
+c.input.mouse.rocker_gestures = False
+c.input.spatial_navigation = False
+c.input.partial_timeout = 30000
+c.input.forward_unbound_keys = 'all'
+c.input.mode_override = "normal"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Search                          ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.search.incremental = True
+c.search.wrap = True
+c.search.wrap_messages = False
+c.search.ignore_case = "smart"
+#               ╔═════════════════════════════════════════════════════════╗
+#               ║                         Keyhint                         ║
+#               ╚═════════════════════════════════════════════════════════╝
+c.keyhint.delay = 300
+c.keyhint.radius = 2
+c.keyhint.blacklist = []
+#               ╔═════════════════════════════════════════════════════════╗
 #               ║                         Hints                           ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.hints.scatter = True
@@ -179,37 +210,6 @@ c.hints.selectors = {
 		"textarea",
 	],
 }
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                         Keyhint                         ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.keyhint.delay = 300
-c.keyhint.radius = 2
-c.keyhint.blacklist = []
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                         Search                          ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.search.incremental = True
-c.search.wrap = True
-c.search.wrap_messages = False
-c.search.ignore_case = "smart"
-#               ╔═════════════════════════════════════════════════════════╗
-#               ║                          Input                          ║
-#               ╚═════════════════════════════════════════════════════════╝
-c.input.match_counts = True
-c.input.escape_quits_reporter = True
-c.input.mouse.back_forward_buttons = True
-c.input.media_keys = True
-c.input.insert_mode.auto_enter = True
-c.input.insert_mode.auto_leave = True
-c.input.insert_mode.leave_on_load = True
-c.input.insert_mode.auto_load = False
-c.input.insert_mode.plugins = False
-c.input.links_included_in_focus_chain = True
-c.input.mouse.rocker_gestures = False
-c.input.spatial_navigation = False
-c.input.partial_timeout = 30000
-c.input.forward_unbound_keys = 'all'
-c.input.mode_override = "normal"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
