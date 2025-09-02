@@ -48,6 +48,12 @@ alias gc = g commit -m
 alias gd = g diff
 alias gl = g log --oneline --graph --all -10
 alias gp = g push -uf origin main
+alias gr = git remote
+alias grh = git reset
+alias grhh = git reset --hard
+alias grss = git restore --source
+alias grst = git restore --staged
+alias grm = git rm
 alias lg = lazygit
 # winget Package Manager:                                                         #
 # =============================================================================== #
