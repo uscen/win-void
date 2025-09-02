@@ -6,6 +6,14 @@
 alias ls = eza --long --group --icons=auto --git --sort=name --group-directories-first
 alias ll = eza --long --group --icons=auto --git --sort=name --group-directories-first
 alias lt = eza --long --group --icons=auto --git --only-dirs --tree --level=3 --sort=modified
+# Bat Like Cat:                                                                   #
+# =============================================================================== #
+alias b = bat
+alias bn = bat --number
+alias bnl = bat --number --line-range
+alias bp = bat --plain
+alias bpl = bat --plain --line-range
+alias bl = bat --line-range
 # Changing Directory:                                                             #
 # =============================================================================== #
 alias cd = z
