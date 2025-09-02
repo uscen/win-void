@@ -10,7 +10,7 @@ c.backend = 'webengine'
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # UI ==================================================================================
-c.fonts.default_size = '14px'
+c.fonts.default_size = '12px'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
 c.fonts.completion.entry = 'default_size default_family'
 c.fonts.completion.category = 'bold default_size default_family'
@@ -56,7 +56,7 @@ c.tabs.max_width = -1
 c.tabs.min_width = -1
 c.tabs.indicator.width = 0
 c.tabs.indicator.padding = {'top': 0, 'bottom': 0, 'left': 0, 'right': 0}
-c.tabs.padding = {"top": 8, "bottom": 8, "left": 4, "right": 4}
+c.tabs.padding = {"top": 4, "bottom": 4, "left": 4, "right": 4}
 c.tabs.position = "left"
 c.tabs.show = "switching"
 c.tabs.mode_on_change = 'normal'
@@ -154,7 +154,7 @@ c.hints.chars = "asdfghjkl"
 c.hints.dictionary = r"C:\Users\lli\AppData\Roaming\qutebrowser\config\misc\dict\english.txt"
 c.hints.next_regexes = ['\\bnext\\b', '\\bmore\\b', '\\bnewer\\b', '\\b[>→≫]\\b', '\\b(>>|»)\\b', '\\bcontinue\\b']
 c.hints.prev_regexes = ['\\bprev(ious)?\\b', '\\bback\\b', '\\bolder\\b', '\\b[<←≪]\\b', '\\b(<<|«)\\b']
-c.hints.padding =  {"top": 0, "bottom": 2, "left": 2, "right": 0}
+c.hints.padding =  {"top": 2, "bottom": 2, "left": 2, "right": 2}
 c.hints.selectors = {
     "all": [
        "a",
@@ -414,7 +414,7 @@ c.qt.force_software_rendering = 'none'
 c.qt.workarounds.disable_accelerated_2d_canvas = 'auto'
 c.qt.chromium.experimental_web_platform_features = 'never'
 c.qt.chromium.low_end_device_mode = 'never'
-c.qt.chromium.process_model = 'single-process'
+c.qt.chromium.process_model = 'process-per-site-instance'
 c.qt.chromium.sandboxing = 'enable-all'
 c.qt.environ = {}
 c.qt.args = [
@@ -751,7 +751,7 @@ c.colors.webpage.darkmode.policy.page = 'smart'
 # Lightmode ===========================================================================
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 config.set("colors.webpage.darkmode.enabled", False, "http://localhost:*")
-for domain in ['localhost',  'vercel.app', 'whatsapp.com', 'qutebrowser.org', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
+for domain in ['localhost',  'vercel.app', 'qutebrowser.org', 'codepen.io', 'whatsapp.com', 'kasmweb.com', 'instapaper.com', 'cz-usa.com', 'mossberg.com', 'ruger.com', 'smith-wesson.com']:
     with config.pattern('*://*.' + domain + '/*') as d:
         d.colors.webpage.darkmode.enabled = False
 # Palette =============================================================================
