@@ -157,7 +157,7 @@ window_rules:
     match:
       - window_process: { equals: "thunderbird" }
   # Border Rules: ================================================================================
-  - commands: ["adjust-borders --top 6px"]
+  - commands: ["adjust-borders --top 7px"]
     match:
       - window_process: { equals: "qutebrowser" }
 #                ╭─────────────────────────────────────────────────────────╮
@@ -272,7 +272,7 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
-  - commands: ["shell-exec qutebrowser"]
+  - commands: ["shell-exec qutebrowser :fullscreen"]
     bindings: ["alt+w"]
   - commands: ["shell-exec msedge"]
     bindings: ["alt+i"]
