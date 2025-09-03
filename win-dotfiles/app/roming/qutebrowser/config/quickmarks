@@ -11,6 +11,7 @@ messenger https://www.facebook.com/messages/t
 drive https://drive.google.com/drive/u/0/my-drive
 photos https://photos.google.com
 contacts https://contacts.google.com/
+translate https://translate.google.com/
 keep https://keep.google.com
 amazon https://www.amazon.fr/
 linkedin https://www.linkedin.com/feed/
@@ -66,3 +67,4 @@ learnXinY https://learnxinyminutes.com/
 tui https://terminaltrove.com/categories/tui/
 redlib-unix https://redlib.perennialte.ch/r/unixporn
 redlib-nvim https://redlib.perennialte.ch/r/neovim
+book https://be1lib.org/
