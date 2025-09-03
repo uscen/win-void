@@ -807,7 +807,7 @@ now(function()
   vim.opt.wildoptions            = 'fuzzy,pum'
   vim.opt.wildignore             = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o'
   vim.opt.omnifunc               = 'v:lua.vim.lsp.omnifunc'
-  vim.opt.completeopt            = 'menu,menuone,popup,noselect,fuzzy'
+  vim.opt.completeopt            = 'menuone,noselect,fuzzy,nosort'
   vim.opt.completeitemalign      = 'kind,abbr,menu'
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = 'usetab'
