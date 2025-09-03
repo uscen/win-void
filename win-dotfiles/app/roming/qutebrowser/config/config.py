@@ -676,6 +676,9 @@ config.bind('aa', 'open https://web.archive.org/web/*/{url}')
 config.bind('aA', 'open -t https://web.archive.org/web/*/{url}')
 config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
 config.bind('aG', 'open -t https://www.google.com/search?q=cache:{url}')
+# javascript =========================================================================
+config.bind("xjt", "set content.javascript.enabled true")
+config.bind("xjf", "set content.javascript.enabled false")
 # Focus ===============================================================================
 config.bind('<Ctrl-1>', 'tab-focus 1')
 config.bind('<Ctrl-2>', 'tab-focus 2')
