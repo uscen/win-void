@@ -1141,25 +1141,6 @@ now_if_args(function()
       vim.cmd('tabnext ' .. current_tab)
     end,
   })
-  -- Toggle Cursorline: ==========================================================================
-  local toggle_cursorline = vim.api.nvim_create_augroup('toggle_cursorline ', { clear = true })
-  vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
-    group = toggle_cursorline,
-    callback = function()
-      if vim.w.auto_cursorline then
-        vim.wo.cursorline = true
-        vim.w.auto_cursorline = nil
-      end
-    end,
-  })
-  vim.api.nvim_create_autocmd({ "InsertEnter", "WinLeave" }, {
-    callback = function()
-      if vim.wo.cursorline then
-        vim.w.auto_cursorline = true
-        vim.wo.cursorline = false
-      end
-    end,
-  })
   -- Fix broken macro recording notification for cmdheight 0 : ===================================
   local show_recordering = vim.api.nvim_create_augroup('show_recordering', { clear = true })
   vim.api.nvim_create_autocmd('RecordingEnter', {
