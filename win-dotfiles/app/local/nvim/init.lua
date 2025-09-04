@@ -77,7 +77,11 @@ later(function()
       hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
       todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
       note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-      hex_color = require('mini.hipatterns').gen_highlighter.hex_color({ priority = 200 }),
+      hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
+        style = "inline",
+        inline_text = " ",
+        priority = 200,
+      }),
       hex_shorthand = {
         pattern = '()#%x%x%x()%f[^%x%w]',
         group = function(_, _, data)
@@ -859,7 +863,7 @@ now(function()
   vim.opt.pumheight              = 10
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
-  vim.opt.colorcolumn            = ''
+  vim.opt.colorcolumn            = '+1'
   vim.opt.guicursor              = ''
   vim.opt.background             = 'dark'
   vim.opt.display                = 'lastline'
@@ -911,7 +915,7 @@ now(function()
   vim.opt.wrap                   = false
   vim.opt.showmatch              = false
   vim.opt.joinspaces             = false
-  vim.opt.textwidth              = 120
+  vim.opt.textwidth              = 128
   vim.opt.wrapmargin             = 2
   vim.opt.tabstop                = 2
   vim.opt.shiftwidth             = 2
