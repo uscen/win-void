@@ -10,9 +10,9 @@ c.backend = 'webengine'
 #               ║                          Fonts                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # UI ==================================================================================
-c.fonts.default_size = '12px'
+c.fonts.default_size = '13px'
 c.fonts.default_family = "JetBrainsMono Nerd Font"
-c.fonts.completion.entry = 'bold default_size default_family'
+c.fonts.completion.entry = 'default_size default_family'
 c.fonts.completion.category = 'bold default_size default_family'
 c.fonts.debug_console = 'bold default_size default_family'
 c.fonts.contextmenu = 'bold default_size default_family'
