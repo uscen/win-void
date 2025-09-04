@@ -566,10 +566,6 @@ config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-x>', 'cmd-set-text :')
 config.bind(';', 'cmd-set-text :')
 # scrolling ==========================================================================
-config.bind('h', 'cmd-run-with-count 2 scroll left')
-config.bind('j', 'cmd-run-with-count 2 scroll down')
-config.bind('k', 'cmd-run-with-count 2 scroll up')
-config.bind('l', 'cmd-run-with-count 2 scroll right')
 config.bind('<Ctrl-h>', 'cmd-run-with-count 20 scroll left')
 config.bind('<Ctrl-j>', 'cmd-run-with-count 20 scroll down')
 config.bind('<Ctrl-k>', 'cmd-run-with-count 20 scroll up')
@@ -579,9 +575,6 @@ config.bind('wi', 'devtools bottom')
 config.bind('wI', 'devtools window')
 config.bind('<Ctrl-i>', 'devtools left')
 config.bind('<Ctrl-Shift-i>', 'devtools right')
-# Sessions ============================================================================
-config.bind("SS", "session-save")
-config.bind("SL", "session-load default")
 # Tabs  ===============================================================================
 config.bind('T', 'hint links tab')
 config.bind('dd', 'tab-close')
@@ -648,6 +641,9 @@ config.bind('riO', 'hint images run open -t {hint-url}')
 config.bind('riy', 'hint images yank')
 config.bind('riY', 'hint images yank-primary')
 config.bind('rig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
+# Sessions ============================================================================
+config.bind("SS", "session-save")
+config.bind("SL", "session-load default")
 # private =============================================================================
 config.bind('rap', 'hint all run open -p {hint-url}')
 # Toggle ==============================================================================
