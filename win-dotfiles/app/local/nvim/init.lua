@@ -542,7 +542,7 @@ now_if_args(function()
     pattern = 'MiniFilesWindowUpdate',
     callback = function(args)
       local config = vim.api.nvim_win_get_config(args.data.win_id)
-      config.height = 8
+      config.height = 999
       if config.title[#config.title][1] ~= ' ' then
         table.insert(config.title, { ' ', 'NormalFloat' })
       end
