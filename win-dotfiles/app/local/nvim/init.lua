@@ -1109,7 +1109,7 @@ now_if_args(function()
   -- Clear the last used search pattern when opening a new buffer ================================
   vim.api.nvim_create_autocmd('BufReadPre', {
     pattern = '*',
-    group = vim.api.nvim_create_augroup('clear-last-search', { clear = true }),
+    group = vim.api.nvim_create_augroup('clear_last_search', { clear = true }),
     callback = function()
       vim.fn.setreg('/', '')
       vim.cmd 'let @/ = ""'
@@ -1118,7 +1118,7 @@ now_if_args(function()
   -- Don't Comment New Line ======================================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',
-    group = vim.api.nvim_create_augroup('diable-new-line-comments', {}),
+    group = vim.api.nvim_create_augroup('diable_new_line_comments', {}),
     callback = function()
       vim.opt_local.formatoptions:remove('o')
       vim.opt_local.formatoptions:remove('r')
@@ -1820,6 +1820,8 @@ later(function()
       ['%.env%.[%w_.-]+'] = 'sh',
       ['.*/*.conf*'] = 'conf',
       ['*.MD'] = 'markdown',
+      ['Dockerfile*'] = 'dockerfile',
+      ['*.dockerfile'] = 'dockerfile',
       ['*.user.css'] = 'ess',
     },
   })
