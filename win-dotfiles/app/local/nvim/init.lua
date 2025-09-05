@@ -859,8 +859,8 @@ now(function()
   vim.opt.showtabline            = 0
   vim.opt.cmdwinheight           = 30
   vim.opt.pumwidth               = 20
-  vim.opt.pumblend               = 10
   vim.opt.pumheight              = 10
+  vim.opt.pumblend               = 0
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
   vim.opt.colorcolumn            = '+1'
