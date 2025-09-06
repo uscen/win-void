@@ -324,13 +324,38 @@ c.content.javascript.log_message.levels = {'qute:*': ['error'], 'userscript:GM-*
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          PerSite                        ║
 #               ╚═════════════════════════════════════════════════════════╝
-# Call ================================================================================
+# Permission ==========================================================================
 with config.pattern("meet.google.com") as p:
     p.content.notifications.enabled = True
     p.content.media.audio_video_capture = True
     p.content.media.audio_capture = True
     p.content.media.video_capture = True
     p.content.desktop_capture = True
+with config.pattern("*://*.discord.com") as dc:
+    dc.content.autoplay = True
+    dc.content.desktop_capture = True
+    dc.content.media.audio_capture = True
+    dc.content.media.audio_video_capture = True
+    dc.content.media.video_capture = True
+with config.pattern("*://*.element.io") as el:
+    el.content.autoplay = True
+    el.content.desktop_capture = True
+    el.content.media.audio_capture = True
+    el.content.media.audio_video_capture = True
+    el.content.media.video_capture = True
+    el.content.notifications.enabled = True
+    el.content.media.audio_capture = True
+with config.pattern("*://mail.proton.me") as pm:
+    pm.content.register_protocol_handler = True
+    pm.content.notifications.enabled = True
+with config.pattern("*://mail.google.com") as gm:
+    gm.content.register_protocol_handler = False
+    gm.content.notifications.enabled = False
+with config.pattern("*://outlook.office.com") as outl:
+    outl.content.register_protocol_handler = False
+    outl.content.notifications.enabled = False
+with config.pattern("*://*.aternos.org") as aternos:
+    aternos.content.notifications.enabled = True
 # Devtools ============================================================================
 for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
     with config.pattern(tool + '://*') as t:
@@ -348,7 +373,7 @@ c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ╚═════════════════════════════════════════════════════════╝
 c.zoom.mouse_divider = 512
 c.zoom.default = "100%"
-c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
+c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '80%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Session                        ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -562,9 +587,13 @@ config.bind("'", "mode-enter jump_mark")
 config.bind('yl', 'hint --rapid links yank')
 config.bind('<Esc>', 'clear-keychain ;; search ;; fullscreen --leave ;; clear-messages')
 config.bind('<Ctrl-v>', 'hint inputs --first ;; cmd-later 10 insert-text -- {clipboard}')
+config.bind("ya", "mode-enter caret;;selection-toggle;;move-to-end-of-document;;yank selection;;mode-leave")
 config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-x>', 'cmd-set-text :')
 config.bind(';', 'cmd-set-text :')
+# Bookmark  ============================================================================
+config.bind("A", "cmd-set-text -s :bookmark-add -t {url}")
+config.bind("B", "cmd-set-text -s :bookmark-load -t")
 # scrolling ==========================================================================
 config.bind('<Ctrl-h>', 'cmd-run-with-count 20 scroll left')
 config.bind('<Ctrl-j>', 'cmd-run-with-count 20 scroll down')
@@ -612,6 +641,7 @@ config.bind('<Ctrl-t>', 'open -t ;; cmd-set-text -s :open')
 # Zoom  ===============================================================================
 config.bind('zi', 'zoom-in')
 config.bind('zo', 'zoom-out')
+config.bind("zz", "zoom")
 config.bind('z0', 'zoom')
 config.bind('zf', 'fullscreen')
 config.bind('<Ctrl-0>', 'zoom')
@@ -725,6 +755,38 @@ config.bind('<Ctrl-D>', 'fake-key <Delete>', mode='insert')
 config.bind('<Ctrl-W>', 'fake-key <Ctrl-Backspace>', mode='insert')
 config.bind('<Ctrl-U>', 'fake-key <Shift-Home> ;; fake-key <Delete>', mode='insert')
 config.bind('<Ctrl-K>', 'fake-key <Shift-End> ;; fake-key <Delete>', mode='insert')
+# Caret ===============================================================================
+config.bind("/", "cmd-set-text /", mode="caret")
+config.bind('$', 'move-to-end-of-line', mode='caret')
+config.bind('0', 'move-to-start-of-line', mode='caret')
+config.bind("_", "move-to-start-of-line", mode="caret")
+config.bind('<Ctrl-Space>', 'selection-drop', mode='caret')
+config.bind('<Escape>', 'mode-leave', mode='caret')
+config.bind('<Return>', 'yank selection', mode='caret')
+config.bind('<Space>', 'selection-toggle', mode='caret')
+config.bind('G', 'move-to-end-of-document', mode='caret')
+config.bind("H", "scroll left", mode="caret")
+config.bind("J", "scroll down", mode="caret")
+config.bind("K", "scroll up", mode="caret")
+config.bind("L", "scroll right", mode="caret")
+config.bind("h", "move-to-prev-char", mode="caret")
+config.bind("j", "move-to-next-line", mode="caret")
+config.bind("k", "move-to-prev-line", mode="caret")
+config.bind("l", "move-to-next-char", mode="caret")
+config.bind('V', 'selection-toggle --line', mode='caret')
+config.bind('Y', 'yank selection -s', mode='caret')
+config.bind('[', 'move-to-start-of-prev-block', mode='caret')
+config.bind(']', 'move-to-start-of-next-block', mode='caret')
+config.bind('b', 'move-to-prev-word', mode='caret')
+config.bind('c', 'mode-enter normal', mode='caret')
+config.bind('e', 'move-to-end-of-word', mode='caret')
+config.bind('gg', 'move-to-start-of-document', mode='caret')
+config.bind('o', 'selection-reverse', mode='caret')
+config.bind('v', 'selection-toggle', mode='caret')
+config.bind('w', 'move-to-next-word', mode='caret')
+config.bind('y', 'yank selection', mode='caret')
+config.bind('{', 'move-to-end-of-prev-block', mode='caret')
+config.bind('}', 'move-to-end-of-next-block', mode='caret')
 # hint ================================================================================
 config.bind('<Ctrl-c>', 'mode-leave', mode='hint')
 config.bind(';', 'hint links', mode='hint')
