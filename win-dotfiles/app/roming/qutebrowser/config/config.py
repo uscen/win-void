@@ -356,7 +356,7 @@ with config.pattern("*://outlook.office.com") as outl:
     outl.content.notifications.enabled = False
 with config.pattern("*://*.aternos.org") as aternos:
     aternos.content.notifications.enabled = True
-# Devtools ============================================================================
+# InDevtools ==========================================================================
 for tool in ['devtools', 'chrome-devtools', 'chrome', 'qute']:
     with config.pattern(tool + '://*') as t:
         t.content.cookies.accept = 'all'
@@ -677,12 +677,12 @@ config.bind('riy', 'hint images yank')
 config.bind('riY', 'hint images yank-primary')
 config.bind('rig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
 # Screenshot ==========================================================================
-config.bind("rss", "cmd-set-text -s :screenshot")
+config.bind("rss", "cmd-set-text -s :screenshot --force")
 # Print ==========================================================================
 config.bind("rpp", "print")
 # Sessions ============================================================================
-config.bind("SS", "session-save")
-config.bind("SL", "session-load default")
+config.bind("Ss", "session-save")
+config.bind("Sl", "session-load default")
 # private =============================================================================
 config.bind('rap', 'hint all run open -p {hint-url}')
 # Toggle ==============================================================================
