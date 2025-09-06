@@ -706,8 +706,8 @@ config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/h
 config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
 config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
 # archived ============================================================================
-config.bind(',a', 'open https://web.archive.org/web/*/{url}')
-config.bind(',A', 'open -t https://web.archive.org/web/*/{url}')
+config.bind(',w', 'open https://web.archive.org/web/*/{url}')
+config.bind(',W', 'open -t https://web.archive.org/web/*/{url}')
 config.bind(',g', 'open https://www.google.com/search?q=cache:{url}')
 config.bind(',G', 'open -t https://www.google.com/search?q=cache:{url}')
 # javascript =========================================================================
