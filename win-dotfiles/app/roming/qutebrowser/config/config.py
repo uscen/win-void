@@ -678,7 +678,7 @@ config.bind('riY', 'hint images yank-primary')
 config.bind('rig', 'hint images run open https://www.google.com/searchbyimage?&image_url={hint-url}')
 # Screenshot ==========================================================================
 config.bind("rss", "cmd-set-text -s :screenshot --force")
-# Print ==========================================================================
+# Print ===============================================================================
 config.bind("rpp", "print")
 # Sessions ============================================================================
 config.bind("Ss", "session-save")
