@@ -593,8 +593,10 @@ config.bind('<Ctrl-o>', 'cmd-set-text -s :open -w')
 config.bind('<Ctrl-x>', 'cmd-set-text :')
 config.bind("'", "mode-enter jump_mark")
 config.bind(';', 'cmd-set-text :')
-# Bookmark  ============================================================================
-config.bind("A", "cmd-set-text -s :bookmark-add -t {url}")
+# [Boo-Qui]kmark  ============================================================================
+config.bind("a", "cmd-set-text -s :quickmark-add {url}")
+config.bind("A", "cmd-set-text -s :bookmark-add {url}")
+config.bind("b", "cmd-set-text -s :quickmark-load -t")
 config.bind("B", "cmd-set-text -s :bookmark-load -t")
 # scrolling ==========================================================================
 config.bind('<Ctrl-h>', 'cmd-run-with-count 20 scroll left')
@@ -704,10 +706,10 @@ config.bind(',h', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/h
 config.bind(',s', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/scaruffi.css ""')
 config.bind(',q', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/qutebrowser.css ""')
 # archived ============================================================================
-config.bind('aa', 'open https://web.archive.org/web/*/{url}')
-config.bind('aA', 'open -t https://web.archive.org/web/*/{url}')
-config.bind('ag', 'open https://www.google.com/search?q=cache:{url}')
-config.bind('aG', 'open -t https://www.google.com/search?q=cache:{url}')
+config.bind(',a', 'open https://web.archive.org/web/*/{url}')
+config.bind(',A', 'open -t https://web.archive.org/web/*/{url}')
+config.bind(',g', 'open https://www.google.com/search?q=cache:{url}')
+config.bind(',G', 'open -t https://www.google.com/search?q=cache:{url}')
 # javascript =========================================================================
 config.bind("xjt", "set content.javascript.enabled true")
 config.bind("xjf", "set content.javascript.enabled false")
