@@ -1451,6 +1451,11 @@ end)
 --              │                 Neovim user_commands                    │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
+  -- Source and edit vimrc file =================================================================
+  vim.api.nvim_create_user_command("SourceVimrc", "silent source $MYVIMRC",  { bang = true })
+  vim.api.nvim_create_user_command("VimrcSource", "silent source $MYVIMRC", { bang = true })
+  vim.api.nvim_create_user_command("EditVimrc", "edit $MYVIMRC", { bang = true })
+  vim.api.nvim_create_user_command("VimrcEdit", "edit $MYVIMRC", { bang = true })
   -- Change working directory to current file's: =================================================
   vim.api.nvim_create_user_command('CdHere', 'cd %:p:h', {})
   -- Change tab page's working directory to current file's: ======================================
