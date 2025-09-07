@@ -854,7 +854,7 @@ now(function()
   vim.opt.display                = 'lastline'
   vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
-  vim.opt.guifont                = 'JetBrainsMono Nerd Font:h10'
+  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.opt.splitkeep              = 'screen'
   vim.opt.mousemodel             = 'extend'
@@ -1193,6 +1193,7 @@ now_if_args(function()
   })
 	-- Opts in command window: =====================================================================
 	vim.api.nvim_create_autocmd("CmdwinEnter", {
+    group = vim.api.nvim_create_augroup('cmd_open', { clear = true }),
 		callback = function()
 			vim.wo.number = false
 			vim.wo.relativenumber = false
@@ -1204,7 +1205,7 @@ now_if_args(function()
 	})
   -- Opts in terminal buffer: ====================================================================
   vim.api.nvim_create_autocmd('TermOpen', {
-    group = vim.api.nvim_create_augroup('custom-term', { clear = true }),
+    group = vim.api.nvim_create_augroup('term_open', { clear = true }),
     callback = function()
       vim.opt_local.scrolloff = 0
       vim.opt_local.spell = false
@@ -1757,7 +1758,8 @@ later(function()
     -- General: ==================================================================================
     vim.opt.linespace = -1
     vim.g.neovide_scale_factor = 1
-    vim.g.neovide_refresh_rate = 45
+	  vim.g.neovide_transparency = 1
+	  vim.g.neovide_refresh_rate = 120
     vim.g.neovide_padding_top = 0
     vim.g.neovide_padding_left = 0
     -- Appearance: ===============================================================================
@@ -1769,11 +1771,13 @@ later(function()
     vim.g.neovide_hide_mouse_when_typing = true
     vim.g.neovide_cursor_animate_in_insert_mode = false
     vim.g.neovide_cursor_animate_command_line = false
-    -- Cursor: ===================================================================================
-    vim.opt.guicursor = { 'i-ci-c:ver25', 'n-sm:block', 'r-cr-o-v:hor10', 'a:blinkwait200-blinkoff800-blinkon1000' }
-    vim.g.neovide_cursor_smooth_blink = true
-    vim.g.neovide_cursor_animation_length = 0.03
-    vim.g.neovide_cursor_trail_size = 1.0
+    -- Disable animated cursor
+    vim.g.neovide_position_animation_length = 0
+    vim.g.neovide_cursor_animation_length = 0.00
+    vim.g.neovide_cursor_trail_size = 0
+    vim.g.neovide_scroll_animation_far_lines = 0
+    vim.g.neovide_scroll_animation_length = 0.00
+    -- VFX: ======================================================================================
     vim.g.neovide_cursor_vfx_mode = 'pixiedust'
     vim.g.neovide_cursor_vfx_particle_lifetime = 1.3
     vim.g.neovide_cursor_vfx_particle_density = 0.7
