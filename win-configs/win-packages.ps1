@@ -78,6 +78,7 @@ $scoopPackages = @(
     "qutebrowser",
     "eza",
     "freetube",
+    "localsend",
     "glazewm",
     "obs-studio",
     "shotcut",
