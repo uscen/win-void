@@ -1191,7 +1191,18 @@ now_if_args(function()
       if last_nonblank < n_lines then vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {}) end
     end,
   })
-  -- don't list terminal with buffers and disable folds,numbers...:===============================
+	-- Opts in command window: =====================================================================
+	vim.api.nvim_create_autocmd("CmdwinEnter", {
+		callback = function()
+			vim.wo.number = false
+			vim.wo.relativenumber = false
+			vim.wo.foldcolumn = "0"
+			vim.wo.signcolumn = "no"
+			vim.wo.statuscolumn = ""
+			vim.wo.colorcolumn = ""
+		end,
+	})
+  -- Opts in terminal buffer: ====================================================================
   vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('custom-term', { clear = true }),
     callback = function()
