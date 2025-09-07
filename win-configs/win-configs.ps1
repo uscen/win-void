@@ -23,6 +23,7 @@ if (-Not (Test-Path -Path $Env:AppData)) {
 }
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\* -Destination $Env:AppData\ -Recurse -Force
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\mpv\* -Destination $Env:USERPROFILE\scoop\persist\mpv\portable_config -Recurse -Force
+Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\roming\tealdeer\tealdeer\* -Destination $Env:USERPROFILE\scoop\apps\tealdeer\current\ -Recurse -Force
 Copy-Item -Path $Env:USERPROFILE\win-void\win-dotfiles\app\local\* -Destination $Env:localAppData\ -Recurse -Force
 # =============================================================================== #
 # Others:					                                                                #

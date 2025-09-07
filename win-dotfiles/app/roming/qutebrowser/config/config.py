@@ -50,7 +50,7 @@ c.tabs.tabs_are_windows = False
 c.tabs.mousewheel_switching = False
 c.tabs.favicons.scale = 1.3
 c.tabs.undo_stack_size = 10
-c.tabs.show_switching_delay = 1500
+c.tabs.show_switching_delay = 2000
 c.tabs.width = 28
 c.tabs.max_width = -1
 c.tabs.min_width = -1
@@ -84,7 +84,7 @@ c.statusbar.widgets = ['keypress', 'search_match', 'url']
 c.downloads.prevent_mixed_content = True
 c.downloads.location.prompt = False
 c.downloads.location.remember = False
-c.downloads.remove_finished = 1500
+c.downloads.remove_finished = 2000
 c.downloads.location.directory = r"C:\Users\lli\Downloads"
 c.downloads.location.suggestion = "both"
 c.downloads.position = 'bottom'
@@ -215,7 +215,7 @@ c.hints.selectors = {
 #               ╚═════════════════════════════════════════════════════════╝
 # Style ===============================================================================
 c.content.prefers_reduced_motion = True
-c.content.fullscreen.overlay_timeout = 1500
+c.content.fullscreen.overlay_timeout = 2000
 c.content.user_stylesheets = []
 # Adblock =============================================================================
 c.content.blocking.enabled = True
@@ -379,7 +379,7 @@ c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '80%', '90%', '100%', '110%'
 #               ╚═════════════════════════════════════════════════════════╝
 c.auto_save.session = True
 c.session.lazy_restore = True
-c.auto_save.interval = 15000
+c.auto_save.interval = 20000
 c.session.default_name = "default"
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          FileSelect                     ║
@@ -406,7 +406,7 @@ c.logging.level.ram = 'debug'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                        Messages                         ║
 #               ╚═════════════════════════════════════════════════════════╝
-c.messages.timeout = 1500
+c.messages.timeout = 2000
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                        Spellcheck                       ║
 #               ╚═════════════════════════════════════════════════════════╝
@@ -577,13 +577,14 @@ c.bindings.key_mappings = {
     '<Ctrl-Enter>': '<Ctrl-Return>'
 }
 # Unbind ==============================================================================
-unbind_keys = ['d', 'q', 'r', '<Ctrl-v>']
+unbind_keys = ['d', 'q', 'r', 'm', 'M', '<Ctrl-v>']
 for key in unbind_keys:
     config.unbind(key)
 # General  ============================================================================
 config.bind("u", "undo")
 config.bind("U", "undo -w")
 config.bind('rr', 'reload')
+config.bind("sm", "messages")
 config.bind('qm', 'macro-record')
 config.bind('yl', 'hint --rapid links yank')
 config.bind("ya", "mode-enter caret;;selection-toggle;;move-to-end-of-document;;yank selection;;mode-leave")
@@ -685,6 +686,7 @@ config.bind("Ss", "session-save")
 config.bind("Sl", "session-load default")
 # private =============================================================================
 config.bind('rap', 'hint all run open -p {hint-url}')
+# messages  =============================================================================
 # Toggle ==============================================================================
 config.bind("tdt", "config-cycle colors.webpage.darkmode.enabled false true")
 config.bind("ttt", "config-cycle tabs.show multiple switching")
