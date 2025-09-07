@@ -896,11 +896,12 @@ now(function()
   vim.opt.autochdir              = true
   vim.opt.autowrite              = true
   vim.opt.autowriteall           = true
+  vim.opt.showmatch              = true
   vim.opt.magic                  = false
   vim.opt.wrap                   = false
-  vim.opt.showmatch              = false
   vim.opt.joinspaces             = false
   vim.opt.textwidth              = 128
+  vim.opt.matchtime              = 2
   vim.opt.wrapmargin             = 2
   vim.opt.tabstop                = 2
   vim.opt.shiftwidth             = 2
