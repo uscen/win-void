@@ -95,7 +95,6 @@ later(function()
       hsl_color = {
         pattern = 'hsl%(%d+, ?%d+%%, ?%d+%%%)',
         group = function(_, match)
-          local style = 'bg'
           local hue, saturation, lightness = match:match('hsl%((%d+), ?(%d+)%%, ?(%d+)%%%)')
           local function hsl_to_rgb(h, s, l)
             h, s, l = h % 360, s / 100, l / 100
@@ -107,10 +106,9 @@ later(function()
             end
             return f(0) * 255, f(8) * 255, f(4) * 255
           end
-
           local red, green, blue = hsl_to_rgb(hue, saturation, lightness)
           local hex = string.format('#%02x%02x%02x', red, green, blue)
-          return MiniHiPatterns.compute_hex_color_group(hex, style)
+          return MiniHiPatterns.compute_hex_color_group(hex, 'bg')
         end
       },
     },
