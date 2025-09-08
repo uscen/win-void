@@ -131,6 +131,7 @@ end)
 --              │                         Mini.Ai                         │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
+  local gen_ai_spec = require('mini.extra').gen_ai_spec
   require('mini.ai').setup({
     n_lines = 500,
     search_method = 'cover_or_nearest',
@@ -145,11 +146,11 @@ later(function()
       goto_right = '}',
     },
     custom_textobjects = {
-      r = require('mini.extra').gen_ai_spec.diagnostic(),
-      a = require('mini.extra').gen_ai_spec.buffer(),
-      i = require('mini.extra').gen_ai_spec.indent(),
-      d = require('mini.extra').gen_ai_spec.number(),
-      c = require('mini.extra').gen_ai_spec.line(),
+      r = gen_ai_spec.diagnostic(),
+      a = gen_ai_spec.buffer(),
+      i = gen_ai_spec.indent(),
+      d = gen_ai_spec.number(),
+      c = gen_ai_spec.line(),
       e = {
         {
           -- __-1, __-U, __-l, __-1_, __-U_, __-l_
