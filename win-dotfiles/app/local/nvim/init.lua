@@ -71,7 +71,8 @@ end)
 --              │                     Mini.Hipatterns                     │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.hipatterns').setup({
+  local MiniHiPatterns = require('mini.hipatterns')
+  MiniHiPatterns.setup({
     highlighters = {
       fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
       hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
@@ -88,8 +89,29 @@ later(function()
           local match = data.full_match
           local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
           local hex_color = '#' .. r .. r .. g .. g .. b .. b
-          return require('mini.hipatterns').compute_hex_color_group(hex_color, 'bg')
+          return MiniHiPatterns.compute_hex_color_group(hex_color, 'bg')
         end,
+      },
+      hsl_color = {
+        pattern = 'hsl%(%d+, ?%d+%%, ?%d+%%%)',
+        group = function(_, match)
+          local style = 'bg'
+          local hue, saturation, lightness = match:match('hsl%((%d+), ?(%d+)%%, ?(%d+)%%%)')
+          local function hsl_to_rgb(h, s, l)
+            h, s, l = h % 360, s / 100, l / 100
+            if h < 0 then h = h + 360 end
+            local function f(n)
+              local k = (n + h / 30) % 12
+              local a = s * math.min(l, 1 - l)
+              return l - a * math.max(-1, math.min(k - 3, 9 - k, 1))
+            end
+            return f(0) * 255, f(8) * 255, f(4) * 255
+          end
+
+          local red, green, blue = hsl_to_rgb(hue, saturation, lightness)
+          local hex = string.format('#%02x%02x%02x', red, green, blue)
+          return MiniHiPatterns.compute_hex_color_group(hex, style)
+        end
       },
     },
   })
