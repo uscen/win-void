@@ -261,7 +261,7 @@ later(function()
     },
     options = {
       use_cache = true,
-      content_from_bottom = false
+      content_from_bottom = true
     },
     window = {
       config = {
@@ -536,6 +536,22 @@ now_if_args(function()
       max_number = 1,
       width_focus = 999,
     },
+  })
+  -- W to Sync: ==================================================================================
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniFilesBufferCreate',
+    callback = function()
+      vim.schedule(function()
+        vim.api.nvim_buf_set_option(0, 'buftype', 'acwrite')
+        vim.api.nvim_buf_set_name(0, require('mini.files').get_fs_entry(0, 1).path)
+        vim.api.nvim_create_autocmd('BufWriteCmd', {
+          buffer = 0,
+          callback = function()
+            require('mini.files').synchronize()
+          end,
+        })
+      end)
+    end,
   })
   -- BookMarks: ==================================================================================
   local minifiles_augroup = vim.api.nvim_create_augroup('ec-mini-files', {})
@@ -1764,6 +1780,10 @@ later(function()
     vim.g.neovide_opacity = 1
     vim.g.neovide_underline_stroke_scale = 2.5
     vim.g.neovide_show_border = true
+    -- floating: =================================================================================
+    vim.g.neovide_floating_shadow = false
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
     -- behavior: =================================================================================
     vim.g.neovide_remember_window_size = true
     vim.g.neovide_hide_mouse_when_typing = true
