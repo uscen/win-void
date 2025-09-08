@@ -35,13 +35,23 @@ gui:
   commitLength:
     show: true
 
+os:
+  edit: "nvim {{filename}}"
+  editAtLine: "nvim +{{line}} {{filename}}"
+  editAtLineAndWait: "nvim --remote-wait +{{line}} {{filename}}"
+  editInTerminal: true
+
 git:
   paging:
     colorArg: "always"
-    pager: "delta --dark --paging=never"
+    pager: "delta --dark --paging=never --side-by-side"
   commit:
     signoff: false
     autoWrapCommitMessage: true
     autoWrapWidth: 72
   allBranchesLogCmds:
     - git log --color=always --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset" --abbrev-commit --date=relative
+
+keybinding:
+  universal:
+    quit: "<c-q>"
