@@ -538,16 +538,18 @@ now_if_args(function()
     },
   })
   -- W to Sync: ==================================================================================
-  vim.api.nvim_create_autocmd('User', {
-    pattern = 'MiniFilesBufferCreate',
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesBufferCreate",
     callback = function()
       vim.schedule(function()
-        vim.api.nvim_buf_set_option(0, 'buftype', 'acwrite')
-        vim.api.nvim_buf_set_name(0, require('mini.files').get_fs_entry(0, 1).path)
-        vim.api.nvim_create_autocmd('BufWriteCmd', {
+        vim.api.nvim_buf_set_option(0, "buftype", "acwrite")
+        pcall(function()
+          vim.api.nvim_buf_set_name(0, require("mini.files").get_fs_entry(0, 1).path)
+        end)
+        vim.api.nvim_create_autocmd("BufWriteCmd", {
           buffer = 0,
           callback = function()
-            require('mini.files').synchronize()
+            require("mini.files").synchronize()
           end,
         })
       end)
