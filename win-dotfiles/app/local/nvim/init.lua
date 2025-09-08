@@ -642,6 +642,18 @@ now_if_args(function()
       ['bun.lockb'] = { glyph = '', hl = 'MiniIconsGrey' },
       ['bun.lock'] = { glyph = '', hl = 'MiniIconsGrey' },
     },
+		filetype = {
+			["css"] = { glyph = "", hl = "MiniIconsCyan" },
+			["vim"] = { glyph = "", hl = "MiniIconsGreen" },
+		},
+		extension = {
+			["d.ts"] = { hl = "MiniIconsRed" },
+			["applescript"] = { glyph = "󰀵", hl = "MiniIconsGrey" },
+			["log"] = { glyph = "󱂅", hl = "MiniIconsGrey" },
+			["gitignore"] = { glyph = "" },
+			["adblock"] = { glyph = "", hl = "MiniIconsRed" },
+			["add"] = { glyph = "" },
+		},
     directory = {
       ['.vscode'] = { glyph = '', hl = 'MiniIconsBlue' },
       ['app'] = { glyph = '󰀻', hl = 'MiniIconsRed' },
