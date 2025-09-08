@@ -159,7 +159,7 @@ function M.deleteAllMarks()
   notify('All marks deleted.')
 end
 
--- Function to pick a mark: ==================================================================
+-- Function to pick a mark: ======================================================================
 function M.cycleMarksDynamic()
   local marks = M.config.marks
   local currentMark = vim.fn.getreg('m')
@@ -169,7 +169,7 @@ function M.cycleMarksDynamic()
     -- If there's a mark in the register, get the index of the next mark
     for i, mark in ipairs(marks) do
       if mark == currentMark then
-        markIndex = i % #marks + 1  -- Loop back to the first mark if we reach the end
+        markIndex = i % #marks + 1 -- Loop back to the first mark if we reach the end
         break
       end
     end
@@ -181,14 +181,14 @@ function M.cycleMarksDynamic()
   vim.fn.setreg('m', nextMark)
 end
 
--- Function to pick a mark: ==================================================================
+-- Function to pick a mark: ======================================================================
 function M.pickMark()
   if not isValidMarkName(M.config.marks) then return end
   local marksSet = vim
-    .iter(M.config.marks)
-    :map(function(name) return getMark(name) end)
-    :filter(function(m) return m ~= nil end)
-    :totable()
+      .iter(M.config.marks)
+      :map(function(name) return getMark(name) end)
+      :filter(function(m) return m ~= nil end)
+      :totable()
   if #marksSet == 0 then
     notify('No mark has been set.')
     return
