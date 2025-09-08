@@ -1757,7 +1757,6 @@ later(function()
   if vim.g.neovide then
     -- General: ==================================================================================
     vim.g.neovide_scale_factor = 1
-	  vim.g.neovide_transparency = 1
 	  vim.g.neovide_refresh_rate = 120
     vim.g.neovide_padding_top = 0
     vim.g.neovide_padding_left = 0
