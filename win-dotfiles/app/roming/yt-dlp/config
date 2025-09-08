@@ -31,6 +31,7 @@
 # Download:                                                                       #
 # =============================================================================== #
 --downloader aria2c
+--external-downloader-args aria2c:'-c -j 3 -x 3 -s 3 -k 1M'
 --limit-rate=4M
 --concurrent-fragments=3
 --retries=5
