@@ -620,6 +620,11 @@ end)
 now_if_args(function()
   require('mini.icons').setup({
     file = {
+			["init.lua"] = { glyph = "󰢱", hl = "MiniIconsBlue" },
+			["README.md"] = { glyph = "", hl = "MiniIconsGreen" },
+			["pre-commit"] = { glyph = "󰊢", hl = "MiniIconsYellow" },
+			["Brewfile"] = { glyph = "󱄖", hl = "MiniIconsYellow" },
+			[".ignore"] = { glyph = "󰈉", hl = "MiniIconsGrey" },
       ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
       ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
       ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
