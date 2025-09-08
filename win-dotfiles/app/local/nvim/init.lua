@@ -79,8 +79,8 @@ later(function()
       todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
       note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
       hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
-        style = "full",
-        inline_text = " ",
+        style = 'full',
+        inline_text = ' ',
         priority = 200,
       }),
       hex_shorthand = {
@@ -409,7 +409,7 @@ end)
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable Mini.Completion: =====================================================================
-  local completion = require "mini.completion"
+  local completion = require('mini.completion')
   completion.setup({
     delay = { completion = 50, info = 40, signature = 30 },
     window = {
@@ -439,7 +439,7 @@ now(function()
   -- enable configured language servers 0.11: ====================================================
   local lsp_configs = { 'lua', 'html', 'css', 'emmet', 'json', 'tailwind', 'typescript', 'eslint', 'prisma' }
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = vim.tbl_deep_extend("force", capabilities, completion.get_lsp_capabilities())
+  capabilities = vim.tbl_deep_extend('force', capabilities, completion.get_lsp_capabilities())
   vim.lsp.config('*', {
     capabilities = capabilities,
     root_markers = {
@@ -623,11 +623,11 @@ end)
 now_if_args(function()
   require('mini.icons').setup({
     file = {
-			["init.lua"] = { glyph = "󰢱", hl = "MiniIconsBlue" },
-			["README.md"] = { glyph = "", hl = "MiniIconsGreen" },
-			["pre-commit"] = { glyph = "󰊢", hl = "MiniIconsYellow" },
-			["Brewfile"] = { glyph = "󱄖", hl = "MiniIconsYellow" },
-			[".ignore"] = { glyph = "󰈉", hl = "MiniIconsGrey" },
+      ['init.lua'] = { glyph = '󰢱', hl = 'MiniIconsBlue' },
+      ['README.md'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['pre-commit'] = { glyph = '󰊢', hl = 'MiniIconsYellow' },
+      ['Brewfile'] = { glyph = '󱄖', hl = 'MiniIconsYellow' },
+      ['.ignore'] = { glyph = '󰈉', hl = 'MiniIconsGrey' },
       ['.eslintrc.js'] = { glyph = '󰱺', hl = 'MiniIconsYellow' },
       ['.node-version'] = { glyph = '', hl = 'MiniIconsGreen' },
       ['.prettierrc'] = { glyph = '', hl = 'MiniIconsPurple' },
@@ -645,18 +645,18 @@ now_if_args(function()
       ['bun.lockb'] = { glyph = '', hl = 'MiniIconsGrey' },
       ['bun.lock'] = { glyph = '', hl = 'MiniIconsGrey' },
     },
-		filetype = {
-			["css"] = { glyph = "", hl = "MiniIconsCyan" },
-			["vim"] = { glyph = "", hl = "MiniIconsGreen" },
-		},
-		extension = {
-			["d.ts"] = { glyph = '', hl = "MiniIconsRed" },
-			["applescript"] = { glyph = "󰀵", hl = "MiniIconsGrey" },
-			["log"] = { glyph = "󱂅", hl = "MiniIconsGrey" },
-			["gitignore"] = { glyph = "", hl = "MiniIconsRed" },
-			["adblock"] = { glyph = "", hl = "MiniIconsRed" },
-			["add"] = { glyph = "", hl = 'MiniIconsGreen' },
-		},
+    filetype = {
+      ['css'] = { glyph = '', hl = 'MiniIconsCyan' },
+      ['vim'] = { glyph = '', hl = 'MiniIconsGreen' },
+    },
+    extension = {
+      ['d.ts'] = { glyph = '', hl = 'MiniIconsRed' },
+      ['applescript'] = { glyph = '󰀵', hl = 'MiniIconsGrey' },
+      ['log'] = { glyph = '󱂅', hl = 'MiniIconsGrey' },
+      ['gitignore'] = { glyph = '', hl = 'MiniIconsRed' },
+      ['adblock'] = { glyph = '', hl = 'MiniIconsRed' },
+      ['add'] = { glyph = '', hl = 'MiniIconsGreen' },
+    },
     directory = {
       ['.vscode'] = { glyph = '', hl = 'MiniIconsBlue' },
       ['app'] = { glyph = '󰀻', hl = 'MiniIconsRed' },
@@ -672,35 +672,35 @@ now_if_args(function()
       ['cspell'] = { glyph = '󰓆', hl = 'MiniIconsPurple' },
     },
     lsp = {
-      text = { glyph = '󰉿' },
-      method = { glyph = '󰆧' },
+      ['text'] = { glyph = '󰉿' },
+      ['method'] = { glyph = '󰆧' },
       ['function'] = { glyph = '󰊕' },
-      constructor = { glyph = '' },
-      field = { glyph = '󰜢' },
-      variable = { glyph = '󰀫' },
-      class = { glyph = '󰠱' },
-      interface = { glyph = '' },
-      module = { glyph = '' },
-      property = { glyph = '󰜢' },
-      unit = { glyph = '󰑭' },
-      value = { glyph = '󰎠' },
-      enum = { glyph = '' },
-      keyword = { glyph = '󰌋' },
-      snippet = { glyph = '' },
-      color = { glyph = '󰏘' },
-      file = { glyph = '󰈙' },
-      reference = { glyph = '󰈇' },
-      folder = { glyph = '󰉋' },
-      enumMember = { glyph = '' },
-      constant = { glyph = '󰏿' },
-      struct = { glyph = '󰙅' },
-      event = { glyph = '' },
-      operator = { glyph = '󰆕' },
-      typeParameter = { glyph = '' },
+      ['constructor'] = { glyph = '' },
+      ['field'] = { glyph = '󰜢' },
+      ['variable'] = { glyph = '󰀫' },
+      ['class'] = { glyph = '󰠱' },
+      ['interface'] = { glyph = '' },
+      ['module'] = { glyph = '' },
+      ['property'] = { glyph = '󰜢' },
+      ['unit'] = { glyph = '󰑭' },
+      ['value'] = { glyph = '󰎠' },
+      ['enum'] = { glyph = '' },
+      ['keyword'] = { glyph = '󰌋' },
+      ['snippet'] = { glyph = '' },
+      ['color'] = { glyph = '󰏘' },
+      ['file'] = { glyph = '󰈙' },
+      ['reference'] = { glyph = '󰈇' },
+      ['folder'] = { glyph = '󰉋' },
+      ['enumMember'] = { glyph = '' },
+      ['constant'] = { glyph = '󰏿' },
+      ['struct'] = { glyph = '󰙅' },
+      ['event'] = { glyph = '' },
+      ['operator'] = { glyph = '󰆕' },
+      ['typeParameter'] = { glyph = '' },
     },
   })
   later(MiniIcons.mock_nvim_web_devicons)
-  later(MiniIcons.tweak_lsp_kind("replace"))
+  later(MiniIcons.tweak_lsp_kind('replace'))
 end)
 --              ╔═════════════════════════════════════════════════════════╗
 --              ║                      Treesitter                         ║
@@ -1229,18 +1229,18 @@ now_if_args(function()
       if last_nonblank < n_lines then vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, {}) end
     end,
   })
-	-- Opts in command window: =====================================================================
-	vim.api.nvim_create_autocmd("CmdwinEnter", {
+  -- Opts in command window: =====================================================================
+  vim.api.nvim_create_autocmd('CmdwinEnter', {
     group = vim.api.nvim_create_augroup('cmd_open', { clear = true }),
-		callback = function()
-			vim.wo.number = false
-			vim.wo.relativenumber = false
-			vim.wo.foldcolumn = "0"
-			vim.wo.signcolumn = "no"
-			vim.wo.statuscolumn = ""
-			vim.wo.colorcolumn = ""
-		end,
-	})
+    callback = function()
+      vim.wo.number = false
+      vim.wo.relativenumber = false
+      vim.wo.foldcolumn = '0'
+      vim.wo.signcolumn = 'no'
+      vim.wo.statuscolumn = ''
+      vim.wo.colorcolumn = ''
+    end,
+  })
   -- Opts in terminal buffer: ====================================================================
   vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('term_open', { clear = true }),
@@ -1355,23 +1355,23 @@ now_if_args(function()
     command = 'silent! !',
   })
   -- Always open quickfix window automatically: ==================================================
-  vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-    group = vim.api.nvim_create_augroup("auto_open_quickfix", { clear = true }),
-    pattern = { "[^l]*" },
-    command = "cwindow"
+  vim.api.nvim_create_autocmd('QuickFixCmdPost', {
+    group = vim.api.nvim_create_augroup('auto_open_quickfix', { clear = true }),
+    pattern = { '[^l]*' },
+    command = 'cwindow'
   })
   -- Always show quotes: =========================================================================
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "json", "jsonc", "markdown" },
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'json', 'jsonc', 'markdown' },
     callback = function()
       vim.wo.conceallevel = 0
     end,
   })
   -- Disallow change buf for quickfix: ===========================================================
-  vim.api.nvim_create_autocmd("FileType", {
+  vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('noedit_quickfix', { clear = true }),
-    pattern = "qf",
-    desc = "Disallow change buf for quickfix",
+    pattern = 'qf',
+    desc = 'Disallow change buf for quickfix',
     callback = function()
       vim.wo.winfixbuf = true
     end,
@@ -1503,10 +1503,10 @@ end)
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
   -- Source and edit vimrc file =================================================================
-  vim.api.nvim_create_user_command("SourceVimrc", "silent source $MYVIMRC",  { bang = true })
-  vim.api.nvim_create_user_command("VimrcSource", "silent source $MYVIMRC", { bang = true })
-  vim.api.nvim_create_user_command("EditVimrc", "edit $MYVIMRC", { bang = true })
-  vim.api.nvim_create_user_command("VimrcEdit", "edit $MYVIMRC", { bang = true })
+  vim.api.nvim_create_user_command('SourceVimrc', 'silent source $MYVIMRC', { bang = true })
+  vim.api.nvim_create_user_command('VimrcSource', 'silent source $MYVIMRC', { bang = true })
+  vim.api.nvim_create_user_command('EditVimrc', 'edit $MYVIMRC', { bang = true })
+  vim.api.nvim_create_user_command('VimrcEdit', 'edit $MYVIMRC', { bang = true })
   -- Change working directory to current file's: =================================================
   vim.api.nvim_create_user_command('CdHere', 'cd %:p:h', {})
   -- Change tab page's working directory to current file's: ======================================
@@ -1551,15 +1551,15 @@ later(function()
   end, { nargs = 0 })
   -- Enable Format: ===============================================================================
   vim.api.nvim_create_user_command('Format', function(args)
-      local range = nil
-      if args.count ~= -1 then
-          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-          range = {
-              start = { args.line1, 0 },
-              ['end'] = { args.line2, end_line:len() },
-          }
-      end
-      require('conform').format({ async = true, lsp_format = 'fallback', range = range })
+    local range = nil
+    if args.count ~= -1 then
+      local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+      range = {
+        start = { args.line1, 0 },
+        ['end'] = { args.line2, end_line:len() },
+      }
+    end
+    require('conform').format({ async = true, lsp_format = 'fallback', range = range })
   end, { range = true })
   -- Enable FormatOnSave ==========================================================================
   vim.api.nvim_create_user_command('FormatEnable', function()
@@ -1651,7 +1651,7 @@ later(function()
   vim.keymap.set('n', '<leader>uu', ':earlier ')
   vim.keymap.set('n', '<leader><leader>', 'zz')
   vim.keymap.set('n', '~', 'v~')
-  vim.keymap.set("x", "/", "<esc>/\\%V")
+  vim.keymap.set('x', '/', '<esc>/\\%V')
   vim.keymap.set('n', 'g/', '*')
   vim.keymap.set('n', 'gy', '`[v`]')
   vim.keymap.set('n', '<C-m>', '%')
@@ -1795,7 +1795,7 @@ later(function()
   if vim.g.neovide then
     -- General: ==================================================================================
     vim.g.neovide_scale_factor = 1
-	  vim.g.neovide_refresh_rate = 120
+    vim.g.neovide_refresh_rate = 120
     vim.g.neovide_padding_top = 0
     vim.g.neovide_padding_left = 0
     -- Appearance: ===============================================================================
@@ -1838,7 +1838,7 @@ later(function()
       ['ejs'] = 'ejs',
       ['conf'] = 'conf',
       ['ahk2'] = 'autohotkey',
-      ['xaml'] = "xml",
+      ['xaml'] = 'xml',
       ['h'] = 'c',
     },
     filename = {
