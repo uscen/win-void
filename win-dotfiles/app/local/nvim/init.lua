@@ -119,7 +119,7 @@ end)
 --              │                     Mini.Pairs                          │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  local MiniPairs = require('mini.hipatterns')
+  local MiniPairs = require('mini.pairs')
   MiniPairs.setup({
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
     skip_ts = { 'string' },
@@ -875,7 +875,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 0
+  vim.opt.laststatus             = 3
   vim.opt.cmdheight              = 0
   vim.opt.helpheight             = 12
   vim.opt.previewheight          = 12
