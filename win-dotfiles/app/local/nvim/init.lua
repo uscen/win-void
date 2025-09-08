@@ -54,7 +54,8 @@ end)
 --              │                     Mini.Notify                         │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.notify').setup({
+  local MiniNotify = require('mini.notify')
+  MiniNotify.setup({
     lsp_progress = { enable = false, duration_last = 500 },
     window = {
       config = function()
@@ -65,7 +66,7 @@ later(function()
       max_width_share = 0.45,
     },
   })
-  vim.notify = require('mini.notify').make_notify()
+  vim.notify = MiniNotify.make_notify()
 end)
 --              ╭─────────────────────────────────────────────────────────╮
 --              │                     Mini.Hipatterns                     │
@@ -118,7 +119,8 @@ end)
 --              │                     Mini.Pairs                          │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.pairs').setup({
+  local MiniPairs = require('mini.hipatterns')
+  MiniPairs.setup({
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
     skip_ts = { 'string' },
     skip_unbalanced = true,
@@ -142,7 +144,7 @@ later(function()
       local item_selected = vim.fn.complete_info()['selected'] ~= -1
       return item_selected and '\25' or '\25\r'
     else
-      return require('mini.pairs').cr()
+      return MiniPairs.cr()
     end
   end
   vim.keymap.set('i', '<cr>', cr_action, { expr = true })
@@ -354,12 +356,12 @@ end)
 --              │                     Mini.Starter                        │
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
-  local starter = require('mini.starter')
+  local MiniStarter = require('mini.starter')
   local pad = string.rep(' ', 0)
   local new_section = function(name, action, section)
     return { name = name, action = action, section = pad .. section }
   end
-  starter.setup({
+  MiniStarter.setup({
     evaluate_single = true,
     items = {
       new_section('Projects Folders', 'e $HOME/Projects/', 'Project'),
@@ -377,14 +379,14 @@ now(function()
     content_hooks = {
       function(content)
         local blank_content_line = { { type = 'empty', string = '' } }
-        local section_coords = starter.content_coords(content, 'section')
+        local section_coords = MiniStarter.content_coords(content, 'section')
         for i = #section_coords, 1, -1 do
           table.insert(content, section_coords[i].line + 1, blank_content_line)
         end
         return content
       end,
-      starter.gen_hook.adding_bullet('» '),
-      starter.gen_hook.aligning('center', 'center'),
+      MiniStarter.gen_hook.adding_bullet('» '),
+      MiniStarter.gen_hook.aligning('center', 'center'),
     },
     header = [[
             ▄ ▄
@@ -409,8 +411,8 @@ end)
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
   -- enable Mini.Completion: =====================================================================
-  local completion = require('mini.completion')
-  completion.setup({
+  local MiniCompletion = require('mini.completion')
+  MiniCompletion.setup({
     delay = { completion = 50, info = 40, signature = 30 },
     window = {
       info = { border = 'single' },
@@ -439,7 +441,7 @@ now(function()
   -- enable configured language servers 0.11: ====================================================
   local lsp_configs = { 'lua', 'html', 'css', 'emmet', 'json', 'tailwind', 'typescript', 'eslint', 'prisma' }
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = vim.tbl_deep_extend('force', capabilities, completion.get_lsp_capabilities())
+  capabilities = vim.tbl_deep_extend('force', capabilities, MiniCompletion.get_lsp_capabilities())
   vim.lsp.config('*', {
     capabilities = capabilities,
     root_markers = {
@@ -454,6 +456,7 @@ end)
 --              │                     Mini.Snippets                       │
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
+  local MiniSnippets = require('mini.snippets')
   -- Languge Patterns: ===========================================================================
   local markdown        = { 'markdown.json' }
   local webHtmlPatterns = { 'html.json', 'ejs.json' }
@@ -474,10 +477,10 @@ now(function()
     -- Do not match with whitespace to cursor's left =============================================
     -- return require('mini.snippets').default_match(snips, { pattern_fuzzy = '%S+' })
     -- Match exact from the start to the end of the string =======================================
-    return require('mini.snippets').default_match(snips, { pattern_fuzzy = '^%S+$' })
+    return MiniSnippets.default_match(snips, { pattern_fuzzy = '^%S+$' })
   end
   -- Setup Snippets ==============================================================================
-  require('mini.snippets').setup({
+  MiniSnippets.setup({
     snippets = {
       require('mini.snippets').gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
       require('mini.snippets').gen_loader.from_lang({ lang_patterns = lang_patterns })
@@ -491,14 +494,14 @@ now(function()
     expand   = {
       match = match_strict,
       insert = function(snippet)
-        return require('mini.snippets').default_insert(snippet, {
+        return MiniSnippets.default_insert(snippet, {
           empty_tabstop = '',
           empty_tabstop_final = '†'
         })
       end
     },
   })
-  require('mini.snippets').start_lsp_server()
+  MiniSnippets.start_lsp_server()
   -- Expand Snippets Or complete by Tab ==========================================================
   local expand_or_complete = function()
     if #MiniSnippets.expand({ insert = false }) > 0 then
@@ -535,7 +538,8 @@ end)
 --              │                     Mini.Files                          │
 --              ╰─────────────────────────────────────────────────────────╯
 now_if_args(function()
-  require('mini.files').setup({
+  local MiniFiles = require('mini.files')
+  MiniFiles.setup({
     mappings = {
       go_in_plus  = '<Tab>',
       go_out_plus = '<C-h>',
@@ -579,7 +583,7 @@ now_if_args(function()
     end
 
     local is_enabled = not toggle:bool()
-    require('mini.files').refresh({
+    MiniFiles.refresh({
       content = {
         filter = function(fs_entry)
           local ignore = { 'node_modules', 'build', 'depes', 'incremental' }
@@ -621,7 +625,8 @@ end)
 --              │                     Mini.Icons                          │
 --              ╰─────────────────────────────────────────────────────────╯
 now_if_args(function()
-  require('mini.icons').setup({
+  local MiniIcons = require('mini.icons')
+  MiniIcons.setup({
     file = {
       ['init.lua'] = { glyph = '󰢱', hl = 'MiniIconsBlue' },
       ['README.md'] = { glyph = '', hl = 'MiniIconsGreen' },
