@@ -647,12 +647,12 @@ now_if_args(function()
 			["vim"] = { glyph = "", hl = "MiniIconsGreen" },
 		},
 		extension = {
-			["d.ts"] = { hl = "MiniIconsRed" },
+			["d.ts"] = { glyph = '', hl = "MiniIconsRed" },
 			["applescript"] = { glyph = "󰀵", hl = "MiniIconsGrey" },
 			["log"] = { glyph = "󱂅", hl = "MiniIconsGrey" },
-			["gitignore"] = { glyph = "" },
+			["gitignore"] = { glyph = "", hl = "MiniIconsRed" },
 			["adblock"] = { glyph = "", hl = "MiniIconsRed" },
-			["add"] = { glyph = "" },
+			["add"] = { glyph = "", hl = 'MiniIconsGreen' },
 		},
     directory = {
       ['.vscode'] = { glyph = '', hl = 'MiniIconsBlue' },
