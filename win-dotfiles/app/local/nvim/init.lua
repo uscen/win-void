@@ -282,7 +282,7 @@ later(function()
     },
     options = {
       use_cache = true,
-      content_from_bottom = true
+      content_from_bottom = false
     },
     window = {
       config = {
