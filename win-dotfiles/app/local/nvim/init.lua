@@ -79,7 +79,7 @@ later(function()
       todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
       note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
       hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
-        style = "inline",
+        style = "full",
         inline_text = " ",
         priority = 200,
       }),
