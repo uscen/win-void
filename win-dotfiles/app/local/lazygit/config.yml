@@ -54,4 +54,4 @@ git:
 
 keybinding:
   universal:
-    quit: "<c-q>"
+    quit: "q"
