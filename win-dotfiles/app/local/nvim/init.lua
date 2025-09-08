@@ -273,7 +273,8 @@ end)
 --              │                     Mini.Pick                           │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.pick').setup({
+  local MiniPick = require('mini.pick')
+  MiniPick.setup({
     mappings = {
       choose           = '<Tab>',
       move_down        = '<C-j>',
@@ -325,7 +326,8 @@ end)
 --              │                     Mini.Tabline                        │
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
-  require('mini.tabline').setup({
+  local MiniTabline = require('mini.tabline')
+  MiniTabline.setup({
     show_icons = true,
     tabpage_section = 'right',
     format = function(buf_id, label)
@@ -456,7 +458,7 @@ end)
 --              │                     Mini.Snippets                       │
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
-  local MiniSnippets = require('mini.snippets')
+  local MiniSnippets    = require('mini.snippets')
   -- Languge Patterns: ===========================================================================
   local markdown        = { 'markdown.json' }
   local webHtmlPatterns = { 'html.json', 'ejs.json' }
