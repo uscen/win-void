@@ -169,7 +169,7 @@ vim.api.nvim_create_user_command('DeleteBuffer', M.delete_buffer, {})
 function M.deleteOthersBuffers()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if buf ~= vim.fn.bufnr() and vim.fn.buflisted(buf) == 1 then
-      vim.cmd('silent! bd ' .. buf)
+      require('mini.bufremove').delete(buf, true)
     end
   end
 end
