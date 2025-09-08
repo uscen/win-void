@@ -854,7 +854,7 @@ now(function()
   vim.opt.display                = 'lastline'
   vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
-  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10'
+  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10:b'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.opt.splitkeep              = 'screen'
   vim.opt.mousemodel             = 'extend'
@@ -1756,7 +1756,6 @@ end)
 later(function()
   if vim.g.neovide then
     -- General: ==================================================================================
-    vim.opt.linespace = -1
     vim.g.neovide_scale_factor = 1
 	  vim.g.neovide_transparency = 1
 	  vim.g.neovide_refresh_rate = 120
@@ -1771,17 +1770,12 @@ later(function()
     vim.g.neovide_hide_mouse_when_typing = true
     vim.g.neovide_cursor_animate_in_insert_mode = false
     vim.g.neovide_cursor_animate_command_line = false
-    -- Disable animated cursor
+    -- cursor: ===================================================================================
     vim.g.neovide_position_animation_length = 0
     vim.g.neovide_cursor_animation_length = 0.00
     vim.g.neovide_cursor_trail_size = 0
     vim.g.neovide_scroll_animation_far_lines = 0
     vim.g.neovide_scroll_animation_length = 0.00
-    -- VFX: ======================================================================================
-    vim.g.neovide_cursor_vfx_mode = 'pixiedust'
-    vim.g.neovide_cursor_vfx_particle_lifetime = 1.3
-    vim.g.neovide_cursor_vfx_particle_density = 0.7
-    vim.g.neovide_cursor_vfx_particle_speed = 20
     -- Keymap: ===================================================================================
     vim.keymap.set({ 'n', 'v' }, '<C-=>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<cr>')
