@@ -20,6 +20,7 @@
 --glob=!node_modules
 --glob=!yarn.lock
 --glob=!package-lock.json
+--glob=!pnpm-lock.yaml
 --glob=!_build
 --glob=!tags
 --glob=!storage
