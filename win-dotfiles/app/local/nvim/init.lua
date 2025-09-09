@@ -297,6 +297,14 @@ later(function()
     },
   })
   vim.ui.select = MiniPick.ui_select
+  -- UI: =========================================================================================
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniPickStart",
+    callback = function()
+       local win_id = vim.api.nvim_get_current_win()
+       vim.wo[win_id].winblend = 30
+    end,
+  })
   -- Pick Directory  Form Zoxide : ===============================================================
   local function zoxide_pick()
     local zoxide_output = vim.fn.systemlist('zoxide query -ls')
