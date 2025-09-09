@@ -1,5 +1,5 @@
 --          ╔═════════════════════════════════════════════════════════╗
---          ║                     Toggle Terminal                     ║
+--          ║                     Floating Terminal                   ║
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
 local au = function(event, pattern, opts)
