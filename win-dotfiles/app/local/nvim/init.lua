@@ -1192,9 +1192,12 @@ now_if_args(function()
   -- Highlight Yank ==============================================================================
   vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('highlight_yank', {}),
-    callback = function()
-      vim.highlight.on_yank({ on_macro = true, on_visual = true, higroup = 'IncSearch', timeout = 200 })
-    end,
+      callback = function()
+          if vim.v.operator == 'y' then
+              vim.fn.setreg("+", vim.fn.getreg("0"))
+              vim.hl.on_yank({ on_macro = true, on_visual = true, higroup = 'IncSearch', timeout = 600 })
+          end
+      end,
   })
   -- Auto-resize splits on window resize:  =======================================================
   vim.api.nvim_create_autocmd('VimResized', {
