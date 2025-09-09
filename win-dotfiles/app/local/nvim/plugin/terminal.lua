@@ -68,6 +68,7 @@ M.winbuf = function(opts)
   local overlay_opts = {
     style = 'minimal',
     relative = 'win',
+    border = 'single',
     width = vim.o.columns,
     height = vim.o.lines,
     row = 0,
@@ -76,7 +77,7 @@ M.winbuf = function(opts)
     zindex = 1,
   }
   local overlay_win = vim.api.nvim_open_win(overlay_buf, false, overlay_opts)
-  vim.wo[overlay_win].winblend = 60
+  vim.wo[overlay_win].winblend = 30
   vim.wo[overlay_win]['winhighlight'] = 'Normal:BLACK'
 
   local buf = nil

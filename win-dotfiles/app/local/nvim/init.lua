@@ -289,8 +289,8 @@ later(function()
     },
     window = {
       config = {
-        height = 10,
-        width = 999,
+        height = vim.o.lines,
+        width = vim.o.columns,
       },
       prompt_caret = '|',
       prompt_prefix = '󱓇 ',
@@ -561,7 +561,7 @@ now_if_args(function()
     },
     windows = {
       max_number = 1,
-      width_focus = 999,
+      width_focus = vim.o.columns,
     },
   })
   -- UI: =========================================================================================
@@ -581,7 +581,7 @@ now_if_args(function()
     callback = function(args)
       local config = vim.api.nvim_win_get_config(args.data.win_id)
       -- Ensure fixed height =====================================================================
-      config.height = 100
+      config.height = vim.o.lines
       -- Ensure no title padding =================================================================
       local n = #config.title
       config.title[1][1] = config.title[1][1]:gsub('^ ', '')
@@ -930,7 +930,7 @@ now(function()
   vim.opt.mousemodel             = 'extend'
   vim.opt.mousescroll            = 'ver:3,hor:6'
   vim.opt.showbreak              = '󰘍'
-  vim.opt.winborder              = 'bold'
+  vim.opt.winborder              = 'single'
   vim.opt.backspace              = 'indent,eol,start'
   vim.opt.cursorlineopt          = 'screenline,number'
   vim.opt.tabclose               = 'uselast'
