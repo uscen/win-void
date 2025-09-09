@@ -302,7 +302,7 @@ later(function()
     pattern = "MiniPickStart",
     callback = function()
        local win_id = vim.api.nvim_get_current_win()
-       vim.wo[win_id].winblend = 30
+       vim.wo[win_id].winblend = 15
     end,
   })
   -- Pick Directory  Form Zoxide : ===============================================================
@@ -578,7 +578,7 @@ now_if_args(function()
     callback = function(args)
       local win_id = args.data.win_id
       -- Customize window-local settings =========================================================
-      vim.wo[win_id].winblend = 30
+      vim.wo[win_id].winblend = 15
       local config = vim.api.nvim_win_get_config(win_id)
       config.border, config.title_pos = 'single', 'left'
       vim.api.nvim_win_set_config(win_id, config)
