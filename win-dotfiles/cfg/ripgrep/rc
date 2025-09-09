@@ -2,6 +2,8 @@
 # config:                                                                         #
 # =============================================================================== #
 --column
+--max-columns=150
+--max-columns-preview
 --smart-case
 --line-number
 --no-hidden
