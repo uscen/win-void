@@ -124,7 +124,7 @@ window_rules:
   - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
       - window_process: { equals: "alacritty" }
-      - window_process: { equals: "neovide" }
+      - window_process: { equals: "neovide --maximized" }
       - window_process: { equals: "zen" }
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
