@@ -135,7 +135,6 @@ window_rules:
       - window_process: { equals: "oculante" }
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
-      - window_process: { equals: "qutebrowser" }
       - window_process: { equals: "librewolf" }
       - window_process: { equals: "firefox" }
       - window_process: { equals: "chrome" }
@@ -156,7 +155,7 @@ window_rules:
     match:
       - window_process: { equals: "thunderbird" }
   # Border Rules: ================================================================================
-  - commands: ["adjust-borders --top 7px"]
+  - commands: ["adjust-borders --top 6px"]
     match:
       - window_process: { equals: "qutebrowser" }
 #                ╭─────────────────────────────────────────────────────────╮
