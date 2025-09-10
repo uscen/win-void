@@ -33,12 +33,6 @@ later(function()
   require('mini.splitjoin').setup()
 end)
 --              ╭─────────────────────────────────────────────────────────╮
---              │                     Mini.Extra                          │
---              ╰─────────────────────────────────────────────────────────╯
-later(function()
-  require('mini.extra').setup()
-end)
---              ╭─────────────────────────────────────────────────────────╮
 --              │                     Mini.Git                            │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
@@ -153,8 +147,11 @@ end)
 --              │                         Mini.Ai                         │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  local gen_ai_spec = require('mini.extra').gen_ai_spec
-  require('mini.ai').setup({
+  local MiniAi = require('mini.ai')
+  local MiniExtra = require('mini.extra')
+  local gen_ai_spec = MiniExtra.gen_ai_spec
+  MiniExtra.setup()
+  MiniAi.setup({
     n_lines = 500,
     search_method = 'cover_or_nearest',
     mappings = {
