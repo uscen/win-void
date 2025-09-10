@@ -271,7 +271,7 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
-  - commands: ["shell-exec qutebrowser :fullscreen"]
+  - commands: ["shell-exec qutebrowser"]
     bindings: ["alt+w"]
   - commands: ["shell-exec msedge"]
     bindings: ["alt+i"]
