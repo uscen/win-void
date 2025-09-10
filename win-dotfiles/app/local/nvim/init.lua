@@ -1222,6 +1222,7 @@ now_if_args(function()
       local timer = vim.loop.new_timer()
       -- NOTE: Timer is here because we need to close cmdheight AFTER
       -- the macro is ended, not during the Leave event
+      ---@diagnostic disable-next-line: need-check-nil
       timer:start(
         50,
         0,

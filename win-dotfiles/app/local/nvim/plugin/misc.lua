@@ -33,6 +33,7 @@ function M.toggleWord()
     ['left'] = 'right',
     ['top'] = 'bottom',
     ['true'] = 'false',
+    ['True'] = 'False',
     ['allow'] = 'deny',
     ['light'] = 'dark',
     ['show'] = 'hide',
