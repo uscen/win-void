@@ -50,7 +50,7 @@ end)
 later(function()
   local MiniNotify = require('mini.notify')
   MiniNotify.setup({
-    lsp_progress = { enable = true, duration_last = 100 },
+    lsp_progress = { enable = false, duration_last = 500 },
     window = {
       config = function()
         local has_statusline = vim.o.laststatus > 0
