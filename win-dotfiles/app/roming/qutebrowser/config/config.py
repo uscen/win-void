@@ -214,7 +214,7 @@ c.hints.selectors = {
 #               ║                          Content                        ║
 #               ╚═════════════════════════════════════════════════════════╝
 # Style ===============================================================================
-c.content.prefers_reduced_motion = True
+c.content.prefers_reduced_motion = False
 c.content.fullscreen.overlay_timeout = 5000
 c.content.user_stylesheets = []
 # Adblock =============================================================================

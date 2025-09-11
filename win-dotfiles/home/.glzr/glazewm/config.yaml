@@ -121,30 +121,48 @@ window_rules:
       - window_title: { equals: "Settings" }
 
   # Workspaces Rules: ============================================================================
+  #  ╭──────────────────────────────────────────────────────────────────────────╮
+  #  │ Workspace 1                                                              │
+  #  ╰──────────────────────────────────────────────────────────────────────────╯
   - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
       - window_process: { equals: "alacritty" }
       - window_process: { equals: "neovide" }
       - window_process: { equals: "zen" }
+  #  ╭──────────────────────────────────────────────────────────────────────────╮
+  #  │ Workspace 2                                                              │
+  #  ╰──────────────────────────────────────────────────────────────────────────╯
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
       - window_process: { equals: "WindowsTerminal" }
       - window_process: { equals: "explorer" }
       - window_process: { equals: "FreeTube" }
+  #  ╭──────────────────────────────────────────────────────────────────────────╮
+  #  │ Workspace 3                                                              │
+  #  ╰──────────────────────────────────────────────────────────────────────────╯
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       - window_process: { equals: "librewolf" }
       - window_process: { equals: "firefox" }
       - window_process: { equals: "chrome" }
       - window_process: { equals: "zen" }
+  #  ╭──────────────────────────────────────────────────────────────────────────╮
+  #  │ Workspace 4                                                              │
+  #  ╰──────────────────────────────────────────────────────────────────────────╯
   - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
       - window_process: { regex: "gimp" }
       - window_process: { regex: "shotcut" }
       - window_process: { regex: "obs" }
+  #  ╭──────────────────────────────────────────────────────────────────────────╮
+  #  │ Workspace 5                                                              │
+  #  ╰──────────────────────────────────────────────────────────────────────────╯
   - commands: ["move --workspace 5", "focus --workspace 5"]
     match:
       - window_process: { regex: "thunderbird" }
+  #  ╭──────────────────────────────────────────────────────────────────────────╮
+  #  │ Workspace 6                                                              │
+  #  ╰──────────────────────────────────────────────────────────────────────────╯
   - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       - window_process: { equals: "spotify" }
@@ -269,9 +287,9 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
-  - commands: ["shell-exec qutebrowser"]
-    bindings: ["alt+w"]
   - commands: ["shell-exec msedge"]
+    bindings: ["alt+w"]
+  - commands: ["shell-exec qutebrowser"]
     bindings: ["alt+i"]
   - commands: ["shell-exec thunderbird"]
     bindings: ["alt+e"]
