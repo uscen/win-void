@@ -135,7 +135,6 @@ window_rules:
     match:
       - window_process: { equals: "librewolf" }
       - window_process: { equals: "firefox" }
-      - window_process: { equals: "msedge" }
       - window_process: { equals: "chrome" }
       - window_process: { equals: "zen" }
   - commands: ["move --workspace 4", "focus --workspace 4"]
