@@ -95,8 +95,8 @@ c.downloads.open_dispatcher = None
 c.completion.quick = True
 c.completion.shrink = True
 c.completion.use_best_match = True
-c.completion.cmd_history_max_items = 100
-c.completion.web_history.max_items = 10
+c.completion.cmd_history_max_items = 0
+c.completion.web_history.max_items = 0
 c.completion.delay = 0
 c.completion.scrollbar.padding = 0
 c.completion.scrollbar.width = 4
@@ -105,7 +105,7 @@ c.completion.height = "20%"
 c.completion.show = "always"
 c.completion.timestamp_format = '%Y-%m-%d'
 c.completion.favorite_paths = []
-c.completion.open_categories = ['history']
+c.completion.open_categories = ['quickmarks']
 c.completion.web_history.exclude = ['file://*', 'http://localhost:*', 'https://*.google.com', 'https://duckduckgo.com']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Input                          ║
