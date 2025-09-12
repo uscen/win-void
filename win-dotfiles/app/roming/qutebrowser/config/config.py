@@ -272,11 +272,11 @@ c.content.print_element_backgrounds = True
 c.content.autoplay = False
 c.content.mute = False
 # Privacy =============================================================================
+c.content.private_browsing = True
 c.content.dns_prefetch = True
 c.content.fullscreen.window = True
 c.content.site_specific_quirks.enabled = True
 c.content.site_specific_quirks.skip = []
-c.content.private_browsing = False
 c.content.xss_auditing = False
 c.content.geolocation = False
 c.content.plugins = False
