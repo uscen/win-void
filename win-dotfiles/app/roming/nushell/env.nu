@@ -29,7 +29,7 @@ export-env { load-env {
 $env.FZF_DEFAULT_OPTS = "
     --prompt='󱓇  ' --layout=reverse
     --preview-window=right,30%
-    --style=minimal --height=30% --border --preview-window right,40%
+    --style=minimal --height=100% --border --preview-window right,40%
     --color fg:#a6a69c,bg:#181616
     --color bg+:#201d1d,fg+:#c5c9c5
     --color hl:#8a9a7b,hl+:#8a9a7b,gutter:#181616
