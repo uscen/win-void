@@ -222,7 +222,7 @@ c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = "both"
 c.content.blocking.whitelist = ['https://*.split.io/*']
-c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts']
+c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 c.content.blocking.adblock.lists = [
     "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
     "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
@@ -436,7 +436,7 @@ c.qt.workarounds.remove_service_workers = False
 c.qt.workarounds.locale = False
 c.qt.highdpi = False
 c.qt.force_software_rendering = 'none'
-c.qt.workarounds.disable_accelerated_2d_canvas = 'auto'
+c.qt.workarounds.disable_accelerated_2d_canvas = 'never'
 c.qt.chromium.experimental_web_platform_features = 'never'
 c.qt.chromium.low_end_device_mode = 'never'
 c.qt.chromium.process_model = 'process-per-site-instance'
@@ -452,6 +452,8 @@ c.qt.args = [
     "enable-unsafe-webgpu",
     "enable-vulkan",
     "enable-zero-copy",
+    'enable-features=VaapiVideoDecoder,VaapiVideoEncoder,Vulkan',
+    'use-vulkan=native',
     "font-cache-shared-handle",
     "ignore-gpu-blocklist",
     "num-raster-threads=4",
