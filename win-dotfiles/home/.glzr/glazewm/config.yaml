@@ -108,6 +108,7 @@ window_rules:
         window_class: { not_regex: "OpusApp" }
       - window_process: { equals: "POWERPNT" }
         window_class: { not_regex: "PPTFrameClass" }
+      - window_process: { regex: "SnippingTool" }
 
   # Floating Rules: ==============================================================================
   - commands: ["set-floating"]
