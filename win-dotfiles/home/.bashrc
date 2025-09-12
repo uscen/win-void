@@ -4,17 +4,14 @@
 export PROMPT_COMMAND='history -a'
 export HISTFILESIZE=5000
 export HISTCONTROL=ignoreboth:erasedups
-export TERMINAL="wt"
-export BROWSER="chromium"
+export TERMINAL="alacritty"
+export BROWSER="qutebrowser"
 export PAGER="less"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export MYVIMRC="$HOME/.config/nvim/init.lua"
 export KOMOREBI_CONFIG_HOME="$HOME/.config/komorebi"
 export BUN_INSTALL_CACHE_DIR="$HOME/.cache/bun/install/cache"
-export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
-export NI_DEFAULT_AGENT="npm"
-export NI_GLOBAL_AGENT="npm"
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 
 # =============================================================================== #
@@ -117,7 +114,7 @@ export FZF_ALT_C_COMMAND="fd --type=d --no-hidden --strip-cwd-prefix --exclude .
 export FZF_DEFAULT_OPTS="
     --prompt='󱓇  ' --layout=reverse
     --preview-window=right,30%
-    --style=minimal --height=30% --border --preview-window right,40%
+    --style=minimal --height=100% --border --preview-window right,40%
     --color fg:#a6a69c,bg:#181616
     --color bg+:#201d1d,fg+:#c5c9c5
     --color hl:#8a9a7b,hl+:#8a9a7b,gutter:#181616
