@@ -1,5 +1,5 @@
 # =============================================================================== #
-# EXPORTS:                                                                        #
+# Exports:                                                                        #
 # =============================================================================== #
 export PROMPT_COMMAND='history -a'
 export HISTFILESIZE=5000
@@ -15,7 +15,7 @@ export BUN_INSTALL_CACHE_DIR="$HOME/.cache/bun/install/cache"
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 
 # =============================================================================== #
-# SHELL OPTIONS:                                                                  #
+# Shell Options:                                                                  #
 # =============================================================================== #
 set -o vi
 shopt -s cdable_vars
@@ -34,19 +34,19 @@ shopt -s histappend
 source <(carapace _carapace)
 
 # =============================================================================== #
-# PROMPT:                                                                         #
+# Prompt:                                                                         #
 # =============================================================================== #
 eval "$(starship init bash)"
 
 # =============================================================================== #
-# ZOXIDE:                                                                         #
+# Zoxide:                                                                         #
 # =============================================================================== #
 eval "$(zoxide init bash)"
 
 # =============================================================================== #
-# ALIASES:                                                                        #
+# Aliases:                                                                        #
 # =============================================================================== #
-# Changing "ls" to "eza":                                                         #
+# Changing "Ls" To "Eza":                                                         #
 # =============================================================================== #
 alias ls="eza --long --group --icons=auto --git --sort=name --group-directories-first"
 alias ll="eza --long --group --icons=auto --git --sort=name --group-directories-first"
@@ -80,7 +80,7 @@ alias gd="g diff"
 alias gl="g log --oneline --graph --all -10"
 alias gp="g push -uf origin main"
 alias lg="lazygit"
-# Scoop Pkg Manager:                                                             #
+# Scoop Pkg Manager:                                                              #
 # =============================================================================== #
 alias pu="scoop update --all"
 alias pi="scoop install"
@@ -88,7 +88,7 @@ alias pr="scoop uninstall"
 alias pq="scoop search"
 alias pl="scoop list"
 alias pc="scoop cleanup --cache --all"
-# For Configs Files:                                                             #
+# For Configs Files:                                                              #
 # =============================================================================== #
 alias recompile="powershell  ~/win-void/win-configs/win-configs.ps1"
 alias dots="cd ~/win-void/"
@@ -106,7 +106,7 @@ alias cat="bat"
 alias cls="clear"
 
 # =============================================================================== #
-# Source fzf keybindingd:                                                         #
+# Source Fzf Keybindingd:                                                         #
 # =============================================================================== #
 eval "$(fzf --bash)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"

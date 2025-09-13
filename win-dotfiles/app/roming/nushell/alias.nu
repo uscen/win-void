@@ -55,7 +55,7 @@ alias grss = git restore --source
 alias grst = git restore --staged
 alias grm = git rm
 alias lg = lazygit
-# winget Package Manager:                                                         #
+# Scoop Package Manager:                                                          #
 # =============================================================================== #
 alias pu = scoop update --all
 alias pi = scoop install
@@ -64,7 +64,7 @@ alias pq = scoop search
 alias pl = scoop list
 alias pus = scoop status
 alias pclean = scoop cleanup --cache --all
-# BUN Package Manager:                                                            #
+# BuN Package Manager:                                                            #
 # =============================================================================== #
 alias buna = bun add
 alias bunr = bun remove
@@ -76,7 +76,7 @@ alias bun-dev = bun --bun run dev
 # =============================================================================== #
 alias npm = pnpm
 alias npx = pnpm dlx
-## For Configs Files:                                                             #
+# For Configs Files:                                                              #
 # =============================================================================== #
 alias recompile = powershell  ~/win-void/win-configs/win-configs.ps1
 alias dots = cd ~/win-void/
