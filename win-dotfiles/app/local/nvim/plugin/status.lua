@@ -34,7 +34,7 @@ end
 
 
 M.build = function()
-  local modeInfo = Statusline.getMode()
+  local modeInfo = M.getMode()
 
   local cwd = string.format("%s %s ", " ", vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
 
