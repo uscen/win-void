@@ -1,4 +1,12 @@
 # =============================================================================== #
+# region — Privilege Check:                                                       #
+# =============================================================================== #
+If (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()
+    ).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+    Write-Warning "This script must be run as Administrator. Exiting."
+    Exit 1
+}
+# =============================================================================== #
 # Change Keyboard Rate:		                                                        #
 # =============================================================================== #
 Set-Location "HKCU:\Control Panel\Accessibility\Keyboard Response"
