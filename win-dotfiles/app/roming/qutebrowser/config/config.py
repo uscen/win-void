@@ -687,7 +687,7 @@ config.bind("Ss", "session-save")
 config.bind("Sl", "session-load default")
 # private =============================================================================
 config.bind('rap', 'hint all run open -p {hint-url}')
-# messages  =============================================================================
+# messages  ===========================================================================
 # Toggle ==============================================================================
 config.bind("tdt", "config-cycle colors.webpage.darkmode.enabled false true")
 config.bind("ttt", "config-cycle tabs.show multiple switching")
