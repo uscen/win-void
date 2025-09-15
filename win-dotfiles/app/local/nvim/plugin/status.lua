@@ -1,9 +1,8 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                       Statusline                        ║
 --          ╚═════════════════════════════════════════════════════════╝
-M = {}
-
-M.getMode = function()
+Statusline = {}
+Statusline.getMode = function()
   local CTRL_S = vim.api.nvim_replace_termcodes("<C-S>", true, true, true)
   local CTRL_V = vim.api.nvim_replace_termcodes("<C-V>", true, true, true)
   local modesTable = {
@@ -33,8 +32,8 @@ M.getMode = function()
 end
 
 
-M.build = function()
-  local modeInfo = M.getMode()
+Statusline.build = function()
+  local modeInfo = Statusline.getMode()
 
   local cwd = string.format("%s %s ", " ", vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
 
@@ -95,8 +94,8 @@ M.build = function()
 end
 
 
-M.setup = function()
+Statusline.setup = function()
   vim.go.statusline = "%!v:lua.Statusline.build()"
 end
 
-M.setup()
+Statusline.setup()

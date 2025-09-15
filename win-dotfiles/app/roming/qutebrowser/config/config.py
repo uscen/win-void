@@ -823,7 +823,7 @@ config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # Darkmode ============================================================================
-c.colors.webpage.darkmode.enabled = False
+c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.threshold.foreground = 150
 c.colors.webpage.darkmode.threshold.background = 100
 c.colors.webpage.preferred_color_scheme = 'dark'
