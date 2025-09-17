@@ -1,3 +1,3 @@
-vim.cmd('setlocal textwidth=78')
-vim.cmd('setlocal spell')
-vim.cmd('setlocal wrap')
+vim.opt_local.textwidth = 78
+vim.opt_local.spell = true
+vim.opt_local.wrap = true
