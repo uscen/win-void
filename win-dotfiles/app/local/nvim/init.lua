@@ -328,7 +328,8 @@ now(function()
   -- enable Mini.Completion: =====================================================================
   local MiniCompletion = require('mini.completion')
   MiniCompletion.setup({
-    delay = { completion = 50, info = 40, signature = 30 },
+    fallback_action = '<C-n>',
+    delay = { completion = 0, info = 0, signature = 0 },
     window = {
       info = { border = 'single' },
       signature = { border = 'single' },
@@ -993,7 +994,8 @@ local diagnostic_opts = {
   severity_sort = false,
   update_in_insert = false,
   virtual_lines = false,
-  virtual_text = { current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
+  float = { border = 'single', source = 'if_many' },
+  virtual_text = { source = 'if_many', current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
   signs = {
     priority = 9999,
@@ -1078,7 +1080,7 @@ now_if_args(function()
   -- Clear the last used search pattern when opening a new buffer ================================
   vim.api.nvim_create_autocmd('BufReadPre', {
     pattern = '*',
-    group = vim.api.nvim_create_augroup('clear_last_search', { clear = true }),
+    group = vim.api.nvim_create_augroup('clear_search', { clear = true }),
     callback = function()
       vim.fn.setreg('/', '')
       vim.cmd 'let @/ = ""'
@@ -1373,6 +1375,16 @@ now_if_args(function()
           vim.fn.winrestview(view)
         end
       end
+    end,
+  })
+  -- Automatically adjust scrolloff based on window size: ==============================================
+  vim.api.nvim_create_autocmd('WinResized', {
+    group = vim.api.nvim_create_augroup('smart_scrolloff', { clear = true }),
+    callback = function()
+      local percentage = 0.16
+      local percentage_lines = math.floor(vim.o.lines * percentage)
+      local max_lines = 10
+      vim.o.scrolloff = math.min(max_lines, percentage_lines)
     end,
   })
   -- close some filetypes with <q>: ==============================================================
