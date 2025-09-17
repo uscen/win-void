@@ -1662,6 +1662,7 @@ later(function()
   -- Buffers: ====================================================================================
   vim.keymap.set('n', '<Tab>', '<cmd>bnext<cr>')
   vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<cr>')
+  vim.keymap.set('n', '<leader><tab>', '<cmd>b#<cr>')
   vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>')
   vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>')
   -- Center:  ====================================================================================
