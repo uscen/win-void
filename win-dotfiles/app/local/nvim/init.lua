@@ -837,7 +837,7 @@ now(function()
   vim.opt.display                = 'lastline'
   vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
-  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10'
+  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10:b'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.opt.splitkeep              = 'screen'
   vim.opt.mousemodel             = 'extend'
