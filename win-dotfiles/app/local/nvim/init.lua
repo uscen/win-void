@@ -837,7 +837,7 @@ now(function()
   vim.opt.display                = 'lastline'
   vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
-  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h9:b'
+  vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10'
   vim.opt.titlestring            = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.opt.splitkeep              = 'screen'
   vim.opt.mousemodel             = 'extend'
@@ -1769,6 +1769,9 @@ later(function()
     vim.g.neovide_cursor_trail_size = 0
     vim.g.neovide_scroll_animation_far_lines = 0
     vim.g.neovide_scroll_animation_length = 0.00
+    -- Options: ==================================================================================
+    vim.opt.linespace = -1
+    vim.opt.mousescroll = "ver:10,hor:6"
     -- Keymap: ===================================================================================
     vim.keymap.set({ 'n', 'v' }, '<C-=>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<cr>')
