@@ -289,11 +289,11 @@ later(function()
   })
   vim.ui.select = MiniPick.ui_select
   -- UI: =========================================================================================
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "MiniPickStart",
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniPickStart',
     callback = function()
-       local win_id = vim.api.nvim_get_current_win()
-       vim.wo[win_id].winblend = 15
+      local win_id = vim.api.nvim_get_current_win()
+      vim.wo[win_id].winblend = 15
     end,
   })
   -- Pick Directory  Form Zoxide : ===============================================================
@@ -1086,6 +1086,16 @@ now_if_args(function()
       vim.cmd 'let @/ = ""'
     end,
   })
+  -- Display a warning when the current file is not in UTF-8 format: =============================
+  vim.api.nvim_create_autocmd({ 'BufRead' }, {
+    pattern = '*',
+    group = vim.api.nvim_create_augroup('non_utf8_file', {}),
+    callback = function()
+      if not vim.tbl_contains({ 'utf-8', '' }, vim.bo.fileencoding) then
+        vim.notify('File not in UTF-8 format!', vim.log.levels.WARN, { title = 'UTF-8 Warning' })
+      end
+    end,
+  })
   -- Don't Comment New Line ======================================================================
   vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',
@@ -1099,12 +1109,12 @@ now_if_args(function()
   -- Highlight Yank ==============================================================================
   vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('highlight_yank', {}),
-      callback = function()
-          if vim.v.operator == 'y' then
-              vim.fn.setreg("+", vim.fn.getreg("0"))
-              vim.hl.on_yank({ on_macro = true, on_visual = true, higroup = 'IncSearch', timeout = 600 })
-          end
-      end,
+    callback = function()
+      if vim.v.operator == 'y' then
+        vim.fn.setreg('+', vim.fn.getreg('0'))
+        vim.hl.on_yank({ on_macro = true, on_visual = true, higroup = 'IncSearch', timeout = 600 })
+      end
+    end,
   })
   -- Auto-resize splits on window resize:  =======================================================
   vim.api.nvim_create_autocmd('VimResized', {
@@ -1313,9 +1323,9 @@ now_if_args(function()
   })
   -- Always show quotes: =========================================================================
   vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'json', 'jsonc', 'markdown' },
+    pattern = { 'json', 'jsonc', 'json5', 'markdown' },
     callback = function()
-      vim.wo.conceallevel = 0
+      vim.opt_local.conceallevel = 0
     end,
   })
   -- Disallow change buf for quickfix: ===========================================================
@@ -1609,7 +1619,7 @@ later(function()
   vim.keymap.set('n', '<leader>nc', ':e ~/.config/nvim/init.lua<cr>')
   vim.keymap.set('n', '<leader>p', 'm`o<ESC>p``')
   vim.keymap.set('n', '<leader>P', 'm`O<ESC>p``')
-  vim.keymap.set("n", "<leader>M", "<cmd>messages<cr>")
+  vim.keymap.set('n', '<leader>M', '<cmd>messages<cr>')
   vim.keymap.set('n', '<leader>uu', ':earlier ')
   vim.keymap.set('n', '<leader><leader>', 'zz')
   vim.keymap.set('n', '~', 'v~')
@@ -1785,7 +1795,7 @@ later(function()
     vim.g.neovide_scroll_animation_length = 0.00
     -- Options: ==================================================================================
     vim.opt.linespace = -1
-    vim.opt.mousescroll = "ver:10,hor:6"
+    vim.opt.mousescroll = 'ver:10,hor:6'
     -- Keymap: ===================================================================================
     vim.keymap.set({ 'n', 'v' }, '<C-=>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<cr>')
