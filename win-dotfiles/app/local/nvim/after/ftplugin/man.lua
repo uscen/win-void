@@ -1,7 +1,10 @@
+--              ╔═════════════════════════════════════════════════════════╗
+--              ║                             Man                         ║
+--              ╚═════════════════════════════════════════════════════════╝
+-- Autocmds: =====================================================================================
 if vim.bo.filetype ~= 'man' then
   return
 end
-
 vim.api.nvim_create_autocmd('BufWinEnter', {
   callback = function(event)
     if vim.bo.filetype == 'man' then

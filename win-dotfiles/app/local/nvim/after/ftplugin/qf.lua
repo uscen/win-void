@@ -1,3 +1,7 @@
+--              ╔═════════════════════════════════════════════════════════╗
+--              ║                         Quickfix                        ║
+--              ╚═════════════════════════════════════════════════════════╝
+-- Keymaps: ======================================================================================
 vim.keymap.set('n', '<C-j>', '<cmd>cn<CR>zz<cmd>wincmd p<CR>', { buffer = 0, silent = true })
 vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', { buffer = 0, silent = true })
 vim.keymap.set('n', '<Tab>', '<CR>', { buffer = 0, silent = true })

@@ -1,3 +1,7 @@
+--              ╔═════════════════════════════════════════════════════════╗
+--              ║                           Netrw                         ║
+--              ╚═════════════════════════════════════════════════════════╝
+-- Keymaps: ======================================================================================
 local function update_netrw()
   local escaped = vim.api.nvim_replace_termcodes('<C-l>', true, false, true)
   vim.api.nvim_feedkeys(escaped, 'm', true)

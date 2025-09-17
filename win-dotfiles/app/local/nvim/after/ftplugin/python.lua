@@ -1,12 +1,12 @@
--- Show line after desired maximum text width
+--              ╔═════════════════════════════════════════════════════════╗
+--              ║                           Python                        ║
+--              ╚═════════════════════════════════════════════════════════╝
+-- Options: ======================================================================================
 vim.opt_local.colorcolumn = '89'
-
--- Keybindings
+-- Keymaps: ======================================================================================
 vim.keymap.set('i', '<M-i>', ' = ', { buffer = 0 })
-
--- Indentation
+-- Indentation: ==================================================================================
 vim.g.pyindent_open_paren = 'shiftwidth()'
 vim.g.pyindent_continue = 'shiftwidth()'
-
--- mini.indentscope
+-- Mini: =========================================================================================
 vim.b.miniindentscope_config = { options = { border = 'top' } }
