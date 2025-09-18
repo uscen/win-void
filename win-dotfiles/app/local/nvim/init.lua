@@ -1501,6 +1501,12 @@ later(function()
     -- delete the file when the buffer is closed
     vim.cmd('au BufDelete <buffer> !rm -f ' .. path)
   end, { nargs = '*' })
+  -- Windows: "E138: main.shada.tmp.X files exist, cannot write ShaDa" on close: ================
+  vim.api.nvim_create_user_command('RemoveShadaTemp', function()
+    for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('data') .. '/shada', '*tmp*', false, true)) do
+      vim.fn.system({'rm', f})
+    end
+  end, {})
   -- Toggle inlay hints: =========================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
     vim.g.inlay_hints = not vim.g.inlay_hints
