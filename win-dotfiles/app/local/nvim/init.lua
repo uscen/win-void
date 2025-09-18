@@ -747,10 +747,12 @@ end)
 --              │                     Neovim Options                      │
 --              ╰─────────────────────────────────────────────────────────╯
 now(function()
-  -- Global:  ====================================================================================
-  vim.g.is_win                   = vim.uv.os_uname().sysname:find('Windows') ~= nil
+  -- Leader:  ====================================================================================
   vim.g.mapleader                = vim.keycode('<space>')
   vim.g.maplocalleader           = vim.g.mapleader
+  -- Os:  ========================================================================================
+  vim.g.is_win                   = vim.uv.os_uname().sysname:find('Windows') ~= nil
+  vim.g.is_windows               = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
   -- grep: =======================================================================================
   vim.opt.grepprg                = 'rg --vimgrep --smart-case --no-heading --color=never --glob !.git'
   vim.opt.grepformat             = '%f:%l:%c:%m,%f:%l:%m'
@@ -832,10 +834,10 @@ now(function()
   vim.opt.pumblend               = 15
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
+  vim.opt.display                = vim.opt.display + 'lastline'
   vim.opt.colorcolumn            = '+1'
   vim.opt.guicursor              = ''
   vim.opt.background             = 'dark'
-  vim.opt.display                = 'lastline'
   vim.opt.showcmdloc             = 'statusline'
   vim.opt.belloff                = 'all'
   vim.opt.guifont                = 'jetBrainsMono Nerd Font:h10:b'
@@ -991,11 +993,11 @@ end)
 --              │                     Neovim Diagnostics                  │
 --              ╰─────────────────────────────────────────────────────────╯
 local diagnostic_opts = {
-  severity_sort = false,
-  update_in_insert = false,
+  severity_sort = true,
+  update_in_insert = true,
   virtual_lines = false,
-  float = { border = 'single', source = 'if_many' },
-  virtual_text = { source = 'if_many', current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
+  float = { border = 'single', header = '', title = ' Diagnostics ', source = 'if_many' },
+  virtual_text = { spacing = 2, source = 'if_many', current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
   signs = {
     priority = 9999,
@@ -1202,16 +1204,25 @@ now_if_args(function()
       vim.wo.colorcolumn = ''
     end,
   })
+  -- Auto-enter insert mode when focusing terminal: ==============================================
+  vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { "term://*", "toggleterm", "snacks_terminal" },
+    callback = function() vim.cmd("startinsert") end,
+    desc = "Auto-enter insert mode when focusing terminal",
+  })
   -- Opts in terminal buffer: ====================================================================
   vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('term_open', { clear = true }),
     callback = function()
+      vim.opt_local.scrollback = 10000
       vim.opt_local.scrolloff = 0
+      vim.opt_local.swapfile = false
       vim.opt_local.spell = false
       vim.opt_local.buflisted = false
       vim.opt_local.number = false
       vim.opt_local.relativenumber = false
       vim.opt_local.foldenable = false
+      vim.opt_local.bufhidden = "hide"
       vim.opt_local.signcolumn = 'no'
       vim.opt_local.foldmethod = 'manual'
       vim.opt_local.foldexpr = '0'
@@ -1501,7 +1512,7 @@ later(function()
     -- delete the file when the buffer is closed
     vim.cmd('au BufDelete <buffer> !rm -f ' .. path)
   end, { nargs = '*' })
-  -- Windows: "E138: main.shada.tmp.X files exist, cannot write ShaDa" on close: ================
+  -- Windows: "E138: main.shada.tmp.X files exist, cannot write ShaDa" on close: =================
   vim.api.nvim_create_user_command('RemoveShadaTemp', function()
     for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('data') .. '/shada', '*tmp*', false, true)) do
       vim.fn.system({'rm', f})

@@ -5,7 +5,7 @@ guiApplications=false
 debugConsole=false
 memory=16GB
 processors=8
-swap=0
+swap=8GB
 
 [experimental]
 sparseVhd=true
