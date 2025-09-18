@@ -835,6 +835,7 @@ now(function()
   vim.opt.titlelen               = 127
   vim.opt.scrollback             = 100000
   vim.opt.display                = vim.opt.display + 'lastline'
+  vim.opt.winbar                 = ''
   vim.opt.colorcolumn            = '+1'
   vim.opt.guicursor              = ''
   vim.opt.background             = 'dark'
