@@ -775,7 +775,7 @@ now(function()
   vim.opt.undolevels             = 1024
   vim.opt.fileencoding           = 'utf-8'
   vim.opt.encoding               = 'utf-8'
-  vim.opt.fileformat             = 'unix'
+  vim.opt.fileformats            = "unix,dos"
   vim.opt.fileformats            = 'unix,dos'
   vim.opt.clipboard              = 'unnamedplus'
   vim.opt.wildmode               = 'longest:full,full'
@@ -880,6 +880,7 @@ now(function()
   vim.opt.exrc                   = true
   vim.opt.secure                 = true
   vim.opt.autochdir              = true
+  vim.opt.autoread               = true
   vim.opt.autowrite              = true
   vim.opt.autowriteall           = true
   vim.opt.showmatch              = true
