@@ -111,7 +111,25 @@ M.winbuf_toggle = function()
     vim.api.nvim_win_hide(M.state.data.win_id)
   end
 end
+-- create user commands: =========================================================================
 vim.api.nvim_create_user_command('FloatTermToggle', M.winbuf_toggle, {})
+vim.api.nvim_create_user_command('FloatTermLaztGit', function()
+  local term = M.winbuf { buf_id = M.state.data.buf_id }
+  M.state.data = term
+  if vim.api.nvim_win_is_valid(term.win_id) then
+    local job_id = vim.fn.termopen('lazygit')
+    vim.api.nvim_create_autocmd('TermOpen', {
+      buffer = term.buf_id,
+      once = true,
+      callback = function()
+        vim.fn.chansend(job_id, 'lazygit\n')
+        vim.cmd('startinsert')
+      end,
+    })
+  end
+  vim.cmd('startinsert')
+end, {})
+-- Resize Treminal When Resize Neovim: ===========================================================
 au('VimResized', '*', {
   group = TerminalFloat,
   callback = M.resize,

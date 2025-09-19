@@ -1241,6 +1241,13 @@ now_if_args(function()
       end
     end,
   })
+  vim.api.nvim_create_autocmd('TermClose', {
+    group = vim.api.nvim_create_augroup('term_close', {}),
+    pattern = { 'term://*' },
+    callback = function()
+      vim.api.nvim_input('<CR>')
+    end,
+  })
   -- Auto create directories before save: ========================================================
   vim.api.nvim_create_autocmd('BufWritePre', {
     group = vim.api.nvim_create_augroup('auto_create_dir', { clear = true }),
@@ -1727,6 +1734,7 @@ later(function()
   -- Terminal: ===================================================================================
   vim.keymap.set('n', '<C-t>', '<cmd>FloatTermToggle<cr>')
   vim.keymap.set('t', '<C-t>', '<cmd>FloatTermToggle<cr>')
+  vim.keymap.set('n', '<leader>gg', '<cmd>FloatTermLaztGit<cr>')
   vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
   -- Git: ========================================================================================
   vim.keymap.set('n', '<leader>ga', '<cmd>Git add .<cr>')
