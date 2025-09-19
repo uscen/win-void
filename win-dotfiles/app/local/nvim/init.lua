@@ -1734,7 +1734,7 @@ later(function()
   -- Terminal: ===================================================================================
   vim.keymap.set('n', '<C-t>', '<cmd>FloatTermToggle<cr>')
   vim.keymap.set('t', '<C-t>', '<cmd>FloatTermToggle<cr>')
-  vim.keymap.set('n', '<leader>gg', '<cmd>FloatTermLaztGit<cr>')
+  vim.keymap.set('n', '<leader>gg', '<cmd>FloatTermLazyGit<cr>')
   vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
   -- Git: ========================================================================================
   vim.keymap.set('n', '<leader>ga', '<cmd>Git add .<cr>')
