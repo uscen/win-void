@@ -1,13 +1,18 @@
-# Modules
+# =============================================================================== #
+# Elvish Config Shell:                                                            #
+# =============================================================================== #
+# =============================================================================== #
+# Modules:                                                                        #
+# =============================================================================== #
+# Built In:                                                                       #
+# =============================================================================== #
 use platform
 use readline-binding
-# Local modules
-
-
-
-
-
-
+# Local Modules:                                                                  #
+# =============================================================================== #
+# =============================================================================== #
+# General config File:                                                            #
+# =============================================================================== #
 if (eq $platform:os windows) {
   set paths = [
     'C:\Program Files\Git\bin'
@@ -24,7 +29,12 @@ if (eq $platform:os windows) {
     $E:HOME/.config/bin
   ]
 }
-
+# =============================================================================== #
+# Extrnal Tools:                                                                  #
+# =============================================================================== #
+# Zoxide:                                                                         #
+# =============================================================================== #
+eval (zoxide init elvish | slurp)
 # =============================================================================== #
 # Aliases:                                                                        #
 # =============================================================================== #
@@ -87,13 +97,13 @@ fn npm { pnpm }
 fn npx { pnpm dlx }
 # For Configs Files:                                                              #
 # =============================================================================== #
-fn recompile { powershell  ~/win-void/win-configs/win-configs.ps1 }
-fn dots { cd ~/win-void/ }
-fn ahk { cd ~/win-void/win-dotfiles/cfg/ahk/ }
-fn bashc { nvim ~/win-void/win-dotfiles/home/.bashrc }
-fn wmc { nvim ~/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
-fn barc { nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml }
-fn nuc { nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu }
+fn recompile { powershell ~/win-void/win-configs/win-configs.ps1 }
+fn dots { cd C:$E:HOMEPATH/win-void/ }
+fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
+fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bashrc }
+fn wmc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
+fn barc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/cfg/yasb/config.yaml }
+fn nuc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/nushell/config.nu }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
 fn yt-concats { yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always -S "codec:h264" }
