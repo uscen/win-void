@@ -995,8 +995,8 @@ end)
 --              │                     Neovim Diagnostics                  │
 --              ╰─────────────────────────────────────────────────────────╯
 local diagnostic_opts = {
-  severity_sort = true,
-  update_in_insert = true,
+  severity_sort = false,
+  update_in_insert = false,
   virtual_lines = false,
   float = { border = 'single', header = '', title = ' Diagnostics ', source = 'if_many' },
   virtual_text = { spacing = 2, source = 'if_many', current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
@@ -1820,7 +1820,6 @@ later(function()
     vim.g.neovide_cursor_trail_size = 0
     vim.g.neovide_scroll_animation_far_lines = 0
     vim.g.neovide_scroll_animation_length = 0.00
-    vim.cmd("highlight! Normal guifg=#87a987")
     -- Options: ==================================================================================
     vim.opt.linespace = -1
     vim.opt.mousescroll = 'ver:10,hor:6'
