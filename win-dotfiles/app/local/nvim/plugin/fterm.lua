@@ -121,7 +121,6 @@ M.winbuf_lazyGit = function()
       once = true,
       callback = function()
         vim.fn.chansend(job_id, 'lazygit\n')
-        vim.cmd('startinsert')
       end,
     })
   end
