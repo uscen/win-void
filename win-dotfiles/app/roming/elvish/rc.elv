@@ -2,16 +2,17 @@
 # Elvish Config Shell:                                                            #
 # =============================================================================== #
 # =============================================================================== #
-# Modules:                                                                        #
+# Elvish Modules:                                                                 #
 # =============================================================================== #
-# Built In:                                                                       #
+# Builtin:                                                                        #
 # =============================================================================== #
+use re
 use platform
 use readline-binding
-# Local Modules:                                                                  #
+# Local:                                                                          #
 # =============================================================================== #
 # =============================================================================== #
-# Evlish General Env:                                                             #
+# Evlish Env:                                                                     #
 # =============================================================================== #
 set E:LANG = "en_US.UTF-8"
 set E:LC_ALL = "en_US.UTF-8"
@@ -21,7 +22,21 @@ set E:PAGER = "less"
 set E:LESS = "-i -R"
 set E:TERMINAL = "alacritty"
 # =============================================================================== #
-# General config File:                                                            #
+# Elvish General :                                                                #
+# =============================================================================== #
+# Sets:                                                                           #
+# =============================================================================== #
+set edit:completion:matcher[argument] = {|seed| edit:match-prefix $seed &ignore-case=$true }
+set notify-bg-job-success = $false
+# keys:                                                                           #
+# =============================================================================== #
+set edit:history:binding[Ctrl-k] = { edit:history:up }
+set edit:history:binding[Ctrl-j] = { edit:history:down-or-quit }
+set edit:completion:binding[Ctrl-k] = { edit:completion:up-cycle }
+set edit:completion:binding[Ctrl-j] = { edit:completion:down-cycle }
+set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
+set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
+# Paths:                                                                          #
 # =============================================================================== #
 if (eq $platform:os windows) {
   set paths = [
@@ -39,22 +54,21 @@ if (eq $platform:os windows) {
     $E:HOME/.config/bin
   ]
 }
-# =============================================================================== #
-# Extrnal Tools:                                                                  #
-# =============================================================================== #
-# Zoxide:                                                                         #
+# Extrnal:                                                                        #
 # =============================================================================== #
 eval (zoxide init elvish | slurp)
-# =============================================================================== #
 # Prompt:                                                                         #
 # =============================================================================== #
+set edit:prompt = {
+     styled (re:replace '\..*$' '' (hostname))' 󱓇  ' bright-green
+}
 set edit:rprompt = { nop }
 # =============================================================================== #
-# Aliases:                                                                        #
+# Elvish Aliases:                                                                 #
 # =============================================================================== #
 # Changing Directory:                                                             #
 # =============================================================================== #
-fn cd { z }
+# fn cd { z }
 fn cdd { cd D:/ }
 fn cdc { cd C:/ }
 # Changing "ls" to "eza":                                                         #
@@ -111,7 +125,7 @@ fn npm { pnpm }
 fn npx { pnpm dlx }
 # For Configs Files:                                                              #
 # =============================================================================== #
-fn recompile { powershell ~/win-void/win-configs/win-configs.ps1 }
+fn recompile { powershell C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
 fn dots { cd C:$E:HOMEPATH/win-void/ }
 fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
 fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bashrc }
@@ -120,7 +134,7 @@ fn barc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/cfg/yasb/config.yaml }
 fn nuc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/nushell/config.nu }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
-fn yt-concats { yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always -S "codec:h264" }
+fn yt-concats { yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio --concat-playlist always -S codec:h264 }
 fn yt-music { yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music" }
 fn htop { ntop -u lli -s CPU% }
 fn man { tldr }
