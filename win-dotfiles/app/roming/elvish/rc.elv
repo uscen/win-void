@@ -21,6 +21,7 @@ set E:VISUAL = "nvim"
 set E:PAGER = "less"
 set E:LESS = "-i -R"
 set E:TERMINAL = "alacritty"
+set E:BROWSER = "qutebrowser"
 # =============================================================================== #
 # Elvish General :                                                                #
 # =============================================================================== #

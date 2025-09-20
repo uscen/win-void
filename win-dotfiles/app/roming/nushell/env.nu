@@ -8,6 +8,7 @@ $env.EDITOR = "nvim"
 $env.VISUAL = $env.EDITOR
 $env.PAGER = "less"
 $env.TERMINAL = "alacritty"
+$env.BROWSER = "qutebrowser"
 export-env { load-env {
     XDG_CONFIG_DIR: ($env.USERPROFILE | path join ".config")
     XDG_CACHE_HOME: ($env.USERPROFILE | path join ".cache")
