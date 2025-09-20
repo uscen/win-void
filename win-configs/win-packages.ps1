@@ -54,6 +54,7 @@ $scoopPackages = @(
     "curl",
     "nu",
     "carapace-bin",
+    "uutils-coreutils",
     "gsudo",
     "alacritty",
     "windows-terminal",
