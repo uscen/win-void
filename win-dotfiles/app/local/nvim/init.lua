@@ -721,9 +721,9 @@ now(function()
   vim.opt.grepformat             = '%f:%l:%c:%m,%f:%l:%m'
   vim.opt.path                   = '.,,**'
   -- Shell: =-====================================================================================
-  vim.opt.sh                     = 'nu'
-  vim.opt.shellcmdflag           = '--stdin --no-newline -c'
-  vim.opt.shellredir             = 'out+err> %s'
+  vim.opt.sh                     = 'elvish'
+  vim.opt.shellcmdflag           = ''
+  vim.opt.shellredir             = ''
   vim.opt.shellxescape           = ''
   vim.opt.shellxquote            = ''
   vim.opt.shellquote             = ''

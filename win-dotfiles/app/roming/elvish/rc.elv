@@ -13,10 +13,13 @@ use readline-binding
 # =============================================================================== #
 # Evlish General Env:                                                             #
 # =============================================================================== #
-set E:FLIT_INSTALL_PYTHON = py
-set E:PIP_NO_WARN_SCRIPT_LOCATION = true
-set E:PIPENV_IGNORE_VIRTUALENVS = true
-set E:PIPENV_VENV_IN_PROJECT = true
+set E:LANG = "en_US.UTF-8"
+set E:LC_ALL = "en_US.UTF-8"
+set E:EDITOR = "nvim"
+set E:VISUAL = "nvim"
+set E:PAGER = "less"
+set E:LESS = "-i -R"
+set E:TERMINAL = "alacritty"
 # =============================================================================== #
 # General config File:                                                            #
 # =============================================================================== #
