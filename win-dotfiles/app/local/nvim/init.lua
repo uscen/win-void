@@ -720,15 +720,6 @@ now(function()
   vim.opt.grepprg                = 'rg --vimgrep --smart-case --no-heading --color=never --glob !.git'
   vim.opt.grepformat             = '%f:%l:%c:%m,%f:%l:%m'
   vim.opt.path                   = '.,,**'
-  -- Shell: =-====================================================================================
-  vim.opt.sh                    = 'elvish'
-  vim.opt.shellslash            = true
-  vim.opt.shelltemp             = false
-  vim.opt.shellcmdflag          = '--stdin --no-newline -c'
-  vim.opt.shellredir            = 'out+err> %s'
-  vim.opt.shellxescape          = ''
-  vim.opt.shellxquote           = ''
-  vim.opt.shellquote            = ''
   -- General: ====================================================================================
   vim.opt.undofile               = true
   vim.opt.wildmenu               = true

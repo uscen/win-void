@@ -94,10 +94,10 @@ black = '#0d0c0c'
 red = '#c4746e'
 green = '#8a9a7b'
 yellow = '#c4b28a'
-blue = '#8ba4b0'
+blue = '#ffffff'
 magenta = '#a292a3'
 cyan = '#8ea4a2'
-white = '#c8c093'
+white = '#ffffff'
 
 [colors.bright]
 black = '#a6a69c'
