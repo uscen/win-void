@@ -9,8 +9,6 @@
 use re
 use platform
 use readline-binding
-# Local:                                                                          #
-# =============================================================================== #
 # =============================================================================== #
 # Evlish Env:                                                                     #
 # =============================================================================== #
@@ -31,10 +29,9 @@ set edit:completion:matcher[argument] = {|seed| edit:match-prefix $seed &ignore-
 set notify-bg-job-success = $false
 # keys:                                                                           #
 # =============================================================================== #
-set edit:history:binding[Ctrl-k] = { edit:history:up }
-set edit:history:binding[Ctrl-j] = { edit:history:down-or-quit }
-set edit:completion:binding[Ctrl-k] = { edit:completion:up-cycle }
-set edit:completion:binding[Ctrl-j] = { edit:completion:down-cycle }
+set edit:insert:binding[Alt-c] = { edit:location:start }
+set edit:insert:binding[Ctrl-n] = { edit:navigation:start }
+set edit:insert:binding[Ctrl-X] = { edit:-instant:start }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 # Paths:                                                                          #
@@ -79,6 +76,7 @@ fn fetch { fastfetch }
 fn neofetch { fastfetch }
 # Changing Directory:                                                             #
 # =============================================================================== #
+fn .. { cd .. }
 fn cdd { cd D:/ }
 fn cdc { cd C:/ }
 # For Configs Files:                                                              #

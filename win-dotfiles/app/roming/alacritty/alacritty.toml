@@ -97,7 +97,7 @@ yellow = '#c4b28a'
 blue = '#8ba4b0'
 magenta = '#a292a3'
 cyan = '#8ea4a2'
-white = '#c8c093'
+white = '#0d0c0c'
 
 [colors.bright]
 black = '#a6a69c'
