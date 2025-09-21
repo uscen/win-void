@@ -34,10 +34,25 @@ set E:FZF_DEFAULT_OPTS = "
 # =============================================================================== #
 # Elvish General :                                                                #
 # =============================================================================== #
+# Helpers:                                                                        #
+# =============================================================================== #
+fn match {|seed|
+    var inputs = [(all)]
+    var results = []
+    for matcher [$edit:match-prefix~ $edit:match-substr~ $edit:match-subseq~] {
+        set results = [(put $@inputs | $matcher &smart-case $seed)]
+        if (or $@results) {
+            put $@results
+            return
+        }
+    }
+    put $@results
+}
 # Sets:                                                                           #
 # =============================================================================== #
-set edit:completion:matcher[argument] = {|seed| edit:match-prefix $seed &ignore-case=$true }
+set edit:max-height = 10
 set notify-bg-job-success = $false
+set edit:completion:matcher[''] = $match~
 # keys:                                                                           #
 # =============================================================================== #
 set edit:insert:binding[Alt-c] = { edit:location:start }
