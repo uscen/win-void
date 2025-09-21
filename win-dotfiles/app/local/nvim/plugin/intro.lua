@@ -71,7 +71,9 @@ local function create_and_set_minintro_buf(default_buff)
   vim.api.nvim_set_option_value('swapfile', false, { buf = intro_buff })
 
   vim.api.nvim_set_current_buf(intro_buff)
-  vim.api.nvim_buf_delete(default_buff, { force = true })
+  if vim.api.nvim_buf_is_valid(default_buff) then
+    vim.api.nvim_buf_delete(default_buff, { force = true })
+  end
 
   return intro_buff
 end
@@ -120,8 +122,9 @@ function M.setup(options)
 
   vim.api.nvim_create_autocmd('VimEnter', {
     group = autocmd_group,
+    once = true,
+    nested = true,
     callback = display_minintro,
-    once = true
   })
 end
 
