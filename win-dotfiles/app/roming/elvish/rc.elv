@@ -20,6 +20,18 @@ set E:PAGER = "less"
 set E:LESS = "-i -R"
 set E:TERMINAL = "alacritty"
 set E:BROWSER = "qutebrowser"
+set E:FZF_DEFAULT_OPTS = "
+    --prompt='󱓇  ' --layout=reverse
+    --preview-window=right,30%
+    --style=minimal --height=100% --border --preview-window right,40%
+    --color fg:#a6a69c,bg:#181616
+    --color bg+:#201d1d,fg+:#c5c9c5
+    --color hl:#8a9a7b,hl+:#8a9a7b,gutter:#181616
+    --color pointer:#201d1d,info:#393836
+    --color border:#181616
+    --color border:#8a9a7b
+    --bind 'tab:accept'
+"
 # =============================================================================== #
 # Elvish General :                                                                #
 # =============================================================================== #
