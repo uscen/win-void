@@ -52,7 +52,7 @@ $uninstall = @(
 $scoopPackages = @(
     "aria2",
     "curl",
-    "nu",
+    "elvish",
     "uutils-coreutils",
     "gsudo",
     "alacritty",
