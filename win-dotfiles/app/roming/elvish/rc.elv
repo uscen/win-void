@@ -68,14 +68,28 @@ set edit:rprompt = { nop }
 # =============================================================================== #
 # Elvish Aliases:                                                                 #
 # =============================================================================== #
-# Changing Directory:                                                             #
+# Reset Terminal:                                                                 #
 # =============================================================================== #
-fn cdd { cd D:/ }
-fn cdc { cd C:/ }
+fn cls { edit:clear }
+fn clear { print "\e[H\e[2J\e[3J" }
+fn reset { print "\033c" }
 # Fetch (System Info):                                                            #
 # =============================================================================== #
 fn fetch { fastfetch }
 fn neofetch { fastfetch }
+# Changing Directory:                                                             #
+# =============================================================================== #
+fn cdd { cd D:/ }
+fn cdc { cd C:/ }
+# For Configs Files:                                                              #
+# =============================================================================== #
+fn recompile { powershell C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
+fn dots { cd C:$E:HOMEPATH/win-void/ }
+fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
+fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bashrc }
+fn wmc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
+fn barc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/cfg/yasb/config.yaml }
+fn nuc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/nushell/config.nu }
 # Changing "ls" to "eza":                                                         #
 # =============================================================================== #
 fn ls {|@a| e:eza --long --group --icons=auto --git --sort=name --group-directories-first $@a }
@@ -124,15 +138,6 @@ fn bun-dev {|@a| e:bun --bun run dev $@a }
 # =============================================================================== #
 fn npm {|@a| pnpm $@a }
 fn npx {|@a| pnpm dlx $@a }
-# For Configs Files:                                                              #
-# =============================================================================== #
-fn recompile { powershell C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
-fn dots { cd C:$E:HOMEPATH/win-void/ }
-fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
-fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bashrc }
-fn wmc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
-fn barc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/cfg/yasb/config.yaml }
-fn nuc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/nushell/config.nu }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
 fn yt-concats {|@a| e:yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio --concat-playlist always -S codec:h264 $@a }
@@ -140,67 +145,19 @@ fn yt-music {|@a| e:yt-dlp --ignore-config --config-locations "~/AppData/Roaming
 fn htop {|@a| e:ntop -u lli -s CPU% $@a }
 fn man {|@a| e:tldr $@a }
 fn cat {|@a| e:bat $@a }
-fn cls { edit:clear }
-fn clear { print "\e[H\e[2J\e[3J" }
-fn reset { print "\033c" }
 # Git:                                                                            #
 # =============================================================================== #
-fn g {|@a|
-  if (== 0 (count $a)) {
-    e:git --help
-  } else {
-    e:git $@a
-  }
-}
-
-fn gi {|@a|
-  e:git init $@a
-}
-
-fn gs {|@a|
-  e:git status $@a
-}
-
-fn ga {|@a|
-  e:git add --all $@a
-}
-
-fn gg {|@a|
-  e:git clone --depth=1 $@a
-}
-
-fn gc {|@a|
-  e:git commit --verbose $@a
-}
-
-fn gd {|@a|
-  e:git diff $@a
-}
-
-fn gl {|@a|
-  e:git log --oneline --graph -all -10  $@a
-}
-
-fn gb {|@a|
-  e:git branch $@a
-}
-
-fn gp {|@a|
-  e:git push -uf origin main $@a
-}
-
-fn gf {|@a|
-  e:git fetch $@a
-}
-
-fn gg {|@a|
-  e:git pull $@a
-}
-
-fn gr {|@a|
-  e:git switch $@a
-}
-
-fn lg {|@a|
-  e:lazygit $@a
-}
+fn g {|@a| e:git $@a }
+fn gi {|@a| e:git init $@a }
+fn gs {|@a| e:git status $@a }
+fn ga {|@a| e:git add --all $@a }
+fn gg {|@a| e:git clone --depth=1 $@a }
+fn gc {|@a| e:git commit --verbose $@a }
+fn gd {|@a| e:git diff $@a }
+fn gl {|@a| e:git log --oneline --graph -all -10  $@a }
+fn gb {|@a| e:git branch $@a }
+fn gp {|@a| e:git push -uf origin main $@a }
+fn gf {|@a| e:git fetch $@a }
+fn gg {|@a| e:git pull $@a }
+fn gr {|@a| e:git switch $@a }
+fn lg {|@a| e:lazygit $@a }
