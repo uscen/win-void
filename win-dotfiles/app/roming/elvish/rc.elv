@@ -102,7 +102,10 @@ fn fetch { fastfetch }
 fn neofetch { fastfetch }
 # Changing Directory:                                                             #
 # =============================================================================== #
+fn ... { cd ~ }
 fn .. { cd .. }
+fn ../ { cd .. }
+fn ../../ { cd ../.. }
 fn cdd { cd D:/ }
 fn cdc { cd C:/ }
 # For Configs Files:                                                              #
