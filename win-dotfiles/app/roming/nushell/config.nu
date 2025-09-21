@@ -204,31 +204,7 @@ $env.config = {
 #$env.PROMPT_MULTILINE_INDICATOR = "> "
 #$env.PROMPT_COMMAND_RIGHT = ""
 # =============================================================================== #
-# Starship Prompt:                                                                #
-# =============================================================================== #
-$env.STARSHIP_SHELL = "nu"
-def create_left_prompt [] {
-    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
-}
-# Use nushell functions to define your right and left prompt
-$env.PROMPT_COMMAND = { || create_left_prompt }
-$env.PROMPT_COMMAND_RIGHT = ""
-$env.PROMPT_INDICATOR = ""
-$env.PROMPT_INDICATOR_VI_INSERT = ""
-$env.PROMPT_INDICATOR_VI_NORMAL = ""
-$env.PROMPT_MULTILINE_INDICATOR = ""
-# =============================================================================== #
-# Completer:                                                                      #
-# =============================================================================== #
-let carapace_completer = {|spans|
-    carapace $spans.0 nushell ...$spans | from json
-}
-let zoxide_completer = {|spans|
-    $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
-}
-# =============================================================================== #
 # Source OF Files:                                                                #
 # =============================================================================== #
-source ~/.cache/carapace/init.nu
 source ~/.cache/zoxide.nu
 source alias.nu

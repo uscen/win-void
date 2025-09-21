@@ -40,12 +40,6 @@ $env.FZF_DEFAULT_OPTS = "
     --bind 'tab:accept'
 "
 # =============================================================================== #
-#  carapace-bin:                                                                  #
-# =============================================================================== #
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
-mkdir ~/.cache/carapace
-carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
-# =============================================================================== #
 #  Zoxide :                                                                       #
 # =============================================================================== #
 zoxide init nushell | save -f ~/.cache/zoxide.nu
