@@ -113,7 +113,7 @@ window_rules:
   # Floating Rules: ==============================================================================
   - commands: ["set-floating"]
     match:
-      - window_process: { regex: "oculante|GlassWire|mpv|crow|Taskmgr|obs" }
+      - window_process: { regex: "qView|GlassWire|mpv|crow|Taskmgr|obs" }
       - window_process: { regex: "explorer|ChatGPT|SnippingTool" }
       - window_process: { equals: "VirtualBox|VirtualBoxVM" }
       - window_title: { regex: "Window Spy" }
@@ -171,7 +171,7 @@ window_rules:
   - commands: ["toggle-fullscreen"]
     match:
       - window_process: { equals: "mpv" }
-      - window_process: { equals: "oculante" }
+      - window_process: { equals: "qView" }
   # Border Rules: ================================================================================
   - commands: ["adjust-borders --top 6px"]
     match:

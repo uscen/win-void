@@ -93,7 +93,7 @@ $scoopPackages = @(
     "yt-dlp",
     "ouch",
     "mpv",
-    "oculante"
+    "qview"
 )
 
 # UnInstall Packages:	                                                            #

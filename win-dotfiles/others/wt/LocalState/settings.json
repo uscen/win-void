@@ -29,11 +29,10 @@
     "list": [
       {
         "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
-        "name": "NuShell",
-        "commandline": "nu",
+        "name": "Elvish",
+        "commandline": "elvish",
         "startingDirectory": "%USERPROFILE%",
-        "tabTitle": "NuShell",
-        "icon": "C:\\Users\\lli\\AppData\\Local\\Programs\\nu\\nu.ico",
+        "tabTitle": "Elvish",
         "hidden": false,
         "padding": "0"
       },
