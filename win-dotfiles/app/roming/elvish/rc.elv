@@ -140,8 +140,8 @@ fn npm {|@a| pnpm $@a }
 fn npx {|@a| pnpm dlx $@a }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
-fn yt-concats {|@a| e:yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio --concat-playlist always -S codec:h264 $@a }
-fn yt-music {|@a| e:yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music" $@a }
+fn yt-concats {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/playlist $@a }
+fn yt-music {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/music $@a }
 fn htop {|@a| e:ntop -u lli -s CPU% $@a }
 fn man {|@a| e:tldr $@a }
 fn cat {|@a| e:bat $@a }
