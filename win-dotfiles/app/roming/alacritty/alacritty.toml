@@ -87,16 +87,16 @@ foreground = "#b4b8b4"
 
 [colors.cursor]
 text = '#181616'
-cursor = "#b4b8b4"
+cursor = "#8a9a7b"
 
 [colors.normal]
 black = "#0d0c0c"
-blue = "#8ba4b0"
+blue = "#ffffff"
 cyan = "#8ea4a2"
 green = "#8a9a7b"
 magenta = "#a292a3"
 red = "#c4746e"
-white = "#b4b3a7"
+white = "#181616"
 yellow = "#d2b788"
 
 [colors.bright]
