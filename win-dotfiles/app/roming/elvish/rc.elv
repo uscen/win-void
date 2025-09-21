@@ -203,5 +203,9 @@ fn gg {|@args|
 fn gr {|@args|
   e:git switch $@args
 }
+
+fn lg {|@args|
+  e:lazygit $@args
+}
 # Universal Terminal alias for bun, pnpm, npm, and yarn:                          #
 # =============================================================================== #
