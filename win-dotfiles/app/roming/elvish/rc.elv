@@ -43,7 +43,6 @@ set notify-bg-job-success = $false
 # =============================================================================== #
 set edit:insert:binding[Alt-c] = { edit:location:start }
 set edit:insert:binding[Ctrl-n] = { edit:navigation:start }
-
 set edit:insert:binding[Ctrl-X] = { edit:-instant:start }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
