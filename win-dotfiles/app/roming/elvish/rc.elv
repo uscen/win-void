@@ -61,7 +61,8 @@ eval (zoxide init elvish | slurp)
 # Prompt:                                                                         #
 # =============================================================================== #
 set edit:prompt = {
-     styled (re:replace '\..*$' '' (hostname))' 󱓇  ' bright-green
+     tilde-abbr $pwd
+     styled ' 󱓇  ' bright-green
 }
 set edit:rprompt = { nop }
 # =============================================================================== #
@@ -69,61 +70,60 @@ set edit:rprompt = { nop }
 # =============================================================================== #
 # Changing Directory:                                                             #
 # =============================================================================== #
-# fn cd { z }
 fn cdd { cd D:/ }
 fn cdc { cd C:/ }
-# Changing "ls" to "eza":                                                         #
-# =============================================================================== #
-fn ls { eza --long --group --icons=auto --git --sort=name --group-directories-first }
-fn ll { eza --long --group --icons=auto --git --sort=name --group-directories-first }
-fn lt { eza --long --group --icons=auto --git --only-dirs --tree --level=3 --sort=modified }
-# Bat Like Cat:                                                                   #
-# =============================================================================== #
-fn b { bat }
-fn bn { bat --number }
-fn bnl { bat --number --line-range }
-fn bp { bat --plain }
-fn bpl { bat --plain --line-range }
-fn bl { bat --line-range }
 # Fetch (System Info):                                                            #
 # =============================================================================== #
 fn fetch { fastfetch }
 fn neofetch { fastfetch }
+# Changing "ls" to "eza":                                                         #
+# =============================================================================== #
+fn ls {|@a| e:eza --long --group --icons=auto --git --sort=name --group-directories-first $@a }
+fn ll {|@a| e:eza --long --group --icons=auto --git --sort=name --group-directories-first $@a }
+fn lt {|@a| e:eza --long --group --icons=auto --git --only-dirs --tree --level=3 --sort=modified $@a }
+# Bat Like Cat:                                                                   #
+# =============================================================================== #
+fn b {|@a| e:bat $@a }
+fn bn {|@a| e:bat --number $@a }
+fn bnl {|@a| e:bat --number --line-range $@a }
+fn bp {|@a| e:bat --plain $@a }
+fn bpl {|@a| e:bat --plain --line-range $@a }
+fn bl {|@a| e:bat --line-range $@a }
 # NeoVim To Vim:                                                                  #
 # =============================================================================== #
-fn v { nvim }
-fn vi { nvim }
-fn nv { nvim }
-fn vn { nvim }
-fn vm { nvim }
-fn vim { nvim }
-fn vd { nohup neovide 2>/dev/null 1>&2 & }
-fn nd { nohup neovide 2>/dev/null 1>&2 & }
+fn v {|@a| e:nvim $@a }
+fn vi {|@a| e:nvim $@a }
+fn nv {|@a| e:nvim $@a }
+fn vn {|@a| e:nvim $@a }
+fn vm {|@a| e:nvim $@a }
+fn vim {|@a| e:nvim $@a }
+fn vd {|@a| e:nohup neovide 2>/dev/null 1>&2 & }
+fn nd {|@a| e:nohup neovide 2>/dev/null 1>&2 & }
 # Image Viewr:                                                                    #
 # =============================================================================== #
-fn sx { oculante }
-fn imv { oculante }
+fn sx {|@a| e:qview $@a }
+fn imv {|@a| e:qview $@a }
 # Scoop Package Manager:                                                          #
 # =============================================================================== #
-fn pu { scoop update --all }
-fn pi { scoop install }
-fn pr { scoop uninstall }
-fn pq { scoop search }
-fn pl { scoop list }
-fn pus { scoop status }
-fn pclean { scoop cleanup --cache --all }
+fn pu {|@a| e:scoop update --all $@a }
+fn pi {|@a| e:scoop install $@a }
+fn pr {|@a| e:scoop uninstall $@a }
+fn pq {|@a| e:scoop search $@a }
+fn pl {|@a| e:scoop list $@a }
+fn pus {|@a| e:scoop status $@a }
+fn pclean {|@a| e:scoop cleanup --cache --all $@a }
 # BuN Package Manager:                                                            #
 # =============================================================================== #
-fn buna { bun add }
-fn bunr { bun remove }
-fn bunu { bun update }
-fn buni { bun install }
-fn bun-run { bun run }
-fn bun-dev { bun --bun run dev }
+fn buna {|@a| e:bun add $@a }
+fn bunr {|@a| e:bun remove $@a }
+fn bunu {|@a| e:bun update $@a }
+fn buni {|@a| e:bun install $@a }
+fn bun-run {|@a| e:bun run $@a }
+fn bun-dev {|@a| e:bun --bun run dev $@a }
 # Node PKG Manager:                                                               #
 # =============================================================================== #
-fn npm { pnpm }
-fn npx { pnpm dlx }
+fn npm {|@a| pnpm $@a }
+fn npx {|@a| pnpm dlx $@a }
 # For Configs Files:                                                              #
 # =============================================================================== #
 fn recompile { powershell C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
@@ -135,77 +135,72 @@ fn barc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/cfg/yasb/config.yaml }
 fn nuc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/nushell/config.nu }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
-fn yt-concats { yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio --concat-playlist always -S codec:h264 }
-fn yt-music { yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music" }
-fn htop { ntop -u lli -s CPU% }
-fn man { tldr }
-fn cat { bat }
+fn yt-concats {|@a| e:yt-dlp --no-warnings --quiet --progress --ignore-config --downloader aria2c --output "~/Videos/PROGRAMMING/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio --concat-playlist always -S codec:h264 $@a }
+fn yt-music {|@a| e:yt-dlp --ignore-config --config-locations "~/AppData/Roaming/yt-dlp/music" $@a }
+fn htop {|@a| e:ntop -u lli -s CPU% $@a }
+fn man {|@a| e:tldr $@a }
+fn cat {|@a| e:bat $@a }
 fn cls { edit:clear }
 fn clear { print "\e[H\e[2J\e[3J" }
 fn reset { print "\033c" }
-# =============================================================================== #
-# Functions Alias :                                                               #
-# =============================================================================== #
 # Git:                                                                            #
 # =============================================================================== #
-fn g {|@args|
-  if (== 0 (count $args)) {
+fn g {|@a|
+  if (== 0 (count $a)) {
     e:git --help
   } else {
-    e:git $@args
+    e:git $@a
   }
 }
 
-fn gi {|@args|
-  e:git init $@args
+fn gi {|@a|
+  e:git init $@a
 }
 
-fn gs {|@args|
-  e:git status $@args
+fn gs {|@a|
+  e:git status $@a
 }
 
-fn ga {|@args|
-  e:git add --all $@args
+fn ga {|@a|
+  e:git add --all $@a
 }
 
-fn gg {|@args|
-  e:git clone --depth=1 $@args
+fn gg {|@a|
+  e:git clone --depth=1 $@a
 }
 
-fn gc {|@args|
-  e:git commit --verbose $@args
+fn gc {|@a|
+  e:git commit --verbose $@a
 }
 
-fn gd {|@args|
-  e:git diff $@args
+fn gd {|@a|
+  e:git diff $@a
 }
 
-fn gl {|@args|
-  e:git log --oneline --graph -all -10  $@args
+fn gl {|@a|
+  e:git log --oneline --graph -all -10  $@a
 }
 
-fn gb {|@args|
-  e:git branch $@args
+fn gb {|@a|
+  e:git branch $@a
 }
 
-fn gp {|@args|
-  e:git push -uf origin main $@args
+fn gp {|@a|
+  e:git push -uf origin main $@a
 }
 
-fn gf {|@args|
-  e:git fetch $@args
+fn gf {|@a|
+  e:git fetch $@a
 }
 
-fn gg {|@args|
-  e:git pull $@args
+fn gg {|@a|
+  e:git pull $@a
 }
 
-fn gr {|@args|
-  e:git switch $@args
+fn gr {|@a|
+  e:git switch $@a
 }
 
-fn lg {|@args|
-  e:lazygit $@args
+fn lg {|@a|
+  e:lazygit $@a
 }
-# Universal Terminal alias for bun, pnpm, npm, and yarn:                          #
-# =============================================================================== #
