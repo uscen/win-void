@@ -984,12 +984,6 @@ later(function() vim.diagnostic.config(diagnostic_opts) end)
 --              │                     Neovim automads                     │
 --              ╰─────────────────────────────────────────────────────────╯
 now_if_args(function()
-  -- Enable Treesitter: ==========================================================================
-  vim.api.nvim_create_autocmd("FileType", {
-      callback = function()
-          pcall(vim.treesitter.start)
-      end
-  })
   -- Auto Save: ==================================================================================
   vim.api.nvim_create_autocmd({ 'FocusLost', 'VimLeavePre' }, {
     group = vim.api.nvim_create_augroup('save_buffers', {}),
