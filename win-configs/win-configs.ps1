@@ -51,7 +51,8 @@ if (-Not (Test-Path -Path $Env:AppData)) {
     New-Item -Path $Env:AppData -ItemType Directory | Out-Null
 }
 
-# Roaming AppData
+# Roaming AppData:                                                                #
+# =============================================================================== #
 $sourceRoaming = "$Env:USERPROFILE\win-void\win-dotfiles\app\roming"
 Get-ChildItem -Path $sourceRoaming | ForEach-Object {
     $targetPath = Join-Path $Env:AppData $_.Name
@@ -61,7 +62,8 @@ Get-ChildItem -Path $sourceRoaming | ForEach-Object {
     New-Item -ItemType SymbolicLink -Path $targetPath -Target $_.FullName -Force
 }
 
-# Local AppData
+# Local AppData:                                                                  #
+# =============================================================================== #
 $sourceLocal = "$Env:USERPROFILE\win-void\win-dotfiles\app\local"
 Get-ChildItem -Path $sourceLocal | ForEach-Object {
     $targetPath = Join-Path $Env:localAppData $_.Name
@@ -71,7 +73,8 @@ Get-ChildItem -Path $sourceLocal | ForEach-Object {
     New-Item -ItemType SymbolicLink -Path $targetPath -Target $_.FullName -Force
 }
 
-# MPV configuration
+# MPV configuration:                                                              #
+# =============================================================================== #
 $mpvSource = "$env:USERPROFILE\win-void\win-dotfiles\app\roming\mpv"
 $mpvDest = "$env:USERPROFILE\scoop\persist\mpv\portable_config"
 
@@ -80,7 +83,8 @@ if ((Test-Path $mpvSource) -and (Test-Path (Split-Path $mpvDest -Parent))) {
     New-Item -ItemType SymbolicLink -Path $mpvDest -Target $mpvSource -Force
 }
 
-# Tealdeer configuration
+# Tealdeer configuration:                                                         #
+# =============================================================================== #
 $tealdeerSource = "$env:USERPROFILE\win-void\win-dotfiles\app\roming\tealdeer\tealdeer"
 $tealdeerDest = "$env:USERPROFILE\scoop\persist\tealdeer"
 
