@@ -66,7 +66,9 @@ if (eq $platform:os windows) {
   set paths = [
     'C:\Program Files\Git\bin'
     C:\Windows\System32
+    C:\Windows\System32\OpenSSH
     C:\Windows\System32\WindowsPowerShell\v1.0
+    C:$E:HOMEPATH\apps\nodejs-lts\current\bin
     C:$E:HOMEPATH\scoop\shims
     C:$E:HOMEPATH\bin
   ]
