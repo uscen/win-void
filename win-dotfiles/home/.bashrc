@@ -29,16 +29,6 @@ shopt -s nocaseglob
 shopt -s histappend
 
 # =============================================================================== #
-# Autocomplete:                                                                   #
-# =============================================================================== #
-source <(carapace _carapace)
-
-# =============================================================================== #
-# Prompt:                                                                         #
-# =============================================================================== #
-eval "$(starship init bash)"
-
-# =============================================================================== #
 # Zoxide:                                                                         #
 # =============================================================================== #
 eval "$(zoxide init bash)"
@@ -96,11 +86,11 @@ alias ahk="cd ~/win-void/win-dotfiles/cfg/ahk/"
 alias bashc="nvim ~/win-void/win-dotfiles/home/.bashrc"
 alias wmc="nvim ~/win-void/win-dotfiles/cfg/komorebi/komorebi.json"
 alias barc="nvim ~/win-void/win-dotfiles/cfg/yasb/config.yaml"
-alias nuc="nvim ~/win-void/win-dotfiles/app/roming/nushell/config.nu"
+alias elvc="nvim ~/win-void/win-dotfiles/app/roming/elvish/rc.elv"
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
-alias yt-concats='yt-dlp --ignore-config --downloader aria2c --output "~/Videos/programming/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio" --concat-playlist always -S "codec:h264"'
-alias yt-music='yt-dlp --ignore-config --config-locations ~/.config/yt-dlp/music'
+alias yt-concats='yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/music'
+alias yt-music='yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/music'
 alias man="tldr"
 alias cat="bat"
 alias cls="clear"
