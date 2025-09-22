@@ -85,7 +85,7 @@ $scoopPackages = @(
     "thunderbird",
     "sumatrapdf",
     "JetBrainsMono-NF",
-    "nodejs",
+    "nodejs-lts",
     "autohotkey",
     "lua-language-server",
     "imagemagick",

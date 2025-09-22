@@ -13,7 +13,6 @@ $packages=@(
     "@vtsls/language-server",
     "@olrtg/emmet-language-server",
     "@tailwindcss/language-server",
-    "@prisma/language-server",
     "prettier"
 )
 # =============================================================================== #
