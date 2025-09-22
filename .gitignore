@@ -1,7 +1,8 @@
 win-dotfiles/app/roming/yazi/state/
 win-dotfiles/app/roming/qutebrowser/data/
 win-dotfiles/app/roming/mpv/cache/
-win-dotfiles/app/roming/mpv/volume
 win-dotfiles/app/roming/mpv/watch_later/
+win-dotfiles/app/roming/mpv/volume
 win-dotfiles/others/wt/LocalState/state.json
 win-dotfiles/app/local/lazygit/state.yml
+win-dotfiles/home/.glzr/glazewm/errors.log
