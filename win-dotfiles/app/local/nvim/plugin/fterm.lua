@@ -95,7 +95,7 @@ end
 M.winbuf_toggle = function()
   if not vim.api.nvim_win_is_valid(M.state.data.win_id) then
     M.state.data = M.winbuf { buf_id = M.state.data.buf_id }
-    if vim.bo[M.state.data.buf_id].buftype ~= 'terminal' then vim.cmd.terminal() end
+    if vim.bo[M.state.data.buf_id].buftype ~= 'terminal' then vim.cmd('terminal elvish') end
     vim.cmd('startinsert')
 
     vim.api.nvim_create_autocmd({ 'BufWipeout', 'WinClosed' }, {
