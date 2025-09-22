@@ -1,121 +1,156 @@
-// # =============================================================================== #
-// # MS Terminal:                                                                    #
-// # =============================================================================== #
 {
-  "$schema": "https://aka.ms/terminal-profiles-schema",
-  "$help": "https://aka.ms/terminal-documentation",
-  "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
-  "disableAnimations": true,
-  "confirmCloseAllTabs": false,
-  "initialCols": 55,
-  "initialPosition": ",",
-  "initialRows": 22,
-  "launchMode": "focus",
-  "profiles": {
-    "defaults": {
-      "colorScheme": "Macro",
-      "cursorShape": "filledBox",
-      "cursorColor": "#8a9a7b",
-      "bellStyle": "none",
-      "font": {
-        "face": "JetBrainsMono Nerd Font",
-        "weight": "normal",
-        "size": 10,
-        "cellHeight": "1.3",
-        "axes": { "wght": 400 },
-        "features": { "ss01": 0, "liga": 1 }
-      }
-    },
-    "list": [
-      {
-        "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
-        "name": "Elvish",
-        "commandline": "elvish",
-        "startingDirectory": "%USERPROFILE%",
-        "tabTitle": "Elvish",
-        "hidden": false,
-        "padding": "0"
-      },
-      {
-        "guid": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
-        "name": "Bash",
-        "commandline": "C:/Program Files/Git/bin/bash.exe --login",
-        "startingDirectory": "%USERPROFILE%",
-        "tabTitle": "Bash",
-        "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
-        "hidden": false,
-        "padding": "0"
-      }
-    ]
-  },
-  "schemes": [
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+    "disableAnimations": true,
+    "initialCols": 55,
+    "initialPosition": ",",
+    "initialRows": 22,
+    "keybindings": [],
+    "launchMode": "focus",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
     {
-      "name": "Macro",
-      "background": "#181616",
-      "black": "#0d0c0c",
-      "brightBlack": "#a6a69c",
-      "blue": "#8ba4b0",
-      "brightBlue": "#7FB4CA",
-      "green": "#8a9a7b",
-      "brightGreen": "#87a987",
-      "purple": "#a292a3",
-      "brightPurple": "#8992a7",
-      "brightRed": "#E46876",
-      "red": "#c4746e",
-      "brightWhite": "#c5c9c5",
-      "white": "#C8C093",
-      "brightYellow": "#E6C384",
-      "yellow": "#c4b28a",
-      "brightCyan": "#7AA89F",
-      "cyan": "#8ea4a2",
-      "cursorColor": "#c5c9c5",
-      "foreground": "#C8C093",
-      "selectionBackground": "#223249"
+        "defaults": 
+        {
+            "bellStyle": "none",
+            "colorScheme": "Macro",
+            "cursorColor": "#8A9A7B",
+            "cursorShape": "filledBox",
+            "font": 
+            {
+                "axes": 
+                {
+                    "wght": 400
+                },
+                "cellHeight": "1.3",
+                "face": "JetBrainsMono Nerd Font",
+                "features": 
+                {
+                    "liga": 1,
+                    "ss01": 0
+                },
+                "size": 10,
+                "weight": "normal"
+            }
+        },
+        "list": 
+        [
+            {
+                "commandline": "elvish",
+                "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+                "hidden": false,
+                "name": "Elvish",
+                "padding": "0",
+                "startingDirectory": "%USERPROFILE%",
+                "tabTitle": "Elvish"
+            },
+            {
+                "commandline": "C:/Program Files/Git/bin/bash.exe --login",
+                "guid": "{14ad203f-52cc-4110-90d6-d96e0f41b64d}",
+                "hidden": false,
+                "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "name": "Bash",
+                "padding": "0",
+                "startingDirectory": "%USERPROFILE%",
+                "tabTitle": "Bash"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            }
+        ]
     },
-    {
-      "name": "Paradise",
-      "background": "#151515",
-      "black": "#151515",
-      "blue": "#8DA3B9",
-      "brightBlack": "#424242",
-      "brightBlue": "#8DA3B9",
-      "brightCyan": "#8AA6A2",
-      "brightGreen": "#8C977D",
-      "brightPurple": "#A988B0",
-      "brightRed": "#B66467",
-      "brightWhite": "#D4BE98",
-      "brightYellow": "#D9BC8C",
-      "cyan": "#8AA6A2",
-      "foreground": "#E8E3E3",
-      "green": "#8C977D",
-      "purple": "#A988B0",
-      "red": "#B66467",
-      "white": "#E8E3E3",
-      "yellow": "#D9BC8C"
-    },
-    {
-      "name": "Everblush",
-      "cursorColor": "#dadada",
-      "selectionBackground": "#141b1e",
-      "foreground": "#dadada",
-      "background": "#141b1e",
-      "black": "#232a2d",
-      "red": "#e57474",
-      "green": "#8ccf7e",
-      "yellow": "#e5c76b",
-      "blue": "#67b0e8",
-      "purple": "#c47fd5",
-      "cyan": "#6cbfbf",
-      "white": "#b3b9b8",
-      "brightBlack": "#2d3437",
-      "brightRed": "#ef7e7e",
-      "brightGreen": "#96d988",
-      "brightYellow": "#f4d67a",
-      "brightBlue": "#71baf2",
-      "brightPurple": "#ce89df",
-      "brightCyan": "#67cbe7",
-      "brightWhite": "#bdc3c2"
-    }
-  ],
-  "keybindings": []
+    "schemes": 
+    [
+        {
+            "background": "#141B1E",
+            "black": "#232A2D",
+            "blue": "#67B0E8",
+            "brightBlack": "#2D3437",
+            "brightBlue": "#71BAF2",
+            "brightCyan": "#67CBE7",
+            "brightGreen": "#96D988",
+            "brightPurple": "#CE89DF",
+            "brightRed": "#EF7E7E",
+            "brightWhite": "#BDC3C2",
+            "brightYellow": "#F4D67A",
+            "cursorColor": "#DADADA",
+            "cyan": "#6CBFBF",
+            "foreground": "#DADADA",
+            "green": "#8CCF7E",
+            "name": "Everblush",
+            "purple": "#C47FD5",
+            "red": "#E57474",
+            "selectionBackground": "#141B1E",
+            "white": "#B3B9B8",
+            "yellow": "#E5C76B"
+        },
+        {
+            "background": "#181616",
+            "black": "#0D0C0C",
+            "blue": "#8BA4B0",
+            "brightBlack": "#A6A69C",
+            "brightBlue": "#7FB4CA",
+            "brightCyan": "#7AA89F",
+            "brightGreen": "#87A987",
+            "brightPurple": "#8992A7",
+            "brightRed": "#E46876",
+            "brightWhite": "#C5C9C5",
+            "brightYellow": "#E6C384",
+            "cursorColor": "#C5C9C5",
+            "cyan": "#8EA4A2",
+            "foreground": "#C8C093",
+            "green": "#8A9A7B",
+            "name": "Macro",
+            "purple": "#A292A3",
+            "red": "#C4746E",
+            "selectionBackground": "#223249",
+            "white": "#C8C093",
+            "yellow": "#C4B28A"
+        },
+        {
+            "background": "#151515",
+            "black": "#151515",
+            "blue": "#8DA3B9",
+            "brightBlack": "#424242",
+            "brightBlue": "#8DA3B9",
+            "brightCyan": "#8AA6A2",
+            "brightGreen": "#8C977D",
+            "brightPurple": "#A988B0",
+            "brightRed": "#B66467",
+            "brightWhite": "#D4BE98",
+            "brightYellow": "#D9BC8C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#8AA6A2",
+            "foreground": "#E8E3E3",
+            "green": "#8C977D",
+            "name": "Paradise",
+            "purple": "#A988B0",
+            "red": "#B66467",
+            "selectionBackground": "#FFFFFF",
+            "white": "#E8E3E3",
+            "yellow": "#D9BC8C"
+        }
+    ],
+    "themes": [],
+    "warning.confirmCloseAllTabs": false
 }
