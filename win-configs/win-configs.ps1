@@ -1,10 +1,13 @@
 # =============================================================================== #
 # Windows Config:				                                                          #
 # =============================================================================== #
-$source = "$Env:USERPROFILE\win-void\win-dotfiles\home\.glzr"
-$target = "$Env:USERPROFILE\.glzr"
-if (Test-Path $target) { Remove-Item $target -Force -Recurse }
-New-Item -ItemType Junction -Path $target -Target $source -Force
+$sourceHome = "$Env:USERPROFILE\win-void\win-dotfiles\home"
+$destHome = "$Env:USERPROFILE\"
+Get-ChildItem -Path $sourceHome | ForEach-Object {
+    $targetPath = Join-Path $destHome $_.Name
+    if (Test-Path $targetPath) { Remove-Item $targetPath -Force -Recurse }
+    New-Item -ItemType Junction -Path $targetPath -Target $_.FullName -Force
+}
 # =============================================================================== #
 # Config:					                                                                #
 # =============================================================================== #
