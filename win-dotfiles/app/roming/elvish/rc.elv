@@ -114,7 +114,7 @@ fn cdd { cd D:/ }
 fn cdc { cd C:/ }
 # For Configs Files:                                                              #
 # =============================================================================== #
-fn recompile { powershell C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
+fn recompile { powershell.exe C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
 fn dots { cd C:$E:HOMEPATH/win-void/ }
 fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
 fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bashrc }
