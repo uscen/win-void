@@ -72,7 +72,9 @@ if (eq $platform:os windows) {
     C:$E:HOMEPATH\scoop\apps\nodejs-lts\current\bin
     C:$E:HOMEPATH\scoop\apps\nodejs-lts\current\bin
     C:$E:HOMEPATH\scoop\shims
+    C:$E:HOMEPATH\config\bin
     C:$E:HOMEPATH\bin
+    $@paths
   ]
 } else {
   set paths = [
@@ -80,6 +82,7 @@ if (eq $platform:os windows) {
     /usr/bin
     $E:HOME/bin
     $E:HOME/.config/bin
+    $@paths
   ]
 }
 # Extrnal:                                                                        #
