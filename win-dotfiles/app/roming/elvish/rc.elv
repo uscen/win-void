@@ -32,7 +32,7 @@ set E:FZF_DEFAULT_OPTS = "
     --bind 'tab:accept'
 "
 set E:_ZO_FZF_OPTS = $E:FZF_DEFAULT_OPTS
-set E:GIT_CONFIG_GLOBAL = (path-join "C:" $E:HOMEPATH .others .gitconfig)
+set E:GIT_CONFIG_GLOBAL = $E:HOMEPATH"/.others/.gitignore"
 # =============================================================================== #
 # Elvish General :                                                                #
 # =============================================================================== #
