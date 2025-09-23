@@ -32,7 +32,21 @@ set E:FZF_DEFAULT_OPTS = "
     --bind 'tab:accept'
 "
 set E:_ZO_FZF_OPTS = $E:FZF_DEFAULT_OPTS
-set E:GIT_CONFIG_GLOBAL = $E:HOMEPATH"/.others/.gitignore"
+# =============================================================================== #
+# clean ~:									  #
+# =============================================================================== #
+set E:XDG_CONFIG_HOME = "C:/"$E:HOMEPATH"/.config"
+set E:XDG_DATA_HOME = "C:/"$E:HOMEPATH"/.local/share"
+set E:XDG_CACHE_HOME = "C:/"$E:HOMEPATH"/.cache"
+set E:INPUTRC = "C:/"$E:HOMEPATH"/.bash/inputrc"
+set E:HISTFILE = "C:/"$E:HOMEPATH"/.bash/history"
+set E:GIT_CONFIG_GLOBAL = "C:/"$E:HOMEPATH"/.others/gitconfig"
+set E:WGETRC = "C:/"$E:HOMEPATH"/.others/wgetrc"
+set E:CARGO_HOME = "C:/"$E:HOMEPATH"/.local/share/cargo"
+set E:GOPATH = "C:/"$E:HOMEPATH"/.local/share/go"
+set E:GOMODCACHE = "C:/"$E:HOMEPATH"/.cache/go/mod"
+set E:PYTHONSTARTUP = "C:/"$E:HOMEPATH"/.config/python/pythonrc"
+set E:SQLITE_HISTORY = "C:/"$E:HOMEPATH"/.local/share/sqlite_history"
 # =============================================================================== #
 # Elvish General :                                                                #
 # =============================================================================== #
