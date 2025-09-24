@@ -6,3 +6,19 @@ win-dotfiles/app/roming/mpv/volume
 win-dotfiles/others/wt/LocalState/state.json
 win-dotfiles/app/local/lazygit/state.yml
 win-dotfiles/home/.glzr/glazewm/errors.log
+win-dotfiles/app/roming/FreeTube/Cache/
+win-dotfiles/app/roming/FreeTube/Code Cache/
+win-dotfiles/app/roming/FreeTube/DawnGraphiteCache/
+win-dotfiles/app/roming/FreeTube/DawnWebGPUCache/
+win-dotfiles/app/roming/FreeTube/GPUCache/
+win-dotfiles/app/roming/FreeTube/Local State
+win-dotfiles/app/roming/FreeTube/Local Storage/
+win-dotfiles/app/roming/FreeTube/Network/
+win-dotfiles/app/roming/FreeTube/Preferences
+win-dotfiles/app/roming/FreeTube/Session Storage/
+win-dotfiles/app/roming/FreeTube/Shared Dictionary/
+win-dotfiles/app/roming/FreeTube/WebStorage/
+win-dotfiles/app/roming/FreeTube/history.db
+win-dotfiles/app/roming/FreeTube/playlists.db
+win-dotfiles/app/roming/FreeTube/search-history.db
+win-dotfiles/app/roming/FreeTube/subscription-cache.db
