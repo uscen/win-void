@@ -541,11 +541,13 @@ now_if_args(function()
   })
   -- Open In Splits : ============================================================================
   local map_split = function(buf_id, lhs, direction)
-    local rhs = function()
+    local function rhs()
       -- Make new window and set it as target
       local cur_target = MiniFiles.get_explorer_state().target_window
+      local path = (MiniFiles.get_fs_entry() or {}).path
+      if path == nil then path = '' end
       local new_target = vim.api.nvim_win_call(cur_target, function()
-        vim.cmd(direction .. ' split')
+        vim.cmd(direction .. ' split ' .. path)
         return vim.api.nvim_get_current_win()
       end)
       MiniFiles.set_target_window(new_target)
@@ -558,8 +560,8 @@ now_if_args(function()
     pattern = 'MiniFilesBufferCreate',
     callback = function(args)
       local buf_id = args.data.buf_id
-      map_split(buf_id, 'v', 'belowright horizontal')
-      map_split(buf_id, 's', 'belowright vertical')
+      map_split(buf_id, '<C-v>', 'belowright horizontal')
+      map_split(buf_id, '<C-b>', 'belowright vertical')
     end,
   })
 end)
@@ -1856,6 +1858,9 @@ later(function()
       ['.babelrc'] = 'jsonc',
       ['.stylelintrc'] = 'jsonc',
       ['.yamlfmt'] = 'yaml',
+      ['nginx.conf'] = 'nginx',
+      ['Dockerfile'] = 'dockerfile',
+      ['dockerfile'] = 'dockerfile',
     },
     pattern = {
       ['requirements.*.txt'] = 'requirements',
@@ -1863,10 +1868,12 @@ later(function()
       ['.*/git/config.*'] = 'git_config',
       ['.gitconfig.*'] = 'gitconfig',
       ['%.env%.[%w_.-]+'] = 'sh',
+      ['.*%.variables.*'] = 'sh',
       ['.*/%.vscode/.*%.json'] = 'jsonc',
       ['.*/*.conf*'] = 'conf',
       ['*.MD'] = 'markdown',
       ['Dockerfile*'] = 'dockerfile',
+      ['.*%.dockerfile'] = 'dockerfile',
       ['*.dockerfile'] = 'dockerfile',
       ['*.user.css'] = 'ess',
     },
