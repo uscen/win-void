@@ -6,6 +6,7 @@
 # =============================================================================== #
 # Builtin:                                                                        #
 # =============================================================================== #
+use str
 use platform
 use readline-binding
 # =============================================================================== #
@@ -72,6 +73,34 @@ fn match {|seed|
     }
     put $@results
 }
+fn history {
+  tmp E:SHELL = 'elvish'
+  var key line @ignored = (str:split "\x00" (
+    edit:command-history &dedup &newest-first |
+    each {|cmd| printf "%s %s\x00" $cmd[id] $cmd[cmd] } |
+    try {
+      fzf --no-multi --no-sort --read0 --print0 --info-command="print History" ^
+      --scheme=history --expect=tab,ctrl-d --exact ^
+      --bind 'down:transform:if (<= $E:FZF_POS 1) { print abort } else { print down }' ^
+      --query=$edit:current-command | slurp
+    } catch {
+      edit:redraw &full=$true
+      return
+    }
+  ))
+  edit:redraw &full=$true
+  var id command = (str:split &max=2 ' ' $line)
+  if (eq $key 'ctrl-d') {
+    store:del-cmd $id
+    edit:notify 'Deleted '$id
+  } else {
+    edit:replace-input $command
+
+    if (not-eq $key 'tab') {
+      edit:return-line
+    }
+  }
+}
 # Sets:                                                                           #
 # =============================================================================== #
 set edit:max-height = 10
@@ -79,9 +108,10 @@ set notify-bg-job-success = $false
 set edit:completion:matcher[''] = $match~
 # keys:                                                                           #
 # =============================================================================== #
+set edit:insert:binding[Ctrl-r] = { history }
 set edit:insert:binding[Alt-c] = { edit:location:start }
 set edit:insert:binding[Ctrl-n] = { edit:navigation:start }
-set edit:insert:binding[Ctrl-X] = { edit:-instant:start }
+set edit:insert:binding[Ctrl-x] = { edit:-instant:start }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 # Paths:                                                                          #
