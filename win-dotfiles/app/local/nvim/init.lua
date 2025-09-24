@@ -661,34 +661,26 @@ now_if_args(function()
     source = 'nvim-treesitter/nvim-treesitter-textobjects',
     checkout = 'main',
   })
-
-  -- Ensure installed
+  -- Ensure installed: ===========================================================================
   --stylua: ignore
   local ensure_installed = {
-    'bash', 'c',          'cpp',  'css',   'diff', 'go',
-    'html', 'javascript', 'json', 'julia', 'nu',   'php', 'python',
-    'r',    'regex',      'rst',  'rust',  'toml', 'tsx', 'yaml',
+    'bash', 'powershell', 'elvish', 'c', 'cpp', 'python', 'regex',
+    'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
+    'json', 'jsonc', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
+    "git_config", "git_rebase", "gitcommit", "gitignore", "gitattributes", "diff",
   }
   local isnt_installed = function(lang) return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0 end
   local to_install = vim.tbl_filter(isnt_installed, ensure_installed)
   if #to_install > 0 then require('nvim-treesitter').install(to_install) end
-
-  -- Ensure enabled
+  -- Ensure enabled: =============================================================================
   local filetypes = vim.iter(ensure_installed):map(vim.treesitter.language.get_filetypes):flatten():totable()
   vim.list_extend(filetypes, { 'markdown', 'pandoc' })
   local ts_start = function(ev) vim.treesitter.start(ev.buf) end
   vim.api.nvim_create_autocmd('FileType', { pattern = filetypes, callback = ts_start })
-
-  -- Disable injections in 'lua' language
+  -- Disable injections in 'lua' language: =======================================================
   local ts_query = require('vim.treesitter.query')
   local ts_query_set = vim.fn.has('nvim-0.9') == 1 and ts_query.set or ts_query.set_query
   ts_query_set('lua', 'injections', '')
-end)
-
--- Install LSP/formatting/linter executables ==================================
-later(function()
-  add('mason-org/mason.nvim')
-  require('mason').setup()
 end)
 --              ╭─────────────────────────────────────────────────────────╮
 --              │                      TS Auto Close/Rename               │
@@ -831,7 +823,7 @@ now(function()
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
   vim.opt.laststatus             = 0
-  vim.opt.cmdheight              = 3
+  vim.opt.cmdheight              = 1
   vim.opt.helpheight             = 12
   vim.opt.previewheight          = 12
   vim.opt.winwidth               = 20
