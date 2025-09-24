@@ -6,7 +6,6 @@
 # =============================================================================== #
 # Builtin:                                                                        #
 # =============================================================================== #
-use str
 use platform
 use readline-binding
 # =============================================================================== #
@@ -74,6 +73,7 @@ fn match {|seed|
     put $@results
 }
 fn history {
+  use str
   tmp E:SHELL = 'elvish'
   var key line @ignored = (str:split "\x00" (
     edit:command-history &dedup &newest-first |
@@ -108,10 +108,15 @@ set notify-bg-job-success = $false
 set edit:completion:matcher[''] = $match~
 # keys:                                                                           #
 # =============================================================================== #
-set edit:insert:binding[Ctrl-r] = { history }
+set edit:insert:binding[Ctrl-Left] = { edit:move-dot-left-word }
+set edit:insert:binding[Ctrl-Right] = { edit:move-dot-right-word }
+set edit:insert:binding[Ctrl-Enter] = { edit:insert-at-dot "\n" }
+set edit:insert:binding[Ctrl-Delete] = { edit:move-dot-right-word; edit:kill-word-left }
+set edit:insert:binding[Ctrl-d] = { edit:kill-small-word-left }
 set edit:insert:binding[Alt-c] = { edit:location:start }
 set edit:insert:binding[Ctrl-n] = { edit:navigation:start }
-set edit:insert:binding[Ctrl-x] = { edit:-instant:start }
+set edit:insert:binding[Ctrl-X] = { edit:-instant:start }
+set edit:insert:binding[Ctrl-r] = { history }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 # Paths:                                                                          #
@@ -144,10 +149,15 @@ if (eq $platform:os windows) {
 eval (zoxide init elvish | slurp)
 # Prompt:                                                                         #
 # =============================================================================== #
-echo (styled "◖ Elvish V"$version"—"$platform:os"▷"$platform:arch" ◗" bold italic yellow)
 set edit:prompt = {
-     tilde-abbr $pwd
-     styled ' 󱓇  ' bright-green
+    use re
+    # abbreviate path by shortening the parent directories: ===================== #
+    styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " black  bg-yellow bold
+    if (not-eq $E:SSH_CLIENT "") {
+        styled " "(cat /etc/hostname)" " "white bg-red bold"
+    }
+    styled " λ " black bg-green bold
+    put " "
 }
 set edit:rprompt = { nop }
 # =============================================================================== #
