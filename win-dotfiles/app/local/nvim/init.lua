@@ -718,15 +718,6 @@ now_if_args(function()
       markdown = { 'prettier' },
       graphql = { 'prettier' },
       liquid = { 'prettier' },
-      c = { 'clang_format' },
-      lua = { 'stylua' },
-      python = { 'black' },
-      tex = { 'latexindent' },
-      xml = { 'xmllint' },
-      svg = { 'xmllint' },
-      sql = { 'sqlfluff' },
-      java = { 'google-java-format' },
-      groovy = { 'npm-groovy-lint' },
       ['_'] = { 'trim_whitespace' },
     },
     format_on_save = function(bufnr)
@@ -822,7 +813,7 @@ now(function()
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
   vim.opt.laststatus             = 0
-  vim.opt.cmdheight              = 1
+  vim.opt.cmdheight              = 0
   vim.opt.helpheight             = 12
   vim.opt.previewheight          = 12
   vim.opt.winwidth               = 20
