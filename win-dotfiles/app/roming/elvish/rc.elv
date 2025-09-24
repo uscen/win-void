@@ -33,7 +33,7 @@ set E:FZF_DEFAULT_OPTS = "
 "
 set E:_ZO_FZF_OPTS = $E:FZF_DEFAULT_OPTS
 # =============================================================================== #
-# clean ~:									  #
+# clean ~:									                                                      #
 # =============================================================================== #
 set E:INPUTRC = "C:/"$E:HOMEPATH"/.bash/inputrc"
 set E:HISTFILE = "C:/"$E:HOMEPATH"/.bash/history"
