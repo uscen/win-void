@@ -32,6 +32,7 @@ set E:FZF_DEFAULT_OPTS = "
     --bind 'tab:accept'
 "
 set E:_ZO_FZF_OPTS = $E:FZF_DEFAULT_OPTS
+set E:CC = "gcc"
 # =============================================================================== #
 # clean ~:									                                                      #
 # =============================================================================== #
@@ -81,6 +82,7 @@ if (eq $platform:os windows) {
     C:\Windows\System32
     C:\Windows\System32\OpenSSH
     C:\Windows\System32\WindowsPowerShell\v1.0
+    C:$E:HOMEPATH\scoop\apps\mingw\current\bin
     C:$E:HOMEPATH\scoop\apps\nodejs-lts\current\bin
     C:$E:HOMEPATH\scoop\apps\nodejs-lts\current\bin
     C:$E:HOMEPATH\scoop\shims
@@ -182,8 +184,8 @@ fn bun-run {|@a| e:bun run $@a }
 fn bun-dev {|@a| e:bun --bun run dev $@a }
 # Node PKG Manager:                                                               #
 # =============================================================================== #
-fn npm {|@a| pnpm $@a }
-fn npx {|@a| pnpm dlx $@a }
+fn p {|@a| pnpm $@a }
+fn px {|@a| pnpm dlx $@a }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
 fn yt-concats {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/playlist $@a }

@@ -7,6 +7,9 @@ $packages=@(
     "bun",
     "yarn",
     "pnpm"
+    # Tree-sitter-cli:                                                                #
+    # =============================================================================== #
+    "tree-sitter-cli",
     # LANGUGE SERVER PORTOCOL:                                                        #
     # =============================================================================== #
     "vscode-langservers-extracted",

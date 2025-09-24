@@ -85,16 +85,16 @@ $scoopPackages = @(
     "thunderbird",
     "sumatrapdf",
     "JetBrainsMono-NF",
-    "gcc",
-    "nodejs-lts",
-    "autohotkey",
-    "lua-language-server",
     "imagemagick",
     "ffmpeg",
     "yt-dlp",
     "ouch",
     "mpv",
-    "qview"
+    "qview",
+    "nodejs-lts",
+    "autohotkey",
+    "lua-language-server",
+    "mingw"
 )
 
 # UnInstall Packages:	                                                            #
