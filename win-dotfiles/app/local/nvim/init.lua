@@ -164,6 +164,7 @@ later(function()
       i = gen_ai_spec.indent(),
       d = gen_ai_spec.number(),
       c = gen_ai_spec.line(),
+      F = MiniAi.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
       e = {
         {
           -- __-1, __-U, __-l, __-1_, __-U_, __-l_
