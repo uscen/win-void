@@ -11,6 +11,7 @@ use readline-binding
 # =============================================================================== #
 # Evlish Env:                                                                     #
 # =============================================================================== #
+set E:CC = "gcc"
 set E:LANG = "en_US.UTF-8"
 set E:LC_ALL = "en_US.UTF-8"
 set E:EDITOR = "nvim"
@@ -32,7 +33,6 @@ set E:FZF_DEFAULT_OPTS = "
     --bind 'tab:accept'
 "
 set E:_ZO_FZF_OPTS = $E:FZF_DEFAULT_OPTS
-set E:CC = "gcc"
 # =============================================================================== #
 # clean ~:									                                                      #
 # =============================================================================== #
@@ -131,13 +131,11 @@ fn cdd { cd D:/ }
 fn cdc { cd C:/ }
 # For Configs Files:                                                              #
 # =============================================================================== #
-fn recompile { powershell C:$E:HOMEPATH/win-void/win-configs/win-configs.ps1 }
 fn dots { cd C:$E:HOMEPATH/win-void/ }
 fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
-fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bashrc }
+fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bash/bashrc }
 fn wmc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
-fn barc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/cfg/yasb/config.yaml }
-fn nuc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/nushell/config.nu }
+fn elvc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/elvish/rc.elv }
 # Changing "ls" to "eza":                                                         #
 # =============================================================================== #
 fn ls {|@a| e:eza --long --group --icons=auto --git --sort=name --group-directories-first $@a }
