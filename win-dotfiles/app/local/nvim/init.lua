@@ -1264,11 +1264,11 @@ now_if_args(function()
     end,
   })
   -- Reload(execute) on save:=====================================================================
-  -- vim.api.nvim_create_autocmd('BufWritePost', {
-  --   group = vim.api.nvim_create_augroup('reload_on_save', { clear = true }),
-  --   pattern = 'init.lua',
-  --   command = 'source <afile>'
-  -- })
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    group = vim.api.nvim_create_augroup('reload_on_save', { clear = true }),
+    pattern = 'init.lua',
+    command = 'source <afile>'
+  })
   -- go to old position when opening a buffer: ===================================================
   vim.api.nvim_create_autocmd('BufReadPost', {
     group = vim.api.nvim_create_augroup('remember_position', { clear = true }),
