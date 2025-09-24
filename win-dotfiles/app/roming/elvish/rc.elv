@@ -11,6 +11,8 @@ use readline-binding
 # =============================================================================== #
 # Evlish Env:                                                                     #
 # =============================================================================== #
+# General:                                                                        #
+# =============================================================================== #
 set E:CC = "gcc"
 set E:LANG = "en_US.UTF-8"
 set E:LC_ALL = "en_US.UTF-8"
@@ -33,8 +35,16 @@ set E:FZF_DEFAULT_OPTS = "
     --bind 'tab:accept'
 "
 set E:_ZO_FZF_OPTS = $E:FZF_DEFAULT_OPTS
+# Plathform:                                                                      #
 # =============================================================================== #
-# clean ~:									                                                      #
+if (eq $platform:os windows) {
+  set-env HOME $E:USERPROFILE
+  set-env USER $E:USERNAME
+} else {
+  set-env TMPDIR '/tmp'
+}
+# =============================================================================== #
+# Elvish clean ~:									                                                #
 # =============================================================================== #
 set E:INPUTRC = "C:/"$E:HOMEPATH"/.bash/inputrc"
 set E:HISTFILE = "C:/"$E:HOMEPATH"/.bash/history"
@@ -104,11 +114,22 @@ if (eq $platform:os windows) {
 eval (zoxide init elvish | slurp)
 # Prompt:                                                                         #
 # =============================================================================== #
+echo (styled "◖ Elvish V"$version"—"$platform:os"▷"$platform:arch" ◗" bold italic yellow)
 set edit:prompt = {
      tilde-abbr $pwd
      styled ' 󱓇  ' bright-green
 }
 set edit:rprompt = { nop }
+# =============================================================================== #
+# Abbreviations:                                                                  #
+# =============================================================================== #
+set edit:abbr['||'] = '| less'
+set edit:abbr['>dn'] = '2>/dev/null'
+set edit:abbr['>eo'] = '2>&1'
+set edit:command-abbr['cd'] = 'z'
+set edit:command-abbr['lz'] = 'lazygit'
+set edit:command-abbr['curld'] = 'curl --retry 5 -L -C -'
+set edit:command-abbr['edit'] = 'nvim'
 # =============================================================================== #
 # Elvish Aliases:                                                                 #
 # =============================================================================== #
@@ -188,6 +209,7 @@ fn px {|@a| pnpm dlx $@a }
 # =============================================================================== #
 fn yt-concats {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/playlist $@a }
 fn yt-music {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/music $@a }
+fn msg { |@a| echo (styled "👉🏼 "$@a bold italic yellow) }
 fn htop {|@a| e:ntop -u lli -s CPU% $@a }
 fn man {|@a| e:tldr $@a }
 fn cat {|@a| e:bat $@a }
