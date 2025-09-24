@@ -199,10 +199,10 @@ fn g {|@a| e:git $@a }
 fn gi {|@a| e:git init $@a }
 fn gs {|@a| e:git status $@a }
 fn ga {|@a| e:git add --all $@a }
-fn gg {|@a| e:git clone --depth=1 $@a }
-fn gc {|@a| e:git commit --verbose $@a }
+fn ge {|@a| e:git clone --depth=1 $@a }
+fn gc {|@a| e:git commit -m $@a }
 fn gd {|@a| e:git diff $@a }
-fn gl {|@a| e:git log --oneline --graph -all -10  $@a }
+fn gl {|@a| e:git log --oneline --graph --all -10  $@a }
 fn gb {|@a| e:git branch $@a }
 fn gp {|@a| e:git push -uf origin main $@a }
 fn gf {|@a| e:git fetch $@a }
