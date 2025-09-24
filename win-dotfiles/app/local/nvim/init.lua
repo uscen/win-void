@@ -664,10 +664,9 @@ now_if_args(function()
   -- Ensure installed: ===========================================================================
   --stylua: ignore
   local ensure_installed = {
-    'bash', 'powershell', 'elvish', 'c', 'cpp', 'python', 'regex',
+    'bash', 'powershell', 'elvish', 'c', 'cpp', 'python', 'regex', "diff",
     'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
     'json', 'jsonc', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
-    "git_config", "git_rebase", "gitcommit", "gitignore", "gitattributes", "diff",
   }
   local isnt_installed = function(lang) return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0 end
   local to_install = vim.tbl_filter(isnt_installed, ensure_installed)
