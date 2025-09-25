@@ -1524,6 +1524,14 @@ later(function()
       vim.fn.system({'rm', f})
     end
   end, {})
+  -- Toggle dark Mode: ===========================================================================
+  vim.api.nvim_create_user_command( 'DarkMode', function()
+          if vim.o.background == 'light' then
+              vim.o.background = 'dark'
+          else
+              vim.o.background = 'light'
+          end
+  end, {})
   -- Toggle inlay hints: =========================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
     vim.g.inlay_hints = not vim.g.inlay_hints
