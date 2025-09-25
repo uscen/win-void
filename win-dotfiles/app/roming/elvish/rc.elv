@@ -72,7 +72,7 @@ fn match {|seed|
     }
     put $@results
 }
-fn history {
+fn fzf_history {
   use str
   tmp E:SHELL = 'elvish'
   var key line @ignored = (str:split "\x00" (
@@ -101,26 +101,42 @@ fn history {
     }
   }
 }
-# Sets:                                                                           #
+fn fzf_cd {
+  try {
+    cd (fd --type d  --max-depth 9 --no-ignore -0 | fzf --read0 --height=50% --min-height 14)
+  } catch {
+    edit:redraw &full=$true
+    return
+  }
+}
+# General:                                                                        #
 # =============================================================================== #
 set edit:max-height = 25
 set notify-bg-job-success = $false
 set edit:completion:matcher[''] = $match~
-# keys:                                                                           #
+# Fzf:                                                                            #
+# =============================================================================== #
+set edit:insert:binding[Alt-c] = { fzf_cd }
+set edit:insert:binding[Ctrl-r] = { fzf_history }
+# Insert:                                                                         #
 # =============================================================================== #
 set edit:insert:binding[Ctrl-b] = { edit:move-dot-left-word }
 set edit:insert:binding[Ctrl-w] = { edit:move-dot-right-word }
 set edit:insert:binding[Ctrl-d] = { edit:kill-small-word-left }
 set edit:insert:binding[Ctrl-n] = { edit:navigation:start; edit:navigation:trigger-filter }
 set edit:insert:binding[Ctrl-x] = { edit:-instant:start }
+set edit:insert:binding[Ctrl-t] = { edit:history:start }
+set edit:insert:binding[Ctrl-v] = { edit:command:start }
 set edit:insert:binding[Ctrl-Enter] = { edit:insert-at-dot "\n" }
 set edit:insert:binding[Ctrl-Delete] = { edit:move-dot-right-word; edit:kill-word-left }
-set edit:insert:binding[Alt-c] = { edit:location:start }
-set edit:insert:binding[Ctrl-r] = { history }
+# Location:                                                                       #
+# =============================================================================== #
 set edit:location:binding[Ctrl-u] = { edit:close-mode }
+# Completion:                                                                     #
+# =============================================================================== #
 set edit:completion:binding[Ctrl-u] = { edit:close-mode }
-set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
+set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 # Paths:                                                                          #
 # =============================================================================== #
 if (eq $platform:os windows) {
