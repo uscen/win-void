@@ -11,7 +11,7 @@
   - Runs System File Checker to repair any corruption.
 
 .NOTES
-  Author: YourName
+  Author: UXHEN
   Date:   2025-07-25
   Usage:  Right-click, “Run with PowerShell (Admin)”
 #>
