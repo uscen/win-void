@@ -112,13 +112,13 @@ set edit:insert:binding[Ctrl-b] = { edit:move-dot-left-word }
 set edit:insert:binding[Ctrl-w] = { edit:move-dot-right-word }
 set edit:insert:binding[Ctrl-d] = { edit:kill-small-word-left }
 set edit:insert:binding[Ctrl-n] = { edit:navigation:start; edit:navigation:trigger-filter }
-set edit:insert:binding[Ctrl-X] = { edit:-instant:start }
+set edit:insert:binding[Ctrl-x] = { edit:-instant:start }
 set edit:insert:binding[Ctrl-Enter] = { edit:insert-at-dot "\n" }
 set edit:insert:binding[Ctrl-Delete] = { edit:move-dot-right-word; edit:kill-word-left }
 set edit:insert:binding[Alt-c] = { edit:location:start }
 set edit:insert:binding[Ctrl-r] = { history }
-set edit:location:binding[Ctrl-U] = { edit:close-mode }
-set edit:completion:binding[Ctrl-U] = { edit:close-mode }
+set edit:location:binding[Ctrl-u] = { edit:close-mode }
+set edit:completion:binding[Ctrl-u] = { edit:close-mode }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
 # Paths:                                                                          #
