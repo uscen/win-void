@@ -109,15 +109,6 @@ fn fzf_cd {
     return
   }
 }
-# General:                                                                        #
-# =============================================================================== #
-set edit:max-height = 25
-set notify-bg-job-success = $false
-set edit:completion:matcher[''] = $match~
-# Fzf:                                                                            #
-# =============================================================================== #
-set edit:insert:binding[Alt-c] = { fzf_cd }
-set edit:insert:binding[Ctrl-r] = { fzf_history }
 # Insert:                                                                         #
 # =============================================================================== #
 set edit:insert:binding[Ctrl-b] = { edit:move-dot-left-word }
@@ -129,14 +120,31 @@ set edit:insert:binding[Ctrl-t] = { edit:history:start }
 set edit:insert:binding[Ctrl-v] = { edit:command:start }
 set edit:insert:binding[Ctrl-Enter] = { edit:insert-at-dot "\n" }
 set edit:insert:binding[Ctrl-Delete] = { edit:move-dot-right-word; edit:kill-word-left }
-# Location:                                                                       #
-# =============================================================================== #
-set edit:location:binding[Ctrl-u] = { edit:close-mode }
 # Completion:                                                                     #
 # =============================================================================== #
 set edit:completion:binding[Ctrl-u] = { edit:close-mode }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
+# Command:                                                                        #
+# =============================================================================== #
+set edit:command:binding[Ctrl-u] = { edit:close-mode; edit:kill-line-left; edit:command:start }
+set edit:command:binding[A] = { edit:move-dot-eol; edit:close-mode }
+set edit:command:binding[I] = { edit:move-dot-sol; edit:close-mode }
+set edit:command:binding[d] = { edit:close-mode; edit:kill-line-left; edit:kill-line-right }
+set edit:command:binding[u] = { edit:close-mode; edit:kill-line-left }
+set edit:command:binding[e] = { edit:move-dot-right-small-word }
+# Location:                                                                       #
+# =============================================================================== #
+set edit:location:binding[Ctrl-u] = { edit:close-mode }
+# Fzf:                                                                            #
+# =============================================================================== #
+set edit:insert:binding[Alt-c] = { fzf_cd }
+set edit:insert:binding[Ctrl-r] = { fzf_history }
+# Others:                                                                         #
+# =============================================================================== #
+set edit:max-height = 25
+set notify-bg-job-success = $false
+set edit:completion:matcher[''] = $match~
 # Paths:                                                                          #
 # =============================================================================== #
 if (eq $platform:os windows) {
