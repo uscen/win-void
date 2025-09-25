@@ -67,6 +67,8 @@ function M.smartDuplicate()
     if line:find('bottom:') then newLine = line:gsub('bottom:', 'top:') end
     if line:find('right:') then newLine = line:gsub('right:', 'left:') end
     if line:find('left:') then newLine = line:gsub('left:', 'right:') end
+    if line:find('height:') then newLine = line:gsub('height:', 'width:') end
+    if line:find('width:') then newLine = line:gsub('width:', 'height:') end
     line = newLine
   elseif ft == 'javascript' or ft == 'typescript' or ft == 'swift' then
     line = line:gsub('^(%s*)if(.+{)$', '%1} else if%2')
