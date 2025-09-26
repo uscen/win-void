@@ -635,7 +635,7 @@ now_if_args(function()
       ['value'] = { glyph = '󰔌' },
       ['enum'] = { glyph = '' },
       ['keyword'] = { glyph = '󰌋' },
-      ['snippet'] = { glyph = '' },
+      ['snippet'] = { glyph = '' },
       ['color'] = { glyph = '󱥚' },
       ['file'] = { glyph = '󰈙' },
       ['reference'] = { glyph = '' },
