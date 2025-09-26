@@ -571,6 +571,11 @@ end)
 now_if_args(function()
   local MiniIcons = require('mini.icons')
   MiniIcons.setup({
+    default = {
+      ['file'] = { glyph = '󰪷', hl = 'MiniIconsYellow' },
+      ['filetype'] = { glyph = '󰪷', hl = 'MiniIconsYellow' },
+      ['extension'] = { glyph = '󰪷', hl = 'MiniIconsYellow' },
+    },
     file = {
       ['init.lua'] = { glyph = '󰢱', hl = 'MiniIconsBlue' },
       ['README.md'] = { glyph = '', hl = 'MiniIconsGreen' },
@@ -593,10 +598,15 @@ now_if_args(function()
       ['react-router.config.ts'] = { glyph = '', hl = 'MiniIconsRed' },
       ['bun.lockb'] = { glyph = '', hl = 'MiniIconsGrey' },
       ['bun.lock'] = { glyph = '', hl = 'MiniIconsGrey' },
+      ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
     },
     filetype = {
       ['css'] = { glyph = '', hl = 'MiniIconsCyan' },
       ['vim'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['sh'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['elvish'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['bash'] = { glyph = '', hl = 'MiniIconsGreen' },
+      ['dotenv'] = { glyph = '', hl = 'MiniIconsYellow' },
     },
     extension = {
       ['d.ts'] = { glyph = '', hl = 'MiniIconsRed' },
@@ -667,7 +677,7 @@ now_if_args(function()
   -- Ensure installed: ===========================================================================
   --stylua: ignore
   local ensure_installed = {
-    'bash', 'powershell', 'elvish', 'c', 'cpp', 'python', 'regex', "diff",
+    'bash', 'powershell', 'elvish', 'c', 'cpp', 'python', 'regex', 'diff',
     'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
     'json', 'jsonc', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
   }
@@ -721,6 +731,7 @@ now_if_args(function()
       markdown = { 'prettier' },
       graphql = { 'prettier' },
       liquid = { 'prettier' },
+      lua = { 'stylua' },
       ['_'] = { 'trim_whitespace' },
     },
     format_on_save = function(bufnr)
@@ -756,7 +767,7 @@ now(function()
   vim.g.maplocalleader           = vim.g.mapleader
   -- Os:  ========================================================================================
   vim.g.is_win                   = vim.uv.os_uname().sysname:find('Windows') ~= nil
-  vim.g.is_windows               = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1
+  vim.g.is_windows               = vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1
   -- grep: =======================================================================================
   vim.opt.grepprg                = 'rg --vimgrep --smart-case --no-heading --color=never --glob !.git'
   vim.opt.grepformat             = '%f:%l:%c:%m,%f:%l:%m'
@@ -772,7 +783,7 @@ now(function()
   vim.opt.undolevels             = 1024
   vim.opt.fileencoding           = 'utf-8'
   vim.opt.encoding               = 'utf-8'
-  vim.opt.fileformats            = "unix,dos"
+  vim.opt.fileformats            = 'unix,dos'
   vim.opt.fileformats            = 'unix,dos'
   vim.opt.clipboard              = 'unnamedplus'
   vim.opt.wildmode               = 'longest:full,full'
@@ -852,7 +863,8 @@ now(function()
   vim.wo.signcolumn              = 'yes'
   vim.opt.statuscolumn           = ''
   vim.opt.fillchars              = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
-  vim.opt.listchars              = { eol = '↲', tab = '→ ', trail = '+', extends = '›', precedes = '‹', space = '•', nbsp = '␣', }
+  vim.opt.listchars              = { eol = '↲', tab = '→ ', trail = '+', extends = '›', precedes = '‹', space = '•', nbsp =
+  '␣', }
   -- Editing:  ===================================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
@@ -881,6 +893,7 @@ now(function()
   vim.opt.autoread               = true
   vim.opt.autowrite              = true
   vim.opt.autowriteall           = true
+  vim.opt.modifiable             = true
   vim.opt.showmatch              = true
   vim.opt.magic                  = false
   vim.opt.wrap                   = false
@@ -908,8 +921,10 @@ now(function()
   vim.opt.formatoptions          = 'rqnl1j'
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { 'buffers', 'curdir', 'tabpages', 'winsize', 'globals' }
-  vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic', }
-  vim.opt.suffixesadd            = { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml', }
+  vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100',
+    'indent-heuristic', }
+  vim.opt.suffixesadd            = { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts',
+    '.tsx', '.yaml', '.yml', }
   -- Folds:  =====================================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevelstart         = 99
@@ -1204,10 +1219,10 @@ now_if_args(function()
     end,
   })
   -- Auto-enter insert mode when focusing terminal: ==============================================
-  vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = { "term://*", "toggleterm", "snacks_terminal" },
-    callback = function() vim.cmd("startinsert") end,
-    desc = "Auto-enter insert mode when focusing terminal",
+  vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = { 'term://*', 'toggleterm', 'snacks_terminal' },
+    callback = function() vim.cmd('startinsert') end,
+    desc = 'Auto-enter insert mode when focusing terminal',
   })
   -- Opts in terminal buffer: ====================================================================
   vim.api.nvim_create_autocmd('TermOpen', {
@@ -1221,7 +1236,7 @@ now_if_args(function()
       vim.opt_local.number = false
       vim.opt_local.relativenumber = false
       vim.opt_local.foldenable = false
-      vim.opt_local.bufhidden = "hide"
+      vim.opt_local.bufhidden = 'hide'
       vim.opt_local.signcolumn = 'no'
       vim.opt_local.foldmethod = 'manual'
       vim.opt_local.foldexpr = '0'
@@ -1521,16 +1536,16 @@ later(function()
   -- Windows: "E138: main.shada.tmp.X files exist, cannot write ShaDa" on close: =================
   vim.api.nvim_create_user_command('RemoveShadaTemp', function()
     for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('data') .. '/shada', '*tmp*', false, true)) do
-      vim.fn.system({'rm', f})
+      vim.fn.system({ 'rm', f })
     end
   end, {})
   -- Toggle dark Mode: ===========================================================================
-  vim.api.nvim_create_user_command( 'DarkMode', function()
-          if vim.o.background == 'light' then
-              vim.o.background = 'dark'
-          else
-              vim.o.background = 'light'
-          end
+  vim.api.nvim_create_user_command('DarkMode', function()
+    if vim.o.background == 'light' then
+      vim.o.background = 'dark'
+    else
+      vim.o.background = 'light'
+    end
   end, {})
   -- Toggle inlay hints: =========================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
@@ -1598,7 +1613,7 @@ later(function()
   vim.keymap.set('n', '<leader>q', '<cmd>close<cr>')
   vim.keymap.set('n', '<leader>wq', '<cmd>close<cr>')
   vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>')
-  vim.keymap.set("n", "ZQ", "<cmd>quitall!<cr>")
+  vim.keymap.set('n', 'ZQ', '<cmd>quitall!<cr>')
   vim.keymap.set('n', '<C-s>', '<cmd>silent up<cr>')
   vim.keymap.set('i', '<C-s>', '<ESC> <cmd>up<cr>')
   vim.keymap.set('i', '<c-y>', '<Esc>viwUea')
@@ -1658,7 +1673,7 @@ later(function()
   vim.keymap.set('x', '/', '<esc>/\\%V')
   vim.keymap.set('n', 'g/', '*')
   vim.keymap.set('n', 'gy', '`[v`]')
-  vim.keymap.set("n", "<C-i>", "gg=G``")
+  vim.keymap.set('n', '<C-i>', 'gg=G``')
   vim.keymap.set('n', '<C-m>', '%')
   vim.keymap.set('n', '<C-n>', '*N', { remap = true })
   vim.keymap.set('n', 'ycc', 'yygccp', { remap = true })
@@ -1795,7 +1810,8 @@ later(function()
   vim.keymap.set('n', '[c', function() require('mini.diff').goto_hunk('prev') end)
   vim.keymap.set('n', ']c', function() require('mini.diff').goto_hunk('next') end)
   -- Explorer: ====================================================================================
-  vim.keymap.set('n', '<leader>e', function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
+  vim.keymap.set('n', '<leader>e',
+    function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
   vim.keymap.set('n', '<leader>E', function() require('mini.files').open(vim.uv.cwd(), true) end)
 end)
 --              ╔═════════════════════════════════════════════════════════╗
@@ -1813,12 +1829,19 @@ later(function()
     vim.g.neovide_underline_stroke_scale = 2.5
     vim.g.neovide_show_border = true
     -- floating: =================================================================================
+    vim.g.neovide_padding_top = 0
+    vim.g.neovide_padding_bottom = 0
+    vim.g.neovide_padding_right = 0
+    vim.g.neovide_padding_left = 0
+    -- floating: =================================================================================
     vim.g.neovide_floating_shadow = false
     vim.g.neovide_floating_blur_amount_x = 2.0
     vim.g.neovide_floating_blur_amount_y = 2.0
     -- behavior: =================================================================================
     vim.g.neovide_remember_window_size = true
     vim.g.neovide_hide_mouse_when_typing = true
+    vim.g.neovide_no_idle = true
+    vim.g.neovide_cursor_antialiasing = true
     vim.g.neovide_cursor_animate_in_insert_mode = false
     vim.g.neovide_cursor_animate_command_line = false
     -- cursor: ===================================================================================
