@@ -46,15 +46,15 @@ if (eq $platform:os windows) {
 # =============================================================================== #
 # Elvish clean ~:									                                                #
 # =============================================================================== #
-set E:INPUTRC = "C:/"$E:HOMEPATH"/.bash/inputrc"
-set E:HISTFILE = "C:/"$E:HOMEPATH"/.bash/history"
-set E:GIT_CONFIG_GLOBAL = "C:/"$E:HOMEPATH"/.others/gitconfig"
-set E:WGETRC = "C:/"$E:HOMEPATH"/.others/wgetrc"
-set E:CARGO_HOME = "C:/"$E:HOMEPATH"/.local/share/cargo"
-set E:GOPATH = "C:/"$E:HOMEPATH"/.local/share/go"
-set E:GOMODCACHE = "C:/"$E:HOMEPATH"/.cache/go/mod"
-set E:PYTHONSTARTUP = "C:/"$E:HOMEPATH"/.config/python/pythonrc"
-set E:SQLITE_HISTORY = "C:/"$E:HOMEPATH"/.local/share/sqlite_history"
+set E:INPUTRC = $E:HOME"/.bash/inputrc"
+set E:HISTFILE = $E:HOME"/.bash/history"
+set E:GIT_CONFIG_GLOBAL = $E:HOME"/.others/gitconfig"
+set E:WGETRC = $E:HOME"/.others/wgetrc"
+set E:CARGO_HOME = $E:HOME"/.local/share/cargo"
+set E:GOPATH = $E:HOME"/.local/share/go"
+set E:GOMODCACHE = $E:HOME"/.cache/go/mod"
+set E:PYTHONSTARTUP = $E:HOME"/.config/python/pythonrc"
+set E:SQLITE_HISTORY = $E:HOME"/.local/share/sqlite_history"
 # =============================================================================== #
 # Elvish General :                                                                #
 # =============================================================================== #
@@ -226,11 +226,11 @@ fn cdd { cd D:/ }
 fn cdc { cd C:/ }
 # For Configs Files:                                                              #
 # =============================================================================== #
-fn dots { cd C:$E:HOMEPATH/win-void/ }
-fn ahk { cd C:$E:HOMEPATH/win-void/win-dotfiles/cfg/ahk/ }
-fn bashc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.bash/bashrc }
-fn wmc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
-fn elvc { nvim C:$E:HOMEPATH/win-void/win-dotfiles/app/roming/elvish/rc.elv }
+fn dots { cd $E:HOME/win-void/ }
+fn ahk { cd $E:HOME/win-void/win-dotfiles/cfg/ahk/ }
+fn bashc { nvim $E:HOME/win-void/win-dotfiles/home/.bash/bashrc }
+fn wmc { nvim $E:HOME/win-void/win-dotfiles/home/.glzr/glazewm/config.yaml }
+fn elvc { nvim $E:HOME/win-void/win-dotfiles/app/roming/elvish/rc.elv }
 # Changing "ls" to "eza":                                                         #
 # =============================================================================== #
 fn ls {|@a| e:eza --long --group --icons=auto --git --sort=name --group-directories-first $@a }
