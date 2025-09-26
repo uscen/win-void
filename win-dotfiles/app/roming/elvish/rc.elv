@@ -124,13 +124,14 @@ set edit:insert:binding[Ctrl-Delete] = { edit:move-dot-right-word; edit:kill-wor
 # =============================================================================== #
 set edit:completion:binding[Ctrl-u] = { edit:close-mode }
 set edit:completion:binding[Ctrl-y] = { edit:completion:accept }
+set edit:completion:binding[Ctrl-v] = { edit:close-mode; edit:command:start }
 set edit:completion:binding[Enter] = { edit:completion:accept; edit:return-line }
 # Command:                                                                        #
 # =============================================================================== #
 set edit:command:binding[Ctrl-u] = { edit:close-mode; edit:kill-line-left; edit:command:start }
+set edit:command:binding[d] = { edit:close-mode; edit:kill-line-left; edit:command:start }
 set edit:command:binding[A] = { edit:move-dot-eol; edit:close-mode }
 set edit:command:binding[I] = { edit:move-dot-sol; edit:close-mode }
-set edit:command:binding[d] = { edit:close-mode; edit:kill-line-left; edit:kill-line-right }
 set edit:command:binding[u] = { edit:close-mode; edit:kill-line-left }
 set edit:command:binding[e] = { edit:move-dot-right-small-word }
 # Location:                                                                       #
