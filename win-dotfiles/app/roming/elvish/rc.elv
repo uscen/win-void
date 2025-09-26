@@ -134,6 +134,13 @@ set edit:command:binding[A] = { edit:move-dot-eol; edit:close-mode }
 set edit:command:binding[I] = { edit:move-dot-sol; edit:close-mode }
 set edit:command:binding[u] = { edit:close-mode; edit:kill-line-left }
 set edit:command:binding[e] = { edit:move-dot-right-small-word }
+set edit:command:binding[k] = { edit:history:start; edit:history:up }
+set edit:command:binding[j] = { edit:history:start; edit:history:down }
+# history:                                                                        #
+# =============================================================================== #
+set edit:history:binding[Ctrl-y] = { edit:history:accept }
+set edit:history:binding[k] = { edit:history:up }
+set edit:history:binding[j] = { edit:history:down }
 # Location:                                                                       #
 # =============================================================================== #
 set edit:location:binding[Ctrl-u] = { edit:close-mode }
