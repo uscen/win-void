@@ -929,10 +929,8 @@ now(function()
   vim.opt.formatoptions          = 'rqnl1j'
   vim.opt.formatexpr             = "v:lua.require'conform'.formatexpr()"
   vim.opt.sessionoptions         = { 'buffers', 'curdir', 'tabpages', 'winsize', 'globals' }
-  vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100',
-    'indent-heuristic', }
-  vim.opt.suffixesadd            = { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts',
-    '.tsx', '.yaml', '.yml', }
+  vim.opt.diffopt                = { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic', }
+  vim.opt.suffixesadd            = { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml', }
   -- Folds:  =====================================================================================
   vim.opt.foldenable             = false
   vim.opt.foldlevelstart         = 99
