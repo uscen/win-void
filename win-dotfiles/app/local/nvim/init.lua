@@ -863,16 +863,7 @@ now(function()
   vim.wo.signcolumn              = 'yes'
   vim.opt.statuscolumn           = ''
   vim.opt.fillchars              = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
-  vim.opt.listchars              = {
-    eol = '↲',
-    tab = '→ ',
-    trail = '+',
-    extends = '›',
-    precedes = '‹',
-    space = '•',
-    nbsp =
-    '␣',
-  }
+  vim.opt.listchars              = { eol = '↲', tab = '→ ', trail = '+', extends = '›', precedes = '‹', space = '•', nbsp = '␣', }
   -- Editing:  ===================================================================================
   vim.opt.cindent                = true
   vim.opt.autoindent             = true
