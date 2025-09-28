@@ -780,6 +780,7 @@ now(function()
   vim.opt.swapfile               = false
   vim.opt.writebackup            = false
   vim.opt.backup                 = false
+  vim.o.bomb                     = false
   vim.opt.undolevels             = 1024
   vim.opt.fileencoding           = 'utf-8'
   vim.opt.encoding               = 'utf-8'
