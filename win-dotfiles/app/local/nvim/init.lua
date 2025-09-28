@@ -568,7 +568,7 @@ end)
 --              ╭─────────────────────────────────────────────────────────╮
 --              │                     Mini.Icons                          │
 --              ╰─────────────────────────────────────────────────────────╯
-now_if_args(function()
+now(function()
   local MiniIcons = require('mini.icons')
   MiniIcons.setup({
     default = {
@@ -943,7 +943,7 @@ now(function()
   vim.opt.history                = 100
   vim.opt.synmaxcol              = 200
   vim.opt.timeoutlen             = 300
-  vim.opt.redrawtime             = 10000
+  vim.opt.redrawtime             = 500
   vim.opt.maxmempattern          = 10000
   -- Disable netrw: ==============================================================================
   vim.g.loaded_netrw             = 1
@@ -1862,6 +1862,7 @@ end)
 later(function()
   vim.filetype.add({
     extension = {
+      ['scm'] = 'query',
       ['http'] = 'http',
       ['json'] = 'jsonc',
       ['map'] = 'json',
