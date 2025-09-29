@@ -635,7 +635,7 @@ now(function()
       ['text'] = { glyph = '󰉿' },
       ['method'] = { glyph = '󰆦' },
       ['function'] = { glyph = '󰡱' },
-      ['constructor'] = { glyph = '' },
+      ['constructor'] = { glyph = '󰒓' },
       ['field'] = { glyph = '󰜢' },
       ['variable'] = { glyph = '' },
       ['class'] = { glyph = '󰠱' },
@@ -792,7 +792,7 @@ now(function()
   vim.opt.wildoptions            = 'fuzzy,pum'
   vim.opt.wildignore             = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o'
   vim.opt.omnifunc               = 'v:lua.vim.lsp.omnifunc'
-  vim.opt.completeopt            = 'menuone,noselect,fuzzy,nosort'
+  vim.opt.completeopt            = 'menuone,noselect,fuzzy,nosort,preinsert'
   vim.opt.completeitemalign      = 'kind,abbr,menu'
   vim.opt.complete               = '.,w,b,kspell'
   vim.opt.switchbuf              = 'usetab'
@@ -1349,8 +1349,9 @@ now_if_args(function()
   -- Always open quickfix window automatically: ==================================================
   vim.api.nvim_create_autocmd('QuickFixCmdPost', {
     group = vim.api.nvim_create_augroup('auto_open_quickfix', { clear = true }),
-    pattern = { '[^l]*' },
-    command = 'cwindow'
+    pattern = '[^l]*',
+    command = 'cwindow',
+    nested = true,
   })
   -- Always show quotes: =========================================================================
   vim.api.nvim_create_autocmd('FileType', {
@@ -1461,15 +1462,13 @@ now_if_args(function()
         vim.cmd('filetype off')
         vim.cmd('syntax clear')
         vim.cmd('syntax off')
-        vim.defer_fn(function()
-          vim.cmd('TSBufDisable highlight')
-          vim.cmd('TSBufDisable indent')
-          vim.cmd('TSBufDisable autotag')
-          require('rainbow-delimiters').disable(0)
-        end, 100)
         vim.b.minicompletion_disable = true
         vim.b.minisnippets_disable = true
         vim.b.minihipatterns_disable = true
+        vim.defer_fn(function()
+          vim.treesitter.stop()
+          require('rainbow-delimiters').disable(0)
+        end, 100)
         vim.notify('Large file detected. Some features disabled.', vim.log.levels.WARN)
       end
     end,
