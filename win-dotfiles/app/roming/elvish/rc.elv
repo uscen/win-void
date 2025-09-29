@@ -103,7 +103,7 @@ fn fzf_history {
 }
 fn fzf_cd {
   try {
-    cd (fd --type d  --max-depth 9 --no-ignore -0 | fzf --read0 --height=50% --min-height 14)
+    cd (fd --type d  --max-depth 9 --no-ignore -0 | fzf --read0)
   } catch {
     edit:redraw &full=$true
     return
