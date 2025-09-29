@@ -1,13 +1,7 @@
 {
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "actions": [],
   "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
-  "disableAnimations": true,
-  "initialCols": 55,
-  "initialPosition": ",",
-  "initialRows": 22,
-  "keybindings": [],
   "launchMode": "focus",
   "newTabMenu": [{ "type": "remainingProfiles" }],
   "profiles": {
@@ -17,12 +11,12 @@
       "cursorColor": "#8A9A7B",
       "cursorShape": "filledBox",
       "font": {
-        "axes": { "wght": 600 },
-        "cellHeight": "1.4",
         "face": "JetBrainsMono Nerd Font",
-        "features": { "liga": 1, "ss01": 0 },
+        "weight": "semi-bold",
+        "cellHeight": "1.4",
         "size": 10,
-        "weight": "semi-bold"
+        "axes": { "wght": 600 },
+        "features": { "liga": 1, "ss01": 0 }
       }
     },
     "list": [
