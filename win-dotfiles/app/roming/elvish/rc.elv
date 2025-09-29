@@ -116,10 +116,15 @@ set edit:insert:binding[Ctrl-w] = { edit:move-dot-right-word }
 set edit:insert:binding[Ctrl-d] = { edit:kill-small-word-left }
 set edit:insert:binding[Ctrl-n] = { edit:navigation:start; edit:navigation:trigger-filter }
 set edit:insert:binding[Ctrl-x] = { edit:-instant:start }
+set edit:insert:binding[Ctrl-y] = { edit:-instant:start; edit:close-mode }
 set edit:insert:binding[Ctrl-t] = { edit:history:start }
 set edit:insert:binding[Ctrl-v] = { edit:command:start }
 set edit:insert:binding[Ctrl-Enter] = { edit:insert-at-dot "\n" }
 set edit:insert:binding[Ctrl-Delete] = { edit:move-dot-right-word; edit:kill-word-left }
+# Fzf:                                                                            #
+# =============================================================================== #
+set edit:insert:binding[Alt-c] = { fzf_cd }
+set edit:insert:binding[Ctrl-r] = { fzf_history }
 # Completion:                                                                     #
 # =============================================================================== #
 set edit:completion:binding[Ctrl-u] = { edit:close-mode }
@@ -144,10 +149,6 @@ set edit:history:binding[j] = { edit:history:down }
 # Location:                                                                       #
 # =============================================================================== #
 set edit:location:binding[Ctrl-u] = { edit:close-mode }
-# Fzf:                                                                            #
-# =============================================================================== #
-set edit:insert:binding[Alt-c] = { fzf_cd }
-set edit:insert:binding[Ctrl-r] = { fzf_history }
 # Others:                                                                         #
 # =============================================================================== #
 set edit:max-height = 25
