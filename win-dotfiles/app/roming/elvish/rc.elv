@@ -181,6 +181,7 @@ if (eq $platform:os windows) {
 # Extrnal:                                                                        #
 # =============================================================================== #
 eval (zoxide init elvish | slurp)
+eval (carapace _carapace | slurp)
 # Prompt:                                                                         #
 # =============================================================================== #
 set edit:prompt = {

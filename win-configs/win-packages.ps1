@@ -53,6 +53,7 @@ $scoopPackages = @(
     "aria2",
     "curl",
     "elvish",
+    "carapace-bin",
     "uutils-coreutils",
     "gsudo",
     "alacritty",
