@@ -567,6 +567,7 @@ c.aliases['tor'] = 'spawn --detach tor-browser {url}'
 c.aliases['ff'] = 'spawn --detach firefox {url}'
 c.aliases['ed'] = 'spawn --detach msedge {url}'
 c.aliases['ch'] = 'spawn --detach chromium {url}'
+c.aliases['yt-dlp'] = 'spawn --detach alacritty -e yt-dlp {url}'
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                       Keybidings                        ║
 #               ╚═════════════════════════════════════════════════════════╝
