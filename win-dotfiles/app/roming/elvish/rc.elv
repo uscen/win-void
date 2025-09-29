@@ -190,7 +190,7 @@ set edit:prompt = {
     styled "[" green bold
     styled ""(hostname)"" "green bold"
     styled "@" yellow bold
-    styled ""(whoami | each {|x| re:replace '.*\\' '' $x })"" "cyan bold"
+    styled ""(re:replace '.*\\' '' (whoami))"" "cyan bold"
     styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " green  bold
     styled "]" green bold
     styled " λ " cyan bold
