@@ -9,11 +9,7 @@
   "initialRows": 22,
   "keybindings": [],
   "launchMode": "focus",
-  "newTabMenu": [
-    {
-      "type": "remainingProfiles"
-    }
-  ],
+  "newTabMenu": [{ "type": "remainingProfiles" }],
   "profiles": {
     "defaults": {
       "bellStyle": "none",
@@ -21,15 +17,10 @@
       "cursorColor": "#8A9A7B",
       "cursorShape": "filledBox",
       "font": {
-        "axes": {
-          "wght": 600
-        },
+        "axes": { "wght": 600 },
         "cellHeight": "1.4",
         "face": "JetBrainsMono Nerd Font",
-        "features": {
-          "liga": 1,
-          "ss01": 0
-        },
+        "features": { "liga": 1, "ss01": 0 },
         "size": 10,
         "weight": "semi-bold"
       }
