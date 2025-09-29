@@ -187,11 +187,11 @@ eval (carapace _carapace | slurp)
 set edit:prompt = {
     use re
     # abbreviate path by shortening the parent directories: ===================== #
-    styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " black  bg-yellow bold
+    styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " yellow  bold
     if (not-eq $E:SSH_CLIENT "") {
         styled " "(cat /etc/hostname)" " "white bg-red bold"
     }
-    styled " λ " black bg-green bold
+    styled " λ " green bold
     put " "
 }
 set edit:rprompt = { nop }
