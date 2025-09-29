@@ -187,13 +187,13 @@ eval (carapace _carapace | slurp)
 set edit:prompt = {
     use re
     # abbreviate path by shortening the parent directories: ===================== #
-    styled "[" green bold
-    styled ""(hostname)"" "green bold"
-    styled "@" yellow bold
-    styled ""(re:replace '.*\\' '' (whoami))"" "cyan bold"
-    styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " green  bold
-    styled "]" green bold
-    styled " λ " cyan bold
+    styled "[" bright-magenta bold
+    styled ""(hostname)"" "bright-green bold"
+    styled "@" bright-black bold
+    styled ""(re:replace '.*\\' '' (whoami))"" "bright-cyan bold"
+    styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " bright-magenta  bold
+    styled "]" bright-magenta bold
+    styled " λ " bright-cyan bold
     put " "
 }
 set edit:rprompt = { nop }
