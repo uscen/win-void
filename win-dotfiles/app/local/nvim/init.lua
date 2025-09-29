@@ -67,6 +67,7 @@ later(function()
       hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
       todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
       note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+      done = { pattern = '%f[%w]()DONE()%f[%W]', group = 'MiniHipatternsNote', },
       hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
         style = 'full',
         inline_text = ' ',
@@ -1342,7 +1343,7 @@ now_if_args(function()
   })
   -- Reload buffer on enter or focus: ============================================================
   vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained' }, {
-    group = vim.api.nvim_create_augroup('reload_buffer_on_enteror_focus', { clear = true }),
+    group = vim.api.nvim_create_augroup('reload_buffer_on_enter_or_focus', { clear = true }),
     command = 'silent! !',
   })
   -- Always open quickfix window automatically: ==================================================
