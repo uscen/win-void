@@ -20,6 +20,7 @@ set E:EDITOR = "nvim"
 set E:VISUAL = "nvim"
 set E:PAGER = "less"
 set E:LESS = "-i -R"
+set E:LESSHISTFILE = -
 set E:TERMINAL = "alacritty"
 set E:BROWSER = "qutebrowser"
 set E:FZF_DEFAULT_OPTS = "
