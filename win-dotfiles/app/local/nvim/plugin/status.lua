@@ -98,4 +98,4 @@ M.setup = function()
   vim.go.statusline = "%!v:lua.M.build()"
 end
 
-M.setup()
+return M
