@@ -640,13 +640,13 @@ now(function()
       ['variable'] = { glyph = '' },
       ['class'] = { glyph = '󰠱' },
       ['interface'] = { glyph = '' },
-      ['module'] = { glyph = '' },
+      ['module'] = { glyph = '' },
       ['property'] = { glyph = '' },
       ['unit'] = { glyph = '󰑭' },
       ['value'] = { glyph = '󰔌' },
       ['enum'] = { glyph = '' },
       ['keyword'] = { glyph = '󰌆' },
-      ['snippet'] = { glyph = '' },
+      ['snippet'] = { glyph = '' },
       ['color'] = { glyph = '󱥚' },
       ['file'] = { glyph = '󰈙' },
       ['reference'] = { glyph = '󰬲' },
@@ -828,7 +828,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 3
+  vim.opt.laststatus             = 0
   vim.opt.cmdheight              = 0
   vim.opt.helpheight             = 12
   vim.opt.previewheight          = 12

@@ -288,9 +288,9 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Apps: ========================================================================================
-  - commands: ["shell-exec msedge"]
-    bindings: ["alt+w"]
   - commands: ["shell-exec qutebrowser"]
+    bindings: ["alt+w"]
+  - commands: ["shell-exec msedge"]
     bindings: ["alt+i"]
   - commands: ["shell-exec thunderbird"]
     bindings: ["alt+e"]

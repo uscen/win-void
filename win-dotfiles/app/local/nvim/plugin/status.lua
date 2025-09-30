@@ -20,39 +20,21 @@ M.getMode = function()
     ["!"] = { name = "SH", hl = "%#MiniStatuslineModeOther#" },
     ["t"] = { name = "TERM", hl = "%#MiniStatuslineModeOther#" },
   }
-
   -- set a default option via metatable
   local modes = setmetatable(modesTable, {
     __index = function()
       return { name = "UNKNOWN", hl = "%#MiniStatuslineModeOther#" }
     end
   })
-
   return modes[vim.fn.mode()]
 end
 
 
 M.build = function()
   local modeInfo = M.getMode()
-
-  local cwd = string.format("%s %s ", " ", vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
-
-  local filepath = " " .. "%f"
+  local cwd = string.format("%s %s ", "󰝰", vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
+  local filepath = "󰪷  " .. "%f"
   local filemodifier = "%m%r "
-
-  local eol = vim.bo.fileformat
-  local enc = (vim.bo.fileencoding == "") and (vim.go.encoding) or (vim.bo.fileencoding)
-
-  local tab_icon = "󰌒 "
-  local width = vim.bo.tabstop
-  if vim.bo.expandtab then
-    tab_icon = "󱁐 "
-    width = vim.bo.shiftwidth
-  end
-
-  local location = " %l/%L:%2v/%-2{virtcol('$') - 1} "
-  local percentage = "  " .. "%P "
-
   return table.concat({
     modeInfo.hl,
     " ",
@@ -61,7 +43,6 @@ M.build = function()
 
     "%#MiniStatuslineDevinfo#",
     " ",
-    cwd,
     "%<", --> truncation point
 
     "%#MiniStatuslineFilename#",
@@ -74,22 +55,8 @@ M.build = function()
     "%=", --> spacer
 
 
-    "%#MiniStatuslineFilename#",
-    "%Y", --> filetype
-    " | ",
-    eol:upper(),
-    " | ",
-    enc:upper(),
-    " | ",
-    tab_icon,
-    width,
-    " ",
-
     "%#MiniStatuslineFileinfo#",
-    location,
-
-    modeInfo.hl,
-    percentage,
+    cwd,
   })
 end
 
@@ -98,4 +65,4 @@ M.setup = function()
   vim.go.statusline = "%!v:lua.M.build()"
 end
 
-return M
+M.setup()
