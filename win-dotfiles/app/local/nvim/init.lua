@@ -816,7 +816,7 @@ now(function()
   vim.opt.tgc                    = true
   vim.opt.ttyfast                = true
   vim.opt.showcmd                = true
-  vim.opt.cursorline             = true
+  vim.opt.cursorline             = false
   vim.opt.relativenumber         = false
   vim.opt.title                  = false
   vim.opt.list                   = false
@@ -828,7 +828,7 @@ now(function()
   vim.opt.ruler                  = false
   vim.opt.numberwidth            = 3
   vim.opt.linespace              = 3
-  vim.opt.laststatus             = 0
+  vim.opt.laststatus             = 3
   vim.opt.cmdheight              = 0
   vim.opt.helpheight             = 12
   vim.opt.previewheight          = 12
@@ -1286,6 +1286,18 @@ now_if_args(function()
       if mark[1] > 0 and mark[1] <= lcount then
         pcall(vim.api.nvim_win_set_cursor, 0, mark)
       end
+    end,
+  })
+  -- Highlight cursor line briefly when neovim regains focus: =====================================
+  vim.api.nvim_create_autocmd({ 'FocusGained' }, {
+    group = vim.api.nvim_create_augroup('track_cursor', { clear = true }),
+    callback = function()
+        vim.opt.cursorline = true
+        vim.cmd('redraw')
+        vim.defer_fn(function()
+            vim.o.cursorline = false
+            vim.cmd('redraw')
+        end, 600)
     end,
   })
   -- Check if we need to reload the file when it changed: ========================================
