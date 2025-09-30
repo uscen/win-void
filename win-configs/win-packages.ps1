@@ -55,6 +55,7 @@ $scoopPackages = @(
     "elvish",
     "carapace-bin",
     "uutils-coreutils",
+    "trashy",
     "gsudo",
     "alacritty",
     "windows-terminal",

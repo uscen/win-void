@@ -282,13 +282,14 @@ fn bun-run {|@a| e:bun run $@a }
 fn bun-dev {|@a| e:bun --bun run dev $@a }
 # Node PKG Manager:                                                               #
 # =============================================================================== #
-fn p {|@a| pnpm $@a }
-fn px {|@a| pnpm dlx $@a }
+fn p {|@a| e:pnpm $@a }
+fn px {|@a| e:pnpm dlx $@a }
 # Others Usfeual Alias:                                                           #
 # =============================================================================== #
 fn yt-concats {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/playlist $@a }
 fn yt-music {|@a| e:yt-dlp --ignore-config --config-locations ~/AppData/Roaming/yt-dlp/music $@a }
 fn msg { |@a| echo (styled "👉🏼 "$@a bold italic yellow) }
+fn rm {|@a| e:trash $@a }
 fn htop {|@a| e:ntop -u lli -s CPU% $@a }
 fn man {|@a| e:tldr $@a }
 fn cat {|@a| e:bat $@a }
