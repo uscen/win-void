@@ -33,17 +33,13 @@ end
 M.build = function()
   local modeInfo = M.getMode()
   local cwd = string.format("%s %s ", "󰝰", vim.fn.fnamemodify(vim.fn.getcwd(), ":t"))
-  local filepath = "󰪷  " .. "%f"
+  local filepath = "󰪷  " .. "%t"
   local filemodifier = "%m%r "
   return table.concat({
     modeInfo.hl,
     " ",
     modeInfo.name,
     " ",
-
-    "%#MiniStatuslineDevinfo#",
-    " ",
-    "%<", --> truncation point
 
     "%#MiniStatuslineFilename#",
     " ",
@@ -65,4 +61,4 @@ M.setup = function()
   vim.go.statusline = "%!v:lua.M.build()"
 end
 
-M.setup()
+return M
