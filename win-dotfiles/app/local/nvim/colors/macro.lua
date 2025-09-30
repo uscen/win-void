@@ -251,7 +251,7 @@ local hlgroups = {
   SpellCap                                 = { underdashed = true },
   SpellLocal                               = { underdashed = true },
   SpellRare                                = { underdashed = true },
-  StatusLine                               = { bg = c_macroBg2, fg = c_macroFg1 },
+  StatusLine                               = { bg = c_macroBg1, fg = c_macroFg1 },
   StatusLineNC                             = { bg = c_macroBg2, fg = c_macroBg5 },
   Substitute                               = { bg = c_autumnRed, fg = c_macroFg0 },
   TabLine                                  = { link = 'StatusLineNC' },
