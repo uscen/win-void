@@ -3,7 +3,7 @@
 --          ╚═════════════════════════════════════════════════════════╝
 return {
   cmd = { 'vscode-html-language-server', '--stdio' },
-  filetypes = { "html", "htmldjango", "tmpl", "gotmpl", "template" },
+  filetypes = { 'html', 'htmldjango', 'tmpl', 'gotmpl', 'template' },
   init_options = {
     provideFormatter = true,
     embeddedLanguages = { css = true, javascript = true },

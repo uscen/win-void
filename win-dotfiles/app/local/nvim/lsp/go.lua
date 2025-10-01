@@ -2,17 +2,12 @@
 --          ║                       Go LSP                            ║
 --          ╚═════════════════════════════════════════════════════════╝
 return {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gosum" },
-  root_markers = {
-    "go.mod",
-    "go.sum",
-  },
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gosum' },
+  root_markers = { 'go.mod', 'go.sum', },
   settings = {
     gopls = {
-      analyses = {
-        unusedparams = true,
-      },
+      analyses = { unusedparams = true, },
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,

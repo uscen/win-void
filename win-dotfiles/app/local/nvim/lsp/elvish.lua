@@ -1,8 +1,4 @@
 --          ╔═════════════════════════════════════════════════════════╗
 --          ║                         Elvish LSP                      ║
 --          ╚═════════════════════════════════════════════════════════╝
-return {
-	cmd = { "elvish", "-lsp" },
-	root_markers = { ".git", "rc.elv" },
-	filetypes = { "elvish" },
-}
+return { cmd = { 'elvish', '-lsp' }, root_markers = { '.git', 'rc.elv' }, filetypes = { 'elvish' }, }

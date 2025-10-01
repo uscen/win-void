@@ -5,12 +5,12 @@ return {
   cmd = { 'lua-language-server' },
   settings = {
     Lua = {
-      runtime = { version = 'LuaJIT', },
-      workspace = { library = { vim.env.VIMRUNTIME, '${3rd}/luv/library' }, },
-      diagnostics = { globals = { 'MiniDeps' }, },
-      signatureHelp = { enabled = true, },
-      format = { enable = true, },
-      telemetry = { enable = false, },
+      runtime = { version = 'LuaJIT' },
+      workspace = { library = { vim.env.VIMRUNTIME, '${3rd}/luv/library' } },
+      diagnostics = { globals = { 'MiniDeps' } },
+      signatureHelp = { enabled = true },
+      format = { enable = true },
+      telemetry = { enable = false },
     },
   },
   filetypes = { 'lua' },

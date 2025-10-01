@@ -31,24 +31,15 @@ return {
       client:request_sync('workspace/executeCommand', {
         command = 'eslint.applyAllFixes',
         arguments = {
-          {
-            uri = vim.uri_from_bufnr(bufnr),
-            version = vim.lsp.util.buf_versions[bufnr],
-          },
+          { uri = vim.uri_from_bufnr(bufnr), version = vim.lsp.util.buf_versions[bufnr], },
         },
       }, nil, bufnr)
     end, {})
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "LspEslintFixAll",
-    })
+    vim.api.nvim_create_autocmd('BufWritePre', { buffer = bufnr, command = 'LspEslintFixAll', })
   end,
   before_init = function(params, config)
     -- Set the workspace folder setting for correct search of tsconfig.json files etc.
-    config.settings.workspaceFolder = {
-      uri = params.rootPath,
-      name = vim.fn.fnamemodify(params.rootPath, ':t'),
-    }
+    config.settings.workspaceFolder = { uri = params.rootPath, name = vim.fn.fnamemodify(params.rootPath, ':t'), }
   end,
   ---@type table<string, lsp.Handler>
   handlers = {

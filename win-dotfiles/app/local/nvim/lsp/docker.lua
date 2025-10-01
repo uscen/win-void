@@ -2,8 +2,8 @@
 --          ║                     Docker LSP                          ║
 --          ╚═════════════════════════════════════════════════════════╝
 return {
-  cmd = { "docker-langserver", "--stdio" },
+  cmd = { 'docker-langserver', '--stdio' },
   single_file_support = true,
-  filetypes = { "dockerfile" },
-  root_markers = { "Dockerfile" },
+  filetypes = { 'dockerfile' },
+  root_markers = { 'Dockerfile' },
 }

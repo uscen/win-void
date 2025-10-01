@@ -17,5 +17,5 @@ return {
     'typescriptreact',
     'vue',
   },
-  root_markers = { 'biome.json' }
+  root_markers = { 'biome.json' },
 }
