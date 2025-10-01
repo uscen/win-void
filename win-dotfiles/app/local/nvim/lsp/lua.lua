@@ -9,7 +9,7 @@ return {
       workspace = { library = { vim.env.VIMRUNTIME, '${3rd}/luv/library' } },
       diagnostics = { globals = { 'MiniDeps' } },
       signatureHelp = { enabled = true },
-      format = { enable = true },
+      format = { enable = false },
       telemetry = { enable = false },
     },
   },
