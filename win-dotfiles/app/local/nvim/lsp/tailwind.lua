@@ -100,12 +100,20 @@ return {
       },
     },
   },
-  root_markers = {
-    'tsconfig.json',
-    'jsconfig.json',
-    'package.json',
-    '.git'
-  },
+	root_markers = {
+		"tailwind.config.js",
+		"tailwind.config.cjs",
+		"tailwind.config.mjs",
+		"tailwind.config.ts",
+		"postcss.config.js",
+		"postcss.config.cjs",
+		"postcss.config.mjs",
+		"postcss.config.ts",
+		"package.json",
+		"node_modules",
+		".git",
+		".jj"
+	},
   workspace_required = true,
   root_dir = function(bufnr, on_dir)
     local root_files = {

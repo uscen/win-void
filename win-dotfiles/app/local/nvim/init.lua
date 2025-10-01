@@ -851,7 +851,6 @@ now(function()
   vim.o.background               = 'dark'
   vim.o.showcmdloc               = 'statusline'
   vim.o.belloff                  = 'all'
-  vim.o.guifont                  = 'jetBrainsMono Nerd Font:h10:b'
   vim.o.titlestring              = '%{getcwd()} : %{expand(\"%:r\")} [%M] ― Neovim'
   vim.o.splitkeep                = 'screen'
   vim.o.mousemodel               = 'extend'
@@ -1557,6 +1556,24 @@ later(function()
       vim.o.background = 'light'
     end
   end, {})
+  -- Resizes: ======================================================================================
+  vim.api.nvim_create_user_command("Vr", function(opts)
+    local usage = "Usage: [VerticalResize] :Vr {number (%)}"
+    if not opts.args or not string.len(opts.args) == 2 then
+      print(usage)
+      return
+    end
+    vim.cmd(":vertical resize " .. vim.opt.columns:get() * (opts.args / 100.0))
+  end, { nargs = "*" })
+
+  vim.api.nvim_create_user_command("Hr", function(opts)
+    local usage = "Usage: [HorizontalResize] :Hr {number (%)}"
+    if not opts.args or not string.len(opts.args) == 2 then
+      print(usage)
+      return
+    end
+    vim.cmd(":resize " .. ((vim.opt.lines:get() - vim.opt.cmdheight:get()) * (opts.args / 100.0)))
+  end, { nargs = "*" })
   -- Toggle inlay hints: =========================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
     vim.g.inlay_hints = not vim.g.inlay_hints
@@ -1863,6 +1880,7 @@ later(function()
     -- Options: ==================================================================================
     vim.o.linespace = -1
     vim.o.mousescroll = 'ver:10,hor:6'
+    vim.o.guifont = 'jetBrainsMono Nerd Font:h10:b'
     -- Keymap: ===================================================================================
     vim.keymap.set({ 'n', 'v' }, '<C-=>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<cr>')
