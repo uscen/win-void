@@ -305,6 +305,8 @@ keybindings:
     bindings: ["alt+shift+v"]
   - commands: ["shell-exec explorer"]
     bindings: ["alt+shift+n"]
+  - commands: ["shell-exec trash empty --all"]
+    bindings: ["alt+shift+t"]
 
   # next/previous: ===============================================================================
   - commands: ["focus --next-active-workspace"]
