@@ -1546,7 +1546,7 @@ later(function()
   -- Windows: "E138: main.shada.tmp.X files exist, cannot write ShaDa" on close: =================
   vim.api.nvim_create_user_command('RemoveShadaTemp', function()
     for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('data') .. '/shada', '*tmp*', false, true)) do
-      vim.fn.system({ 'rm', f })
+      vim.fn.system({ 'trash', f })
     end
   end, {})
   -- Toggle dark Mode: ===========================================================================
