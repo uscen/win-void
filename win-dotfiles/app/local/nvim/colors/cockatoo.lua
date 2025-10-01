@@ -369,7 +369,7 @@ local hlgroups = {
   ['@tag.delimiter']                       = { link = 'Delimiter' },
   ['@markup.strong']                       = { bold = true },
   ['@markup.strike']                       = { strikethrough = true },
-  ['@markup.emphasis']                     = { fg = c_beige, bold = true, italic = true, },
+  ['@markup.emphasis']                     = { fg = c_beige, bold = true, italic = true },
   ['@markup.underline']                    = { underline = true },
   ['@keyword.operator']                    = { link = 'Operator' },
   -- }}}2
@@ -431,11 +431,7 @@ local hlgroups = {
   DiagnosticSignWarn                       = { link = 'DiagnosticWarn' },
   DiagnosticSignInfo                       = { link = 'DiagnosticInfo' },
   DiagnosticSignHint                       = { link = 'DiagnosticHint' },
-  DiagnosticUnnecessary                    = {
-    fg = c_steel,
-    sp = c_pigeon,
-    undercurl = true,
-  },
+  DiagnosticUnnecessary                    = { fg = c_steel, sp = c_pigeon, undercurl = true, },
   -- }}}2
 
   -- Filetype {{{2
@@ -509,13 +505,13 @@ local hlgroups = {
   GitSignsAddPreview                       = { link = 'DiffAdded' },
   GitSignsChange                           = { fg = c_lavender_blend },
   GitSignsChangeInline                     = { fg = c_lavender, bg = c_lavender_blend },
-  GitSignsChangeLnInline                   = { fg = c_lavender, bg = c_lavender_blend, },
+  GitSignsChangeLnInline                   = { fg = c_lavender, bg = c_lavender_blend },
   GitSignsCurrentLineBlame                 = { fg = c_smoke, bg = c_smoke_blend },
   GitSignsDelete                           = { fg = c_wine },
   GitSignsDeleteInline                     = { fg = c_scarlet, bg = c_scarlet_blend },
   GitSignsDeleteLnInline                   = { fg = c_scarlet, bg = c_scarlet_blend },
   GitSignsDeletePreview                    = { fg = c_scarlet, bg = c_wine_blend },
-  GitSignsDeleteVirtLnInLine               = { fg = c_scarlet, bg = c_scarlet_blend, },
+  GitSignsDeleteVirtLnInLine               = { fg = c_scarlet, bg = c_scarlet_blend },
   GitSignsUntracked                        = { fg = c_scarlet_blend },
   GitSignsUntrackedLn                      = { bg = c_scarlet_blend },
   GitSignsUntrackedNr                      = { fg = c_pink },
@@ -537,7 +533,7 @@ local hlgroups = {
   TelescopeNormal                          = { link = 'NormalFloat' },
   TelescopePromptNormal                    = { bg = c_deepsea },
   TelescopeTitle                           = { fg = c_space, bg = c_turquoise, bold = true },
-  TelescopePromptTitle                     = { fg = c_space, bg = c_yellow, bold = true, },
+  TelescopePromptTitle                     = { fg = c_space, bg = c_yellow, bold = true },
   TelescopeBorder                          = { fg = c_smoke, bg = c_ocean },
   TelescopePromptBorder                    = { fg = c_smoke, bg = c_deepsea },
   TelescopeSelection                       = { fg = c_smoke, bg = c_thunder },

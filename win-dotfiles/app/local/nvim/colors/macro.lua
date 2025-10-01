@@ -401,11 +401,7 @@ local hlgroups = {
   DiagnosticVirtualTextHint                = { bg = c_winterGreen, fg = c_macroAqua },
   DiagnosticVirtualTextInfo                = { bg = c_winterBlue, fg = c_macroBlue1 },
   DiagnosticVirtualTextWarn                = { bg = c_winterYellow, fg = c_carpYellow },
-  DiagnosticUnnecessary                    = {
-    fg = c_macroAsh,
-    sp = c_macroAqua,
-    undercurl = true,
-  },
+  DiagnosticUnnecessary                    = { fg = c_macroAsh, sp = c_macroAqua, undercurl = true },
   -- }}}
 
   -- Filetype {{{2
@@ -468,85 +464,6 @@ local hlgroups = {
   -- }}}
 
   -- Plugins {{{2
-  -- gitsigns
-  GitSignsAdd                              = { fg = c_autumnGreen },
-  GitSignsChange                           = { fg = c_sumiInk6 },
-  GitSignsDelete                           = { fg = c_lotusRed0 },
-  GitSignsDeletePreview                    = { bg = c_winterRed },
-
-  -- fugitive
-  fugitiveHash                             = { link = 'gitHash' },
-  fugitiveHeader                           = { link = 'Title' },
-  fugitiveStagedModifier                   = { fg = c_autumnGreen },
-  fugitiveUnstagedModifier                 = { fg = c_autumnYellow },
-  fugitiveUntrackedModifier                = { fg = c_macroAqua },
-
-  -- telescope
-  TelescopeBorder                          = { bg = c_macroBg2, fg = c_sumiInk6 },
-  TelescopeMatching                        = { fg = c_macroRed, bold = true },
-  TelescopeNormal                          = { bg = c_macroBg2, fg = c_macroFg2 },
-  TelescopePromptBorder                    = { bg = c_macroBg3, fg = c_sumiInk6 },
-  TelescopePromptNormal                    = { bg = c_macroBg3, fg = c_macroFg2 },
-  TelescopeResultsClass                    = { link = 'Structure' },
-  TelescopeResultsField                    = { link = '@variable.member' },
-  TelescopeResultsMethod                   = { link = 'Function' },
-  TelescopeResultsStruct                   = { link = 'Structure' },
-  TelescopeResultsVariable                 = { link = '@variable' },
-  TelescopeSelection                       = { link = 'Visual' },
-  TelescopeTitle                           = { bg = c_macroTeal, fg = c_macroBg0 },
-
-  -- nvim-dap-ui
-  DapUIBreakpointsCurrentLine              = { bold = true, fg = c_macroFg0 },
-  DapUIBreakpointsDisabledLine             = { link = 'Comment' },
-  DapUIBreakpointsInfo                     = { fg = c_macroBlue0 },
-  DapUIBreakpointsPath                     = { link = 'Directory' },
-  DapUIDecoration                          = { fg = c_sumiInk6 },
-  DapUIFloatBorder                         = { fg = c_sumiInk6 },
-  DapUILineNumber                          = { fg = c_macroTeal },
-  DapUIModifiedValue                       = { bold = true, fg = c_macroTeal },
-  DapUIPlayPause                           = { fg = c_macroGreen1 },
-  DapUIRestart                             = { fg = c_macroGreen1 },
-  DapUIScope                               = { link = 'Special' },
-  DapUISource                              = { fg = c_macroRed },
-  DapUIStepBack                            = { fg = c_macroTeal },
-  DapUIStepInto                            = { fg = c_macroTeal },
-  DapUIStepOut                             = { fg = c_macroTeal },
-  DapUIStepOver                            = { fg = c_macroTeal },
-  DapUIStop                                = { fg = c_lotusRed0 },
-  DapUIStoppedThread                       = { fg = c_macroTeal },
-  DapUIThread                              = { fg = c_macroFg0 },
-  DapUIType                                = { link = 'Type' },
-  DapUIUnavailable                         = { fg = c_macroAsh },
-  DapUIWatchesEmpty                        = { fg = c_lotusRed0 },
-  DapUIWatchesError                        = { fg = c_lotusRed0 },
-  DapUIWatchesValue                        = { fg = c_macroFg0 },
-
-  -- lazy.nvim
-  LazyProgressTodo                         = { fg = c_macroBg5 },
-
-  -- statusline
-  StatusLineHeader                         = { bg = c_winterGreen, fg = c_macroFg2, bold = true },
-  StatusLineFooter                         = { bg = c_winterGreen, fg = c_macroFg2, bold = true },
-  StatusLineGitAdded                       = { bg = c_macroBg2, fg = c_macroGreen1 },
-  StatusLineGitChanged                     = { bg = c_macroBg2, fg = c_carpYellow },
-  StatusLineGitRemoved                     = { bg = c_macroBg2, fg = c_macroRed },
-  StatusLineGitBranch                      = { bg = c_macroBg2, fg = c_macroAsh },
-  StatusLineLSP                            = { link = 'Comment' },
-  StatusLineDiagnosticError                = { link = 'DiagnosticSignError' },
-  StatusLineDiagnosticWarn                 = { link = 'DiagnosticSignWarn' },
-  StatusLineDiagnosticINFO                 = { link = 'DiagnosticSignInfo' },
-  StatusLineDiagnosticHint                 = { link = 'DiagnosticSignHint' },
-
-  -- mini.tabline
-  MiniTablineCurrent                       = { bg = c_macroBg1, fg = c_macroGreen1 },
-  MiniTablineHidden                        = { fg = c_macroAsh, bg = c_macroBg1 },
-  MiniTablineVisible                       = { link = 'MiniTablineCurrent' },
-  MiniTablineModifiedCurrent               = { link = 'MiniTablineCurrent' },
-  MiniTablineModifiedVisible               = { link = 'MiniTablineCurrent' },
-  MiniTablineModifiedHidden                = { link = 'MiniTablineHidden' },
-  MiniTablineTabpagesSection               = { link = 'MiniTablineCurrent' },
-  MiniTablineFill                          = { link = 'MiniTablineCurrent' },
-
   -- mini.pick
   MiniPickBorder                           = { bg = c_macroBg2, fg = c_macroGreen1 },
   MiniPickNormal                           = { bg = c_macroBg2, fg = c_macroFg1 },
@@ -590,11 +507,6 @@ local hlgroups = {
   MiniNotifyNormal                         = { bg = c_macroBg1, fg = c_macroFg2 },
   MiniNotifyLspProgress                    = { link = 'MiniNotifyNormal' },
   MiniNotifyTitle                          = { link = 'MiniNotifyBorder' },
-
-  -- mini.starter
-  MiniStarterHeader                        = { fg = c_macroGreen1 },
-  MiniStarterFooter                        = { fg = c_macroGreen1 },
-  MiniStarterItemPrefix                    = { fg = c_macroRed },
 
   -- mini.completion
   MiniCompletionActiveParameter            = { fg = c_macroGreen1 },

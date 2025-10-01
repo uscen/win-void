@@ -293,10 +293,7 @@ if palette then
   require('mini.base16').setup({
     palette = palette,
     use_cterm = true,
-    plugins = {
-      default = false,
-      ['echasnovski/mini.nvim'] = true,
-    }
+    plugins = { default = false, ['echasnovski/mini.nvim'] = true, },
   })
   vim.g.colors_name = 'base'
 end
