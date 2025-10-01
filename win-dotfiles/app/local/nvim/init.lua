@@ -936,7 +936,7 @@ now(function()
   vim.opt.foldopen               = 'hor,mark,tag,search,insert,quickfix,undo'
   vim.opt.foldexpr               = '0'
   -- Memory: =====================================================================================
-  vim.o.timeout                  = true
+  vim.opt.timeout                = true
   vim.opt.lazyredraw             = true
   vim.opt.hidden                 = true
   vim.opt.ttimeoutlen            = 10
