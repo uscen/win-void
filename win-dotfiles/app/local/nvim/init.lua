@@ -816,7 +816,7 @@ now(function()
   vim.opt.tgc                    = true
   vim.opt.ttyfast                = true
   vim.opt.showcmd                = true
-  vim.opt.cursorline             = false
+  vim.opt.cursorline             = true
   vim.opt.relativenumber         = false
   vim.opt.title                  = false
   vim.opt.list                   = false
@@ -1292,10 +1292,10 @@ now_if_args(function()
   vim.api.nvim_create_autocmd({ 'FocusGained' }, {
     group = vim.api.nvim_create_augroup('track_cursor', { clear = true }),
     callback = function()
-        vim.opt.cursorline = true
+        vim.opt.cursorline = false
         vim.cmd('redraw')
         vim.defer_fn(function()
-            vim.o.cursorline = false
+            vim.opt.cursorline = true
             vim.cmd('redraw')
         end, 600)
     end,
