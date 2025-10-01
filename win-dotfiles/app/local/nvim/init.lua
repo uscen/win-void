@@ -848,6 +848,7 @@ now(function()
   vim.o.winbar                   = ''
   vim.o.colorcolumn              = '+1'
   vim.o.guicursor                = ''
+  vim.o.guifont                  = 'jetBrainsMono Nerd Font:h10:b'
   vim.o.background               = 'dark'
   vim.o.showcmdloc               = 'statusline'
   vim.o.belloff                  = 'all'
@@ -920,9 +921,9 @@ now(function()
   vim.o.virtualedit              = 'block'
   vim.o.formatoptions            = 'rqnl1j'
   vim.o.formatexpr               = "v:lua.require'conform'.formatexpr()"
-  vim.o.sessionoptions           = 'buffers,curdir,tabpages,winsize,globals'
-  vim.o.diffopt                  = 'algorithm:minimal,closeoff,context:8,filler,internal,linematch:100,indent-heuristic'
-  vim.o.suffixesadd              = '.css,.html,.js,.json,.jsx,.lua,.md,.rs,.scss,.sh,.ts,.tsx,.yaml,.yml'
+  vim.o.sessionoptions           = table.concat({ "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal", "localoptions", }, ",")
+  vim.o.diffopt                  = table.concat({ 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }, ',')
+  vim.o.suffixesadd              = table.concat({ '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml' }, ',')
   -- Folds:  =====================================================================================
   vim.o.foldenable               = false
   vim.o.foldlevel                = 1
@@ -1880,7 +1881,6 @@ later(function()
     -- Options: ==================================================================================
     vim.o.linespace = -1
     vim.o.mousescroll = 'ver:10,hor:6'
-    vim.o.guifont = 'jetBrainsMono Nerd Font:h10:b'
     -- Keymap: ===================================================================================
     vim.keymap.set({ 'n', 'v' }, '<C-=>', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<cr>')
     vim.keymap.set({ 'n', 'v' }, '<C-->', ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<cr>')
