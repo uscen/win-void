@@ -217,11 +217,7 @@ end
 -- Setup: ========================================================================================
 ---@class Marks.Config
 local defaultConfig = {
-  signs = {
-    hlgroup = 'IncSearch',
-    priority = 30, -- gitsigns.nvim use 20
-    icons = { A = 'A', B = 'B', C = 'C' },
-  },
+  signs = { hlgroup = 'IncSearch', priority = 30, icons = { A = 'A', B = 'B', C = 'C' } },
   marks = { 'A', 'B', 'C' },
 }
 M.config = defaultConfig
@@ -247,10 +243,4 @@ function M.setup(userOpts)
 end
 
 -- Call: =========================================================================================
-M.setup({
-  marks = { 'A', 'B', 'C' },
-  signs = {
-    hlgroup = 'StandingOut',
-    icons = { A = '󰬈', B = '󰬉', C = '󰬊' },
-  },
-})
+M.setup({ marks = { 'A', 'B', 'C' }, signs = { hlgroup = 'StandingOut', icons = { A = '󰬈', B = '󰬉', C = '󰬊' } }, })

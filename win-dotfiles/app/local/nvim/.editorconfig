@@ -21,9 +21,16 @@ indent_style = space
 indent_size = 4
 
 [*.lua]
-quote_style = single
-indent_style = space
+indent_type = space
 indent_size = 2
+tab_width = 2
+max_line_length = 120
+align_array_table = false
+trailing_table_separator = smart
+break_all_list_when_line_exceed = true
+auto_collapse_lines = true
+call_arg_parentheses = keep
+quote_style = single
 
 [Makefile]
 indent_style = tab

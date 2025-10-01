@@ -7,18 +7,14 @@ local au = function(event, pattern, opts)
   opts = opts or {}
   vim.api.nvim_create_autocmd(
     event,
-    vim.tbl_extend('force', opts, {
-      pattern = pattern,
-    })
+    vim.tbl_extend('force', opts, { pattern = pattern, })
   )
 end
 local augroup = vim.api.nvim_create_augroup('custom-input', { clear = true })
-M.state = {
-  data = {
-    buf_id = -1,
-    win_id = -1,
-  },
-}
+M.state = { data = {
+  buf_id = -1,
+  win_id = -1,
+}, }
 
 M.resize = function()
   if M.state.data.win_id == nil or not vim.api.nvim_win_is_valid(M.state.data.win_id) then return end
@@ -70,28 +66,17 @@ M.ui_input = function(opts, callback)
       vim.api.nvim_win_close(M.state.data.win_id, true)
       vim.cmd('stopinsert!')
       callback(input)
-    end, {
-      buffer = M.state.data.buf_id,
-      noremap = true,
-      silent = true,
-    })
+    end, { buffer = M.state.data.buf_id, noremap = true, silent = true, })
 
     vim.keymap.set('i', '<Esc>', function()
       vim.api.nvim_win_close(M.state.data.win_id, true)
       vim.cmd('stopinsert!')
       callback(nil)
-    end, {
-      buffer = M.state.data.buf_id,
-      noremap = true,
-      silent = true,
-    })
+    end, { buffer = M.state.data.buf_id, noremap = true, silent = true, })
   else
     vim.api.nvim_win_hide(M.state.data.win_id)
   end
 end
 
 vim.ui.input = M.ui_input
-au('VimResized', '*', {
-  group = augroup,
-  callback = M.resize,
-})
+au('VimResized', '*', { group = augroup, callback = M.resize, })

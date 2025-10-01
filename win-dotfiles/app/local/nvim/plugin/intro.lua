@@ -3,14 +3,14 @@
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
 local intro_logo = {
-        "                                                                     ",
-        "       ████ ██████           █████      ██                     ",
-        "      ███████████             █████                             ",
-        "      █████████ ███████████████████ ███   ███████████   ",
-        "     █████████  ███    █████████████ █████ ██████████████   ",
-        "    █████████ ██████████ █████████ █████ █████ ████ █████   ",
-        "  ███████████ ███    ███ █████████ █████ █████ ████ █████  ",
-        " ██████  █████████████████████ ████ █████ █████ ████ ██████ ",
+  '                                                                     ',
+  '       ████ ██████           █████      ██                     ',
+  '      ███████████             █████                             ',
+  '      █████████ ███████████████████ ███   ███████████   ',
+  '     █████████  ███    █████████████ █████ ██████████████   ',
+  '    █████████ ██████████ █████████ █████ █████ ████ █████   ',
+  '  ███████████ ███    ███ █████████ █████ █████ ████ █████  ',
+  ' ██████  █████████████████████ ████ █████ █████ ████ ██████ ',
 }
 
 local PLUGIN_NAME = 'minintro'
@@ -58,7 +58,7 @@ local function draw_minintro(buf, logo_width, logo_height)
 
   vim.api.nvim_buf_set_extmark(buf, highlight_ns_id, start_row, start_col, {
     end_row = start_row + INTRO_LOGO_HEIGHT,
-    hl_group = 'Default'
+    hl_group = 'Default',
   })
 end
 
@@ -111,7 +111,7 @@ local function display_minintro(payload)
   vim.api.nvim_create_autocmd({ 'WinResized', 'VimResized' }, {
     group = autocmd_group,
     buffer = minintro_buff,
-    callback = redraw
+    callback = redraw,
   })
 end
 
@@ -120,12 +120,7 @@ function M.setup(options)
   vim.api.nvim_set_hl(highlight_ns_id, 'Default', { fg = options.color or DEFAULT_COLOR })
   vim.api.nvim_set_hl_ns(highlight_ns_id)
 
-  vim.api.nvim_create_autocmd('VimEnter', {
-    group = autocmd_group,
-    once = true,
-    nested = true,
-    callback = display_minintro,
-  })
+  vim.api.nvim_create_autocmd('VimEnter', { group = autocmd_group, once = true, nested = true, callback = display_minintro, })
 end
 
 M.setup()

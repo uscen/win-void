@@ -2,9 +2,7 @@
 --          ║                         Zoom                            ║
 --          ╚═════════════════════════════════════════════════════════╝
 local M = {}
-local state = {
-  zoom_tab = nil,
-}
+local state = { zoom_tab = nil }
 function M.toggle()
   if state.zoom_tab then
     if vim.api.nvim_tabpage_is_valid(state.zoom_tab) then

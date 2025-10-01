@@ -6,16 +6,11 @@ local au = function(event, pattern, opts)
   opts = opts or {}
   vim.api.nvim_create_autocmd(
     event,
-    vim.tbl_extend('force', opts, {
-      pattern = pattern,
-    })
+    vim.tbl_extend('force', opts, { pattern = pattern, })
   )
 end
 M.state = {
-  data = {
-    buf_id = -1,
-    win_id = -1,
-  },
+  data = { buf_id = -1, win_id = -1, },
   window = function()
     local current_columns = vim.o.columns
     local current_lines = vim.o.lines
@@ -49,10 +44,7 @@ M.resize = function()
   vim.api.nvim_win_set_config(M.state.data.win_id, window_config)
 
   if vim.api.nvim_win_is_valid(M.state.data.overlay_win) then
-    local overlay_config = {
-      width = current_columns,
-      height = current_lines,
-    }
+    local overlay_config = { width = current_columns, height = current_lines, }
     vim.api.nvim_win_set_config(M.state.data.overlay_win, overlay_config)
   end
 
@@ -139,7 +131,4 @@ end
 vim.api.nvim_create_user_command('FloatTermToggle', M.winbuf_toggle, {})
 vim.api.nvim_create_user_command('FloatTermLazyGit', M.winbuf_lazyGit, {})
 -- Resize Treminal When Resize Neovim: ===========================================================
-au('VimResized', '*', {
-  group = TerminalFloat,
-  callback = M.resize,
-})
+au('VimResized', '*', { group = TerminalFloat, callback = M.resize, })

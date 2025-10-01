@@ -199,21 +199,15 @@ vim.api.nvim_create_user_command('LspRestart', function()
       end
     end)
   )
-end, {
-  desc = 'Restart all the language client(s) attached to the current buffer',
-})
+end, { desc = 'Restart all the language client(s) attached to the current buffer', })
 
 vim.api.nvim_create_user_command('LspLog', function()
   vim.cmd.vsplit(vim.lsp.log.get_filename())
-end, {
-  desc = 'Get all the lsp logs',
-})
+end, { desc = 'Get all the lsp logs', })
 
 vim.api.nvim_create_user_command('LspInfo', function()
   vim.cmd('silent checkhealth vim.lsp')
-end, {
-  desc = 'Get all the information about all LSP attached',
-})
+end, { desc = 'Get all the information about all LSP attached', })
 
 vim.lsp.set_log_level('ERROR')
 local function refresh()
@@ -223,9 +217,7 @@ local function refresh()
       local window_buffer_map = {}
       for _, window_id in pairs(vim.api.nvim_tabpage_list_wins(0)) do
         local buffer_id = vim.api.nvim_win_get_buf(window_id)
-        table.insert(window_buffer_map, {
-          window_id = window_id, buffer_id = buffer_id
-        })
+        table.insert(window_buffer_map, { window_id = window_id, buffer_id = buffer_id, })
       end
 
       if #window_buffer_map > 0 then

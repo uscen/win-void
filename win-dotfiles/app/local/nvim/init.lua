@@ -9,13 +9,7 @@ local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.nvim'
 if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installing `mini.nvim`" | redraw')
-  local clone_cmd = {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/nvim-mini/mini.nvim',
-    mini_path,
-  }
+  local clone_cmd = { 'git', 'clone', '--filter=blob:none', 'https://github.com/nvim-mini/mini.nvim', mini_path }
   vim.fn.system(clone_cmd)
   vim.cmd('packadd mini.nvim | helptags ALL')
   vim.cmd('echo "Installed `mini.nvim`" | redraw')
@@ -67,7 +61,7 @@ later(function()
       hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
       todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
       note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-      done = { pattern = '%f[%w]()DONE()%f[%W]', group = 'MiniHipatternsNote', },
+      done = { pattern = '%f[%w]()DONE()%f[%W]', group = 'MiniHipatternsNote' },
       hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
         style = 'full',
         inline_text = ' ',
@@ -99,7 +93,7 @@ later(function()
           local red, green, blue = hsl_to_rgb(hue, saturation, lightness)
           local hex = string.format('#%02x%02x%02x', red, green, blue)
           return MiniHiPatterns.compute_hex_color_group(hex, 'bg')
-        end
+        end,
       },
     },
   })
@@ -276,18 +270,8 @@ later(function()
       choose_in_split  = '<C-v>',
       choose_in_vsplit = '<C-s>',
     },
-    options = {
-      use_cache = true,
-      content_from_bottom = false
-    },
-    window = {
-      config = {
-        height = vim.o.lines,
-        width = vim.o.columns,
-      },
-      prompt_caret = '|',
-      prompt_prefix = '󱓇 ',
-    },
+    options = { use_cache = true, content_from_bottom = false },
+    window = { config = { height = vim.o.lines, width = vim.o.columns }, prompt_caret = '|', prompt_prefix = '󱓇 ' },
   })
   vim.ui.select = MiniPick.ui_select
   -- UI: =========================================================================================
@@ -332,26 +316,15 @@ now(function()
   MiniCompletion.setup({
     fallback_action = '<C-n>',
     delay = { completion = 0, info = 0, signature = 0 },
-    window = {
-      info = { border = 'single' },
-      signature = { border = 'single' },
-    },
-    mappings = {
-      force_twostep = '<C-n>',
-      force_fallback = '<C-S-n>',
-      scroll_down = '<C-f>',
-      scroll_up = '<C-b>',
-    },
+    window = { info = { border = 'single' }, signature = { border = 'single' } },
+    mappings = { force_twostep = '<C-n>', force_fallback = '<C-S-n>', scroll_down = '<C-f>', scroll_up = '<C-b>' },
     lsp_completion = {
       source_func = 'omnifunc',
       auto_setup = false,
       process_items = function(items, base)
         return require('mini.completion').default_process_items(items, base, {
           filtersort = 'fuzzy',
-          kind_priority = {
-            Text = -1,
-            Snippet = 99,
-          },
+          kind_priority = { Text = -1, Snippet = 99 },
         })
       end,
     },
@@ -360,12 +333,9 @@ now(function()
   local lsp_configs = { 'lua', 'html', 'css', 'emmet', 'json', 'tailwind', 'typescript', 'eslint', 'elvish' }
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = vim.tbl_deep_extend('force', capabilities, MiniCompletion.get_lsp_capabilities())
-  vim.lsp.config('*', {
-    capabilities = capabilities,
-    root_markers = {
-      '.git'
-    },
-  })
+  vim.lsp.config('*', { capabilities = capabilities, root_markers = {
+    '.git',
+  } })
   for _, config in ipairs(lsp_configs) do
     vim.lsp.enable(config)
   end
@@ -401,22 +371,14 @@ now(function()
   MiniSnippets.setup({
     snippets = {
       require('mini.snippets').gen_loader.from_file('~/AppData/Local/nvim/snippets/global.json'),
-      require('mini.snippets').gen_loader.from_lang({ lang_patterns = lang_patterns })
+      require('mini.snippets').gen_loader.from_lang({ lang_patterns = lang_patterns }),
     },
-    mappings = {
-      expand = '<C-e>',
-      jump_next = '<C-l>',
-      jump_prev = '<C-h>',
-      stop = '<C-c>',
-    },
+    mappings = { expand = '<C-e>', jump_next = '<C-l>', jump_prev = '<C-h>', stop = '<C-c>' },
     expand   = {
       match = match_strict,
       insert = function(snippet)
-        return MiniSnippets.default_insert(snippet, {
-          empty_tabstop = '',
-          empty_tabstop_final = '†'
-        })
-      end
+        return MiniSnippets.default_insert(snippet, { empty_tabstop = '', empty_tabstop_final = '†' })
+      end,
     },
   })
   MiniSnippets.start_lsp_server()
@@ -440,16 +402,16 @@ now(function()
           while MiniSnippets.session.get() do
             MiniSnippets.session.stop()
           end
-        end
+        end,
       })
-    end
+    end,
   })
   -- exit snippets upon reaching final tabstop: ==================================================
   vim.api.nvim_create_autocmd('User', {
     pattern = 'MiniSnippetsSessionJump',
     callback = function(args)
       if args.data.tabstop_to == '0' then MiniSnippets.session.stop() end
-    end
+    end,
   })
 end)
 --              ╭─────────────────────────────────────────────────────────╮
@@ -475,10 +437,7 @@ now_if_args(function()
         return filter_hidden and not vim.startswith(fs_entry.name, '.')
       end,
     },
-    windows = {
-      max_number = 1,
-      width_focus = vim.o.columns,
-    },
+    windows = { max_number = 1, width_focus = vim.o.columns },
   })
   -- UI: =========================================================================================
   vim.api.nvim_create_autocmd('User', {
@@ -671,16 +630,35 @@ now_if_args(function()
     checkout = 'main',
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
   })
-  add({
-    source = 'nvim-treesitter/nvim-treesitter-textobjects',
-    checkout = 'main',
-  })
+  add({ source = 'nvim-treesitter/nvim-treesitter-textobjects', checkout = 'main' })
   -- Ensure installed: ===========================================================================
   --stylua: ignore
   local ensure_installed = {
-    'bash', 'powershell', 'elvish', 'c', 'cpp', 'python', 'regex', 'diff',
-    'html', 'css', 'scss', 'javascript', 'typescript', 'tsx', 'prisma',
-    'json', 'jsonc', 'toml', 'yaml', 'lua', 'luadoc', 'vim', 'vimdoc', 'markdown', 'markdown_inline',
+    'bash',
+    'powershell',
+    'elvish',
+    'c',
+    'cpp',
+    'python',
+    'regex',
+    'diff',
+    'html',
+    'css',
+    'scss',
+    'javascript',
+    'typescript',
+    'tsx',
+    'prisma',
+    'json',
+    'jsonc',
+    'toml',
+    'yaml',
+    'lua',
+    'luadoc',
+    'vim',
+    'vimdoc',
+    'markdown',
+    'markdown_inline',
   }
   local isnt_installed = function(lang) return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0 end
   local to_install = vim.tbl_filter(isnt_installed, ensure_installed)
@@ -743,11 +721,7 @@ now_if_args(function()
     end,
   })
   vim.keymap.set({ 'n', 'v' }, '<leader>l', function()
-    require('conform').format({
-      lsp_fallback = true,
-      async = false,
-      timeout_ms = 1000,
-    })
+    require('conform').format({ lsp_fallback = true, async = false, timeout_ms = 1000 })
   end)
 end)
 --              ╔═════════════════════════════════════════════════════════╗
@@ -772,7 +746,7 @@ now(function()
   -- grep: =======================================================================================
   vim.o.grepprg                  = 'rg --vimgrep --smart-case --no-heading --color=never --glob !.git'
   vim.o.grepformat               = '%f:%l:%c:%m,%f:%l:%m'
-  vim.o.path                     = vim.o.path .. ",**"
+  vim.o.path                     = vim.o.path .. ',**'
   -- General: ====================================================================================
   vim.o.undofile                 = true
   vim.o.wildmenu                 = true
@@ -864,7 +838,9 @@ now(function()
   vim.o.shortmess                = 'FOSWIaco'
   vim.wo.signcolumn              = 'yes'
   vim.o.statuscolumn             = ''
-  vim.o.fillchars                = table.concat( { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' }, ',')
+  vim.o.fillchars                = table.concat(
+    { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
+    ',')
   vim.o.listchars                = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ===================================================================================
   vim.o.cindent                  = true
@@ -921,9 +897,13 @@ now(function()
   vim.o.virtualedit              = 'block'
   vim.o.formatoptions            = 'rqnl1j'
   vim.o.formatexpr               = "v:lua.require'conform'.formatexpr()"
-  vim.o.sessionoptions           = table.concat({ "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal", "localoptions", }, ",")
-  vim.o.diffopt                  = table.concat({ 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }, ',')
-  vim.o.suffixesadd              = table.concat({ '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml' }, ',')
+  vim.o.sessionoptions           = table.concat(
+    { 'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'terminal', 'localoptions' }, ',')
+  vim.o.diffopt                  = table.concat(
+    { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }, ',')
+  vim.o.suffixesadd              = table.concat(
+    { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml' },
+    ',')
   -- Folds:  =====================================================================================
   vim.o.foldenable               = false
   vim.o.foldlevel                = 1
@@ -1014,10 +994,7 @@ local diagnostic_opts = {
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
   signs = {
     priority = 9999,
-    severity = {
-      min = 'WARN',
-      max = 'ERROR',
-    },
+    severity = { min = 'WARN', max = 'ERROR' },
     text = {
       [vim.diagnostic.severity.ERROR] = '',
       [vim.diagnostic.severity.WARN] = '',
@@ -1051,7 +1028,7 @@ now_if_args(function()
           end)
         end)
       end
-    end
+    end,
   })
   -- Don't Comment New Line ======================================================================
   vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
@@ -1060,11 +1037,9 @@ now_if_args(function()
       if vim.api.nvim_get_hl(0, { name = 'Normal' }).bg then
         io.write(string.format('\027]11;#%06x\027\\', vim.api.nvim_get_hl(0, { name = 'Normal' }).bg))
       end
-      vim.api.nvim_create_autocmd('UILeave', {
-        callback = function()
-          io.write('\027]111\027\\')
-        end,
-      })
+      vim.api.nvim_create_autocmd('UILeave', { callback = function()
+        io.write('\027]111\027\\')
+      end })
     end,
   })
   -- Remove background for all WinSeparator sections =============================================
@@ -1275,7 +1250,7 @@ now_if_args(function()
   vim.api.nvim_create_autocmd('BufWritePost', {
     group = vim.api.nvim_create_augroup('reload_on_save', { clear = true }),
     pattern = 'init.lua',
-    command = 'source <afile>'
+    command = 'source <afile>',
   })
   -- go to old position when opening a buffer: ===================================================
   vim.api.nvim_create_autocmd('BufReadPost', {
@@ -1292,12 +1267,12 @@ now_if_args(function()
   vim.api.nvim_create_autocmd({ 'FocusGained' }, {
     group = vim.api.nvim_create_augroup('track_cursor', { clear = true }),
     callback = function()
-        vim.o.cursorline = false
+      vim.o.cursorline = false
+      vim.cmd('redraw')
+      vim.defer_fn(function()
+        vim.o.cursorline = true
         vim.cmd('redraw')
-        vim.defer_fn(function()
-            vim.o.cursorline = true
-            vim.cmd('redraw')
-        end, 600)
+      end, 600)
     end,
   })
   -- Check if we need to reload the file when it changed: ========================================
@@ -1534,7 +1509,7 @@ later(function()
   vim.api.nvim_create_user_command('Grep', function(opts)
     local keyword = opts.args
     vim.cmd('vimgrep ' .. keyword .. ' %:p:.:h/**/*')
-  end, { nargs = 1, })
+  end, { nargs = 1 })
   -- Tmp is a command to create a temporary file: ================================================
   vim.api.nvim_create_user_command('Tmp', function()
     local path = vim.fn.tempname()
@@ -1558,23 +1533,23 @@ later(function()
     end
   end, {})
   -- Resizes: ======================================================================================
-  vim.api.nvim_create_user_command("Vr", function(opts)
-    local usage = "Usage: [VerticalResize] :Vr {number (%)}"
+  vim.api.nvim_create_user_command('Vr', function(opts)
+    local usage = 'Usage: [VerticalResize] :Vr {number (%)}'
     if not opts.args or not string.len(opts.args) == 2 then
       print(usage)
       return
     end
-    vim.cmd(":vertical resize " .. vim.opt.columns:get() * (opts.args / 100.0))
-  end, { nargs = "*" })
+    vim.cmd(':vertical resize ' .. vim.opt.columns:get() * (opts.args / 100.0))
+  end, { nargs = '*' })
 
-  vim.api.nvim_create_user_command("Hr", function(opts)
-    local usage = "Usage: [HorizontalResize] :Hr {number (%)}"
+  vim.api.nvim_create_user_command('Hr', function(opts)
+    local usage = 'Usage: [HorizontalResize] :Hr {number (%)}'
     if not opts.args or not string.len(opts.args) == 2 then
       print(usage)
       return
     end
-    vim.cmd(":resize " .. ((vim.opt.lines:get() - vim.opt.cmdheight:get()) * (opts.args / 100.0)))
-  end, { nargs = "*" })
+    vim.cmd(':resize ' .. ((vim.opt.lines:get() - vim.opt.cmdheight:get()) * (opts.args / 100.0)))
+  end, { nargs = '*' })
   -- Toggle inlay hints: =========================================================================
   vim.api.nvim_create_user_command('ToggleInlayHints', function()
     vim.g.inlay_hints = not vim.g.inlay_hints
@@ -1599,10 +1574,7 @@ later(function()
     local range = nil
     if args.count ~= -1 then
       local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-      range = {
-        start = { args.line1, 0 },
-        ['end'] = { args.line2, end_line:len() },
-      }
+      range = { start = { args.line1, 0 }, ['end'] = { args.line2, end_line:len() } }
     end
     require('conform').format({ async = true, lsp_format = 'fallback', range = range })
   end, { range = true })
@@ -1620,7 +1592,7 @@ later(function()
       vim.g.disable_autoformat = true
     end
     vim.notify('Format On Save Disable')
-  end, { bang = true, })
+  end, { bang = true })
 end)
 --              ╭─────────────────────────────────────────────────────────╮
 --              │                Neovim misspelled_commands               │
@@ -1707,7 +1679,7 @@ later(function()
   vim.keymap.set('n', 'ycc', 'yygccp', { remap = true })
   vim.keymap.set('n', '<space>o', "printf('m`%so<ESC>``', v:count1)", { expr = true })
   vim.keymap.set('n', '<space>O', "printf('m`%sO<ESC>``', v:count1)", { expr = true })
-  vim.keymap.set('n', '<leader>v', "printf('`[%s`]', getregtype()[0])", { expr = true, })
+  vim.keymap.set('n', '<leader>v', "printf('`[%s`]', getregtype()[0])", { expr = true })
   vim.keymap.set('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, replace_keycodes = false })
   -- Completion: ======================================================================================
   vim.keymap.set('i', '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
