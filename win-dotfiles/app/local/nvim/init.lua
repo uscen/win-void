@@ -926,13 +926,13 @@ now(function()
   vim.o.suffixesadd              = '.css,.html,.js,.json,.jsx,.lua,.md,.rs,.scss,.sh,.ts,.tsx,.yaml,.yml'
   -- Folds:  =====================================================================================
   vim.o.foldenable               = false
+  vim.o.foldlevel                = 1
   vim.o.foldlevelstart           = 99
-  vim.o.foldlevel                = 90
   vim.o.foldnestmax              = 10
   vim.o.foldminlines             = 4
   vim.o.foldtext                 = ''
   vim.o.foldcolumn               = '0'
-  vim.o.foldmethod               = 'manual'
+  vim.o.foldmethod               = 'indent'
   vim.o.foldopen                 = 'hor,mark,tag,search,insert,quickfix,undo'
   vim.o.foldexpr                 = '0'
   -- Memory: =====================================================================================
