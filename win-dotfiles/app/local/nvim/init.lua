@@ -1186,12 +1186,6 @@ now_if_args(function()
       vim.wo.colorcolumn = ''
     end,
   })
-  -- Auto-enter insert mode when focusing terminal: ==============================================
-  vim.api.nvim_create_autocmd('BufEnter', {
-    pattern = { 'term://*', 'toggleterm', 'snacks_terminal' },
-    callback = function() vim.cmd('startinsert') end,
-    desc = 'Auto-enter insert mode when focusing terminal',
-  })
   -- Opts in terminal buffer: ====================================================================
   vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('term_open', { clear = true }),
@@ -1210,6 +1204,7 @@ now_if_args(function()
       vim.opt_local.foldexpr = '0'
       vim.opt_local.filetype = 'terminal'
       vim.bo.filetype = 'terminal'
+      vim.cmd("startinsert")
     end,
   })
   -- Auto-close terminal when process exits: =====================================================
@@ -1777,7 +1772,7 @@ later(function()
   vim.keymap.set('n', '<leader>fk', '<cmd>Pick keymaps<cr>')
   vim.keymap.set('n', '<leader>fc', '<cmd>Pick commands<cr>')
   vim.keymap.set('n', '<leader>fh', '<cmd>Pick history<cr>')
-  vim.keymap.set('n', '<leader>tp', '<cmd>Pick colorschemes<cr>')
+  vim.keymap.set('n', '<leader>ftp', '<cmd>Pick colorschemes<cr>')
   vim.keymap.set('n', '<leader>fgf', '<cmd>Pick git_files<cr>')
   vim.keymap.set('n', '<leader>fgd', '<cmd>Pick git_hunks<cr>')
   vim.keymap.set('n', '<leader>fgc', '<cmd>Pick git_commits<cr>')

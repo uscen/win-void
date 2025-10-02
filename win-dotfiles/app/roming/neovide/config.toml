@@ -1,16 +1,24 @@
 # =============================================================================== #
 # Neovide => Neovim Gui With Smooth Animation:                                    #
 # =============================================================================== #
-frame = "none"
-maximized = false
-title-hidden = true
 idle = true
 tabs = true
+vsync = true
+title-hidden = true
+maximized = false
+wsl = false
+srgb = false
+fork = false
+frame = "none"
 theme = "auto"
 [font]
-size = 9
+size = 10
 hinting = "full"
 edging = "antialias"
 [[font.normal]]
 family = "JetBrainsMono Nerd Font"
 style = "W700"
+[box-drawing]
+mode = "font-glyph"
+[box-drawing.sizes]
+default = [1, 2]
