@@ -70,7 +70,7 @@ M.winbuf = function(opts)
   }
   local overlay_win = vim.api.nvim_open_win(overlay_buf, false, overlay_opts)
   vim.wo[overlay_win].winblend = 15
-  vim.wo[overlay_win]['winhighlight'] = 'Normal:BLACK'
+  vim.wo[overlay_win]['winhighlight'] = 'NormalFloat:NormalFloat'
 
   local buf = nil
   if vim.api.nvim_buf_is_valid(opts.buf_id) then

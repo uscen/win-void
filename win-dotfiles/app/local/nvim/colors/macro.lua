@@ -463,53 +463,73 @@ local hlgroups = {
   -- }}}
 
   -- Mini {{{2
-  -- mini.file
-  MiniFilesBorder                          = { bg = c_macroBg2, fg = c_macroGreen1 },
-  MiniFilesNormal                          = { bg = c_macroBg2, fg = c_macroFg1 },
-  MiniFilesDirectory                       = { fg = c_macroFg1 },
-  MiniFilesCursorLine                      = { bg = c_macroBg3 },
-  MiniFilesBorderModified                  = { bg = c_macroBg2, fg = c_macroGreen0 },
-  MiniFilesFile                            = { link = 'MiniFilesDirectory' },
-  MiniFilesTitle                           = { link = 'MiniFilesBorder' },
-  MiniFilesTitleFocused                    = { link = 'MiniFilesBorder' },
+  -- mini.diff
+  GitSignsAdd                              = { fg = c_autumnGreen },
+  GitSignsChange                           = { fg = c_sumiInk6 },
+  GitSignsDelete                           = { fg = c_lotusRed0 },
+  GitSignsDeletePreview                    = { bg = c_winterRed },
+
+  -- mini.git
+  fugitiveHash                             = { link = 'gitHash' },
+  fugitiveHeader                           = { link = 'Title' },
+  fugitiveHeading                          = { link = 'Title' },
+  fugitiveStagedHeading                    = { fg = c_autumnGreen, bold = true },
+  fugitiveStagedModifier                   = { fg = c_autumnGreen },
+  fugitiveUnStagedHeading                  = { fg = c_autumnYellow, bold = true },
+  fugitiveUnstagedModifier                 = { fg = c_autumnYellow },
+  fugitiveUntrackedHeading                 = { fg = c_macroAqua, bold = true },
+  fugitiveUntrackedModifier                = { fg = c_macroAqua },
 
   -- mini.pick
-  MiniPickBorder                           = { bg = c_macroBg2, fg = c_macroGreen1 },
-  MiniPickNormal                           = { bg = c_macroBg2, fg = c_macroFg1 },
-  MiniPickMatchCurrent                     = { bg = c_macroBg3 },
-  MiniPickMatchMarked                      = { bg = c_macroBg2, fg = c_macroGreen0 },
-  MiniPickPrompt                           = { bg = c_macroBg2, fg = c_macroGreen0 },
-  MiniPickMatchRanges                      = { link = 'MiniPickMatchMarked' },
-  MiniPickPreviewRegion                    = { link = 'MiniPickBorder' },
-  MiniPickPreviewLine                      = { link = 'MiniPickBorder' },
-  MiniPickBorderBusy                       = { link = 'MiniPickBorder' },
-  MiniPickBorderText                       = { link = 'MiniPickBorder' },
-  MiniPickIconDirectory                    = { link = 'MiniPickBorder' },
-  MiniPickIconFile                         = { link = 'MiniPickBorder' },
-  MiniPickHeader                           = { link = 'MiniPickBorder' },
+  TelescopeBorder                          = { bg = c_macroBg2, fg = c_sumiInk6 },
+  TelescopeMatching                        = { fg = c_macroRed, bold = true },
+  TelescopeNormal                          = { bg = c_macroBg2, fg = c_macroFg2 },
+  TelescopePromptBorder                    = { bg = c_macroBg3, fg = c_sumiInk6 },
+  TelescopePromptNormal                    = { bg = c_macroBg3, fg = c_macroFg2 },
+  TelescopeResultsClass                    = { link = 'Structure' },
+  TelescopeResultsField                    = { link = '@variable.member' },
+  TelescopeResultsMethod                   = { link = 'Function' },
+  TelescopeResultsStruct                   = { link = 'Structure' },
+  TelescopeResultsVariable                 = { link = '@variable' },
+  TelescopeSelection                       = { link = 'Visual' },
+  TelescopeTitle                           = { bg = c_macroTeal, fg = c_macroBg0 },
 
-  -- mini.diff
-  MiniDiffSignAdd                          = { fg = c_autumnGreen },
-  MiniDiffSignChange                       = { fg = c_sumiInk6 },
-  MiniDiffSignDelete                       = { fg = c_lotusRed0 },
-  MiniDiffSignDeletePreview                = { bg = c_winterRed },
-
-  -- mini.notify
-  MiniNotifyBorder                         = { fg = c_macroGreen1, bg = c_macroBg1 },
-  MiniNotifyNormal                         = { fg = c_macroFg2, bg = c_macroBg1 },
-  MiniNotifyLspProgress                    = { link = 'MiniNotifyNormal' },
-  MiniNotifyTitle                          = { link = 'MiniNotifyBorder' },
+  -- mini.files
+  DapUIBreakpointsCurrentLine              = { bold = true, fg = c_macroFg0 },
+  DapUIBreakpointsDisabledLine             = { link = 'Comment' },
+  DapUIBreakpointsInfo                     = { fg = c_macroBlue0 },
+  DapUIBreakpointsPath                     = { link = 'Directory' },
+  DapUIDecoration                          = { fg = c_sumiInk6 },
+  DapUIFloatBorder                         = { fg = c_sumiInk6 },
+  DapUILineNumber                          = { fg = c_macroTeal },
+  DapUIModifiedValue                       = { bold = true, fg = c_macroTeal },
+  DapUIPlayPause                           = { fg = c_macroGreen1 },
+  DapUIRestart                             = { fg = c_macroGreen1 },
+  DapUIScope                               = { link = 'Special' },
+  DapUISource                              = { fg = c_macroRed },
+  DapUIStepBack                            = { fg = c_macroTeal },
+  DapUIStepInto                            = { fg = c_macroTeal },
+  DapUIStepOut                             = { fg = c_macroTeal },
+  DapUIStepOver                            = { fg = c_macroTeal },
+  DapUIStop                                = { fg = c_lotusRed0 },
+  DapUIStoppedThread                       = { fg = c_macroTeal },
+  DapUIThread                              = { fg = c_macroFg0 },
+  DapUIType                                = { link = 'Type' },
+  DapUIUnavailable                         = { fg = c_macroAsh },
+  DapUIWatchesEmpty                        = { fg = c_lotusRed0 },
+  DapUIWatchesError                        = { fg = c_lotusRed0 },
+  DapUIWatchesValue                        = { fg = c_macroFg0 },
 
   -- mini.snippets
-  MiniSnippetsCurrent                      = { fg = c_macroGreen1 },
-  MiniSnippetsCurrentReplace               = { link = 'MiniSnippetsCurrent' },
-  MiniSnippetsUnvisited                    = { link = 'MiniSnippetsCurrent' },
-  MiniSnippetsVisited                      = { link = 'MiniSnippetsCurrent' },
-  MiniSnippetsFinal                        = { link = 'Comment' },
+  LazyProgressTodo                         = { fg = c_macroBg5 },
 
-  -- mini.completion
-  MiniCompletionActiveParameter            = { fg = c_macroGreen1 },
-  MiniCompletionInfoBorderOutdated         = { link = 'MiniCompletionActiveParameter' },
+  -- mini.completions
+  StatusLineGitAdded                       = { bg = c_macroBg3, fg = c_macroGreen1 },
+  StatusLineGitChanged                     = { bg = c_macroBg3, fg = c_carpYellow },
+  StatusLineGitRemoved                     = { bg = c_macroBg3, fg = c_macroRed },
+  StatusLineGitBranch                      = { bg = c_macroBg3, fg = c_macroAsh },
+  StatusLineHeader                         = { bg = c_macroBg5, fg = c_macroFg1 },
+  StatusLineHeaderModified                 = { bg = c_macroRed, fg = c_macroBg1 },
 
   -- }}}
 }
@@ -520,7 +540,8 @@ if vim.go.bg == 'light' then
   hlgroups.CursorLine = { bg = c_macroBg2 }
   hlgroups.DiagnosticSignWarn = { fg = c_autumnYellow }
   hlgroups.DiagnosticUnderlineWarn = { sp = c_autumnYellow, undercurl = true }
-  hlgroups.DiagnosticVirtualTextWarn = { bg = c_winterYellow, fg = c_autumnYellow }
+  hlgroups.DiagnosticVirtualTextWarn =
+  { bg = c_winterYellow, fg = c_autumnYellow }
   hlgroups.DiagnosticWarn = { fg = c_autumnYellow }
   hlgroups.IncSearch = { bg = c_autumnYellow, fg = c_macroBg0, bold = true }
   hlgroups.Keyword = { fg = c_macroRed }
