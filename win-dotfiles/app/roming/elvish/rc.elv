@@ -186,18 +186,7 @@ eval (zoxide init elvish | slurp)
 eval (carapace _carapace | slurp)
 # Prompt:                                                                         #
 # =============================================================================== #
-set edit:prompt = {
-    use re
-    # abbreviate path by shortening the parent directories: ===================== #
-    styled "[" green bold
-    styled ""(hostname)"" "bright-green bold"
-    styled "@" bright-black bold
-    styled ""(re:replace '.*\\' '' (whoami))"" "bright-cyan bold"
-    styled " "(re:replace '([^/])[^/]*/' '$1/' (tilde-abbr $pwd))" " bright-black  bold
-    styled "]" green bold
-    styled " λ " bright-black bold
-    put ""
-}
+set edit:prompt = { styled (tilde-abbr $pwd) bright-yellow; styled ' λ ' bright-green }
 set edit:rprompt = { nop }
 # =============================================================================== #
 # Abbreviations:                                                                  #

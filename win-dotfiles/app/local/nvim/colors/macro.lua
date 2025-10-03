@@ -463,13 +463,13 @@ local hlgroups = {
   -- }}}
 
   -- Plugins {{{2
-  -- gitsigns
-  GitSignsAdd                              = { fg = c_autumnGreen },
-  GitSignsChange                           = { fg = c_sumiInk6 },
-  GitSignsDelete                           = { fg = c_lotusRed0 },
-  GitSignsDeletePreview                    = { bg = c_winterRed },
+  -- mini.Diff
+  MiniDiffSignAdd                          = { fg = c_autumnGreen },
+  MiniDiffSignChange                       = { fg = c_sumiInk6 },
+  MiniDiffSignDelete                       = { fg = c_lotusRed0 },
+  MiniDiffSignDeletePreview                = { bg = c_winterRed },
 
-  -- fugitive
+  -- mini.git
   fugitiveHash                             = { link = 'gitHash' },
   fugitiveHeader                           = { link = 'Title' },
   fugitiveHeading                          = { link = 'Title' },
@@ -480,21 +480,21 @@ local hlgroups = {
   fugitiveUntrackedHeading                 = { fg = c_macroAqua, bold = true },
   fugitiveUntrackedModifier                = { fg = c_macroAqua },
 
-  -- telescope
-  TelescopeBorder                          = { bg = c_macroBg2, fg = c_sumiInk6 },
-  TelescopeMatching                        = { fg = c_macroRed, bold = true },
-  TelescopeNormal                          = { bg = c_macroBg2, fg = c_macroFg2 },
-  TelescopePromptBorder                    = { bg = c_macroBg3, fg = c_sumiInk6 },
+  -- mini.pick
+  MiniPickBorder                           = { bg = c_macroBg2, fg = c_sumiInk6 },
+  MiniPickMatchRanges                      = { fg = c_macroRed, bold = true },
+  MiniPickNormal                           = { bg = c_macroBg2, fg = c_macroFg2 },
+  MiniPickBorderBusy                       = { bg = c_macroBg3, fg = c_sumiInk6 },
   TelescopePromptNormal                    = { bg = c_macroBg3, fg = c_macroFg2 },
   TelescopeResultsClass                    = { link = 'Structure' },
   TelescopeResultsField                    = { link = '@variable.member' },
   TelescopeResultsMethod                   = { link = 'Function' },
   TelescopeResultsStruct                   = { link = 'Structure' },
   TelescopeResultsVariable                 = { link = '@variable' },
-  TelescopeSelection                       = { link = 'Visual' },
-  TelescopeTitle                           = { bg = c_macroTeal, fg = c_macroBg0 },
+  MiniPickMatchCurrent                     = { link = 'Visual' },
+  MiniPickBorderText                       = { bg = c_macroTeal, fg = c_macroBg0 },
 
-  -- nvim-dap-ui
+  -- mini.files
   DapUIBreakpointsCurrentLine              = { bold = true, fg = c_macroFg0 },
   DapUIBreakpointsDisabledLine             = { link = 'Comment' },
   DapUIBreakpointsInfo                     = { fg = c_macroBlue0 },
@@ -520,8 +520,22 @@ local hlgroups = {
   DapUIWatchesError                        = { fg = c_lotusRed0 },
   DapUIWatchesValue                        = { fg = c_macroFg0 },
 
-  -- lazy.nvim
-  LazyProgressTodo                         = { fg = c_macroBg5 },
+  -- mini.notify
+  MiniNotifyBorder                         = { fg = c_macroGreen1, bg = c_macroBg1 },
+  MiniNotifyNormal                         = { fg = c_macroFg2, bg = c_macroBg1 },
+  MiniNotifyLspProgress                    = { link = 'MiniNotifyNormal' },
+  MiniNotifyTitle                          = { link = 'MiniNotifyBorder' },
+
+  -- mini.snippets
+  MiniSnippetsCurrent                      = { fg = c_macroGreen1 },
+  MiniSnippetsCurrentReplace               = { link = 'MiniSnippetsCurrent' },
+  MiniSnippetsUnvisited                    = { link = 'MiniSnippetsCurrent' },
+  MiniSnippetsVisited                      = { link = 'MiniSnippetsCurrent' },
+  MiniSnippetsFinal                        = { link = 'Comment' },
+
+  -- mini.completion
+  MiniCompletionActiveParameter            = { fg = c_macroGreen1 },
+  MiniCompletionInfoBorderOutdated         = { link = 'MiniCompletionActiveParameter' },
 
   -- statusline
   StatusLineGitAdded                       = { bg = c_macroBg3, fg = c_macroGreen1 },
