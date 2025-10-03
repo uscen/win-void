@@ -236,10 +236,10 @@ local hlgroups = {
   Normal                                   = { bg = c_macroBg1, fg = c_macroFg0 },
   NormalFloat                              = { bg = c_macroBg0, fg = c_macroFg1 },
   NormalNC                                 = { link = 'Normal' },
-  Pmenu                                    = { bg = c_macroBg0, fg = c_macroFg1 },
+  Pmenu                                    = { bg = c_macroBg3, fg = c_macroFg1 },
   PmenuExtra                               = { fg = c_macroAsh },
-  PmenuSbar                                = { bg = c_macroBg1 },
-  PmenuSel                                 = { bg = c_macroBg1, fg = 'NONE' },
+  PmenuSbar                                = { bg = c_macroBg4 },
+  PmenuSel                                 = { bg = c_macroBg4, fg = 'NONE' },
   PmenuThumb                               = { bg = c_macroBg5 },
   Question                                 = { link = 'MoreMsg' },
   QuickFixLine                             = { bg = c_winterGreen },
@@ -531,44 +531,36 @@ local hlgroups = {
   StatusLineHeader                         = { bg = c_macroBg5, fg = c_macroFg1 },
   StatusLineHeaderModified                 = { bg = c_macroRed, fg = c_macroBg1 },
 
-  -- mini.pick
-  MiniPickBorder                           = { bg = c_macroBg0, fg = c_sumiInk6 },
-  MiniPickMatchRanges                      = { fg = c_macroGreen1, bold = true },
-  MiniPickMatchCurrent                     = { bg = c_macroBg1, bold = true },
-  MiniPickNormal                           = { bg = c_macroBg0, fg = c_macroFg2 },
-  MiniPickMatchMarked                      = { bg = c_macroBg3, fg = c_sumiInk6 },
-  MiniPickBorderText                       = { bg = c_macroGreen0, fg = c_macroBg0 },
-  -- mini.files
   -- }}}
 }
 -- }}}1
 
 -- Highlight group overrides {{{1
 if vim.go.bg == 'light' then
-  hlgroups.CursorLine                = { bg = c_macroBg2 }
-  hlgroups.DiagnosticSignWarn        = { fg = c_autumnYellow }
-  hlgroups.DiagnosticUnderlineWarn   = { sp = c_autumnYellow, undercurl = true }
+  hlgroups.CursorLine = { bg = c_macroBg2 }
+  hlgroups.DiagnosticSignWarn = { fg = c_autumnYellow }
+  hlgroups.DiagnosticUnderlineWarn = { sp = c_autumnYellow, undercurl = true }
   hlgroups.DiagnosticVirtualTextWarn = { bg = c_winterYellow, fg = c_autumnYellow }
-  hlgroups.DiagnosticWarn            = { fg = c_autumnYellow }
-  hlgroups.IncSearch                 = { bg = c_autumnYellow, fg = c_macroBg0, bold = true }
-  hlgroups.Keyword                   = { fg = c_macroRed }
-  hlgroups.ModeMsg                   = { fg = c_macroRed, bold = true }
-  hlgroups.Pmenu                     = { bg = c_macroBg0, fg = c_macroFg1 }
-  hlgroups.PmenuSbar                 = { bg = c_macroBg2 }
-  hlgroups.PmenuSel                  = { bg = c_macroFg0, fg = c_macroBg0 }
-  hlgroups.PmenuThumb                = { bg = c_macroBg4 }
-  hlgroups.Search                    = { bg = c_macroBg3 }
-  hlgroups.StatusLine                = { bg = c_macroBg0 }
-  hlgroups.StatusLineGitAdded        = { bg = c_macroBg0, fg = c_macroGreen1 }
-  hlgroups.StatusLineGitChanged      = { bg = c_macroBg0, fg = c_autumnYellow }
-  hlgroups.StatusLineGitRemoved      = { bg = c_macroBg0, fg = c_macroRed }
-  hlgroups.StatusLineGitBranch       = { bg = c_macroBg0, fg = c_macroAsh }
-  hlgroups.StatusLineHeader          = { bg = c_macroFg0, fg = c_macroBg0 }
-  hlgroups.StatusLineHeaderModified  = { bg = c_macroRed, fg = c_macroBg0 }
-  hlgroups.Visual                    = { bg = c_macroBg3 }
-  hlgroups.WinBar                    = { bg = c_macroBg0, fg = c_macroFg1 }
-  hlgroups.WinBarNC                  = { bg = c_macroBg2, fg = c_macroBg5 }
-  hlgroups['@variable.parameter']    = { link = 'Identifier' }
+  hlgroups.DiagnosticWarn = { fg = c_autumnYellow }
+  hlgroups.IncSearch = { bg = c_autumnYellow, fg = c_macroBg0, bold = true }
+  hlgroups.Keyword = { fg = c_macroRed }
+  hlgroups.ModeMsg = { fg = c_macroRed, bold = true }
+  hlgroups.Pmenu = { bg = c_macroBg0, fg = c_macroFg1 }
+  hlgroups.PmenuSbar = { bg = c_macroBg2 }
+  hlgroups.PmenuSel = { bg = c_macroFg0, fg = c_macroBg0 }
+  hlgroups.PmenuThumb = { bg = c_macroBg4 }
+  hlgroups.Search = { bg = c_macroBg3 }
+  hlgroups.StatusLine = { bg = c_macroBg0 }
+  hlgroups.StatusLineGitAdded = { bg = c_macroBg0, fg = c_macroGreen1 }
+  hlgroups.StatusLineGitChanged = { bg = c_macroBg0, fg = c_autumnYellow }
+  hlgroups.StatusLineGitRemoved = { bg = c_macroBg0, fg = c_macroRed }
+  hlgroups.StatusLineGitBranch = { bg = c_macroBg0, fg = c_macroAsh }
+  hlgroups.StatusLineHeader = { bg = c_macroFg0, fg = c_macroBg0 }
+  hlgroups.StatusLineHeaderModified = { bg = c_macroRed, fg = c_macroBg0 }
+  hlgroups.Visual = { bg = c_macroBg3 }
+  hlgroups.WinBar = { bg = c_macroBg0, fg = c_macroFg1 }
+  hlgroups.WinBarNC = { bg = c_macroBg2, fg = c_macroBg5 }
+  hlgroups['@variable.parameter'] = { link = 'Identifier' }
 end
 -- }}}1
 
