@@ -531,6 +531,14 @@ local hlgroups = {
   StatusLineHeader                         = { bg = c_macroBg5, fg = c_macroFg1 },
   StatusLineHeaderModified                 = { bg = c_macroRed, fg = c_macroBg1 },
 
+  -- mini.pick
+  MiniPickBorder                           = { bg = c_macroBg0, fg = c_sumiInk6 },
+  MiniPickMatchRanges                      = { fg = c_macroGreen1, bold = true },
+  MiniPickMatchCurrent                     = { bg = c_macroBg1, bold = true },
+  MiniPickNormal                           = { bg = c_macroBg0, fg = c_macroFg2 },
+  MiniPickMatchMarked                      = { bg = c_macroBg3, fg = c_sumiInk6 },
+  MiniPickBorderText                       = { bg = c_macroGreen0, fg = c_macroBg0 },
+  -- mini.files
   -- }}}
 }
 -- }}}1
