@@ -762,9 +762,9 @@ now(function()
   vim.o.fileformats              = 'unix,dos'
   vim.o.fileformats              = 'unix,dos'
   vim.o.clipboard                = 'unnamedplus'
-  vim.o.wildmode                 = 'longest:full,full'
+  vim.o.wildmode                 = 'noselect:lastused,full'
   vim.o.wildoptions              = 'fuzzy,pum'
-  vim.o.wildignore               = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*/node_modules/*'
+  vim.o.wildignore               = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
   vim.o.omnifunc                 = 'v:lua.vim.lsp.omnifunc'
   vim.o.completeopt              = 'menuone,noselect,fuzzy,nosort,preinsert'
   vim.o.completeitemalign        = 'kind,abbr,menu'
@@ -1634,6 +1634,8 @@ later(function()
   vim.keymap.set('v', 'gl', '$')
   vim.keymap.set('n', ';', ':')
   vim.keymap.set('x', ';', ':')
+  vim.keymap.set("n" , ":", ";")
+  vim.keymap.set("x" , ":", ";")
   vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set('n', 'Q', '<nop>')
   vim.keymap.set('n', '<Space>', '<Nop>')
