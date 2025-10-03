@@ -764,7 +764,8 @@ now(function()
   vim.o.clipboard                = 'unnamedplus'
   vim.o.wildmode                 = 'noselect:lastused,full'
   vim.o.wildoptions              = 'fuzzy,pum'
-  vim.o.wildignore               = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
+  vim.o.wildignore               =
+  '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
   vim.o.omnifunc                 = 'v:lua.vim.lsp.omnifunc'
   vim.o.completeopt              = 'menuone,noselect,fuzzy,nosort,preinsert'
   vim.o.completeitemalign        = 'kind,abbr,menu'
@@ -838,7 +839,18 @@ now(function()
   vim.o.shortmess                = 'FOSWIaco'
   vim.wo.signcolumn              = 'yes'
   vim.o.statuscolumn             = ''
-  vim.o.fillchars                = table.concat( { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' }, ',')
+  vim.o.fillchars                = table.concat(
+  {
+    'eob: ',
+    'fold:╌',
+    'horiz:═',
+    'horizdown:╦',
+    'horizup:╩',
+    'vert:║',
+    'verthoriz:╬',
+    'vertleft:╣',
+    'vertright:╠'
+  }, ',')
   vim.o.listchars                = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ===================================================================================
   vim.o.cindent                  = true
@@ -895,9 +907,45 @@ now(function()
   vim.o.virtualedit              = 'block'
   vim.o.formatoptions            = 'rqnl1j'
   vim.o.formatexpr               = "v:lua.require'conform'.formatexpr()"
-  vim.o.sessionoptions           = table.concat( { 'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'terminal', 'localoptions' }, ',')
-  vim.o.diffopt                  = table.concat( { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }, ',')
-  vim.o.suffixesadd              = table.concat( { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml' }, ',')
+  vim.o.sessionoptions           = table.concat(
+  {
+    'blank',
+    'buffers',
+    'curdir',
+    'folds',
+    'help',
+    'tabpages',
+    'winsize',
+    'terminal',
+    'localoptions'
+  }, ',')
+  vim.o.diffopt                  = table.concat(
+  {
+    'algorithm:minimal',
+    'closeoff',
+    'context:8',
+    'filler',
+    'internal',
+    'linematch:100',
+    'indent-heuristic'
+  }, ',')
+  vim.o.suffixesadd              = table.concat(
+  {
+    '.css',
+    '.html',
+    '.js',
+    '.json',
+    '.jsx',
+    '.lua',
+    '.md',
+    '.rs',
+    '.scss',
+    '.sh',
+    '.ts',
+    '.tsx',
+    '.yaml',
+    '.yml'
+  }, ',')
   -- Folds:  =====================================================================================
   vim.o.foldenable               = false
   vim.o.foldlevel                = 1
@@ -1634,8 +1682,8 @@ later(function()
   vim.keymap.set('v', 'gl', '$')
   vim.keymap.set('n', ';', ':')
   vim.keymap.set('x', ';', ':')
-  vim.keymap.set("n" , ":", ";")
-  vim.keymap.set("x" , ":", ";")
+  vim.keymap.set('n', ':', ';')
+  vim.keymap.set('x', ':', ';')
   vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set('n', 'Q', '<nop>')
   vim.keymap.set('n', '<Space>', '<Nop>')
@@ -1812,7 +1860,8 @@ later(function()
   vim.keymap.set('n', '[c', function() require('mini.diff').goto_hunk('prev') end)
   vim.keymap.set('n', ']c', function() require('mini.diff').goto_hunk('next') end)
   -- Explorer: ====================================================================================
-  vim.keymap.set('n', '<leader>e', function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
+  vim.keymap.set('n', '<leader>e',
+    function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
   vim.keymap.set('n', '<leader>E', function() require('mini.files').open(vim.uv.cwd(), true) end)
 end)
 --              ╔═════════════════════════════════════════════════════════╗
