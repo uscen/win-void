@@ -815,7 +815,7 @@ now(function()
   vim.o.cmdwinheight             = 30
   vim.o.pumwidth                 = 20
   vim.o.pumheight                = 10
-  vim.o.pumblend                 = 15
+  vim.o.pumblend                 = 10
   vim.o.titlelen                 = 127
   vim.o.scrollback               = 100000
   vim.o.display                  = vim.o.display .. ',lastline'
