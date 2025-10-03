@@ -1,10 +1,6 @@
--- Name:         macro
--- Description:  Colorscheme for MΛCRO Neovim inspired by kanagawa-dragon @rebelot and mellifluous @ramojus
--- Author:       Bekaboo <kankefengjing@gmail.com>
--- Maintainer:   Bekaboo <kankefengjing@gmail.com>
--- License:      GPL-3.0
--- Last Updated: Wed 01 Oct 2025 01:33:37 AM EDT
-
+--          ╔═════════════════════════════════════════════════════════╗
+--          ║                         Macro                           ║
+--          ╚═════════════════════════════════════════════════════════╝
 -- Clear hlgroups and set colors_name {{{
 vim.cmd.hi('clear')
 vim.g.colors_name = 'macro'
