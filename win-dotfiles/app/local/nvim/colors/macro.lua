@@ -462,47 +462,31 @@ local hlgroups = {
   qfLineNr                                 = { link = 'lineNr' },
   -- }}}
 
-  -- Plugins {{{2
-  -- mini.Diff
-  MiniDiffSignAdd                          = { fg = c_autumnGreen },
-  MiniDiffSignChange                       = { fg = c_sumiInk6 },
-  MiniDiffSignDelete                       = { fg = c_lotusRed0 },
-  MiniDiffSignDeletePreview                = { bg = c_winterRed },
-
-  -- mini.git
-  fugitiveHash                             = { link = 'gitHash' },
-  fugitiveHeader                           = { link = 'Title' },
-  fugitiveHeading                          = { link = 'Title' },
-  fugitiveStagedHeading                    = { fg = c_autumnGreen, bold = true },
-  fugitiveStagedModifier                   = { fg = c_autumnGreen },
-  fugitiveUnStagedHeading                  = { fg = c_autumnYellow, bold = true },
-  fugitiveUnstagedModifier                 = { fg = c_autumnYellow },
-  fugitiveUntrackedHeading                 = { fg = c_macroAqua, bold = true },
-  fugitiveUntrackedModifier                = { fg = c_macroAqua },
-
-  -- mini.pick
-  MiniPickBorder                           = { bg = c_macroBg2, fg = c_macroGreen0 },
-  MiniPickMatchRanges                      = { fg = c_macroRed, bold = true },
-  MiniPickNormal                           = { bg = c_macroBg2, fg = c_macroFg2 },
-  MiniPickBorderBusy                       = { bg = c_macroBg3, fg = c_sumiInk6 },
-  TelescopePromptNormal                    = { bg = c_macroBg3, fg = c_macroFg2 },
-  TelescopeResultsClass                    = { link = 'Structure' },
-  TelescopeResultsField                    = { link = '@variable.member' },
-  TelescopeResultsMethod                   = { link = 'Function' },
-  TelescopeResultsStruct                   = { link = 'Structure' },
-  TelescopeResultsVariable                 = { link = '@variable' },
-  MiniPickMatchCurrent                     = { link = 'Visual' },
-  MiniPickBorderText                       = { bg = c_macroGreen1, fg = c_macroBg0 },
-
+  -- Mini {{{2
   -- mini.file
   MiniFilesBorder                          = { bg = c_macroBg2, fg = c_macroGreen1 },
   MiniFilesNormal                          = { bg = c_macroBg2, fg = c_macroFg1 },
   MiniFilesDirectory                       = { fg = c_macroFg1 },
-  MiniFilesCursorLine                      = { bg = c_macroBg3 },
+  MiniFilesCursorLine                      = { bg = c_macroBg3, bold = true },
   MiniFilesBorderModified                  = { bg = c_macroBg2, fg = c_macroGreen0 },
   MiniFilesFile                            = { link = 'MiniFilesDirectory' },
   MiniFilesTitle                           = { link = 'MiniFilesBorder' },
   MiniFilesTitleFocused                    = { link = 'MiniFilesBorder' },
+
+  -- mini.pick
+  MiniPickBorder                           = { bg = c_macroBg2, fg = c_macroGreen0 },
+  MiniPickBorderBusy                       = { bg = c_macroBg3, fg = c_sumiInk6 },
+  MiniPickBorderText                       = { bg = c_macroGreen1, fg = c_macroBg0 },
+  MiniPickMatchRanges                      = { fg = c_macroRed, bold = true },
+  MiniPickNormal                           = { bg = c_macroBg2, fg = c_macroFg2 },
+  MiniPickPrompt                           = { bg = c_macroBg3, fg = c_macroGreen1 },
+  MiniPickMatchCurrent                     = { bg = c_macroBg3, bold = true },
+
+  -- mini.diff
+  MiniDiffSignAdd                          = { fg = c_autumnGreen },
+  MiniDiffSignChange                       = { fg = c_sumiInk6 },
+  MiniDiffSignDelete                       = { fg = c_lotusRed0 },
+  MiniDiffSignDeletePreview                = { bg = c_winterRed },
 
   -- mini.notify
   MiniNotifyBorder                         = { fg = c_macroGreen1, bg = c_macroBg1 },
@@ -520,14 +504,6 @@ local hlgroups = {
   -- mini.completion
   MiniCompletionActiveParameter            = { fg = c_macroGreen1 },
   MiniCompletionInfoBorderOutdated         = { link = 'MiniCompletionActiveParameter' },
-
-  -- statusline
-  StatusLineGitAdded                       = { bg = c_macroBg3, fg = c_macroGreen1 },
-  StatusLineGitChanged                     = { bg = c_macroBg3, fg = c_carpYellow },
-  StatusLineGitRemoved                     = { bg = c_macroBg3, fg = c_macroRed },
-  StatusLineGitBranch                      = { bg = c_macroBg3, fg = c_macroAsh },
-  StatusLineHeader                         = { bg = c_macroBg5, fg = c_macroFg1 },
-  StatusLineHeaderModified                 = { bg = c_macroRed, fg = c_macroBg1 },
 
   -- }}}
 }
