@@ -822,7 +822,7 @@ now(function()
   vim.o.winbar                   = ''
   vim.o.colorcolumn              = '+1'
   vim.o.guicursor                = ''
-  vim.o.guifont                  = 'jetBrainsMono Nerd Font:h10:b'
+  vim.o.guifont                  = 'jetBrainsMono Nerd Font:h10'
   vim.o.background               = 'dark'
   vim.o.showcmdloc               = 'statusline'
   vim.o.belloff                  = 'all'

@@ -1,7 +1,7 @@
 {"_id":"backendPreference","value":"local"}
 {"_id":"barColor","value":false}
 {"_id":"baseTheme","value":"dark"}
-{"_id":"bounds","value":{"x":-5,"y":2,"width":1930,"height":1203,"maximized":false,"fullScreen":false}}
+{"_id":"bounds","value":{"x":-7,"y":0,"width":1934,"height":1207,"maximized":false,"fullScreen":false}}
 {"_id":"defaultProfile","value":"qXqJ1JvFrSjUSdWH"}
 {"_id":"defaultQuality","value":"2160"}
 {"_id":"defaultViewingMode","value":"external_player"}
