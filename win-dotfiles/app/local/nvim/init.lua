@@ -1253,7 +1253,7 @@ now_if_args(function()
       end
     end,
   })
-  -- Highlight cursor line briefly when neovim regains focus: =====================================
+  -- Highlight cursor line briefly when neovim regains focus: ====================================
   vim.api.nvim_create_autocmd({ 'FocusGained' }, {
     group = vim.api.nvim_create_augroup('track_cursor', { clear = true }),
     callback = function()
@@ -1263,6 +1263,21 @@ now_if_args(function()
         vim.o.cursorline = true
         vim.cmd('redraw')
       end, 600)
+    end,
+  })
+-- Show cursor line only in active window: =======================================================
+  vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter', "BufEnter" }, {
+    group = vim.api.nvim_create_augroup('auto_cursorline_show', { clear = true }),
+    callback = function(event)
+      if vim.bo[event.buf].buftype == '' then
+        vim.opt_local.cursorline = true
+      end
+    end,
+  })
+  vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
+    group = vim.api.nvim_create_augroup('auto_cursorline_hide', { clear = true }),
+    callback = function()
+      vim.opt_local.cursorline = false
     end,
   })
   -- Check if we need to reload the file when it changed: ========================================
@@ -1635,8 +1650,6 @@ later(function()
   vim.keymap.set('v', 'gl', '$')
   vim.keymap.set('n', ';', ':')
   vim.keymap.set('x', ';', ':')
-  vim.keymap.set('n', ':', ';')
-  vim.keymap.set('x', ':', ';')
   vim.keymap.set('n', 'U', '<C-r>')
   vim.keymap.set('n', 'Q', '<nop>')
   vim.keymap.set('n', '<Space>', '<Nop>')
