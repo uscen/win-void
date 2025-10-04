@@ -38,7 +38,7 @@ end)
 later(function()
   local MiniNotify = require('mini.notify')
   MiniNotify.setup({
-    lsp_progress = { enable = true, duration_last = 500 },
+    lsp_progress = { enable = false, duration_last = 500 },
     window = {
       config = function()
         local has_statusline = vim.o.laststatus > 0
@@ -261,6 +261,8 @@ end)
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
   local MiniPick = require('mini.pick')
+  local MiniIcons = require('mini.icons')
+  local MiniFiles = require('mini.files')
   MiniPick.setup({
     mappings = {
       choose           = '<Tab>',
@@ -292,14 +294,30 @@ later(function()
         table.insert(directories, path)
       end
     end
+    local entries = {}
+    for _, dir in ipairs(directories) do
+      local icon, hl = MiniIcons.get('directory', 'directory')
+      entries[#entries + 1] = { text = string.format('%s %s', icon, dir), hl = hl, item = dir }
+    end
+    local mini_extra_namespace = vim.api.nvim_get_namespaces()['MiniExtraPickers']
+    local show = function(buf_id, items_to_show, query)
+      MiniPick.default_show(buf_id, items_to_show, query)
+      vim.api.nvim_buf_clear_namespace(buf_id, mini_extra_namespace, 0, -1)
+      for i, item in ipairs(items_to_show) do
+        local icon_length = vim.fn.strlen(item.text:match('^[^%s]+%s')) or 0
+        vim.api.nvim_buf_set_extmark(buf_id, mini_extra_namespace, i - 1, 0,
+          { end_row = i - 1, end_col = icon_length, hl_mode = 'blend', hl_group = item.hl, priority = 199 })
+      end
+    end
     MiniPick.start({
       source = {
-        items = directories,
+        items = entries,
         name = 'Directories (zoxide)',
-        choose = function(item)
+        show = show,
+        choose = function(entry)
           vim.schedule(function()
-            vim.fn.chdir(item)
-            require('mini.files').open(item)
+            vim.fn.chdir(entry.item)
+            MiniFiles.open(entry.item)
           end)
         end,
       },
@@ -1265,8 +1283,8 @@ now_if_args(function()
       end, 600)
     end,
   })
--- Show cursor line only in active window: =======================================================
-  vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter', "BufEnter" }, {
+  -- Show cursor line only in active window: =====================================================
+  vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter', 'BufEnter' }, {
     group = vim.api.nvim_create_augroup('auto_cursorline_show', { clear = true }),
     callback = function(event)
       if vim.bo[event.buf].buftype == '' then
@@ -1639,8 +1657,8 @@ later(function()
   vim.keymap.set('c', '<C-A>', '<HOME>')
   vim.keymap.set('i', '<C-l>', '<space>=><space>')
   vim.keymap.set('i', '<C-h>', '<space><=<space>')
-  vim.keymap.set("n", "<c-y>", "<c-y><c-y><c-y>")
-  vim.keymap.set("n", "<c-e>", "<c-e><c-e><c-e>")
+  vim.keymap.set('n', '<c-y>', '<c-y><c-y><c-y>')
+  vim.keymap.set('n', '<c-e>', '<c-e><c-e><c-e>')
   vim.keymap.set('n', '<C-c>', 'cit')
   vim.keymap.set('n', 'gk', 'gg')
   vim.keymap.set('n', 'gj', 'G')
