@@ -1442,12 +1442,16 @@ now_if_args(function()
   -- close some filetypes with <q>: ==============================================================
   vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('q_close', { clear = true }),
-    pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime', 'checkhealth' },
+    pattern = { 'qf', 'man', 'help', 'query', 'notify', 'lspinfo', 'startuptime',  'git','checkhealth' },
     callback = function(event)
-      local bo = vim.bo[event.buf]
-      if bo.filetype ~= 'markdown' or bo.buftype == 'help' then
-        vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
-      end
+      vim.bo[event.buf].buflisted = false
+      local close_buffer = vim.schedule_wrap(function()
+        vim.cmd 'close'
+        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+      end)
+      ---@type vim.keymap.set.Opts
+      local keymap_opts = { buffer = event.buf, silent = true, desc = 'Close buffer', nowait = true }
+      vim.keymap.set('n', 'q', close_buffer, keymap_opts)
     end,
   })
   -- Large file handling: ========================================================================
@@ -1807,7 +1811,7 @@ later(function()
   vim.keymap.set('n', '<leader>gh', [[<Cmd>lua MiniDiff.toggle_overlay()<cr>]])
   vim.keymap.set('n', '<leader>gx', [[<Cmd>lua MiniGit.show_at_cursor()<cr>]])
   -- Picker ======================================================================================
-  vim.keymap.set('n', '<leader>fb', '<cmd>Pick buffers include_current=false<cr>')
+  vim.keymap.set('n', '<leader>fb', '<cmd>Pick buffers include_current=true<cr>')
   vim.keymap.set('n', '<leader>fl', '<cmd>Pick buf_lines scope="current"<cr>')
   vim.keymap.set('n', '<leader>ff', '<cmd>Pick files<cr>')
   vim.keymap.set('n', '<leader>fr', '<cmd>Pick oldfiles<cr>')
