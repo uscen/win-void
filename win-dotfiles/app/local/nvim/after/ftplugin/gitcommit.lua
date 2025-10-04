@@ -10,3 +10,5 @@ vim.opt_local.wrap = true
 vim.opt_local.foldmethod = 'expr'
 vim.opt_local.foldexpr = 'v:lua.MiniGit.diff_foldexpr()'
 vim.opt_local.foldlevel = 1
+-- Keymaps: ======================================================================================
+vim.keymap.set("n", "<enter>", function() vim.cmd("normal! ZZ") end)
