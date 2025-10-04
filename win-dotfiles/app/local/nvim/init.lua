@@ -1785,6 +1785,7 @@ later(function()
   vim.keymap.set('n', '<C-o>', '<C-o>')
   vim.keymap.set('n', '<C-p>', '<C-i>')
   -- Misc: =======================================================================================
+  vim.keymap.set('n', 'gcb', '<cmd>BoxComment<cr>')
   vim.keymap.set('n', 'gx', '<cmd>OpenUrlInBuffer<cr>')
   vim.keymap.set('n', '<leader>j', '<cmd>SmartDuplicate<cr>')
   vim.keymap.set('n', '<leader>s', '<cmd>ToggleWorld<cr>')

@@ -166,7 +166,7 @@ M.delete_buffer = function()
   end
 end
 vim.api.nvim_create_user_command('DeleteBuffer', M.delete_buffer, {})
--- Delete others buff: ============================================================================
+-- Delete others buff: ===========================================================================
 function M.deleteOthersBuffers()
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do
     if buf ~= vim.fn.bufnr() and vim.fn.buflisted(buf) == 1 then
@@ -176,3 +176,36 @@ function M.deleteOthersBuffers()
 end
 
 vim.api.nvim_create_user_command('DeleteOtherBuffers', M.deleteOthersBuffers, {})
+-- Box Comment: ==================================================================================
+function M.boxComment()
+  local count = vim.v.count1
+  local total_width = 79
+  local tl, tr, bl, br = '╭', '╮', '╰', '╯'
+  local horizontal, vertical = '─', '│'
+  local comment_string = vim.bo.commentstring:gsub('%%s', ' ')
+  local line_num = vim.fn.line('.')
+  local border_top = comment_string .. tl .. string.rep(horizontal, total_width - #comment_string - 2) .. tr
+  local border_bottom = comment_string .. bl .. string.rep(horizontal, total_width - #comment_string - 2) .. br
+  local text_lines = {}
+  for _ = 1, count do
+    local text = ' '
+    local padding = math.floor((total_width - #comment_string - 2 - #text) / 2)
+    local text_line = comment_string
+        .. vertical
+        .. string.rep(' ', padding)
+        .. text
+        .. string.rep(' ', total_width - #comment_string - 2 - #text - padding)
+        .. vertical
+    table.insert(text_lines, text_line)
+  end
+  local content = { border_top }
+  for _, line in ipairs(text_lines) do
+    table.insert(content, line)
+  end
+  table.insert(content, border_bottom)
+  vim.fn.append(line_num, content)
+  local inner_start = #comment_string + 5
+  vim.fn.cursor(line_num + 2, inner_start)
+  vim.cmd([[startreplace]])
+end
+vim.api.nvim_create_user_command('BoxComment', M.boxComment, {})
