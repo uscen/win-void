@@ -892,7 +892,7 @@ now(function()
   vim.o.magic                    = false
   vim.o.wrap                     = false
   vim.o.joinspaces               = false
-  vim.o.textwidth                = 120
+  vim.o.textwidth                = 128
   vim.o.matchtime                = 2
   vim.o.wrapmargin               = 2
   vim.o.tabstop                  = 2
