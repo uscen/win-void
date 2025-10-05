@@ -783,8 +783,7 @@ now(function()
   vim.o.clipboard                = 'unnamedplus'
   vim.o.wildmode                 = 'noselect:lastused,full'
   vim.o.wildoptions              = 'fuzzy,pum'
-  vim.o.wildignore               =
-  '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
+  vim.o.wildignore               = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
   vim.o.omnifunc                 = 'v:lua.vim.lsp.omnifunc'
   vim.o.completeopt              = 'menuone,noselect,fuzzy,nosort,preinsert'
   vim.o.completeitemalign        = 'kind,abbr,menu'
@@ -1551,6 +1550,20 @@ later(function()
     for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('data') .. '/shada', '*tmp*', false, true)) do
       vim.fn.system({ 'trash', f })
     end
+  end, {})
+  -- Open a scratch buffer: ===========================================================================
+  vim.api.nvim_create_user_command('Scratch', function()
+      vim.cmd 'bel 10new'
+      local buf = vim.api.nvim_get_current_buf()
+      for name, value in pairs {
+          filetype = 'scratch',
+          buftype = 'nofile',
+          bufhidden = 'wipe',
+          swapfile = false,
+          modifiable = true,
+      } do
+          vim.api.nvim_set_option_value(name, value, { buf = buf })
+      end
   end, {})
   -- Toggle dark Mode: ===========================================================================
   vim.api.nvim_create_user_command('DarkMode', function()
