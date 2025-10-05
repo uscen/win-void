@@ -1784,6 +1784,7 @@ later(function()
   vim.keymap.set('n', '<C-d>', '<C-d>zz')
   vim.keymap.set('n', '<C-u>', '<C-u>zz')
   -- Theme: ======================================================================================
+  vim.keymap.set('n', '<leader>tt', '<cmd>DarkMode<cr>')
   vim.keymap.set('n', '<leader>td', '<cmd>set background=dark<cr>')
   vim.keymap.set('n', '<leader>tl', '<cmd>set background=light<cr>')
   vim.keymap.set('n', '<leader>tr', '<cmd>colorscheme randomhue<cr>')
