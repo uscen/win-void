@@ -15,7 +15,7 @@ local intro_logo = {
 }
 
 local PLUGIN_NAME = 'minintro'
-local DEFAULT_COLOR = '#2e322d'
+local DEFAULT_COLOR = '#8a9a7b'
 local INTRO_LOGO_HEIGHT = #intro_logo
 local INTRO_LOGO_WIDTH = 40
 
