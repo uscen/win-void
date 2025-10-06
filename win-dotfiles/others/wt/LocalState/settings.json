@@ -1,9 +1,19 @@
 {
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "defaultProfile": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
-  "launchMode": "focus",
-  "newTabMenu": [{ "type": "remainingProfiles" }],
+  "actions": [],
+  "alwaysShowNotificationIcon": true,
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
+  "initialCols": 128,
+  "keybindings": [],
+  "launchMode": "maximized",
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
   "profiles": {
     "defaults": {
       "bellStyle": "none",
@@ -11,18 +21,23 @@
       "cursorColor": "#8A9A7B",
       "cursorShape": "filledBox",
       "font": {
-        "face": "JetBrainsMono Nerd Font",
-        "weight": "semi-bold",
+        "axes": {
+          "wght": 600
+        },
         "cellHeight": "1.4",
+        "face": "JetBrainsMono Nerd Font",
+        "features": {
+          "liga": 1,
+          "ss01": 0
+        },
         "size": 10,
-        "axes": { "wght": 600 },
-        "features": { "liga": 1, "ss01": 0 }
+        "weight": "semi-bold"
       }
     },
     "list": [
       {
         "commandline": "elvish",
-        "guid": "{2b372ca1-1ee2-403d-a839-6d63077ad871}",
+        "guid": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
         "hidden": false,
         "name": "Elvish",
         "padding": "0",
