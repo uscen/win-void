@@ -471,10 +471,10 @@ local hlgroups = {
   MiniDiffSignDeletePreview                = { bg = c_winterRed },
 
   -- mini.git
-  fugitiveHash                             = { link = 'gitHash' },
-  fugitiveHeader                           = { link = 'Title' },
-  fugitiveHeading                          = { link = 'Title' },
-  fugitiveStagedHeading                    = { fg = c_autumnGreen, bold = true },
+  GitBlameHash                             = { link = 'gitHash' },
+  GitBlameAuthor                           = { link = 'Title' },
+  GitBlameDate                             = { link = 'Title' },
+  GitBlameHashRoot                         = { fg = c_autumnGreen, bold = true },
   fugitiveStagedModifier                   = { fg = c_autumnGreen },
   fugitiveUnStagedHeading                  = { fg = c_autumnYellow, bold = true },
   fugitiveUnstagedModifier                 = { fg = c_autumnYellow },

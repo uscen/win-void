@@ -45,7 +45,7 @@ later(function()
         local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
         return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad }
       end,
-      max_width_share = 0.45,
+      max_width_share = 0.75,
     },
   })
   vim.notify = MiniNotify.make_notify()
@@ -55,18 +55,20 @@ end)
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
   local MiniHiPatterns = require('mini.hipatterns')
+  local censor_extmark_opts = function(_, match, _)
+    local mask = string.rep('x', vim.fn.strchars(match))
+    return { virt_text = { { mask, 'Comment' } }, virt_text_pos = 'overlay', priority = 2000, right_gravity = false }
+  end
   MiniHiPatterns.setup({
     highlighters = {
+      -- Hide password
+      censor = { pattern = 'password: ()%S+()', group = '', extmark_opts = censor_extmark_opts },
       fixme = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
       hack = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
       todo = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
       note = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
       done = { pattern = '%f[%w]()DONE()%f[%W]', group = 'MiniHipatternsNote' },
-      hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
-        style = 'full',
-        inline_text = ' ',
-        priority = 200,
-      }),
+      hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
       hex_shorthand = {
         pattern = '()#%x%x%x()%f[^%x%w]',
         group = function(_, _, data)
@@ -160,37 +162,13 @@ later(function()
       d = gen_ai_spec.number(),
       c = gen_ai_spec.line(),
       F = MiniAi.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
-      e = {
-        {
-          -- __-1, __-U, __-l, __-1_, __-U_, __-l_
-          '[^_%-]()[_%-]+()%w()()[%s%p]',
-          '^()[_%-]+()%w()()[%s%p]',
-          -- __-123SNAKE
-          '[^_%-]()[_%-]+()%d+%u[%u%d]+()()',
-          '^()[_%-]+()%d+%u[%u%d]+()()',
-          -- __-123snake
-          '[^_%-]()[_%-]+()%d+%l[%l%d]+()()',
-          '^()[_%-]+()%d+%l[%l%d]+()()',
-          -- __-SNAKE, __-SNAKE123
-          '[^_%-]()[_%-]+()%u[%u%d]+()()',
-          '^()[_%-]+()%u[%u%d]+()()',
-          -- __-snake, __-Snake, __-snake123, __-Snake123
-          '[^_%-]()[_%-]+()%a[%l%d]+()()',
-          '^()[_%-]+()%a[%l%d]+()()',
-          -- UPPER, UPPER123, UPPER-__, UPPER123-__
-          -- No support: 123UPPER
-          '[^_%-%u]()()%u[%u%d]+()[_%-]*()',
-          '^()()%u[%u%d]+()[_%-]*()',
-          -- UPlower, UPlower123, UPlower-__, UPlower123-__
-          '%u%u()()[%l%d]+()[_%-]*()',
-          -- lower, lower123, lower-__, lower123-__
-          '[^_%-%w]()()[%l%d]+()[_%-]*()',
-          '^()()[%l%d]+()[_%-]*()',
-          -- Camel, Camel123, Camel-__, Camel123-__
-          '[^_%-%u]()()%u[%l%d]+()[_%-]*()',
-          '^()()%u[%l%d]+()[_%-]*()',
-        },
-      },
+      t = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
+      e = { { '%f[%a]%l+%d*', '%f[%w]%d+', '%f[%u]%u%f[%A]%d*', '%f[%u]%u%l+%d*', '%f[%u]%u%u+%d*' } },
+      g = function()
+        local from = { line = 1, col = 1 }
+        local to = { line = vim.fn.line('$'), col = math.max(vim.fn.getline('$'):len(), 1) }
+        return { from = from, to = to }
+      end,
     },
   })
 end)
@@ -277,7 +255,7 @@ later(function()
     window = { config = { height = vim.o.lines, width = vim.o.columns }, prompt_caret = '|', prompt_prefix = '󱓇 ' },
     source = {
       preview = function(buf_id, item)
-        return MiniPick.default_preview(buf_id, item, { line_position = "center" })
+        return MiniPick.default_preview(buf_id, item, { line_position = 'center' })
       end,
     },
   })
@@ -330,7 +308,7 @@ later(function()
     })
   end
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
-  -- Pick Projects: ===============================================================
+  -- Pick Projects: ==============================================================================
   MiniPick.registry.projects = function()
     local cwd = vim.fn.expand('~/Projects')
     local choose = function(item)
@@ -567,7 +545,7 @@ now(function()
   MiniIcons.setup({
     use_file_extension = function(ext, _)
       local suf3, suf4 = ext:sub(-3), ext:sub(-4)
-      return suf3 ~= "scm" and suf3 ~= "txt" and suf3 ~= "yml" and suf4 ~= "json" and suf4 ~= "yaml"
+      return suf3 ~= 'scm' and suf3 ~= 'txt' and suf3 ~= 'yml' and suf4 ~= 'json' and suf4 ~= 'yaml'
     end,
     default = {
       ['file'] = { glyph = '󰪷', hl = 'MiniIconsYellow' },
@@ -803,7 +781,8 @@ now(function()
   vim.o.clipboard                = 'unnamedplus'
   vim.o.wildmode                 = 'noselect:lastused,full'
   vim.o.wildoptions              = 'fuzzy,pum'
-  vim.o.wildignore               = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
+  vim.o.wildignore               =
+  '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
   vim.o.omnifunc                 = 'v:lua.vim.lsp.omnifunc'
   vim.o.completeopt              = 'menuone,noselect,fuzzy,nosort,preinsert'
   vim.o.completeitemalign        = 'kind,abbr,menu'
@@ -876,8 +855,10 @@ now(function()
   vim.o.shortmess                = 'FOSWICaco'
   vim.wo.signcolumn              = 'yes'
   vim.o.statuscolumn             = ''
-  vim.o.showbreak                = '󰘍' .. string.rep(" ", 2)
-  vim.o.fillchars                = table.concat( { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' }, ',')
+  vim.o.showbreak                = '󰘍' .. string.rep(' ', 2)
+  vim.o.fillchars                = table.concat(
+    { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' },
+    ',')
   vim.o.listchars                = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ===================================================================================
   vim.o.cindent                  = true
@@ -934,9 +915,13 @@ now(function()
   vim.o.virtualedit              = 'block'
   vim.o.formatoptions            = 'rqnl1j'
   vim.o.formatexpr               = "v:lua.require'conform'.formatexpr()"
-  vim.o.sessionoptions           = table.concat( { 'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'terminal', 'localoptions' }, ',')
-  vim.o.diffopt                  = table.concat( { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }, ',')
-  vim.o.suffixesadd              = table.concat( { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml' }, ',')
+  vim.o.sessionoptions           = table.concat(
+    { 'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'terminal', 'localoptions' }, ',')
+  vim.o.diffopt                  = table.concat(
+    { 'algorithm:minimal', 'closeoff', 'context:8', 'filler', 'internal', 'linematch:100', 'indent-heuristic' }, ',')
+  vim.o.suffixesadd              = table.concat(
+    { '.css', '.html', '.js', '.json', '.jsx', '.lua', '.md', '.rs', '.scss', '.sh', '.ts', '.tsx', '.yaml', '.yml' },
+    ',')
   -- Folds:  =====================================================================================
   vim.o.foldenable               = false
   vim.o.foldlevel                = 1
@@ -1574,17 +1559,17 @@ later(function()
   end, {})
   -- Open a scratch buffer: ===========================================================================
   vim.api.nvim_create_user_command('Scratch', function()
-      vim.cmd 'bel 10new'
-      local buf = vim.api.nvim_get_current_buf()
-      for name, value in pairs {
-          filetype = 'scratch',
-          buftype = 'nofile',
-          bufhidden = 'wipe',
-          swapfile = false,
-          modifiable = true,
-      } do
-          vim.api.nvim_set_option_value(name, value, { buf = buf })
-      end
+    vim.cmd 'bel 10new'
+    local buf = vim.api.nvim_get_current_buf()
+    for name, value in pairs {
+      filetype = 'scratch',
+      buftype = 'nofile',
+      bufhidden = 'wipe',
+      swapfile = false,
+      modifiable = true,
+    } do
+      vim.api.nvim_set_option_value(name, value, { buf = buf })
+    end
   end, {})
   -- Toggle dark Mode: ===========================================================================
   vim.api.nvim_create_user_command('DarkMode', function()
@@ -1891,7 +1876,8 @@ later(function()
   vim.keymap.set('n', '[c', function() require('mini.diff').goto_hunk('prev') end)
   vim.keymap.set('n', ']c', function() require('mini.diff').goto_hunk('next') end)
   -- Explorer: ====================================================================================
-  vim.keymap.set('n', '<leader>e', function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
+  vim.keymap.set('n', '<leader>e',
+    function() require('mini.files').open(vim.bo.buftype ~= 'nofile' and vim.api.nvim_buf_get_name(0) or nil, true) end)
   vim.keymap.set('n', '<leader>E', function() require('mini.files').open(vim.uv.cwd(), true) end)
 end)
 --              ╔═════════════════════════════════════════════════════════╗
