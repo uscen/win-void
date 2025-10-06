@@ -30,7 +30,7 @@
     "description": "6 random Base-16 digits"
   },
   "fix": {
-    "prefix": "fix",
+    "prefix": ["fix", "fixme"],
     "body": ["$LINE_COMMENT FIXME: $0"]
   },
   "hack": {

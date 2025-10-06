@@ -176,7 +176,8 @@ end)
 --              │                     Mini.Surround                       │
 --              ╰─────────────────────────────────────────────────────────╯
 later(function()
-  require('mini.surround').setup({
+  local MiniSurround = require('mini.surround')
+  MiniSurround.setup({
     n_lines = 500,
     custom_surroundings = {
       ['('] = { output = { left = '(', right = ')' } },
@@ -1822,6 +1823,8 @@ later(function()
   -- Terminal: ===================================================================================
   vim.keymap.set('n', '<C-t>', '<cmd>FloatTermToggle<cr>')
   vim.keymap.set('t', '<C-t>', '<cmd>FloatTermToggle<cr>')
+  vim.keymap.set('n', '<C-CR>', '<cmd>SplitTermToggle<cr>')
+  vim.keymap.set('t', '<C-CR>', '<cmd>SplitTermToggle<cr>')
   vim.keymap.set('n', '<leader>gg', '<cmd>FloatTermLazyGit<cr>')
   vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
   -- Git: ========================================================================================
