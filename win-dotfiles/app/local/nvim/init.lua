@@ -790,6 +790,7 @@ now(function()
   vim.o.complete                 = '.,w,b,kspell'
   vim.o.switchbuf                = 'usetab'
   vim.o.includeexpr              = "substitute(v:fname,'\\.','/','g')"
+  vim.o.viminfo                  = "'20,<1000,s1000"
   vim.o.shada                    = "'100,<50,s10,:1000,/100,@100,h"
   vim.o.undodir                  = vim.fn.stdpath('data') .. '/undo'
   -- Spelling ====================================================================================
@@ -890,7 +891,7 @@ now(function()
   vim.o.autowrite                = true
   vim.o.autowriteall             = true
   vim.o.modifiable               = true
-  vim.o.showmatch                = true
+  vim.o.showmatch                = false
   vim.o.magic                    = false
   vim.o.wrap                     = false
   vim.o.joinspaces               = false
