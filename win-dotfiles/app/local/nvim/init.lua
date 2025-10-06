@@ -849,7 +849,6 @@ now(function()
   vim.o.splitkeep                = 'screen'
   vim.o.mousemodel               = 'extend'
   vim.o.mousescroll              = 'ver:3,hor:6'
-  vim.o.showbreak                = '󰘍'
   vim.o.winborder                = 'single'
   vim.o.backspace                = 'indent,eol,start'
   vim.o.cursorlineopt            = 'screenline,number'
@@ -857,6 +856,7 @@ now(function()
   vim.o.shortmess                = 'FOSWIaco'
   vim.wo.signcolumn              = 'yes'
   vim.o.statuscolumn             = ''
+  vim.o.showbreak                = '󰘍' .. string.rep(" ", 2)
   vim.o.fillchars                = table.concat( { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' }, ',')
   vim.o.listchars                = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
   -- Editing:  ===================================================================================
@@ -1216,6 +1216,7 @@ now_if_args(function()
       vim.opt_local.buflisted = false
       vim.opt_local.number = false
       vim.opt_local.relativenumber = false
+      vim.opt_local.ruler = false
       vim.opt_local.foldenable = false
       vim.opt_local.bufhidden = 'hide'
       vim.opt_local.signcolumn = 'no'
@@ -1223,7 +1224,7 @@ now_if_args(function()
       vim.opt_local.foldexpr = '0'
       vim.opt_local.filetype = 'terminal'
       vim.bo.filetype = 'terminal'
-      vim.cmd('startinsert')
+      vim.cmd.startinsert()
     end,
   })
   -- Auto-close terminal when process exits: =====================================================
@@ -1604,6 +1605,12 @@ later(function()
     if path == '' then return end
     vim.notify(path)
     vim.fn.setreg('+', path)
+  end, {})
+  -- copy current file path with number of line: =================================================
+  vim.api.nvim_create_user_command('PathLine', function()
+    local path = vim.fn.expand('%:p:h') .. '/' .. vim.fn.expand('%:t') .. ':' .. vim.fn.line('.')
+    vim.fn.setreg('+', path)
+    vim.notify('Copied: ' .. path)
   end, {})
   -- TrimSpaces and LastLine: ====================================================================
   vim.api.nvim_create_user_command('TrimSpaces', function()
