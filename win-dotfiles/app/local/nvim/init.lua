@@ -263,6 +263,7 @@ later(function()
   local MiniPick = require('mini.pick')
   local MiniIcons = require('mini.icons')
   local MiniFiles = require('mini.files')
+  local MiniExtra = require('mini.extra')
   MiniPick.setup({
     mappings = {
       choose           = '<Tab>',
@@ -274,6 +275,11 @@ later(function()
     },
     options = { use_cache = true, content_from_bottom = false },
     window = { config = { height = vim.o.lines, width = vim.o.columns }, prompt_caret = '|', prompt_prefix = '󱓇 ' },
+    source = {
+      preview = function(buf_id, item)
+        return MiniPick.default_preview(buf_id, item, { line_position = "center" })
+      end,
+    },
   })
   vim.ui.select = MiniPick.ui_select
   -- UI: =========================================================================================
@@ -324,6 +330,16 @@ later(function()
     })
   end
   vim.keymap.set('n', '<leader>fd', zoxide_pick)
+  -- Pick Projects: ===============================================================
+  MiniPick.registry.projects = function()
+    local cwd = vim.fn.expand('~/Projects')
+    local choose = function(item)
+      vim.schedule(function()
+        MiniPick.builtin.files(nil, { source = { cwd = item.path } })
+      end)
+    end
+    return MiniExtra.pickers.explorer({ cwd = cwd }, { source = { choose = choose } })
+  end
 end)
 --              ╭─────────────────────────────────────────────────────────╮
 --              │                     Mini.Completion                     │
@@ -549,6 +565,10 @@ end)
 now(function()
   local MiniIcons = require('mini.icons')
   MiniIcons.setup({
+    use_file_extension = function(ext, _)
+      local suf3, suf4 = ext:sub(-3), ext:sub(-4)
+      return suf3 ~= "scm" and suf3 ~= "txt" and suf3 ~= "yml" and suf4 ~= "json" and suf4 ~= "yaml"
+    end,
     default = {
       ['file'] = { glyph = '󰪷', hl = 'MiniIconsYellow' },
       ['filetype'] = { glyph = '󰪷', hl = 'MiniIconsYellow' },
@@ -853,7 +873,7 @@ now(function()
   vim.o.backspace                = 'indent,eol,start'
   vim.o.cursorlineopt            = 'screenline,number'
   vim.o.tabclose                 = 'uselast'
-  vim.o.shortmess                = 'FOSWIaco'
+  vim.o.shortmess                = 'FOSWICaco'
   vim.wo.signcolumn              = 'yes'
   vim.o.statuscolumn             = ''
   vim.o.showbreak                = '󰘍' .. string.rep(" ", 2)
@@ -1840,7 +1860,7 @@ later(function()
   vim.keymap.set('n', '<leader>fe', '<cmd>Pick explorer<cr>')
   vim.keymap.set('n', '<leader>fn', '<cmd>Pick hipatterns<cr>')
   vim.keymap.set('n', '<leader>fo', '<cmd>Pick options<cr>')
-  vim.keymap.set('n', '<leader>fp', '<cmd>Pick registers<cr>')
+  vim.keymap.set('n', '<leader>fp', '<cmd>Pick projects<cr>')
   vim.keymap.set('n', '<leader>fk', '<cmd>Pick keymaps<cr>')
   vim.keymap.set('n', '<leader>fc', '<cmd>Pick commands<cr>')
   vim.keymap.set('n', '<leader>fh', '<cmd>Pick history<cr>')
