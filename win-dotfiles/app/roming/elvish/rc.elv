@@ -31,6 +31,7 @@ set E:FZF_DEFAULT_OPTS = "
     --color bg+:#201d1d,fg+:#c5c9c5
     --color hl:#8a9a7b,hl+:#8a9a7b,gutter:#181616
     --color pointer:#201d1d,info:#393836
+    --color prompt:#8a9a7b,
     --color border:#181616
     --color border:#2e322d
     --bind 'tab:accept'
