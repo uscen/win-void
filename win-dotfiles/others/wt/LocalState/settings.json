@@ -8,7 +8,7 @@
   "defaultProfile": "{d7b20cea-47a9-518c-95a4-c8bd91e2e1c6}",
   "initialCols": 128,
   "keybindings": [],
-  "launchMode": "maximized",
+  "launchMode": "focus",
   "newTabMenu": [
     {
       "type": "remainingProfiles"
