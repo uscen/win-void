@@ -439,6 +439,7 @@ now_if_args(function()
       close       = 'q',
       reset       = 'gh',
       mark_goto   = 'gb',
+      show_help   = '?',
       go_in       = '',
       go_out      = '',
     },
