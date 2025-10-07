@@ -250,6 +250,22 @@ later(function()
       toggle_preview   = '<C-p>',
       choose_in_split  = '<C-v>',
       choose_in_vsplit = '<C-s>',
+      marked_to_quickfix = {
+        char = '<S-q>',
+        func = function()
+          local items = MiniPick.get_picker_matches().marked or {}
+          MiniPick.default_choose_marked(items)
+          MiniPick.stop()
+        end,
+      },
+      all_to_quickfix = {
+        char = '<C-q>',
+        func = function()
+          local matched_items = MiniPick.get_picker_matches().all or {}
+          MiniPick.default_choose_marked(matched_items)
+          MiniPick.stop()
+        end,
+      },
     },
     options = { use_cache = true, content_from_bottom = false },
     window = { config = { height = vim.o.lines, width = vim.o.columns }, prompt_caret = '|', prompt_prefix = '󱓇 ' },
