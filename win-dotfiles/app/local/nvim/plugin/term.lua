@@ -87,6 +87,7 @@ M.winbuf_toggle = function()
     if vim.bo[M.state.data.buf_id].buftype ~= 'terminal' then
       vim.fn.jobstart('elvish', vim.tbl_extend('force', { detach = 1, term = true }, {}))
     end
+    vim.cmd.startinsert()
     vim.api.nvim_create_autocmd({ 'BufWipeout', 'WinClosed' }, {
       buffer = M.state.data.buf_id,
       callback = function()

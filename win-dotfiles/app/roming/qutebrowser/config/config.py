@@ -372,7 +372,7 @@ c.window.title_format = 'qtb - {perc} {current_title} {title_sep}'
 #               ║                          Zoom                           ║
 #               ╚═════════════════════════════════════════════════════════╝
 c.zoom.mouse_divider = 512
-c.zoom.default = "110%"
+c.zoom.default = "100%"
 c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '80%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
 #               ╔═════════════════════════════════════════════════════════╗
 #               ║                          Session                        ║
@@ -824,7 +824,7 @@ config.bind('<Return>', 'prompt-accept yes', mode='yesno')
 #               ║                         Themes                          ║
 #               ╚═════════════════════════════════════════════════════════╝
 # Darkmode ============================================================================
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.threshold.foreground = 150
 c.colors.webpage.darkmode.threshold.background = 100
 c.colors.webpage.preferred_color_scheme = 'dark'
