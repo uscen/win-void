@@ -328,7 +328,7 @@ now(function()
   MiniCompletion.setup({
     fallback_action = '<C-n>',
     delay = { completion = 0, info = 0, signature = 0 },
-    window = { info = { border = 'single' }, signature = { border = 'single' } },
+    window = { info = { border = 'double' }, signature = { border = 'double' } },
     mappings = { force_twostep = '<C-n>', force_fallback = '<C-S-n>', scroll_down = '<C-f>', scroll_up = '<C-b>' },
     lsp_completion = {
       source_func = 'omnifunc',
@@ -459,7 +459,7 @@ now_if_args(function()
       -- Customize window-local settings =========================================================
       vim.wo[win_id].winblend = 15
       local config = vim.api.nvim_win_get_config(win_id)
-      config.border, config.title_pos = 'single', 'left'
+      config.border, config.title_pos = 'double', 'left'
       vim.api.nvim_win_set_config(win_id, config)
     end,
   })
@@ -849,7 +849,7 @@ now(function()
   vim.o.splitkeep                = 'screen'
   vim.o.mousemodel               = 'extend'
   vim.o.mousescroll              = 'ver:3,hor:6'
-  vim.o.winborder                = 'single'
+  vim.o.winborder                = 'double'
   vim.o.backspace                = 'indent,eol,start'
   vim.o.cursorlineopt            = 'screenline,number'
   vim.o.tabclose                 = 'uselast'
@@ -858,7 +858,7 @@ now(function()
   vim.o.statuscolumn             = ''
   vim.o.showbreak                = '󰘍' .. string.rep(' ', 2)
   vim.o.fillchars                = table.concat( { 'eob: ', 'fold:╌', 'horiz:═', 'horizdown:╦', 'horizup:╩', 'vert:║', 'verthoriz:╬', 'vertleft:╣', 'vertright:╠' }, ',')
-  vim.o.listchars                = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'tab:> ' }, ',')
+  vim.o.listchars                = table.concat({ 'extends:…', 'nbsp:␣', 'precedes:…', 'space:⋅', 'trail:.', 'tab:↦ ' }, ',')
   -- Editing:  ===================================================================================
   vim.o.cindent                  = true
   vim.o.autoindent               = true
@@ -1002,7 +1002,7 @@ local diagnostic_opts = {
   severity_sort = false,
   update_in_insert = false,
   virtual_lines = false,
-  float = { border = 'single', header = '', title = ' Diagnostics ', source = 'if_many' },
+  float = { border = 'double', header = '', title = ' Diagnostics ', source = 'if_many' },
   virtual_text = { spacing = 2, source = 'if_many', current_line = true, severity = { min = 'ERROR', max = 'ERROR' } },
   underline = { severity = { min = 'HINT', max = 'ERROR' } },
   signs = {

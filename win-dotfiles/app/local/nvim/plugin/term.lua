@@ -25,7 +25,7 @@ M.state = {
       col = col,
       row = row,
       style = 'minimal',
-      border = 'bold',
+      border = 'double',
       zindex = 5,
     }
   end,
