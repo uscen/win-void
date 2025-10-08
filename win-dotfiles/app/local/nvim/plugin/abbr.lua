@@ -25,6 +25,8 @@ vim.cmd([[
   iabbrev strign    string
   iabbrev treu      true
   iabbrev ture      true
+  iabbrev reqire    require
+  iabbrev serveral  several
   iabbrev undefiend undefined
 ]])
 

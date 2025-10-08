@@ -2,9 +2,10 @@
 --              ║                         Quickfix                        ║
 --              ╚═════════════════════════════════════════════════════════╝
 -- Options: ======================================================================================
-vim.bo.buflisted = false
-vim.wo.winfixbuf = true
-vim.cmd.packadd "cfilter"
+vim.opt_local.buflisted = false
+vim.opt_local.winfixbuf = true
+vim.opt_local.colorcolumn = ''
+vim.cmd.packadd 'cfilter'
 -- Keymaps: ======================================================================================
 vim.keymap.set('n', '<C-j>', '<cmd>cn<CR>zz<cmd>wincmd p<CR>', { buffer = 0, silent = true })
 vim.keymap.set('n', '<C-k>', '<cmd>cN<CR>zz<cmd>wincmd p<CR>', { buffer = 0, silent = true })

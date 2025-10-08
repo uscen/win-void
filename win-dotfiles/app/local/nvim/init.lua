@@ -798,8 +798,7 @@ now(function()
   vim.o.clipboard                = 'unnamedplus'
   vim.o.wildmode                 = 'noselect:lastused,full'
   vim.o.wildoptions              = 'fuzzy,pum'
-  vim.o.wildignore               =
-  '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
+  vim.o.wildignore               = '*.zip,*.tar.gz,*.png,*.jpg,*.pdf,*.mp4,*.exe,*.pyc,*.o,*.dll,*.so,*.swp,*.zip,*.gz,*.svg,*.cache,*/.git/*,*/node_modules/*'
   vim.o.omnifunc                 = 'v:lua.vim.lsp.omnifunc'
   vim.o.completeopt              = 'menuone,noselect,fuzzy,nosort,preinsert'
   vim.o.completeitemalign        = 'kind,abbr,menu'
